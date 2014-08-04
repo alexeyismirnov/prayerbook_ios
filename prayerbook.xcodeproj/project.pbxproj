@@ -13,26 +13,10 @@
 		8A74D805198F20CC0078F39F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D803198F20CC0078F39F /* InfoPlist.strings */; };
 		8A74D807198F20CC0078F39F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D806198F20CC0078F39F /* main.m */; };
 		8A74D80B198F20CC0078F39F /* PrayerbookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D80A198F20CC0078F39F /* PrayerbookAppDelegate.m */; };
-		8A74D80E198F20CC0078F39F /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D80C198F20CC0078F39F /* Main_iPhone.storyboard */; };
-		8A74D811198F20CC0078F39F /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D80F198F20CC0078F39F /* Main_iPad.storyboard */; };
 		8A74D814198F20CC0078F39F /* PrayerbookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D813198F20CC0078F39F /* PrayerbookViewController.m */; };
 		8A74D816198F20CC0078F39F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D815198F20CC0078F39F /* Images.xcassets */; };
-		8A74D81D198F20CC0078F39F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D81C198F20CC0078F39F /* XCTest.framework */; };
-		8A74D81E198F20CC0078F39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FA198F20CC0078F39F /* Foundation.framework */; };
-		8A74D81F198F20CC0078F39F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FE198F20CC0078F39F /* UIKit.framework */; };
-		8A74D827198F20CC0078F39F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D825198F20CC0078F39F /* InfoPlist.strings */; };
-		8A74D829198F20CC0078F39F /* prayerbookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D828198F20CC0078F39F /* prayerbookTests.m */; };
+		8A74D833198F224E0078F39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D832198F224E0078F39F /* Main.storyboard */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		8A74D820198F20CC0078F39F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A74D7EF198F20CC0078F39F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8A74D7F6198F20CC0078F39F;
-			remoteInfo = prayerbook;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8A74D7F7198F20CC0078F39F /* prayerbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prayerbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,16 +29,11 @@
 		8A74D808198F20CC0078F39F /* prayerbook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Prefix.pch"; sourceTree = "<group>"; };
 		8A74D809198F20CC0078F39F /* PrayerbookAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrayerbookAppDelegate.h; sourceTree = "<group>"; };
 		8A74D80A198F20CC0078F39F /* PrayerbookAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrayerbookAppDelegate.m; sourceTree = "<group>"; };
-		8A74D80D198F20CC0078F39F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		8A74D810198F20CC0078F39F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		8A74D812198F20CC0078F39F /* PrayerbookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrayerbookViewController.h; sourceTree = "<group>"; };
 		8A74D813198F20CC0078F39F /* PrayerbookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrayerbookViewController.m; sourceTree = "<group>"; };
 		8A74D815198F20CC0078F39F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8A74D81B198F20CC0078F39F /* prayerbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = prayerbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A74D81C198F20CC0078F39F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		8A74D824198F20CC0078F39F /* prayerbookTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "prayerbookTests-Info.plist"; sourceTree = "<group>"; };
-		8A74D826198F20CC0078F39F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8A74D828198F20CC0078F39F /* prayerbookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = prayerbookTests.m; sourceTree = "<group>"; };
+		8A74D832198F224E0078F39F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,16 +47,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8A74D818198F20CC0078F39F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A74D81D198F20CC0078F39F /* XCTest.framework in Frameworks */,
-				8A74D81F198F20CC0078F39F /* UIKit.framework in Frameworks */,
-				8A74D81E198F20CC0078F39F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -85,7 +54,6 @@
 			isa = PBXGroup;
 			children = (
 				8A74D800198F20CC0078F39F /* prayerbook */,
-				8A74D822198F20CC0078F39F /* prayerbookTests */,
 				8A74D7F9198F20CC0078F39F /* Frameworks */,
 				8A74D7F8198F20CC0078F39F /* Products */,
 			);
@@ -95,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				8A74D7F7198F20CC0078F39F /* prayerbook.app */,
-				8A74D81B198F20CC0078F39F /* prayerbookTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,8 +83,7 @@
 			children = (
 				8A74D809198F20CC0078F39F /* PrayerbookAppDelegate.h */,
 				8A74D80A198F20CC0078F39F /* PrayerbookAppDelegate.m */,
-				8A74D80C198F20CC0078F39F /* Main_iPhone.storyboard */,
-				8A74D80F198F20CC0078F39F /* Main_iPad.storyboard */,
+				8A74D832198F224E0078F39F /* Main.storyboard */,
 				8A74D812198F20CC0078F39F /* PrayerbookViewController.h */,
 				8A74D813198F20CC0078F39F /* PrayerbookViewController.m */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
@@ -133,24 +99,6 @@
 				8A74D803198F20CC0078F39F /* InfoPlist.strings */,
 				8A74D806198F20CC0078F39F /* main.m */,
 				8A74D808198F20CC0078F39F /* prayerbook-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8A74D822198F20CC0078F39F /* prayerbookTests */ = {
-			isa = PBXGroup;
-			children = (
-				8A74D828198F20CC0078F39F /* prayerbookTests.m */,
-				8A74D823198F20CC0078F39F /* Supporting Files */,
-			);
-			path = prayerbookTests;
-			sourceTree = "<group>";
-		};
-		8A74D823198F20CC0078F39F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8A74D824198F20CC0078F39F /* prayerbookTests-Info.plist */,
-				8A74D825198F20CC0078F39F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -175,24 +123,6 @@
 			productReference = 8A74D7F7198F20CC0078F39F /* prayerbook.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8A74D81A198F20CC0078F39F /* prayerbookTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8A74D82F198F20CC0078F39F /* Build configuration list for PBXNativeTarget "prayerbookTests" */;
-			buildPhases = (
-				8A74D817198F20CC0078F39F /* Sources */,
-				8A74D818198F20CC0078F39F /* Frameworks */,
-				8A74D819198F20CC0078F39F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8A74D821198F20CC0078F39F /* PBXTargetDependency */,
-			);
-			name = prayerbookTests;
-			productName = prayerbookTests;
-			productReference = 8A74D81B198F20CC0078F39F /* prayerbookTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -203,8 +133,8 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Alexey Smirnov";
 				TargetAttributes = {
-					8A74D81A198F20CC0078F39F = {
-						TestTargetID = 8A74D7F6198F20CC0078F39F;
+					8A74D7F6198F20CC0078F39F = {
+						DevelopmentTeam = 3NQ697ND22;
 					};
 				};
 			};
@@ -222,7 +152,6 @@
 			projectRoot = "";
 			targets = (
 				8A74D7F6198F20CC0078F39F /* prayerbook */,
-				8A74D81A198F20CC0078F39F /* prayerbookTests */,
 			);
 		};
 /* End PBXProject section */
@@ -232,18 +161,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A74D811198F20CC0078F39F /* Main_iPad.storyboard in Resources */,
+				8A74D833198F224E0078F39F /* Main.storyboard in Resources */,
 				8A74D816198F20CC0078F39F /* Images.xcassets in Resources */,
-				8A74D80E198F20CC0078F39F /* Main_iPhone.storyboard in Resources */,
 				8A74D805198F20CC0078F39F /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8A74D819198F20CC0078F39F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A74D827198F20CC0078F39F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,53 +180,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8A74D817198F20CC0078F39F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A74D829198F20CC0078F39F /* prayerbookTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8A74D821198F20CC0078F39F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8A74D7F6198F20CC0078F39F /* prayerbook */;
-			targetProxy = 8A74D820198F20CC0078F39F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8A74D803198F20CC0078F39F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8A74D804198F20CC0078F39F /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		8A74D80C198F20CC0078F39F /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8A74D80D198F20CC0078F39F /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		8A74D80F198F20CC0078F39F /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8A74D810198F20CC0078F39F /* Base */,
-			);
-			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		8A74D825198F20CC0078F39F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8A74D826198F20CC0078F39F /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -391,9 +271,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -404,51 +286,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		8A74D830198F20CC0078F39F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/prayerbook.app/prayerbook";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "prayerbookTests/prayerbookTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		8A74D831198F20CC0078F39F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/prayerbook.app/prayerbook";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
-				INFOPLIST_FILE = "prayerbookTests/prayerbookTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -469,14 +313,6 @@
 			buildConfigurations = (
 				8A74D82D198F20CC0078F39F /* Debug */,
 				8A74D82E198F20CC0078F39F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		8A74D82F198F20CC0078F39F /* Build configuration list for PBXNativeTarget "prayerbookTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8A74D830198F20CC0078F39F /* Debug */,
-				8A74D831198F20CC0078F39F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
