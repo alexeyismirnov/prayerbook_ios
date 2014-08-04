@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#define DEFAULT_LANGUAGE @"en"
+#define LANGUAGE_CHANGED_NOTIFICATION   @"LANGUAGE_CHANGED"
+
 @interface MyLanguage : NSObject
-{
-    NSString        *currentLanguage;
-    NSDictionary    *currentDictionary;
-}
 
 +(void) setLanguage:(NSString *)languageName;
++(NSString*) language;
 +(NSString *)stringFor:(NSString *)srcString;
 
 + (id)singleton;

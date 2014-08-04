@@ -7,12 +7,15 @@
 //
 
 #import "PrayerbookAppDelegate.h"
+#import "MyLanguage.h"
 
 @implementation PrayerbookAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    MyLanguage *gsObject = [MyLanguage singleton];
+    gsObject.currentLanguage = @"en";
+    
     return YES;
 }
 							

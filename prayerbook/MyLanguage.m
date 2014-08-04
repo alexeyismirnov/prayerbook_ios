@@ -10,26 +10,36 @@
 
 @implementation MyLanguage
 
-+(void) setLanguage:(NSString *)languageName;
++(void) setLanguage:(NSString *)languageName
 {
     MyLanguage *gsObject = [MyLanguage singleton];
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"index_%@", languageName] ofType:@"plist"];
-    
-    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
-    
-    gsObject.currentDictionary = dict;
     gsObject.currentLanguage = languageName;
+
+    if ([languageName isEqual: DEFAULT_LANGUAGE]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:LANGUAGE_CHANGED_NOTIFICATION object:nil];
+        return;
+    }
     
-//    [[NSNotificationCenter defaultCenter] postNotificationName:LANGUAGE_CHANGED_NOTIFICATION object:nil];
+    /*
+    NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"trans_%@", languageName] ofType:@"plist"];
+    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
+    gsObject.currentDictionary = dict;
+    */
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:LANGUAGE_CHANGED_NOTIFICATION object:nil];
 }
 
-+(NSString *)stringFor:(NSString *)srcString;
++(NSString*) language
+{
+    MyLanguage *gsObject = [MyLanguage singleton];
+    return gsObject.currentLanguage;
+}
+
++(NSString *)stringFor:(NSString *)srcString
 {
     MyLanguage *gsObject = [MyLanguage singleton];
 
-    if (gsObject.currentDictionary == nil || gsObject.currentLanguage == nil )
+    if (gsObject.currentDictionary == nil || gsObject.currentLanguage == nil || [gsObject.currentLanguage  isEqual: DEFAULT_LANGUAGE] )
         return srcString;
     
     // use current dictionary for translation.

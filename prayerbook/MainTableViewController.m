@@ -7,14 +7,28 @@
 //
 
 #import "MainTableViewController.h"
+#import "MyLanguage.h"
+#import "OptionsTableViewController.h"
 
 @interface MainTableViewController ()
-
+-(void)updateLanguage;
 @end
 
 @implementation MainTableViewController
 
 NSArray *titles;
+
+- (void)updateLanguage
+{
+    NSString *path = [[NSBundle mainBundle]
+                      pathForResource:[NSString  stringWithFormat:@"index_%@",  [MyLanguage language] ]
+                      ofType:@"plist"];
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
+    titles = [dict objectForKey:@"index"];
+
+    [self.tableView reloadData];
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -25,13 +39,23 @@ NSArray *titles;
     return self;
 }
 
+- (void) localeChanged:(NSNotification *)paramNotification
+{
+    NSLog(@"Locale Changed2");
+    
+    [self updateLanguage];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self updateLanguage];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"index_en" ofType:@"plist"];
-    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
-    titles = [dict objectForKey:@"index"];
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(localeChanged:)
+     name:LANGUAGE_CHANGED_NOTIFICATION
+     object:nil];
 
 }
 
@@ -66,6 +90,18 @@ NSArray *titles;
     
     return cell;
 }
+
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+     if ([segue.identifier isEqualToString:@"Options"])
+     {
+         UINavigationController *navigationController = segue.destinationViewController;
+         OptionsTableViewController *options = [navigationController viewControllers][0];
+         options.delegate = self;
+     }
+
+ }
 
 
 /*
@@ -106,15 +142,5 @@ NSArray *titles;
 }
 */
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
