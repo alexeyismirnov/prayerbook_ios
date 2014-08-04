@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>index</key>
+	<array>
+		<array>
+			<string>Morning Prayers</string>
+			<string>Prayers before Sleep</string>
+			<string>Prayers during the day</string>
+		</array>
+		<array>
+			<string>A Canon of Repentance to our Lord Jesus Christ</string>
+			<string>Canon To the Most Holy Mother of God</string>
+			<string>Canon To the Guardian Angel</string>
+			<string>Order of Pre-communion prayers</string>
+			<string>Thanksgiving after Holy Communion</string>
+		</array>
+		<array>
+			<string>The Divine Liturgy of St John Chrysostom</string>
+			<string>Canon To our Lord Jesus Christ</string>
+			<string>Akathist to our Sweetest Lord Jesus Christ</string>
+			<string>The order of reading Canons and Akathists when alone</string>
+		</array>
+	</array>
+</dict>
+</plist>

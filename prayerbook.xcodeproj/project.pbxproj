@@ -16,6 +16,9 @@
 		8A74D814198F20CC0078F39F /* PrayerbookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D813198F20CC0078F39F /* PrayerbookViewController.m */; };
 		8A74D816198F20CC0078F39F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D815198F20CC0078F39F /* Images.xcassets */; };
 		8A74D833198F224E0078F39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D832198F224E0078F39F /* Main.storyboard */; };
+		8A74D836198F2AA90078F39F /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D835198F2AA90078F39F /* MainTableViewController.m */; };
+		8A74D838198F2AF70078F39F /* index_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D837198F2AF70078F39F /* index_en.plist */; };
+		8A74D83B198F368B0078F39F /* MyLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D83A198F368B0078F39F /* MyLanguage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,11 @@
 		8A74D815198F20CC0078F39F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8A74D81C198F20CC0078F39F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8A74D832198F224E0078F39F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8A74D834198F2AA90078F39F /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
+		8A74D835198F2AA90078F39F /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
+		8A74D837198F2AF70078F39F /* index_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = index_en.plist; sourceTree = "<group>"; };
+		8A74D839198F368B0078F39F /* MyLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLanguage.h; sourceTree = "<group>"; };
+		8A74D83A198F368B0078F39F /* MyLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLanguage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,11 @@
 				8A74D812198F20CC0078F39F /* PrayerbookViewController.h */,
 				8A74D813198F20CC0078F39F /* PrayerbookViewController.m */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
+				8A74D834198F2AA90078F39F /* MainTableViewController.h */,
+				8A74D835198F2AA90078F39F /* MainTableViewController.m */,
+				8A74D837198F2AF70078F39F /* index_en.plist */,
+				8A74D839198F368B0078F39F /* MyLanguage.h */,
+				8A74D83A198F368B0078F39F /* MyLanguage.m */,
 				8A74D801198F20CC0078F39F /* Supporting Files */,
 			);
 			path = prayerbook;
@@ -163,6 +176,7 @@
 			files = (
 				8A74D833198F224E0078F39F /* Main.storyboard in Resources */,
 				8A74D816198F20CC0078F39F /* Images.xcassets in Resources */,
+				8A74D838198F2AF70078F39F /* index_en.plist in Resources */,
 				8A74D805198F20CC0078F39F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,8 +188,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A74D836198F2AA90078F39F /* MainTableViewController.m in Sources */,
 				8A74D80B198F20CC0078F39F /* PrayerbookAppDelegate.m in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
+				8A74D83B198F368B0078F39F /* MyLanguage.m in Sources */,
 				8A74D814198F20CC0078F39F /* PrayerbookViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
