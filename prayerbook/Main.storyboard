@@ -155,7 +155,7 @@
             </objects>
             <point key="canvasLocation" x="2609" y="-890"/>
         </scene>
-        <!--Prayer View Controller-->
+        <!--Prayer View Controller - Title-->
         <scene sceneID="xiR-6X-NLn">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="W4B-va-jdc" customClass="PrayerViewController" sceneMemberID="viewController">
@@ -181,8 +181,8 @@
                             <constraint firstItem="2CG-ri-jez" firstAttribute="leading" secondItem="kQ3-4q-rJN" secondAttribute="leading" constant="20" symbolic="YES" id="zcv-Vv-iN0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="lEl-l1-f5g">
-                        <barButtonItem key="rightBarButtonItem" image="options.png" id="WFg-aH-9YZ"/>
+                    <navigationItem key="navigationItem" title="Title" id="w5G-tA-2nV">
+                        <barButtonItem key="rightBarButtonItem" image="options.png" id="gBM-FD-vZA"/>
                     </navigationItem>
                     <connections>
                         <outlet property="webView" destination="2CG-ri-jez" id="SnQ-oc-IZ2"/>

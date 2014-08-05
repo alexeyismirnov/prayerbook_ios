@@ -35,14 +35,9 @@
 
     [self.webView loadHTMLString:txt baseURL:nil ];
     
-   // [[self.webView.subviews objectAtIndex:0] setScrollEnabled:NO];
-    [[self.webView scrollView] setBounces:NO];
-
     UIScrollView *scroll = [self.webView scrollView];
     scroll.pagingEnabled = TRUE;
-    
-    // [[self.webView.subviews objectAtIndex:0] setBounces:NO];
-
+    [scroll setBounces:FALSE];
 }
 
 
