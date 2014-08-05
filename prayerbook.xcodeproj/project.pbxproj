@@ -27,6 +27,8 @@
 		8A74D84D198F691A0078F39F /* CN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D849198F691A0078F39F /* CN@2x.png */; };
 		8A74D84E198F691A0078F39F /* US.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D84A198F691A0078F39F /* US.png */; };
 		8A74D84F198F691A0078F39F /* US@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D84B198F691A0078F39F /* US@2x.png */; };
+		8A74D856199073CE0078F39F /* PrayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D855199073CE0078F39F /* PrayerViewController.m */; };
+		8A74D859199077200078F39F /* prayer_0_0_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D858199077200078F39F /* prayer_0_0_en.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,9 @@
 		8A74D849198F691A0078F39F /* CN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CN@2x.png"; sourceTree = "<group>"; };
 		8A74D84A198F691A0078F39F /* US.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = US.png; sourceTree = "<group>"; };
 		8A74D84B198F691A0078F39F /* US@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "US@2x.png"; sourceTree = "<group>"; };
+		8A74D854199073CE0078F39F /* PrayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerViewController.h; sourceTree = "<group>"; };
+		8A74D855199073CE0078F39F /* PrayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerViewController.m; sourceTree = "<group>"; };
+		8A74D858199077200078F39F /* prayer_0_0_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_0_0_en.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +111,7 @@
 		8A74D800198F20CC0078F39F /* prayerbook */ = {
 			isa = PBXGroup;
 			children = (
+				8A74D857199076EF0078F39F /* html */,
 				8A74D844198F624C0078F39F /* images */,
 				8A74D809198F20CC0078F39F /* PrayerbookAppDelegate.h */,
 				8A74D80A198F20CC0078F39F /* PrayerbookAppDelegate.m */,
@@ -119,6 +125,8 @@
 				8A74D83E198F5F350078F39F /* index_cn.plist */,
 				8A74D839198F368B0078F39F /* MyLanguage.h */,
 				8A74D83A198F368B0078F39F /* MyLanguage.m */,
+				8A74D854199073CE0078F39F /* PrayerViewController.h */,
+				8A74D855199073CE0078F39F /* PrayerViewController.m */,
 				8A74D845198F68B30078F39F /* OptionsTableViewController.h */,
 				8A74D846198F68B30078F39F /* OptionsTableViewController.m */,
 				8A74D801198F20CC0078F39F /* Supporting Files */,
@@ -148,6 +156,14 @@
 				8A74D841198F62440078F39F /* options@2x.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		8A74D857199076EF0078F39F /* html */ = {
+			isa = PBXGroup;
+			children = (
+				8A74D858199077200078F39F /* prayer_0_0_en.html */,
+			);
+			name = html;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A74D859199077200078F39F /* prayer_0_0_en.html in Resources */,
 				8A74D833198F224E0078F39F /* Main.storyboard in Resources */,
 				8A74D83F198F5F350078F39F /* index_cn.plist in Resources */,
 				8A74D84C198F691A0078F39F /* CN.png in Resources */,
@@ -234,6 +251,7 @@
 				8A74D847198F68B30078F39F /* OptionsTableViewController.m in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
 				8A74D83B198F368B0078F39F /* MyLanguage.m in Sources */,
+				8A74D856199073CE0078F39F /* PrayerViewController.m in Sources */,
 				8A74D814198F20CC0078F39F /* PrayerbookViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,7 +351,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -348,7 +366,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

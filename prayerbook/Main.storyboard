@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="a9r-8z-IRh">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
@@ -30,6 +30,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="W4B-va-jdc" kind="push" identifier="Prayer" id="8Rp-B1-IQu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -47,7 +50,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G7T-eH-Q1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="-208"/>
+            <point key="canvasLocation" x="423" y="-184"/>
         </scene>
         <!--Options Table View Controller - Options-->
         <scene sceneID="uNN-Bb-X43">
@@ -150,7 +153,44 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSl-pD-wjo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2625" y="-414"/>
+            <point key="canvasLocation" x="2609" y="-890"/>
+        </scene>
+        <!--Prayer View Controller-->
+        <scene sceneID="xiR-6X-NLn">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="W4B-va-jdc" customClass="PrayerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j3E-wc-9mf"/>
+                        <viewControllerLayoutGuide type="bottom" id="DOY-Dk-Zuv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kQ3-4q-rJN">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" misplaced="YES" paginationMode="leftToRight" translatesAutoresizingMaskIntoConstraints="NO" id="2CG-ri-jez">
+                                <rect key="frame" x="176" y="269" width="414" height="619"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2CG-ri-jez" firstAttribute="top" secondItem="j3E-wc-9mf" secondAttribute="bottom" constant="20" symbolic="YES" id="4RF-ZQ-z1d"/>
+                            <constraint firstAttribute="trailing" secondItem="2CG-ri-jez" secondAttribute="trailing" constant="20" symbolic="YES" id="NVm-2d-UUQ"/>
+                            <constraint firstItem="DOY-Dk-Zuv" firstAttribute="top" secondItem="2CG-ri-jez" secondAttribute="bottom" constant="20" symbolic="YES" id="yEw-Xu-mX3"/>
+                            <constraint firstItem="2CG-ri-jez" firstAttribute="leading" secondItem="kQ3-4q-rJN" secondAttribute="leading" constant="20" symbolic="YES" id="zcv-Vv-iN0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lEl-l1-f5g">
+                        <barButtonItem key="rightBarButtonItem" image="options.png" id="WFg-aH-9YZ"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="2CG-ri-jez" id="SnQ-oc-IZ2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BJ4-TD-1Et" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1646" y="349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q4m-s8-jzB">
@@ -183,7 +223,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8I-rF-0Dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1651" y="-414"/>
+            <point key="canvasLocation" x="1647" y="-884"/>
         </scene>
     </scenes>
     <resources>

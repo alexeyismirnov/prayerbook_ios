@@ -9,6 +9,7 @@
 #import "MainTableViewController.h"
 #import "MyLanguage.h"
 #import "OptionsTableViewController.h"
+#import "PrayerViewController.h"
 
 @interface MainTableViewController ()
 -(void)updateLanguage;
@@ -94,13 +95,19 @@ NSArray *titles;
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
  {
-     if ([segue.identifier isEqualToString:@"Options"])
-     {
+     
+     if ([segue.identifier isEqualToString:@"Options"]) {
          UINavigationController *navigationController = segue.destinationViewController;
          OptionsTableViewController *options = [navigationController viewControllers][0];
          options.delegate = self;
-     }
 
+     } else if ([segue.identifier isEqualToString:@"Prayer"]) {
+         PrayerViewController *view = segue.destinationViewController;
+         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+         view.index = indexPath;
+         
+     }
+     
  }
 
 
