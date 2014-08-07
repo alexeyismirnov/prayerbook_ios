@@ -58,7 +58,9 @@
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    if (self.lastSelected==indexPath) return; // nothing to do
+    if (self.lastSelected==indexPath || indexPath.section == 1) {
+        return;
+    }
     
     // deselect old
     UITableViewCell *old = [self.tableView cellForRowAtIndexPath:self.lastSelected];

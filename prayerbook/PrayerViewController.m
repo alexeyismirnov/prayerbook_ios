@@ -81,10 +81,4 @@
     }
 }
 
-- (void)optionsSaved
-{
-    [self reload];
-}
-
-
 @end

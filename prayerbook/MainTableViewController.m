@@ -99,7 +99,7 @@ NSArray *titles;
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     int fontSize = [prefs integerForKey:@"fontSize"];
 
-    return fontSize*2;
+    return fontSize*2+10;
 }
 
  // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -119,11 +119,6 @@ NSArray *titles;
          
      }
  }
-
-- (void)optionsSaved
-{
-    [self.tableView reloadData];
-}
 
 
 @end
