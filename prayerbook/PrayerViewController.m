@@ -8,6 +8,7 @@
 
 #import "PrayerViewController.h"
 #import "MyLanguage.h"
+#import "OptionsTableViewController.h"
 
 @interface PrayerViewController ()
 
@@ -30,6 +31,12 @@
     NSString *bundlename = [[NSBundle mainBundle] pathForResource:filename ofType:nil ];
     NSString *txt = [NSString stringWithContentsOfFile:bundlename encoding:NSUTF8StringEncoding error:NULL];
 
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    int fontSize = [prefs integerForKey:@"fontSize"];
+
+    txt = [txt stringByReplacingOccurrencesOfString:@"FONTSIZE"
+                                         withString:[NSString stringWithFormat:@"%dpt", fontSize] ];
+
     self.webView.paginationBreakingMode = UIWebPaginationBreakingModePage;
     self.webView.paginationMode = UIWebPaginationModeLeftToRight;
 
@@ -40,11 +47,22 @@
     [scroll setBounces:FALSE];
 }
 
+- (void) optionsSaved:(NSNotification *)paramNotification
+{
+    [self reload];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self reload];
+
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(optionsSaved:)
+     name:OPTIONS_SAVED_NOTIFICATION
+     object:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,15 +71,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"Options"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        OptionsTableViewController *options = [navigationController viewControllers][0];
+        options.delegate = self;
+    }
 }
-*/
+
+- (void)optionsSaved
+{
+    [self reload];
+}
+
 
 @end

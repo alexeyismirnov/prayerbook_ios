@@ -115,7 +115,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IBg-K4-xO7">
+                                                <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="10" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="IBg-K4-xO7">
                                                     <rect key="frame" x="321" y="7" width="118" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </slider>
@@ -147,13 +147,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="fontSizeSlider" destination="IBg-K4-xO7" id="wmc-tn-Gfa"/>
                         <outlet property="lang_cn" destination="Jrl-vr-KXE" id="NjR-ty-Uxa"/>
                         <outlet property="lang_en" destination="xD0-ml-ftX" id="u51-aJ-IkN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSl-pD-wjo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2609" y="-890"/>
+            <point key="canvasLocation" x="4009" y="-1026"/>
         </scene>
         <!--Prayer View Controller - Title-->
         <scene sceneID="xiR-6X-NLn">
@@ -182,7 +183,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="w5G-tA-2nV">
-                        <barButtonItem key="rightBarButtonItem" image="options.png" id="gBM-FD-vZA"/>
+                        <barButtonItem key="rightBarButtonItem" image="options.png" id="gBM-FD-vZA">
+                            <connections>
+                                <segue destination="Y1p-3w-LEu" kind="modal" identifier="Options" id="fNq-2R-YfY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="webView" destination="2CG-ri-jez" id="SnQ-oc-IZ2"/>
@@ -223,7 +228,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8I-rF-0Dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1647" y="-884"/>
+            <point key="canvasLocation" x="3047" y="-1020"/>
         </scene>
     </scenes>
     <resources>
@@ -236,4 +241,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="fNq-2R-YfY"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -14,19 +14,16 @@
 {
     MyLanguage *gsObject = [MyLanguage singleton];
     gsObject.currentLanguage = languageName;
-
-    if ([languageName isEqual: DEFAULT_LANGUAGE]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:LANGUAGE_CHANGED_NOTIFICATION object:nil];
-        return;
-    }
     
+    if ([languageName isEqual: DEFAULT_LANGUAGE])
+        return;    
+
     /*
     NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"trans_%@", languageName] ofType:@"plist"];
     NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
     gsObject.currentDictionary = dict;
     */
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:LANGUAGE_CHANGED_NOTIFICATION object:nil];
 }
 
 +(NSString*) language

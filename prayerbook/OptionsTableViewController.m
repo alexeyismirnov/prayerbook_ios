@@ -44,11 +44,10 @@
         [self.lang_cn setSelected:TRUE animated:TRUE];
     }
     
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(localeChanged:)
-     name:LANGUAGE_CHANGED_NOTIFICATION
-     object:nil];
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    int fontSize = [prefs integerForKey:@"fontSize"];
+    [self.fontSizeSlider setValue:fontSize];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,12 +70,6 @@
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
     [cell setSelected:TRUE animated:TRUE];
     
-    if (indexPath.row == 0)
-        [MyLanguage setLanguage:@"en"];
-    else
-        [MyLanguage setLanguage:@"cn"];
-
-    
     // keep track of the last selected cell
     self.lastSelected = indexPath;
 }
@@ -86,6 +79,27 @@
 }
 
 - (IBAction)done:(id)sender {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+
+    NSIndexPath *index = [NSIndexPath indexPathForRow:0 inSection:0];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:index];
+    
+    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+        [prefs setInteger:0 forKey:@"language"];
+        [MyLanguage setLanguage:@"en"];
+
+    } else {
+        [prefs setInteger:1 forKey:@"language"];
+        [MyLanguage setLanguage:@"cn"];
+    }
+    
+    int value = (int)self.fontSizeSlider.value;
+    
+    [prefs setInteger:value forKey:@"fontSize"];
+    [prefs synchronize];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:OPTIONS_SAVED_NOTIFICATION object:nil];
+
     [self.delegate dismissViewControllerAnimated:YES completion:nil];
 }
 

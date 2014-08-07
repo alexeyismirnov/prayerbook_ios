@@ -19,7 +19,7 @@
 
 NSArray *titles;
 
-- (void)updateLanguage
+- (void)reload
 {
     NSString *path = [[NSBundle mainBundle]
                       pathForResource:[NSString  stringWithFormat:@"index_%@",  [MyLanguage language] ]
@@ -40,22 +40,20 @@ NSArray *titles;
     return self;
 }
 
-- (void) localeChanged:(NSNotification *)paramNotification
+- (void) optionsSaved:(NSNotification *)paramNotification
 {
-    NSLog(@"Locale Changed2");
-    
-    [self updateLanguage];
+    [self reload];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self updateLanguage];
+    [self reload];
     
     [[NSNotificationCenter defaultCenter]
      addObserver:self
-     selector:@selector(localeChanged:)
-     name:LANGUAGE_CHANGED_NOTIFICATION
+     selector:@selector(optionsSaved:)
+     name:OPTIONS_SAVED_NOTIFICATION
      object:nil];
 
 }
@@ -86,10 +84,22 @@ NSArray *titles;
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    
+ 
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    int fontSize = [prefs integerForKey:@"fontSize"];
+
     cell.textLabel.text = [titles[indexPath.section] objectAtIndex:indexPath.row];
-    
+    cell.textLabel.font = [cell.textLabel.font fontWithSize:fontSize];
+
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    int fontSize = [prefs integerForKey:@"fontSize"];
+
+    return fontSize*2;
 }
 
  // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -108,8 +118,12 @@ NSArray *titles;
          view.title = [titles[indexPath.section] objectAtIndex:indexPath.row];
          
      }
-     
  }
+
+- (void)optionsSaved
+{
+    [self.tableView reloadData];
+}
 
 
 @end
