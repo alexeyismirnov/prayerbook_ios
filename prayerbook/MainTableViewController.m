@@ -12,7 +12,6 @@
 #import "PrayerViewController.h"
 
 @interface MainTableViewController ()
--(void)updateLanguage;
 @end
 
 @implementation MainTableViewController

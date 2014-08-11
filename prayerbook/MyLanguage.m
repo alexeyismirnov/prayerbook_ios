@@ -18,11 +18,9 @@
     if ([languageName isEqual: DEFAULT_LANGUAGE])
         return;    
 
-    /*
     NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"trans_%@", languageName] ofType:@"plist"];
     NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
     gsObject.currentDictionary = dict;
-    */
     
 }
 

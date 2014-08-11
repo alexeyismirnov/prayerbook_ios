@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 #define DEFAULT_LANGUAGE @"en"
-//#define LANGUAGE_CHANGED_NOTIFICATION   @"LANGUAGE_CHANGED"
 
 @interface MyLanguage : NSObject
 

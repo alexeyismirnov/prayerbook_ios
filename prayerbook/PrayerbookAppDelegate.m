@@ -13,8 +13,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    MyLanguage *gsObject = [MyLanguage singleton];
-    gsObject.currentLanguage = @"en";
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    int fontSize = [prefs integerForKey:@"fontSize"];
+    
+    if (fontSize == 0) {
+        [prefs setObject:@"en" forKey:@"language"];
+        [prefs setInteger:20 forKey:@"fontSize"];
+        [prefs synchronize];
+    }
+    
+    NSString *language = [prefs objectForKey:@"language"];
+    [MyLanguage setLanguage:language];
     
     return YES;
 }

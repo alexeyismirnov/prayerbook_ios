@@ -23,11 +23,6 @@
     return self;
 }
 
-- (void) localeChanged:(NSNotification *)paramNotification
-{
-    NSLog(@"Locale Changed1");
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -87,11 +82,11 @@
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:index];
     
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-        [prefs setInteger:0 forKey:@"language"];
+        [prefs setObject:@"en" forKey:@"language"];
         [MyLanguage setLanguage:@"en"];
 
     } else {
-        [prefs setInteger:1 forKey:@"language"];
+        [prefs setObject:@"cn" forKey:@"language"];
         [MyLanguage setLanguage:@"cn"];
     }
     
