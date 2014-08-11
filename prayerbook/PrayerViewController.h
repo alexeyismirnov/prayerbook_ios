@@ -13,4 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (nonatomic) NSIndexPath *index;
 
+@property (nonatomic) NSString *title_en;
+@property (nonatomic) NSString *title_cn;
+
 @end

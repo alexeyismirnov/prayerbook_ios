@@ -42,6 +42,11 @@
 
     [self.webView loadHTMLString:txt baseURL:nil ];
     
+    if ([[MyLanguage language] isEqual:@"en"])
+         self.title = self.title_en;
+    else
+         self.title = self.title_cn;
+    
     UIScrollView *scroll = [self.webView scrollView];
     scroll.pagingEnabled = TRUE;
     [scroll setBounces:FALSE];

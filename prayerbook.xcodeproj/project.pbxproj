@@ -118,6 +118,8 @@
 		8A74D8821990DC3B0078F39F /* prayer_2_1_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_2_1_cn.html; sourceTree = "<group>"; };
 		8A74D8841990DC6C0078F39F /* prayer_2_2_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_2_2_cn.html; sourceTree = "<group>"; };
 		8A74D8861990DCA50078F39F /* prayer_2_3_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_2_3_cn.html; sourceTree = "<group>"; };
+		8A9DB9921998C94200C9B0FF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		8A9DB9931998CBF500C9B0FF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		8AC1B106199866FF00A017C7 /* launch-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-ipad.png"; sourceTree = "<group>"; };
 		8AC1B107199866FF00A017C7 /* launch-ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-ipad@2x.png"; sourceTree = "<group>"; };
 		8AC1B108199866FF00A017C7 /* launch-iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-iphone@2x.png"; sourceTree = "<group>"; };
@@ -301,6 +303,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 8A74D7EE198F20CC0078F39F;
 			productRefGroup = 8A74D7F8198F20CC0078F39F /* Products */;
@@ -387,6 +391,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				8A74D804198F20CC0078F39F /* en */,
+				8A9DB9921998C94200C9B0FF /* zh-Hans */,
+				8A9DB9931998CBF500C9B0FF /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

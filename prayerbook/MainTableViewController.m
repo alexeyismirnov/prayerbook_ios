@@ -16,17 +16,17 @@
 
 @implementation MainTableViewController
 
-NSArray *titles;
+NSArray *titles, *titles_en, *titles_cn;
 
 - (void)reload
-{
-    NSString *path = [[NSBundle mainBundle]
-                      pathForResource:[NSString  stringWithFormat:@"index_%@",  [MyLanguage language] ]
-                      ofType:@"plist"];
+{    
+    self.title = [MyLanguage stringFor:@"Prayerbook"];
     
-    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
-    titles = [dict objectForKey:@"index"];
-
+    if ([[MyLanguage language] isEqual:@"en"])
+        titles = titles_en;
+    else
+        titles = titles_cn;
+    
     [self.tableView reloadData];
 }
 
@@ -47,14 +47,28 @@ NSArray *titles;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self reload];
+
+    NSString *path_en = [[NSBundle mainBundle]
+                         pathForResource:@"index_en"
+                         ofType:@"plist"];
     
+    NSDictionary *dict_en = [[NSDictionary alloc] initWithContentsOfFile:path_en];
+    titles_en = [dict_en objectForKey:@"index"];
+    
+    NSString *path_cn = [[NSBundle mainBundle]
+                         pathForResource:@"index_cn"
+                         ofType:@"plist"];
+    
+    NSDictionary *dict_cn = [[NSDictionary alloc] initWithContentsOfFile:path_cn];
+    titles_cn = [dict_cn objectForKey:@"index"];
+
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(optionsSaved:)
      name:OPTIONS_SAVED_NOTIFICATION
      object:nil];
-
+    
+    [self reload];
 }
 
 - (void)didReceiveMemoryWarning
@@ -114,7 +128,8 @@ NSArray *titles;
          PrayerViewController *view = segue.destinationViewController;
          NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
          view.index = indexPath;
-         view.title = [titles[indexPath.section] objectAtIndex:indexPath.row];
+         view.title_en = [titles_en[indexPath.section] objectAtIndex:indexPath.row];
+         view.title_cn = [titles_cn[indexPath.section] objectAtIndex:indexPath.row];
          
      }
  }

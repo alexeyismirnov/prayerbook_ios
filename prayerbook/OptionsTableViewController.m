@@ -26,7 +26,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     NSString *language = [MyLanguage language];
+    
+    self.title = [MyLanguage stringFor:@"Options"];
+    self.cancelButton.title = [MyLanguage stringFor:@"Cancel"];
+    self.doneButton.title = [MyLanguage stringFor:@"Done"];
     
     if ([language isEqual:@"en"]) {
         self.lastSelected = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -42,6 +47,16 @@
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     int fontSize = [prefs integerForKey:@"fontSize"];
     [self.fontSizeSlider setValue:fontSize];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self.fontSizeSlider setMinimumValue:8];
+        [self.fontSizeSlider setMaximumValue:20];
+        
+    } else {
+        [self.fontSizeSlider setMinimumValue:10];
+        [self.fontSizeSlider setMaximumValue:30];
+    }
+
 
 }
 
@@ -69,6 +84,14 @@
     
     // keep track of the last selected cell
     self.lastSelected = indexPath;
+}
+
+- (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+        return [MyLanguage stringFor:@"Language"];
+    else
+        return [MyLanguage stringFor:@"Font size"];
 }
 
 - (IBAction)cancel:(id)sender {

@@ -147,6 +147,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="DZG-LG-ewW" id="SH1-fM-U8e"/>
+                        <outlet property="doneButton" destination="ga1-mJ-VeY" id="Eir-Wb-9n6"/>
                         <outlet property="fontSizeSlider" destination="IBg-K4-xO7" id="wmc-tn-Gfa"/>
                         <outlet property="lang_cn" destination="Jrl-vr-KXE" id="NjR-ty-Uxa"/>
                         <outlet property="lang_en" destination="xD0-ml-ftX" id="u51-aJ-IkN"/>

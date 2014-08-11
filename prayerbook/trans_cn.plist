@@ -2,7 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Language</key>
+	<string>语言</string>
+	<key>Font size</key>
+	<string>字体大小</string>
+	<key>Done</key>
+	<string>完成</string>
+	<key>Cancel</key>
+	<string>取消</string>
+	<key>Options</key>
+	<string>设置</string>
 	<key>Prayerbook</key>
-	<string>祈祷书</string>
+	<string>东正教祈祷书</string>
 </dict>
 </plist>

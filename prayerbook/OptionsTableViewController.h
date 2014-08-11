@@ -19,4 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *lang_cn;
 @property (weak, nonatomic) IBOutlet UISlider *fontSizeSlider;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+
 @end

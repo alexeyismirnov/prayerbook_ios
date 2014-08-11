@@ -17,8 +17,18 @@
     int fontSize = [prefs integerForKey:@"fontSize"];
     
     if (fontSize == 0) {
-        [prefs setObject:@"en" forKey:@"language"];
-        [prefs setInteger:20 forKey:@"fontSize"];
+        NSString *lang = [[NSLocale preferredLanguages] objectAtIndex:0];
+ 
+        if ([lang  isEqual: @"zh-Hans"] || [lang  isEqual: @"zh-Hant"])
+            [prefs setObject:@"cn" forKey:@"language"];
+        else
+            [prefs setObject:@"en" forKey:@"language"];
+
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+            [prefs setInteger:14 forKey:@"fontSize"];
+        else
+            [prefs setInteger:20 forKey:@"fontSize"];
+        
         [prefs synchronize];
     }
     
