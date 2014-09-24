@@ -8,6 +8,7 @@
 
 #import "DailyViewController.h"
 #import "MyLanguage.h"
+#import "PrayerViewController.h"
 
 @interface DailyViewController ()
 
@@ -37,6 +38,16 @@
     return self;
 }
 
+- (void)addRoundedBorder:(UIButton*)button
+{
+    UIColor *color = self.view.tintColor;
+
+    [button.layer setBorderColor:[color CGColor]];
+    [button.layer setBorderWidth:1.0f];
+    [button.layer setCornerRadius:10];
+    [button setTitleColor:color forState:UIControlStateNormal];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -55,14 +66,28 @@
     NSDictionary *dict_cn = [[NSDictionary alloc] initWithContentsOfFile:path_cn];
     titles_cn = [dict_cn objectForKey:@"index"];
     
-    UIColor *color = self.view.tintColor;
+    [self addRoundedBorder:self.foodButton];
+    [self addRoundedBorder:self.buttonLeft];
+    [self addRoundedBorder:self.buttonRight];
     
-    [self.foodButton.layer setBorderColor:[color CGColor]];
-    [self.foodButton.layer setBorderWidth:1.0f];
-    [self.foodButton.layer setCornerRadius:10];
-    [self.foodButton setTitleColor:color forState:UIControlStateNormal];
-
-
+    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:self.tableView
+                                                                      attribute:NSLayoutAttributeLeading
+                                                                      relatedBy:0
+                                                                         toItem:self.view
+                                                                      attribute:NSLayoutAttributeLeft
+                                                                     multiplier:1.0
+                                                                       constant:10];
+    [self.view addConstraint:leftConstraint];
+    
+    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:self.tableView
+                                                                       attribute:NSLayoutAttributeTrailing
+                                                                       relatedBy:0
+                                                                          toItem:self.view
+                                                                       attribute:NSLayoutAttributeRight
+                                                                      multiplier:1.0
+                                                                        constant:-10];
+    [self.view addConstraint:rightConstraint];
+        
     [self reload];
 }
 
@@ -72,23 +97,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidLayoutSubviews
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [super viewDidLayoutSubviews];
-    self.infoLabel.preferredMaxLayoutWidth = self.infoLabel.frame.size.width;
-    [self.view layoutIfNeeded];
+    if ([segue.identifier isEqualToString:@"Prayer"]) {
+        PrayerViewController *view = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        view.index = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
+        view.title_en = [titles_en[0] objectAtIndex:indexPath.row];
+        view.title_cn = [titles_cn[0] objectAtIndex:indexPath.row];
+        
+    }
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [titles[0] count];
+    if (section == 0)
+        return 1;
+    else
+        return [titles[0] count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+        return @"Daily Gospel";
+    else
+        return @"Daily prayers";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,13 +141,13 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    UIColor* startColor = [UIColor colorWithRed:226.0/255.0 green:229.0/255.0 blue:234.0/255.0 alpha:1.0];
-
-    
-    cell.backgroundColor = startColor;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = [titles[0] objectAtIndex:indexPath.row];
+    
+    if (indexPath.section == 0)
+        cell.textLabel.text = @"Luke 2:3-4";
+    else
+        cell.textLabel.text = [titles[0] objectAtIndex:indexPath.row];
 
     return cell;
 }

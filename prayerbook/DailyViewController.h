@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *foodButton;
 @property (weak, nonatomic) IBOutlet UILabel *foodLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *buttonLeft;
+@property (weak, nonatomic) IBOutlet UIButton *buttonRight;
 
 
 @end
