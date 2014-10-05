@@ -9,41 +9,69 @@
 #import "MyLanguage.h"
 
 @implementation MyLanguage
-
-+(void) setLanguage:(NSString *)languageName
 {
-    MyLanguage *gsObject = [MyLanguage singleton];
-    gsObject.currentLanguage = languageName;
-    
-    if ([languageName isEqual: DEFAULT_LANGUAGE])
-        return;    
+    NSDictionary *currentDictionary;
+}
 
-    NSString *path = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"trans_%@", languageName] ofType:@"plist"];
+@synthesize language = _language;
+
+- (void)setLanguage:(NSString *)language
+{
+    _language= language;
+    
+    if ([language isEqual: DEFAULT_LANGUAGE])
+        return;
+    
+    NSString *path = [[NSBundle mainBundle]
+                      pathForResource:[NSString stringWithFormat:@"trans_%@", language]
+                      ofType:@"plist"];
+    
     NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
-    gsObject.currentDictionary = dict;
-    
+    currentDictionary = dict;
 }
 
-+(NSString*) language
++ (void)setLanguage:(NSString *)languageName
 {
-    MyLanguage *gsObject = [MyLanguage singleton];
-    return gsObject.currentLanguage;
+    MyLanguage *obj = [MyLanguage singleton];
+    obj.language = languageName;
 }
 
-+(NSString *)stringFor:(NSString *)srcString
++ (NSString*)language
 {
-    MyLanguage *gsObject = [MyLanguage singleton];
+    MyLanguage *obj = [MyLanguage singleton];
+    return obj.language;
+}
 
-    if (gsObject.currentDictionary == nil || gsObject.currentLanguage == nil || [gsObject.currentLanguage  isEqual: DEFAULT_LANGUAGE] )
-        return srcString;
+- (NSString*)stringFor:(NSString*)str
+{
+    if (currentDictionary == nil || self.language == nil || [self.language isEqual: DEFAULT_LANGUAGE] )
+        return str;
     
-    // use current dictionary for translation.
-    NSString *results = [gsObject.currentDictionary valueForKey:srcString];
+    NSString *result = [currentDictionary valueForKey:str];
     
-    if (results == nil)
-        return srcString;
+    return (result == nil) ? str : result;
+}
+
++ (NSString *)stringFor:(NSString *)str
+{
+    MyLanguage *obj = [MyLanguage singleton];
+    return [obj stringFor:str];
+}
+
+- (NSArray*)tableViewStrings:(NSString*)code;
+{
+    NSString *path = [[NSBundle mainBundle]
+                         pathForResource:[NSString stringWithFormat:@"index_%@", self.language]
+                         ofType:@"plist"];
     
-    return results;
+    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
+    return [dict objectForKey:code];
+}
+
++ (NSArray*)tableViewStrings:(NSString*)code
+{
+    MyLanguage *obj = [MyLanguage singleton];
+    return [obj tableViewStrings:code];
 }
 
 + (id)singleton;

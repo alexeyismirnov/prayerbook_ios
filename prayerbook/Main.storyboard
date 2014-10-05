@@ -1,54 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="G5G-CB-Hhd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="G5G-CB-Hhd">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Prayerbook-->
-        <scene sceneID="BP9-bf-AFi">
-            <objects>
-                <tableViewController id="Enm-o6-rpg" customClass="MainTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Rq7-rk-FUk">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="uPC-IR-kir" style="IBUITableViewCellStyleDefault" id="idH-VQ-m5U">
-                                <rect key="frame" x="0.0" y="119" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="idH-VQ-m5U" id="HGY-cf-li1">
-                                    <rect key="frame" x="0.0" y="0.0" width="735" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uPC-IR-kir">
-                                            <rect key="frame" x="15" y="0.0" width="718" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Enm-o6-rpg" id="GEU-vs-szJ"/>
-                            <outlet property="delegate" destination="Enm-o6-rpg" id="oBZ-SV-wYH"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Prayerbook" id="hBK-fc-1fs">
-                        <barButtonItem key="rightBarButtonItem" image="options.png" id="tFP-wE-vWy">
-                            <connections>
-                                <segue destination="Y1p-3w-LEu" kind="modal" identifier="Options" id="eyG-hY-K0D"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G7T-eH-Q1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2067" y="-480"/>
-        </scene>
         <!--Options-->
         <scene sceneID="uNN-Bb-X43">
             <objects>
@@ -148,7 +103,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSl-pD-wjo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4009" y="-1026"/>
+            <point key="canvasLocation" x="2605" y="-838"/>
         </scene>
         <!--Title-->
         <scene sceneID="xiR-6X-NLn">
@@ -188,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJ4-TD-1Et" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="374" y="-1797"/>
+            <point key="canvasLocation" x="410" y="127"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zs1-97-Vp3">
@@ -253,7 +208,7 @@
                                         <rect key="frame" x="50" y="203" width="619" height="227"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="dQq-7e-IE7">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="dQq-7e-IE7">
                                                 <rect key="frame" x="0.0" y="0.0" width="619" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dQq-7e-IE7" id="5sh-Yy-42E">
@@ -342,22 +297,24 @@
             </objects>
             <point key="canvasLocation" x="-477" y="-2172"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Holy Communion-->
         <scene sceneID="fE8-SV-o0n">
             <objects>
-                <tableViewController id="o6c-oB-QiC" sceneMemberID="viewController">
+                <tableViewController id="o6c-oB-QiC" customClass="ListOfPrayers" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wLS-tm-h4O">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="XR1-ey-GPL">
-                                <rect key="frame" x="0.0" y="86" width="768" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PrayerCell" id="GsR-1X-aXX">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XR1-ey-GPL" id="k9o-1D-W2m">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GsR-1X-aXX" id="zhC-MK-gUU">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="W4B-va-jdc" kind="push" identifier="Prayer" id="FYO-OP-ElQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -365,28 +322,34 @@
                             <outlet property="delegate" destination="o6c-oB-QiC" id="tem-rS-uZz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="KFE-D2-YCh"/>
+                    <navigationItem key="navigationItem" title="Holy Communion" id="KFE-D2-YCh"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="prayer_type" value="communion"/>
+                    </userDefinedRuntimeAttributes>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uT-3X-onx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-503" y="113"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Group Prayers-->
         <scene sceneID="1wL-A0-fFK">
             <objects>
-                <tableViewController id="rbV-jY-Jld" sceneMemberID="viewController">
+                <tableViewController id="rbV-jY-Jld" customClass="ListOfPrayers" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QSQ-U4-BZC">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ZDj-pb-qvg">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrayerCell" id="ZDj-pb-qvg">
                                 <rect key="frame" x="0.0" y="86" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZDj-pb-qvg" id="dP0-bK-g9q">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="W4B-va-jdc" kind="push" identifier="Prayer" id="xjH-sG-H2F"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -394,7 +357,10 @@
                             <outlet property="delegate" destination="rbV-jY-Jld" id="CKt-6U-IZc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Ber-wU-kw6"/>
+                    <navigationItem key="navigationItem" title="Group Prayers" id="Ber-wU-kw6"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="prayer_type" value="group"/>
+                    </userDefinedRuntimeAttributes>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlE-fP-LiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -478,21 +444,6 @@
             <point key="canvasLocation" x="-1455" y="85"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Q4m-s8-jzB">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="a9r-8z-IRh" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y80-7h-ocn">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Enm-o6-rpg" kind="relationship" relationship="rootViewController" id="1Rq-4n-dyO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5XG-BK-xwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1785" y="-1812"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="qZa-Yj-g12">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y1p-3w-LEu" sceneMemberID="viewController">
@@ -508,7 +459,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8I-rF-0Dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3047" y="-1020"/>
+            <point key="canvasLocation" x="1719" y="-840"/>
         </scene>
         <!--Daily-->
         <scene sceneID="o8U-9Z-h5E">
@@ -548,6 +499,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eyG-hY-K0D"/>
+        <segue reference="FYO-OP-ElQ"/>
     </inferredMetricsTieBreakers>
 </document>

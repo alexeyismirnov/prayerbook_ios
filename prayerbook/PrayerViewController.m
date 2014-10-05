@@ -27,8 +27,8 @@
 
 - (void)reload
 {
-    NSString *filename = [NSString stringWithFormat:@"prayer_%d_%d_%@.html", self.index.section, self.index.row, [MyLanguage language]];
-    NSString *bundlename = [[NSBundle mainBundle] pathForResource:filename ofType:nil ];
+    NSString *filename = [NSString stringWithFormat:@"prayer_%@_%d_%@.html", self.code, self.index,  [MyLanguage language]];
+    NSString *bundlename = [[NSBundle mainBundle] pathForResource:filename ofType:nil];
     NSString *txt = [NSString stringWithContentsOfFile:bundlename encoding:NSUTF8StringEncoding error:NULL];
 
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -41,12 +41,10 @@
     self.webView.paginationMode = UIWebPaginationModeLeftToRight;
 
     [self.webView loadHTMLString:txt baseURL:nil ];
-    
-    if ([[MyLanguage language] isEqual:@"en"])
-         self.title = self.title_en;
-    else
-         self.title = self.title_cn;
-    
+
+    NSArray *titles = [MyLanguage tableViewStrings:self.code];
+    self.title = titles[self.index];
+        
     UIScrollView *scroll = [self.webView scrollView];
     scroll.pagingEnabled = TRUE;
     [scroll setBounces:FALSE];

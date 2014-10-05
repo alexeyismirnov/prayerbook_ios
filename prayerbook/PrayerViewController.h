@@ -11,9 +11,7 @@
 @interface PrayerViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (nonatomic) NSIndexPath *index;
-
-@property (nonatomic) NSString *title_en;
-@property (nonatomic) NSString *title_cn;
+@property (nonatomic) int index;
+@property (nonatomic) NSString* code;
 
 @end

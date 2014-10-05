@@ -12,13 +12,13 @@
 
 @interface MyLanguage : NSObject
 
-+(void) setLanguage:(NSString *)languageName;
-+(NSString*) language;
-+(NSString *)stringFor:(NSString *)srcString;
++ (void)setLanguage:(NSString *)languageName;
++ (NSString*)language;
++ (NSString *)stringFor:(NSString *)str;
++ (NSArray*)tableViewStrings:(NSString*)code;
 
 + (id)singleton;
 
-@property (nonatomic, retain) NSString        *currentLanguage;
-@property (nonatomic, retain) NSDictionary    *currentDictionary;
+@property (strong, nonatomic) NSString *language;
 
 @end

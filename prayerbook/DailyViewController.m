@@ -9,6 +9,7 @@
 #import "DailyViewController.h"
 #import "MyLanguage.h"
 #import "PrayerViewController.h"
+#import "OptionsTableViewController.h"
 
 @interface DailyViewController ()
 
@@ -16,17 +17,18 @@
 
 @implementation DailyViewController
 {
-    NSArray *titles, *titles_en, *titles_cn;
+    NSArray *titles;
 }
 
 - (void)reload
 {
-    if ([[MyLanguage language] isEqual:@"en"])
-        titles = titles_en;
-    else
-        titles = titles_cn;
-    
+    titles = [MyLanguage tableViewStrings:@"daily"];
     [self.tableView reloadData];
+}
+
+- (void) optionsSaved:(NSNotification *)paramNotification
+{
+    [self reload];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -52,20 +54,6 @@
 {
     [super viewDidLoad];
 
-    NSString *path_en = [[NSBundle mainBundle]
-                         pathForResource:@"index_en"
-                         ofType:@"plist"];
-    
-    NSDictionary *dict_en = [[NSDictionary alloc] initWithContentsOfFile:path_en];
-    titles_en = [dict_en objectForKey:@"index"];
-    
-    NSString *path_cn = [[NSBundle mainBundle]
-                         pathForResource:@"index_cn"
-                         ofType:@"plist"];
-    
-    NSDictionary *dict_cn = [[NSDictionary alloc] initWithContentsOfFile:path_cn];
-    titles_cn = [dict_cn objectForKey:@"index"];
-    
     [self addRoundedBorder:self.foodButton];
     [self addRoundedBorder:self.buttonLeft];
     [self addRoundedBorder:self.buttonRight];
@@ -87,7 +75,13 @@
                                                                       multiplier:1.0
                                                                         constant:-10];
     [self.view addConstraint:rightConstraint];
-        
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(optionsSaved:)
+     name:OPTIONS_SAVED_NOTIFICATION
+     object:nil];
+
     [self reload];
 }
 
@@ -102,10 +96,8 @@
     if ([segue.identifier isEqualToString:@"Prayer"]) {
         PrayerViewController *view = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        view.index = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
-        view.title_en = [titles_en[0] objectAtIndex:indexPath.row];
-        view.title_cn = [titles_cn[0] objectAtIndex:indexPath.row];
-        
+        view.index = indexPath.row;
+        view.code = @"daily";
     }
 }
 
@@ -121,7 +113,7 @@
     if (section == 0)
         return 1;
     else
-        return [titles[0] count];
+        return [titles count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -140,14 +132,11 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+
     if (indexPath.section == 0)
         cell.textLabel.text = @"Luke 2:3-4";
     else
-        cell.textLabel.text = [titles[0] objectAtIndex:indexPath.row];
+        cell.textLabel.text = [titles objectAtIndex:indexPath.row];
 
     return cell;
 }
