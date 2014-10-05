@@ -11,10 +11,10 @@ import UIKit
 class ListOfPrayers: UITableViewController {
 
     var titles: [String] = []
-    var prayer_type: String = ""
+    var prayer_type: String!
     
     func reload() {
-        titles = MyLanguage.tableViewStrings(prayer_type) as [String]
+        titles = Translate.tableViewStrings(prayer_type)
         self.tableView.reloadData()
     }
     
@@ -27,16 +27,16 @@ class ListOfPrayers: UITableViewController {
 
         var prayer_type: AnyObject! = self.valueForKey("prayer_type")
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionsSaved:", name: OPTIONS_SAVED_NOTIFICATION, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionsSaved:", name: optionsSavedNotification, object: nil)
         
         self.reload()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Prayer" {
-            var view = segue.destinationViewController as PrayerViewController
+            var view = segue.destinationViewController as Prayer
             var index = self.tableView.indexPathForSelectedRow();
-            view.index = Int32(index!.row)
+            view.index = index!.row
             view.code = prayer_type
         }
     }

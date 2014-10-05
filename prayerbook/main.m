@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "PrayerbookAppDelegate.h"
+#import "Prayerbook-swift.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([PrayerbookAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

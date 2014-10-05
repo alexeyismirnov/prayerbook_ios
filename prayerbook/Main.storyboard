@@ -7,7 +7,7 @@
         <!--Options-->
         <scene sceneID="uNN-Bb-X43">
             <objects>
-                <tableViewController id="adP-n7-Jrr" customClass="OptionsTableViewController" sceneMemberID="viewController">
+                <tableViewController id="adP-n7-Jrr" customClass="Options" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vhy-D1-r2C">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,12 +84,12 @@
                     <navigationItem key="navigationItem" title="Options" id="4ZD-8K-RMG">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="DZG-LG-ewW">
                             <connections>
-                                <action selector="cancel:" destination="adP-n7-Jrr" id="078-Wm-0mg"/>
+                                <action selector="cancel:" destination="adP-n7-Jrr" id="PTO-Jb-w6I"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Done" id="ga1-mJ-VeY">
                             <connections>
-                                <action selector="done:" destination="adP-n7-Jrr" id="ObU-kO-DdG"/>
+                                <action selector="done:" destination="adP-n7-Jrr" id="nPt-BG-ca0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -108,7 +108,7 @@
         <!--Title-->
         <scene sceneID="xiR-6X-NLn">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="W4B-va-jdc" customClass="PrayerViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="W4B-va-jdc" customClass="Prayer" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j3E-wc-9mf"/>
                         <viewControllerLayoutGuide type="bottom" id="DOY-Dk-Zuv"/>
@@ -169,7 +169,7 @@
         <!--Daily Prayers-->
         <scene sceneID="edj-AU-hVs">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="2oD-Mq-Jdq" customClass="DailyViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="2oD-Mq-Jdq" customClass="DailyPrayers" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uye-Jf-A1I"/>
                         <viewControllerLayoutGuide type="bottom" id="5NU-4u-iQJ"/>
@@ -499,6 +499,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="FYO-OP-ElQ"/>
+        <segue reference="3Un-iM-GEB"/>
     </inferredMetricsTieBreakers>
 </document>
