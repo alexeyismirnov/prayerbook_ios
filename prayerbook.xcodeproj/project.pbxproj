@@ -292,7 +292,8 @@
 				8A74D841198F62440078F39F /* options@2x.png */,
 			);
 			name = images;
-			sourceTree = "<group>";
+			path = /Users/alexey/Documents/workspace/prayerbook/prayerbook/images;
+			sourceTree = "<absolute>";
 		};
 		8A74D857199076EF0078F39F /* html */ = {
 			isa = PBXGroup;
@@ -327,7 +328,8 @@
 				8A81857619D2E3F300D4B328 /* prayer_daily_2_en.html */,
 			);
 			name = html;
-			sourceTree = "<group>";
+			path = /Users/alexey/Documents/workspace/prayerbook/prayerbook/html;
+			sourceTree = "<absolute>";
 		};
 /* End PBXGroup section */
 
