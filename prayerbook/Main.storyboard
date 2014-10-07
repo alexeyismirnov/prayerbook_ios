@@ -131,7 +131,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="w5G-tA-2nV">
-                        <barButtonItem key="rightBarButtonItem" image="options.png" id="gBM-FD-vZA">
+                        <barButtonItem key="rightBarButtonItem" image="options" id="gBM-FD-vZA">
                             <connections>
                                 <segue destination="Y1p-3w-LEu" kind="modal" identifier="Options" id="fNq-2R-YfY"/>
                             </connections>
@@ -193,14 +193,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8Z-iW-tsi">
-                                        <rect key="frame" x="593" y="90" width="64" height="64"/>
+                                        <rect key="frame" x="593" y="90" width="70" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="KaT-X4-YCX"/>
                                             <constraint firstAttribute="width" constant="64" id="U0I-NX-yq6"/>
                                         </constraints>
                                         <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="1" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="2" minY="5" maxX="5" maxY="5"/>
-                                        <state key="normal" image="food-vegetarian.png">
+                                        <state key="normal" image="food-vegetarian">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
@@ -230,7 +230,7 @@
                                             <constraint firstAttribute="width" constant="40" id="PdX-Cj-Frx"/>
                                             <constraint firstAttribute="height" constant="40" id="bJi-XE-c73"/>
                                         </constraints>
-                                        <state key="normal" image="arrow-left.png">
+                                        <state key="normal" image="arrow-left">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
@@ -240,7 +240,7 @@
                                             <constraint firstAttribute="height" constant="40" id="nOx-wv-ixe"/>
                                             <constraint firstAttribute="width" constant="40" id="vqC-vF-bDh"/>
                                         </constraints>
-                                        <state key="normal" image="arrow-right.png">
+                                        <state key="normal" image="arrow-right">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
@@ -295,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQN-rs-m7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-477" y="-2172"/>
+            <point key="canvasLocation" x="-483" y="-2172"/>
         </scene>
         <!--Holy Communion-->
         <scene sceneID="fE8-SV-o0n">
@@ -399,7 +399,7 @@
         <scene sceneID="BwA-TN-JYu">
             <objects>
                 <navigationController definesPresentationContext="YES" id="0X5-7L-jSp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Library" image="library.png" id="axO-gz-esa"/>
+                    <tabBarItem key="tabBarItem" title="Library" image="library" id="axO-gz-esa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gji-eC-yfx">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -415,7 +415,7 @@
         <scene sceneID="dCu-sf-oj4">
             <objects>
                 <navigationController definesPresentationContext="YES" id="SsX-Q4-dMs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Prayers" image="group.png" id="kA4-di-xhG"/>
+                    <tabBarItem key="tabBarItem" title="Prayers" image="group" id="kA4-di-xhG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uHF-CH-tyU">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -431,7 +431,7 @@
         <scene sceneID="Ylu-Ah-0Bh">
             <objects>
                 <navigationController definesPresentationContext="YES" id="x5e-qi-gb8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Communion" image="communion.png" id="T2A-zr-QUx"/>
+                    <tabBarItem key="tabBarItem" title="Communion" image="communion" id="T2A-zr-QUx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Ro-wi-CsL">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -465,7 +465,7 @@
         <scene sceneID="o8U-9Z-h5E">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G84-hy-s0A" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Daily" image="daily.png" id="gXv-Zf-1Wo"/>
+                    <tabBarItem key="tabBarItem" title="Daily" image="daily" id="gXv-Zf-1Wo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="unx-wi-BpH">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -484,14 +484,14 @@
     <resources>
         <image name="CN.png" width="24" height="16"/>
         <image name="US.png" width="24" height="16"/>
-        <image name="arrow-left.png" width="40" height="40"/>
-        <image name="arrow-right.png" width="40" height="40"/>
-        <image name="communion.png" width="30" height="30"/>
-        <image name="daily.png" width="30" height="30"/>
-        <image name="food-vegetarian.png" width="64" height="64"/>
-        <image name="group.png" width="30" height="30"/>
-        <image name="library.png" width="30" height="30"/>
-        <image name="options.png" width="25" height="25"/>
+        <image name="arrow-left" width="32" height="32"/>
+        <image name="arrow-right" width="32" height="32"/>
+        <image name="communion" width="30" height="30"/>
+        <image name="daily" width="30" height="30"/>
+        <image name="food-vegetarian" width="64" height="64"/>
+        <image name="group" width="30" height="30"/>
+        <image name="library" width="30" height="30"/>
+        <image name="options" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -29,7 +29,12 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.reload()
     }
 
-    func addRoundedBorder(button: UIButton!) {
+    func addRoundedBorder(button: UIButton!, imageName optImageName: String? = nil) {
+        if let imageName = optImageName {
+            var image = UIImage(named: imageName).imageWithRenderingMode(.AlwaysTemplate)
+            button.setImage(image, forState: .Normal)
+        }
+        
         let color = self.view.tintColor
         button.layer.borderColor = color.CGColor
         button.layer.borderWidth = 1.0
@@ -39,8 +44,10 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.addRoundedBorder(foodButton)
+
+        addRoundedBorder(foodButton)
+        addRoundedBorder(buttonLeft, imageName: "arrow-left")
+        addRoundedBorder(buttonRight, imageName: "arrow-right")
         
         let leftConstraint = NSLayoutConstraint(item: self.tableView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 10)
         
