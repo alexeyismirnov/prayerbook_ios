@@ -15,8 +15,6 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var foodButton: UIButton!
     @IBOutlet weak var foodLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var buttonLeft: UIButton!
-    @IBOutlet weak var buttonRight: UIButton!
 
     var titles: [String] = []
     
@@ -29,12 +27,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.reload()
     }
 
-    func addRoundedBorder(button: UIButton!, imageName optImageName: String? = nil) {
-        if let imageName = optImageName {
-            var image = UIImage(named: imageName).imageWithRenderingMode(.AlwaysTemplate)
-            button.setImage(image, forState: .Normal)
-        }
-        
+    func addRoundedBorder(button: UIButton!) {
         let color = self.view.tintColor
         button.layer.borderColor = color.CGColor
         button.layer.borderWidth = 1.0
@@ -42,12 +35,34 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         button.setTitleColor(color, forState: UIControlState.Normal)
     }
     
+    func prev_day() {
+        NSLog("prev_day")
+    }
+    
+    func next_day() {
+        NSLog("next_day")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var arrow_left_image = UIImage(named: "arrow-left")
+        var arrow_right_image = UIImage(named: "arrow-right")
+        var calendar_image =  UIImage(named: "calendar")
 
+        var button_left = UIBarButtonItem(image: arrow_left_image, style: .Plain, target: self, action: "prev_day")
+
+        var button_right = UIBarButtonItem(image: arrow_right_image, style: .Plain, target: self, action: "next_day")
+        
+        button_left.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
+        
+        
+        var calendar = UIBarButtonItem(image: calendar_image, style: .Plain, target: self, action: "select_day")
+        
+        navigationItem.rightBarButtonItems = [button_right, button_left]
+        navigationItem.leftBarButtonItem = calendar
+        
         addRoundedBorder(foodButton)
-        addRoundedBorder(buttonLeft, imageName: "arrow-left")
-        addRoundedBorder(buttonRight, imageName: "arrow-right")
         
         let leftConstraint = NSLayoutConstraint(item: self.tableView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 10)
         

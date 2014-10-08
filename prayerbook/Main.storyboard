@@ -181,11 +181,6 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pU3-r1-ThC">
                                 <rect key="frame" x="18" y="93" width="708" height="838"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Четверг 11 сентября 2014 г" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXH-NP-f0d">
-                                        <rect key="frame" x="72" y="33" width="321" height="56"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Седмица X по пятидесятнице глас 1й скоро будет праздник Рождества Богородицы" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xh-eN-mJQ">
                                         <rect key="frame" x="66" y="147" width="218" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -193,7 +188,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8Z-iW-tsi">
-                                        <rect key="frame" x="593" y="90" width="70" height="64"/>
+                                        <rect key="frame" x="593" y="95" width="70" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="KaT-X4-YCX"/>
                                             <constraint firstAttribute="width" constant="64" id="U0I-NX-yq6"/>
@@ -224,26 +219,6 @@
                                             <outlet property="delegate" destination="2oD-Mq-Jdq" id="uXM-E1-DLI"/>
                                         </connections>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HbD-hh-zB1">
-                                        <rect key="frame" x="548" y="25" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="PdX-Cj-Frx"/>
-                                            <constraint firstAttribute="height" constant="40" id="bJi-XE-c73"/>
-                                        </constraints>
-                                        <state key="normal" image="arrow-left">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixM-Gc-Jmd">
-                                        <rect key="frame" x="601" y="26" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="nOx-wv-ixe"/>
-                                            <constraint firstAttribute="width" constant="40" id="vqC-vF-bDh"/>
-                                        </constraints>
-                                        <state key="normal" image="arrow-right">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Lent of  Apostoles" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYZ-41-dYZ">
                                         <rect key="frame" x="509" y="160" width="140" height="23"/>
                                         <constraints>
@@ -252,24 +227,25 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Четверг 11 сентября 2014 г" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXH-NP-f0d">
+                                        <rect key="frame" x="73" y="17" width="570" height="56"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="LXH-NP-f0d" firstAttribute="top" secondItem="pU3-r1-ThC" secondAttribute="top" constant="5" id="0kP-nf-6oK"/>
-                                    <constraint firstItem="ixM-Gc-Jmd" firstAttribute="leading" secondItem="HbD-hh-zB1" secondAttribute="trailing" constant="5" id="16J-JA-IUv"/>
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="trailing" secondItem="KYZ-41-dYZ" secondAttribute="trailing" id="4wK-fj-1Tq"/>
                                     <constraint firstItem="KYZ-41-dYZ" firstAttribute="top" secondItem="V8Z-iW-tsi" secondAttribute="bottom" constant="10" id="On1-mA-DLa"/>
-                                    <constraint firstItem="HbD-hh-zB1" firstAttribute="top" secondItem="pU3-r1-ThC" secondAttribute="top" constant="10" id="P8k-SK-Lrm"/>
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3Xh-eN-mJQ" secondAttribute="bottom" constant="10" id="PFA-8D-roG"/>
-                                    <constraint firstItem="ixM-Gc-Jmd" firstAttribute="trailing" secondItem="b1b-lE-LKT" secondAttribute="trailing" id="S0s-q4-ors"/>
                                     <constraint firstItem="3Xh-eN-mJQ" firstAttribute="top" secondItem="LXH-NP-f0d" secondAttribute="bottom" constant="10" id="SMd-K1-Upv"/>
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="trailing" secondItem="V8Z-iW-tsi" secondAttribute="trailing" id="Uci-tC-xpY"/>
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KYZ-41-dYZ" secondAttribute="bottom" constant="10" id="X6H-cV-BvP"/>
-                                    <constraint firstItem="ixM-Gc-Jmd" firstAttribute="top" secondItem="pU3-r1-ThC" secondAttribute="top" constant="10" id="YoT-Rr-awr"/>
                                     <constraint firstItem="KYZ-41-dYZ" firstAttribute="leading" secondItem="3Xh-eN-mJQ" secondAttribute="trailing" constant="10" id="alB-g2-Rbq"/>
+                                    <constraint firstItem="LXH-NP-f0d" firstAttribute="trailing" secondItem="b1b-lE-LKT" secondAttribute="trailing" id="cke-Pp-0ar"/>
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="leading" secondItem="LXH-NP-f0d" secondAttribute="leading" id="cpz-S8-FKB"/>
-                                    <constraint firstItem="HbD-hh-zB1" firstAttribute="leading" secondItem="LXH-NP-f0d" secondAttribute="trailing" constant="10" id="hWk-rU-2rC"/>
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="leading" secondItem="3Xh-eN-mJQ" secondAttribute="leading" id="qn2-f1-6ax"/>
-                                    <constraint firstItem="V8Z-iW-tsi" firstAttribute="top" secondItem="LXH-NP-f0d" secondAttribute="bottom" constant="10" id="t9M-KY-L18"/>
+                                    <constraint firstItem="V8Z-iW-tsi" firstAttribute="top" secondItem="LXH-NP-f0d" secondAttribute="bottom" constant="10" id="vAa-2K-2z4"/>
                                     <constraint firstAttribute="bottom" secondItem="b1b-lE-LKT" secondAttribute="bottom" id="wUU-ly-jP1"/>
                                 </constraints>
                             </scrollView>
@@ -284,8 +260,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Daily Prayers" id="JiD-rY-ey3"/>
                     <connections>
-                        <outlet property="buttonLeft" destination="HbD-hh-zB1" id="kK0-dI-Oti"/>
-                        <outlet property="buttonRight" destination="ixM-Gc-Jmd" id="gXs-wZ-JQT"/>
                         <outlet property="dateLabel" destination="LXH-NP-f0d" id="lG5-b8-97O"/>
                         <outlet property="foodButton" destination="V8Z-iW-tsi" id="5dT-Tx-5JR"/>
                         <outlet property="foodLabel" destination="KYZ-41-dYZ" id="xNF-z1-8c2"/>
@@ -484,8 +458,6 @@
     <resources>
         <image name="CN.png" width="24" height="16"/>
         <image name="US.png" width="24" height="16"/>
-        <image name="arrow-left" width="32" height="32"/>
-        <image name="arrow-right" width="32" height="32"/>
         <image name="communion" width="30" height="30"/>
         <image name="daily" width="30" height="30"/>
         <image name="food-vegetarian" width="64" height="64"/>
