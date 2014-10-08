@@ -46,12 +46,9 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var arrow_left_image = UIImage(named: "arrow-left")
-        var arrow_right_image = UIImage(named: "arrow-right")
+        var button_left = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .Plain, target: self, action: "prev_day")
 
-        var button_left = UIBarButtonItem(image: arrow_left_image, style: .Plain, target: self, action: "prev_day")
-
-        var button_right = UIBarButtonItem(image: arrow_right_image, style: .Plain, target: self, action: "next_day")
+        var button_right = UIBarButtonItem(image: UIImage(named: "arrow-right"), style: .Plain, target: self, action: "next_day")
         
         button_left.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         
@@ -79,6 +76,11 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
             var index = self.tableView.indexPathForSelectedRow();
             view.index = index!.row
             view.code = "daily"
+
+        } else if segue.identifier == "Calendar" {
+            let nav = segue.destinationViewController as UINavigationController
+            let dest = nav.viewControllers[0] as CalendarViewController
+            dest.delegate = self
         }
     }
     

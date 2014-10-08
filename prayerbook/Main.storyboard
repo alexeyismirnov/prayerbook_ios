@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="G5G-CB-Hhd">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -115,19 +114,19 @@
                         <viewControllerLayoutGuide type="bottom" id="soQ-cD-gxb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mbE-CE-VL4">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9FL-Xp-d7d" customClass="RDVCalendarView">
-                                <rect key="frame" x="38" y="-75" width="675" height="775"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This text label has some info about current day, tone.... It might span a few lines... What about fasting today?..." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytf-Sf-VD2">
                                 <rect key="frame" x="172" y="835" width="255" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9FL-Xp-d7d" customClass="RDVCalendarView">
+                                <rect key="frame" x="66" y="65" width="656" height="732"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -140,15 +139,20 @@
                             <constraint firstAttribute="trailing" secondItem="9FL-Xp-d7d" secondAttribute="trailing" constant="20" symbolic="YES" id="o9j-aJ-y98"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ePb-wK-hrj"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationItem key="navigationItem" id="ePb-wK-hrj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="xHP-GD-AOB">
+                            <connections>
+                                <action selector="done:" destination="3oo-4v-qEy" id="VgW-Z3-ZuW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="_calendarView" destination="9FL-Xp-d7d" id="D2n-lY-wye"/>
+                        <outlet property="calendarView" destination="9FL-Xp-d7d" id="bPe-Kv-Nho"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iNJ-LS-15D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1610" y="-2355"/>
+            <point key="canvasLocation" x="1376" y="-2355"/>
         </scene>
         <!--Title-->
         <scene sceneID="xiR-6X-NLn">
@@ -306,7 +310,7 @@
                     <navigationItem key="navigationItem" title="Daily Prayers" id="JiD-rY-ey3">
                         <barButtonItem key="leftBarButtonItem" image="calendar" id="W2H-jc-nHF">
                             <connections>
-                                <segue destination="Nw2-Wf-EAu" kind="modal" identifier="Calendar" id="iPL-Ez-Kkf"/>
+                                <segue destination="Avd-PZ-bJK" kind="modal" identifier="Calendar" id="Ad0-jx-Pys"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -506,24 +510,22 @@
             <point key="canvasLocation" x="-1455" y="-2152"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="bLs-ws-VSr">
+        <scene sceneID="CjF-6s-WZz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nw2-Wf-EAu" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Avd-PZ-bJK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="tEW-oU-eLY"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="VyX-ln-JhW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xLi-U3-3aS">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="3oo-4v-qEy" kind="relationship" relationship="rootViewController" id="5Xa-ek-xjf"/>
+                        <segue destination="3oo-4v-qEy" kind="relationship" relationship="rootViewController" id="Udn-Rb-LBb"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u0I-Ii-rhR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9hn-mU-d22" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="358" y="-2343"/>
+            <point key="canvasLocation" x="396" y="-2355"/>
         </scene>
     </scenes>
     <resources>

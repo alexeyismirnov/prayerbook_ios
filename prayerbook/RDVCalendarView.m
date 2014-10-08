@@ -168,6 +168,7 @@
     [self.forwardButton setFrame:CGRectMake(0,0,0,0)];
     [self.monthLabel setFrame:CGRectMake(0,0,0,0)];
 
+    /*
     [[self backButton] setFrame:CGRectMake(10, roundf(headerSize.height / 2 - previousMonthButtonSize.height / 2),
                                          previousMonthButtonSize.width, previousMonthButtonSize.height)];
     
@@ -178,7 +179,8 @@
     [[self forwardButton] setFrame:CGRectMake(headerSize.width - 10 - nextMonthButtonSize.width,
                                             roundf(headerSize.height / 2 - nextMonthButtonSize.height / 2),
                                             nextMonthButtonSize.width, nextMonthButtonSize.height)];
-
+*/
+    
     // Calculate sizes and distances
     
     CGFloat rowCount = 6; // 6 is the maximum number of weeks in a month
