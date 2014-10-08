@@ -16,6 +16,9 @@
 		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
 		8A2F46A919E1302700076AF4 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A819E1302700076AF4 /* Translate.swift */; };
 		8A2F46AB19E145D200076AF4 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46AA19E145D200076AF4 /* Options.swift */; };
+		8A3CD13519E51D0400A78A32 /* RDVCalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CD13219E51D0400A78A32 /* RDVCalendarDayCell.m */; };
+		8A3CD13619E51D0400A78A32 /* RDVCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CD13419E51D0400A78A32 /* RDVCalendarView.m */; };
+		8A3CD13819E5233100A78A32 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CD13719E5233100A78A32 /* CalendarViewController.swift */; };
 		8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FA198F20CC0078F39F /* Foundation.framework */; };
 		8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */; };
 		8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FE198F20CC0078F39F /* UIKit.framework */; };
@@ -102,6 +105,11 @@
 		8A2F46A819E1302700076AF4 /* Translate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
 		8A2F46AA19E145D200076AF4 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Bridging-Header.h"; sourceTree = "<group>"; };
+		8A3CD13119E51D0400A78A32 /* RDVCalendarDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVCalendarDayCell.h; sourceTree = "<group>"; };
+		8A3CD13219E51D0400A78A32 /* RDVCalendarDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarDayCell.m; sourceTree = "<group>"; };
+		8A3CD13319E51D0400A78A32 /* RDVCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVCalendarView.h; sourceTree = "<group>"; };
+		8A3CD13419E51D0400A78A32 /* RDVCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarView.m; sourceTree = "<group>"; };
+		8A3CD13719E5233100A78A32 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		8A74D7F7198F20CC0078F39F /* prayerbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prayerbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A74D7FA198F20CC0078F39F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -238,10 +246,15 @@
 				8A2F46A219E1129B00076AF4 /* DailyPrayers.swift */,
 				8AC4E14F19DE2BF800CF4271 /* ListOfPrayers.swift */,
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
+				8A3CD13719E5233100A78A32 /* CalendarViewController.swift */,
 				8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */,
 				8A74D837198F2AF70078F39F /* index_en.plist */,
 				8A74D83E198F5F350078F39F /* index_cn.plist */,
 				8AC1B114199871DE00A017C7 /* trans_cn.plist */,
+				8A3CD13119E51D0400A78A32 /* RDVCalendarDayCell.h */,
+				8A3CD13219E51D0400A78A32 /* RDVCalendarDayCell.m */,
+				8A3CD13319E51D0400A78A32 /* RDVCalendarView.h */,
+				8A3CD13419E51D0400A78A32 /* RDVCalendarView.m */,
 				8A74D801198F20CC0078F39F /* Supporting Files */,
 			);
 			path = prayerbook;
@@ -482,9 +495,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A3CD13819E5233100A78A32 /* CalendarViewController.swift in Sources */,
+				8A3CD13619E51D0400A78A32 /* RDVCalendarView.m in Sources */,
 				8A2F46A919E1302700076AF4 /* Translate.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
+				8A3CD13519E51D0400A78A32 /* RDVCalendarDayCell.m in Sources */,
 				8A2F46AB19E145D200076AF4 /* Options.swift in Sources */,
 				8AC4E15019DE2BF800CF4271 /* ListOfPrayers.swift in Sources */,
 				8A2F46A519E11CEA00076AF4 /* Prayer.swift in Sources */,

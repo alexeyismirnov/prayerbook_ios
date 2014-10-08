@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="G5G-CB-Hhd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="G5G-CB-Hhd">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -103,7 +104,51 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSl-pD-wjo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2605" y="-838"/>
+            <point key="canvasLocation" x="2281" y="-1182"/>
+        </scene>
+        <!--Calendar View Controller-->
+        <scene sceneID="GHt-Ln-le2">
+            <objects>
+                <viewController id="3oo-4v-qEy" customClass="CalendarViewController" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wbg-kb-UZP"/>
+                        <viewControllerLayoutGuide type="bottom" id="soQ-cD-gxb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mbE-CE-VL4">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9FL-Xp-d7d" customClass="RDVCalendarView">
+                                <rect key="frame" x="38" y="-75" width="675" height="775"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This text label has some info about current day, tone.... It might span a few lines... What about fasting today?..." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytf-Sf-VD2">
+                                <rect key="frame" x="172" y="835" width="255" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ytf-Sf-VD2" firstAttribute="leading" secondItem="mbE-CE-VL4" secondAttribute="leading" constant="20" symbolic="YES" id="EGB-35-Y8q"/>
+                            <constraint firstItem="9FL-Xp-d7d" firstAttribute="top" secondItem="wbg-kb-UZP" secondAttribute="bottom" constant="8" symbolic="YES" id="ML1-Tb-SQG"/>
+                            <constraint firstAttribute="trailing" secondItem="Ytf-Sf-VD2" secondAttribute="trailing" constant="20" symbolic="YES" id="UXj-nu-N8X"/>
+                            <constraint firstItem="soQ-cD-gxb" firstAttribute="top" secondItem="Ytf-Sf-VD2" secondAttribute="bottom" constant="10" id="ge3-r9-iET"/>
+                            <constraint firstItem="9FL-Xp-d7d" firstAttribute="leading" secondItem="mbE-CE-VL4" secondAttribute="leading" constant="20" symbolic="YES" id="ifQ-pT-Iqd"/>
+                            <constraint firstItem="Ytf-Sf-VD2" firstAttribute="top" secondItem="9FL-Xp-d7d" secondAttribute="bottom" constant="10" id="lfk-9E-KBx"/>
+                            <constraint firstAttribute="trailing" secondItem="9FL-Xp-d7d" secondAttribute="trailing" constant="20" symbolic="YES" id="o9j-aJ-y98"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ePb-wK-hrj"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="_calendarView" destination="9FL-Xp-d7d" id="D2n-lY-wye"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iNJ-LS-15D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1610" y="-2355"/>
         </scene>
         <!--Title-->
         <scene sceneID="xiR-6X-NLn">
@@ -143,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJ4-TD-1Et" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="410" y="127"/>
+            <point key="canvasLocation" x="518" y="-1173"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zs1-97-Vp3">
@@ -164,7 +209,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eFb-6Z-RE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2480" y="-223"/>
+            <point key="canvasLocation" x="-2424" y="169"/>
         </scene>
         <!--Daily Prayers-->
         <scene sceneID="edj-AU-hVs">
@@ -258,7 +303,13 @@
                             <constraint firstItem="5NU-4u-iQJ" firstAttribute="top" secondItem="pU3-r1-ThC" secondAttribute="bottom" id="hol-ks-m30"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Daily Prayers" id="JiD-rY-ey3"/>
+                    <navigationItem key="navigationItem" title="Daily Prayers" id="JiD-rY-ey3">
+                        <barButtonItem key="leftBarButtonItem" image="calendar" id="W2H-jc-nHF">
+                            <connections>
+                                <segue destination="Nw2-Wf-EAu" kind="modal" identifier="Calendar" id="iPL-Ez-Kkf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="LXH-NP-f0d" id="lG5-b8-97O"/>
                         <outlet property="foodButton" destination="V8Z-iW-tsi" id="5dT-Tx-5JR"/>
@@ -269,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQN-rs-m7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-483" y="-2172"/>
+            <point key="canvasLocation" x="-623" y="-2140"/>
         </scene>
         <!--Holy Communion-->
         <scene sceneID="fE8-SV-o0n">
@@ -303,7 +354,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uT-3X-onx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-503" y="113"/>
+            <point key="canvasLocation" x="-571" y="-971"/>
         </scene>
         <!--Group Prayers-->
         <scene sceneID="1wL-A0-fFK">
@@ -338,7 +389,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlE-fP-LiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-503" y="1274"/>
+            <point key="canvasLocation" x="-567" y="162"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="fba-ON-Fdn">
@@ -367,7 +418,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrC-S0-wjr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-497" y="-1006"/>
+            <point key="canvasLocation" x="-565" y="1310"/>
         </scene>
         <!--Library-->
         <scene sceneID="BwA-TN-JYu">
@@ -383,7 +434,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="srx-gj-ZIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1453" y="-1030"/>
+            <point key="canvasLocation" x="-1429" y="1310"/>
         </scene>
         <!--Prayers-->
         <scene sceneID="dCu-sf-oj4">
@@ -399,7 +450,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQY-O1-WAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1471" y="1250"/>
+            <point key="canvasLocation" x="-1443" y="162"/>
         </scene>
         <!--Communion-->
         <scene sceneID="Ylu-Ah-0Bh">
@@ -415,7 +466,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tJH-Tx-EnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1455" y="85"/>
+            <point key="canvasLocation" x="-1439" y="-963"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qZa-Yj-g12">
@@ -433,7 +484,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8I-rF-0Dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1719" y="-840"/>
+            <point key="canvasLocation" x="1399" y="-1180"/>
         </scene>
         <!--Daily-->
         <scene sceneID="o8U-9Z-h5E">
@@ -454,10 +505,31 @@
             </objects>
             <point key="canvasLocation" x="-1455" y="-2152"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bLs-ws-VSr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nw2-Wf-EAu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="tEW-oU-eLY"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="VyX-ln-JhW">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3oo-4v-qEy" kind="relationship" relationship="rootViewController" id="5Xa-ek-xjf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u0I-Ii-rhR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="358" y="-2343"/>
+        </scene>
     </scenes>
     <resources>
         <image name="CN.png" width="24" height="16"/>
         <image name="US.png" width="24" height="16"/>
+        <image name="calendar" width="25" height="25"/>
         <image name="communion" width="30" height="30"/>
         <image name="daily" width="30" height="30"/>
         <image name="food-vegetarian" width="64" height="64"/>

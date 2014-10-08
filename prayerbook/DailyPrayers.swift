@@ -48,7 +48,6 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         var arrow_left_image = UIImage(named: "arrow-left")
         var arrow_right_image = UIImage(named: "arrow-right")
-        var calendar_image =  UIImage(named: "calendar")
 
         var button_left = UIBarButtonItem(image: arrow_left_image, style: .Plain, target: self, action: "prev_day")
 
@@ -56,11 +55,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         button_left.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         
-        
-        var calendar = UIBarButtonItem(image: calendar_image, style: .Plain, target: self, action: "select_day")
-        
         navigationItem.rightBarButtonItems = [button_right, button_left]
-        navigationItem.leftBarButtonItem = calendar
         
         addRoundedBorder(foodButton)
         
