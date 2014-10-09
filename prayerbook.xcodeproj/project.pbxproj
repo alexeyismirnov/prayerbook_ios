@@ -1,667 +1,2522 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		8A2F469E19E110CF00076AF4 /* prayer_group_0_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469A19E110CF00076AF4 /* prayer_group_0_cn.html */; };
-		8A2F469F19E110CF00076AF4 /* prayer_group_0_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469B19E110CF00076AF4 /* prayer_group_0_en.html */; };
-		8A2F46A019E110CF00076AF4 /* prayer_group_1_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469C19E110CF00076AF4 /* prayer_group_1_cn.html */; };
-		8A2F46A119E110CF00076AF4 /* prayer_group_1_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469D19E110CF00076AF4 /* prayer_group_1_en.html */; };
-		8A2F46A319E1129B00076AF4 /* DailyPrayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A219E1129B00076AF4 /* DailyPrayers.swift */; };
-		8A2F46A519E11CEA00076AF4 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A419E11CEA00076AF4 /* Prayer.swift */; };
-		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
-		8A2F46A919E1302700076AF4 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A819E1302700076AF4 /* Translate.swift */; };
-		8A2F46AB19E145D200076AF4 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46AA19E145D200076AF4 /* Options.swift */; };
-		8A3CD13519E51D0400A78A32 /* RDVCalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CD13219E51D0400A78A32 /* RDVCalendarDayCell.m */; };
-		8A3CD13619E51D0400A78A32 /* RDVCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CD13419E51D0400A78A32 /* RDVCalendarView.m */; };
-		8A3CD13819E5233100A78A32 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CD13719E5233100A78A32 /* CalendarViewController.swift */; };
-		8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FA198F20CC0078F39F /* Foundation.framework */; };
-		8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */; };
-		8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FE198F20CC0078F39F /* UIKit.framework */; };
-		8A74D805198F20CC0078F39F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D803198F20CC0078F39F /* InfoPlist.strings */; };
-		8A74D807198F20CC0078F39F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D806198F20CC0078F39F /* main.m */; };
-		8A74D816198F20CC0078F39F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D815198F20CC0078F39F /* Images.xcassets */; };
-		8A74D833198F224E0078F39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D832198F224E0078F39F /* Main.storyboard */; };
-		8A74D838198F2AF70078F39F /* index_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D837198F2AF70078F39F /* index_en.plist */; };
-		8A74D83F198F5F350078F39F /* index_cn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D83E198F5F350078F39F /* index_cn.plist */; };
-		8A74D84C198F691A0078F39F /* CN.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D848198F691A0078F39F /* CN.png */; };
-		8A74D84D198F691A0078F39F /* CN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D849198F691A0078F39F /* CN@2x.png */; };
-		8A74D84E198F691A0078F39F /* US.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D84A198F691A0078F39F /* US.png */; };
-		8A74D84F198F691A0078F39F /* US@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D84B198F691A0078F39F /* US@2x.png */; };
-		8A81857F19D2E3F300D4B328 /* prayer_communion_0_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81856719D2E3F300D4B328 /* prayer_communion_0_cn.html */; };
-		8A81858019D2E3F300D4B328 /* prayer_communion_0_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81856819D2E3F300D4B328 /* prayer_communion_0_en.html */; };
-		8A81858119D2E3F300D4B328 /* prayer_communion_1_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81856919D2E3F300D4B328 /* prayer_communion_1_cn.html */; };
-		8A81858219D2E3F300D4B328 /* prayer_communion_1_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81856A19D2E3F300D4B328 /* prayer_communion_1_en.html */; };
-		8A81858319D2E3F300D4B328 /* prayer_communion_2_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81856B19D2E3F300D4B328 /* prayer_communion_2_cn.html */; };
-		8A81858419D2E3F300D4B328 /* prayer_communion_2_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81856C19D2E3F300D4B328 /* prayer_communion_2_en.html */; };
-		8A81858519D2E3F300D4B328 /* prayer_communion_3_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81856D19D2E3F300D4B328 /* prayer_communion_3_cn.html */; };
-		8A81858619D2E3F300D4B328 /* prayer_communion_3_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81856E19D2E3F300D4B328 /* prayer_communion_3_en.html */; };
-		8A81858919D2E3F300D4B328 /* prayer_daily_0_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81857119D2E3F300D4B328 /* prayer_daily_0_cn.html */; };
-		8A81858A19D2E3F300D4B328 /* prayer_daily_0_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81857219D2E3F300D4B328 /* prayer_daily_0_en.html */; };
-		8A81858B19D2E3F300D4B328 /* prayer_daily_1_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81857319D2E3F300D4B328 /* prayer_daily_1_cn.html */; };
-		8A81858C19D2E3F300D4B328 /* prayer_daily_1_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81857419D2E3F300D4B328 /* prayer_daily_1_en.html */; };
-		8A81858D19D2E3F300D4B328 /* prayer_daily_2_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81857519D2E3F300D4B328 /* prayer_daily_2_cn.html */; };
-		8A81858E19D2E3F300D4B328 /* prayer_daily_2_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81857619D2E3F300D4B328 /* prayer_daily_2_en.html */; };
-		8A9A3DD519D3AE1600A7D82A /* prayer_communion_4_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A9A3DD119D3AE1600A7D82A /* prayer_communion_4_cn.html */; };
-		8A9A3DD619D3AE1600A7D82A /* prayer_communion_4_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A9A3DD219D3AE1600A7D82A /* prayer_communion_4_en.html */; };
-		8A9A3DD719D3AE1600A7D82A /* prayer_communion_5_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A9A3DD319D3AE1600A7D82A /* prayer_communion_5_cn.html */; };
-		8A9A3DD819D3AE1600A7D82A /* prayer_communion_5_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A9A3DD419D3AE1600A7D82A /* prayer_communion_5_en.html */; };
-		8A9A3DDF19D3AE2800A7D82A /* prayer_group_2_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A9A3DD919D3AE2800A7D82A /* prayer_group_2_cn.html */; };
-		8A9A3DE019D3AE2800A7D82A /* prayer_group_2_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A9A3DDA19D3AE2800A7D82A /* prayer_group_2_en.html */; };
-		8A9A3DE119D3AE2800A7D82A /* prayer_group_3_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A9A3DDB19D3AE2800A7D82A /* prayer_group_3_cn.html */; };
-		8A9A3DE219D3AE2800A7D82A /* prayer_group_3_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A9A3DDC19D3AE2800A7D82A /* prayer_group_3_en.html */; };
-		8A9A3DE319D3AE2800A7D82A /* prayer_group_4_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A9A3DDD19D3AE2800A7D82A /* prayer_group_4_cn.html */; };
-		8A9A3DE419D3AE2800A7D82A /* prayer_group_4_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A9A3DDE19D3AE2800A7D82A /* prayer_group_4_en.html */; };
-		8AC1B10D199866FF00A017C7 /* launch-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1B106199866FF00A017C7 /* launch-ipad.png */; };
-		8AC1B10E199866FF00A017C7 /* launch-ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1B107199866FF00A017C7 /* launch-ipad@2x.png */; };
-		8AC1B10F199866FF00A017C7 /* launch-iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1B108199866FF00A017C7 /* launch-iphone@2x.png */; };
-		8AC1B110199866FF00A017C7 /* launch-iphone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1B109199866FF00A017C7 /* launch-iphone4.png */; };
-		8AC1B111199866FF00A017C7 /* launch-iphone4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1B10A199866FF00A017C7 /* launch-iphone4@2x.png */; };
-		8AC1B112199866FF00A017C7 /* launch-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1B10B199866FF00A017C7 /* launch-landscape.png */; };
-		8AC1B113199866FF00A017C7 /* launch-landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1B10C199866FF00A017C7 /* launch-landscape@2x.png */; };
-		8AC1B115199871DE00A017C7 /* trans_cn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1B114199871DE00A017C7 /* trans_cn.plist */; };
-		8AC4E15019DE2BF800CF4271 /* ListOfPrayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4E14F19DE2BF800CF4271 /* ListOfPrayers.swift */; };
-		8AC6950B19E3EDED00773FEB /* food-vegetarian.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950A19E3EDED00773FEB /* food-vegetarian.pdf */; };
-		8AC6951619E3FBC200773FEB /* food-bread.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950C19E3FBC200773FEB /* food-bread.pdf */; };
-		8AC6951719E3FBC200773FEB /* food-cheese.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950D19E3FBC200773FEB /* food-cheese.pdf */; };
-		8AC6951819E3FBC200773FEB /* food-cupcake.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950E19E3FBC200773FEB /* food-cupcake.pdf */; };
-		8AC6951919E3FBC200773FEB /* food-fish.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950F19E3FBC200773FEB /* food-fish.pdf */; };
-		8AC6951A19E3FBC200773FEB /* food-meat.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6951019E3FBC200773FEB /* food-meat.pdf */; };
-		8AC6951B19E3FBC200773FEB /* food-no-egg.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6951119E3FBC200773FEB /* food-no-egg.pdf */; };
-		8AC6951C19E3FBC200773FEB /* food-no-fish.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6951219E3FBC200773FEB /* food-no-fish.pdf */; };
-		8AC6951D19E3FBC200773FEB /* food-no-meat.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6951319E3FBC200773FEB /* food-no-meat.pdf */; };
-		8AC6951E19E3FBC200773FEB /* food-no-milk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6951419E3FBC200773FEB /* food-no-milk.pdf */; };
-		8AC6951F19E3FBC200773FEB /* food-nuts.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6951519E3FBC200773FEB /* food-nuts.pdf */; };
-		8AC6952419E4011700773FEB /* communion.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952019E4011700773FEB /* communion.pdf */; };
-		8AC6952519E4011700773FEB /* daily.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952119E4011700773FEB /* daily.pdf */; };
-		8AC6952619E4011700773FEB /* group.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952219E4011700773FEB /* group.pdf */; };
-		8AC6952719E4011700773FEB /* library.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952319E4011700773FEB /* library.pdf */; };
-		8AC6952919E4034D00773FEB /* options.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952819E4034D00773FEB /* options.pdf */; };
-		8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89219E4CECB00B51294 /* arrow-left.pdf */; };
-		8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89319E4CECB00B51294 /* arrow-right.pdf */; };
-		8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89619E4D1DE00B51294 /* calendar.pdf */; };
-		8AEF81A919999D39000B3D90 /* icon-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A219999D39000B3D90 /* icon-ipad.png */; };
-		8AEF81AA19999D39000B3D90 /* icon-ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A319999D39000B3D90 /* icon-ipad@2x.png */; };
-		8AEF81AB19999D39000B3D90 /* icon-ipad6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A419999D39000B3D90 /* icon-ipad6.png */; };
-		8AEF81AC19999D39000B3D90 /* icon-ipad6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A519999D39000B3D90 /* icon-ipad6@2x.png */; };
-		8AEF81AD19999D39000B3D90 /* icon-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A619999D39000B3D90 /* icon-iphone.png */; };
-		8AEF81AE19999D39000B3D90 /* icon-iphone6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A719999D39000B3D90 /* icon-iphone6.png */; };
-		8AEF81AF19999D39000B3D90 /* icon-iphone6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A819999D39000B3D90 /* icon-iphone6@2x.png */; };
-		8AEF81B11999A194000B3D90 /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81B01999A194000B3D90 /* icon1024.png */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
-		8A2F469A19E110CF00076AF4 /* prayer_group_0_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_0_cn.html; sourceTree = "<group>"; };
-		8A2F469B19E110CF00076AF4 /* prayer_group_0_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_0_en.html; sourceTree = "<group>"; };
-		8A2F469C19E110CF00076AF4 /* prayer_group_1_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_1_cn.html; sourceTree = "<group>"; };
-		8A2F469D19E110CF00076AF4 /* prayer_group_1_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_1_en.html; sourceTree = "<group>"; };
-		8A2F46A219E1129B00076AF4 /* DailyPrayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyPrayers.swift; sourceTree = "<group>"; };
-		8A2F46A419E11CEA00076AF4 /* Prayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
-		8A2F46A619E12B4100076AF4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8A2F46A819E1302700076AF4 /* Translate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
-		8A2F46AA19E145D200076AF4 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
-		8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Bridging-Header.h"; sourceTree = "<group>"; };
-		8A3CD13119E51D0400A78A32 /* RDVCalendarDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVCalendarDayCell.h; sourceTree = "<group>"; };
-		8A3CD13219E51D0400A78A32 /* RDVCalendarDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarDayCell.m; sourceTree = "<group>"; };
-		8A3CD13319E51D0400A78A32 /* RDVCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVCalendarView.h; sourceTree = "<group>"; };
-		8A3CD13419E51D0400A78A32 /* RDVCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarView.m; sourceTree = "<group>"; };
-		8A3CD13719E5233100A78A32 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		8A74D7F7198F20CC0078F39F /* prayerbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prayerbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A74D7FA198F20CC0078F39F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		8A74D7FE198F20CC0078F39F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		8A74D802198F20CC0078F39F /* prayerbook-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "prayerbook-Info.plist"; sourceTree = "<group>"; };
-		8A74D804198F20CC0078F39F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8A74D806198F20CC0078F39F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8A74D808198F20CC0078F39F /* prayerbook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Prefix.pch"; sourceTree = "<group>"; };
-		8A74D815198F20CC0078F39F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8A74D81C198F20CC0078F39F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		8A74D832198F224E0078F39F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8A74D837198F2AF70078F39F /* index_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = index_en.plist; sourceTree = "<group>"; };
-		8A74D83E198F5F350078F39F /* index_cn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = index_cn.plist; sourceTree = "<group>"; };
-		8A74D848198F691A0078F39F /* CN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CN.png; sourceTree = "<group>"; };
-		8A74D849198F691A0078F39F /* CN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CN@2x.png"; sourceTree = "<group>"; };
-		8A74D84A198F691A0078F39F /* US.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = US.png; sourceTree = "<group>"; };
-		8A74D84B198F691A0078F39F /* US@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "US@2x.png"; sourceTree = "<group>"; };
-		8A81856719D2E3F300D4B328 /* prayer_communion_0_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_communion_0_cn.html; sourceTree = "<group>"; };
-		8A81856819D2E3F300D4B328 /* prayer_communion_0_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_communion_0_en.html; sourceTree = "<group>"; };
-		8A81856919D2E3F300D4B328 /* prayer_communion_1_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_communion_1_cn.html; sourceTree = "<group>"; };
-		8A81856A19D2E3F300D4B328 /* prayer_communion_1_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_communion_1_en.html; sourceTree = "<group>"; };
-		8A81856B19D2E3F300D4B328 /* prayer_communion_2_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_communion_2_cn.html; sourceTree = "<group>"; };
-		8A81856C19D2E3F300D4B328 /* prayer_communion_2_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_communion_2_en.html; sourceTree = "<group>"; };
-		8A81856D19D2E3F300D4B328 /* prayer_communion_3_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_communion_3_cn.html; sourceTree = "<group>"; };
-		8A81856E19D2E3F300D4B328 /* prayer_communion_3_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_communion_3_en.html; sourceTree = "<group>"; };
-		8A81857119D2E3F300D4B328 /* prayer_daily_0_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_daily_0_cn.html; sourceTree = "<group>"; };
-		8A81857219D2E3F300D4B328 /* prayer_daily_0_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_daily_0_en.html; sourceTree = "<group>"; };
-		8A81857319D2E3F300D4B328 /* prayer_daily_1_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_daily_1_cn.html; sourceTree = "<group>"; };
-		8A81857419D2E3F300D4B328 /* prayer_daily_1_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_daily_1_en.html; sourceTree = "<group>"; };
-		8A81857519D2E3F300D4B328 /* prayer_daily_2_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_daily_2_cn.html; sourceTree = "<group>"; };
-		8A81857619D2E3F300D4B328 /* prayer_daily_2_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_daily_2_en.html; sourceTree = "<group>"; };
-		8A9A3DD119D3AE1600A7D82A /* prayer_communion_4_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_communion_4_cn.html; sourceTree = "<group>"; };
-		8A9A3DD219D3AE1600A7D82A /* prayer_communion_4_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_communion_4_en.html; sourceTree = "<group>"; };
-		8A9A3DD319D3AE1600A7D82A /* prayer_communion_5_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_communion_5_cn.html; sourceTree = "<group>"; };
-		8A9A3DD419D3AE1600A7D82A /* prayer_communion_5_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_communion_5_en.html; sourceTree = "<group>"; };
-		8A9A3DD919D3AE2800A7D82A /* prayer_group_2_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_2_cn.html; sourceTree = "<group>"; };
-		8A9A3DDA19D3AE2800A7D82A /* prayer_group_2_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_2_en.html; sourceTree = "<group>"; };
-		8A9A3DDB19D3AE2800A7D82A /* prayer_group_3_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_3_cn.html; sourceTree = "<group>"; };
-		8A9A3DDC19D3AE2800A7D82A /* prayer_group_3_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_3_en.html; sourceTree = "<group>"; };
-		8A9A3DDD19D3AE2800A7D82A /* prayer_group_4_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_4_cn.html; sourceTree = "<group>"; };
-		8A9A3DDE19D3AE2800A7D82A /* prayer_group_4_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_4_en.html; sourceTree = "<group>"; };
-		8A9DB9921998C94200C9B0FF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		8A9DB9931998CBF500C9B0FF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		8AC1B106199866FF00A017C7 /* launch-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-ipad.png"; sourceTree = "<group>"; };
-		8AC1B107199866FF00A017C7 /* launch-ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-ipad@2x.png"; sourceTree = "<group>"; };
-		8AC1B108199866FF00A017C7 /* launch-iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-iphone@2x.png"; sourceTree = "<group>"; };
-		8AC1B109199866FF00A017C7 /* launch-iphone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-iphone4.png"; sourceTree = "<group>"; };
-		8AC1B10A199866FF00A017C7 /* launch-iphone4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-iphone4@2x.png"; sourceTree = "<group>"; };
-		8AC1B10B199866FF00A017C7 /* launch-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-landscape.png"; sourceTree = "<group>"; };
-		8AC1B10C199866FF00A017C7 /* launch-landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-landscape@2x.png"; sourceTree = "<group>"; };
-		8AC1B114199871DE00A017C7 /* trans_cn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_cn.plist; sourceTree = "<group>"; };
-		8AC4E14F19DE2BF800CF4271 /* ListOfPrayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfPrayers.swift; sourceTree = "<group>"; };
-		8AC6950A19E3EDED00773FEB /* food-vegetarian.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-vegetarian.pdf"; sourceTree = "<group>"; };
-		8AC6950C19E3FBC200773FEB /* food-bread.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-bread.pdf"; sourceTree = "<group>"; };
-		8AC6950D19E3FBC200773FEB /* food-cheese.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-cheese.pdf"; sourceTree = "<group>"; };
-		8AC6950E19E3FBC200773FEB /* food-cupcake.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-cupcake.pdf"; sourceTree = "<group>"; };
-		8AC6950F19E3FBC200773FEB /* food-fish.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-fish.pdf"; sourceTree = "<group>"; };
-		8AC6951019E3FBC200773FEB /* food-meat.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-meat.pdf"; sourceTree = "<group>"; };
-		8AC6951119E3FBC200773FEB /* food-no-egg.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-egg.pdf"; sourceTree = "<group>"; };
-		8AC6951219E3FBC200773FEB /* food-no-fish.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-fish.pdf"; sourceTree = "<group>"; };
-		8AC6951319E3FBC200773FEB /* food-no-meat.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-meat.pdf"; sourceTree = "<group>"; };
-		8AC6951419E3FBC200773FEB /* food-no-milk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-milk.pdf"; sourceTree = "<group>"; };
-		8AC6951519E3FBC200773FEB /* food-nuts.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-nuts.pdf"; sourceTree = "<group>"; };
-		8AC6952019E4011700773FEB /* communion.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = communion.pdf; sourceTree = "<group>"; };
-		8AC6952119E4011700773FEB /* daily.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = daily.pdf; sourceTree = "<group>"; };
-		8AC6952219E4011700773FEB /* group.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = group.pdf; sourceTree = "<group>"; };
-		8AC6952319E4011700773FEB /* library.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = library.pdf; sourceTree = "<group>"; };
-		8AC6952819E4034D00773FEB /* options.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = options.pdf; sourceTree = "<group>"; };
-		8AC7B89219E4CECB00B51294 /* arrow-left.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-left.pdf"; sourceTree = "<group>"; };
-		8AC7B89319E4CECB00B51294 /* arrow-right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-right.pdf"; sourceTree = "<group>"; };
-		8AC7B89619E4D1DE00B51294 /* calendar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = calendar.pdf; sourceTree = "<group>"; };
-		8AEF81A219999D39000B3D90 /* icon-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ipad.png"; sourceTree = "<group>"; };
-		8AEF81A319999D39000B3D90 /* icon-ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ipad@2x.png"; sourceTree = "<group>"; };
-		8AEF81A419999D39000B3D90 /* icon-ipad6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ipad6.png"; sourceTree = "<group>"; };
-		8AEF81A519999D39000B3D90 /* icon-ipad6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ipad6@2x.png"; sourceTree = "<group>"; };
-		8AEF81A619999D39000B3D90 /* icon-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-iphone.png"; sourceTree = "<group>"; };
-		8AEF81A719999D39000B3D90 /* icon-iphone6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-iphone6.png"; sourceTree = "<group>"; };
-		8AEF81A819999D39000B3D90 /* icon-iphone6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-iphone6@2x.png"; sourceTree = "<group>"; };
-		8AEF81B01999A194000B3D90 /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024.png; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		8A74D7F4198F20CC0078F39F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
-				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
-				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		8A74D7EE198F20CC0078F39F = {
-			isa = PBXGroup;
-			children = (
-				8A74D800198F20CC0078F39F /* prayerbook */,
-				8A74D7F9198F20CC0078F39F /* Frameworks */,
-				8A74D7F8198F20CC0078F39F /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		8A74D7F8198F20CC0078F39F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8A74D7F7198F20CC0078F39F /* prayerbook.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		8A74D7F9198F20CC0078F39F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8A74D7FA198F20CC0078F39F /* Foundation.framework */,
-				8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */,
-				8A74D7FE198F20CC0078F39F /* UIKit.framework */,
-				8A74D81C198F20CC0078F39F /* XCTest.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8A74D800198F20CC0078F39F /* prayerbook */ = {
-			isa = PBXGroup;
-			children = (
-				8A74D857199076EF0078F39F /* html */,
-				8A74D844198F624C0078F39F /* images */,
-				8A74D832198F224E0078F39F /* Main.storyboard */,
-				8A74D815198F20CC0078F39F /* Images.xcassets */,
-				8A2F46A619E12B4100076AF4 /* AppDelegate.swift */,
-				8A2F46A819E1302700076AF4 /* Translate.swift */,
-				8A2F46A419E11CEA00076AF4 /* Prayer.swift */,
-				8A2F46A219E1129B00076AF4 /* DailyPrayers.swift */,
-				8AC4E14F19DE2BF800CF4271 /* ListOfPrayers.swift */,
-				8A2F46AA19E145D200076AF4 /* Options.swift */,
-				8A3CD13719E5233100A78A32 /* CalendarViewController.swift */,
-				8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */,
-				8A74D837198F2AF70078F39F /* index_en.plist */,
-				8A74D83E198F5F350078F39F /* index_cn.plist */,
-				8AC1B114199871DE00A017C7 /* trans_cn.plist */,
-				8A3CD13119E51D0400A78A32 /* RDVCalendarDayCell.h */,
-				8A3CD13219E51D0400A78A32 /* RDVCalendarDayCell.m */,
-				8A3CD13319E51D0400A78A32 /* RDVCalendarView.h */,
-				8A3CD13419E51D0400A78A32 /* RDVCalendarView.m */,
-				8A74D801198F20CC0078F39F /* Supporting Files */,
-			);
-			path = prayerbook;
-			sourceTree = "<group>";
-		};
-		8A74D801198F20CC0078F39F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8A74D802198F20CC0078F39F /* prayerbook-Info.plist */,
-				8A74D803198F20CC0078F39F /* InfoPlist.strings */,
-				8A74D806198F20CC0078F39F /* main.m */,
-				8A74D808198F20CC0078F39F /* prayerbook-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8A74D844198F624C0078F39F /* images */ = {
-			isa = PBXGroup;
-			children = (
-				8AC7B89619E4D1DE00B51294 /* calendar.pdf */,
-				8AC7B89219E4CECB00B51294 /* arrow-left.pdf */,
-				8AC7B89319E4CECB00B51294 /* arrow-right.pdf */,
-				8AC6952819E4034D00773FEB /* options.pdf */,
-				8AC6952019E4011700773FEB /* communion.pdf */,
-				8AC6952119E4011700773FEB /* daily.pdf */,
-				8AC6952219E4011700773FEB /* group.pdf */,
-				8AC6952319E4011700773FEB /* library.pdf */,
-				8AC6950C19E3FBC200773FEB /* food-bread.pdf */,
-				8AC6950D19E3FBC200773FEB /* food-cheese.pdf */,
-				8AC6950E19E3FBC200773FEB /* food-cupcake.pdf */,
-				8AC6950F19E3FBC200773FEB /* food-fish.pdf */,
-				8AC6951019E3FBC200773FEB /* food-meat.pdf */,
-				8AC6951119E3FBC200773FEB /* food-no-egg.pdf */,
-				8AC6951219E3FBC200773FEB /* food-no-fish.pdf */,
-				8AC6951319E3FBC200773FEB /* food-no-meat.pdf */,
-				8AC6951419E3FBC200773FEB /* food-no-milk.pdf */,
-				8AC6951519E3FBC200773FEB /* food-nuts.pdf */,
-				8AC6950A19E3EDED00773FEB /* food-vegetarian.pdf */,
-				8AEF81B01999A194000B3D90 /* icon1024.png */,
-				8AEF81A219999D39000B3D90 /* icon-ipad.png */,
-				8AEF81A319999D39000B3D90 /* icon-ipad@2x.png */,
-				8AEF81A419999D39000B3D90 /* icon-ipad6.png */,
-				8AEF81A519999D39000B3D90 /* icon-ipad6@2x.png */,
-				8AEF81A619999D39000B3D90 /* icon-iphone.png */,
-				8AEF81A719999D39000B3D90 /* icon-iphone6.png */,
-				8AEF81A819999D39000B3D90 /* icon-iphone6@2x.png */,
-				8AC1B106199866FF00A017C7 /* launch-ipad.png */,
-				8AC1B107199866FF00A017C7 /* launch-ipad@2x.png */,
-				8AC1B108199866FF00A017C7 /* launch-iphone@2x.png */,
-				8AC1B109199866FF00A017C7 /* launch-iphone4.png */,
-				8AC1B10A199866FF00A017C7 /* launch-iphone4@2x.png */,
-				8AC1B10B199866FF00A017C7 /* launch-landscape.png */,
-				8AC1B10C199866FF00A017C7 /* launch-landscape@2x.png */,
-				8A74D848198F691A0078F39F /* CN.png */,
-				8A74D849198F691A0078F39F /* CN@2x.png */,
-				8A74D84A198F691A0078F39F /* US.png */,
-				8A74D84B198F691A0078F39F /* US@2x.png */,
-			);
-			name = images;
-			path = /Users/alexey/Documents/workspace/prayerbook/prayerbook/images;
-			sourceTree = "<absolute>";
-		};
-		8A74D857199076EF0078F39F /* html */ = {
-			isa = PBXGroup;
-			children = (
-				8A2F469A19E110CF00076AF4 /* prayer_group_0_cn.html */,
-				8A2F469B19E110CF00076AF4 /* prayer_group_0_en.html */,
-				8A2F469C19E110CF00076AF4 /* prayer_group_1_cn.html */,
-				8A2F469D19E110CF00076AF4 /* prayer_group_1_en.html */,
-				8A9A3DD919D3AE2800A7D82A /* prayer_group_2_cn.html */,
-				8A9A3DDA19D3AE2800A7D82A /* prayer_group_2_en.html */,
-				8A9A3DDB19D3AE2800A7D82A /* prayer_group_3_cn.html */,
-				8A9A3DDC19D3AE2800A7D82A /* prayer_group_3_en.html */,
-				8A9A3DDD19D3AE2800A7D82A /* prayer_group_4_cn.html */,
-				8A9A3DDE19D3AE2800A7D82A /* prayer_group_4_en.html */,
-				8A9A3DD119D3AE1600A7D82A /* prayer_communion_4_cn.html */,
-				8A9A3DD219D3AE1600A7D82A /* prayer_communion_4_en.html */,
-				8A9A3DD319D3AE1600A7D82A /* prayer_communion_5_cn.html */,
-				8A9A3DD419D3AE1600A7D82A /* prayer_communion_5_en.html */,
-				8A81856719D2E3F300D4B328 /* prayer_communion_0_cn.html */,
-				8A81856819D2E3F300D4B328 /* prayer_communion_0_en.html */,
-				8A81856919D2E3F300D4B328 /* prayer_communion_1_cn.html */,
-				8A81856A19D2E3F300D4B328 /* prayer_communion_1_en.html */,
-				8A81856B19D2E3F300D4B328 /* prayer_communion_2_cn.html */,
-				8A81856C19D2E3F300D4B328 /* prayer_communion_2_en.html */,
-				8A81856D19D2E3F300D4B328 /* prayer_communion_3_cn.html */,
-				8A81856E19D2E3F300D4B328 /* prayer_communion_3_en.html */,
-				8A81857119D2E3F300D4B328 /* prayer_daily_0_cn.html */,
-				8A81857219D2E3F300D4B328 /* prayer_daily_0_en.html */,
-				8A81857319D2E3F300D4B328 /* prayer_daily_1_cn.html */,
-				8A81857419D2E3F300D4B328 /* prayer_daily_1_en.html */,
-				8A81857519D2E3F300D4B328 /* prayer_daily_2_cn.html */,
-				8A81857619D2E3F300D4B328 /* prayer_daily_2_en.html */,
-			);
-			name = html;
-			path = /Users/alexey/Documents/workspace/prayerbook/prayerbook/html;
-			sourceTree = "<absolute>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		8A74D7F6198F20CC0078F39F /* prayerbook */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8A74D82C198F20CC0078F39F /* Build configuration list for PBXNativeTarget "prayerbook" */;
-			buildPhases = (
-				8A74D7F3198F20CC0078F39F /* Sources */,
-				8A74D7F4198F20CC0078F39F /* Frameworks */,
-				8A74D7F5198F20CC0078F39F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = prayerbook;
-			productName = prayerbook;
-			productReference = 8A74D7F7198F20CC0078F39F /* prayerbook.app */;
-			productType = "com.apple.product-type.application";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		8A74D7EF198F20CC0078F39F /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				CLASSPREFIX = Prayerbook;
-				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = "Alexey Smirnov";
-				TargetAttributes = {
-					8A74D7F6198F20CC0078F39F = {
-						DevelopmentTeam = 3NQ697ND22;
-					};
-				};
-			};
-			buildConfigurationList = 8A74D7F2198F20CC0078F39F /* Build configuration list for PBXProject "prayerbook" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-				"zh-Hans",
-				"zh-Hant",
-			);
-			mainGroup = 8A74D7EE198F20CC0078F39F;
-			productRefGroup = 8A74D7F8198F20CC0078F39F /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				8A74D7F6198F20CC0078F39F /* prayerbook */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		8A74D7F5198F20CC0078F39F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A81858119D2E3F300D4B328 /* prayer_communion_1_cn.html in Resources */,
-				8AC1B113199866FF00A017C7 /* launch-landscape@2x.png in Resources */,
-				8A74D833198F224E0078F39F /* Main.storyboard in Resources */,
-				8AC6951619E3FBC200773FEB /* food-bread.pdf in Resources */,
-				8A81858E19D2E3F300D4B328 /* prayer_daily_2_en.html in Resources */,
-				8A81857F19D2E3F300D4B328 /* prayer_communion_0_cn.html in Resources */,
-				8AC1B115199871DE00A017C7 /* trans_cn.plist in Resources */,
-				8A9A3DD519D3AE1600A7D82A /* prayer_communion_4_cn.html in Resources */,
-				8AEF81AF19999D39000B3D90 /* icon-iphone6@2x.png in Resources */,
-				8AEF81AC19999D39000B3D90 /* icon-ipad6@2x.png in Resources */,
-				8AC1B10E199866FF00A017C7 /* launch-ipad@2x.png in Resources */,
-				8A9A3DE119D3AE2800A7D82A /* prayer_group_3_cn.html in Resources */,
-				8A9A3DDF19D3AE2800A7D82A /* prayer_group_2_cn.html in Resources */,
-				8AEF81A919999D39000B3D90 /* icon-ipad.png in Resources */,
-				8AC6951B19E3FBC200773FEB /* food-no-egg.pdf in Resources */,
-				8AEF81AB19999D39000B3D90 /* icon-ipad6.png in Resources */,
-				8A2F46A119E110CF00076AF4 /* prayer_group_1_en.html in Resources */,
-				8A9A3DE219D3AE2800A7D82A /* prayer_group_3_en.html in Resources */,
-				8A74D83F198F5F350078F39F /* index_cn.plist in Resources */,
-				8A9A3DE419D3AE2800A7D82A /* prayer_group_4_en.html in Resources */,
-				8A74D84C198F691A0078F39F /* CN.png in Resources */,
-				8AC6951A19E3FBC200773FEB /* food-meat.pdf in Resources */,
-				8A9A3DE319D3AE2800A7D82A /* prayer_group_4_cn.html in Resources */,
-				8A74D84F198F691A0078F39F /* US@2x.png in Resources */,
-				8AC6951919E3FBC200773FEB /* food-fish.pdf in Resources */,
-				8A81858019D2E3F300D4B328 /* prayer_communion_0_en.html in Resources */,
-				8AC1B10D199866FF00A017C7 /* launch-ipad.png in Resources */,
-				8AEF81AD19999D39000B3D90 /* icon-iphone.png in Resources */,
-				8A81858A19D2E3F300D4B328 /* prayer_daily_0_en.html in Resources */,
-				8A74D816198F20CC0078F39F /* Images.xcassets in Resources */,
-				8A81858D19D2E3F300D4B328 /* prayer_daily_2_cn.html in Resources */,
-				8AC6951E19E3FBC200773FEB /* food-no-milk.pdf in Resources */,
-				8AEF81B11999A194000B3D90 /* icon1024.png in Resources */,
-				8AEF81AA19999D39000B3D90 /* icon-ipad@2x.png in Resources */,
-				8A81858C19D2E3F300D4B328 /* prayer_daily_1_en.html in Resources */,
-				8A9A3DE019D3AE2800A7D82A /* prayer_group_2_en.html in Resources */,
-				8AC6952919E4034D00773FEB /* options.pdf in Resources */,
-				8A74D84E198F691A0078F39F /* US.png in Resources */,
-				8A81858919D2E3F300D4B328 /* prayer_daily_0_cn.html in Resources */,
-				8A81858319D2E3F300D4B328 /* prayer_communion_2_cn.html in Resources */,
-				8A74D84D198F691A0078F39F /* CN@2x.png in Resources */,
-				8AC6952419E4011700773FEB /* communion.pdf in Resources */,
-				8A74D838198F2AF70078F39F /* index_en.plist in Resources */,
-				8AC6952619E4011700773FEB /* group.pdf in Resources */,
-				8AC1B111199866FF00A017C7 /* launch-iphone4@2x.png in Resources */,
-				8A81858219D2E3F300D4B328 /* prayer_communion_1_en.html in Resources */,
-				8AC1B10F199866FF00A017C7 /* launch-iphone@2x.png in Resources */,
-				8AC6950B19E3EDED00773FEB /* food-vegetarian.pdf in Resources */,
-				8AC6952719E4011700773FEB /* library.pdf in Resources */,
-				8A9A3DD619D3AE1600A7D82A /* prayer_communion_4_en.html in Resources */,
-				8A2F469E19E110CF00076AF4 /* prayer_group_0_cn.html in Resources */,
-				8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */,
-				8A81858519D2E3F300D4B328 /* prayer_communion_3_cn.html in Resources */,
-				8A81858619D2E3F300D4B328 /* prayer_communion_3_en.html in Resources */,
-				8AC6951819E3FBC200773FEB /* food-cupcake.pdf in Resources */,
-				8A2F46A019E110CF00076AF4 /* prayer_group_1_cn.html in Resources */,
-				8AC1B112199866FF00A017C7 /* launch-landscape.png in Resources */,
-				8A9A3DD819D3AE1600A7D82A /* prayer_communion_5_en.html in Resources */,
-				8AC6951D19E3FBC200773FEB /* food-no-meat.pdf in Resources */,
-				8A81858419D2E3F300D4B328 /* prayer_communion_2_en.html in Resources */,
-				8AC6951C19E3FBC200773FEB /* food-no-fish.pdf in Resources */,
-				8A81858B19D2E3F300D4B328 /* prayer_daily_1_cn.html in Resources */,
-				8A9A3DD719D3AE1600A7D82A /* prayer_communion_5_cn.html in Resources */,
-				8AC6951F19E3FBC200773FEB /* food-nuts.pdf in Resources */,
-				8AC6952519E4011700773FEB /* daily.pdf in Resources */,
-				8AC6951719E3FBC200773FEB /* food-cheese.pdf in Resources */,
-				8A2F469F19E110CF00076AF4 /* prayer_group_0_en.html in Resources */,
-				8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */,
-				8AEF81AE19999D39000B3D90 /* icon-iphone6.png in Resources */,
-				8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */,
-				8A74D805198F20CC0078F39F /* InfoPlist.strings in Resources */,
-				8AC1B110199866FF00A017C7 /* launch-iphone4.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		8A74D7F3198F20CC0078F39F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A3CD13819E5233100A78A32 /* CalendarViewController.swift in Sources */,
-				8A3CD13619E51D0400A78A32 /* RDVCalendarView.m in Sources */,
-				8A2F46A919E1302700076AF4 /* Translate.swift in Sources */,
-				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
-				8A74D807198F20CC0078F39F /* main.m in Sources */,
-				8A3CD13519E51D0400A78A32 /* RDVCalendarDayCell.m in Sources */,
-				8A2F46AB19E145D200076AF4 /* Options.swift in Sources */,
-				8AC4E15019DE2BF800CF4271 /* ListOfPrayers.swift in Sources */,
-				8A2F46A519E11CEA00076AF4 /* Prayer.swift in Sources */,
-				8A2F46A319E1129B00076AF4 /* DailyPrayers.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		8A74D803198F20CC0078F39F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8A74D804198F20CC0078F39F /* en */,
-				8A9DB9921998C94200C9B0FF /* zh-Hans */,
-				8A9DB9931998CBF500C9B0FF /* zh-Hant */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		8A74D82A198F20CC0078F39F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		8A74D82B198F20CC0078F39F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		8A74D82D198F20CC0078F39F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEFINES_MODULE = NO;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
-				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "prayerbook/prayerbook-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		8A74D82E198F20CC0078F39F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEFINES_MODULE = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
-				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "prayerbook/prayerbook-Bridging-Header.h";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		8A74D7F2198F20CC0078F39F /* Build configuration list for PBXProject "prayerbook" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8A74D82A198F20CC0078F39F /* Debug */,
-				8A74D82B198F20CC0078F39F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8A74D82C198F20CC0078F39F /* Build configuration list for PBXNativeTarget "prayerbook" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8A74D82D198F20CC0078F39F /* Debug */,
-				8A74D82E198F20CC0078F39F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 8A74D7EF198F20CC0078F39F /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>11D18E423D5F8676724AC564</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FB949D5EE4022DBBF8C2E216</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>25E93E93270EA3DD693061FB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8799EEEA8D5859351A428ACC</string>
+				<string>5A62731A9EACCC95CE394485</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5A62731A9EACCC95CE394485</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods/Pods.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8799EEEA8D5859351A428ACC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods/Pods.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A2F469A19E110CF00076AF4</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_group_0_cn.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A2F469B19E110CF00076AF4</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_group_0_en.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A2F469C19E110CF00076AF4</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_group_1_cn.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A2F469D19E110CF00076AF4</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_group_1_en.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A2F469E19E110CF00076AF4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A2F469A19E110CF00076AF4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A2F469F19E110CF00076AF4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A2F469B19E110CF00076AF4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A2F46A019E110CF00076AF4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A2F469C19E110CF00076AF4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A2F46A119E110CF00076AF4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A2F469D19E110CF00076AF4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A2F46A219E1129B00076AF4</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DailyPrayers.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A2F46A319E1129B00076AF4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A2F46A219E1129B00076AF4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A2F46A419E11CEA00076AF4</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Prayer.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A2F46A519E11CEA00076AF4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A2F46A419E11CEA00076AF4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A2F46A619E12B4100076AF4</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A2F46A719E12B4100076AF4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A2F46A619E12B4100076AF4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A2F46A819E1302700076AF4</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Translate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A2F46A919E1302700076AF4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A2F46A819E1302700076AF4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A2F46AA19E145D200076AF4</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Options.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A2F46AB19E145D200076AF4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A2F46AA19E145D200076AF4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A2F46AC19E1516800076AF4</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>prayerbook-Bridging-Header.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A3CD13119E51D0400A78A32</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>RDVCalendarDayCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A3CD13219E51D0400A78A32</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>RDVCalendarDayCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A3CD13319E51D0400A78A32</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>RDVCalendarView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A3CD13419E51D0400A78A32</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>RDVCalendarView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A3CD13519E51D0400A78A32</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A3CD13219E51D0400A78A32</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A3CD13619E51D0400A78A32</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A3CD13419E51D0400A78A32</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A3CD13719E5233100A78A32</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CalendarViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A3CD13819E5233100A78A32</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A3CD13719E5233100A78A32</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A74D7EE198F20CC0078F39F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8A74D800198F20CC0078F39F</string>
+				<string>8A74D7F9198F20CC0078F39F</string>
+				<string>8A74D7F8198F20CC0078F39F</string>
+				<string>25E93E93270EA3DD693061FB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D7EF198F20CC0078F39F</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>CLASSPREFIX</key>
+				<string>Prayerbook</string>
+				<key>LastUpgradeCheck</key>
+				<string>0510</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Alexey Smirnov</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>8A74D7F6198F20CC0078F39F</key>
+					<dict>
+						<key>DevelopmentTeam</key>
+						<string>3NQ697ND22</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>8A74D7F2198F20CC0078F39F</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+				<string>zh-Hans</string>
+				<string>zh-Hant</string>
+			</array>
+			<key>mainGroup</key>
+			<string>8A74D7EE198F20CC0078F39F</string>
+			<key>productRefGroup</key>
+			<string>8A74D7F8198F20CC0078F39F</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>8A74D7F6198F20CC0078F39F</string>
+			</array>
+		</dict>
+		<key>8A74D7F2198F20CC0078F39F</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>8A74D82A198F20CC0078F39F</string>
+				<string>8A74D82B198F20CC0078F39F</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>8A74D7F3198F20CC0078F39F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>8A3CD13819E5233100A78A32</string>
+				<string>8A3CD13619E51D0400A78A32</string>
+				<string>8A2F46A919E1302700076AF4</string>
+				<string>8A2F46A719E12B4100076AF4</string>
+				<string>8A74D807198F20CC0078F39F</string>
+				<string>8A3CD13519E51D0400A78A32</string>
+				<string>8A2F46AB19E145D200076AF4</string>
+				<string>8AC4E15019DE2BF800CF4271</string>
+				<string>8A2F46A519E11CEA00076AF4</string>
+				<string>8A2F46A319E1129B00076AF4</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8A74D7F4198F20CC0078F39F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>8A74D7FD198F20CC0078F39F</string>
+				<string>8A74D7FF198F20CC0078F39F</string>
+				<string>8A74D7FB198F20CC0078F39F</string>
+				<string>11D18E423D5F8676724AC564</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8A74D7F5198F20CC0078F39F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>8A81858119D2E3F300D4B328</string>
+				<string>8AC1B113199866FF00A017C7</string>
+				<string>8A74D833198F224E0078F39F</string>
+				<string>8AC6951619E3FBC200773FEB</string>
+				<string>8A81858E19D2E3F300D4B328</string>
+				<string>8A81857F19D2E3F300D4B328</string>
+				<string>8AC1B115199871DE00A017C7</string>
+				<string>8A9A3DD519D3AE1600A7D82A</string>
+				<string>8AEF81AF19999D39000B3D90</string>
+				<string>8AEF81AC19999D39000B3D90</string>
+				<string>8AC1B10E199866FF00A017C7</string>
+				<string>8A9A3DE119D3AE2800A7D82A</string>
+				<string>8A9A3DDF19D3AE2800A7D82A</string>
+				<string>8AEF81A919999D39000B3D90</string>
+				<string>8AC6951B19E3FBC200773FEB</string>
+				<string>8AEF81AB19999D39000B3D90</string>
+				<string>8A2F46A119E110CF00076AF4</string>
+				<string>8A9A3DE219D3AE2800A7D82A</string>
+				<string>8A74D83F198F5F350078F39F</string>
+				<string>8A9A3DE419D3AE2800A7D82A</string>
+				<string>8A74D84C198F691A0078F39F</string>
+				<string>8AC6951A19E3FBC200773FEB</string>
+				<string>8A9A3DE319D3AE2800A7D82A</string>
+				<string>8A74D84F198F691A0078F39F</string>
+				<string>8AC6951919E3FBC200773FEB</string>
+				<string>8A81858019D2E3F300D4B328</string>
+				<string>8AC1B10D199866FF00A017C7</string>
+				<string>8AEF81AD19999D39000B3D90</string>
+				<string>8A81858A19D2E3F300D4B328</string>
+				<string>8A74D816198F20CC0078F39F</string>
+				<string>8A81858D19D2E3F300D4B328</string>
+				<string>8AC6951E19E3FBC200773FEB</string>
+				<string>8AEF81B11999A194000B3D90</string>
+				<string>8AEF81AA19999D39000B3D90</string>
+				<string>8A81858C19D2E3F300D4B328</string>
+				<string>8A9A3DE019D3AE2800A7D82A</string>
+				<string>8AC6952919E4034D00773FEB</string>
+				<string>8A74D84E198F691A0078F39F</string>
+				<string>8A81858919D2E3F300D4B328</string>
+				<string>8A81858319D2E3F300D4B328</string>
+				<string>8A74D84D198F691A0078F39F</string>
+				<string>8AC6952419E4011700773FEB</string>
+				<string>8A74D838198F2AF70078F39F</string>
+				<string>8AC6952619E4011700773FEB</string>
+				<string>8AC1B111199866FF00A017C7</string>
+				<string>8A81858219D2E3F300D4B328</string>
+				<string>8AC1B10F199866FF00A017C7</string>
+				<string>8AC6950B19E3EDED00773FEB</string>
+				<string>8AC6952719E4011700773FEB</string>
+				<string>8A9A3DD619D3AE1600A7D82A</string>
+				<string>8A2F469E19E110CF00076AF4</string>
+				<string>8AC7B89519E4CECB00B51294</string>
+				<string>8A81858519D2E3F300D4B328</string>
+				<string>8A81858619D2E3F300D4B328</string>
+				<string>8AC6951819E3FBC200773FEB</string>
+				<string>8A2F46A019E110CF00076AF4</string>
+				<string>8AC1B112199866FF00A017C7</string>
+				<string>8A9A3DD819D3AE1600A7D82A</string>
+				<string>8AC6951D19E3FBC200773FEB</string>
+				<string>8A81858419D2E3F300D4B328</string>
+				<string>8AC6951C19E3FBC200773FEB</string>
+				<string>8A81858B19D2E3F300D4B328</string>
+				<string>8A9A3DD719D3AE1600A7D82A</string>
+				<string>8AC6951F19E3FBC200773FEB</string>
+				<string>8AC6952519E4011700773FEB</string>
+				<string>8AC6951719E3FBC200773FEB</string>
+				<string>8A2F469F19E110CF00076AF4</string>
+				<string>8AC7B89719E4D1DE00B51294</string>
+				<string>8AEF81AE19999D39000B3D90</string>
+				<string>8AC7B89419E4CECB00B51294</string>
+				<string>8A74D805198F20CC0078F39F</string>
+				<string>8AC1B110199866FF00A017C7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8A74D7F6198F20CC0078F39F</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>8A74D82C198F20CC0078F39F</string>
+			<key>buildPhases</key>
+			<array>
+				<string>D38BA3FCE733F88380D63661</string>
+				<string>8A74D7F3198F20CC0078F39F</string>
+				<string>8A74D7F4198F20CC0078F39F</string>
+				<string>8A74D7F5198F20CC0078F39F</string>
+				<string>AC7CA402C5C6E3D32ACF0F87</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>prayerbook</string>
+			<key>productName</key>
+			<string>prayerbook</string>
+			<key>productReference</key>
+			<string>8A74D7F7198F20CC0078F39F</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>8A74D7F7198F20CC0078F39F</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>prayerbook.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>8A74D7F8198F20CC0078F39F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8A74D7F7198F20CC0078F39F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D7F9198F20CC0078F39F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8A74D7FA198F20CC0078F39F</string>
+				<string>8A74D7FC198F20CC0078F39F</string>
+				<string>8A74D7FE198F20CC0078F39F</string>
+				<string>8A74D81C198F20CC0078F39F</string>
+				<string>FB949D5EE4022DBBF8C2E216</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D7FA198F20CC0078F39F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>8A74D7FB198F20CC0078F39F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A74D7FA198F20CC0078F39F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A74D7FC198F20CC0078F39F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreGraphics.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CoreGraphics.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>8A74D7FD198F20CC0078F39F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A74D7FC198F20CC0078F39F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A74D7FE198F20CC0078F39F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>UIKit.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/UIKit.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>8A74D7FF198F20CC0078F39F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A74D7FE198F20CC0078F39F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A74D800198F20CC0078F39F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8A74D857199076EF0078F39F</string>
+				<string>8A74D844198F624C0078F39F</string>
+				<string>8A74D832198F224E0078F39F</string>
+				<string>8A74D815198F20CC0078F39F</string>
+				<string>8A2F46A619E12B4100076AF4</string>
+				<string>8A2F46A819E1302700076AF4</string>
+				<string>8A2F46A419E11CEA00076AF4</string>
+				<string>8A2F46A219E1129B00076AF4</string>
+				<string>8AC4E14F19DE2BF800CF4271</string>
+				<string>8A2F46AA19E145D200076AF4</string>
+				<string>8A3CD13719E5233100A78A32</string>
+				<string>8A2F46AC19E1516800076AF4</string>
+				<string>8A74D837198F2AF70078F39F</string>
+				<string>8A74D83E198F5F350078F39F</string>
+				<string>8AC1B114199871DE00A017C7</string>
+				<string>8A3CD13119E51D0400A78A32</string>
+				<string>8A3CD13219E51D0400A78A32</string>
+				<string>8A3CD13319E51D0400A78A32</string>
+				<string>8A3CD13419E51D0400A78A32</string>
+				<string>8A74D801198F20CC0078F39F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>prayerbook</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D801198F20CC0078F39F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8A74D802198F20CC0078F39F</string>
+				<string>8A74D803198F20CC0078F39F</string>
+				<string>8A74D806198F20CC0078F39F</string>
+				<string>8A74D808198F20CC0078F39F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D802198F20CC0078F39F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>prayerbook-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D803198F20CC0078F39F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8A74D804198F20CC0078F39F</string>
+				<string>8A9DB9921998C94200C9B0FF</string>
+				<string>8A9DB9931998CBF500C9B0FF</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D804198F20CC0078F39F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D805198F20CC0078F39F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A74D803198F20CC0078F39F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A74D806198F20CC0078F39F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D807198F20CC0078F39F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A74D806198F20CC0078F39F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A74D808198F20CC0078F39F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>prayerbook-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D815198F20CC0078F39F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D816198F20CC0078F39F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A74D815198F20CC0078F39F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A74D81C198F20CC0078F39F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>XCTest.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/XCTest.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>8A74D82A198F20CC0078F39F</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.1</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>8A74D82B198F20CC0078F39F</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.1</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>8A74D82C198F20CC0078F39F</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>8A74D82D198F20CC0078F39F</string>
+				<string>8A74D82E198F20CC0078F39F</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>8A74D82D198F20CC0078F39F</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>8799EEEA8D5859351A428ACC</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
+				<string>LaunchImage</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>DEFINES_MODULE</key>
+				<string>NO</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>prayerbook/prayerbook-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>prayerbook/prayerbook-Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+				<key>SWIFT_INSTALL_OBJC_HEADER</key>
+				<string>YES</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>prayerbook/prayerbook-Bridging-Header.h</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>8A74D82E198F20CC0078F39F</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>5A62731A9EACCC95CE394485</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
+				<string>LaunchImage</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>DEFINES_MODULE</key>
+				<string>NO</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>prayerbook/prayerbook-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>prayerbook/prayerbook-Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+				<key>SWIFT_INSTALL_OBJC_HEADER</key>
+				<string>YES</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>prayerbook/prayerbook-Bridging-Header.h</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>8A74D832198F224E0078F39F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>path</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D833198F224E0078F39F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A74D832198F224E0078F39F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A74D837198F2AF70078F39F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>index_en.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D838198F2AF70078F39F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A74D837198F2AF70078F39F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A74D83E198F5F350078F39F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>index_cn.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D83F198F5F350078F39F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A74D83E198F5F350078F39F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A74D844198F624C0078F39F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8AC7B89619E4D1DE00B51294</string>
+				<string>8AC7B89219E4CECB00B51294</string>
+				<string>8AC7B89319E4CECB00B51294</string>
+				<string>8AC6952819E4034D00773FEB</string>
+				<string>8AC6952019E4011700773FEB</string>
+				<string>8AC6952119E4011700773FEB</string>
+				<string>8AC6952219E4011700773FEB</string>
+				<string>8AC6952319E4011700773FEB</string>
+				<string>8AC6950C19E3FBC200773FEB</string>
+				<string>8AC6950D19E3FBC200773FEB</string>
+				<string>8AC6950E19E3FBC200773FEB</string>
+				<string>8AC6950F19E3FBC200773FEB</string>
+				<string>8AC6951019E3FBC200773FEB</string>
+				<string>8AC6951119E3FBC200773FEB</string>
+				<string>8AC6951219E3FBC200773FEB</string>
+				<string>8AC6951319E3FBC200773FEB</string>
+				<string>8AC6951419E3FBC200773FEB</string>
+				<string>8AC6951519E3FBC200773FEB</string>
+				<string>8AC6950A19E3EDED00773FEB</string>
+				<string>8AEF81B01999A194000B3D90</string>
+				<string>8AEF81A219999D39000B3D90</string>
+				<string>8AEF81A319999D39000B3D90</string>
+				<string>8AEF81A419999D39000B3D90</string>
+				<string>8AEF81A519999D39000B3D90</string>
+				<string>8AEF81A619999D39000B3D90</string>
+				<string>8AEF81A719999D39000B3D90</string>
+				<string>8AEF81A819999D39000B3D90</string>
+				<string>8AC1B106199866FF00A017C7</string>
+				<string>8AC1B107199866FF00A017C7</string>
+				<string>8AC1B108199866FF00A017C7</string>
+				<string>8AC1B109199866FF00A017C7</string>
+				<string>8AC1B10A199866FF00A017C7</string>
+				<string>8AC1B10B199866FF00A017C7</string>
+				<string>8AC1B10C199866FF00A017C7</string>
+				<string>8A74D848198F691A0078F39F</string>
+				<string>8A74D849198F691A0078F39F</string>
+				<string>8A74D84A198F691A0078F39F</string>
+				<string>8A74D84B198F691A0078F39F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>images</string>
+			<key>path</key>
+			<string>/Users/alexey/Documents/workspace/prayerbook/prayerbook/images</string>
+			<key>sourceTree</key>
+			<string>&lt;absolute&gt;</string>
+		</dict>
+		<key>8A74D848198F691A0078F39F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>CN.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D849198F691A0078F39F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>CN@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D84A198F691A0078F39F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>US.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D84B198F691A0078F39F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>US@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A74D84C198F691A0078F39F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A74D848198F691A0078F39F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A74D84D198F691A0078F39F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A74D849198F691A0078F39F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A74D84E198F691A0078F39F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A74D84A198F691A0078F39F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A74D84F198F691A0078F39F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A74D84B198F691A0078F39F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A74D857199076EF0078F39F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8A2F469A19E110CF00076AF4</string>
+				<string>8A2F469B19E110CF00076AF4</string>
+				<string>8A2F469C19E110CF00076AF4</string>
+				<string>8A2F469D19E110CF00076AF4</string>
+				<string>8A9A3DD919D3AE2800A7D82A</string>
+				<string>8A9A3DDA19D3AE2800A7D82A</string>
+				<string>8A9A3DDB19D3AE2800A7D82A</string>
+				<string>8A9A3DDC19D3AE2800A7D82A</string>
+				<string>8A9A3DDD19D3AE2800A7D82A</string>
+				<string>8A9A3DDE19D3AE2800A7D82A</string>
+				<string>8A9A3DD119D3AE1600A7D82A</string>
+				<string>8A9A3DD219D3AE1600A7D82A</string>
+				<string>8A9A3DD319D3AE1600A7D82A</string>
+				<string>8A9A3DD419D3AE1600A7D82A</string>
+				<string>8A81856719D2E3F300D4B328</string>
+				<string>8A81856819D2E3F300D4B328</string>
+				<string>8A81856919D2E3F300D4B328</string>
+				<string>8A81856A19D2E3F300D4B328</string>
+				<string>8A81856B19D2E3F300D4B328</string>
+				<string>8A81856C19D2E3F300D4B328</string>
+				<string>8A81856D19D2E3F300D4B328</string>
+				<string>8A81856E19D2E3F300D4B328</string>
+				<string>8A81857119D2E3F300D4B328</string>
+				<string>8A81857219D2E3F300D4B328</string>
+				<string>8A81857319D2E3F300D4B328</string>
+				<string>8A81857419D2E3F300D4B328</string>
+				<string>8A81857519D2E3F300D4B328</string>
+				<string>8A81857619D2E3F300D4B328</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>html</string>
+			<key>path</key>
+			<string>/Users/alexey/Documents/workspace/prayerbook/prayerbook/html</string>
+			<key>sourceTree</key>
+			<string>&lt;absolute&gt;</string>
+		</dict>
+		<key>8A81856719D2E3F300D4B328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_communion_0_cn.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A81856819D2E3F300D4B328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_communion_0_en.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A81856919D2E3F300D4B328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_communion_1_cn.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A81856A19D2E3F300D4B328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_communion_1_en.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A81856B19D2E3F300D4B328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_communion_2_cn.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A81856C19D2E3F300D4B328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_communion_2_en.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A81856D19D2E3F300D4B328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_communion_3_cn.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A81856E19D2E3F300D4B328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_communion_3_en.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A81857119D2E3F300D4B328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_daily_0_cn.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A81857219D2E3F300D4B328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_daily_0_en.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A81857319D2E3F300D4B328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_daily_1_cn.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A81857419D2E3F300D4B328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_daily_1_en.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A81857519D2E3F300D4B328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_daily_2_cn.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A81857619D2E3F300D4B328</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_daily_2_en.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A81857F19D2E3F300D4B328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A81856719D2E3F300D4B328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A81858019D2E3F300D4B328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A81856819D2E3F300D4B328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A81858119D2E3F300D4B328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A81856919D2E3F300D4B328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A81858219D2E3F300D4B328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A81856A19D2E3F300D4B328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A81858319D2E3F300D4B328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A81856B19D2E3F300D4B328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A81858419D2E3F300D4B328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A81856C19D2E3F300D4B328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A81858519D2E3F300D4B328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A81856D19D2E3F300D4B328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A81858619D2E3F300D4B328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A81856E19D2E3F300D4B328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A81858919D2E3F300D4B328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A81857119D2E3F300D4B328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A81858A19D2E3F300D4B328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A81857219D2E3F300D4B328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A81858B19D2E3F300D4B328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A81857319D2E3F300D4B328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A81858C19D2E3F300D4B328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A81857419D2E3F300D4B328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A81858D19D2E3F300D4B328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A81857519D2E3F300D4B328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A81858E19D2E3F300D4B328</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A81857619D2E3F300D4B328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A9A3DD119D3AE1600A7D82A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_communion_4_cn.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A9A3DD219D3AE1600A7D82A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_communion_4_en.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A9A3DD319D3AE1600A7D82A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_communion_5_cn.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A9A3DD419D3AE1600A7D82A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_communion_5_en.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A9A3DD519D3AE1600A7D82A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A9A3DD119D3AE1600A7D82A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A9A3DD619D3AE1600A7D82A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A9A3DD219D3AE1600A7D82A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A9A3DD719D3AE1600A7D82A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A9A3DD319D3AE1600A7D82A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A9A3DD819D3AE1600A7D82A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A9A3DD419D3AE1600A7D82A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A9A3DD919D3AE2800A7D82A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_group_2_cn.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A9A3DDA19D3AE2800A7D82A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_group_2_en.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A9A3DDB19D3AE2800A7D82A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_group_3_cn.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A9A3DDC19D3AE2800A7D82A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_group_3_en.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A9A3DDD19D3AE2800A7D82A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_group_4_cn.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A9A3DDE19D3AE2800A7D82A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.html</string>
+			<key>path</key>
+			<string>prayer_group_4_en.html</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A9A3DDF19D3AE2800A7D82A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A9A3DD919D3AE2800A7D82A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A9A3DE019D3AE2800A7D82A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A9A3DDA19D3AE2800A7D82A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A9A3DE119D3AE2800A7D82A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A9A3DDB19D3AE2800A7D82A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A9A3DE219D3AE2800A7D82A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A9A3DDC19D3AE2800A7D82A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A9A3DE319D3AE2800A7D82A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A9A3DDD19D3AE2800A7D82A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A9A3DE419D3AE2800A7D82A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8A9A3DDE19D3AE2800A7D82A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8A9DB9921998C94200C9B0FF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>zh-Hans</string>
+			<key>path</key>
+			<string>zh-Hans.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A9DB9931998CBF500C9B0FF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>zh-Hant</string>
+			<key>path</key>
+			<string>zh-Hant.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC1B106199866FF00A017C7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>launch-ipad.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC1B107199866FF00A017C7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>launch-ipad@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC1B108199866FF00A017C7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>launch-iphone@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC1B109199866FF00A017C7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>launch-iphone4.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC1B10A199866FF00A017C7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>launch-iphone4@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC1B10B199866FF00A017C7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>launch-landscape.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC1B10C199866FF00A017C7</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>launch-landscape@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC1B10D199866FF00A017C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC1B106199866FF00A017C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC1B10E199866FF00A017C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC1B107199866FF00A017C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC1B10F199866FF00A017C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC1B108199866FF00A017C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC1B110199866FF00A017C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC1B109199866FF00A017C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC1B111199866FF00A017C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC1B10A199866FF00A017C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC1B112199866FF00A017C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC1B10B199866FF00A017C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC1B113199866FF00A017C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC1B10C199866FF00A017C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC1B114199871DE00A017C7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>trans_cn.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC1B115199871DE00A017C7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC1B114199871DE00A017C7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC4E14F19DE2BF800CF4271</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ListOfPrayers.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC4E15019DE2BF800CF4271</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC4E14F19DE2BF800CF4271</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6950A19E3EDED00773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>food-vegetarian.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6950B19E3EDED00773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6950A19E3EDED00773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6950C19E3FBC200773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>food-bread.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6950D19E3FBC200773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>food-cheese.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6950E19E3FBC200773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>food-cupcake.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6950F19E3FBC200773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>food-fish.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6951019E3FBC200773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>food-meat.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6951119E3FBC200773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>food-no-egg.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6951219E3FBC200773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>food-no-fish.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6951319E3FBC200773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>food-no-meat.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6951419E3FBC200773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>food-no-milk.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6951519E3FBC200773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>food-nuts.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6951619E3FBC200773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6950C19E3FBC200773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6951719E3FBC200773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6950D19E3FBC200773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6951819E3FBC200773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6950E19E3FBC200773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6951919E3FBC200773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6950F19E3FBC200773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6951A19E3FBC200773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6951019E3FBC200773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6951B19E3FBC200773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6951119E3FBC200773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6951C19E3FBC200773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6951219E3FBC200773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6951D19E3FBC200773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6951319E3FBC200773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6951E19E3FBC200773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6951419E3FBC200773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6951F19E3FBC200773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6951519E3FBC200773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6952019E4011700773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>communion.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6952119E4011700773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>daily.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6952219E4011700773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>group.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6952319E4011700773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>library.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6952419E4011700773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6952019E4011700773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6952519E4011700773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6952119E4011700773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6952619E4011700773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6952219E4011700773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6952719E4011700773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6952319E4011700773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC6952819E4034D00773FEB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>options.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC6952919E4034D00773FEB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC6952819E4034D00773FEB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC7B89219E4CECB00B51294</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>arrow-left.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC7B89319E4CECB00B51294</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>arrow-right.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC7B89419E4CECB00B51294</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC7B89219E4CECB00B51294</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC7B89519E4CECB00B51294</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC7B89319E4CECB00B51294</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AC7B89619E4D1DE00B51294</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.pdf</string>
+			<key>path</key>
+			<string>calendar.pdf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AC7B89719E4D1DE00B51294</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AC7B89619E4D1DE00B51294</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AEF81A219999D39000B3D90</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>icon-ipad.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AEF81A319999D39000B3D90</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>icon-ipad@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AEF81A419999D39000B3D90</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>icon-ipad6.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AEF81A519999D39000B3D90</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>icon-ipad6@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AEF81A619999D39000B3D90</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>icon-iphone.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AEF81A719999D39000B3D90</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>icon-iphone6.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AEF81A819999D39000B3D90</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>icon-iphone6@2x.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AEF81A919999D39000B3D90</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AEF81A219999D39000B3D90</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AEF81AA19999D39000B3D90</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AEF81A319999D39000B3D90</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AEF81AB19999D39000B3D90</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AEF81A419999D39000B3D90</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AEF81AC19999D39000B3D90</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AEF81A519999D39000B3D90</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AEF81AD19999D39000B3D90</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AEF81A619999D39000B3D90</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AEF81AE19999D39000B3D90</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AEF81A719999D39000B3D90</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AEF81AF19999D39000B3D90</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AEF81A819999D39000B3D90</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8AEF81B01999A194000B3D90</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>icon1024.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8AEF81B11999A194000B3D90</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8AEF81B01999A194000B3D90</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AC7CA402C5C6E3D32ACF0F87</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>D38BA3FCE733F88380D63661</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>FB949D5EE4022DBBF8C2E216</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>8A74D7EF198F20CC0078F39F</string>
+</dict>
+</plist>
