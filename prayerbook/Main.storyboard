@@ -244,9 +244,12 @@
                                         </constraints>
                                         <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="1" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="2" minY="5" maxX="5" maxY="5"/>
-                                        <state key="normal" image="food-vegetarian">
+                                        <state key="normal" image="food-vegetables">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="showFastingInfo:" destination="2oD-Mq-Jdq" eventType="touchUpInside" id="hti-eG-ZcF"/>
+                                        </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="b1b-lE-LKT">
                                         <rect key="frame" x="50" y="203" width="619" height="227"/>
@@ -537,7 +540,7 @@
         <image name="calendar" width="25" height="25"/>
         <image name="communion" width="30" height="30"/>
         <image name="daily" width="30" height="30"/>
-        <image name="food-vegetarian" width="64" height="64"/>
+        <image name="food-vegetables" width="64" height="64"/>
         <image name="group" width="30" height="30"/>
         <image name="library" width="30" height="30"/>
         <image name="options" width="25" height="25"/>

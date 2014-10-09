@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource, NAModalSheetDelegate {
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
@@ -35,6 +35,39 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.tableView.reloadData()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        addBarButtons()
+        addRoundedBorder(foodButton)
+        addLayoutConstraints()
+        
+        currentDay = calendar.components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear, fromDate: NSDate())
+        
+        formatter.dateStyle = .FullStyle
+        formatter.timeStyle = .NoStyle
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionsSaved:", name: optionsSavedNotification, object: nil)
+        
+        self.reload()
+    }
+
+    
+    @IBAction func showFastingInfo(sender: AnyObject) {
+        var fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
+        var modal = NAModalSheet(viewController: fastingInfo, presentationStyle: .FadeInCentered)
+        
+        modal.disableBlurredBackground = true
+        modal.cornerRadiusWhenCentered = 10
+        modal.delegate = self
+        
+        fastingInfo.modal = modal
+        fastingInfo.type = .Vegetarian
+        fastingInfo.fastTitle = "Vegetarian"
+        
+        modal.presentWithCompletion({})
+    }
+    
     func optionsSaved(params: NSNotification) {
         self.reload()
     }
@@ -48,24 +81,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         currentDay.day++
         reload()
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        addBarButtons()
-        addRoundedBorder(foodButton)
-        addLayoutConstraints()
-    
-        currentDay = calendar.components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear, fromDate: NSDate())
-        
-        formatter.dateStyle = .FullStyle
-        formatter.timeStyle = .NoStyle
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionsSaved:", name: optionsSavedNotification, object: nil)
-
-        self.reload()
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Prayer" {
             var view = segue.destinationViewController as Prayer
@@ -118,8 +134,22 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         return newCell
     }
+    
+    // MARK: NAModalSheetDelegate
+    
+    func modalSheetTouchedOutsideContent(sheet: NAModalSheet!) {
+        sheet.dismissWithCompletion({})
+    }
+    
+    func modalSheetShouldAutorotate(sheet: NAModalSheet!) -> Bool {
+        return shouldAutorotate()
+    }
+    
+    func modalSheetSupportedInterfaceOrientations(sheet: NAModalSheet!) -> UInt {
+        return UInt(supportedInterfaceOrientations())
+    }
 
-    // private stuff
+    // MARK: private stuff
     
     private func addLayoutConstraints() {
         let leftConstraint = NSLayoutConstraint(item: self.tableView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 10)
