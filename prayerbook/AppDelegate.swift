@@ -16,10 +16,10 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         
         let prefs = NSUserDefaults.standardUserDefaults()
         var fontSize = prefs.integerForKey("fontSize")
-        
+        let lang = NSLocale.preferredLanguages()[0] as String
+
         // the first time app is launched
         if fontSize == 0 {
-            let lang = NSLocale.preferredLanguages()[0] as String
 
             if (lang == "zh-Hans" || lang == "zh-Hant") {
                 prefs.setObject("cn", forKey: "language")

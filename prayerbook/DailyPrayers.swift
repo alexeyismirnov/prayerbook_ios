@@ -15,10 +15,22 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var foodButton: UIButton!
     @IBOutlet weak var foodLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    
+    var currentDay: NSDateComponents!
+    let calendar = NSCalendar.currentCalendar()
+    var formatter = NSDateFormatter()
 
     var titles: [String] = []
     
     func reload() {
+        if Translate.language == "en" {
+            formatter.locale = NSLocale(localeIdentifier: "en")
+        } else {
+            formatter.locale = NSLocale(localeIdentifier: "zh_CN")
+        }
+        
+        dateLabel.text = formatter.stringFromDate(calendar.dateFromComponents(currentDay)!)
+
         titles = Translate.tableViewStrings("daily")
         self.tableView.reloadData()
     }
@@ -26,48 +38,32 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     func optionsSaved(params: NSNotification) {
         self.reload()
     }
-
-    func addRoundedBorder(button: UIButton!) {
-        let color = self.view.tintColor
-        button.layer.borderColor = color.CGColor
-        button.layer.borderWidth = 1.0
-        button.layer.cornerRadius = 10
-        button.setTitleColor(color, forState: UIControlState.Normal)
-    }
     
     func prev_day() {
-        NSLog("prev_day")
+        currentDay.day--;
+        reload()
     }
     
     func next_day() {
-        NSLog("next_day")
+        currentDay.day++
+        reload()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var button_left = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .Plain, target: self, action: "prev_day")
 
-        var button_right = UIBarButtonItem(image: UIImage(named: "arrow-right"), style: .Plain, target: self, action: "next_day")
-        
-        button_left.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
-        
-        navigationItem.rightBarButtonItems = [button_right, button_left]
-        
+        addBarButtons()
         addRoundedBorder(foodButton)
+        addLayoutConstraints()
+    
+        currentDay = calendar.components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear, fromDate: NSDate())
         
-        let leftConstraint = NSLayoutConstraint(item: self.tableView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 10)
-        
-        self.view.addConstraint(leftConstraint)
-        
-        let rightConstraint = NSLayoutConstraint(item: self.tableView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: -10)
-        
-        self.view.addConstraint(rightConstraint)
+        formatter.dateStyle = .FullStyle
+        formatter.timeStyle = .NoStyle
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionsSaved:", name: optionsSavedNotification, object: nil)
 
         self.reload()
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -123,6 +119,33 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         return newCell
     }
 
+    // private stuff
     
+    private func addLayoutConstraints() {
+        let leftConstraint = NSLayoutConstraint(item: self.tableView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Left, multiplier: 1, constant: 10)
+        
+        self.view.addConstraint(leftConstraint)
+        
+        let rightConstraint = NSLayoutConstraint(item: self.tableView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: -10)
+        
+        self.view.addConstraint(rightConstraint)
+    }
+    
+    private func addRoundedBorder(button: UIButton!) {
+        let color = self.view.tintColor
+        button.layer.borderColor = color.CGColor
+        button.layer.borderWidth = 1.0
+        button.layer.cornerRadius = 10
+        button.setTitleColor(color, forState: UIControlState.Normal)
+    }
+    
+    private func addBarButtons() {
+        var button_left = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .Plain, target: self, action: "prev_day")
+        
+        var button_right = UIBarButtonItem(image: UIImage(named: "arrow-right"), style: .Plain, target: self, action: "next_day")
+        
+        button_left.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
+        navigationItem.rightBarButtonItems = [button_right, button_left]
+    }
     
 }

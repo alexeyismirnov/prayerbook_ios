@@ -268,7 +268,7 @@
                                             <outlet property="delegate" destination="2oD-Mq-Jdq" id="uXM-E1-DLI"/>
                                         </connections>
                                     </tableView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Lent of  Apostoles" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYZ-41-dYZ">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="No Lent" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYZ-41-dYZ">
                                         <rect key="frame" x="509" y="160" width="140" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="f32-oD-06g"/>
@@ -277,7 +277,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Четверг 11 сентября 2014 г" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXH-NP-f0d">
-                                        <rect key="frame" x="73" y="17" width="570" height="56"/>
+                                        <rect key="frame" x="73" y="17" width="492" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="KQk-A7-Yg7"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -289,9 +292,9 @@
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3Xh-eN-mJQ" secondAttribute="bottom" constant="10" id="PFA-8D-roG"/>
                                     <constraint firstItem="3Xh-eN-mJQ" firstAttribute="top" secondItem="LXH-NP-f0d" secondAttribute="bottom" constant="10" id="SMd-K1-Upv"/>
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="trailing" secondItem="V8Z-iW-tsi" secondAttribute="trailing" id="Uci-tC-xpY"/>
-                                    <constraint firstItem="b1b-lE-LKT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KYZ-41-dYZ" secondAttribute="bottom" constant="10" id="X6H-cV-BvP"/>
+                                    <constraint firstItem="b1b-lE-LKT" firstAttribute="top" relation="lessThanOrEqual" secondItem="KYZ-41-dYZ" secondAttribute="bottom" constant="20" id="X6H-cV-BvP"/>
+                                    <constraint firstItem="LXH-NP-f0d" firstAttribute="trailing" secondItem="b1b-lE-LKT" secondAttribute="trailing" id="YI3-tr-UbV"/>
                                     <constraint firstItem="KYZ-41-dYZ" firstAttribute="leading" secondItem="3Xh-eN-mJQ" secondAttribute="trailing" constant="10" id="alB-g2-Rbq"/>
-                                    <constraint firstItem="LXH-NP-f0d" firstAttribute="trailing" secondItem="b1b-lE-LKT" secondAttribute="trailing" id="cke-Pp-0ar"/>
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="leading" secondItem="LXH-NP-f0d" secondAttribute="leading" id="cpz-S8-FKB"/>
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="leading" secondItem="3Xh-eN-mJQ" secondAttribute="leading" id="qn2-f1-6ax"/>
                                     <constraint firstItem="V8Z-iW-tsi" firstAttribute="top" secondItem="LXH-NP-f0d" secondAttribute="bottom" constant="10" id="vAa-2K-2z4"/>
@@ -324,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQN-rs-m7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-623" y="-2140"/>
+            <point key="canvasLocation" x="-623" y="-2142"/>
         </scene>
         <!--Holy Communion-->
         <scene sceneID="fE8-SV-o0n">
