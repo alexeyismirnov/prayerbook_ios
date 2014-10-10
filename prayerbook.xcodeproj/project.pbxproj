@@ -90,6 +90,7 @@
 		8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89219E4CECB00B51294 /* arrow-left.pdf */; };
 		8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89319E4CECB00B51294 /* arrow-right.pdf */; };
 		8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89619E4D1DE00B51294 /* calendar.pdf */; };
+		8AE5DEF819E7A80B0069C757 /* FeastCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5DEF719E7A80B0069C757 /* FeastCalendar.swift */; };
 		8AEF81A919999D39000B3D90 /* icon-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A219999D39000B3D90 /* icon-ipad.png */; };
 		8AEF81AA19999D39000B3D90 /* icon-ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A319999D39000B3D90 /* icon-ipad@2x.png */; };
 		8AEF81AB19999D39000B3D90 /* icon-ipad6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A419999D39000B3D90 /* icon-ipad6.png */; };
@@ -194,6 +195,7 @@
 		8AC7B89219E4CECB00B51294 /* arrow-left.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-left.pdf"; sourceTree = "<group>"; };
 		8AC7B89319E4CECB00B51294 /* arrow-right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-right.pdf"; sourceTree = "<group>"; };
 		8AC7B89619E4D1DE00B51294 /* calendar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = calendar.pdf; sourceTree = "<group>"; };
+		8AE5DEF719E7A80B0069C757 /* FeastCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeastCalendar.swift; sourceTree = "<group>"; };
 		8AEF81A219999D39000B3D90 /* icon-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ipad.png"; sourceTree = "<group>"; };
 		8AEF81A319999D39000B3D90 /* icon-ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ipad@2x.png"; sourceTree = "<group>"; };
 		8AEF81A419999D39000B3D90 /* icon-ipad6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ipad6.png"; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				8A74D832198F224E0078F39F /* Main.storyboard */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
 				8A2F46A619E12B4100076AF4 /* AppDelegate.swift */,
+				8AE5DEF719E7A80B0069C757 /* FeastCalendar.swift */,
 				8A2F46A819E1302700076AF4 /* Translate.swift */,
 				8A2F46A419E11CEA00076AF4 /* Prayer.swift */,
 				8A2F46A219E1129B00076AF4 /* DailyPrayers.swift */,
@@ -576,6 +579,7 @@
 				8AC4E15019DE2BF800CF4271 /* ListOfPrayers.swift in Sources */,
 				8A2F46A519E11CEA00076AF4 /* Prayer.swift in Sources */,
 				8A2F46A319E1129B00076AF4 /* DailyPrayers.swift in Sources */,
+				8AE5DEF819E7A80B0069C757 /* FeastCalendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="G5G-CB-Hhd">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -295,7 +296,7 @@
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3Xh-eN-mJQ" secondAttribute="bottom" constant="10" id="PFA-8D-roG"/>
                                     <constraint firstItem="3Xh-eN-mJQ" firstAttribute="top" secondItem="LXH-NP-f0d" secondAttribute="bottom" constant="10" id="SMd-K1-Upv"/>
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="trailing" secondItem="V8Z-iW-tsi" secondAttribute="trailing" id="Uci-tC-xpY"/>
-                                    <constraint firstItem="b1b-lE-LKT" firstAttribute="top" relation="lessThanOrEqual" secondItem="KYZ-41-dYZ" secondAttribute="bottom" constant="20" id="X6H-cV-BvP"/>
+                                    <constraint firstItem="b1b-lE-LKT" firstAttribute="top" relation="lessThanOrEqual" secondItem="KYZ-41-dYZ" secondAttribute="bottom" priority="750" constant="20" id="X6H-cV-BvP"/>
                                     <constraint firstItem="LXH-NP-f0d" firstAttribute="trailing" secondItem="b1b-lE-LKT" secondAttribute="trailing" id="YI3-tr-UbV"/>
                                     <constraint firstItem="KYZ-41-dYZ" firstAttribute="leading" secondItem="3Xh-eN-mJQ" secondAttribute="trailing" constant="10" id="alB-g2-Rbq"/>
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="leading" secondItem="LXH-NP-f0d" secondAttribute="leading" id="cpz-S8-FKB"/>

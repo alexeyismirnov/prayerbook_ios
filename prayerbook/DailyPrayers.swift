@@ -38,6 +38,8 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        FeastCalendar.getFeastDescription(2014)
+        
         addBarButtons()
         addRoundedBorder(foodButton)
         addLayoutConstraints()
