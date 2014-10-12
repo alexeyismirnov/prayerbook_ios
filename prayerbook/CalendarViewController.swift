@@ -17,9 +17,7 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
         super.viewDidLoad()
 
         var button_left = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .Plain, target: self, action: "prev_month")
-        
         var button_right = UIBarButtonItem(image: UIImage(named: "arrow-right"), style: .Plain, target: self, action: "next_month")
-        
         button_left.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         
         navigationItem.rightBarButtonItems = [button_right, button_left]
@@ -28,6 +26,7 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
         calendarView.separatorStyle = .Horizontal
         calendarView.delegate = self
         calendarView.backgroundColor = UIColor.whiteColor()
+        calendarView.currentDayColor = UIColor.whiteColor()
 
         title =  calendarView.monthLabel.text
     }
@@ -48,5 +47,15 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
         title =  calendarView.monthLabel.text
     }
     
+    func calendarView(calendarView: RDVCalendarView!, configureDayCell dayCell: RDVCalendarDayCell!, atIndex index: Int) {
+        
+        var curDate = NSDateComponents(day: index+1, month: calendarView.month.month, year: calendarView.month.year).toDate()
+        
+        if let _ = FeastCalendar.getDayDescription(curDate) {
+            dayCell.textLabel.textColor = UIColor.redColor()
 
+        } else {
+            dayCell.textLabel.textColor = UIColor.blackColor()
+        }
+    }
 }

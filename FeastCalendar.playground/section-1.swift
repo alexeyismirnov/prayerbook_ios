@@ -2,6 +2,8 @@
 
 import UIKit
 
+
+
 enum TimeIntervalUnit {
     case Seconds, Minutes, Hours, Days, Months, Years
     
@@ -57,9 +59,21 @@ func + (let left:NSDate, let right:TimeInterval) -> NSDate {
 extension NSDateComponents {
     convenience init(day: Int, month:Int, year: Int) {
         self.init()
+        
         self.day = day
         self.month = month
         self.year = year
+    }
+    
+    convenience init(date: NSDate) {
+        self.init()
+        
+        let calendar = NSCalendar.currentCalendar()
+        let dateComponents = calendar.components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear, fromDate: date)
+        
+        self.day = dateComponents.day
+        self.month = dateComponents.month
+        self.year = dateComponents.year
     }
     
     func toDate() -> NSDate {
@@ -72,8 +86,13 @@ func += <KeyType, ValueType> (inout left: Dictionary<KeyType, ValueType>, right:
     for (k, v) in right { left.updateValue(v, forKey: k) }
 }
 
-struct FeastCalendar {
+func < (let left:NSDate, let right: NSDate) -> Bool {
+    var result:NSComparisonResult = left.compare(right)
+    return (result == NSComparisonResult.OrderedAscending) ? true : false
+}
 
+struct FeastCalendar {
+    
     static var formatter: NSDateFormatter = {
         var formatter = NSDateFormatter()
         formatter.dateStyle = .ShortStyle
@@ -100,9 +119,20 @@ struct FeastCalendar {
         ]
         
         var day = _paschaDay.filter { $0.year == year}
-        
         if day.count > 0 {
-            feastDescription += [day[0].toDate(): "PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ"]
+            
+            if feastDescription[day[0].toDate()] == nil {
+                
+                feastDescription += [day[0].toDate(): "PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ"]
+                
+                // generate calendar for entire year
+                
+                palmSunday(year)
+                ascensionDay(year)
+                pentecostDay(year)
+                greatFeasts(year)
+            }
+            
             return day[0].toDate()
             
         } else {
@@ -165,34 +195,32 @@ struct FeastCalendar {
         }
     }
     
-    static func getFeasts(year: Int) -> [ NSDate ] {
+    static func getDayDescription(date: NSDate) -> String? {
         
-        var feast : NSDateComponents
-        var arr : [ NSDate ] = []
-        
-        if let pascha = paschaDay(year) {
-            arr += [palmSunday(year)!, pascha, ascensionDay(year)!, pentecostDay(year)!]
-            arr += greatFeasts(year)
-            
-            arr.sort { d1, d2 in return d1.compare(d2) == NSComparisonResult.OrderedAscending }
+        let dateComponents = NSDateComponents(date: date)
+        if let _ = paschaDay(dateComponents.year) {
+            return feastDescription[date]
         }
         
-        return arr
+        return nil
     }
     
-    static func getFeastDescription(year: Int) {
-        let feasts = getFeasts(year)
+    static func printFeastDescription() {
         
-        for feast in feasts {
-            let date_str = formatter.stringFromDate(feast)
-            let feast_str = feastDescription[feast]
-            println("\(date_str) \(feast_str)")
+        for (date, descr) in feastDescription {
+            let date_str = formatter.stringFromDate(date)
+            println("\(date_str) \(descr)")
         }
     }
-
+    
 }
 
-FeastCalendar.getFeastDescription(2015)
+
+FeastCalendar.getDayDescription(NSDate())
+
+FeastCalendar.printFeastDescription()
+
+
 
 
 

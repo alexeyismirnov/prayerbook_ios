@@ -16,9 +16,19 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var foodLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var currentDay: NSDateComponents!
+    var currentDay: NSDate = {
+        // this is done to remove time component from date
+        let dateComponents = NSDateComponents(date: NSDate())
+        return dateComponents.toDate()
+    }()
+    
     let calendar = NSCalendar.currentCalendar()
-    var formatter = NSDateFormatter()
+    var formatter: NSDateFormatter = {
+        var formatter = NSDateFormatter()
+        formatter.dateStyle = .FullStyle
+        formatter.timeStyle = .NoStyle
+        return formatter
+    }()
 
     var titles: [String] = []
     
@@ -29,7 +39,21 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
             formatter.locale = NSLocale(localeIdentifier: "zh_CN")
         }
         
-        dateLabel.text = formatter.stringFromDate(calendar.dateFromComponents(currentDay)!)
+        dateLabel.text = formatter.stringFromDate(currentDay)
+
+        if let dayDescription = FeastCalendar.getDayDescription(currentDay) {
+            
+            var result = NSMutableAttributedString(string: "")
+            var attrs = [NSForegroundColorAttributeName: UIColor.redColor()]
+            var infoTxt = NSMutableAttributedString(string: dayDescription, attributes: attrs)
+            
+            result.appendAttributedString(infoTxt)
+            
+            infoLabel.attributedText = result
+
+        } else {
+            infoLabel.attributedText = NSAttributedString(string: "")
+        }
 
         titles = Translate.tableViewStrings("daily")
         self.tableView.reloadData()
@@ -38,23 +62,16 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FeastCalendar.getFeastDescription(2014)
-        
         addBarButtons()
         addRoundedBorder(foodButton)
         addLayoutConstraints()
-        
-        currentDay = calendar.components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear, fromDate: NSDate())
-        
-        formatter.dateStyle = .FullStyle
-        formatter.timeStyle = .NoStyle
-        
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionsSaved:", name: optionsSavedNotification, object: nil)
         
         self.reload()
+        FeastCalendar.printFeastDescription()
     }
 
-    
     @IBAction func showFastingInfo(sender: AnyObject) {
         var fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
         var modal = NAModalSheet(viewController: fastingInfo, presentationStyle: .FadeInCentered)
@@ -75,12 +92,12 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func prev_day() {
-        currentDay.day--;
+        currentDay = currentDay - 1.days;
         reload()
     }
     
     func next_day() {
-        currentDay.day++
+        currentDay = currentDay + 1.days;
         reload()
     }
 
