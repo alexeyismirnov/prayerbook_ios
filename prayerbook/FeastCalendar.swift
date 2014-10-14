@@ -126,11 +126,9 @@ struct FeastCalendar {
         if day.count > 0 {
             
             if feastDescription[day[0].toDate()] == nil {
-
                 feastDescription += [day[0].toDate(): "PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ"]
 
                 // generate calendar for entire year
-                
                 palmSunday(year)
                 ascensionDay(year)
                 pentecostDay(year)
@@ -200,7 +198,6 @@ struct FeastCalendar {
     }
     
     static func getDayDescription(date: NSDate) -> String? {
-        
         let dateComponents = NSDateComponents(date: date)
         if let _ = paschaDay(dateComponents.year) {
             return feastDescription[date]
@@ -209,8 +206,24 @@ struct FeastCalendar {
         return nil
     }
     
-    static func printFeastDescription() {
+    static func getAttributedDayDescription(date: NSDate) -> NSAttributedString? {
+        if let descr = getDayDescription(date) {
+            var result = NSMutableAttributedString(string: "")
+            var attrs = [NSForegroundColorAttributeName: UIColor.redColor()]
+            var infoTxt = NSMutableAttributedString(string: descr, attributes: attrs)
+            
+            result.appendAttributedString(infoTxt)
+            return result
+        }
         
+        return nil
+    }
+    
+    static func printFeastDescription() {
+        // get Pascha day to trigger calendar initialization
+        let dateComponents = NSDateComponents(date: NSDate())
+        let _ = paschaDay(dateComponents.year)
+            
         for (date, descr) in feastDescription {
             let date_str = formatter.stringFromDate(date)
             println("\(date_str) \(descr)")

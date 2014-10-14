@@ -16,7 +16,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var foodLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var currentDay: NSDate = {
+    var currentDate: NSDate = {
         // this is done to remove time component from date
         let dateComponents = NSDateComponents(date: NSDate())
         return dateComponents.toDate()
@@ -39,17 +39,10 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
             formatter.locale = NSLocale(localeIdentifier: "zh_CN")
         }
         
-        dateLabel.text = formatter.stringFromDate(currentDay)
+        dateLabel.text = formatter.stringFromDate(currentDate)
 
-        if let dayDescription = FeastCalendar.getDayDescription(currentDay) {
-            
-            var result = NSMutableAttributedString(string: "")
-            var attrs = [NSForegroundColorAttributeName: UIColor.redColor()]
-            var infoTxt = NSMutableAttributedString(string: dayDescription, attributes: attrs)
-            
-            result.appendAttributedString(infoTxt)
-            
-            infoLabel.attributedText = result
+        if let txt = FeastCalendar.getAttributedDayDescription(currentDate) {
+            infoLabel.attributedText = txt
 
         } else {
             infoLabel.attributedText = NSAttributedString(string: "")
@@ -92,12 +85,12 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func prev_day() {
-        currentDay = currentDay - 1.days;
+        currentDate = currentDate - 1.days;
         reload()
     }
     
     func next_day() {
-        currentDay = currentDay + 1.days;
+        currentDate = currentDate + 1.days;
         reload()
     }
 
@@ -112,6 +105,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
             let nav = segue.destinationViewController as UINavigationController
             let dest = nav.viewControllers[0] as CalendarViewController
             dest.delegate = self
+            //dest.currentDate = currentDate
         }
     }
     
