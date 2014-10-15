@@ -40,14 +40,13 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         
         dateLabel.text = formatter.stringFromDate(currentDate)
+        
+        let dayDescription = FeastCalendar.getAttributedDayDescription(currentDate)
+        let weekDescription = FeastCalendar.getAttributedWeekDescription(currentDate)
+        var description = dayDescription + NSMutableAttributedString(string: "\n") + weekDescription
 
-        if let txt = FeastCalendar.getAttributedDayDescription(currentDate) {
-            infoLabel.attributedText = txt
-
-        } else {
-            infoLabel.attributedText = NSAttributedString(string: "")
-        }
-
+        infoLabel.attributedText  = description
+        
         titles = Translate.tableViewStrings("daily")
         self.tableView.reloadData()
     }

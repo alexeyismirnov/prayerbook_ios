@@ -3,7 +3,6 @@
 import UIKit
 
 
-
 enum TimeIntervalUnit {
     case Seconds, Minutes, Hours, Days, Months, Years
     
@@ -82,13 +81,44 @@ extension NSDateComponents {
     }
 }
 
+func + (str: String, date: NSDate) -> String {
+    var formatter = NSDateFormatter()
+    formatter.dateStyle = .ShortStyle
+    formatter.timeStyle = .NoStyle
+    
+    return formatter.stringFromDate(date)
+}
+
+func + (arg1: NSMutableAttributedString, arg2: NSMutableAttributedString) -> NSMutableAttributedString {
+    var result = NSMutableAttributedString(attributedString: arg1)
+    result.appendAttributedString(arg2)
+    return result
+}
+
 func += <KeyType, ValueType> (inout left: Dictionary<KeyType, ValueType>, right: Dictionary<KeyType, ValueType>) {
     for (k, v) in right { left.updateValue(v, forKey: k) }
 }
 
-func < (let left:NSDate, let right: NSDate) -> Bool {
+extension NSDate: Comparable {
+    
+}
+
+public func < (let left:NSDate, let right: NSDate) -> Bool {
     var result:NSComparisonResult = left.compare(right)
-    return (result == NSComparisonResult.OrderedAscending) ? true : false
+    return (result == .OrderedAscending)
+}
+
+public func == (let left:NSDate, let right: NSDate) -> Bool {
+    var result:NSComparisonResult = left.compare(right)
+    return (result == .OrderedSame)
+}
+
+
+func >> (left: NSDate, right: NSDate) -> Int {
+    let calendar = NSCalendar.currentCalendar()
+    let components = calendar.components(.CalendarUnitDay, fromDate: left, toDate: right, options: nil)
+    
+    return components.day/7 + 1
 }
 
 struct FeastCalendar {
@@ -101,6 +131,7 @@ struct FeastCalendar {
         }()
     
     static var feastDescription = [NSDate: String]()
+    static var weekDescription = [NSDate: String]()
     
     static func paschaDay(year: Int) -> NSDate? {
         
@@ -122,15 +153,16 @@ struct FeastCalendar {
         if day.count > 0 {
             
             if feastDescription[day[0].toDate()] == nil {
-                
                 feastDescription += [day[0].toDate(): "PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ"]
                 
                 // generate calendar for entire year
-                
                 palmSunday(year)
                 ascensionDay(year)
                 pentecostDay(year)
                 greatFeasts(year)
+                
+                // for calculation of week number
+                generateSundayTitles(year)
             }
             
             return day[0].toDate()
@@ -196,7 +228,6 @@ struct FeastCalendar {
     }
     
     static func getDayDescription(date: NSDate) -> String? {
-        
         let dateComponents = NSDateComponents(date: date)
         if let _ = paschaDay(dateComponents.year) {
             return feastDescription[date]
@@ -205,7 +236,118 @@ struct FeastCalendar {
         return nil
     }
     
+    static func getAttributedDayDescription(date: NSDate) -> NSMutableAttributedString {
+        var result = NSMutableAttributedString(string: "")
+        
+        if let descr = getDayDescription(date) {
+            var attrs = [NSForegroundColorAttributeName: UIColor.redColor()]
+            var infoTxt = NSMutableAttributedString(string: descr, attributes: attrs)
+            result.appendAttributedString(infoTxt)
+        }
+        
+        return result
+    }
+    
+    static func generateSundayTitles(year: Int) -> String {
+        if let pascha = paschaDay(year) {
+            let lentBegin = pascha - 48.days
+            
+            weekDescription += [lentBegin-29.days: "Zacchæus’s Sunday"]
+            weekDescription += [lentBegin-22.days: "Sunday of the Publican and the Pharisee"]
+            weekDescription += [lentBegin-15.days: "Sunday of the Prodigal Son"]
+            weekDescription += [lentBegin-8.days: "Sunday of the Dread Judgement"]
+            weekDescription += [lentBegin-1.days: "Forgiveness Sunday"]
+            
+            weekDescription += [lentBegin: "Beginning of Great Lent" ]
+            weekDescription += [lentBegin+6.days: "1st Sunday of Lent: Triumph of Orthodoxy" ]
+            weekDescription += [lentBegin+13.days: "2nd Sunday of Lent; Saint Gregory Palamas" ]
+            weekDescription += [lentBegin+20.days: "3rd Sunday of Lent, Veneration of the Precious Cross" ]
+            weekDescription += [lentBegin+27.days: "4th Sunday of Lent; Venerable John Climacus of Sinai" ]
+            weekDescription += [lentBegin+34.days: "5th Sunday of Lent; Venerable Mary of Egypt" ]
+            weekDescription += [lentBegin+40.days: "Lazarus Saturday"]
+            
+            weekDescription += [pascha+7.days: "2nd Sunday after Pascha. Antipascha"]
+            weekDescription += [pascha+14.days: "3rd Sunday after Pascha. Sunday of the Myrrhbearing Women"]
+            weekDescription += [pascha+21.days: "4th Sunday after Pascha. Sunday of the Paralytic"]
+            weekDescription += [pascha+28.days: "5th Sunday after Pascha. Sunday of the Samaritan Woman"]
+            weekDescription += [pascha+35.days: "6th Sunday after Pascha. Sunday of the Blind Man"]
+            weekDescription += [pascha+42.days: "7th Sunday after Pascha. Commemoration of the Holy Fathers of the First Ecumenical Council"]
+        }
+        
+        return "bug in Playground"
+    }
+    
+    
+    static func getWeekDescription(date: NSDate) -> NSString? {
+        
+        let dateComponents = NSDateComponents(date: date)
+        if let pascha = paschaDay(dateComponents.year) {
+            if let descr = weekDescription[date] {
+                return descr
+            }
+            
+            let lentBegin = pascha - 48.days
+            let palmSunday = pascha - 7.days
+            let antiPascha = pascha + 7.days
+            let pentecost = pentecostDay(dateComponents.year)!
+            let pentecostPrev = pentecostDay(dateComponents.year-1)
+            
+            let startOfYear = NSDateComponents(day: 1, month: 1, year: dateComponents.year).toDate()
+            let endOfYear = NSDateComponents(day: 31, month: 12, year: dateComponents.year).toDate()
+            
+            switch (date) {
+                
+            case startOfYear ... lentBegin-22.days:
+                return (pentecostPrev != nil) ?  "Week \((pentecostPrev!+1.days) >> date) after Pentecost" : nil
+                
+            case lentBegin-21.days ... lentBegin-15.days:
+                return "Week of the Publican and the Pharisee"
+                
+            case lentBegin-14.days ... lentBegin-8.days:
+                return "Week of the Prodigal Son"
+                
+            case lentBegin-7.days ... lentBegin:
+                return "Week of the Dread Judgement"
+                
+            case lentBegin..<palmSunday:
+                return "Week \(lentBegin >> date) of Great Lent"
+                
+            case palmSunday+1.days ..< pascha:
+                return "Passion Week"
+                
+            case pascha+1.days ... antiPascha:
+                return "Bright Week"
+                
+            case antiPascha..<pentecost:
+                return "Week \(pascha >> date) after Pascha"
+                
+            case pentecost+1.days ... endOfYear:
+                return "Week \((pentecost+1.days) >> date) after Pentecost"
+                
+            default: return nil
+            }
+            
+        }
+        
+        return nil
+    }
+    
+    static func getAttributedWeekDescription(date: NSDate) -> NSMutableAttributedString {
+        var result = NSMutableAttributedString(string: "")
+        
+        if let descr = getWeekDescription(date) {
+            var attrs = [NSForegroundColorAttributeName: UIColor.grayColor()]
+            var infoTxt = NSMutableAttributedString(string: descr, attributes: attrs)
+            result.appendAttributedString(infoTxt)
+        }
+        
+        return result
+    }
+    
     static func printFeastDescription() {
+        // get Pascha day to trigger calendar initialization
+        let dateComponents = NSDateComponents(date: NSDate())
+        let _ = paschaDay(dateComponents.year)
         
         for (date, descr) in feastDescription {
             let date_str = formatter.stringFromDate(date)
@@ -216,9 +358,10 @@ struct FeastCalendar {
 }
 
 
-FeastCalendar.getDayDescription(NSDate())
+let dc = NSDateComponents(day: 31, month: 12, year: 2014)
 
-FeastCalendar.printFeastDescription()
+FeastCalendar.getWeekDescription(dc.toDate())
+
 
 
 

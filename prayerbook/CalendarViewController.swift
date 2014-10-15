@@ -62,15 +62,21 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
     }
     
     private func updateDescription() {
-        descriptionLabel.attributedText = NSAttributedString(string: " ")
-
-        if (calendarView.selectedDate == nil) {
-            return
+        if calendarView.selectedDate == nil {
+            descriptionLabel.attributedText = NSMutableAttributedString(string: "")
+            
+        } else {
+            let dayDescription =  FeastCalendar.getAttributedDayDescription(calendarView.selectedDate)
+            let weekDescription =  FeastCalendar.getAttributedWeekDescription(calendarView.selectedDate)
+         
+            if Array(dayDescription.string).count > 0 {
+                descriptionLabel.attributedText = dayDescription
+                
+            } else {
+                descriptionLabel.attributedText = weekDescription
+            }
         }
         
-        if let txt = FeastCalendar.getAttributedDayDescription(calendarView.selectedDate) {
-            descriptionLabel.attributedText = txt
-        }
     }
     
     // MARK: RDVCalendarViewDelegate
