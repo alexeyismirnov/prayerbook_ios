@@ -292,7 +292,7 @@
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="No Lent" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYZ-41-dYZ">
                                         <rect key="frame" x="509" y="160" width="140" height="23"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="f32-oD-06g"/>
+                                            <constraint firstAttribute="width" constant="90" id="f32-oD-06g"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
@@ -315,7 +315,7 @@
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="trailing" secondItem="V8Z-iW-tsi" secondAttribute="trailing" id="Uci-tC-xpY"/>
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="top" relation="lessThanOrEqual" secondItem="KYZ-41-dYZ" secondAttribute="bottom" priority="750" constant="20" id="X6H-cV-BvP"/>
                                     <constraint firstItem="LXH-NP-f0d" firstAttribute="trailing" secondItem="b1b-lE-LKT" secondAttribute="trailing" id="YI3-tr-UbV"/>
-                                    <constraint firstItem="KYZ-41-dYZ" firstAttribute="leading" secondItem="3Xh-eN-mJQ" secondAttribute="trailing" constant="10" id="alB-g2-Rbq"/>
+                                    <constraint firstItem="KYZ-41-dYZ" firstAttribute="leading" secondItem="3Xh-eN-mJQ" secondAttribute="trailing" constant="5" id="alB-g2-Rbq"/>
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="leading" secondItem="LXH-NP-f0d" secondAttribute="leading" id="cpz-S8-FKB"/>
                                     <constraint firstItem="b1b-lE-LKT" firstAttribute="leading" secondItem="3Xh-eN-mJQ" secondAttribute="leading" id="qn2-f1-6ax"/>
                                     <constraint firstItem="V8Z-iW-tsi" firstAttribute="top" secondItem="LXH-NP-f0d" secondAttribute="bottom" constant="10" id="vAa-2K-2z4"/>

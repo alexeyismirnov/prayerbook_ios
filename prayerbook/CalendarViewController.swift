@@ -66,14 +66,16 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
             descriptionLabel.attributedText = NSMutableAttributedString(string: "")
             
         } else {
-            let dayDescription =  FeastCalendar.getAttributedDayDescription(calendarView.selectedDate)
-            let weekDescription =  FeastCalendar.getAttributedWeekDescription(calendarView.selectedDate)
-         
+            
+            let dayDescription = FeastCalendar.getAttributedDescription(description: FeastCalendar.getDayDescription(calendarView.selectedDate), color: UIColor.redColor())
+            let weekDescription = FeastCalendar.getAttributedDescription(description: FeastCalendar.getWeekDescription(calendarView.selectedDate), color: UIColor.grayColor())
+            let toneDescription = FeastCalendar.getAttributedDescription(description: FeastCalendar.getToneDescription(calendarView.selectedDate), color: UIColor.grayColor())
+
             if Array(dayDescription.string).count > 0 {
                 descriptionLabel.attributedText = dayDescription
                 
             } else {
-                descriptionLabel.attributedText = weekDescription
+                descriptionLabel.attributedText = weekDescription + NSMutableAttributedString(string: "\n") + toneDescription
             }
         }
         

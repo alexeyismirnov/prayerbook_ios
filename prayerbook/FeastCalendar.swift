@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 enum TimeIntervalUnit {
     case Seconds, Minutes, Hours, Days, Months, Years
     
@@ -74,11 +73,12 @@ extension NSDateComponents {
         self.init()
         
         let calendar = NSCalendar.currentCalendar()
-        let dateComponents = calendar.components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear, fromDate: date)
+        let dateComponents = calendar.components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear | .CalendarUnitWeekday, fromDate: date)
         
         self.day = dateComponents.day
         self.month = dateComponents.month
         self.year = dateComponents.year
+        self.weekday = dateComponents.weekday
     }
     
     func toDate() -> NSDate {
@@ -242,18 +242,6 @@ struct FeastCalendar {
         return nil
     }
     
-    static func getAttributedDayDescription(date: NSDate) -> NSMutableAttributedString {
-        var result = NSMutableAttributedString(string: "")
-        
-        if let descr = getDayDescription(date) {
-            var attrs = [NSForegroundColorAttributeName: UIColor.redColor()]
-            var infoTxt = NSMutableAttributedString(string: descr, attributes: attrs)
-            result.appendAttributedString(infoTxt)
-        }
-        
-        return result
-    }
-    
     static func generateSundayTitles(year: Int) -> String {
         if let pascha = paschaDay(year) {
             let lentBegin = pascha - 48.days
@@ -283,9 +271,7 @@ struct FeastCalendar {
         return "bug in Playground"
     }
     
-    
     static func getWeekDescription(date: NSDate) -> NSString? {
-        
         let dateComponents = NSDateComponents(date: date)
         if let pascha = paschaDay(dateComponents.year) {
             if let descr = weekDescription[date] {
@@ -300,11 +286,12 @@ struct FeastCalendar {
             
             let startOfYear = NSDateComponents(day: 1, month: 1, year: dateComponents.year).toDate()
             let endOfYear = NSDateComponents(day: 31, month: 12, year: dateComponents.year).toDate()
+            let dayOfWeek = (dateComponents.weekday == 1) ? "Sunday" : "Week"
             
             switch (date) {
                 
             case startOfYear ... lentBegin-22.days:
-                return (pentecostPrev != nil) ?  "Week \((pentecostPrev!+1.days) >> date) after Pentecost" : nil
+                return (pentecostPrev != nil) ?  "\(dayOfWeek) \((pentecostPrev!+1.days) >> date) after Pentecost" : nil
                 
             case lentBegin-21.days ... lentBegin-15.days:
                 return "Week of the Publican and the Pharisee"
@@ -328,7 +315,7 @@ struct FeastCalendar {
                 return "Week \(pascha >> date) after Pascha"
                 
             case pentecost+1.days ... endOfYear:
-                return "Week \((pentecost+1.days) >> date) after Pentecost"
+                return "\(dayOfWeek) \((pentecost+1.days) >> date) after Pentecost"
                 
             default: return nil
             }
@@ -338,16 +325,40 @@ struct FeastCalendar {
         return nil
     }
     
-    static func getAttributedWeekDescription(date: NSDate) -> NSMutableAttributedString {
-        var result = NSMutableAttributedString(string: "")
-        
-        if let descr = getWeekDescription(date) {
-            var attrs = [NSForegroundColorAttributeName: UIColor.grayColor()]
-            var infoTxt = NSMutableAttributedString(string: descr, attributes: attrs)
-            result.appendAttributedString(infoTxt)
+    static func getAttributedDescription(description _descr: String?, color: UIColor) -> NSMutableAttributedString {
+        if let descr = _descr {
+            var attrs = [NSForegroundColorAttributeName: color]
+            return NSMutableAttributedString(string: descr, attributes: attrs)
+            
+        } else {
+            return NSMutableAttributedString(string: "");
+        }
+    }
+    
+    static func getToneDescription(date: NSDate) -> NSString? {
+
+        func toneFromOffset(offset: Int) -> Int {
+            let reminder = (offset - 1) % 8
+            return (reminder == 0) ? 8 : reminder
         }
         
-        return result
+        let dateComponents = NSDateComponents(date: date)
+
+        if let pascha = paschaDay(dateComponents.year) {
+            let startOfYear = NSDateComponents(day: 1, month: 1, year: dateComponents.year).toDate()
+            let endOfYear = NSDateComponents(day: 31, month: 12, year: dateComponents.year).toDate()
+            let palmSunday = pascha - 7.days
+            let prevPascha = paschaDay(dateComponents.year-1)
+            let afterAntiPascha = pascha + 8.days
+            
+            switch (date) {
+            case startOfYear ..< palmSunday: return (prevPascha != nil) ? "Tone \(toneFromOffset(prevPascha! >> date))" : nil
+            case afterAntiPascha ... endOfYear: return "Tone \(toneFromOffset(pascha >> date))"
+            default: return nil
+            }
+        }
+        
+        return nil
     }
     
     static func printFeastDescription() {

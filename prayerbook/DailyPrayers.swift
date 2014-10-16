@@ -41,9 +41,11 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         dateLabel.text = formatter.stringFromDate(currentDate)
         
-        let dayDescription = FeastCalendar.getAttributedDayDescription(currentDate)
-        let weekDescription = FeastCalendar.getAttributedWeekDescription(currentDate)
-        var description = dayDescription + NSMutableAttributedString(string: "\n") + weekDescription
+        let dayDescription = FeastCalendar.getAttributedDescription(description: FeastCalendar.getDayDescription(currentDate), color: UIColor.redColor())
+        let weekDescription = FeastCalendar.getAttributedDescription(description: FeastCalendar.getWeekDescription(currentDate), color: UIColor.grayColor())
+        let toneDescription = FeastCalendar.getAttributedDescription(description: FeastCalendar.getToneDescription(currentDate), color: UIColor.grayColor())
+        
+        var description = dayDescription + NSMutableAttributedString(string: "\n") + weekDescription + NSMutableAttributedString(string: "\n") + toneDescription
 
         infoLabel.attributedText  = description
         
