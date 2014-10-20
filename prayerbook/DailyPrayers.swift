@@ -141,9 +141,9 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         
         if (indexPath.section == 0) {
-            newCell.textLabel!.text = "Luke 2:3-4"
+            newCell.textLabel.text = "Luke 2:3-4"
         } else {
-            newCell.textLabel!.text = titles[indexPath.row]
+            newCell.textLabel.text = titles[indexPath.row]
         }
         
         return newCell

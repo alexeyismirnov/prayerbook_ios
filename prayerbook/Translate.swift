@@ -40,7 +40,7 @@ struct Translate {
         let bundle = NSBundle.mainBundle().pathForResource("index_\(language)", ofType: "plist")
         let table = NSDictionary(contentsOfFile: bundle!)
         
-        if let trans_table = table.objectForKey(code) as? NSArray {
+        if let trans_table = table?.objectForKey(code) as? NSArray {
             return trans_table as [String]
         } else {
             return []

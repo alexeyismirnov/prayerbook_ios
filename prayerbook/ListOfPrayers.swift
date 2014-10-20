@@ -59,7 +59,7 @@ class ListOfPrayers: UITableViewController {
             newCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
         }
         
-        newCell!.textLabel!.text = titles[indexPath.row]
+        newCell!.textLabel.text = titles[indexPath.row]
         return newCell!
     }
 

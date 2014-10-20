@@ -95,8 +95,8 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         var capitalized = "\(foodName[0])".uppercaseString + foodName.substringFromIndex(advance(foodName.startIndex, 1))
         
-        cell?.textLabel?.text = capitalized
-        cell?.imageView?.image =  UIImage(named: getImageName(foodName, allowed: indexPath.section == 0))
+        cell?.textLabel.text = capitalized
+        cell?.imageView.image =  UIImage(named: getImageName(foodName, allowed: indexPath.section == 0))
         
         return cell!
     }

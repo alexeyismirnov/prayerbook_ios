@@ -17,8 +17,9 @@ class Prayer: UIViewController {
     func reload() {
         let filename = String(format: "prayer_%@_%d_%@.html", code, index, Translate.language)
         let bundleName = NSBundle.mainBundle().pathForResource(filename, ofType: nil)
-        var txt : String! = String.stringWithContentsOfFile(bundleName!, encoding: NSUTF8StringEncoding, error: nil)
         
+        var txt:String! = String(contentsOfFile: bundleName!, encoding: NSUTF8StringEncoding, error: nil)
+
         let prefs = NSUserDefaults.standardUserDefaults()
         let fontSize = prefs.integerForKey("fontSize")
         
