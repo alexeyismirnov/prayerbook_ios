@@ -2,6 +2,8 @@
 
 import UIKit
 
+import UIKit
+
 enum TimeIntervalUnit {
     case Seconds, Minutes, Hours, Days, Months, Years
     
@@ -133,16 +135,6 @@ struct FeastCalendar {
     static var feastDescription = [NSDate: String]()
     static var weekDescription = [NSDate: String]()
     
-    static func getAttributedDescription(description _descr: String?, color: UIColor) -> NSMutableAttributedString {
-        if let descr = _descr {
-            var attrs = [NSForegroundColorAttributeName: color]
-            return NSMutableAttributedString(string: descr, attributes: attrs)
-            
-        } else {
-            return NSMutableAttributedString(string: "");
-        }
-    }
-    
     static func paschaDay(year: Int) -> NSDate? {
         
         let _paschaDay = [
@@ -186,7 +178,6 @@ struct FeastCalendar {
         let feasts = [
             NSDateComponents(day: 7, month: 1, year: year).toDate(): "The Nativity of our Lord God and Savior Jesus Christ",
             NSDateComponents(day: 14, month: 1, year: year).toDate(): "Circumcision of our Lord",
-            NSDateComponents(day: 18, month: 1, year: year).toDate(): "Eve of Theophany",
             NSDateComponents(day: 19, month: 1, year: year).toDate(): "Holy Theophany: the Baptism of Our Lord, God, and Saviour Jesus Christ",
             NSDateComponents(day: 15, month: 2, year: year).toDate(): "The Meeting of our Lord, God, and Saviour Jesus Christ in the Temple",
             NSDateComponents(day: 7, month: 4, year: year).toDate(): "The Annunciation of our Most Holy Lady, Theotokos and Ever-Virgin Mary",
@@ -198,8 +189,7 @@ struct FeastCalendar {
             NSDateComponents(day: 21, month: 9, year: year).toDate(): "Nativity of Our Most Holy Lady Theotokos and Ever-Virgin Mary",
             NSDateComponents(day: 27, month: 9, year: year).toDate(): "The Universal Exaltation of the Precious and Life-Giving Cross",
             NSDateComponents(day: 14, month: 10, year: year).toDate(): "Protection of Our Most Holy Lady Theotokos and Ever-Virgin Mary",
-            NSDateComponents(day: 4, month: 12, year: year).toDate(): "Entry into the Temple of our Most Holy Lady Theotokos and Ever-Virgin Mary",
-            NSDateComponents(day: 19, month: 12, year: year).toDate(): "St. Nicholas the Wonderworker"
+            NSDateComponents(day: 4, month: 12, year: year).toDate(): "Entry into the Temple of our Most Holy Lady Theotokos and Ever-Virgin Mary"
         ]
         
         feastDescription += feasts
@@ -274,11 +264,11 @@ struct FeastCalendar {
             weekDescription += [pascha+42.days: "7th Sunday after Pascha. Commemoration of the Holy Fathers of the First Ecumenical Council"]
         }
         
+//        return "bug in Playground"
     }
     
     static func getWeekDescription(date: NSDate) -> NSString? {
         let dateComponents = NSDateComponents(date: date)
-        
         if let pascha = paschaDay(dateComponents.year) {
             if let descr = weekDescription[date] {
                 return descr
@@ -331,7 +321,18 @@ struct FeastCalendar {
         return nil
     }
     
+    static func getAttributedDescription(description _descr: String?, color: UIColor) -> NSMutableAttributedString {
+        if let descr = _descr {
+            var attrs = [NSForegroundColorAttributeName: color]
+            return NSMutableAttributedString(string: descr, attributes: attrs)
+            
+        } else {
+            return NSMutableAttributedString(string: "");
+        }
+    }
+    
     static func getToneDescription(date: NSDate) -> NSString? {
+        
         func toneFromOffset(offset: Int) -> Int {
             let reminder = (offset - 1) % 8
             return (reminder == 0) ? 8 : reminder
@@ -356,106 +357,6 @@ struct FeastCalendar {
         return nil
     }
     
-    enum FastingType {
-        case NoFast, Vegetarian, FishAllowed, FastFree, Cheesefare
-    }
-    
-    static func getFastingDescription(date: NSDate) -> (FastingType, NSString)? {
-        let dateComponents = NSDateComponents(date: date)
-        let year = dateComponents.year
-        let weekday = dateComponents.weekday
-        
-        if let pascha = paschaDay(year) {
-            let nativityOfGod = NSDateComponents(day: 7, month: 1, year: year).toDate()
-            let annunciation = NSDateComponents(day: 7, month: 4, year: year).toDate()
-            let nativityJohnForerunner = NSDateComponents(day: 7, month: 7, year: year).toDate()
-            let transfiguration = NSDateComponents(day: 19, month: 8, year: year).toDate()
-            let entryIntoTemple = NSDateComponents(day: 4, month: 12, year: year).toDate()
-            let stNicholas = NSDateComponents(day: 19, month: 12, year: year).toDate()
-            
-            let eveOfTheophany = NSDateComponents(day: 18, month: 1, year: year).toDate()
-            let beheadingOfJohn = NSDateComponents(day: 11, month: 9, year: year).toDate()
-            let exhaltationOfCross = NSDateComponents(day: 27, month: 9, year: year).toDate()
-
-            let startOfYear = NSDateComponents(day: 1, month: 1, year: dateComponents.year).toDate()
-
-            let greatLentStart = pascha - 48.days
-            let palmSunday = pascha - 7.days
-            let pentecost = pentecostDay(year)!
-            let apostolesDay = NSDateComponents(day: 12, month: 7, year: year).toDate()
-
-            let dormitionFastStart = NSDateComponents(day: 14, month: 8, year: year).toDate()
-            let dormitionDay = NSDateComponents(day: 28, month: 8, year: year).toDate()
-            
-            let nativityFastStart = NSDateComponents(day: 28, month: 11, year: year).toDate()
-            let endOfYear = NSDateComponents(day: 31, month: 12, year: dateComponents.year).toDate()
-
-            // TODO: what is fast if major feast is on Wed/Fri?
-            // TODO: what is fast on a common day (fasting seasons, Wed/Fri fast)
-            
-            switch (date) {
-
-            case nativityJohnForerunner,
-                 transfiguration,
-                 entryIntoTemple,
-                 stNicholas:
-                return (.FishAllowed, "Fish Allowed")
-                
-            case eveOfTheophany,
-                 beheadingOfJohn,
-                 exhaltationOfCross:
-                return (.Vegetarian, "Vegetarian")
-                
-            case startOfYear:
-                return (weekday == 7 || weekday == 1) ? (.FishAllowed, "Nativity Fast") : (.Vegetarian, "Nativity Fast")
-                
-            case startOfYear+1.days ..< nativityOfGod:
-                return (.Vegetarian, "Nativity Fast")
-                
-            case nativityOfGod ..< eveOfTheophany:
-                return (.FastFree, "Svyatki")
-
-            case greatLentStart-21.days ... greatLentStart-15.days:
-                return (.FastFree, "Fast-free week")
-
-            case greatLentStart-7.days ... greatLentStart-1.days:
-                return (.Cheesefare, "Maslenitsa")
-                
-            case greatLentStart ... palmSunday:
-                return (date == annunciation) ? (.FishAllowed, "Fish allowed") : (.Vegetarian, "Great Lent")
-                
-            case palmSunday + 1.days ..< pascha:
-                return (.Vegetarian, "Vegetarian")
-                
-            case pascha ..< pascha + 7.days:
-                return (.FastFree, "Fast-free week")
-                
-            case pentecost+1.days ... pentecost+7.days:
-                return (.FastFree, "Fast-free week")
-                
-            case pentecost+8.days ... apostolesDay-1.days:
-                return (weekday == 2 || weekday == 4 || weekday == 6) ? (.Vegetarian, "Apostoles' Fast") : (.FishAllowed, "Apostoles' Fast")
-                
-            case apostolesDay, dormitionDay:
-                return (weekday == 4 || weekday == 6) ? (.FishAllowed, "Fish Allowed") : (.NoFast, "No fast")
-                
-            case dormitionFastStart ... dormitionDay-1.days:
-                return (.Vegetarian, "Dormition Fast")
-                
-            case nativityFastStart ..< stNicholas:
-                return (weekday == 2 || weekday == 4 || weekday == 6) ? (.Vegetarian, "Nativity Fast") : (.FishAllowed, "Nativity Fast")
-                
-            case stNicholas ... endOfYear:
-                return (weekday == 7 || weekday == 1) ? (.FishAllowed, "Nativity Fast") : (.Vegetarian, "Nativity Fast")
-
-
-            default: return nil
-            }
-        }
-        
-        return nil
-    }
-    
     static func printFeastDescription() {
         // get Pascha day to trigger calendar initialization
         let dateComponents = NSDateComponents(date: NSDate())
@@ -470,11 +371,9 @@ struct FeastCalendar {
 }
 
 
-//let dc = NSDateComponents(day: 31, month: 12, year: 2014)
-let dc = NSDateComponents(date: NSDate())
+let dc = NSDateComponents(day: 30, month: 12, year: 2014)
 
-
-//FeastCalendar.getWeekDescription(dc.toDate())
+FeastCalendar.getWeekDescription(dc.toDate())
 
 
 

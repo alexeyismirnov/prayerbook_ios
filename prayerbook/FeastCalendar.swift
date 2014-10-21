@@ -129,6 +129,16 @@ func >> (left: NSDate, right: NSDate) -> Int {
 
 struct FeastCalendar {
     
+    static func getAttributedDescription(description _descr: String?, color: UIColor) -> NSMutableAttributedString {
+        if let descr = _descr {
+            var attrs = [NSForegroundColorAttributeName: color]
+            return NSMutableAttributedString(string: descr, attributes: attrs)
+            
+        } else {
+            return NSMutableAttributedString(string: "");
+        }
+    }
+
     static var formatter: NSDateFormatter = {
         var formatter = NSDateFormatter()
         formatter.dateStyle = .ShortStyle
@@ -242,7 +252,7 @@ struct FeastCalendar {
         return nil
     }
     
-    static func generateSundayTitles(year: Int) -> String {
+    static func generateSundayTitles(year: Int)  {
         if let pascha = paschaDay(year) {
             let lentBegin = pascha - 48.days
             
@@ -267,8 +277,6 @@ struct FeastCalendar {
             weekDescription += [pascha+35.days: "6th Sunday after Pascha. Sunday of the Blind Man"]
             weekDescription += [pascha+42.days: "7th Sunday after Pascha. Commemoration of the Holy Fathers of the First Ecumenical Council"]
         }
-        
-        return "bug in Playground"
     }
     
     static func getWeekDescription(date: NSDate) -> NSString? {
@@ -323,16 +331,6 @@ struct FeastCalendar {
         }
         
         return nil
-    }
-    
-    static func getAttributedDescription(description _descr: String?, color: UIColor) -> NSMutableAttributedString {
-        if let descr = _descr {
-            var attrs = [NSForegroundColorAttributeName: color]
-            return NSMutableAttributedString(string: descr, attributes: attrs)
-            
-        } else {
-            return NSMutableAttributedString(string: "");
-        }
     }
     
     static func getToneDescription(date: NSDate) -> NSString? {
