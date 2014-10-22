@@ -36,6 +36,8 @@ struct TimeInterval {
     }
 }
 
+// FYI: http://stackoverflow.com/questions/24116271/whats-the-cleanest-way-of-applying-map-to-a-dictionary-in-swift
+
 extension Int {
     var days: TimeInterval {
         return TimeInterval(interval: self, unit: TimeIntervalUnit.Days);
@@ -130,7 +132,8 @@ struct FeastCalendar {
         return formatter
         }()
     
-    static var feastDescription = [NSDate: String]()
+
+    static var feastDates = [NSDate: NameOfDay]()
     static var weekDescription = [NSDate: String]()
     
     static func getAttributedDescription(description _descr: String?, color: UIColor) -> NSMutableAttributedString {
@@ -161,9 +164,10 @@ struct FeastCalendar {
         
         var day = _paschaDay.filter { $0.year == year}
         if day.count > 0 {
-            
-            if feastDescription[day[0].toDate()] == nil {
-                feastDescription += [day[0].toDate(): "PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ"]
+            let pascha = day[0].toDate()
+
+            if feastDates[pascha] == nil {
+                feastDates += [pascha: .Pascha]
                 
                 // generate calendar for entire year
                 palmSunday(year)
@@ -175,41 +179,69 @@ struct FeastCalendar {
                 generateSundayTitles(year)
             }
             
-            return day[0].toDate()
+            return pascha
             
         } else {
             return nil
         }
     }
     
+    enum NameOfDay: Int {
+        case Pascha=0, Pentecost, Ascension, PalmSunday, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple, StNicholas
+    }
+
+    static let feastStrings : [NameOfDay: String] = [
+        .Pascha: "PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ",
+        .Pentecost: "Pentecost. Sunday of the Holy Trinity. Descent of the Holy Spirit on the Apostles",
+        .Ascension: "Ascension of our Lord, God, and Saviour Jesus Christ",
+        .PalmSunday: "Palm Sunday. Entrance of our Lord into Jerusalem",
+        .NativityOfGod : "The Nativity of our Lord God and Savior Jesus Christ",
+        .Circumcision: "Circumcision of our Lord",
+        .EveOfTheophany: "Eve of Theophany",
+        .Theophany: "Holy Theophany: the Baptism of Our Lord, God, and Saviour Jesus Christ",
+        .MeetingOfLord: "The Meeting of our Lord, God, and Saviour Jesus Christ in the Temple",
+        .Annunciation: "The Annunciation of our Most Holy Lady, Theotokos and Ever-Virgin Mary",
+        .NativityOfJohn: "Nativity of the Holy Glorious Prophet, Forerunner, and Baptist of the Lord, John",
+        .PeterAndPaul: "The Holy Glorious and All-Praised Leaders of the Apostles, Peter and Paul",
+        .Transfiguration: "The Holy Transfiguration of Our Lord God and Saviour Jesus Christ",
+        .Dormition: "The Dormition (Repose) of our Most Holy Lady Theotokos and Ever-Virgin Mary",
+        .BeheadingOfJohn: "The Beheading of the Holy Glorious Prophet, Forerunner and Baptist of the Lord, John",
+        .NativityOfTheotokos: "Nativity of Our Most Holy Lady Theotokos and Ever-Virgin Mary",
+        .ExaltationOfCross: "The Universal Exaltation of the Precious and Life-Giving Cross",
+        .Veil: "Protection of Our Most Holy Lady Theotokos and Ever-Virgin Mary",
+        .EntryIntoTemple: "Entry into the Temple of our Most Holy Lady Theotokos and Ever-Virgin Mary",
+        .StNicholas: "St. Nicholas the Wonderworker"
+        
+    ]
+    
     static func greatFeasts(year: Int) -> [ NSDate ] {
-        let feasts = [
-            NSDateComponents(day: 7, month: 1, year: year).toDate(): "The Nativity of our Lord God and Savior Jesus Christ",
-            NSDateComponents(day: 14, month: 1, year: year).toDate(): "Circumcision of our Lord",
-            NSDateComponents(day: 18, month: 1, year: year).toDate(): "Eve of Theophany",
-            NSDateComponents(day: 19, month: 1, year: year).toDate(): "Holy Theophany: the Baptism of Our Lord, God, and Saviour Jesus Christ",
-            NSDateComponents(day: 15, month: 2, year: year).toDate(): "The Meeting of our Lord, God, and Saviour Jesus Christ in the Temple",
-            NSDateComponents(day: 7, month: 4, year: year).toDate(): "The Annunciation of our Most Holy Lady, Theotokos and Ever-Virgin Mary",
-            NSDateComponents(day: 7, month: 7, year: year).toDate(): "Nativity of the Holy Glorious Prophet, Forerunner, and Baptist of the Lord, John",
-            NSDateComponents(day: 12, month: 7, year: year).toDate(): "The Holy Glorious and All-Praised Leaders of the Apostles, Peter and Paul",
-            NSDateComponents(day: 19, month: 8, year: year).toDate(): "The Holy Transfiguration of Our Lord God and Saviour Jesus Christ",
-            NSDateComponents(day: 28, month: 8, year: year).toDate(): "The Dormition (Repose) of our Most Holy Lady Theotokos and Ever-Virgin Mary",
-            NSDateComponents(day: 11, month: 9, year: year).toDate(): "The Beheading of the Holy Glorious Prophet, Forerunner and Baptist of the Lord, John",
-            NSDateComponents(day: 21, month: 9, year: year).toDate(): "Nativity of Our Most Holy Lady Theotokos and Ever-Virgin Mary",
-            NSDateComponents(day: 27, month: 9, year: year).toDate(): "The Universal Exaltation of the Precious and Life-Giving Cross",
-            NSDateComponents(day: 14, month: 10, year: year).toDate(): "Protection of Our Most Holy Lady Theotokos and Ever-Virgin Mary",
-            NSDateComponents(day: 4, month: 12, year: year).toDate(): "Entry into the Temple of our Most Holy Lady Theotokos and Ever-Virgin Mary",
-            NSDateComponents(day: 19, month: 12, year: year).toDate(): "St. Nicholas the Wonderworker"
+        let feasts : [NSDate: NameOfDay] = [
+            NSDateComponents(day: 7, month: 1, year: year).toDate():    .NativityOfGod,
+            NSDateComponents(day: 14, month: 1, year: year).toDate():   .Circumcision,
+            NSDateComponents(day: 18, month: 1, year: year).toDate():   .EveOfTheophany,
+            NSDateComponents(day: 19, month: 1, year: year).toDate():   .Theophany,
+            NSDateComponents(day: 15, month: 2, year: year).toDate():   .MeetingOfLord,
+            NSDateComponents(day: 7, month: 4, year: year).toDate():    .Annunciation,
+            NSDateComponents(day: 7, month: 7, year: year).toDate():    .NativityOfJohn,
+            NSDateComponents(day: 12, month: 7, year: year).toDate():   .PeterAndPaul,
+            NSDateComponents(day: 19, month: 8, year: year).toDate():   .Transfiguration,
+            NSDateComponents(day: 28, month: 8, year: year).toDate():   .Dormition,
+            NSDateComponents(day: 11, month: 9, year: year).toDate():   .BeheadingOfJohn,
+            NSDateComponents(day: 21, month: 9, year: year).toDate():   .NativityOfTheotokos,
+            NSDateComponents(day: 27, month: 9, year: year).toDate():   .ExaltationOfCross,
+            NSDateComponents(day: 14, month: 10, year: year).toDate():  .Veil,
+            NSDateComponents(day: 4, month: 12, year: year).toDate():   .EntryIntoTemple,
+            NSDateComponents(day: 19, month: 12, year: year).toDate():  .StNicholas
         ]
         
-        feastDescription += feasts
+        feastDates += feasts
         return Array(feasts.keys)
     }
     
     static func pentecostDay(year: Int) -> NSDate? {
         if let pascha = paschaDay(year) {
             var pentecost = pascha + 49.days
-            feastDescription +=  [pentecost: "Pentecost. Sunday of the Holy Trinity. Descent of the Holy Spirit on the Apostles"]
+            feastDates +=  [pentecost: .Pentecost]
             return pentecost
             
         } else {
@@ -220,7 +252,7 @@ struct FeastCalendar {
     static func ascensionDay(year: Int) -> NSDate? {
         if let pascha = paschaDay(year) {
             var ascension = pascha + 39.days
-            feastDescription +=  [ascension: "Ascension of our Lord, God, and Saviour Jesus Christ"]
+            feastDates +=  [ascension: .Ascension]
             return ascension
             
         } else {
@@ -231,7 +263,7 @@ struct FeastCalendar {
     static func palmSunday(year: Int) -> NSDate? {
         if let pascha = paschaDay(year) {
             var palmSunday = pascha - 7.days
-            feastDescription += [palmSunday: "Palm Sunday. Entrance of our Lord into Jerusalem"]
+            feastDates += [palmSunday: .PalmSunday]
             return palmSunday
             
         } else {
@@ -241,8 +273,11 @@ struct FeastCalendar {
     
     static func getDayDescription(date: NSDate) -> String? {
         let dateComponents = NSDateComponents(date: date)
+
         if let _ = paschaDay(dateComponents.year) {
-            return feastDescription[date]
+            if let feastCode = feastDates[date] {
+                return feastStrings[feastCode]
+            }
         }
         
         return nil
@@ -390,21 +425,38 @@ struct FeastCalendar {
             let nativityFastStart = NSDateComponents(day: 28, month: 11, year: year).toDate()
             let endOfYear = NSDateComponents(day: 31, month: 12, year: dateComponents.year).toDate()
 
-            // TODO: what is fast if major feast is on Wed/Fri?
             // TODO: what is fast on a common day (fasting seasons, Wed/Fri fast)
             
-            switch (date) {
+            if let code = feastDates[date] {
+                switch code {
+                    
+                case .Theophany,
+                     .MeetingOfLord:
+                    return (.FastFree, "No fast")
+                    
+                case .NativityOfTheotokos,
+                     .PeterAndPaul,
+                     .Dormition,
+                     .Veil:
+                    return (weekday == 4 || weekday == 6) ? (.FishAllowed, "Fish Allowed") : (.NoFast, "No fast")
 
-            case nativityJohnForerunner,
-                 transfiguration,
-                 entryIntoTemple,
-                 stNicholas:
-                return (.FishAllowed, "Fish Allowed")
+                case .NativityOfJohn,
+                     .Transfiguration,
+                     .EntryIntoTemple,
+                     .StNicholas:
+                    return (.FishAllowed, "Fish Allowed")
+                    
+                case .EveOfTheophany,
+                     .BeheadingOfJohn,
+                     .ExaltationOfCross:
+                    return (.Vegetarian, "Vegetarian")
                 
-            case eveOfTheophany,
-                 beheadingOfJohn,
-                 exhaltationOfCross:
-                return (.Vegetarian, "Vegetarian")
+                default: break
+                    
+                }
+            }
+            
+            switch (date) {
                 
             case startOfYear:
                 return (weekday == 7 || weekday == 1) ? (.FishAllowed, "Nativity Fast") : (.Vegetarian, "Nativity Fast")
@@ -436,8 +488,6 @@ struct FeastCalendar {
             case pentecost+8.days ... apostolesDay-1.days:
                 return (weekday == 2 || weekday == 4 || weekday == 6) ? (.Vegetarian, "Apostoles' Fast") : (.FishAllowed, "Apostoles' Fast")
                 
-            case apostolesDay, dormitionDay:
-                return (weekday == 4 || weekday == 6) ? (.FishAllowed, "Fish Allowed") : (.NoFast, "No fast")
                 
             case dormitionFastStart ... dormitionDay-1.days:
                 return (.Vegetarian, "Dormition Fast")
@@ -461,9 +511,9 @@ struct FeastCalendar {
         let dateComponents = NSDateComponents(date: NSDate())
         let _ = paschaDay(dateComponents.year)
         
-        for (date, descr) in feastDescription {
+        for (date, code) in feastDates {
             let date_str = formatter.stringFromDate(date)
-            println("\(date_str) \(descr)")
+            println("\(date_str) \(feastStrings[code])")
         }
     }
     
