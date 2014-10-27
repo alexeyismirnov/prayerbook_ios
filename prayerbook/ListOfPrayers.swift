@@ -24,8 +24,6 @@ class ListOfPrayers: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        var prayer_type: AnyObject! = self.valueForKey("prayer_type")
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionsSaved:", name: optionsSavedNotification, object: nil)
         
