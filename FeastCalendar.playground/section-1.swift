@@ -57,7 +57,7 @@ func + (let left:NSDate, let right:TimeInterval) -> NSDate {
 }
 
 extension NSDateComponents {
-    convenience init(day: Int, month:Int, year: Int) {
+    convenience init(_ day: Int, _ month:Int, _ year: Int) {
         self.init()
         
         self.day = day
@@ -148,17 +148,17 @@ struct FeastCalendar {
     
     static func paschaDay(year: Int) -> NSDate? {
         let _paschaDay = [
-            NSDateComponents(day: 4,  month: 4, year: 2010),
-            NSDateComponents(day: 24, month: 4, year: 2011),
-            NSDateComponents(day: 15, month: 4, year: 2012),
-            NSDateComponents(day: 5,  month: 5, year: 2013),
-            NSDateComponents(day: 20, month: 4, year: 2014),
-            NSDateComponents(day: 12, month: 4, year: 2015),
-            NSDateComponents(day: 1,  month: 5, year: 2016),
-            NSDateComponents(day: 16, month: 4, year: 2017),
-            NSDateComponents(day: 8,  month: 4, year: 2018),
-            NSDateComponents(day: 28, month: 4, year: 2019),
-            NSDateComponents(day: 19, month: 4, year: 2020)
+            NSDateComponents(4,  4, 2010),
+            NSDateComponents(24, 4, 2011),
+            NSDateComponents(15, 4, 2012),
+            NSDateComponents(5,  5, 2013),
+            NSDateComponents(20, 4, 2014),
+            NSDateComponents(12, 4, 2015),
+            NSDateComponents(1,  5, 2016),
+            NSDateComponents(16, 4, 2017),
+            NSDateComponents(8,  4, 2018),
+            NSDateComponents(28, 4, 2019),
+            NSDateComponents(19, 4, 2020)
         ]
         
         var day = _paschaDay.filter { $0.year == year}
@@ -181,7 +181,7 @@ struct FeastCalendar {
     }
     
     enum NameOfDay: Int {
-        case Pascha=0, Pentecost, Ascension, PalmSunday, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple, StNicholas, BeginningOfGreatLent, startOfYear, endOfYear, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement, ForgivenessSunday, FirstSundayOfGreatLent, SecondSundayOfGreatLent, ThirdSundayOfGreatLent, FourthSundayOfGreatLent, FifthSundayOfGreatLent, LazarusSaturday, SecondSundayAfterPascha, ThirdSundayAfterPascha, FourthSundayAfterPascha, FifthSundayAfterPascha, SixthSundayAfterPascha, SeventhSundayAfterPascha
+        case Pascha=0, Pentecost, Ascension, PalmSunday, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple, StNicholas, BeginningOfGreatLent, startOfYear, endOfYear, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement, ForgivenessSunday, FirstSundayOfGreatLent, SecondSundayOfGreatLent, ThirdSundayOfGreatLent, FourthSundayOfGreatLent, FifthSundayOfGreatLent, LazarusSaturday, SecondSundayAfterPascha, ThirdSundayAfterPascha, FourthSundayAfterPascha, FifthSundayAfterPascha, SixthSundayAfterPascha, SeventhSundayAfterPascha, BeginningOfDormitionFast, BeginningOfNativityFast
     }
 
     static let feastStrings : [NameOfDay: String] = [
@@ -225,6 +225,8 @@ struct FeastCalendar {
         .SixthSundayAfterPascha: "6th Sunday after Pascha. Sunday of the Blind Man",
         .SeventhSundayAfterPascha: "7th Sunday after Pascha. Commemoration of the Holy Fathers of the First Ecumenical Council",
         
+        .BeginningOfDormitionFast: "Beginning of Dormition fast",
+        .BeginningOfNativityFast:  "Beginning of Nativity fast"
     ]
     
     static func greatFeasts(year: Int) -> [NSDate] {
@@ -234,20 +236,20 @@ struct FeastCalendar {
                 pascha-7.days:                                              .PalmSunday,
                 pascha+39.days:                                             .Ascension,
                 pascha+49.days:                                             .Pentecost,
-                NSDateComponents(day: 7, month: 1, year: year).toDate():    .NativityOfGod,
-                NSDateComponents(day: 14, month: 1, year: year).toDate():   .Circumcision,
-                NSDateComponents(day: 19, month: 1, year: year).toDate():   .Theophany,
-                NSDateComponents(day: 15, month: 2, year: year).toDate():   .MeetingOfLord,
-                NSDateComponents(day: 7, month: 4, year: year).toDate():    .Annunciation,
-                NSDateComponents(day: 7, month: 7, year: year).toDate():    .NativityOfJohn,
-                NSDateComponents(day: 12, month: 7, year: year).toDate():   .PeterAndPaul,
-                NSDateComponents(day: 19, month: 8, year: year).toDate():   .Transfiguration,
-                NSDateComponents(day: 28, month: 8, year: year).toDate():   .Dormition,
-                NSDateComponents(day: 11, month: 9, year: year).toDate():   .BeheadingOfJohn,
-                NSDateComponents(day: 21, month: 9, year: year).toDate():   .NativityOfTheotokos,
-                NSDateComponents(day: 27, month: 9, year: year).toDate():   .ExaltationOfCross,
-                NSDateComponents(day: 14, month: 10, year: year).toDate():  .Veil,
-                NSDateComponents(day: 4, month: 12, year: year).toDate():   .EntryIntoTemple,
+                NSDateComponents(7,  1, year).toDate():    .NativityOfGod,
+                NSDateComponents(14, 1, year).toDate():   .Circumcision,
+                NSDateComponents(19, 1, year).toDate():   .Theophany,
+                NSDateComponents(15, 2, year).toDate():   .MeetingOfLord,
+                NSDateComponents(7,  4, year).toDate():    .Annunciation,
+                NSDateComponents(7,  7, year).toDate():    .NativityOfJohn,
+                NSDateComponents(12, 7, year).toDate():   .PeterAndPaul,
+                NSDateComponents(19, 8, year).toDate():   .Transfiguration,
+                NSDateComponents(28, 8, year).toDate():   .Dormition,
+                NSDateComponents(11, 9, year).toDate():   .BeheadingOfJohn,
+                NSDateComponents(21, 9, year).toDate():   .NativityOfTheotokos,
+                NSDateComponents(27, 9, year).toDate():   .ExaltationOfCross,
+                NSDateComponents(14, 10, year).toDate():  .Veil,
+                NSDateComponents(4,  12, year).toDate():   .EntryIntoTemple,
             ]
         
             feastDates += feasts
@@ -282,10 +284,12 @@ struct FeastCalendar {
                 pascha+35.days:                                             .SixthSundayAfterPascha,
                 pascha+42.days:                                             .SeventhSundayAfterPascha,
 
-                NSDateComponents(day: 18, month: 1, year: year).toDate():   .EveOfTheophany,
-                NSDateComponents(day: 19, month: 12, year: year).toDate():  .StNicholas,
-                NSDateComponents(day: 1, month: 1, year: year).toDate():    .startOfYear,
-                NSDateComponents(day: 31, month: 12, year: year).toDate():  .endOfYear,
+                NSDateComponents(14, 8, year).toDate():   .BeginningOfDormitionFast,
+                NSDateComponents(28, 11, year).toDate():  .BeginningOfNativityFast,
+                NSDateComponents(18, 1, year).toDate():   .EveOfTheophany,
+                NSDateComponents(19, 12, year).toDate():  .StNicholas,
+                NSDateComponents(1,  1, year).toDate():   .startOfYear,
+                NSDateComponents(31, 12, year).toDate():  .endOfYear,
             ]
             
             feastDates += feasts
@@ -352,8 +356,6 @@ struct FeastCalendar {
         return nil
     }
     
-    /*
-    
     static func getToneDescription(date: NSDate) -> NSString? {
         func toneFromOffset(offset: Int) -> Int {
             let reminder = (offset - 1) % 8
@@ -363,22 +365,19 @@ struct FeastCalendar {
         let dateComponents = NSDateComponents(date: date)
         
         if let pascha = paschaDay(dateComponents.year) {
-            let startOfYear = NSDateComponents(day: 1, month: 1, year: dateComponents.year).toDate()
-            let endOfYear = NSDateComponents(day: 31, month: 12, year: dateComponents.year).toDate()
-            let palmSunday = pascha - 7.days
+            currentYear = dateComponents.year
             let prevPascha = paschaDay(dateComponents.year-1)
-            let afterAntiPascha = pascha + 8.days
             
             switch (date) {
-            case startOfYear ..< palmSunday: return (prevPascha != nil) ? "Tone \(toneFromOffset(prevPascha! >> date))" : nil
-            case afterAntiPascha ... endOfYear: return "Tone \(toneFromOffset(pascha >> date))"
+            case d(.startOfYear) ..< d(.PalmSunday): return "Tone \(toneFromOffset(prevPascha! >> date))"
+            case d(.SecondSundayAfterPascha)+1.days ... d(.endOfYear): return "Tone \(toneFromOffset(pascha >> date))"
             default: return nil
             }
         }
         
         return nil
     }
-    
+
     enum FastingType {
         case NoFast, Vegetarian, FishAllowed, FastFree, Cheesefare
     }
@@ -387,103 +386,69 @@ struct FeastCalendar {
         let dateComponents = NSDateComponents(date: date)
         let year = dateComponents.year
         let weekday = dateComponents.weekday
+        currentYear = dateComponents.year
         
         if let pascha = paschaDay(year) {
-            let nativityOfGod = NSDateComponents(day: 7, month: 1, year: year).toDate()
-            let annunciation = NSDateComponents(day: 7, month: 4, year: year).toDate()
-            let nativityJohnForerunner = NSDateComponents(day: 7, month: 7, year: year).toDate()
-            let transfiguration = NSDateComponents(day: 19, month: 8, year: year).toDate()
-            let entryIntoTemple = NSDateComponents(day: 4, month: 12, year: year).toDate()
-            let stNicholas = NSDateComponents(day: 19, month: 12, year: year).toDate()
             
-            let eveOfTheophany = NSDateComponents(day: 18, month: 1, year: year).toDate()
-            let beheadingOfJohn = NSDateComponents(day: 11, month: 9, year: year).toDate()
-            let exhaltationOfCross = NSDateComponents(day: 27, month: 9, year: year).toDate()
+            switch date {
+            case d(.Theophany),
+                 d(.MeetingOfLord):
+                return (.FastFree, "No fast")
 
-            let startOfYear = NSDateComponents(day: 1, month: 1, year: dateComponents.year).toDate()
-
-            let greatLentStart = pascha - 48.days
-            let palmSunday = pascha - 7.days
-            let pentecost = pentecostDay(year)!
-            let apostolesDay = NSDateComponents(day: 12, month: 7, year: year).toDate()
-
-            let dormitionFastStart = NSDateComponents(day: 14, month: 8, year: year).toDate()
-            let dormitionDay = NSDateComponents(day: 28, month: 8, year: year).toDate()
-            
-            let nativityFastStart = NSDateComponents(day: 28, month: 11, year: year).toDate()
-            let endOfYear = NSDateComponents(day: 31, month: 12, year: dateComponents.year).toDate()
-
-            // TODO: what is fast on a common day (fasting seasons, Wed/Fri fast)
-            
-            if let code = feastDates[date] {
-                switch code {
-                    
-                case .Theophany,
-                     .MeetingOfLord:
-                    return (.FastFree, "No fast")
-                    
-                case .NativityOfTheotokos,
-                     .PeterAndPaul,
-                     .Dormition,
-                     .Veil:
-                    return (weekday == 4 || weekday == 6) ? (.FishAllowed, "Fish Allowed") : (.NoFast, "No fast")
-
-                case .NativityOfJohn,
-                     .Transfiguration,
-                     .EntryIntoTemple,
-                     .StNicholas:
-                    return (.FishAllowed, "Fish Allowed")
-                    
-                case .EveOfTheophany,
-                     .BeheadingOfJohn,
-                     .ExaltationOfCross:
-                    return (.Vegetarian, "Vegetarian")
+            case d(.NativityOfTheotokos),
+                 d(.PeterAndPaul),
+                 d(.Dormition),
+                 d(.Veil):
+                return (weekday == 4 || weekday == 6) ? (.FishAllowed, "Fish Allowed") : (.NoFast, "No fast")
+      
+            case d(.NativityOfJohn),
+                 d(.Transfiguration),
+                 d(.EntryIntoTemple),
+                 d(.StNicholas):
+                return (.FishAllowed, "Fish Allowed")
                 
-                default: break
-                    
-                }
-            }
-            
-            switch (date) {
-                
-            case startOfYear:
+            case d(.EveOfTheophany),
+                 d(.BeheadingOfJohn),
+                 d(.ExaltationOfCross):
+                return (.Vegetarian, "Vegetarian")
+
+            case d(.startOfYear):
                 return (weekday == 7 || weekday == 1) ? (.FishAllowed, "Nativity Fast") : (.Vegetarian, "Nativity Fast")
                 
-            case startOfYear+1.days ..< nativityOfGod:
+            case d(.startOfYear)+1.days ..< d(.NativityOfGod):
                 return (.Vegetarian, "Nativity Fast")
                 
-            case nativityOfGod ..< eveOfTheophany:
+            case d(.NativityOfGod) ..< d(.EveOfTheophany):
                 return (.FastFree, "Svyatki")
 
-            case greatLentStart-21.days ... greatLentStart-15.days:
+            case d(.SundayOfPublicianAndPharisee)+1.days ... d(.SundayOfProdigalSon):
                 return (.FastFree, "Fast-free week")
 
-            case greatLentStart-7.days ... greatLentStart-1.days:
+            case d(.SundayOfDreadJudgement) ... d(.ForgivenessSunday):
                 return (.Cheesefare, "Maslenitsa")
                 
-            case greatLentStart ... palmSunday:
-                return (date == annunciation) ? (.FishAllowed, "Fish allowed") : (.Vegetarian, "Great Lent")
+            case d(.BeginningOfGreatLent) ... d(.PalmSunday):
+                return (date == d(.Annunciation)) ? (.FishAllowed, "Fish allowed") : (.Vegetarian, "Great Lent")
                 
-            case palmSunday + 1.days ..< pascha:
+            case d(.PalmSunday)+1.days ..< pascha:
                 return (.Vegetarian, "Vegetarian")
                 
-            case pascha ..< pascha + 7.days:
+            case pascha ..< d(.SecondSundayAfterPascha):
                 return (.FastFree, "Fast-free week")
                 
-            case pentecost+1.days ... pentecost+7.days:
+            case d(.Pentecost)+1.days ... d(.Pentecost)+7.days:
                 return (.FastFree, "Fast-free week")
                 
-            case pentecost+8.days ... apostolesDay-1.days:
+            case d(.Pentecost)+8.days ... d(.PeterAndPaul)-1.days:
                 return (weekday == 2 || weekday == 4 || weekday == 6) ? (.Vegetarian, "Apostoles' Fast") : (.FishAllowed, "Apostoles' Fast")
                 
-                
-            case dormitionFastStart ... dormitionDay-1.days:
+            case d(.BeginningOfDormitionFast) ... d(.Dormition)-1.days:
                 return (.Vegetarian, "Dormition Fast")
                 
-            case nativityFastStart ..< stNicholas:
+            case d(.BeginningOfNativityFast) ..< d(.StNicholas):
                 return (weekday == 2 || weekday == 4 || weekday == 6) ? (.Vegetarian, "Nativity Fast") : (.FishAllowed, "Nativity Fast")
                 
-            case stNicholas ... endOfYear:
+            case d(.StNicholas) ... d(.endOfYear):
                 return (weekday == 7 || weekday == 1) ? (.FishAllowed, "Nativity Fast") : (.Vegetarian, "Nativity Fast")
 
 
@@ -493,7 +458,6 @@ struct FeastCalendar {
         
         return nil
     }
-    */
     
     static func printFeastDescription() {
         // get Pascha day to trigger calendar initialization
@@ -515,8 +479,6 @@ struct FeastCalendar {
 
 }
 
-
-
 //let dc = NSDateComponents(day: 31, month: 12, year: 2014)
 let dc = NSDateComponents(date: NSDate())
 FeastCalendar.currentYear = dc.year
@@ -524,7 +486,6 @@ FeastCalendar.currentYear = dc.year
 var pascha = FeastCalendar.paschaDay(dc.year)!
 
 println(FeastCalendar.d(.Pentecost))
-
 
 
 //FeastCalendar.getWeekDescription(dc.toDate())
