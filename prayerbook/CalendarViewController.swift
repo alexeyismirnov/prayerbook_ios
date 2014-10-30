@@ -38,13 +38,13 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
     }
     
     func prev_month() {
-        calendarView.showPreviousMonth()
         calendarView.selectedDate = nil
+        calendarView.showPreviousMonth()
     }
     
     func next_month() {
-        calendarView.showNextMonth()
         calendarView.selectedDate = nil
+        calendarView.showNextMonth()
     }
     
     @IBAction func done(sender: AnyObject) {
@@ -54,7 +54,7 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
     func doneWithDate(recognizer: UITapGestureRecognizer) {
         let cell = recognizer.view as RDVCalendarDayCell
         let index = calendarView.indexForDayCell(cell)
-        var currentDate = NSDateComponents(day: index+1, month: calendarView.month.month, year: calendarView.month.year).toDate()
+        var currentDate = NSDateComponents(index+1, calendarView.month.month, calendarView.month.year).toDate()
 
         delegate.currentDate = currentDate
         delegate.reload()
@@ -67,16 +67,14 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
             
         } else {
             
-            let dayDescription = FeastCalendar.getAttributedDescription(description: FeastCalendar.getDayDescription(calendarView.selectedDate), color: UIColor.redColor())
-            let weekDescription = FeastCalendar.getAttributedDescription(description: FeastCalendar.getWeekDescription(calendarView.selectedDate), color: UIColor.grayColor())
-            let toneDescription = FeastCalendar.getAttributedDescription(description: FeastCalendar.getToneDescription(calendarView.selectedDate), color: UIColor.grayColor())
-
-            if Array(dayDescription.string).count > 0 {
-                descriptionLabel.attributedText = dayDescription
-                
-            } else {
-                descriptionLabel.attributedText = weekDescription + NSMutableAttributedString(string: "\n") + toneDescription
+            let currentDate = calendarView.selectedDate
+            var description = FeastCalendar.getDayDescription(currentDate)
+            
+            if description == nil {
+                description = description + (FeastCalendar.getWeekDescription(currentDate), UIColor.grayColor())
             }
+                        
+            descriptionLabel.attributedText = description
         }
         
     }
@@ -89,19 +87,12 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
     }
     
     func calendarView(calendarView: RDVCalendarView!, configureDayCell dayCell: RDVCalendarDayCell!, atIndex index: Int) {
-        
         var recognizer = UITapGestureRecognizer(target: self, action:Selector("doneWithDate:"))
         recognizer.numberOfTapsRequired = 2
         dayCell.addGestureRecognizer(recognizer)
 
-        var curDate = NSDateComponents(day: index+1, month: calendarView.month.month, year: calendarView.month.year).toDate()
-        
-        if let _ = FeastCalendar.getDayDescription(curDate) {
-            dayCell.textLabel.textColor = UIColor.redColor()
-
-        } else {
-            dayCell.textLabel.textColor = UIColor.blackColor()
-        }
+        var curDate = NSDateComponents(index+1, calendarView.month.month, calendarView.month.year).toDate()
+        dayCell.textLabel.textColor = (FeastCalendar.isGreatFeast(curDate)) ? UIColor.redColor() : UIColor.blackColor()
     }
     
     func calendarView(calendarView: RDVCalendarView!, didSelectDate date: NSDate!) {

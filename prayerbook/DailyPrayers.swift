@@ -40,12 +40,9 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         
         dateLabel.text = formatter.stringFromDate(currentDate)
-        
-        let dayDescription = FeastCalendar.getAttributedDescription(description: FeastCalendar.getDayDescription(currentDate), color: UIColor.redColor())
-        let weekDescription = FeastCalendar.getAttributedDescription(description: FeastCalendar.getWeekDescription(currentDate), color: UIColor.grayColor())
-        let toneDescription = FeastCalendar.getAttributedDescription(description: FeastCalendar.getToneDescription(currentDate), color: UIColor.grayColor())
-        
-        var description = dayDescription + NSMutableAttributedString(string: "\n") + weekDescription + NSMutableAttributedString(string: "\n") + toneDescription
+
+        var description = FeastCalendar.getDayDescription(currentDate) + (FeastCalendar.getWeekDescription(currentDate), UIColor.grayColor())
+        description = description + Optional("\n") + (FeastCalendar.getToneDescription(currentDate), UIColor.grayColor())
 
         infoLabel.attributedText  = description
         
@@ -63,7 +60,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionsSaved:", name: optionsSavedNotification, object: nil)
         
         self.reload()
-        FeastCalendar.printFeastDescription()
+//        FeastCalendar.printFeastDescription()
     }
 
     @IBAction func showFastingInfo(sender: AnyObject) {

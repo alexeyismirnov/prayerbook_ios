@@ -442,7 +442,8 @@
     NSDate *oldDate = [self selectedDate];
     
     if (selectedDate == nil) {
-        _selectedDay = [[NSDateComponents alloc] init];
+        _selectedDay = nil;
+//        _selectedDay = [[NSDateComponents alloc] init];
         
     } else if (![oldDate isEqualToDate:selectedDate]) {
         NSCalendar *calendar = [self calendar];
