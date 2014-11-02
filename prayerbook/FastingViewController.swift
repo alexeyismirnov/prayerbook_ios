@@ -14,34 +14,35 @@ extension String {
     }
 }
 
+enum FastingType {
+    case NoFast, Vegetarian, FishAllowed, FastFree, Cheesefare
+    
+    func getAllowedFood() -> [String] {
+        switch self {
+        case .NoFast: return ["meat", "fish", "milk", "egg", "cupcake"]
+        case .Vegetarian: return ["vegetables", "bread", "nuts"]
+        case .FishAllowed: return ["fish", "vegetables", "bread", "nuts"]
+        case .FastFree: return ["cupcake", "cheese", "meat", "fish"]
+        case .Cheesefare: return ["cheese", "cupcake", "milk", "egg"]
+        }
+    }
+    
+    func getForbiddenFood() -> [String] {
+        switch self {
+        case .NoFast: return []
+        case .Vegetarian: return ["fish", "meat", "milk", "egg", "cupcake"]
+        case .FishAllowed: return ["meat", "milk", "egg",  "cupcake"]
+        case .FastFree: return []
+        case .Cheesefare: return ["meat"]
+        }
+    }
+}
+
+
 class FastingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var foodTableView: UITableView!
     @IBOutlet weak var fastTitleLabel: UILabel!
-    
-    enum FastingType {
-        case NoFast, Vegetarian, FishAllowed, FastFree, Cheesefare
-        
-        func getAllowedFood() -> [String] {
-            switch self {
-            case .NoFast: return ["meat", "fish", "milk", "egg", "cupcake"]
-            case .Vegetarian: return ["vegetables", "bread", "nuts"]
-            case .FishAllowed: return ["fish", "vegetables", "bread", "nuts"]
-            case .FastFree: return ["cake", "cheese", "meat", "fish"]
-            case .Cheesefare: return ["cheese", "cupcake", "milk", "egg"]
-            }
-        }
-
-        func getForbiddenFood() -> [String] {
-            switch self {
-            case .NoFast: return []
-            case .Vegetarian: return ["fish", "meat", "milk", "egg", "cupcake"]
-            case .FishAllowed: return ["meat", "milk", "egg",  "cupcake"]
-            case .FastFree: return []
-            case .Cheesefare: return ["meat"]
-            }
-        }
-    }
     
     var fastTitle: String = ""
     var modal: NAModalSheet!

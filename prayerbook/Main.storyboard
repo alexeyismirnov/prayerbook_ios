@@ -263,7 +263,7 @@
                                         </constraints>
                                         <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="1" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="2" minY="5" maxX="5" maxY="5"/>
-                                        <state key="normal" image="food-vegetables">
+                                        <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -559,7 +559,6 @@
         <image name="calendar" width="25" height="25"/>
         <image name="communion" width="30" height="30"/>
         <image name="daily" width="30" height="30"/>
-        <image name="food-vegetables" width="64" height="64"/>
         <image name="group" width="30" height="30"/>
         <image name="library" width="30" height="30"/>
         <image name="options" width="25" height="25"/>
@@ -570,6 +569,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="FYO-OP-ElQ"/>
+        <segue reference="3Un-iM-GEB"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -87,12 +87,31 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
     }
     
     func calendarView(calendarView: RDVCalendarView!, configureDayCell dayCell: RDVCalendarDayCell!, atIndex index: Int) {
+        // FIXME: refactor to use just one gesture recognizer attached to RDVCalendarView
         var recognizer = UITapGestureRecognizer(target: self, action:Selector("doneWithDate:"))
         recognizer.numberOfTapsRequired = 2
         dayCell.addGestureRecognizer(recognizer)
-
+        
         var curDate = NSDateComponents(index+1, calendarView.month.month, calendarView.month.year).toDate()
         dayCell.textLabel.textColor = (FeastCalendar.isGreatFeast(curDate)) ? UIColor.redColor() : UIColor.blackColor()
+
+        if let fasting = FeastCalendar.getFastingDescription(curDate) {
+            switch fasting.0 {
+            case .Vegetarian:
+                dayCell.backgroundColor = UIColor.greenColor()
+                break
+            case .FishAllowed:
+                dayCell.backgroundColor = UIColor.yellowColor()
+                break
+            case .Cheesefare, .FastFree:
+                dayCell.backgroundColor = UIColor.cyanColor()
+                break
+            default:
+                dayCell.backgroundColor = UIColor.whiteColor()
+                break
+            }
+        }
+
     }
     
     func calendarView(calendarView: RDVCalendarView!, didSelectDate date: NSDate!) {

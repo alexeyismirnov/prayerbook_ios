@@ -31,6 +31,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     }()
 
     var titles: [String] = []
+    var fasting: (FastingType, String) = (.Vegetarian, "")
     
     func reload() {
         if Translate.language == "en" {
@@ -45,6 +46,13 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         description = description + Optional("\n") + (FeastCalendar.getToneDescription(currentDate), UIColor.grayColor())
 
         infoLabel.attributedText  = description
+        
+        if let _fasting = FeastCalendar.getFastingDescription(currentDate) {
+            fasting = _fasting
+            foodLabel.text = fasting.1
+            let allowedFood = fasting.0.getAllowedFood()[0]
+            foodButton.setImage(UIImage(named: "food-\(allowedFood)"), forState: .Normal)
+        }
         
         titles = Translate.tableViewStrings("daily")
         self.tableView.reloadData()
@@ -72,8 +80,8 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         modal.delegate = self
         
         fastingInfo.modal = modal
-        fastingInfo.type = .Vegetarian
-        fastingInfo.fastTitle = "Vegetarian"
+        fastingInfo.type =  fasting.0
+        fastingInfo.fastTitle = fasting.1
         
         modal.presentWithCompletion({})
     }
@@ -182,7 +190,6 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     private func addBarButtons() {
         var button_left = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .Plain, target: self, action: "prev_day")
-        
         var button_right = UIBarButtonItem(image: UIImage(named: "arrow-right"), style: .Plain, target: self, action: "next_day")
         
         button_left.imageInsets = UIEdgeInsetsMake(0,0,0,-20)

@@ -174,6 +174,28 @@ func >> (left: NSDate, right: NSDate) -> Int {
     return components.day/7 + 1
 }
 
+enum NameOfDay: Int {
+    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple, StNicholas, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement, ForgivenessSunday, FirstSundayOfGreatLent, SecondSundayOfGreatLent, ThirdSundayOfGreatLent, FourthSundayOfGreatLent, FifthSundayOfGreatLent, LazarusSaturday, SecondSundayAfterPascha, ThirdSundayAfterPascha, FourthSundayAfterPascha, FifthSundayAfterPascha, SixthSundayAfterPascha, SeventhSundayAfterPascha, BeginningOfDormitionFast, BeginningOfNativityFast, EndOfYear
+}
+
+struct DateCache : Hashable {
+    let code : NameOfDay
+    let year : Int
+    init(_ code: NameOfDay, _ year: Int) {
+        self.code = code
+        self.year = year
+    }
+    var hashValue: Int {
+        return code.hashValue ^ year.hashValue
+    }
+}
+
+// MARK: Equatable
+
+func == (lhs: DateCache, rhs: DateCache) -> Bool {
+    return lhs.code == rhs.code && lhs.year == rhs.year
+}
+
 struct FeastCalendar {
     
     static var formatter: NSDateFormatter = {
@@ -185,10 +207,16 @@ struct FeastCalendar {
     
     static var currentYear : Int = 0
     static var feastDates = [NSDate: [NameOfDay]]()
+    static var dCache = [ DateCache : NSDate ]()
+    
+    static func _d(code: NameOfDay, _ year:Int) -> NSDate {
+        var res = filter(FeastCalendar.feastDates, { (date, codes) in return contains(codes, code) && NSDateComponents(date:date).year == year } )
+        dCache[DateCache(code, year)] = res[0].0
+        return res[0].0
+    }
     
     static func d(code: NameOfDay, _ year:Int = currentYear) -> NSDate {
-        var res = filter(FeastCalendar.feastDates, { (date, codes) in return contains(codes, code) && NSDateComponents(date:date).year == year } )
-        return res[0].0
+        return dCache[DateCache(code, year)]!
     }
     
     static func paschaDay(year: Int) -> NSDate {
@@ -204,11 +232,7 @@ struct FeastCalendar {
         
         return pascha
     }
-    
-    enum NameOfDay: Int {
-        case Pascha=0, Pentecost, Ascension, PalmSunday, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple, StNicholas, BeginningOfGreatLent, StartOfYear, EndOfYear, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement, ForgivenessSunday, FirstSundayOfGreatLent, SecondSundayOfGreatLent, ThirdSundayOfGreatLent, FourthSundayOfGreatLent, FifthSundayOfGreatLent, LazarusSaturday, SecondSundayAfterPascha, ThirdSundayAfterPascha, FourthSundayAfterPascha, FifthSundayAfterPascha, SixthSundayAfterPascha, SeventhSundayAfterPascha, BeginningOfDormitionFast, BeginningOfNativityFast
-    }
-    
+
     static let feastStrings : [NameOfDay: String] = [
         .Pascha: "PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ",
         .Pentecost: "Pentecost. Sunday of the Holy Trinity. Descent of the Holy Spirit on the Apostles",
@@ -256,21 +280,21 @@ struct FeastCalendar {
     
     static func generateFeasts(year: Int) {
         let pascha = paschaDay(year)
-        let greatLentBegin = pascha-48.days
-        
+        let greatLentStart = pascha-48.days
+
         let movingFeasts : [NSDate: [NameOfDay]] = [
-            greatLentBegin-29.days:                   [.ZacchaeusSunday],
-            greatLentBegin-22.days:                   [.SundayOfPublicianAndPharisee],
-            greatLentBegin-15.days:                   [.SundayOfProdigalSon],
-            greatLentBegin-8.days:                    [.SundayOfDreadJudgement],
-            greatLentBegin-1.days:                    [.ForgivenessSunday],
-            greatLentBegin:                           [.BeginningOfGreatLent],
-            greatLentBegin+6.days:                    [.FirstSundayOfGreatLent],
-            greatLentBegin+13.days:                   [.SecondSundayOfGreatLent],
-            greatLentBegin+20.days:                   [.ThirdSundayOfGreatLent],
-            greatLentBegin+27.days:                   [.FourthSundayOfGreatLent],
-            greatLentBegin+34.days:                   [.FifthSundayOfGreatLent],
-            greatLentBegin+40.days:                   [.LazarusSaturday],
+            greatLentStart-29.days:                   [.ZacchaeusSunday],
+            greatLentStart-22.days:                   [.SundayOfPublicianAndPharisee],
+            greatLentStart-15.days:                   [.SundayOfProdigalSon],
+            greatLentStart-8.days:                    [.SundayOfDreadJudgement],
+            greatLentStart-1.days:                    [.ForgivenessSunday],
+            greatLentStart:                           [.BeginningOfGreatLent],
+            greatLentStart+6.days:                    [.FirstSundayOfGreatLent],
+            greatLentStart+13.days:                   [.SecondSundayOfGreatLent],
+            greatLentStart+20.days:                   [.ThirdSundayOfGreatLent],
+            greatLentStart+27.days:                   [.FourthSundayOfGreatLent],
+            greatLentStart+34.days:                   [.FifthSundayOfGreatLent],
+            greatLentStart+40.days:                   [.LazarusSaturday],
             pascha-7.days:                            [.PalmSunday],
             pascha+7.days:                            [.SecondSundayAfterPascha],
             pascha+14.days:                           [.ThirdSundayAfterPascha],
@@ -307,6 +331,15 @@ struct FeastCalendar {
 
         feastDates += movingFeasts
         feastDates += fixedFeasts
+        
+        let start: Int = NameOfDay.StartOfYear.rawValue
+        let end: Int = NameOfDay.EndOfYear.rawValue
+        
+        for index in start...end {
+            let code = NameOfDay(rawValue: index)
+            let date = _d(code!, year)
+        }
+
     }
     
     static func isGreatFeast(date: NSDate) -> Bool {
@@ -399,14 +432,17 @@ struct FeastCalendar {
         }
     }
     
+/*
+    // defined in FastingViewController
     enum FastingType {
         case NoFast, Vegetarian, FishAllowed, FastFree, Cheesefare
     }
+  */
     
-    static func getFastingDescription(date: NSDate) -> (FastingType, NSString)? {
+    static func getFastingDescription(date: NSDate) -> (FastingType, String)? {
         let dateComponents = NSDateComponents(date: date)
         
-        let currentYear = dateComponents.year
+        currentYear = dateComponents.year
         let weekday = dateComponents.weekday
         let pascha = paschaDay(currentYear)
         
@@ -424,7 +460,8 @@ struct FeastCalendar {
         case d(.NativityOfJohn),
         d(.Transfiguration),
         d(.EntryIntoTemple),
-        d(.StNicholas):
+        d(.StNicholas),
+        d(.PalmSunday):
             return (.FishAllowed, "Fish Allowed")
             
         case d(.EveOfTheophany),
@@ -447,7 +484,7 @@ struct FeastCalendar {
         case d(.SundayOfDreadJudgement) ... d(.ForgivenessSunday):
             return (.Cheesefare, "Maslenitsa")
             
-        case d(.BeginningOfGreatLent) ... d(.PalmSunday):
+        case d(.BeginningOfGreatLent) ..< d(.PalmSunday):
             return (date == d(.Annunciation)) ? (.FishAllowed, "Fish allowed") : (.Vegetarian, "Great Lent")
             
         case d(.PalmSunday)+1.days ..< pascha:
