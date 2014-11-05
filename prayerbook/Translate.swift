@@ -29,8 +29,8 @@ struct Translate {
             return str
         }
         
-        if let trans_str = dict?.valueForKey(str) as? NSString  {
-            return trans_str as String!
+        if let trans_str = dict?.valueForKey(str) as NSString?  {
+            return trans_str
         } else {
             return str
         }

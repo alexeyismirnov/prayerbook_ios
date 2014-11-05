@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>en</key>
+		<string></string>
+		<key>cn</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>en</key>
+		<string>PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ</string>
+		<key>cn</key>
+		<string>圣葩斯哈主日——纪念我们的主，救主，上帝，耶稣基督逾越了阴府，自死者中荣耀地复活</string>
+	</dict>
+	<dict>
+		<key>en</key>
+		<string>Pentecost. Sunday of the Holy Trinity. Descent of the Holy Spirit on the Apostles</string>
+		<key>cn</key>
+		<string>五旬节（上帝圣三主日——纪念至圣圣灵降临于众使徒）</string>
+	</dict>
+    <dict>
+        <key>en</key>
+        <string>Ascension of our Lord, God, and Saviour Jesus Christ</string>
+        <key>cn</key>
+        <string>主升天节（纪念我们的主，上帝，救主耶稣基督神性的升天）</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Palm Sunday. Entrance of our Lord into Jerusalem</string>
+        <key>cn</key>
+        <string>主进圣城耶路撒冷节（圣枝主日）</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>The Nativity of our Lord God and Savior Jesus Christ</string>
+        <key>cn</key>
+        <string>主降生节（纪念我们的主，上帝，救主耶稣基督取肉躯而降生于世）</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Circumcision of our Lord</string>
+        <key>cn</key>
+        <string>主耶稣基督受割礼日</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Eve of Theophany</string>
+        <key>cn</key>
+        <string>主显节前夕</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Holy Theophany: the Baptism of Our Lord, God, and Saviour Jesus Christ</string>
+        <key>cn</key>
+        <string>主显节——我们的主，上帝，救主，耶稣基督神性的显现，也即基督受浸礼节</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>The Meeting of our Lord, God, and Saviour Jesus Christ in the Temple</string>
+        <key>cn</key>
+        <string>主进殿节——纪念我们的主，上帝，救主被奉献于圣殿，也纪念圣母取洁</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>The Annunciation of our Most Holy Lady, Theotokos and Ever-Virgin Mary</string>
+        <key>cn</key>
+        <string>诞神女福音节（我众至圣之君后，诞神女，永贞玛利亚领报节）</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Nativity of the Holy Glorious Prophet, Forerunner, and Baptist of the Lord, John</string>
+        <key>cn</key>
+        <string>尊贵前驱，先知，施浸礼者圣约翰诞辰</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>The Holy Glorious and All-Praised Leaders of the Apostles, Peter and Paul</string>
+        <key>cn</key>
+        <string>神圣，荣耀，满被赞扬者，使徒之长圣彼得及圣保罗</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>The Holy Transfiguration of Our Lord God and Saviour Jesus Christ</string>
+        <key>cn</key>
+        <string>主易圣容节（我等主，上帝，救主耶稣基督易显圣容）</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>The Dormition (Repose) of our Most Holy Lady Theotokos and Ever-Virgin Mary</string>
+        <key>cn</key>
+        <string>圣母安息节（敬忆我众之君后，至圣诞神女，永贞玛利亚之安息）</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>The Beheading of the Holy Glorious Prophet, Forerunner and Baptist of the Lord, John</string>
+        <key>cn</key>
+        <string>荣耀之先知，前驱，施浸礼者，圣约安授首纪念日</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Nativity of Our Most Holy Lady Theotokos and Ever-Virgin Mary</string>
+        <key>cn</key>
+        <string>圣母诞辰节（纪念我众至圣之君后，诞神女，永贞玛利亚之降生）</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>The Universal Exaltation of the Precious and Life-Giving Cross</string>
+        <key>cn</key>
+        <string>普世举扬尊贵施生命之十字圣架</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Protection of Our Most Holy Lady Theotokos and Ever-Virgin Mary</string>
+        <key>cn</key>
+        <string>至圣诞神女帲幪节（圣母护守节）</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Entry into the Temple of our Most Holy Lady Theotokos and Ever-Virgin Mary</string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>St. Nicholas the Wonderworker</string>
+        <key>cn</key>
+        <string>圣尼科拉显行灵迹者</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Zacchæus’s Sunday</string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Sunday of the Publican and the Pharisee</string>
+        <key>cn</key>
+        <string>税吏及法利塞人主日</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Sunday of the Prodigal Son</string>
+        <key>cn</key>
+        <string>浪子主日</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Sunday of the Dread Judgement</string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Forgiveness Sunday</string>
+        <key>cn</key>
+        <string>宽恕主日</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Beginning of Great Lent</string>
+        <key>cn</key>
+        <string>大斋期开始</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>1st Sunday of Lent: Triumph of Orthodoxy</string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>2nd Sunday of Lent; Saint Gregory Palamas</string>
+        <key>cn</key>
+        <string>大斋期第二主日; 圣格里高利•帕拉玛斯</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>3rd Sunday of Lent, Veneration of the Precious Cross</string>
+        <key>cn</key>
+        <string>大斋期第三主日（叩拜十字圣架）</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>4th Sunday of Lent; Venerable John Climacus of Sinai</string>
+        <key>cn</key>
+        <string>大斋期第四主日; 圣天梯约翰 西奈山修道院修士</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>5th Sunday of Lent; Venerable Mary of Egypt</string>
+        <key>cn</key>
+        <string>大斋期第五主日; 埃及的大成德者圣女玛利亚</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Lazarus Saturday</string>
+        <key>cn</key>
+        <string>圣枝安息日（拉匝若复生之安息日）</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>2nd Sunday after Pascha. Antipascha</string>
+        <key>cn</key>
+        <string>葩斯哈庆期第二主日 主复活后主日</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>3rd Sunday after Pascha. Sunday of the Myrrhbearing Women</string>
+        <key>cn</key>
+        <string>葩斯哈庆期第三主日（携香液女主日）</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>4th Sunday after Pascha. Sunday of the Paralytic</string>
+        <key>cn</key>
+        <string>葩斯哈庆期第四主日（起瘫主日）</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>5th Sunday after Pascha. Sunday of the Samaritan Woman</string>
+        <key>cn</key>
+        <string>葩斯哈庆期第五主日（撒玛利亚汲水妇主日）</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>6th Sunday after Pascha. Sunday of the Blind Man</string>
+        <key>cn</key>
+        <string>葩斯哈庆期第六主日（胎瞽者主日）</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>7th Sunday after Pascha. Commemoration of the Holy Fathers of the First Ecumenical Council</string>
+        <key>cn</key>
+        <string>葩斯哈庆期第七主日（纪念第一届神圣普世大公会议诸圣教父）</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Beginning of Dormition fast</string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Beginning of Nativity fast</string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Beginning of Apostoles' fast</string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string></string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+</array>
+</plist>

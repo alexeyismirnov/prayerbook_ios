@@ -175,7 +175,7 @@ func >> (left: NSDate, right: NSDate) -> Int {
 }
 
 enum NameOfDay: Int {
-    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple, StNicholas, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement, ForgivenessSunday, FirstSundayOfGreatLent, SecondSundayOfGreatLent, ThirdSundayOfGreatLent, FourthSundayOfGreatLent, FifthSundayOfGreatLent, LazarusSaturday, SecondSundayAfterPascha, ThirdSundayAfterPascha, FourthSundayAfterPascha, FifthSundayAfterPascha, SixthSundayAfterPascha, SeventhSundayAfterPascha, BeginningOfDormitionFast, BeginningOfNativityFast, EndOfYear
+    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, NativityOfGod=5, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation=10, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn=15, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple, StNicholas=20, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement=25, ForgivenessSunday, FirstSundayOfGreatLent, SecondSundayOfGreatLent, ThirdSundayOfGreatLent, FourthSundayOfGreatLent=30, FifthSundayOfGreatLent, LazarusSaturday, SecondSundayAfterPascha, ThirdSundayAfterPascha, FourthSundayAfterPascha=35, FifthSundayAfterPascha, SixthSundayAfterPascha, SeventhSundayAfterPascha, BeginningOfDormitionFast, BeginningOfNativityFast=40, BeginningOfApostolesFast, EndOfYear
 }
 
 struct DateCache : Hashable {
@@ -197,6 +197,12 @@ func == (lhs: DateCache, rhs: DateCache) -> Bool {
 }
 
 struct FeastCalendar {
+    
+    static var dict: NSArray = {
+        let bundle = NSBundle.mainBundle().pathForResource("FeastCalendar", ofType: "plist")
+        let dict = NSArray(contentsOfFile: bundle!)
+        return dict!
+    }()
     
     static var formatter: NSDateFormatter = {
         var formatter = NSDateFormatter()
@@ -273,7 +279,8 @@ struct FeastCalendar {
         .SixthSundayAfterPascha: "6th Sunday after Pascha. Sunday of the Blind Man",
         .SeventhSundayAfterPascha: "7th Sunday after Pascha. Commemoration of the Holy Fathers of the First Ecumenical Council",
         .BeginningOfDormitionFast: "Beginning of Dormition fast",
-        .BeginningOfNativityFast:  "Beginning of Nativity fast"
+        .BeginningOfNativityFast:  "Beginning of Nativity fast",
+        .BeginningOfApostolesFast:  "Beginning of Apostoles' fast"
     ]
     
     static let greatFeastCodes : [NameOfDay] = [.PalmSunday, .Pascha, .Ascension, .Pentecost, .NativityOfGod, .Circumcision, .Theophany, .MeetingOfLord, .Annunciation, .NativityOfJohn, .PeterAndPaul, .Transfiguration, .Dormition, .BeheadingOfJohn, .NativityOfTheotokos, .ExaltationOfCross, .Veil, .EntryIntoTemple]
@@ -449,7 +456,7 @@ struct FeastCalendar {
         switch date {
         case d(.Theophany),
         d(.MeetingOfLord):
-            return (.FastFree, "No fast")
+            return (.NoFast, "No fast")
             
         case d(.NativityOfTheotokos),
         d(.PeterAndPaul),
