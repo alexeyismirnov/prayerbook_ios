@@ -311,6 +311,7 @@ struct FeastCalendar {
             pascha+39.days:                           [.Ascension],
             pascha+42.days:                           [.SeventhSundayAfterPascha],
             pascha+49.days:                           [.Pentecost],
+            pascha+57.days:                           [.BeginningOfApostolesFast],
         ]
         
         let fixedFeasts : [NSDate: [NameOfDay]] = [
@@ -370,9 +371,11 @@ struct FeastCalendar {
         
         if let feastCodes = feastDates[date] {
             for code in feastCodes {
-                if let feastStr = feastStrings[code] {
-                    result = result + (feastStr, contains(greatFeastCodes, code) ? UIColor.redColor() : UIColor.grayColor())
-                    result = result + "\n"
+                if let strings = dict[code.rawValue] as? NSDictionary {
+                    if let str  = strings[Translate.language] as? String {
+                        result = result + (str, contains(greatFeastCodes, code) ? UIColor.redColor() : UIColor.grayColor())
+                        result = result + "\n"
+                    }
                 }
             }
         }
@@ -390,8 +393,8 @@ struct FeastCalendar {
         
         switch (date) {
         case d(.StartOfYear) ..< d(.SundayOfPublicianAndPharisee):
-            return  "\(dayOfWeek) \((d(.Pentecost, currentYear-1)+1.days) >> date) after Pentecost"
-            
+            return  String(format: Translate.s("\(dayOfWeek) %d after Pentecost"), (d(.Pentecost, currentYear-1)+1.days) >> date)
+
         case d(.SundayOfPublicianAndPharisee)+1.days ..< d(.SundayOfProdigalSon):
             return "Week of the Publican and the Pharisee"
             
@@ -414,7 +417,7 @@ struct FeastCalendar {
             return (dateComponents.weekday == 1) ? nil : "Week \(pascha >> date) after Pascha"
             
         case d(.Pentecost)+1.days ... d(.EndOfYear):
-            return "\(dayOfWeek) \((d(.Pentecost)+1.days) >> date) after Pentecost"
+            return  String(format: Translate.s("\(dayOfWeek) %d after Pentecost"), (d(.Pentecost)+1.days) >> date)
             
         default: return nil
         }
@@ -426,6 +429,13 @@ struct FeastCalendar {
             return (reminder == 0) ? 8 : reminder
         }
         
+        var formatter = NSNumberFormatter()
+        formatter.locale = Translate.locale
+        
+        if Translate.language == "cn" {
+            formatter.numberStyle = .SpellOutStyle
+        }
+        
         let dateComponents = NSDateComponents(date: date)
         
         currentYear = dateComponents.year
@@ -433,8 +443,12 @@ struct FeastCalendar {
         let prevPascha = paschaDay(currentYear-1)
         
         switch (date) {
-        case d(.StartOfYear) ..< d(.PalmSunday): return "Tone \(toneFromOffset(prevPascha >> date))"
-        case d(.SecondSundayAfterPascha)+1.days ... d(.EndOfYear): return "Tone \(toneFromOffset(pascha >> date))"
+        case d(.StartOfYear) ..< d(.PalmSunday):
+            return String(format: Translate.s("Tone %@"), formatter.stringFromNumber(toneFromOffset(prevPascha >> date))!)
+
+        case d(.SecondSundayAfterPascha)+1.days ... d(.EndOfYear):
+            return String(format: Translate.s("Tone %@"), formatter.stringFromNumber(toneFromOffset(pascha >> date))!)
+
         default: return nil
         }
     }
@@ -503,7 +517,7 @@ struct FeastCalendar {
         case d(.Pentecost)+1.days ... d(.Pentecost)+7.days:
             return (.FastFree, "Fast-free week")
             
-        case d(.Pentecost)+8.days ... d(.PeterAndPaul)-1.days:
+        case d(.BeginningOfApostolesFast) ... d(.PeterAndPaul)-1.days:
             return (weekday == 2 || weekday == 4 || weekday == 6) ? (.Vegetarian, "Apostoles' Fast") : (.FishAllowed, "Apostoles' Fast")
             
         case d(.BeginningOfDormitionFast) ... d(.Dormition)-1.days:

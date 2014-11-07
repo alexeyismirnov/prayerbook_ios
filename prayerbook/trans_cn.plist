@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Tone %@</key>
+	<string>第%@调式</string>
+	<key>Sunday %d after Pentecost</key>
+	<string>五旬节后%d主日</string>
+	<key>Week %d after Pentecost</key>
+	<string>五旬节后%d周</string>
 	<key>Language</key>
 	<string>语言</string>
 	<key>Font size</key>

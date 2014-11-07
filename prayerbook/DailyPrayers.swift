@@ -34,12 +34,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     var fasting: (FastingType, String) = (.Vegetarian, "")
     
     func reload() {
-        if Translate.language == "en" {
-            formatter.locale = NSLocale(localeIdentifier: "en")
-        } else {
-            formatter.locale = NSLocale(localeIdentifier: "zh_CN")
-        }
-        
+        formatter.locale = Translate.locale
         dateLabel.text = formatter.stringFromDate(currentDate)
 
         var description = FeastCalendar.getDayDescription(currentDate) + (FeastCalendar.getWeekDescription(currentDate), UIColor.grayColor())

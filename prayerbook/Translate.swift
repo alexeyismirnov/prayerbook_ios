@@ -11,9 +11,12 @@ import UIKit
 struct Translate {
     private static var dict : NSDictionary?
     static var defaultLanguage = "en"
+    static var locale  = NSLocale(localeIdentifier: "en")
     
     static var language:String = defaultLanguage {
         didSet {
+            locale = NSLocale(localeIdentifier: (language == "en") ? "en" : "zh_CN")
+            
             if language == defaultLanguage {
                 return
             }
@@ -24,7 +27,7 @@ struct Translate {
         }
     }
     
-    static func stringFor(str : String) -> String {
+    static func s(str : String) -> String {
         if language == defaultLanguage {
             return str
         }

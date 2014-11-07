@@ -25,12 +25,11 @@ class Options: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let language = Translate.language
-        self.title = Translate.stringFor("Options")
-        cancelButton.title = Translate.stringFor("Cancel")
-        doneButton.title = Translate.stringFor("Done")
+        title = Translate.s("Options")
+        cancelButton.title = Translate.s("Cancel")
+        doneButton.title = Translate.s("Done")
         
-        if language == "en" {
+        if Translate.language == "en" {
             lastSelected = NSIndexPath(forRow: 0, inSection: 0)
             lang_en.accessoryType = UITableViewCellAccessoryType.Checkmark;
             lang_en.setSelected(true, animated: true)
@@ -73,9 +72,9 @@ class Options: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return Translate.stringFor("Language")
+            return Translate.s("Language")
         } else {
-            return Translate.stringFor("Font size")
+            return Translate.s("Font size")
         }
     }
     
