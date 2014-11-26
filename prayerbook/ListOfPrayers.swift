@@ -26,7 +26,6 @@ class ListOfPrayers: UITableViewController {
         super.viewDidLoad()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionsSaved:", name: optionsSavedNotification, object: nil)
-        
         self.reload()
     }
     

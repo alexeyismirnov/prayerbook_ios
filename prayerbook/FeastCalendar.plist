@@ -130,6 +130,12 @@
     </dict>
     <dict>
         <key>en</key>
+        <string>Beginning of Great Lent</string>
+        <key>cn</key>
+        <string>大斋期开始</string>
+    </dict>
+    <dict>
+        <key>en</key>
         <string>Zacchæus’s Sunday</string>
         <key>cn</key>
         <string></string>
@@ -157,12 +163,6 @@
         <string>Forgiveness Sunday</string>
         <key>cn</key>
         <string>宽恕主日</string>
-    </dict>
-    <dict>
-        <key>en</key>
-        <string>Beginning of Great Lent</string>
-        <key>cn</key>
-        <string>大斋期开始</string>
     </dict>
     <dict>
         <key>en</key>
