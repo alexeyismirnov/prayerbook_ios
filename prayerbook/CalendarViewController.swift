@@ -27,7 +27,7 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
         calendarView.separatorStyle = .Horizontal
         calendarView.delegate = self
         calendarView.backgroundColor = UIColor.whiteColor()
-        calendarView.currentDayColor = UIColor.whiteColor()
+        calendarView.currentDayColor = UIColor.clearColor()
 
         title =  calendarView.monthLabel.text
     }
