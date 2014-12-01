@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="G5G-CB-Hhd">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
@@ -423,7 +422,7 @@
         <!--Root View Controller-->
         <scene sceneID="fba-ON-Fdn">
             <objects>
-                <tableViewController id="CmQ-xk-6DO" customClass="Scripture" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Library" id="CmQ-xk-6DO" customClass="Library" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="L4O-c3-dsP">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -436,9 +435,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="CmQ-xk-6DO" kind="push" id="nqT-9d-idI"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -451,6 +447,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrC-S0-wjr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-565" y="1310"/>
+        </scene>
+        <!--Scripture-->
+        <scene sceneID="5Vw-se-LYd">
+            <objects>
+                <viewController storyboardIdentifier="Scripture" automaticallyAdjustsScrollViewInsets="NO" id="xI8-Uf-NsW" customClass="Scripture" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e2K-hp-5mu"/>
+                        <viewControllerLayoutGuide type="bottom" id="By9-xC-C0F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0fZ-Mt-B0F">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bEY-8c-yGl">
+                                <rect key="frame" x="62" y="57" width="629" height="909"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bEY-8c-yGl" secondAttribute="trailing" constant="5" id="91B-LN-G11"/>
+                            <constraint firstItem="By9-xC-C0F" firstAttribute="top" secondItem="bEY-8c-yGl" secondAttribute="bottom" constant="8" symbolic="YES" id="CGo-3m-26a"/>
+                            <constraint firstItem="bEY-8c-yGl" firstAttribute="top" secondItem="e2K-hp-5mu" secondAttribute="bottom" constant="8" symbolic="YES" id="nkf-GL-nJH"/>
+                            <constraint firstItem="bEY-8c-yGl" firstAttribute="leading" secondItem="0fZ-Mt-B0F" secondAttribute="leading" constant="5" id="tio-xi-XNW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="bEY-8c-yGl" id="XR1-KO-O4T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T40-Sg-o9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="288" y="1314"/>
         </scene>
         <!--Library-->
         <scene sceneID="BwA-TN-JYu">
@@ -572,7 +610,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xjH-sG-H2F"/>
-        <segue reference="WVy-GT-ehT"/>
+        <segue reference="3Un-iM-GEB"/>
     </inferredMetricsTieBreakers>
 </document>

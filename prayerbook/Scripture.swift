@@ -1,62 +1,72 @@
 //
-//  Library.swift
+//  Scripture.swift
 //  prayerbook
 //
-//  Created by Alexey Smirnov on 11/26/14.
+//  Created by Alexey Smirnov on 01.12.14.
 //  Copyright (c) 2014 Alexey Smirnov. All rights reserved.
 //
 
 import UIKit
+import SQLite
 
-class Scripture: UITableViewController {
+struct ScriptureRange {
+    var name: String
+    var fromChapter: Int
+    var fromVerse: Int
+    var toChapter: Int
+    var toVerse: Int
+}
 
-    var titles: [String] = ["Matthew", "Mark", "Luke", "John"]
-    var chapters: [String] = ["Chapter 1", "Chapter 2", "Chapter 3"]
-    
-    var selectionIndex : Int!
-    var code = "Library"
+enum ScriptureDisplay {
+    case Chapter(String, Int)
+    case Range(ScriptureRange)
+    case Sequence(Array<ScriptureRange>)
+}
+
+class Scripture: UIViewController {
+
+    var code: ScriptureDisplay = .Chapter("", 0)
+    @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = code
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var dest = segue.destinationViewController as Scripture
-        dest.code = titles[selectionIndex]
-    }
-    
-    // MARK: Table view data source
 
-    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        selectionIndex = indexPath.row
-        return indexPath
-    }
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (code == "Library") ? titles.count : chapters.count
-    }
-
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return (code == "Library") ? "New Testament" : nil
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "ScriptureCell"
+        var backButton = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .Plain, target: self, action: "closeView")
+        navigationItem.leftBarButtonItem = backButton
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
+        switch code {
+        case let ScriptureDisplay.Chapter(name, chapter):
+            title = "\(name), \(chapter)"
+            showChapter(name, chapter)
+            break
+        case let ScriptureDisplay.Range(r):
+            title = "\(r.name) \(r.fromChapter):\(r.fromVerse)-\(r.toChapter):\(r.toVerse)"
+            break
+        case let ScriptureDisplay.Sequence(_):
+            title = ""
+            break
+        }
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        textView.setContentOffset(CGPointZero, animated: false)
+    }
+    
+    func showChapter(name: String, _ chapter: Int) {
+        var text : NSMutableAttributedString? = nil
+
+        for line in Db.book(name).filter(Db.chapter == chapter) {
+            text = text + ("\(line[Db.verse]) ", UIColor.redColor())
+            text = text + (line[Db.text], UIColor.blackColor())
+            text = text + "\n"
         }
         
-        cell!.textLabel.text = (code == "Library") ?  titles[indexPath.row] : chapters[indexPath.row]
-        
-        return cell!
+        textView.attributedText =  text
+        textView.font = UIFont.systemFontOfSize(18)
+    }
+    
+    func closeView() {
+        navigationController?.popViewControllerAnimated(true)
     }
 
 }
-
