@@ -90,6 +90,9 @@
 		8AC6952619E4011700773FEB /* group.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952219E4011700773FEB /* group.pdf */; };
 		8AC6952719E4011700773FEB /* library.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952319E4011700773FEB /* library.pdf */; };
 		8AC6952919E4034D00773FEB /* options.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952819E4034D00773FEB /* options.pdf */; };
+		8AC786781A2D71DA00E4AC60 /* john.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC786751A2D71DA00E4AC60 /* john.sqlite */; };
+		8AC786791A2D71DA00E4AC60 /* luke.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC786761A2D71DA00E4AC60 /* luke.sqlite */; };
+		8AC7867A1A2D71DA00E4AC60 /* mark.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC786771A2D71DA00E4AC60 /* mark.sqlite */; };
 		8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89219E4CECB00B51294 /* arrow-left.pdf */; };
 		8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89319E4CECB00B51294 /* arrow-right.pdf */; };
 		8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89619E4D1DE00B51294 /* calendar.pdf */; };
@@ -252,6 +255,9 @@
 		8AC6952219E4011700773FEB /* group.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = group.pdf; sourceTree = "<group>"; };
 		8AC6952319E4011700773FEB /* library.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = library.pdf; sourceTree = "<group>"; };
 		8AC6952819E4034D00773FEB /* options.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = options.pdf; sourceTree = "<group>"; };
+		8AC786751A2D71DA00E4AC60 /* john.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = john.sqlite; sourceTree = "<group>"; };
+		8AC786761A2D71DA00E4AC60 /* luke.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = luke.sqlite; sourceTree = "<group>"; };
+		8AC786771A2D71DA00E4AC60 /* mark.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mark.sqlite; sourceTree = "<group>"; };
 		8AC7B89219E4CECB00B51294 /* arrow-left.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-left.pdf"; sourceTree = "<group>"; };
 		8AC7B89319E4CECB00B51294 /* arrow-right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-right.pdf"; sourceTree = "<group>"; };
 		8AC7B89619E4D1DE00B51294 /* calendar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = calendar.pdf; sourceTree = "<group>"; };
@@ -472,6 +478,9 @@
 		8AAC691A1A2C4D5D00CC5CA1 /* scripture */ = {
 			isa = PBXGroup;
 			children = (
+				8AC786751A2D71DA00E4AC60 /* john.sqlite */,
+				8AC786761A2D71DA00E4AC60 /* luke.sqlite */,
+				8AC786771A2D71DA00E4AC60 /* mark.sqlite */,
 				8AEFC2781A2C55A100BAACE0 /* matthew.sqlite */,
 			);
 			path = scripture;
@@ -599,6 +608,7 @@
 				8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */,
 				8A2F46A119E110CF00076AF4 /* prayer_group_1_en.html in Resources */,
 				8A41936319E6921600D570A9 /* food-egg.pdf in Resources */,
+				8AC7867A1A2D71DA00E4AC60 /* mark.sqlite in Resources */,
 				8A9A3DE219D3AE2800A7D82A /* prayer_group_3_en.html in Resources */,
 				8A74D83F198F5F350078F39F /* index_cn.plist in Resources */,
 				8A9A3DE419D3AE2800A7D82A /* prayer_group_4_en.html in Resources */,
@@ -622,6 +632,7 @@
 				8A9A3DE019D3AE2800A7D82A /* prayer_group_2_en.html in Resources */,
 				8AC6952919E4034D00773FEB /* options.pdf in Resources */,
 				8A74D84E198F691A0078F39F /* US.png in Resources */,
+				8AC786791A2D71DA00E4AC60 /* luke.sqlite in Resources */,
 				8A81858919D2E3F300D4B328 /* prayer_daily_0_cn.html in Resources */,
 				8A81858319D2E3F300D4B328 /* prayer_communion_2_cn.html in Resources */,
 				8A74D84D198F691A0078F39F /* CN@2x.png in Resources */,
@@ -653,6 +664,7 @@
 				8A2F469F19E110CF00076AF4 /* prayer_group_0_en.html in Resources */,
 				8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */,
 				8AEF81AE19999D39000B3D90 /* icon-iphone6.png in Resources */,
+				8AC786781A2D71DA00E4AC60 /* john.sqlite in Resources */,
 				8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */,
 				8A74D805198F20CC0078F39F /* InfoPlist.strings in Resources */,
 				8AC1B110199866FF00A017C7 /* launch-iphone4.png in Resources */,
