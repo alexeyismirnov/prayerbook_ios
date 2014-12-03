@@ -2,171 +2,6 @@
 
 import UIKit
 
-enum TimeIntervalUnit {
-    case Seconds, Minutes, Hours, Days, Months, Years
-    
-    func dateComponents(interval: Int) -> NSDateComponents {
-        var components:NSDateComponents = NSDateComponents()
-        
-        switch (self) {
-        case .Seconds:
-            components.second = interval
-        case .Minutes:
-            components.minute = interval
-        case .Days:
-            components.day = interval
-        case .Months:
-            components.month = interval
-        case .Years:
-            components.year = interval
-        default:
-            components.day = interval
-        }
-        return components
-    }
-}
-
-struct TimeInterval {
-    var interval: Int
-    var unit: TimeIntervalUnit
-    
-    init(interval: Int, unit: TimeIntervalUnit) {
-        self.interval = interval
-        self.unit = unit
-    }
-}
-
-// FYI: http://stackoverflow.com/questions/24116271/whats-the-cleanest-way-of-applying-map-to-a-dictionary-in-swift
-
-extension Int {
-    var days: TimeInterval {
-        return TimeInterval(interval: self, unit: TimeIntervalUnit.Days);
-    }
-}
-
-func - (let left:NSDate, let right:TimeInterval) -> NSDate {
-    let calendar = NSCalendar.currentCalendar()
-    var components = right.unit.dateComponents(-right.interval)
-    return calendar.dateByAddingComponents(components, toDate: left, options: nil)!
-}
-
-func + (let left:NSDate, let right:TimeInterval) -> NSDate {
-    let calendar = NSCalendar.currentCalendar()
-    var components = right.unit.dateComponents(right.interval)
-    return calendar.dateByAddingComponents(components, toDate: left, options: nil)!
-}
-
-extension NSDateComponents {
-    convenience init(_ day: Int, _ month:Int, _ year: Int) {
-        self.init()
-        
-        self.day = day
-        self.month = month
-        self.year = year
-    }
-    
-    convenience init(date: NSDate) {
-        self.init()
-        
-        let calendar = NSCalendar.currentCalendar()
-        let dateComponents = calendar.components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear | .CalendarUnitWeekday, fromDate: date)
-        
-        self.day = dateComponents.day
-        self.month = dateComponents.month
-        self.year = dateComponents.year
-        self.weekday = dateComponents.weekday
-    }
-    
-    func toDate() -> NSDate {
-        let calendar = NSCalendar.currentCalendar()
-        return calendar.dateFromComponents(self)!
-    }
-}
-
-func + (str: String, date: NSDate) -> String {
-    var formatter = NSDateFormatter()
-    formatter.dateStyle = .ShortStyle
-    formatter.timeStyle = .NoStyle
-    
-    return formatter.stringFromDate(date)
-}
-
-func + (arg1: NSMutableAttributedString?, arg2: NSMutableAttributedString?) -> NSMutableAttributedString? {
-    
-    if let rightArg = arg2 {
-        if let leftArg = arg1 {
-            var result = NSMutableAttributedString(attributedString: leftArg)
-            result.appendAttributedString(rightArg)
-            return result
-
-        } else {
-            return arg2
-        }
-
-    } else {
-        return arg1
-    }
-    
-}
-
-func + (arg1: NSMutableAttributedString?, arg2: String?) -> NSMutableAttributedString? {
-
-    if let rightArg = arg2 {
-        if let leftArg = arg1 {
-            var result = NSMutableAttributedString(attributedString: leftArg)
-            result.appendAttributedString(NSMutableAttributedString(string: rightArg))
-            return result
-            
-        } else {
-            return NSMutableAttributedString(string: rightArg)
-        }
-        
-    } else {
-        return arg1
-    }
-}
-
-func + (arg1: NSMutableAttributedString?, arg2: (String?, UIColor)) -> NSMutableAttributedString? {
-
-    if let rightArg = arg2.0 {
-        if let leftArg = arg1 {
-            var result = NSMutableAttributedString(attributedString: leftArg)
-            result.appendAttributedString(NSMutableAttributedString(string: rightArg, attributes: [NSForegroundColorAttributeName: arg2.1]))
-            return result
-            
-        } else {
-            return NSMutableAttributedString(string: rightArg, attributes: [NSForegroundColorAttributeName: arg2.1])
-        }
-        
-    } else {
-        return arg1
-    }
-}
-
-func += <K,V> (inout left: Dictionary<K, [V]>, right: Dictionary<K, [V]>) {
-    for (k, v) in right {
-        if let leftValue = left[k] {
-            left.updateValue(v + leftValue, forKey: k)
-        } else {
-            left.updateValue(v, forKey: k)
-        }
-    }
-}
-
-extension NSDate: Comparable {
-    
-}
-
-public func < (let left:NSDate, let right: NSDate) -> Bool {
-    var result:NSComparisonResult = left.compare(right)
-    return (result == .OrderedAscending)
-}
-
-public func == (let left:NSDate, let right: NSDate) -> Bool {
-    var result:NSComparisonResult = left.compare(right)
-    return (result == .OrderedSame)
-}
-
 func >> (left: NSDate, right: NSDate) -> Int {
     let calendar = NSCalendar.currentCalendar()
     let components = calendar.components(.CalendarUnitDay, fromDate: left, toDate: right, options: nil)
@@ -176,6 +11,10 @@ func >> (left: NSDate, right: NSDate) -> Int {
 
 enum NameOfDay: Int {
     case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, NativityOfGod=5, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation=10, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn=15, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple, StNicholas=20, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement=25, ForgivenessSunday, FirstSundayOfGreatLent, SecondSundayOfGreatLent, ThirdSundayOfGreatLent, FourthSundayOfGreatLent=30, FifthSundayOfGreatLent, LazarusSaturday, SecondSundayAfterPascha, ThirdSundayAfterPascha, FourthSundayAfterPascha=35, FifthSundayAfterPascha, SixthSundayAfterPascha, SeventhSundayAfterPascha, BeginningOfDormitionFast, BeginningOfNativityFast=40, BeginningOfApostolesFast, EndOfYear
+}
+
+enum FastingType: Int {
+    case NoFast=0, Vegetarian, FishAllowed, FastFree, Cheesefare
 }
 
 struct DateCache : Hashable {
@@ -196,10 +35,10 @@ func == (lhs: DateCache, rhs: DateCache) -> Bool {
     return lhs.code == rhs.code && lhs.year == rhs.year
 }
 
-struct FeastCalendar {
+struct ChurchCalendar {
     
     static var dict: NSArray = {
-        let bundle = NSBundle.mainBundle().pathForResource("FeastCalendar", ofType: "plist")
+        let bundle = NSBundle.mainBundle().pathForResource("ChurchCalendar", ofType: "plist")
         let dict = NSArray(contentsOfFile: bundle!)
         return dict!
     }()
@@ -216,7 +55,7 @@ struct FeastCalendar {
     static var dCache = [ DateCache : NSDate ]()
     
     static func _d(code: NameOfDay, _ year:Int) -> NSDate {
-        var res = filter(FeastCalendar.feastDates, { (date, codes) in return contains(codes, code) && NSDateComponents(date:date).year == year } )
+        var res = filter(ChurchCalendar.feastDates, { (date, codes) in return contains(codes, code) && NSDateComponents(date:date).year == year } )
         dCache[DateCache(code, year)] = res[0].0
         return res[0].0
     }
@@ -452,14 +291,7 @@ struct FeastCalendar {
         default: return nil
         }
     }
-    
-/*
-    // defined in FastingViewController
-    enum FastingType {
-        case NoFast, Vegetarian, FishAllowed, FastFree, Cheesefare
-    }
-  */
-    
+
     static func getFastingDescription(date: NSDate) -> (FastingType, String)? {
         let dateComponents = NSDateComponents(date: date)
         
@@ -502,7 +334,7 @@ struct FeastCalendar {
         case d(.SundayOfPublicianAndPharisee)+1.days ... d(.SundayOfProdigalSon):
             return (.FastFree, "Fast-free week")
             
-        case d(.SundayOfDreadJudgement) ... d(.ForgivenessSunday):
+        case d(.SundayOfDreadJudgement)+1.days ... d(.ForgivenessSunday):
             return (.Cheesefare, "Maslenitsa")
             
         case d(.BeginningOfGreatLent) ..< d(.PalmSunday):
@@ -511,7 +343,7 @@ struct FeastCalendar {
         case d(.PalmSunday)+1.days ..< pascha:
             return (.Vegetarian, "Vegetarian")
             
-        case pascha ..< d(.SecondSundayAfterPascha):
+        case pascha+1.days ... d(.SecondSundayAfterPascha):
             return (.FastFree, "Fast-free week")
             
         case d(.Pentecost)+1.days ... d(.Pentecost)+7.days:
@@ -537,19 +369,6 @@ struct FeastCalendar {
         }
         
     }
-    
-    /*
-    static func printFeastDescription() {
-        // get Pascha day to trigger calendar initialization
-        let dateComponents = NSDateComponents(date: NSDate())
-        let _ = paschaDay(dateComponents.year)
-        
-        for (date, code) in feastDates {
-            let date_str = formatter.stringFromDate(date)
-            println("\(date_str) \(feastStrings[code])")
-        }
-    }
-*/
-    
+
 }
 

@@ -68,10 +68,10 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
         } else {
             
             let currentDate = calendarView.selectedDate
-            var description = FeastCalendar.getDayDescription(currentDate)
+            var description = ChurchCalendar.getDayDescription(currentDate)
             
             if description == nil {
-                description = description + (FeastCalendar.getWeekDescription(currentDate), UIColor.grayColor())
+                description = description + (ChurchCalendar.getWeekDescription(currentDate), UIColor.grayColor())
             }
                         
             descriptionLabel.attributedText = description
@@ -93,9 +93,9 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
         dayCell.addGestureRecognizer(recognizer)
         
         var curDate = NSDateComponents(index+1, calendarView.month.month, calendarView.month.year).toDate()
-        dayCell.textLabel.textColor = (FeastCalendar.isGreatFeast(curDate)) ? UIColor.redColor() : UIColor.blackColor()
+        dayCell.textLabel.textColor = (ChurchCalendar.isGreatFeast(curDate)) ? UIColor.redColor() : UIColor.blackColor()
 
-        if let fasting = FeastCalendar.getFastingDescription(curDate) {
+        if let fasting = ChurchCalendar.getFastingDescription(curDate) {
             switch fasting.0 {
             case .Vegetarian:
                 dayCell.backgroundColor = UIColor.greenColor()

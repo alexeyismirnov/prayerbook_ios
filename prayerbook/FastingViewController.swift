@@ -8,36 +8,6 @@
 
 import UIKit
 
-extension String {
-    subscript (i: Int) -> String {
-        return String(Array(self)[i])
-    }
-}
-
-enum FastingType {
-    case NoFast, Vegetarian, FishAllowed, FastFree, Cheesefare
-    
-    func getAllowedFood() -> [String] {
-        switch self {
-        case .NoFast: return ["meat", "fish", "milk", "egg", "cupcake"]
-        case .Vegetarian: return ["vegetables", "bread", "nuts"]
-        case .FishAllowed: return ["fish", "vegetables", "bread", "nuts"]
-        case .FastFree: return ["cupcake", "cheese", "meat", "fish"]
-        case .Cheesefare: return ["cheese", "cupcake", "milk", "egg"]
-        }
-    }
-    
-    func getForbiddenFood() -> [String] {
-        switch self {
-        case .NoFast: return []
-        case .Vegetarian: return ["fish", "meat", "milk", "egg", "cupcake"]
-        case .FishAllowed: return ["meat", "milk", "egg",  "cupcake"]
-        case .FastFree: return []
-        case .Cheesefare: return ["meat"]
-        }
-    }
-}
-
 
 class FastingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -51,6 +21,22 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.foodTableView?.reloadData()
         }
     }
+    
+    var allowedFood: [FastingType: [String]] = [
+        .NoFast:        ["meat", "fish", "milk", "egg", "cupcake"],
+        .Vegetarian:    ["vegetables", "bread", "nuts"],
+        .FishAllowed:   ["fish", "vegetables", "bread", "nuts"],
+        .FastFree:      ["cupcake", "meat", "fish", "cheese"],
+        .Cheesefare:    ["cheese", "cupcake", "milk", "egg"]
+    ]
+    
+    var forbiddenFood: [FastingType: [String]] = [
+        .NoFast:        [],
+        .Vegetarian:    ["fish", "meat", "milk", "egg", "cupcake"] ,
+        .FishAllowed:   ["meat", "milk", "egg",  "cupcake"],
+        .FastFree:      [],
+        .Cheesefare:    ["meat"]
+    ]
     
     override func viewDidLoad() {
         fastTitleLabel.text = fastTitle
@@ -79,7 +65,7 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (section == 0) ? type.getAllowedFood().count : type.getForbiddenFood().count
+        return (section == 0) ? allowedFood[type]!.count : forbiddenFood[type]!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -91,13 +77,12 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell?.backgroundColor = UIColor(white: 1.0, alpha: 0.0)
         
-        var foodName = (indexPath.section == 0) ? type.getAllowedFood()[indexPath.row] :
-            type.getForbiddenFood()[indexPath.row]
+        var foodName = (indexPath.section == 0) ? allowedFood[type]![indexPath.row] : forbiddenFood[type]![indexPath.row]
 
         var capitalized = "\(foodName[0])".uppercaseString + foodName.substringFromIndex(advance(foodName.startIndex, 1))
         
-        cell?.textLabel.text = capitalized
-        cell?.imageView.image =  UIImage(named: getImageName(foodName, allowed: indexPath.section == 0))
+        cell?.textLabel!.text = capitalized
+        cell?.imageView!.image =  UIImage(named: getImageName(foodName, allowed: indexPath.section == 0))
         
         return cell!
     }

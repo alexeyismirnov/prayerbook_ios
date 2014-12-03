@@ -64,7 +64,7 @@ class Library: UITableViewController {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
         }
         
-        cell!.textLabel.text = (code == "Library") ?  titles[indexPath.row] : "Chapter \(indexPath.row+1)"
+        cell!.textLabel!.text = (code == "Library") ?  titles[indexPath.row] : "Chapter \(indexPath.row+1)"
         
         return cell!
     }

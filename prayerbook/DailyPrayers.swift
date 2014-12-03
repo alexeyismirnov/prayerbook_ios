@@ -32,20 +32,31 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
 
     var titles: [String] = []
     var fasting: (FastingType, String) = (.Vegetarian, "")
+    var foodIcon: [FastingType: String] = [
+        .NoFast:        "meat",
+        .Vegetarian:    "vegetables",
+        .FishAllowed:   "fish",
+        .FastFree:      "cupcake",
+        .Cheesefare:    "cheese",
+    ]
     
     func reload() {
         formatter.locale = Translate.locale
         dateLabel.text = formatter.stringFromDate(currentDate)
 
-        var description = FeastCalendar.getDayDescription(currentDate) + (FeastCalendar.getWeekDescription(currentDate), UIColor.grayColor())
-        description = description + Optional("\n") + (FeastCalendar.getToneDescription(currentDate), UIColor.grayColor())
+        var description = ChurchCalendar.getDayDescription(currentDate)
+        if let weekDescription = ChurchCalendar.getWeekDescription(currentDate) {
+            description = description + (weekDescription, UIColor.grayColor()) + "\n"
+        }
+            
+        description = description + (ChurchCalendar.getToneDescription(currentDate), UIColor.grayColor())
 
         infoLabel.attributedText  = description
         
-        if let _fasting = FeastCalendar.getFastingDescription(currentDate) {
+        if let _fasting = ChurchCalendar.getFastingDescription(currentDate) {
             fasting = _fasting
             foodLabel.text = fasting.1
-            let allowedFood = fasting.0.getAllowedFood()[0]
+            let allowedFood = foodIcon[fasting.0]!
             foodButton.setImage(UIImage(named: "food-\(allowedFood)"), forState: .Normal)
         }
         
@@ -63,7 +74,6 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionsSaved:", name: optionsSavedNotification, object: nil)
         
         self.reload()
-//        FeastCalendar.printFeastDescription()
     }
 
     @IBAction func showFastingInfo(sender: AnyObject) {
@@ -141,9 +151,9 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         
         if (indexPath.section == 0) {
-            newCell.textLabel.text = "Luke 2:3-4"
+            newCell.textLabel!.text = "Luke 2:3-4"
         } else {
-            newCell.textLabel.text = titles[indexPath.row]
+            newCell.textLabel!.text = titles[indexPath.row]
         }
         
         return newCell
