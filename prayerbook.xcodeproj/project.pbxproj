@@ -97,6 +97,7 @@
 		8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89319E4CECB00B51294 /* arrow-right.pdf */; };
 		8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89619E4D1DE00B51294 /* calendar.pdf */; };
 		8ACEF0FB1A2EDF5100AF98E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */; };
+		8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */; };
 		8AE5DEF819E7A80B0069C757 /* ChurchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */; };
 		8AE685E91A2559F00029A149 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE685E81A2559F00029A149 /* Library.swift */; };
 		8AEF81A919999D39000B3D90 /* icon-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A219999D39000B3D90 /* icon-ipad.png */; };
@@ -263,6 +264,7 @@
 		8AC7B89319E4CECB00B51294 /* arrow-right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-right.pdf"; sourceTree = "<group>"; };
 		8AC7B89619E4D1DE00B51294 /* calendar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = calendar.pdf; sourceTree = "<group>"; };
 		8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyReading.swift; sourceTree = "<group>"; };
 		8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchCalendar.swift; sourceTree = "<group>"; };
 		8AE685E81A2559F00029A149 /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		8AEF81A219999D39000B3D90 /* icon-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ipad.png"; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */,
 				8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */,
 				8AC4558E1A0A2B3F0070FAF7 /* ChurchCalendar.plist */,
+				8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */,
 				8A2F46A819E1302700076AF4 /* Translate.swift */,
 				8AEFC27C1A2C8DF800BAACE0 /* Db.swift */,
 				8A2F46A419E11CEA00076AF4 /* Prayer.swift */,
@@ -714,6 +717,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */,
 				8A3CD13819E5233100A78A32 /* CalendarViewController.swift in Sources */,
 				8AE685E91A2559F00029A149 /* Library.swift in Sources */,
 				8A3CD13619E51D0400A78A32 /* RDVCalendarView.m in Sources */,

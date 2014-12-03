@@ -71,9 +71,9 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         addRoundedBorder(foodButton)
         addLayoutConstraints()
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionsSaved:", name: optionsSavedNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: optionsSavedNotification, object: nil)
         
-        self.reload()
+        reload()
     }
 
     @IBAction func showFastingInfo(sender: AnyObject) {
@@ -90,11 +90,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         modal.presentWithCompletion({})
     }
-    
-    func optionsSaved(params: NSNotification) {
-        self.reload()
-    }
-    
+
     func prev_day() {
         currentDate = currentDate - 1.days;
         reload()
@@ -106,13 +102,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "Prayer" {
-            var view = segue.destinationViewController as Prayer
-            var index = self.tableView.indexPathForSelectedRow();
-            view.index = index!.row
-            view.code = "daily"
-
-        } else if segue.identifier == "Calendar" {
+        if segue.identifier == "Calendar" {
             let nav = segue.destinationViewController as UINavigationController
             let dest = nav.viewControllers[0] as CalendarViewController
             dest.delegate = self
@@ -121,6 +111,24 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     // MARK: Table view data source
+    
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if indexPath.section == 0 {
+            var vc = storyboard.instantiateViewControllerWithIdentifier("Scripture") as Scripture
+            vc.code = .Pericope(DailyReading.getDailyReading(currentDate))
+            navigationController?.pushViewController(vc, animated: true)
+            
+        } else {
+            var vc = storyboard.instantiateViewControllerWithIdentifier("Prayer") as Prayer
+            vc.index = indexPath.row
+            vc.code = "daily"
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        return nil
+    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
@@ -151,7 +159,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         
         if (indexPath.section == 0) {
-            newCell.textLabel!.text = "Luke 2:3-4"
+            newCell.textLabel!.text = DailyReading.getDailyReading(currentDate)
         } else {
             newCell.textLabel!.text = titles[indexPath.row]
         }

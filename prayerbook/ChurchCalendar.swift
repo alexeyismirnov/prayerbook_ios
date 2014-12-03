@@ -2,13 +2,6 @@
 
 import UIKit
 
-func >> (left: NSDate, right: NSDate) -> Int {
-    let calendar = NSCalendar.currentCalendar()
-    let components = calendar.components(.CalendarUnitDay, fromDate: left, toDate: right, options: nil)
-    
-    return components.day/7 + 1
-}
-
 enum NameOfDay: Int {
     case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, NativityOfGod=5, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation=10, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn=15, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple, StNicholas=20, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement=25, ForgivenessSunday, FirstSundayOfGreatLent, SecondSundayOfGreatLent, ThirdSundayOfGreatLent, FourthSundayOfGreatLent=30, FifthSundayOfGreatLent, LazarusSaturday, SecondSundayAfterPascha, ThirdSundayAfterPascha, FourthSundayAfterPascha=35, FifthSundayAfterPascha, SixthSundayAfterPascha, SeventhSundayAfterPascha, BeginningOfDormitionFast, BeginningOfNativityFast=40, BeginningOfApostolesFast, EndOfYear
 }
@@ -33,6 +26,13 @@ struct DateCache : Hashable {
 
 func == (lhs: DateCache, rhs: DateCache) -> Bool {
     return lhs.code == rhs.code && lhs.year == rhs.year
+}
+
+func >> (left: NSDate, right: NSDate) -> Int {
+    let calendar = NSCalendar.currentCalendar()
+    let components = calendar.components(.CalendarUnitDay, fromDate: left, toDate: right, options: nil)
+    
+    return components.day/7 + 1
 }
 
 struct ChurchCalendar {
