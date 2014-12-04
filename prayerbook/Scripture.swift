@@ -39,6 +39,19 @@ class Scripture: UIViewController {
         textView.setContentOffset(CGPointZero, animated: false)
     }
     
+    func formatLine(verse: Int, _ content : String) -> NSMutableAttributedString {
+        var text : NSMutableAttributedString? = nil
+        text = text + ("\(verse) ", UIColor.redColor())
+        text = text + (content, UIColor.blackColor())
+        text = text + "\n"
+
+        text!.addAttribute(NSFontAttributeName,
+            value: UIFont.systemFontOfSize(18),
+            range: NSMakeRange(0, text!.length))
+        
+        return text!
+    }
+    
     func showPericope(str: String) {
         title = "Daily reading"
         var text : NSMutableAttributedString? = nil
@@ -49,7 +62,19 @@ class Scripture: UIViewController {
         for (var i=0; i<pericope.count; i+=2) {
             var chapter: Int = 0
             
-            text = text + pericope[i]
+            let fileName = pericope[i].lowercaseString
+            let bookTuple = NewTestament.filter { $0.1 == fileName }
+            
+            var centerStyle = NSMutableParagraphStyle()
+            centerStyle.alignment = .Center
+            
+            var bookName = NSMutableAttributedString(
+                    string: bookTuple[0].0 + " " + pericope[i+1],
+                attributes: [NSParagraphStyleAttributeName: centerStyle,
+                                       NSFontAttributeName: UIFont.boldSystemFontOfSize(18) ])
+            
+            text = text + bookName + "\n\n"
+            
             var arr2 = pericope[i+1].componentsSeparatedByString(",")
             
             for segment in arr2 {
@@ -58,7 +83,6 @@ class Scripture: UIViewController {
                 var arr3 = segment.componentsSeparatedByString("-")
                 for offset in arr3 {
                     var arr4 = offset.componentsSeparatedByString(":")
-                    
                     
                     if arr4.count == 1 {
                         range += [ (chapter, arr4[0].toInt()!) ]
@@ -69,30 +93,38 @@ class Scripture: UIViewController {
                     }
                 }
                 
-                text = text + " " + "\(range[0].0):\(range[0].1) - \(range[1].0):\(range[1].1)"
+                if range[0].0 != range[1].0 {
+                    for line in Db.book(fileName).filter(Db.chapter == range[0].0 && Db.verse >= range[0].1) {
+                        text = text + formatLine(line[Db.verse], line[Db.text])
+                    }
+
+                    for line in Db.book(fileName).filter(Db.chapter == range[1].0 && Db.verse <= range[1].1) {
+                        text = text + formatLine(line[Db.verse], line[Db.text])
+                    }
+
+                } else {
+                    for line in Db.book(fileName).filter(Db.chapter == range[0].0 && Db.verse >= range[0].1 && Db.verse <= range[1].1) {
+                        text = text + formatLine(line[Db.verse], line[Db.text])
+                    }
+                }
             }
             
             text = text + "\n"
-            
         }
 
         textView.attributedText =  text
-        textView.font = UIFont.systemFontOfSize(18)
     }
     
     func showChapter(name: String, _ chapter: Int) {
-        title = "\(name), \(chapter)"
+        title = "Chapter \(chapter)"
 
         var text : NSMutableAttributedString? = nil
 
         for line in Db.book(name).filter(Db.chapter == chapter) {
-            text = text + ("\(line[Db.verse]) ", UIColor.redColor())
-            text = text + (line[Db.text], UIColor.blackColor())
-            text = text + "\n"
+            text = text + formatLine(line[Db.verse], line[Db.text])
         }
         
         textView.attributedText =  text
-        textView.font = UIFont.systemFontOfSize(18)
     }
     
     func closeView() {

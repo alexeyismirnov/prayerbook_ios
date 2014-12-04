@@ -144,7 +144,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (section == 0) {
-            return "Daily Gospel"
+            return "Daily Scripture"
         } else {
             return "Daily Prayers"
         }

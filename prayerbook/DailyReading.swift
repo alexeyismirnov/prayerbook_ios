@@ -11,6 +11,6 @@ import UIKit
 struct DailyReading {
 
     static func getDailyReading(date: NSDate) -> String {
-        return "Acts 1:1-2:8,41-46 John 1:1-2:2"
+        return "Acts 1:22-2:2,25-29 John 1:1-3"
     }
 }
