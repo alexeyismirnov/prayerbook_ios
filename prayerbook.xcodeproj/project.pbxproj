@@ -443,9 +443,8 @@
 				8A74D84A198F691A0078F39F /* US.png */,
 				8A74D84B198F691A0078F39F /* US@2x.png */,
 			);
-			name = images;
-			path = /Users/alexey/Documents/workspace/prayerbook/prayerbook/images;
-			sourceTree = "<absolute>";
+			path = images;
+			sourceTree = "<group>";
 		};
 		8A74D857199076EF0078F39F /* html */ = {
 			isa = PBXGroup;
@@ -479,9 +478,8 @@
 				8A81857519D2E3F300D4B328 /* prayer_daily_2_cn.html */,
 				8A81857619D2E3F300D4B328 /* prayer_daily_2_en.html */,
 			);
-			name = html;
-			path = /Users/alexey/Documents/workspace/prayerbook/prayerbook/html;
-			sourceTree = "<absolute>";
+			path = html;
+			sourceTree = "<group>";
 		};
 		8AAC691A1A2C4D5D00CC5CA1 /* scripture */ = {
 			isa = PBXGroup;
