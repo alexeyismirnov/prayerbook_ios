@@ -10,19 +10,10 @@ import UIKit
 import SQLite
 
 class Library: UITableViewController {
-
-    var titles: [String] = ["Matthew", "Mark", "Luke", "John"]
     var code = "Library"
-    var numChapters = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if code != "Library" {
-            numChapters = Db.book(code).max(Db.chapter)!
-        }
-        
-        title = code
     }
 
     // MARK: Table view data source
@@ -32,7 +23,8 @@ class Library: UITableViewController {
         
         if (code == "Library") {
             var vc = storyboard.instantiateViewControllerWithIdentifier("Library") as Library
-            vc.code = titles[indexPath.row]
+            vc.title = NewTestament[indexPath.row].0
+            vc.code = NewTestament[indexPath.row].1
             navigationController?.pushViewController(vc, animated: true)
 
         } else {
@@ -49,7 +41,7 @@ class Library: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (code == "Library") ? titles.count : numChapters
+        return (code == "Library") ? NewTestament.count : Db.book(code).max(Db.chapter)!
     }
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -64,7 +56,7 @@ class Library: UITableViewController {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
         }
         
-        cell!.textLabel!.text = (code == "Library") ?  titles[indexPath.row] : "Chapter \(indexPath.row+1)"
+        cell!.textLabel!.text = (code == "Library") ?  NewTestament[indexPath.row].0 : "Chapter \(indexPath.row+1)"
         
         return cell!
     }

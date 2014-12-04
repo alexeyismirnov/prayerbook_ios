@@ -416,7 +416,7 @@
             </objects>
             <point key="canvasLocation" x="-567" y="162"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Library-->
         <scene sceneID="fba-ON-Fdn">
             <objects>
                 <tableViewController storyboardIdentifier="Library" id="CmQ-xk-6DO" customClass="Library" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
@@ -439,7 +439,7 @@
                             <outlet property="delegate" destination="CmQ-xk-6DO" id="Dfr-jN-CUh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="dut-Bv-Neo"/>
+                    <navigationItem key="navigationItem" title="Library" id="dut-Bv-Neo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrC-S0-wjr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

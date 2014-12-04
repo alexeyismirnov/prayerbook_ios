@@ -52,6 +52,11 @@
 		8A81858C19D2E3F300D4B328 /* prayer_daily_1_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81857419D2E3F300D4B328 /* prayer_daily_1_en.html */; };
 		8A81858D19D2E3F300D4B328 /* prayer_daily_2_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81857519D2E3F300D4B328 /* prayer_daily_2_cn.html */; };
 		8A81858E19D2E3F300D4B328 /* prayer_daily_2_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81857619D2E3F300D4B328 /* prayer_daily_2_en.html */; };
+		8A8810E71A300DE40095C081 /* acts.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A8810E21A300DE40095C081 /* acts.sqlite */; };
+		8A8810E81A300DE40095C081 /* john.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A8810E31A300DE40095C081 /* john.sqlite */; };
+		8A8810E91A300DE40095C081 /* luke.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A8810E41A300DE40095C081 /* luke.sqlite */; };
+		8A8810EA1A300DE40095C081 /* mark.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A8810E51A300DE40095C081 /* mark.sqlite */; };
+		8A8810EB1A300DE40095C081 /* matthew.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A8810E61A300DE40095C081 /* matthew.sqlite */; };
 		8A9A3DD519D3AE1600A7D82A /* prayer_communion_4_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A9A3DD119D3AE1600A7D82A /* prayer_communion_4_cn.html */; };
 		8A9A3DD619D3AE1600A7D82A /* prayer_communion_4_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A9A3DD219D3AE1600A7D82A /* prayer_communion_4_en.html */; };
 		8A9A3DD719D3AE1600A7D82A /* prayer_communion_5_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A9A3DD319D3AE1600A7D82A /* prayer_communion_5_cn.html */; };
@@ -90,9 +95,6 @@
 		8AC6952619E4011700773FEB /* group.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952219E4011700773FEB /* group.pdf */; };
 		8AC6952719E4011700773FEB /* library.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952319E4011700773FEB /* library.pdf */; };
 		8AC6952919E4034D00773FEB /* options.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952819E4034D00773FEB /* options.pdf */; };
-		8AC786781A2D71DA00E4AC60 /* john.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC786751A2D71DA00E4AC60 /* john.sqlite */; };
-		8AC786791A2D71DA00E4AC60 /* luke.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC786761A2D71DA00E4AC60 /* luke.sqlite */; };
-		8AC7867A1A2D71DA00E4AC60 /* mark.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC786771A2D71DA00E4AC60 /* mark.sqlite */; };
 		8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89219E4CECB00B51294 /* arrow-left.pdf */; };
 		8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89319E4CECB00B51294 /* arrow-right.pdf */; };
 		8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89619E4D1DE00B51294 /* calendar.pdf */; };
@@ -108,7 +110,6 @@
 		8AEF81AE19999D39000B3D90 /* icon-iphone6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A719999D39000B3D90 /* icon-iphone6.png */; };
 		8AEF81AF19999D39000B3D90 /* icon-iphone6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A819999D39000B3D90 /* icon-iphone6@2x.png */; };
 		8AEF81B11999A194000B3D90 /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81B01999A194000B3D90 /* icon1024.png */; };
-		8AEFC2791A2C55A100BAACE0 /* matthew.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AEFC2781A2C55A100BAACE0 /* matthew.sqlite */; };
 		8AEFC27B1A2C747700BAACE0 /* Scripture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFC27A1A2C747700BAACE0 /* Scripture.swift */; };
 		8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFC27C1A2C8DF800BAACE0 /* Db.swift */; };
 /* End PBXBuildFile section */
@@ -217,6 +218,11 @@
 		8A81857419D2E3F300D4B328 /* prayer_daily_1_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_daily_1_en.html; sourceTree = "<group>"; };
 		8A81857519D2E3F300D4B328 /* prayer_daily_2_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_daily_2_cn.html; sourceTree = "<group>"; };
 		8A81857619D2E3F300D4B328 /* prayer_daily_2_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_daily_2_en.html; sourceTree = "<group>"; };
+		8A8810E21A300DE40095C081 /* acts.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = acts.sqlite; sourceTree = "<group>"; };
+		8A8810E31A300DE40095C081 /* john.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = john.sqlite; sourceTree = "<group>"; };
+		8A8810E41A300DE40095C081 /* luke.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = luke.sqlite; sourceTree = "<group>"; };
+		8A8810E51A300DE40095C081 /* mark.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mark.sqlite; sourceTree = "<group>"; };
+		8A8810E61A300DE40095C081 /* matthew.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = matthew.sqlite; sourceTree = "<group>"; };
 		8A9A3DD119D3AE1600A7D82A /* prayer_communion_4_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_communion_4_cn.html; sourceTree = "<group>"; };
 		8A9A3DD219D3AE1600A7D82A /* prayer_communion_4_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_communion_4_en.html; sourceTree = "<group>"; };
 		8A9A3DD319D3AE1600A7D82A /* prayer_communion_5_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_communion_5_cn.html; sourceTree = "<group>"; };
@@ -257,9 +263,6 @@
 		8AC6952219E4011700773FEB /* group.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = group.pdf; sourceTree = "<group>"; };
 		8AC6952319E4011700773FEB /* library.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = library.pdf; sourceTree = "<group>"; };
 		8AC6952819E4034D00773FEB /* options.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = options.pdf; sourceTree = "<group>"; };
-		8AC786751A2D71DA00E4AC60 /* john.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = john.sqlite; sourceTree = "<group>"; };
-		8AC786761A2D71DA00E4AC60 /* luke.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = luke.sqlite; sourceTree = "<group>"; };
-		8AC786771A2D71DA00E4AC60 /* mark.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mark.sqlite; sourceTree = "<group>"; };
 		8AC7B89219E4CECB00B51294 /* arrow-left.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-left.pdf"; sourceTree = "<group>"; };
 		8AC7B89319E4CECB00B51294 /* arrow-right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-right.pdf"; sourceTree = "<group>"; };
 		8AC7B89619E4D1DE00B51294 /* calendar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = calendar.pdf; sourceTree = "<group>"; };
@@ -275,7 +278,6 @@
 		8AEF81A719999D39000B3D90 /* icon-iphone6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-iphone6.png"; sourceTree = "<group>"; };
 		8AEF81A819999D39000B3D90 /* icon-iphone6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-iphone6@2x.png"; sourceTree = "<group>"; };
 		8AEF81B01999A194000B3D90 /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024.png; sourceTree = "<group>"; };
-		8AEFC2781A2C55A100BAACE0 /* matthew.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = matthew.sqlite; sourceTree = "<group>"; };
 		8AEFC27A1A2C747700BAACE0 /* Scripture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripture.swift; sourceTree = "<group>"; };
 		8AEFC27C1A2C8DF800BAACE0 /* Db.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Db.swift; sourceTree = "<group>"; };
 		FB949D5EE4022DBBF8C2E216 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -484,10 +486,11 @@
 		8AAC691A1A2C4D5D00CC5CA1 /* scripture */ = {
 			isa = PBXGroup;
 			children = (
-				8AC786751A2D71DA00E4AC60 /* john.sqlite */,
-				8AC786761A2D71DA00E4AC60 /* luke.sqlite */,
-				8AC786771A2D71DA00E4AC60 /* mark.sqlite */,
-				8AEFC2781A2C55A100BAACE0 /* matthew.sqlite */,
+				8A8810E21A300DE40095C081 /* acts.sqlite */,
+				8A8810E31A300DE40095C081 /* john.sqlite */,
+				8A8810E41A300DE40095C081 /* luke.sqlite */,
+				8A8810E51A300DE40095C081 /* mark.sqlite */,
+				8A8810E61A300DE40095C081 /* matthew.sqlite */,
 			);
 			path = scripture;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 			files = (
 				8A81858119D2E3F300D4B328 /* prayer_communion_1_cn.html in Resources */,
 				8AC1B113199866FF00A017C7 /* launch-landscape@2x.png in Resources */,
+				8A8810EB1A300DE40095C081 /* matthew.sqlite in Resources */,
 				8A74D833198F224E0078F39F /* Main.storyboard in Resources */,
 				8AC6951619E3FBC200773FEB /* food-bread.pdf in Resources */,
 				8A81858E19D2E3F300D4B328 /* prayer_daily_2_en.html in Resources */,
@@ -605,7 +609,6 @@
 				8AEF81AF19999D39000B3D90 /* icon-iphone6@2x.png in Resources */,
 				8AEF81AC19999D39000B3D90 /* icon-ipad6@2x.png in Resources */,
 				8AC1B10E199866FF00A017C7 /* launch-ipad@2x.png in Resources */,
-				8AEFC2791A2C55A100BAACE0 /* matthew.sqlite in Resources */,
 				8A9A3DE119D3AE2800A7D82A /* prayer_group_3_cn.html in Resources */,
 				8A9A3DDF19D3AE2800A7D82A /* prayer_group_2_cn.html in Resources */,
 				8AEF81A919999D39000B3D90 /* icon-ipad.png in Resources */,
@@ -614,8 +617,8 @@
 				8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */,
 				8A2F46A119E110CF00076AF4 /* prayer_group_1_en.html in Resources */,
 				8A41936319E6921600D570A9 /* food-egg.pdf in Resources */,
-				8AC7867A1A2D71DA00E4AC60 /* mark.sqlite in Resources */,
 				8A9A3DE219D3AE2800A7D82A /* prayer_group_3_en.html in Resources */,
+				8A8810EA1A300DE40095C081 /* mark.sqlite in Resources */,
 				8A74D83F198F5F350078F39F /* index_cn.plist in Resources */,
 				8A9A3DE419D3AE2800A7D82A /* prayer_group_4_en.html in Resources */,
 				8A74D84C198F691A0078F39F /* CN.png in Resources */,
@@ -638,8 +641,9 @@
 				8A9A3DE019D3AE2800A7D82A /* prayer_group_2_en.html in Resources */,
 				8AC6952919E4034D00773FEB /* options.pdf in Resources */,
 				8A74D84E198F691A0078F39F /* US.png in Resources */,
-				8AC786791A2D71DA00E4AC60 /* luke.sqlite in Resources */,
 				8A81858919D2E3F300D4B328 /* prayer_daily_0_cn.html in Resources */,
+				8A8810E91A300DE40095C081 /* luke.sqlite in Resources */,
+				8A8810E71A300DE40095C081 /* acts.sqlite in Resources */,
 				8A81858319D2E3F300D4B328 /* prayer_communion_2_cn.html in Resources */,
 				8A74D84D198F691A0078F39F /* CN@2x.png in Resources */,
 				8AC6952419E4011700773FEB /* communion.pdf in Resources */,
@@ -670,7 +674,7 @@
 				8A2F469F19E110CF00076AF4 /* prayer_group_0_en.html in Resources */,
 				8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */,
 				8AEF81AE19999D39000B3D90 /* icon-iphone6.png in Resources */,
-				8AC786781A2D71DA00E4AC60 /* john.sqlite in Resources */,
+				8A8810E81A300DE40095C081 /* john.sqlite in Resources */,
 				8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */,
 				8A74D805198F20CC0078F39F /* InfoPlist.strings in Resources */,
 				8AC1B110199866FF00A017C7 /* launch-iphone4.png in Resources */,

@@ -3,14 +3,17 @@ import re
 import pprint as p
 import sqlite3 as lite
 
-with open('./matthew.txt', 'r') as content_file, lite.connect('./matthew.sqlite') as con:
+bookname = "acts"
+
+with open("./%s.txt" % bookname, 'r') as content_file, lite.connect("./%s.sqlite" % bookname) as con:
     content = content_file.read()
     content = ' '.join(content.split())
     
     cur = con.cursor() 
 
     cur.execute("DROP TABLE IF EXISTS gospel")
-    cur.execute("CREATE TABLE gospel(chapter INT,verse INT, text TEXT)")
+    cur.execute("DROP TABLE IF EXISTS scripture")
+    cur.execute("CREATE TABLE scripture(chapter INT,verse INT, text TEXT)")
 
     chapter = 1
     verse = 1
@@ -36,13 +39,13 @@ with open('./matthew.txt', 'r') as content_file, lite.connect('./matthew.sqlite'
         else:
             verse += 1
 
-        cur.execute("INSERT INTO gospel VALUES(%d, %d, \"%s\")" % (old_chapter, old_verse, obj.group(1)))  
+        cur.execute("INSERT INTO scripture VALUES(%d, %d, \"%s\")" % (old_chapter, old_verse, obj.group(1)))  
         p.pprint(obj.group(1))
         
     
     pattern = ".*%d:%d (.*)" % (chapter, verse)
     obj = re.match(pattern, content)
     if obj:
-        cur.execute("INSERT INTO gospel VALUES(%d, %d, \"%s\")" % (chapter, verse, obj.group(1)))  
+        cur.execute("INSERT INTO scripture VALUES(%d, %d, \"%s\")" % (chapter, verse, obj.group(1)))  
         p.pprint(obj.group(1))
         
