@@ -31,6 +31,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     }()
 
     var titles: [String] = []
+    var readings: [String] = []
     var fasting: (FastingType, String) = (.Vegetarian, "")
     var foodIcon: [FastingType: String] = [
         .NoFast:        "meat",
@@ -61,6 +62,8 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         
         titles = Translate.tableViewStrings("daily")
+        readings = DailyReading.getDailyReading(currentDate)
+
         self.tableView.reloadData()
     }
     
@@ -115,12 +118,12 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        if indexPath.section == 0 {
+        if indexPath.section == 0 && readings.count > 0 {
             var vc = storyboard.instantiateViewControllerWithIdentifier("Scripture") as Scripture
-            vc.code = .Pericope(DailyReading.getDailyReading(currentDate))
+            vc.code = .Pericope(readings[indexPath.row])
             navigationController?.pushViewController(vc, animated: true)
             
-        } else {
+        } else if indexPath.section == 1 {
             var vc = storyboard.instantiateViewControllerWithIdentifier("Prayer") as Prayer
             vc.index = indexPath.row
             vc.code = "daily"
@@ -136,7 +139,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0) {
-            return 1
+            return (readings.count == 0) ? 1: readings.count
         } else {
             return titles.count
         }
@@ -159,7 +162,12 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         
         if (indexPath.section == 0) {
-            newCell.textLabel!.text = DailyReading.getDailyReading(currentDate)
+            if readings.count == 0 {
+                newCell.textLabel!.text = "No reading"
+            } else {
+                newCell.textLabel!.text = readings[indexPath.row]
+            }
+            
         } else {
             newCell.textLabel!.text = titles[indexPath.row]
         }

@@ -120,7 +120,7 @@
         <key>en</key>
         <string>Entry into the Temple of our Most Holy Lady Theotokos and Ever-Virgin Mary</string>
         <key>cn</key>
-        <string></string>
+        <string>圣母进堂节</string>
     </dict>
     <dict>
         <key>en</key>
@@ -240,19 +240,25 @@
         <key>en</key>
         <string>Beginning of Dormition fast</string>
         <key>cn</key>
-        <string></string>
+        <string>圣母安息斋期开始</string>
     </dict>
     <dict>
         <key>en</key>
         <string>Beginning of Nativity fast</string>
         <key>cn</key>
-        <string></string>
+        <string>主降生斋期</string>
     </dict>
     <dict>
         <key>en</key>
         <string>Beginning of Apostoles' fast</string>
         <key>cn</key>
-        <string></string>
+        <string>使徒斋期开始</string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string>Day of the Holy Spirit</string>
+        <key>cn</key>
+        <string>上帝圣灵日</string>
     </dict>
     <dict>
         <key>en</key>

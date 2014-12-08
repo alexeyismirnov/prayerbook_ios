@@ -160,7 +160,6 @@ func += <K,V> (inout left: Dictionary<K, [V]>, right: Dictionary<K, [V]>) {
 }
 
 extension NSDate: Comparable {
-    
 }
 
 public func < (let left:NSDate, let right: NSDate) -> Bool {
@@ -171,6 +170,12 @@ public func < (let left:NSDate, let right: NSDate) -> Bool {
 public func == (let left:NSDate, let right: NSDate) -> Bool {
     var result:NSComparisonResult = left.compare(right)
     return (result == .OrderedSame)
+}
+
+func >> (left: NSDate, right: NSDate) -> Int {
+    let calendar = NSCalendar.currentCalendar()
+    let components = calendar.components(.CalendarUnitDay, fromDate: left, toDate: right, options: nil)
+    return components.day
 }
 
 extension String {
