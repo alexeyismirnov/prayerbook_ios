@@ -266,5 +266,17 @@
         <key>cn</key>
         <string></string>
     </dict>
+    <dict>
+        <key>en</key>
+        <string></string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string></string>
+        <key>cn</key>
+        <string></string>
+    </dict>
 </array>
 </plist>

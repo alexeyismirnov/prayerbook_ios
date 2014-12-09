@@ -8,8 +8,6 @@
 
 import UIKit
 
-typealias Cal = ChurchCalendar
-
 struct DailyReading {
 
     static func GospelOfJohn(date: NSDate) -> String {
@@ -17,12 +15,9 @@ struct DailyReading {
     }
     
     static func getDailyReading(date: NSDate) -> [String] {
-        let dateComponents = NSDateComponents(date: date)
-        let currentYear = dateComponents.year
-        let pascha = Cal.paschaDay(currentYear)
 
         switch (date) {
-        case pascha ... Cal.d(.Pentecost):
+        case Cal.d(.Pascha) ... Cal.d(.Pentecost):
             return [GospelOfJohn(date)]
             
         default: return []

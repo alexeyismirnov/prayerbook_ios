@@ -45,16 +45,16 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         formatter.locale = Translate.locale
         dateLabel.text = formatter.stringFromDate(currentDate)
 
-        var description = ChurchCalendar.getDayDescription(currentDate)
-        if let weekDescription = ChurchCalendar.getWeekDescription(currentDate) {
+        var description = Cal.getDayDescription(currentDate)
+        if let weekDescription = Cal.getWeekDescription(currentDate) {
             description = description + (weekDescription, UIColor.grayColor()) + "\n"
         }
             
-        description = description + (ChurchCalendar.getToneDescription(currentDate), UIColor.grayColor())
+        description = description + (Cal.getToneDescription(currentDate), UIColor.grayColor())
 
         infoLabel.attributedText  = description
         
-        if let _fasting = ChurchCalendar.getFastingDescription(currentDate) {
+        if let _fasting = Cal.getFastingDescription(currentDate) {
             fasting = _fasting
             foodLabel.text = fasting.1
             let allowedFood = foodIcon[fasting.0]!
@@ -109,7 +109,6 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
             let nav = segue.destinationViewController as UINavigationController
             let dest = nav.viewControllers[0] as CalendarViewController
             dest.delegate = self
-            //dest.currentDate = currentDate
         }
     }
     
