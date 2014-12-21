@@ -3,7 +3,7 @@ import re
 import pprint as p
 import sqlite3 as lite
 
-bookname = "acts"
+bookname = "jude"
 
 with open("./%s.txt" % bookname, 'r') as content_file, lite.connect("./%s.sqlite" % bookname) as con:
     content = content_file.read()
@@ -11,7 +11,6 @@ with open("./%s.txt" % bookname, 'r') as content_file, lite.connect("./%s.sqlite
     
     cur = con.cursor() 
 
-    cur.execute("DROP TABLE IF EXISTS gospel")
     cur.execute("DROP TABLE IF EXISTS scripture")
     cur.execute("CREATE TABLE scripture(chapter INT,verse INT, text TEXT)")
 

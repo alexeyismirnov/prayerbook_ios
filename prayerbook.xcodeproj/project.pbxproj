@@ -17,6 +17,28 @@
 		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
 		8A2F46A919E1302700076AF4 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A819E1302700076AF4 /* Translate.swift */; };
 		8A2F46AB19E145D200076AF4 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46AA19E145D200076AF4 /* Options.swift */; };
+		8A3A210F1A46C0150052861D /* 1cor.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A20FB1A46C0150052861D /* 1cor.sqlite */; };
+		8A3A21101A46C0150052861D /* 1john.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A20FC1A46C0150052861D /* 1john.sqlite */; };
+		8A3A21111A46C0150052861D /* 1pet.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A20FD1A46C0150052861D /* 1pet.sqlite */; };
+		8A3A21121A46C0150052861D /* 1thess.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A20FE1A46C0150052861D /* 1thess.sqlite */; };
+		8A3A21131A46C0150052861D /* 1tim.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A20FF1A46C0150052861D /* 1tim.sqlite */; };
+		8A3A21141A46C0150052861D /* 2cor.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21001A46C0150052861D /* 2cor.sqlite */; };
+		8A3A21151A46C0150052861D /* 2john.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21011A46C0150052861D /* 2john.sqlite */; };
+		8A3A21161A46C0150052861D /* 2pet.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21021A46C0150052861D /* 2pet.sqlite */; };
+		8A3A21171A46C0150052861D /* 2thess.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21031A46C0150052861D /* 2thess.sqlite */; };
+		8A3A21181A46C0150052861D /* 2tim.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21041A46C0150052861D /* 2tim.sqlite */; };
+		8A3A21191A46C0150052861D /* 3john.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21051A46C0150052861D /* 3john.sqlite */; };
+		8A3A211A1A46C0150052861D /* col.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21061A46C0150052861D /* col.sqlite */; };
+		8A3A211B1A46C0150052861D /* ephes.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21071A46C0150052861D /* ephes.sqlite */; };
+		8A3A211C1A46C0150052861D /* gal.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21081A46C0150052861D /* gal.sqlite */; };
+		8A3A211D1A46C0150052861D /* heb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21091A46C0150052861D /* heb.sqlite */; };
+		8A3A211E1A46C0150052861D /* james.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A210A1A46C0150052861D /* james.sqlite */; };
+		8A3A211F1A46C0150052861D /* jude.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A210B1A46C0150052861D /* jude.sqlite */; };
+		8A3A21201A46C0150052861D /* phil.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A210C1A46C0150052861D /* phil.sqlite */; };
+		8A3A21211A46C0150052861D /* rom.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A210D1A46C0150052861D /* rom.sqlite */; };
+		8A3A21221A46C0150052861D /* tit.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A210E1A46C0150052861D /* tit.sqlite */; };
+		8A3A21281A46C14D0052861D /* philem.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21261A46C14D0052861D /* philem.sqlite */; };
+		8A3A21291A46C14D0052861D /* rev.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21271A46C14D0052861D /* rev.sqlite */; };
 		8A3CD13519E51D0400A78A32 /* RDVCalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CD13219E51D0400A78A32 /* RDVCalendarDayCell.m */; };
 		8A3CD13619E51D0400A78A32 /* RDVCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CD13419E51D0400A78A32 /* RDVCalendarView.m */; };
 		8A3CD13819E5233100A78A32 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CD13719E5233100A78A32 /* CalendarViewController.swift */; };
@@ -178,6 +200,28 @@
 		8A2F46A819E1302700076AF4 /* Translate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
 		8A2F46AA19E145D200076AF4 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Bridging-Header.h"; sourceTree = "<group>"; };
+		8A3A20FB1A46C0150052861D /* 1cor.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1cor.sqlite; sourceTree = "<group>"; };
+		8A3A20FC1A46C0150052861D /* 1john.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1john.sqlite; sourceTree = "<group>"; };
+		8A3A20FD1A46C0150052861D /* 1pet.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1pet.sqlite; sourceTree = "<group>"; };
+		8A3A20FE1A46C0150052861D /* 1thess.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1thess.sqlite; sourceTree = "<group>"; };
+		8A3A20FF1A46C0150052861D /* 1tim.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1tim.sqlite; sourceTree = "<group>"; };
+		8A3A21001A46C0150052861D /* 2cor.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2cor.sqlite; sourceTree = "<group>"; };
+		8A3A21011A46C0150052861D /* 2john.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2john.sqlite; sourceTree = "<group>"; };
+		8A3A21021A46C0150052861D /* 2pet.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2pet.sqlite; sourceTree = "<group>"; };
+		8A3A21031A46C0150052861D /* 2thess.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2thess.sqlite; sourceTree = "<group>"; };
+		8A3A21041A46C0150052861D /* 2tim.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2tim.sqlite; sourceTree = "<group>"; };
+		8A3A21051A46C0150052861D /* 3john.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3john.sqlite; sourceTree = "<group>"; };
+		8A3A21061A46C0150052861D /* col.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = col.sqlite; sourceTree = "<group>"; };
+		8A3A21071A46C0150052861D /* ephes.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ephes.sqlite; sourceTree = "<group>"; };
+		8A3A21081A46C0150052861D /* gal.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = gal.sqlite; sourceTree = "<group>"; };
+		8A3A21091A46C0150052861D /* heb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = heb.sqlite; sourceTree = "<group>"; };
+		8A3A210A1A46C0150052861D /* james.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = james.sqlite; sourceTree = "<group>"; };
+		8A3A210B1A46C0150052861D /* jude.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = jude.sqlite; sourceTree = "<group>"; };
+		8A3A210C1A46C0150052861D /* phil.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = phil.sqlite; sourceTree = "<group>"; };
+		8A3A210D1A46C0150052861D /* rom.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = rom.sqlite; sourceTree = "<group>"; };
+		8A3A210E1A46C0150052861D /* tit.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = tit.sqlite; sourceTree = "<group>"; };
+		8A3A21261A46C14D0052861D /* philem.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = philem.sqlite; sourceTree = "<group>"; };
+		8A3A21271A46C14D0052861D /* rev.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = rev.sqlite; sourceTree = "<group>"; };
 		8A3CD13119E51D0400A78A32 /* RDVCalendarDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVCalendarDayCell.h; sourceTree = "<group>"; };
 		8A3CD13219E51D0400A78A32 /* RDVCalendarDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarDayCell.m; sourceTree = "<group>"; };
 		8A3CD13319E51D0400A78A32 /* RDVCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVCalendarView.h; sourceTree = "<group>"; };
@@ -484,6 +528,28 @@
 		8AAC691A1A2C4D5D00CC5CA1 /* scripture */ = {
 			isa = PBXGroup;
 			children = (
+				8A3A21261A46C14D0052861D /* philem.sqlite */,
+				8A3A21271A46C14D0052861D /* rev.sqlite */,
+				8A3A20FB1A46C0150052861D /* 1cor.sqlite */,
+				8A3A20FC1A46C0150052861D /* 1john.sqlite */,
+				8A3A20FD1A46C0150052861D /* 1pet.sqlite */,
+				8A3A20FE1A46C0150052861D /* 1thess.sqlite */,
+				8A3A20FF1A46C0150052861D /* 1tim.sqlite */,
+				8A3A21001A46C0150052861D /* 2cor.sqlite */,
+				8A3A21011A46C0150052861D /* 2john.sqlite */,
+				8A3A21021A46C0150052861D /* 2pet.sqlite */,
+				8A3A21031A46C0150052861D /* 2thess.sqlite */,
+				8A3A21041A46C0150052861D /* 2tim.sqlite */,
+				8A3A21051A46C0150052861D /* 3john.sqlite */,
+				8A3A21061A46C0150052861D /* col.sqlite */,
+				8A3A21071A46C0150052861D /* ephes.sqlite */,
+				8A3A21081A46C0150052861D /* gal.sqlite */,
+				8A3A21091A46C0150052861D /* heb.sqlite */,
+				8A3A210A1A46C0150052861D /* james.sqlite */,
+				8A3A210B1A46C0150052861D /* jude.sqlite */,
+				8A3A210C1A46C0150052861D /* phil.sqlite */,
+				8A3A210D1A46C0150052861D /* rom.sqlite */,
+				8A3A210E1A46C0150052861D /* tit.sqlite */,
 				8A8810E21A300DE40095C081 /* acts.sqlite */,
 				8A8810E31A300DE40095C081 /* john.sqlite */,
 				8A8810E41A300DE40095C081 /* luke.sqlite */,
@@ -594,16 +660,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A3A211E1A46C0150052861D /* james.sqlite in Resources */,
 				8A81858119D2E3F300D4B328 /* prayer_communion_1_cn.html in Resources */,
 				8AC1B113199866FF00A017C7 /* launch-landscape@2x.png in Resources */,
 				8A8810EB1A300DE40095C081 /* matthew.sqlite in Resources */,
 				8A74D833198F224E0078F39F /* Main.storyboard in Resources */,
+				8A3A211F1A46C0150052861D /* jude.sqlite in Resources */,
 				8AC6951619E3FBC200773FEB /* food-bread.pdf in Resources */,
 				8A81858E19D2E3F300D4B328 /* prayer_daily_2_en.html in Resources */,
 				8A81857F19D2E3F300D4B328 /* prayer_communion_0_cn.html in Resources */,
 				8AC1B115199871DE00A017C7 /* trans_cn.plist in Resources */,
+				8A3A21171A46C0150052861D /* 2thess.sqlite in Resources */,
+				8A3A21211A46C0150052861D /* rom.sqlite in Resources */,
+				8A3A21131A46C0150052861D /* 1tim.sqlite in Resources */,
+				8A3A21141A46C0150052861D /* 2cor.sqlite in Resources */,
 				8A41936419E6921600D570A9 /* food-milk.pdf in Resources */,
 				8A9A3DD519D3AE1600A7D82A /* prayer_communion_4_cn.html in Resources */,
+				8A3A21191A46C0150052861D /* 3john.sqlite in Resources */,
 				8AEF81AF19999D39000B3D90 /* icon-iphone6@2x.png in Resources */,
 				8AEF81AC19999D39000B3D90 /* icon-ipad6@2x.png in Resources */,
 				8AC1B10E199866FF00A017C7 /* launch-ipad@2x.png in Resources */,
@@ -618,27 +691,36 @@
 				8A9A3DE219D3AE2800A7D82A /* prayer_group_3_en.html in Resources */,
 				8A8810EA1A300DE40095C081 /* mark.sqlite in Resources */,
 				8A74D83F198F5F350078F39F /* index_cn.plist in Resources */,
+				8A3A21101A46C0150052861D /* 1john.sqlite in Resources */,
 				8A9A3DE419D3AE2800A7D82A /* prayer_group_4_en.html in Resources */,
+				8A3A211C1A46C0150052861D /* gal.sqlite in Resources */,
 				8A74D84C198F691A0078F39F /* CN.png in Resources */,
 				8AC6951A19E3FBC200773FEB /* food-meat.pdf in Resources */,
+				8A3A210F1A46C0150052861D /* 1cor.sqlite in Resources */,
+				8A3A21111A46C0150052861D /* 1pet.sqlite in Resources */,
 				8AC4558F1A0A2B3F0070FAF7 /* ChurchCalendar.plist in Resources */,
 				8A9A3DE319D3AE2800A7D82A /* prayer_group_4_cn.html in Resources */,
 				8A74D84F198F691A0078F39F /* US@2x.png in Resources */,
 				8AC6951919E3FBC200773FEB /* food-fish.pdf in Resources */,
 				8A81858019D2E3F300D4B328 /* prayer_communion_0_en.html in Resources */,
+				8A3A21221A46C0150052861D /* tit.sqlite in Resources */,
 				8AC2060119E63ED8006FC8EA /* FastingViewController.xib in Resources */,
 				8AC1B10D199866FF00A017C7 /* launch-ipad.png in Resources */,
 				8AEF81AD19999D39000B3D90 /* icon-iphone.png in Resources */,
+				8A3A21281A46C14D0052861D /* philem.sqlite in Resources */,
 				8A81858A19D2E3F300D4B328 /* prayer_daily_0_en.html in Resources */,
+				8A3A21151A46C0150052861D /* 2john.sqlite in Resources */,
 				8A74D816198F20CC0078F39F /* Images.xcassets in Resources */,
 				8A81858D19D2E3F300D4B328 /* prayer_daily_2_cn.html in Resources */,
 				8AC6951E19E3FBC200773FEB /* food-no-milk.pdf in Resources */,
 				8AEF81B11999A194000B3D90 /* icon1024.png in Resources */,
+				8A3A21121A46C0150052861D /* 1thess.sqlite in Resources */,
 				8AEF81AA19999D39000B3D90 /* icon-ipad@2x.png in Resources */,
 				8A81858C19D2E3F300D4B328 /* prayer_daily_1_en.html in Resources */,
 				8A9A3DE019D3AE2800A7D82A /* prayer_group_2_en.html in Resources */,
 				8AC6952919E4034D00773FEB /* options.pdf in Resources */,
 				8A74D84E198F691A0078F39F /* US.png in Resources */,
+				8A3A211A1A46C0150052861D /* col.sqlite in Resources */,
 				8A81858919D2E3F300D4B328 /* prayer_daily_0_cn.html in Resources */,
 				8A8810E91A300DE40095C081 /* luke.sqlite in Resources */,
 				8A8810E71A300DE40095C081 /* acts.sqlite in Resources */,
@@ -649,12 +731,15 @@
 				8AC6952619E4011700773FEB /* group.pdf in Resources */,
 				8AC1B111199866FF00A017C7 /* launch-iphone4@2x.png in Resources */,
 				8A81858219D2E3F300D4B328 /* prayer_communion_1_en.html in Resources */,
+				8A3A21181A46C0150052861D /* 2tim.sqlite in Resources */,
 				8AC1B10F199866FF00A017C7 /* launch-iphone@2x.png in Resources */,
 				8AC6950B19E3EDED00773FEB /* food-vegetables.pdf in Resources */,
 				8AC6952719E4011700773FEB /* library.pdf in Resources */,
 				8A9A3DD619D3AE1600A7D82A /* prayer_communion_4_en.html in Resources */,
+				8A3A211B1A46C0150052861D /* ephes.sqlite in Resources */,
 				8A2F469E19E110CF00076AF4 /* prayer_group_0_cn.html in Resources */,
 				8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */,
+				8A3A21291A46C14D0052861D /* rev.sqlite in Resources */,
 				8A81858519D2E3F300D4B328 /* prayer_communion_3_cn.html in Resources */,
 				8A81858619D2E3F300D4B328 /* prayer_communion_3_en.html in Resources */,
 				8AC6951819E3FBC200773FEB /* food-cupcake.pdf in Resources */,
@@ -662,6 +747,7 @@
 				8AC1B112199866FF00A017C7 /* launch-landscape.png in Resources */,
 				8A9A3DD819D3AE1600A7D82A /* prayer_communion_5_en.html in Resources */,
 				8AC6951D19E3FBC200773FEB /* food-no-meat.pdf in Resources */,
+				8A3A211D1A46C0150052861D /* heb.sqlite in Resources */,
 				8A81858419D2E3F300D4B328 /* prayer_communion_2_en.html in Resources */,
 				8AC6951C19E3FBC200773FEB /* food-no-fish.pdf in Resources */,
 				8A81858B19D2E3F300D4B328 /* prayer_daily_1_cn.html in Resources */,
@@ -670,9 +756,11 @@
 				8AC6952519E4011700773FEB /* daily.pdf in Resources */,
 				8AC6951719E3FBC200773FEB /* food-cheese.pdf in Resources */,
 				8A2F469F19E110CF00076AF4 /* prayer_group_0_en.html in Resources */,
+				8A3A21201A46C0150052861D /* phil.sqlite in Resources */,
 				8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */,
 				8AEF81AE19999D39000B3D90 /* icon-iphone6.png in Resources */,
 				8A8810E81A300DE40095C081 /* john.sqlite in Resources */,
+				8A3A21161A46C0150052861D /* 2pet.sqlite in Resources */,
 				8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */,
 				8A74D805198F20CC0078F39F /* InfoPlist.strings in Resources */,
 				8AC1B110199866FF00A017C7 /* launch-iphone4.png in Resources */,
