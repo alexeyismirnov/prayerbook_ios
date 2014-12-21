@@ -56,9 +56,8 @@ class Scripture: UIViewController {
         title = "Daily reading"
         var text : NSMutableAttributedString? = nil
         
-//      "Acts 1:1-8 John 1:1-17"
+        var pericope = split(str) { $0 == " " }
 
-        var pericope = str.componentsSeparatedByString(" ")
         for (var i=0; i<pericope.count; i+=2) {
             var chapter: Int = 0
             

@@ -176,8 +176,10 @@ struct ChurchCalendar {
             for code in feastCodes {
                 if let strings = dict[code.rawValue] as? NSDictionary {
                     if let str  = strings[Translate.language] as? String {
+                        if !str.isEmpty {
                         result = result + (str, contains(greatFeastCodes, code) ? UIColor.redColor() : UIColor.grayColor())
                         result = result + "\n"
+                        }
                     }
                 }
             }

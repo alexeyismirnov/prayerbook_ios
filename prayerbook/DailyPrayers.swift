@@ -164,7 +164,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
             if readings.count == 0 {
                 newCell.textLabel!.text = "No reading"
             } else {
-                newCell.textLabel!.text = readings[indexPath.row]
+                newCell.textLabel!.text = join(" ", split(readings[indexPath.row]) { $0 == " " })
             }
             
         } else {
