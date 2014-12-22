@@ -92,7 +92,12 @@ class Scripture: UIViewController {
                     }
                 }
                 
-                if range[0].0 != range[1].0 {
+                if range.count == 1 {
+                    for line in Db.book(fileName).filter(Db.chapter == range[0].0 && Db.verse == range[0].1) {
+                        text = text + formatLine(line[Db.verse], line[Db.text])
+                    }
+                    
+                } else if range[0].0 != range[1].0 {
                     for line in Db.book(fileName).filter(Db.chapter == range[0].0 && Db.verse >= range[0].1) {
                         text = text + formatLine(line[Db.verse], line[Db.text])
                     }
