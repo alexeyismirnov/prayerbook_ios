@@ -10,6 +10,8 @@ import UIKit
 
 struct DailyReading {
 
+    static var sundayAfterExaltation:NSDate!
+    
     static func GospelOfJohn(date: NSDate) -> String {
         let readings = [
             "Acts 1:1-8         John 1:1-17",       // Pascha
@@ -70,6 +72,7 @@ struct DailyReading {
     
     static func GospelOfMatthew(date: NSDate) -> String {
         let readings = [
+            "",                                                     // Pentecost
             "Ephes 5:9-19       Matthew 18:10-20 ",
             "Rom 1:1-7,13-17    Matthew 4:25,5:1-13",
             "Rom 1:18-27        Matthew 5:20-26",
@@ -191,7 +194,12 @@ struct DailyReading {
             "2Cor 6:16-7:1      Matthew 15:21-28"                   // 17th Sunday
         ]
 
-        let dayNum = Cal.d(.Pentecost) >> date;
+        var dayNum = Cal.d(.Pentecost) >> date;
+        if dayNum > 17*7 {
+            NSLog("matt exceeding 17 weeks by \(dayNum-17*7) days")
+            dayNum = dayNum - 17*7
+        }
+        
         return readings[dayNum]
     }
     
@@ -200,9 +208,17 @@ struct DailyReading {
 
         Cal.setDate(date)
         
+        let exaltation = Cal.d(.ExaltationOfCross)
+        Cal.setDate(exaltation)
+        let dayOfWeek = Cal.currentWeekday.rawValue
+        sundayAfterExaltation = Cal.d(.ExaltationOfCross) + (8-dayOfWeek).days
+        
         switch (date) {
         case Cal.d(.Pascha) ... Cal.d(.Pentecost):
             return [GospelOfJohn(date)]
+            
+        case Cal.d(.Pentecost)+1.days ... sundayAfterExaltation:
+            return [GospelOfMatthew(date)]
             
         default: return []
         }
