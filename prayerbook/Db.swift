@@ -40,6 +40,12 @@ let NewTestament: [(String, String)] = [
     ("Revelation of St John the Devine", "rev")
 ]
 
+let OldTestament: [(String, String)] = [
+    ("Genesis", "gen"),
+    ("The Proverbs", "prov"),
+    ("The Book of Prophet Isaiah", "isa")
+]
+
 
 struct Db {
 
