@@ -2,238 +2,235 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-<string>Ephes 5:9-19</string>
-<string>Rom 1:1-7,13-17</string>
-<string>Rom 1:18-27</string>
-<string>Rom 1:28-2:9</string>
-<string>Rom 2:14-29</string>
-<string>Rom 1:7-12</string>
-<string>Heb 11:33-12:2</string>
-<string>Rom 2:28-3,18</string>
-<string>Rom 4:4-12</string>
-<string>Rom 4:13-25</string>
-<string>Rom 5:10-16</string>
-<string>Rom 5:17-6:2</string>
-<string>Rom 3:19-26</string>
-<string>Rom 2:10-16</string>
-<string>Rom 7:1-13</string>
-<string>Rom 7:14-8:2</string>
-<string>Rom 8:2-13</string>
-<string>Rom 8:22-27</string>
-<string>Rom 9:6-19</string>
-<string>Rom 3:28-4:3</string>
-<string>Rom 5:1-10</string>
-<string>Rom 9:18-33</string>
-<string>Rom 10:11-11:2</string>
-<string>Rom 11:2-12</string>
-<string>Rom 11:13-24</string>
-<string>Rom 11:25-36</string>
-<string>Rom 6:11-17</string>
-<string>Rom 6:18-23</string>
-<string>Rom 12:4-5:15-21</string>
-<string>Rom 14:9-18</string>
-<string>Rom 15:7-16</string>
-<string>Rom 15:17-29</string>
-<string>Rom 16:1-16</string>
-<string>Rom 8:14-21</string>
-<string>Rom 10:1-10</string>
-<string>Rom 16:17-24</string>
-<string>1Cor 1:1-9</string>
-<string>1Cor 2:9-3:8</string>
-<string>1Cor 3:18-23</string>
-<string>1Cor 4:5-8</string>
-<string>Rom 9:1-5</string>
-<string>Rom 12:6-14</string>
-<string>1Cor 5:9-6:11</string>
-<string>1Cor 6:20-7:12</string>
-<string>1Cor 7:12-24</string>
-<string>1Cor 7:24-35</string>
-<string>1Cor 7:35-8:7</string>
-<string>Rom 12:1-3</string>
-<string>Rom 15:1-7</string>
-<string>1Cor 9:13-18</string>
-<string>1Cor 10:5-12</string>
-<string>1Cor 10:12-22</string>
-<string>1Cor 10:28-11:7</string>
-<string>1Cor 11:8-22</string>
-<string>Rom 13:1-10</string>
-<string>1Cor 1:10-18</string>
-<string>1Cor 11:31-12:6</string>
-<string>1Cor 12:12-26</string>
-<string>1Cor 13:4-14:5</string>
-<string>1Cor 14:6-19</string>
-<string>1Cor 14:26-40</string>
-<string>Rom 14:6-9</string>
-<string>1Cor 3:9-17</string>
-<string>1Cor 15:12-19</string>
-<string>1Cor 15:29-38</string>
-<string>1Cor 16:4-12</string>
-<string>2Cor 1:1-7</string>
-<string>2Cor 1:12-20</string>
-<string>Rom 15:30-33</string>
-<string>1Cor 4:9-16</string>
-<string>2Cor 2:4-15</string>
-<string>2Cor 2:14-3:3</string>
-<string>2Cor 3:4-11</string>
-<string>2Cor 4:1-6</string>
-<string>2Cor 4:13-18</string>
-<string>1Cor 1:3-9</string>
-<string>1Cor 9:2-12</string>
-<string>2Cor 5:10-15</string>
-<string>2Cor 5:15-21</string>
-<string>2Cor 6:11-16</string>
-<string>2Cor 7:1-10</string>
-<string>2Cor 7:10-16</string>
-<string>1Cor 1:26-29</string>
-<string>1Cor 15:1-11</string>
-<string>2Cor 8:7-15</string>
-<string>2Cor 8:16-9:5</string>
-<string>2Cor 9:12-10:7</string>
-<string>2Cor 10:7-18</string>
-<string>2Cor 11:5-21</string>
-<string>1Cor 2:6-9</string>
-<string>1Cor 16:13-24</string>
-<string>2Cor 12:10-19</string>
-<string>2Cor 12:20-13:2</string>
-<string>2Cor 13:3-13</string>
-<string>Gal 1:1-10,20-2:5</string>
-<string>Gal 2:6-10</string>
-<string>1Cor 4:1-5</string>
-<string>2Cor 1:21-2:4</string>
-<string>Gal 2:11-16</string>
-<string>Gal 2:21-3:7</string>
-<string>Gal 3:15-22</string>
-<string>Gal 3:23-4:5</string>
-<string>Gal 4:8-21</string>
-<string>1Cor 4:17-5:5</string>
-<string>2Cor 4:6-15</string>
-<string>Gal 4:28-5:10</string>
-<string>Gal 5:11-21</string>
-<string>Gal 6:2-10</string>
-<string>Ephes 1:1-9</string>
-<string>Ephes 1:7-17</string>
-<string>1Cor 10:23-28</string>
-<string>2Cor 6:1-10</string>
-<string>Ephes 1:22-2:3</string>
-<string>Ephes 2:19-3:7</string>
-<string>Ephes 3:8-21</string>
-<string>Ephes 4:14-19</string>
-<string>Ephes 4:17-25</string>
-<string>1Cor 14:20-25</string>
-<string>2Cor 6:16-7:1</string>
-<string>Ephes 4:25-32</string>
-<string>Ephes 5:20-26</string>
-<string>Ephes 5:25-33</string>
-<string>Ephes 5:33-6:9</string>
-<string>Ephes 6:18-24</string>
-<string>1Cor 15:39-45</string>
-<string>2Cor 9:6-11</string>
-<string>Phil 1:1-7</string>
-<string>Phil 1:8-14</string>
-<string>Phil 1:12-20</string>
-<string>Phil 1:20-27</string>
-<string>Phil 1:27-2:4</string>
-<string>1Cor 15:58-16:3</string>
-<string>2Cor 11:31-12:9</string>
-<string>Phil 2:12-16</string>
-<string>Phil 2:17-23</string>
-<string>Phil 2:24-30</string>
-<string>Phil 3:1-8</string>
-<string>Phil 3:8-19</string>
-<string>2Cor 1:8-11</string>
-<string>Gal 1:11-19</string>
-<string>Phil 4:10-23</string>
-<string>Col 1:1-2,7-11</string>
-<string>Col 1:18-23</string>
-<string>Col 1:24-29</string>
-<string>Col 2:1-7</string>
-<string>2Cor 3:12-18</string>
-<string>Gal 2:16-20</string>
-<string>Col 2:13-20</string>
-<string>Col 2:20-3:3</string>
-<string>Col 3:17-4:1</string>
-<string>Col 4:2-9</string>
-<string>Col 4:10-18</string>
-<string>2Cor 5:1-10</string>
-<string>Gal 6:11-18</string>
-<string>1Thess 1:1-5</string>
-<string>1Thess 1:6-10</string>
-<string>1Thess 2:1-8</string>
-<string>1Thess 2:9-14</string>
-<string>1Thess 2:14-19</string>
-<string>2Cor 8:1-5</string>
-<string>Ephes 2:4-10</string>
-<string>1Thess 2:20-3:8</string>
-<string>1Thess 3:9-13</string>
-<string>1Thess 4:1-12</string>
-<string>1Thess 5:1-8</string>
-<string>1Thess 5:9-13,24-28</string>
-<string>2Cor 11:1-6</string>
-<string>Ephes 2:14-22</string>
-<string>2Thess 1:1-10</string>
-<string>2Thess 1:10-2:2</string>
-<string>2Thess 2:1-12</string>
-<string>2Thess 2:13-3:5</string>
-<string>2Thess 3:6-18</string>
-<string>Gal 1:3-10</string>
-<string>Ephes 4:1-6</string>
-<string>1Tim 1:1-7</string>
-<string>1Tim 1:8-14</string>
-<string>1Tim 1:18-20,2:8-15</string>
-<string>1Tim 3:1-13</string>
-<string>1Tim 4:4-8,16</string>
-<string>Gal 3:8-12</string>
-<string>Ephes 5:9-19</string>
-<string>1Tim 5:1-10</string>
-<string>1Tim 5:11-21</string>
-<string>1Tim 5:22-6:11</string>
-<string>1Tim 6:17-21</string>
-<string>2Tim 1:1-2,8-18</string>
-<string>Gal 5:22-6:2</string>
-<string>Ephes 6:10-17</string>
-<string>2Tim 2:20-26</string>
-<string>2Tim 3:16-4:4</string>
-<string>2Tim 4:9-22</string>
-<string>Tit 1:5-2:1</string>
-<string>Tit 1:15-2:10</string>
-<string>Ephes 1:16-23</string>
-<string>Col 1:12-18</string>
-<string>Heb 3:5-11,17-19</string>
-<string>Heb 4:1-13</string>
-<string>Heb 5:11-6:8</string>
-<string>Heb 7:1-6</string>
-<string>Heb 7:18-25</string>
-<string>Ephes 2:11-13</string>
-<string>Col 3:4-11</string>
-<string>Heb 8:7-13</string>
-<string>Heb 9:8-10,15-23</string>
-<string>Heb 10:1-18</string>
-<string>Heb 10:35-11:7</string>
-<string>Heb 11:8,11-16</string>
-<string>Ephes 5:1-8</string>
-<string>Col 3:12-16</string>
-<string>Heb 11:17-23,27-31</string>
-<string>Heb 12:25-26,13:22-25</string>
-<string>James 1:1-18</string>
-<string>James 1:19-27</string>
-<string>James 2:1-13</string>
-<string>Col 1:3-6</string>
-<string>1Tim 1:15-17</string>
-<string>James 2:14-26</string>
-<string>James 3:1-10</string>
-<string>James 3:11-4:6</string>
-<string>James 4:7-5:9</string>
-<string>1Pet 1:1-2,10-12,2:6-10</string>
-<string>1Thess 5:14-23</string>
-<string>1Tim 4:9-15</string>
-<string>1Pet 2:21-3:9</string>
-<string>1Pet 3:10-22</string>
-<string>1Pet 4:1-11</string>
-<string>1Pet 4:12-5:5</string>
-<string>2Pet 1:1-10</string>
-<string>2Tim 2:11-19</string>
-
-
-
+	<string>Ephes 5:9-19</string>
+	<string>Rom 1:1-7,13-17</string>
+	<string>Rom 1:18-27</string>
+	<string>Rom 1:28-2:9</string>
+	<string>Rom 2:14-29</string>
+	<string>Rom 1:7-12</string>
+	<string>Heb 11:33-12:2</string>
+	<string>Rom 2:28-3:18</string>
+	<string>Rom 4:4-12</string>
+	<string>Rom 4:13-25</string>
+	<string>Rom 5:10-16</string>
+	<string>Rom 5:17-6:2</string>
+	<string>Rom 3:19-26</string>
+	<string>Rom 2:10-16</string>
+	<string>Rom 7:1-13</string>
+	<string>Rom 7:14-8:2</string>
+	<string>Rom 8:2-13</string>
+	<string>Rom 8:22-27</string>
+	<string>Rom 9:6-19</string>
+	<string>Rom 3:28-4:3</string>
+	<string>Rom 5:1-10</string>
+	<string>Rom 9:18-33</string>
+	<string>Rom 10:11-11:2</string>
+	<string>Rom 11:2-12</string>
+	<string>Rom 11:13-24</string>
+	<string>Rom 11:25-36</string>
+	<string>Rom 6:11-17</string>
+	<string>Rom 6:18-23</string>
+	<string>Rom 12:4-5,15-21</string>
+	<string>Rom 14:9-18</string>
+	<string>Rom 15:7-16</string>
+	<string>Rom 15:17-29</string>
+	<string>Rom 16:1-16</string>
+	<string>Rom 8:14-21</string>
+	<string>Rom 10:1-10</string>
+	<string>Rom 16:17-24</string>
+	<string>1Cor 1:1-9</string>
+	<string>1Cor 2:9-3:8</string>
+	<string>1Cor 3:18-23</string>
+	<string>1Cor 4:5-8</string>
+	<string>Rom 9:1-5</string>
+	<string>Rom 12:6-14</string>
+	<string>1Cor 5:9-6:11</string>
+	<string>1Cor 6:20-7:12</string>
+	<string>1Cor 7:12-24</string>
+	<string>1Cor 7:24-35</string>
+	<string>1Cor 7:35-8:7</string>
+	<string>Rom 12:1-3</string>
+	<string>Rom 15:1-7</string>
+	<string>1Cor 9:13-18</string>
+	<string>1Cor 10:5-12</string>
+	<string>1Cor 10:12-22</string>
+	<string>1Cor 10:28-11:7</string>
+	<string>1Cor 11:8-22</string>
+	<string>Rom 13:1-10</string>
+	<string>1Cor 1:10-18</string>
+	<string>1Cor 11:31-12:6</string>
+	<string>1Cor 12:12-26</string>
+	<string>1Cor 13:4-14:5</string>
+	<string>1Cor 14:6-19</string>
+	<string>1Cor 14:26-40</string>
+	<string>Rom 14:6-9</string>
+	<string>1Cor 3:9-17</string>
+	<string>1Cor 15:12-19</string>
+	<string>1Cor 15:29-38</string>
+	<string>1Cor 16:4-12</string>
+	<string>2Cor 1:1-7</string>
+	<string>2Cor 1:12-20</string>
+	<string>Rom 15:30-33</string>
+	<string>1Cor 4:9-16</string>
+	<string>2Cor 2:4-15</string>
+	<string>2Cor 2:14-3:3</string>
+	<string>2Cor 3:4-11</string>
+	<string>2Cor 4:1-6</string>
+	<string>2Cor 4:13-18</string>
+	<string>1Cor 1:3-9</string>
+	<string>1Cor 9:2-12</string>
+	<string>2Cor 5:10-15</string>
+	<string>2Cor 5:15-21</string>
+	<string>2Cor 6:11-16</string>
+	<string>2Cor 7:1-10</string>
+	<string>2Cor 7:10-16</string>
+	<string>1Cor 1:26-29</string>
+	<string>1Cor 15:1-11</string>
+	<string>2Cor 8:7-15</string>
+	<string>2Cor 8:16-9:5</string>
+	<string>2Cor 9:12-10:7</string>
+	<string>2Cor 10:7-18</string>
+	<string>2Cor 11:5-21</string>
+	<string>1Cor 2:6-9</string>
+	<string>1Cor 16:13-24</string>
+	<string>2Cor 12:10-19</string>
+	<string>2Cor 12:20-13:2</string>
+	<string>2Cor 13:3-13</string>
+	<string>Gal 1:1-10,20-2:5</string>
+	<string>Gal 2:6-10</string>
+	<string>1Cor 4:1-5</string>
+	<string>2Cor 1:21-2:4</string>
+	<string>Gal 2:11-16</string>
+	<string>Gal 2:21-3:7</string>
+	<string>Gal 3:15-22</string>
+	<string>Gal 3:23-4:5</string>
+	<string>Gal 4:8-21</string>
+	<string>1Cor 4:17-5:5</string>
+	<string>2Cor 4:6-15</string>
+	<string>Gal 4:28-5:10</string>
+	<string>Gal 5:11-21</string>
+	<string>Gal 6:2-10</string>
+	<string>Ephes 1:1-9</string>
+	<string>Ephes 1:7-17</string>
+	<string>1Cor 10:23-28</string>
+	<string>2Cor 6:1-10</string>
+	<string>Ephes 1:22-2:3</string>
+	<string>Ephes 2:19-3:7</string>
+	<string>Ephes 3:8-21</string>
+	<string>Ephes 4:14-19</string>
+	<string>Ephes 4:17-25</string>
+	<string>1Cor 14:20-25</string>
+	<string>2Cor 6:16-7:1</string>
+	<string>Ephes 4:25-32</string>
+	<string>Ephes 5:20-26</string>
+	<string>Ephes 5:25-33</string>
+	<string>Ephes 5:33-6:9</string>
+	<string>Ephes 6:18-24</string>
+	<string>1Cor 15:39-45</string>
+	<string>2Cor 9:6-11</string>
+	<string>Phil 1:1-7</string>
+	<string>Phil 1:8-14</string>
+	<string>Phil 1:12-20</string>
+	<string>Phil 1:20-27</string>
+	<string>Phil 1:27-2:4</string>
+	<string>1Cor 15:58-16:3</string>
+	<string>2Cor 11:31-12:9</string>
+	<string>Phil 2:12-16</string>
+	<string>Phil 2:17-23</string>
+	<string>Phil 2:24-30</string>
+	<string>Phil 3:1-8</string>
+	<string>Phil 3:8-19</string>
+	<string>2Cor 1:8-11</string>
+	<string>Gal 1:11-19</string>
+	<string>Phil 4:10-23</string>
+	<string>Col 1:1-2,7-11</string>
+	<string>Col 1:18-23</string>
+	<string>Col 1:24-29</string>
+	<string>Col 2:1-7</string>
+	<string>2Cor 3:12-18</string>
+	<string>Gal 2:16-20</string>
+	<string>Col 2:13-20</string>
+	<string>Col 2:20-3:3</string>
+	<string>Col 3:17-4:1</string>
+	<string>Col 4:2-9</string>
+	<string>Col 4:10-18</string>
+	<string>2Cor 5:1-10</string>
+	<string>Gal 6:11-18</string>
+	<string>1Thess 1:1-5</string>
+	<string>1Thess 1:6-10</string>
+	<string>1Thess 2:1-8</string>
+	<string>1Thess 2:9-14</string>
+	<string>1Thess 2:14-19</string>
+	<string>2Cor 8:1-5</string>
+	<string>Ephes 2:4-10</string>
+	<string>1Thess 2:20-3:8</string>
+	<string>1Thess 3:9-13</string>
+	<string>1Thess 4:1-12</string>
+	<string>1Thess 5:1-8</string>
+	<string>1Thess 5:9-13,24-28</string>
+	<string>2Cor 11:1-6</string>
+	<string>Ephes 2:14-22</string>
+	<string>2Thess 1:1-10</string>
+	<string>2Thess 1:10-2:2</string>
+	<string>2Thess 2:1-12</string>
+	<string>2Thess 2:13-3:5</string>
+	<string>2Thess 3:6-18</string>
+	<string>Gal 1:3-10</string>
+	<string>Ephes 4:1-6</string>
+	<string>1Tim 1:1-7</string>
+	<string>1Tim 1:8-14</string>
+	<string>1Tim 1:18-20,2:8-15</string>
+	<string>1Tim 3:1-13</string>
+	<string>1Tim 4:4-8,16</string>
+	<string>Gal 3:8-12</string>
+	<string>Ephes 5:9-19</string>
+	<string>1Tim 5:1-10</string>
+	<string>1Tim 5:11-21</string>
+	<string>1Tim 5:22-6:11</string>
+	<string>1Tim 6:17-21</string>
+	<string>2Tim 1:1-2,8-18</string>
+	<string>Gal 5:22-6:2</string>
+	<string>Ephes 6:10-17</string>
+	<string>2Tim 2:20-26</string>
+	<string>2Tim 3:16-4:4</string>
+	<string>2Tim 4:9-22</string>
+	<string>Tit 1:5-2:1</string>
+	<string>Tit 1:15-2:10</string>
+	<string>Ephes 1:16-23</string>
+	<string>Col 1:12-18</string>
+	<string>Heb 3:5-11,17-19</string>
+	<string>Heb 4:1-13</string>
+	<string>Heb 5:11-6:8</string>
+	<string>Heb 7:1-6</string>
+	<string>Heb 7:18-25</string>
+	<string>Ephes 2:11-13</string>
+	<string>Col 3:4-11</string>
+	<string>Heb 8:7-13</string>
+	<string>Heb 9:8-10,15-23</string>
+	<string>Heb 10:1-18</string>
+	<string>Heb 10:35-11:7</string>
+	<string>Heb 11:8,11-16</string>
+	<string>Ephes 5:1-8</string>
+	<string>Col 3:12-16</string>
+	<string>Heb 11:17-23,27-31</string>
+	<string>Heb 12:25-26,13:22-25</string>
+	<string>James 1:1-18</string>
+	<string>James 1:19-27</string>
+	<string>James 2:1-13</string>
+	<string>Col 1:3-6</string>
+	<string>1Tim 1:15-17</string>
+	<string>James 2:14-26</string>
+	<string>James 3:1-10</string>
+	<string>James 3:11-4:6</string>
+	<string>James 4:7-5:9</string>
+	<string>1Pet 1:1-2,10-12,2:6-10</string>
+	<string>1Thess 5:14-23</string>
+	<string>1Tim 4:9-15</string>
+	<string>1Pet 2:21-3:9</string>
+	<string>1Pet 3:10-22</string>
+	<string>1Pet 4:1-11</string>
+	<string>1Pet 4:12-5:5</string>
+	<string>2Pet 1:1-10</string>
+	<string>2Tim 2:11-19</string>
 </array>
 </plist>

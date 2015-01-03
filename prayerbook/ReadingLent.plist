@@ -2,73 +2,73 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
- <string>2Tim 3:10-15 Luke 18:10-14 </string>
- <string>2Pet 1:20-2:9 Mark 13:9-13 </string>
- <string>2Pet 2:9-22 Mark 13:14-23 </string>
- <string>2Pet 3:1-18 Mark 13:24-31 </string>
- <string>1John 1:8-2:6 Mark 13:31-14:2 </string>
- <string>1John 2:7-17 Mark 14:3-9 </string>
- <string>2Tim 3:1-9 Luke 20:45-21:4 </string>
- <string>1Cor 6:12-20 Luke 15:11-32 </string>
- <string>1John 2:18-3:10 Mark 11:1-11 </string>
- <string>1John 3:11-20 Mark 14:10-42 </string>
- <string>1John 3:21-4:6 Mark 14:43-15:1 </string>
- <string>1John 4:20-5:21 Mark 15:1-15 </string>
- <string>2John 1:1-13 Mark 15:22-25,33-41 </string>
- <string>1Cor 10:23-28 Luke 21:8-9,25-27,33-36 </string>
- <string>1Cor 8:8-9:2 Matthew 25:31-46 </string>
- <string>3John 1:1-15 Luke 19:29-40,22:7-39 </string>
- <string>Jude 1:1-10 Luke 22:39-42,45-23:1 </string>
- <string>Jude 1:11-25 Luke 23:1-34,44-56 </string>
- <string>Rom 14:19-26 Matthew 6:1-13 </string>
- <string>Rom 13:11-14:4 Matthew 6:14-21 </string>
- <string>Gen 1:1-20 Prov 1:1-20 </string>
- <string>Gen 1:14-23 Prov 1:20-33 </string>
- <string>Gen 1:24-2:3 Prov 2:1-22 </string>
- <string>Gen 2:4-19 Prov 3:1-18 </string>
- <string>Gen 2:20-3:20 Prov 3:19-34 </string>
- <string>Heb 1:1-12 Mark 2:23-3:5 </string>
- <string>Heb 11:24-26,32-12:2 John 1:43-51 </string>
- <string>Isa 4:2-5:7 Gen 3:21-4:7 Prov 3:34-4:22 </string>
- <string>Isa 5:7-16 Gen 4:8-15 Prov 5:1-15 </string>
- <string>Isa 5:16-25 Gen 4:16-26 Prov 5:15-6:3 </string>
- <string>Isa 6:1-12 Gen 5:1-24 Prov 6:3-20 </string>
- <string>Isa 8:1-14 Gen 5:30-6:8 Prov 5:20-7:1 </string>
- <string>Heb 3:12-16 Mark 1:35-44 </string>
- <string>Heb 1:10-2:3 Mark 2:1-12 </string>
- <string>Isa 8:13-9:7 Gen 6:9-22 Prov 8:1-21 </string>
- <string>Isa 9:9-10:4 Gen 7:1-5 Prov 8:32-9:11 </string>
- <string>Isa 10:12-20 Gen 7:6-9 Prov 9:12-18 </string>
- <string>Isa 11:10-12:2 Gen 7:11-8:3 Prov 10:1-22 </string>
- <string>Isa 13:2-13 Gen 8:4-21 Prov 10:31-11:12 </string>
- <string>Heb 10:32-38 Mark 2:14-17 </string>
- <string>Heb 4:14-5:6 Mark 8:34-9:1 </string>
- <string>Isa 14:24-32 Gen 8:21-9:7 Prov 11:19-12:6 </string>
- <string>Isa 25:1-9 Gen 9:8-17 Prov 12:8-22 </string>
- <string>Isa 26:21-27:9 Gen 9:19-10:1 Prov 12:23-13:9 </string>
- <string>Isa 28:14-22 Gen 10:32-11:9; Prov 13:20-14:6 </string>
- <string>Isa 29:13-23 Gen 12:1-7 Prov 14:15-26 </string>
- <string>Heb 6:9-12 Mark 7:31-37 </string>
- <string>Heb 6:13-20 Mark 9:17-31 </string>
- <string>Isa 37:33-38:6 Gen 13:13-18 Prov 14:27-15:4 </string>
- <string>Isa 40:18-31 Gen 15:1-15 Prov 15:7-19 </string>
- <string>Isa 41:4-14 Gen 17:1-9; Prov 15:20-16:9 </string>
- <string>Isa 42:5-16 Gen 18:20-33 Prov 16:17-17:17 </string>
- <string>Isa 45:11-17 Gen 22:1-18 Prov 17:17-18:5 </string>
- <string>Heb 9:24-28 Mark 8:27-31 </string>
- <string>Heb 9:11-14 Mark 10:32-45 </string>
- <string>Isa 48:17-49:4 Gen 27:1-41 Prov 19:19-25 </string>
- <string>Isa 49:6-10 Gen 31:3-16; Prov 21:3-21 </string>
- <string>Isa 58:1-11 Gen 43:26-31,45:1-16 Prov 21:23-22:4 </string>
- <string>Isa 65:8-16 Gen 46:1-7 Prov 23:23-24:5 </string>
- <string>Isa 66:10-24 Gen 49:33-50:26 Prov 31:8-31 </string>
- <string>Heb 12:28-13:8 John 11:1-45 </string>
- <string>Phil 4:4-9 John 12:1-18 </string>
- <string>Matthew 24:3-35 </string>
- <string>Matthew 24:36-26:2 </string>
- <string>Matthew 26:6-16 </string>
- <string>1Cor 11:23-32 Matthew 26:1-20 John 13:3-17 Matthew 26:21-39 Luke 22:43-45 Matthew 26:40-27:2 </string>
- <string>John 13:31-18:1 John 18:1-28 Matthew 26:57-75 John 18:28-19:16 Matthew 27:3-32 Mark 15:16-32 Matthew 27:33-54 Luke 23:32-49 John 19:25-37 Mark 15:43-47 John 19:38-42 Matthew 27:62-66 </string>
- <string>Gal 6:14-18 Matthew 27:1-56 Rom 5:6-11 Mark 15:16-41 Heb 2:11-18 Luke 23:32-49 Heb 10:19-31 John 18:28-19:37 </string>
- </array>
+ <string>2Tim 3:10-15 Luke 18:10-14</string>
+ <string>2Pet 1:20-2:9 Mark 13:9-13</string>
+ <string>2Pet 2:9-22 Mark 13:14-23</string>
+ <string>2Pet 3:1-18 Mark 13:24-31</string>
+ <string>1John 1:8-2:6 Mark 13:31-14:2</string>
+ <string>1John 2:7-17 Mark 14:3-9</string>
+ <string>2Tim 3:1-9 Luke 20:45-21:4</string>
+ <string>1Cor 6:12-20 Luke 15:11-32</string>
+ <string>1John 2:18-3:10 Mark 11:1-11</string>
+ <string>1John 3:11-20 Mark 14:10-42</string>
+ <string>1John 3:21-4:6 Mark 14:43-15:1</string>
+ <string>1John 4:20-5:21 Mark 15:1-15</string>
+ <string>2John 1:1-13 Mark 15:22-25,33-41</string>
+ <string>1Cor 10:23-28 Luke 21:8-9,25-27,33-36</string>
+ <string>1Cor 8:8-9:2 Matthew 25:31-46</string>
+ <string>3John 1:1-15 Luke 19:29-40,22:7-39</string>
+ <string>Jude 1:1-10 Luke 22:39-42,45-23:1</string>
+ <string>Jude 1:11-25 Luke 23:1-34,44-56</string>
+ <string>Rom 14:19-26 Matthew 6:1-13</string>
+ <string>Rom 13:11-14:4 Matthew 6:14-21</string>
+ <string>Gen 1:1-20 Prov 1:1-20</string>
+ <string>Gen 1:14-23 Prov 1:20-33</string>
+ <string>Gen 1:24-2:3 Prov 2:1-22</string>
+ <string>Gen 2:4-19 Prov 3:1-18</string>
+ <string>Gen 2:20-3:20 Prov 3:19-34</string>
+ <string>Heb 1:1-12 Mark 2:23-3:5</string>
+ <string>Heb 11:24-26,32-12:2 John 1:43-51</string>
+ <string>Isa 4:2-5:7 Gen 3:21-4:7 Prov 3:34-4:22</string>
+ <string>Isa 5:7-16 Gen 4:8-15 Prov 5:1-15</string>
+ <string>Isa 5:16-25 Gen 4:16-26 Prov 5:15-6:3</string>
+ <string>Isa 6:1-12 Gen 5:1-24 Prov 6:3-20</string>
+ <string>Isa 8:1-14 Gen 5:30-6:8 Prov 5:20-7:1</string>
+ <string>Heb 3:12-16 Mark 1:35-44</string>
+ <string>Heb 1:10-2:3 Mark 2:1-12</string>
+ <string>Isa 8:13-9:7 Gen 6:9-22 Prov 8:1-21</string>
+ <string>Isa 9:9-10:4 Gen 7:1-5 Prov 8:32-9:11</string>
+ <string>Isa 10:12-20 Gen 7:6-9 Prov 9:12-18</string>
+ <string>Isa 11:10-12:2 Gen 7:11-8:3 Prov 10:1-22</string>
+ <string>Isa 13:2-13 Gen 8:4-21 Prov 10:31-11:12</string>
+ <string>Heb 10:32-38 Mark 2:14-17</string>
+ <string>Heb 4:14-5:6 Mark 8:34-9:1</string>
+ <string>Isa 14:24-32 Gen 8:21-9:7 Prov 11:19-12:6</string>
+ <string>Isa 25:1-9 Gen 9:8-17 Prov 12:8-22</string>
+ <string>Isa 26:21-27:9 Gen 9:19-10:1 Prov 12:23-13:9</string>
+ <string>Isa 28:14-22 Gen 10:32-11:9 Prov 13:20-14:6</string>
+ <string>Isa 29:13-23 Gen 12:1-7 Prov 14:15-26</string>
+ <string>Heb 6:9-12 Mark 7:31-37</string>
+ <string>Heb 6:13-20 Mark 9:17-31</string>
+ <string>Isa 37:33-38:6 Gen 13:13-18 Prov 14:27-15:4</string>
+ <string>Isa 40:18-31 Gen 15:1-15 Prov 15:7-19</string>
+ <string>Isa 41:4-14 Gen 17:1-9 Prov 15:20-16:9</string>
+ <string>Isa 42:5-16 Gen 18:20-33 Prov 16:17-17:17</string>
+ <string>Isa 45:11-17 Gen 22:1-18 Prov 17:17-18:5</string>
+ <string>Heb 9:24-28 Mark 8:27-31</string>
+ <string>Heb 9:11-14 Mark 10:32-45</string>
+ <string>Isa 48:17-49:4 Gen 27:1-41 Prov 19:19-25</string>
+ <string>Isa 49:6-10 Gen 31:3-16 Prov 21:3-21</string>
+ <string>Isa 58:1-11 Gen 43:26-31,45:1-16 Prov 21:23-22:4</string>
+ <string>Isa 65:8-16 Gen 46:1-7 Prov 23:23-24:5</string>
+ <string>Isa 66:10-24 Gen 49:33-50:26 Prov 31:8-31</string>
+ <string>Heb 12:28-13:8 John 11:1-45</string>
+ <string>Phil 4:4-9 John 12:1-18</string>
+ <string>Matthew 24:3-35</string>
+ <string>Matthew 24:36-26:2</string>
+ <string>Matthew 26:6-16</string>
+ <string>1Cor 11:23-32 Matthew 26:1-20 John 13:3-17 Matthew 26:21-39 Luke 22:43-45 Matthew 26:40-27:2</string>
+ <string>John 13:31-18:1 John 18:1-28 Matthew 26:57-75 John 18:28-19:16 Matthew 27:3-32 Mark 15:16-32 Matthew 27:33-54 Luke 23:32-49 John 19:25-37 Mark 15:43-47 John 19:38-42 Matthew 27:62-66</string>
+ <string>Gal 6:14-18 Matthew 27:1-56 Rom 5:6-11 Mark 15:16-41 Heb 2:11-18 Luke 23:32-49 Heb 10:19-31 John 18:28-19:37</string>
+</array>
 </plist>

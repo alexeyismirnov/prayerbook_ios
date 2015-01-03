@@ -2,7 +2,7 @@
 import UIKit
 
 enum NameOfDay: Int {
-    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, NativityOfGod=5, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation=10, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn=15, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple, StNicholas=20, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement=25, ForgivenessSunday, FirstSundayOfGreatLent, SecondSundayOfGreatLent, ThirdSundayOfGreatLent, FourthSundayOfGreatLent=30, FifthSundayOfGreatLent, LazarusSaturday, SecondSundayAfterPascha, ThirdSundayAfterPascha, FourthSundayAfterPascha=35, FifthSundayAfterPascha, SixthSundayAfterPascha, SeventhSundayAfterPascha, BeginningOfDormitionFast, BeginningOfNativityFast=40, BeginningOfApostolesFast, HolySpirit, PaschaPrevYear, HolySpiritPrevYear, EndOfYear
+    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, NativityOfGod=5, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation=10, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn=15, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple, StNicholas=20, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement=25, ForgivenessSunday, FirstSundayOfGreatLent, SecondSundayOfGreatLent, ThirdSundayOfGreatLent, FourthSundayOfGreatLent=30, FifthSundayOfGreatLent, LazarusSaturday, SecondSundayAfterPascha, ThirdSundayAfterPascha, FourthSundayAfterPascha=35, FifthSundayAfterPascha, SixthSundayAfterPascha, SeventhSundayAfterPascha, BeginningOfDormitionFast, BeginningOfNativityFast=40, BeginningOfApostolesFast, HolySpirit, PaschaPrevYear, HolySpiritPrevYear, SundayAfterExaltation=45, SundayAfterExaltationPrevYear, EndOfYear
 }
 
 enum FastingType: Int {
@@ -54,11 +54,13 @@ struct ChurchCalendar {
     static let greatFeastCodes : [NameOfDay] = [.PalmSunday, .Pascha, .Ascension, .Pentecost, .NativityOfGod, .Circumcision, .Theophany, .MeetingOfLord, .Annunciation, .NativityOfJohn, .PeterAndPaul, .Transfiguration, .Dormition, .BeheadingOfJohn, .NativityOfTheotokos, .ExaltationOfCross, .Veil, .EntryIntoTemple]
 
     static func saveFeastDate(code: NameOfDay, _ year:Int) {
-        var res = filter(feastDates, {
-            (date, codes) in
-                let targetYear = ( (code == .PaschaPrevYear) || (code == .HolySpiritPrevYear) ) ? year-1 : year
-                return contains(codes, code) &&
-                   NSDateComponents(date:date).year == targetYear
+        var res = filter(feastDates, { (date, codes) in
+            
+            let targetYear = (code == .PaschaPrevYear ||
+                              code == .HolySpiritPrevYear ||
+                              code == .SundayAfterExaltationPrevYear) ? year-1 : year
+            
+            return contains(codes, code) && NSDateComponents(date:date).year == targetYear
         })
         
         dCache[DateCache(code, year)] = res[0].0
@@ -146,6 +148,14 @@ struct ChurchCalendar {
         feastDates += movingFeasts
         feastDates += fixedFeasts
         
+        let exaltationDate = NSDateComponents(27, 9, year).toDate()
+        let exaltationWeekday = NSDateComponents(date: exaltationDate).weekday
+        feastDates += [exaltationDate + (8-exaltationWeekday).days: [.SundayAfterExaltation]]
+
+        let exaltationPrevYearDate = NSDateComponents(27, 9, year-1).toDate()
+        let exaltationPrevYearWeekday = NSDateComponents(date: exaltationPrevYearDate).weekday
+        feastDates += [exaltationPrevYearDate + (8-exaltationPrevYearWeekday).days: [.SundayAfterExaltationPrevYear]]
+
         let start: Int = NameOfDay.StartOfYear.rawValue
         let end: Int = NameOfDay.EndOfYear.rawValue
         

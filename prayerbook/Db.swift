@@ -37,13 +37,15 @@ let NewTestament: [(String, String)] = [
     ("2nd Epistle General of John", "2john"),
     ("3rd Epistle General of John", "3john"),
     ("General Epistle of Jude", "jude"),
-    ("Revelation of St John the Devine", "rev")
-]
-
-let OldTestament: [(String, String)] = [
+    ("Revelation of St John the Devine", "rev"),
+    
     ("Genesis", "gen"),
     ("The Proverbs", "prov"),
     ("The Book of Prophet Isaiah", "isa")
+    
+]
+
+let OldTestament: [(String, String)] = [
 ]
 
 
