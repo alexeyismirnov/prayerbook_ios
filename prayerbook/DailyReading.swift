@@ -50,16 +50,35 @@ struct DailyReading {
         let apostle = NSArray(contentsOfFile: bundleApostle!) as [String]
         
         let bundleLuke = NSBundle.mainBundle().pathForResource("ReadingLuke", ofType: "plist")
-        let gospel = NSArray(contentsOfFile: bundleLuke!) as [String]
+        let gospelLuke = NSArray(contentsOfFile: bundleLuke!) as [String]
 
+        let bundleMatthew = NSBundle.mainBundle().pathForResource("ReadingMatthew", ofType: "plist")
+        let gospelMatthew = NSArray(contentsOfFile: bundleMatthew!) as [String]
+
+        var gospelIndex:Int, apostleIndex:Int
         let PAPSunday = Cal.d(.SundayOfPublicianAndPharisee)
         let daysFromPentecost = Cal.d(.HolySpiritPrevYear) >> date
         let daysFromExaltation = (Cal.d(.SundayAfterExaltationPrevYear)+1.days) >> date
+        let endOfLukeReadings = Cal.d(.SundayAfterExaltationPrevYear)+112.days
+        let totalOffset = endOfLukeReadings >> PAPSunday
+        
         let daysBeforePAP = date >> PAPSunday
         
-        var gospelIndex:Int, apostleIndex:Int
-        
         if daysFromExaltation >= 16*7-1 {
+            
+            // need more than three additional Sundays, use 17th week Matthew readings
+            if totalOffset > 28 {
+                if daysBeforePAP < 21 && daysBeforePAP >= 14 {
+                    let indexMatthew = 118 - (daysBeforePAP-14)
+                    return apostle[indexMatthew] + " " + gospelMatthew[indexMatthew]
+
+                } else if daysBeforePAP >= 21 {
+                    gospelIndex = 118 - daysBeforePAP
+                    apostleIndex = 237 - daysBeforePAP
+                    return apostle[apostleIndex] + " " + gospelLuke[gospelIndex]
+                }
+            }
+            
             gospelIndex = 111 - daysBeforePAP
             apostleIndex = 230 - daysBeforePAP
             
@@ -72,7 +91,7 @@ struct DailyReading {
             apostleIndex = daysFromPentecost
         }
         
-        return apostle[apostleIndex] + " " + gospel[gospelIndex]
+        return apostle[apostleIndex] + " " + gospelLuke[gospelIndex]
     }
 
     static func GospelOfLukeFall(date: NSDate) -> String {
@@ -82,12 +101,25 @@ struct DailyReading {
         let bundleLuke = NSBundle.mainBundle().pathForResource("ReadingLuke", ofType: "plist")
         let gospel = NSArray(contentsOfFile: bundleLuke!) as [String]
 
-        var daysFromPentecost = Cal.d(.HolySpirit) >> date;
-        var daysFromLukeStart = (Cal.d(.SundayAfterExaltation)+1.days) >> date;
+        // Sunday of Forefathers: Epistle (29th Sunday), Gospel (28th Sunday)
+        if (date == Cal.d(.SundayOfForefathers)) {
+            return apostle[202] + " " + gospel[76]
+        }
+        
+        var daysFromPentecost = Cal.d(.HolySpirit) >> date
+        var daysFromLukeStart = (Cal.d(.SundayAfterExaltation)+1.days) >> date
 
-        var readings = apostle[daysFromPentecost] + " " + gospel[daysFromLukeStart]
-
-        return readings
+        // On 29th Sunday borrow Epistle from Sunday of Forefathers
+        if (daysFromPentecost == 202) {
+            daysFromPentecost = Cal.d(.HolySpirit) >> Cal.d(.SundayOfForefathers)
+        }
+        
+        // On 28th Sunday borrow Gospel from Sunday of Forefathers
+        if (daysFromLukeStart == 76) {
+            daysFromLukeStart = (Cal.d(.SundayAfterExaltation)+1.days) >> Cal.d(.SundayOfForefathers)
+        }
+        
+        return apostle[daysFromPentecost] + " " + gospel[daysFromLukeStart]
     }
     
     static func getDailyReading(date: NSDate) -> [String] {

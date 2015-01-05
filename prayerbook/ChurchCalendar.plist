@@ -262,9 +262,15 @@
 	</dict>
 	<dict>
 		<key>en</key>
-		<string></string>
+		<string>Sunday of the Holy Forefathers</string>
 		<key>cn</key>
-		<string></string>
+		<string>众圣祖主日</string>
+	</dict>
+	<dict>
+		<key>en</key>
+		<string>Sunday of the Holy Fathers</string>
+		<key>cn</key>
+		<string>众圣父主日</string>
 	</dict>
 	<dict>
 		<key>en</key>
@@ -284,11 +290,17 @@
 		<key>cn</key>
 		<string></string>
 	</dict>
-	<dict>
-		<key>en</key>
-		<string></string>
-		<key>cn</key>
-		<string></string>
-	</dict>
+    <dict>
+        <key>en</key>
+        <string></string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string></string>
+        <key>cn</key>
+        <string></string>
+    </dict>
 </array>
 </plist>
