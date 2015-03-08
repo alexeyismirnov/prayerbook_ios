@@ -30,7 +30,7 @@ struct DailyReading {
         let bundleApostle = NSBundle.mainBundle().pathForResource("ReadingApostle", ofType: "plist")
         let apostle = NSArray(contentsOfFile: bundleApostle!) as [String]
 
-        let bundleMatthew = NSBundle.mainBundle().pathForResource("ReadingApostle", ofType: "plist")
+        let bundleMatthew = NSBundle.mainBundle().pathForResource("ReadingMatthew", ofType: "plist")
         let gospel = NSArray(contentsOfFile: bundleMatthew!) as [String]
 
         var dayNum = Cal.d(.HolySpirit) >> date;
