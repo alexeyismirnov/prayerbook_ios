@@ -32,7 +32,14 @@
 		<key>cn</key>
 		<string>主进圣城耶路撒冷节（圣枝主日）</string>
 	</dict>
-	<dict>
+    <dict>
+        <key>en</key>
+        <string>Eve of the Nativity of Christ</string>
+        <key>cn</key>
+        <string>主降生节前日</string>
+    </dict>
+
+    <dict>
 		<key>en</key>
 		<string>The Nativity of our Lord God and Savior Jesus Christ</string>
 		<key>cn</key>
@@ -268,9 +275,9 @@
 	</dict>
 	<dict>
 		<key>en</key>
-		<string>Sunday of the Holy Fathers</string>
+		<string>Sunday before the Nativity of Christ, of the Fathers</string>
 		<key>cn</key>
-		<string>众圣父主日</string>
+		<string>主降生节前主日——众圣父主日</string>
 	</dict>
 	<dict>
 		<key>en</key>
@@ -290,6 +297,66 @@
 		<key>cn</key>
 		<string></string>
 	</dict>
+    <dict>
+        <key>en</key>
+        <string></string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string></string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string></string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string></string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string></string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string></string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string></string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string></string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string></string>
+        <key>cn</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>en</key>
+        <string></string>
+        <key>cn</key>
+        <string></string>
+    </dict>
     <dict>
         <key>en</key>
         <string></string>
