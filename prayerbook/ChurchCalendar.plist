@@ -32,14 +32,13 @@
 		<key>cn</key>
 		<string>主进圣城耶路撒冷节（圣枝主日）</string>
 	</dict>
-    <dict>
-        <key>en</key>
-        <string>Eve of the Nativity of Christ</string>
-        <key>cn</key>
-        <string>主降生节前日</string>
-    </dict>
-
-    <dict>
+	<dict>
+		<key>en</key>
+		<string>Eve of the Nativity of Christ</string>
+		<key>cn</key>
+		<string>主降生节前日</string>
+	</dict>
+	<dict>
 		<key>en</key>
 		<string>The Nativity of our Lord God and Savior Jesus Christ</string>
 		<key>cn</key>
@@ -293,81 +292,81 @@
 	</dict>
 	<dict>
 		<key>en</key>
+		<string>Sunday after the Exaltation</string>
+		<key>cn</key>
+		<string>举扬圣架节后主日</string>
+	</dict>
+	<dict>
+		<key>en</key>
 		<string></string>
 		<key>cn</key>
 		<string></string>
 	</dict>
-    <dict>
-        <key>en</key>
-        <string></string>
-        <key>cn</key>
-        <string></string>
-    </dict>
-    <dict>
-        <key>en</key>
-        <string></string>
-        <key>cn</key>
-        <string></string>
-    </dict>
-    <dict>
-        <key>en</key>
-        <string></string>
-        <key>cn</key>
-        <string></string>
-    </dict>
-    <dict>
-        <key>en</key>
-        <string></string>
-        <key>cn</key>
-        <string></string>
-    </dict>
-    <dict>
-        <key>en</key>
-        <string></string>
-        <key>cn</key>
-        <string></string>
-    </dict>
-    <dict>
-        <key>en</key>
-        <string></string>
-        <key>cn</key>
-        <string></string>
-    </dict>
-    <dict>
-        <key>en</key>
-        <string></string>
-        <key>cn</key>
-        <string></string>
-    </dict>
-    <dict>
-        <key>en</key>
-        <string></string>
-        <key>cn</key>
-        <string></string>
-    </dict>
-    <dict>
-        <key>en</key>
-        <string></string>
-        <key>cn</key>
-        <string></string>
-    </dict>
-    <dict>
-        <key>en</key>
-        <string></string>
-        <key>cn</key>
-        <string></string>
-    </dict>
-    <dict>
-        <key>en</key>
-        <string></string>
-        <key>cn</key>
-        <string></string>
-    </dict>
-    <dict>
-        <key>en</key>
-        <string></string>
-        <key>cn</key>
-        <string></string>
-    </dict>
+	<dict>
+		<key>en</key>
+		<string>Saturday after the Exaltation</string>
+		<key>cn</key>
+		<string>举扬圣架节后安息日</string>
+	</dict>
+	<dict>
+		<key>en</key>
+		<string>Saturday before the Exaltation</string>
+		<key>cn</key>
+		<string>举扬圣架节前安息日</string>
+	</dict>
+	<dict>
+		<key>en</key>
+		<string>Sunday before the Exaltation</string>
+		<key>cn</key>
+		<string>举扬圣架节前主日</string>
+	</dict>
+	<dict>
+		<key>en</key>
+		<string>Saturday before the Nativity of Christ</string>
+		<key>cn</key>
+		<string>主降生节前安息日</string>
+	</dict>
+	<dict>
+		<key>en</key>
+		<string>Saturday after the Nativity of Christ</string>
+		<key>cn</key>
+		<string>主降生节后安息日</string>
+	</dict>
+	<dict>
+		<key>en</key>
+		<string>Sunday after Nativity</string>
+		<key>cn</key>
+		<string>主降生节后主日</string>
+	</dict>
+	<dict>
+		<key>en</key>
+		<string>Saturday before Theophany</string>
+		<key>cn</key>
+		<string>主显节前安息日</string>
+	</dict>
+	<dict>
+		<key>en</key>
+		<string>Sunday before Theophany</string>
+		<key>cn</key>
+		<string>主显节前主日</string>
+	</dict>
+	<dict>
+		<key>en</key>
+		<string>Saturday after Theophany</string>
+		<key>cn</key>
+		<string>主显节后安息日</string>
+	</dict>
+	<dict>
+		<key>en</key>
+		<string>Sunday after Theophany</string>
+		<key>cn</key>
+		<string>主显节后主日</string>
+	</dict>
+	<dict>
+		<key>en</key>
+		<string></string>
+		<key>cn</key>
+		<string></string>
+	</dict>
 </array>
 </plist>
