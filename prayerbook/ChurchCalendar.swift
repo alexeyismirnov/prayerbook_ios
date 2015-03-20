@@ -2,7 +2,7 @@
 import UIKit
 
 enum NameOfDay: Int {
-    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod=5, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord=10, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition=15, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple=20, StNicholas, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon=25, SundayOfDreadJudgement, ForgivenessSunday, FirstSundayOfGreatLent, SecondSundayOfGreatLent, ThirdSundayOfGreatLent=30, FourthSundayOfGreatLent, FifthSundayOfGreatLent, LazarusSaturday, SecondSundayAfterPascha, ThirdSundayAfterPascha=35, FourthSundayAfterPascha, FifthSundayAfterPascha, SixthSundayAfterPascha, SeventhSundayAfterPascha, BeginningOfDormitionFast=40, BeginningOfNativityFast, BeginningOfApostolesFast, HolySpirit, SundayOfForefathers, SundayOfFathers=45, PaschaPrevYear, HolySpiritPrevYear, SundayAfterExaltation, SundayAfterExaltationPrevYear, SaturdayAfterExaltation=50, SaturdayBeforeExaltation, SundayBeforeExaltation, SaturdayBeforeNativity, SaturdayAfterNativity, SundayAfterNativity=55, SaturdayBeforeTheophany, SundayBeforeTheophany, SaturdayAfterTheophany, SundayAfterTheophany, EndOfYear=60
+    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod=5, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord=10, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition=15, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple=20, StNicholas, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon=25, SundayOfDreadJudgement, ForgivenessSunday, FirstSundayOfGreatLent, SecondSundayOfGreatLent, ThirdSundayOfGreatLent=30, FourthSundayOfGreatLent, FifthSundayOfGreatLent, LazarusSaturday, SecondSundayAfterPascha, ThirdSundayAfterPascha=35, FourthSundayAfterPascha, FifthSundayAfterPascha, SixthSundayAfterPascha, SeventhSundayAfterPascha, BeginningOfDormitionFast=40, BeginningOfNativityFast, BeginningOfApostolesFast, HolySpirit, SundayOfForefathers, SundayOfFathers=45, PaschaPrevYear, HolySpiritPrevYear, SundayAfterExaltation, SundayAfterExaltationPrevYear, SaturdayAfterExaltation=50, SaturdayBeforeExaltation, SundayBeforeExaltation, SaturdayBeforeNativity, SaturdayAfterNativity, SundayAfterNativity=55, SaturdayBeforeTheophany, SundayBeforeTheophany, SaturdayAfterTheophany, SundayAfterTheophany, FridayAfterExaltation=60, EndOfYear
 }
 
 enum FastingType: Int {
@@ -158,6 +158,9 @@ struct ChurchCalendar {
         let exaltation = NSDateComponents(27, 9, year).toDate()
         let exaltationWeekday = NSDateComponents(date: exaltation).weekday
         feastDates += [exaltation + (8-exaltationWeekday).days: [.SundayAfterExaltation]]
+        
+        var exaltationFriOffset = (exaltationWeekday >= 6) ? 13-exaltationWeekday : 6-exaltationWeekday
+        feastDates += [exaltation + exaltationFriOffset.days: [.FridayAfterExaltation]]
         
         var exaltationSatOffset = (exaltationWeekday == 7) ? 7 : 7-exaltationWeekday
         feastDates += [exaltation + exaltationSatOffset.days: [.SaturdayAfterExaltation]]
