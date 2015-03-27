@@ -132,6 +132,9 @@
 		8ADD7D871A56A5C200BA9F37 /* prov.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD7D841A56A5C200BA9F37 /* prov.sqlite */; };
 		8AE5DEF819E7A80B0069C757 /* ChurchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */; };
 		8AE685E91A2559F00029A149 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE685E81A2559F00029A149 /* Library.swift */; };
+		8AE821F41AC54F8E000460C1 /* DailyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821F31AC54F8E000460C1 /* DailyTab.swift */; };
+		8AE821F91AC55D8D000460C1 /* RWLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821F81AC55D8D000460C1 /* RWLabel.swift */; };
+		8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821FA1AC560FE000460C1 /* TextCell.swift */; };
 		8AEF81A919999D39000B3D90 /* icon-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A219999D39000B3D90 /* icon-ipad.png */; };
 		8AEF81AA19999D39000B3D90 /* icon-ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A319999D39000B3D90 /* icon-ipad@2x.png */; };
 		8AEF81AB19999D39000B3D90 /* icon-ipad6.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81A419999D39000B3D90 /* icon-ipad6.png */; };
@@ -330,6 +333,9 @@
 		8ADD7D841A56A5C200BA9F37 /* prov.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = prov.sqlite; sourceTree = "<group>"; };
 		8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchCalendar.swift; sourceTree = "<group>"; };
 		8AE685E81A2559F00029A149 /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		8AE821F31AC54F8E000460C1 /* DailyTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab.swift; sourceTree = "<group>"; };
+		8AE821F81AC55D8D000460C1 /* RWLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWLabel.swift; sourceTree = "<group>"; };
+		8AE821FA1AC560FE000460C1 /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		8AEF81A219999D39000B3D90 /* icon-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ipad.png"; sourceTree = "<group>"; };
 		8AEF81A319999D39000B3D90 /* icon-ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ipad@2x.png"; sourceTree = "<group>"; };
 		8AEF81A419999D39000B3D90 /* icon-ipad6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ipad6.png"; sourceTree = "<group>"; };
@@ -429,9 +435,12 @@
 				8ADD7D7E1A56875400BA9F37 /* ReadingLuke.plist */,
 				8ADD7D801A568C0A00BA9F37 /* ReadingLent.plist */,
 				8A2F46A819E1302700076AF4 /* Translate.swift */,
+				8AE821F81AC55D8D000460C1 /* RWLabel.swift */,
+				8AE821FA1AC560FE000460C1 /* TextCell.swift */,
 				8AEFC27C1A2C8DF800BAACE0 /* Db.swift */,
 				8A2F46A419E11CEA00076AF4 /* Prayer.swift */,
 				8A2F46A219E1129B00076AF4 /* DailyPrayers.swift */,
+				8AE821F31AC54F8E000460C1 /* DailyTab.swift */,
 				8AC4E14F19DE2BF800CF4271 /* ListOfPrayers.swift */,
 				8AE685E81A2559F00029A149 /* Library.swift */,
 				8AEFC27A1A2C747700BAACE0 /* Scripture.swift */,
@@ -848,6 +857,8 @@
 				8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
+				8AE821F91AC55D8D000460C1 /* RWLabel.swift in Sources */,
+				8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */,
 				8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */,
 				8A3CD13519E51D0400A78A32 /* RDVCalendarDayCell.m in Sources */,
 				8A2F46AB19E145D200076AF4 /* Options.swift in Sources */,
@@ -856,6 +867,7 @@
 				8A2F46A519E11CEA00076AF4 /* Prayer.swift in Sources */,
 				8A2F46A319E1129B00076AF4 /* DailyPrayers.swift in Sources */,
 				8AE5DEF819E7A80B0069C757 /* ChurchCalendar.swift in Sources */,
+				8AE821F41AC54F8E000460C1 /* DailyTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

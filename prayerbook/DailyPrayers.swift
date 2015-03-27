@@ -22,7 +22,6 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         return dateComponents.toDate()
     }()
     
-    let calendar = NSCalendar.currentCalendar()
     var formatter: NSDateFormatter = {
         var formatter = NSDateFormatter()
         formatter.dateStyle = .FullStyle
@@ -92,16 +91,6 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         fastingInfo.fastTitle = fasting.1
         
         modal.presentWithCompletion({})
-    }
-
-    func prev_day() {
-        currentDate = currentDate - 1.days;
-        reload()
-    }
-    
-    func next_day() {
-        currentDate = currentDate + 1.days;
-        reload()
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -214,6 +203,16 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         button_left.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         navigationItem.rightBarButtonItems = [button_right, button_left]
+    }
+    
+    func prev_day() {
+        currentDate = currentDate - 1.days;
+        reload()
+    }
+    
+    func next_day() {
+        currentDate = currentDate + 1.days;
+        reload()
     }
     
 }
