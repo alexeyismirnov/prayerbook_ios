@@ -8,8 +8,12 @@
 
 import UIKit
 
-class ImageCell : UITableViewCell {
-    @IBOutlet weak var title: UILabel!
+class ImageCell : ConfigurableCell {
+    override class var cellId: String {
+        get { return "ImageCell" }
+    }
+    
+    @IBOutlet weak var title: RWLabel!
     @IBOutlet weak var icon: UIImageView!
     
 }

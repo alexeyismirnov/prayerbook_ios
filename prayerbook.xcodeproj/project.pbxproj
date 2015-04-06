@@ -45,6 +45,8 @@
 		8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */; };
 		8A41936319E6921600D570A9 /* food-egg.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936119E6921600D570A9 /* food-egg.pdf */; };
 		8A41936419E6921600D570A9 /* food-milk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936219E6921600D570A9 /* food-milk.pdf */; };
+		8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */; };
+		8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */; };
 		8A7306CF1A2C460D00891BD0 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7306C61A2C39A000891BD0 /* SQLite.framework */; };
 		8A7306D21A2C476700891BD0 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A7306C61A2C39A000891BD0 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FA198F20CC0078F39F /* Foundation.framework */; };
@@ -242,6 +244,8 @@
 		8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-cupcake.pdf"; sourceTree = "<group>"; };
 		8A41936119E6921600D570A9 /* food-egg.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-egg.pdf"; sourceTree = "<group>"; };
 		8A41936219E6921600D570A9 /* food-milk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-milk.pdf"; sourceTree = "<group>"; };
+		8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDetailsCell.swift; sourceTree = "<group>"; };
+		8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		8A7306BE1A2C399F00891BD0 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = ../SQLite.swift/SQLite.xcodeproj; sourceTree = "<group>"; };
 		8A74D7F7198F20CC0078F39F /* prayerbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prayerbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A74D7FA198F20CC0078F39F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -438,7 +442,9 @@
 				8ADD7D801A568C0A00BA9F37 /* ReadingLent.plist */,
 				8A2F46A819E1302700076AF4 /* Translate.swift */,
 				8AE821F81AC55D8D000460C1 /* RWLabel.swift */,
+				8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */,
 				8AE821FA1AC560FE000460C1 /* TextCell.swift */,
+				8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */,
 				8AAE4D821AC8E332009421AF /* ImageCell.swift */,
 				8AEFC27C1A2C8DF800BAACE0 /* Db.swift */,
 				8A2F46A419E11CEA00076AF4 /* Prayer.swift */,
@@ -858,10 +864,12 @@
 				8AEFC27B1A2C747700BAACE0 /* Scripture.swift in Sources */,
 				8AAE4D831AC8E332009421AF /* ImageCell.swift in Sources */,
 				8A2F46A919E1302700076AF4 /* Translate.swift in Sources */,
+				8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */,
 				8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
 				8AE821F91AC55D8D000460C1 /* RWLabel.swift in Sources */,
+				8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */,
 				8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */,
 				8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */,
 				8A3CD13519E51D0400A78A32 /* RDVCalendarDayCell.m in Sources */,

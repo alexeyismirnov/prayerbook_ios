@@ -9,8 +9,6 @@
 import UIKit
 
 class DailyTab: UITableViewController {
-    let textCell = "TextCell"
-    let imageCell = "ImageCell"
     
     var fasting: (FastingType, String) = (.Vegetarian, "")
     var foodIcon: [FastingType: String] = [
@@ -48,43 +46,6 @@ class DailyTab: UITableViewController {
         return 3;
     }
     
-    func getImageCell() -> ImageCell {
-        if let newCell = tableView.dequeueReusableCellWithIdentifier(imageCell) as? ImageCell {
-            return newCell
-
-        } else {
-            return UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: imageCell) as ImageCell
-        }
-    }
-    
-    func getTextCell() -> TextCell {
-        if let newCell  = tableView.dequeueReusableCellWithIdentifier(textCell) as? TextCell {
-            return newCell
-            
-        } else {
-            return UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: textCell) as TextCell
-            
-        }
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        NSLog("index \(indexPath.row)")
-
-        switch indexPath.row {
-        case 2:
-            var newCell  = getImageCell()
-            configureImageCell(newCell, indexPath: indexPath)
-            return newCell
-
-        default:
-            var newCell = getTextCell()
-            configureTextCell(newCell, indexPath: indexPath)
-            return newCell
-        }
-
-    }
-    
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (section == 0) {
             return ""
@@ -92,63 +53,46 @@ class DailyTab: UITableViewController {
             return "Daily Scripture"
         }
     }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 2:
-            return heightForImageCell(indexPath)
-        default:
-            return heightForTextCell(indexPath)
-        }
-    }
-    
-    func configureTextCell(cell: TextCell, indexPath: NSIndexPath) {
-        if indexPath.row == 0 {
-            cell.title.text = "very very very very long long long long long text"
+
+    func getCell<T: ConfigurableCell>() -> T {
+        if let newCell  = tableView.dequeueReusableCellWithIdentifier(T.cellId) as? T {
+            return newCell
             
         } else {
-            cell.title.text = "qq qqq qq qqq qqq qqq qqq qqq qqq very very very very long long long long long text"
-            
+            return T(style: UITableViewCellStyle.Default, reuseIdentifier: T.cellId)
         }
-    }
-    
-    func configureImageCell(cell: ImageCell!, indexPath:NSIndexPath) {
-        
-        if let _fasting = Cal.getFastingDescription(currentDate) {
-            fasting = _fasting
-            let allowedFood = foodIcon[fasting.0]!
-            cell.title.text = fasting.1
-            cell.icon.image = UIImage(named: "food-\(allowedFood)")
-        }
-        
-    }
-    
-    func heightForTextCell(indexPath: NSIndexPath) -> CGFloat {
-        struct Static {
-            static var cell : TextCell!
-            static var onceToken: dispatch_once_t = 0
-        }
-        
-        dispatch_once(&Static.onceToken) {
-            Static.cell = self.getTextCell()
-        }
-        
-        configureTextCell(Static.cell, indexPath: indexPath)
-        return calculateHeightForCell(Static.cell)
     }
 
-    func heightForImageCell(indexPath: NSIndexPath) -> CGFloat {
-        struct Static {
-            static var cell : ImageCell!
-            static var onceToken: dispatch_once_t = 0
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            var cell: TextDetailsCell = getCell()
+            cell.title.text = "monday april 6th 2015 qqq qqqqq qqqq qqqq qqq qqq"
+            cell.subtitle.text = "tone XX week XXX after Pentecost qqq qqqqq qqqq"
+            return cell
+            
+        case 2:
+            var cell: ImageCell  = getCell()
+            if let _fasting = Cal.getFastingDescription(currentDate) {
+                fasting = _fasting
+                let allowedFood = foodIcon[fasting.0]!
+                cell.title.text = fasting.1
+                cell.icon.image = UIImage(named: "food-\(allowedFood)")
+            }
+
+            return cell
+
+        default:
+            var cell: TextCell = getCell()
+            cell.title.text = "qq qqq qq qqq qqq qqq qqq qqq qqq very very very very long long long long long text"
+            return cell
         }
-        
-        dispatch_once(&Static.onceToken) {
-            Static.cell = self.getImageCell()
-        }
-        
-        configureImageCell(Static.cell, indexPath: indexPath)
-        return calculateHeightForCell(Static.cell)
+
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        var cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        return calculateHeightForCell(cell)
     }
 
     func calculateHeightForCell(cell: UITableViewCell) -> CGFloat {
@@ -168,7 +112,7 @@ class DailyTab: UITableViewController {
         tableView.reloadData()
     }
 
-    private func addBarButtons() {
+    func addBarButtons() {
         var button_left = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .Plain, target: self, action: "prev_day")
         var button_right = UIBarButtonItem(image: UIImage(named: "arrow-right"), style: .Plain, target: self, action: "next_day")
         
