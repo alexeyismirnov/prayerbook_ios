@@ -69,7 +69,7 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("FastingCell") as UITableViewCell?
+        var cell = tableView.dequeueReusableCellWithIdentifier("FastingCell") as! UITableViewCell?
         
         if cell == nil {
             cell = UITableViewCell(style: .Default, reuseIdentifier: "FastingCell")

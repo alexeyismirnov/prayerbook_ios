@@ -95,8 +95,8 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Calendar" {
-            let nav = segue.destinationViewController as UINavigationController
-            let dest = nav.viewControllers[0] as CalendarViewController
+            let nav = segue.destinationViewController as! UINavigationController
+            let dest = nav.viewControllers[0] as! CalendarViewController
             dest.delegate = self
         }
     }
@@ -107,12 +107,12 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if indexPath.section == 0 && readings.count > 0 {
-            var vc = storyboard.instantiateViewControllerWithIdentifier("Scripture") as Scripture
+            var vc = storyboard.instantiateViewControllerWithIdentifier("Scripture") as! Scripture
             vc.code = .Pericope(readings[indexPath.row])
             navigationController?.pushViewController(vc, animated: true)
             
         } else if indexPath.section == 1 {
-            var vc = storyboard.instantiateViewControllerWithIdentifier("Prayer") as Prayer
+            var vc = storyboard.instantiateViewControllerWithIdentifier("Prayer") as! Prayer
             vc.index = indexPath.row
             vc.code = "daily"
             navigationController?.pushViewController(vc, animated: true)
@@ -144,7 +144,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "Cell"
         
-        var newCell  = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as UITableViewCell!
+        var newCell  = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! UITableViewCell!
         if newCell == nil {
             newCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
         }

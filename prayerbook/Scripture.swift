@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SQLite
 
 enum ScriptureDisplay {
     case Chapter(String, Int)
@@ -39,7 +38,7 @@ class Scripture: UIViewController {
         textView.setContentOffset(CGPointZero, animated: false)
     }
     
-    func formatLine(verse: Int, _ content : String) -> NSMutableAttributedString {
+    func formatLine(verse: Int, _ content : String) -> NSMutableAttributedString? {
         var text : NSMutableAttributedString? = nil
         text = text + ("\(verse) ", UIColor.redColor())
         text = text + (content, UIColor.blackColor())
@@ -49,7 +48,7 @@ class Scripture: UIViewController {
             value: UIFont.systemFontOfSize(18),
             range: NSMakeRange(0, text!.length))
         
-        return text!
+        return text
     }
     
     func showPericope(str: String) {
@@ -93,22 +92,26 @@ class Scripture: UIViewController {
                 }
                 
                 if range.count == 1 {
-                    for line in Db.book(fileName).filter(Db.chapter == range[0].0 && Db.verse == range[0].1) {
-                        text = text + formatLine(line[Db.verse], line[Db.text])
+                    for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse=\(range[0].1)") {
+                        let row = formatLine(line!["verse"] as! Int, line!["text"] as! String)
+                        text = text + row
                     }
                     
                 } else if range[0].0 != range[1].0 {
-                    for line in Db.book(fileName).filter(Db.chapter == range[0].0 && Db.verse >= range[0].1) {
-                        text = text + formatLine(line[Db.verse], line[Db.text])
+                    for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1)") {
+                        let row = formatLine(line!["verse"] as! Int, line!["text"] as! String)
+                        text = text + row
                     }
 
-                    for line in Db.book(fileName).filter(Db.chapter == range[1].0 && Db.verse <= range[1].1) {
-                        text = text + formatLine(line[Db.verse], line[Db.text])
+                    for line in Db.book(fileName, whereExpr: "chapter=\(range[1].0) AND verse<=\(range[1].1)") {
+                        let row = formatLine(line!["verse"] as! Int, line!["text"] as! String)
+                        text = text + row
                     }
 
                 } else {
-                    for line in Db.book(fileName).filter(Db.chapter == range[0].0 && Db.verse >= range[0].1 && Db.verse <= range[1].1) {
-                        text = text + formatLine(line[Db.verse], line[Db.text])
+                    for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1) AND verse<=\(range[1].1)") {
+                        let row  = formatLine(line!["verse"] as! Int, line!["text"] as! String)
+                        text = text + row
                     }
                 }
             }
@@ -124,8 +127,10 @@ class Scripture: UIViewController {
 
         var text : NSMutableAttributedString? = nil
 
-        for line in Db.book(name).filter(Db.chapter == chapter) {
-            text = text + formatLine(line[Db.verse], line[Db.text])
+        for line in Db.book(name, whereExpr: "chapter=\(chapter)") {
+            let verse = Int(line!["verse"] as! Int64)
+            let row  = formatLine(verse, line!["text"] as! String)
+            text = text + row
         }
         
         textView.attributedText =  text

@@ -50,7 +50,7 @@ struct DailyReading {
 
     static func GospelOfLent(date: NSDate) -> String {
         let bundle = NSBundle.mainBundle().pathForResource("ReadingLent", ofType: "plist")
-        let readings = NSArray(contentsOfFile: bundle!) as [String]
+        let readings = NSArray(contentsOfFile: bundle!) as! [String]
 
         let dayNum = Cal.d(.SundayOfPublicianAndPharisee) >> date;
         return readings[dayNum]
@@ -58,7 +58,7 @@ struct DailyReading {
     
     static func GospelOfJohn(date: NSDate) -> String {
         let bundle = NSBundle.mainBundle().pathForResource("ReadingJohn", ofType: "plist")
-        let readings = NSArray(contentsOfFile: bundle!) as [String]
+        let readings = NSArray(contentsOfFile: bundle!) as! [String]
         
         let dayNum = Cal.d(.Pascha) >> date;
         return readings[dayNum]
@@ -66,10 +66,10 @@ struct DailyReading {
     
     static func GospelOfMatthew(date: NSDate) -> String {
         let bundleApostle = NSBundle.mainBundle().pathForResource("ReadingApostle", ofType: "plist")
-        let apostle = NSArray(contentsOfFile: bundleApostle!) as [String]
+        let apostle = NSArray(contentsOfFile: bundleApostle!) as! [String]
 
         let bundleMatthew = NSBundle.mainBundle().pathForResource("ReadingMatthew", ofType: "plist")
-        let gospel = NSArray(contentsOfFile: bundleMatthew!) as [String]
+        let gospel = NSArray(contentsOfFile: bundleMatthew!) as! [String]
 
         var dayNum = Cal.d(.HolySpirit) >> date;
         var readings = apostle[dayNum] + " "
@@ -85,13 +85,13 @@ struct DailyReading {
     
     static func GospelOfLukeSpring(date: NSDate) -> String {
         let bundleApostle = NSBundle.mainBundle().pathForResource("ReadingApostle", ofType: "plist")
-        let apostle = NSArray(contentsOfFile: bundleApostle!) as [String]
+        let apostle = NSArray(contentsOfFile: bundleApostle!) as! [String]
         
         let bundleLuke = NSBundle.mainBundle().pathForResource("ReadingLuke", ofType: "plist")
-        let gospelLuke = NSArray(contentsOfFile: bundleLuke!) as [String]
+        let gospelLuke = NSArray(contentsOfFile: bundleLuke!) as! [String]
 
         let bundleMatthew = NSBundle.mainBundle().pathForResource("ReadingMatthew", ofType: "plist")
-        let gospelMatthew = NSArray(contentsOfFile: bundleMatthew!) as [String]
+        let gospelMatthew = NSArray(contentsOfFile: bundleMatthew!) as! [String]
 
         var gospelIndex:Int, apostleIndex:Int
         let PAPSunday = Cal.d(.SundayOfPublicianAndPharisee)
@@ -134,10 +134,10 @@ struct DailyReading {
 
     static func GospelOfLukeFall(date: NSDate) -> String {
         let bundleApostle = NSBundle.mainBundle().pathForResource("ReadingApostle", ofType: "plist")
-        let apostle = NSArray(contentsOfFile: bundleApostle!) as [String]
+        let apostle = NSArray(contentsOfFile: bundleApostle!) as! [String]
         
         let bundleLuke = NSBundle.mainBundle().pathForResource("ReadingLuke", ofType: "plist")
-        let gospel = NSArray(contentsOfFile: bundleLuke!) as [String]
+        let gospel = NSArray(contentsOfFile: bundleLuke!) as! [String]
 
         // Sunday of Forefathers: Epistle (29th Sunday), Gospel (28th Sunday)
         if (date == Cal.d(.SundayOfForefathers)) {

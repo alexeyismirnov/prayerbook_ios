@@ -16,7 +16,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         
         let prefs = NSUserDefaults.standardUserDefaults()
         var fontSize = prefs.integerForKey("fontSize")
-        let lang = NSLocale.preferredLanguages()[0] as String
+        let lang = NSLocale.preferredLanguages()[0] as! String
 
         // the first time app is launched
         if fontSize == 0 {
@@ -36,7 +36,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
             prefs.synchronize()
         }
         
-        let language = prefs.objectForKey("language") as String
+        let language = prefs.objectForKey("language") as! String
         Translate.language = language
         
         return true

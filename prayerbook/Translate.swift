@@ -32,7 +32,7 @@ struct Translate {
             return str
         }
         
-        if let trans_str = dict?.valueForKey(str) as NSString?  {
+        if let trans_str = dict?.valueForKey(str) as? String  {
             return trans_str
         } else {
             return str
@@ -43,8 +43,8 @@ struct Translate {
         let bundle = NSBundle.mainBundle().pathForResource("index_\(language)", ofType: "plist")
         let table = NSDictionary(contentsOfFile: bundle!)
         
-        if let trans_table = table?.objectForKey(code) as? NSArray {
-            return trans_table as [String]
+        if let trans_table = table?.objectForKey(code) as? [String] {
+            return trans_table
         } else {
             return []
         }

@@ -52,7 +52,7 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
     }
     
     func doneWithDate(recognizer: UITapGestureRecognizer) {
-        let cell = recognizer.view as RDVCalendarDayCell
+        let cell = recognizer.view as! RDVCalendarDayCell
         let index = calendarView.indexForDayCell(cell)
         var currentDate = NSDateComponents(index+1, calendarView.month.month, calendarView.month.year).toDate()
 

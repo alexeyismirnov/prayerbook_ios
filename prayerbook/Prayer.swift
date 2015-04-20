@@ -49,8 +49,8 @@ class Prayer: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Options" {
-            let nav = segue.destinationViewController as UINavigationController
-            let dest = nav.viewControllers[0] as Options
+            let nav = segue.destinationViewController as! UINavigationController
+            let dest = nav.viewControllers[0] as! Options
             dest.delegate = self
         }
     }

@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import SQLite
 import UIKit
+import Squeal
 
 let NewTestament: [(String, String)] = [
     ("Gospel of St Matthew", "matthew"),
@@ -48,16 +48,26 @@ let NewTestament: [(String, String)] = [
 let OldTestament: [(String, String)] = [
 ]
 
-
 struct Db {
 
-    static let chapter = Expression<Int>("chapter")
-    static let verse = Expression<Int>("verse")
-    static let text = Expression<String>("text")
-
-    static func book(name: String) -> Query {
+    static func book(name: String, whereExpr: String = "") -> StepSequence {
+        var error: NSError?
         let path = NSBundle.mainBundle().pathForResource(name.lowercaseString, ofType: "sqlite")!
-        let db = Database(path, readonly: true)
-        return db["scripture"]
+        let db = Database(path:path, error:&error)
+        return db!.selectFrom("scripture", whereExpr:whereExpr, error:&error)
     }
+    
+    static func numberOfChapters(name: String) -> Int {
+        var error: NSError?
+        let path = NSBundle.mainBundle().pathForResource(name.lowercaseString, ofType: "sqlite")!
+        let db = Database(path:path, error:&error)
+        
+        for row in db!.query("SELECT COUNT(DISTINCT chapter) FROM scripture", error:&error) {
+            let num = row![0] as! Int64
+            return Int(num)
+        }
+        
+        return 0
+    }
+    
 }

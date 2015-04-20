@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import SQLite
 
 class Library: UITableViewController {
-    var code = "Library"
+    var code:String = "Library"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +21,13 @@ class Library: UITableViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if (code == "Library") {
-            var vc = storyboard.instantiateViewControllerWithIdentifier("Library") as Library
+            var vc = storyboard.instantiateViewControllerWithIdentifier("Library") as! Library
             vc.title = NewTestament[indexPath.row].0
             vc.code = NewTestament[indexPath.row].1
             navigationController?.pushViewController(vc, animated: true)
 
         } else {
-            var vc = storyboard.instantiateViewControllerWithIdentifier("Scripture") as Scripture
+            var vc = storyboard.instantiateViewControllerWithIdentifier("Scripture") as! Scripture
             vc.code = .Chapter(code, indexPath.row+1)
             navigationController?.pushViewController(vc, animated: true)
         }
@@ -41,7 +40,7 @@ class Library: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (code == "Library") ? NewTestament.count : Db.book(code).max(Db.chapter)!
+        return (code == "Library") ? NewTestament.count :Db.numberOfChapters(code)
     }
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

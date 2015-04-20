@@ -260,7 +260,7 @@ struct ChurchCalendar {
         return result
     }
     
-    static func getWeekDescription(date: NSDate) -> NSString? {
+    static func getWeekDescription(date: NSDate) -> String? {
         
         setDate(date)
 
@@ -301,7 +301,7 @@ struct ChurchCalendar {
         }
     }
     
-    static func getToneDescription(date: NSDate) -> NSString? {
+    static func getToneDescription(date: NSDate) -> String? {
         func tone(#dayNum: Int) -> Int {
             let reminder = (dayNum/7) % 8
             return (reminder == 0) ? 8 : reminder

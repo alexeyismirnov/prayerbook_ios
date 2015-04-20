@@ -31,7 +31,7 @@ class ListOfPrayers: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Prayer" {
-            var view = segue.destinationViewController as Prayer
+            var view = segue.destinationViewController as! Prayer
             var index = self.tableView.indexPathForSelectedRow();
             view.index = index!.row
             view.code = prayer_type
