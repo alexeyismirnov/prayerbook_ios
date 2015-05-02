@@ -68,12 +68,15 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
         } else {
             
             let currentDate = calendarView.selectedDate
-            var description = Cal.getDayDescription(currentDate)
-            
+
+            // FIXME
+//            var description = Cal.getDayDescription(currentDate)
+            var description:NSMutableAttributedString? =  nil
+
             if description == nil {
                 description = description + (Cal.getWeekDescription(currentDate), UIColor.grayColor())
             }
-                        
+
             descriptionLabel.attributedText = description
         }
         
@@ -95,23 +98,20 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
         var curDate = NSDateComponents(index+1, calendarView.month.month, calendarView.month.year).toDate()
         dayCell.textLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.redColor() : UIColor.blackColor()
 
-        if let fasting = Cal.getFastingDescription(curDate) {
-            switch fasting.0 {
-            case .Vegetarian:
-                dayCell.backgroundColor = UIColor.greenColor()
-                break
-            case .FishAllowed:
-                dayCell.backgroundColor = UIColor.yellowColor()
-                break
-            case .Cheesefare, .FastFree:
-                dayCell.backgroundColor = UIColor.cyanColor()
-                break
-            default:
-                dayCell.backgroundColor = UIColor.whiteColor()
-                break
-            }
+        switch Cal.getFastingDescription(curDate).0 {
+        case .Vegetarian:
+            dayCell.backgroundColor = UIColor.greenColor()
+            break
+        case .FishAllowed:
+            dayCell.backgroundColor = UIColor.yellowColor()
+            break
+        case .Cheesefare, .FastFree:
+            dayCell.backgroundColor = UIColor.cyanColor()
+            break
+        default:
+            dayCell.backgroundColor = UIColor.whiteColor()
+            break
         }
-
     }
     
     func calendarView(calendarView: RDVCalendarView!, didSelectDate date: NSDate!) {

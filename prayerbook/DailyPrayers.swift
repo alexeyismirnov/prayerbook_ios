@@ -44,6 +44,7 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         formatter.locale = Translate.locale
         dateLabel.text = formatter.stringFromDate(currentDate)
 
+        /*
         var description = Cal.getDayDescription(currentDate)
         if let weekDescription = Cal.getWeekDescription(currentDate) {
             description = description + (weekDescription, UIColor.grayColor()) + "\n"
@@ -62,7 +63,8 @@ class DailyPrayers: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         titles = Translate.tableViewStrings("daily")
         readings = DailyReading.getDailyReading(currentDate)
-
+*/
+        
         self.tableView.reloadData()
     }
     

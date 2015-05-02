@@ -18,6 +18,9 @@ class DailyTab: UITableViewController {
         .FastFree:      "cupcake",
         .Cheesefare:    "cheese",
     ]
+    
+    var readings = [String]()
+    var dayDescription = [(FeastType, String)]()
 
     var currentDate: NSDate = {
         // this is done to remove time component from date
@@ -36,21 +39,31 @@ class DailyTab: UITableViewController {
         super.viewDidLoad()
         
         addBarButtons()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: optionsSavedNotification, object: nil)
+
+        reload()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3;
+        switch section {
+        case 0:
+            return count(dayDescription)+2
+        case 1:
+            return count(readings)
+        default:
+            return 0
+        }
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (section == 0) {
             return ""
         } else {
-            return "Daily Scripture"
+            return "Daily Reading"
         }
     }
 
@@ -64,29 +77,54 @@ class DailyTab: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            var cell: TextDetailsCell = getCell()
-            cell.title.text = "monday april 6th 2015 qqq qqqqq qqqq qqqq qqq qqq"
-            cell.subtitle.text = "tone XX week XXX after Pentecost qqq qqqqq qqqq"
-            return cell
-            
-        case 2:
-            var cell: ImageCell  = getCell()
-            if let _fasting = Cal.getFastingDescription(currentDate) {
-                fasting = _fasting
-                let allowedFood = foodIcon[fasting.0]!
+
+        if indexPath.section == 0 {
+            switch indexPath.row {
+            case 0:
+                var cell: TextDetailsCell = getCell()
+                cell.title.text = formatter.stringFromDate(currentDate)
+
+                var subtitle:String = ""
+                
+                if let weekDescription = Cal.getWeekDescription(currentDate) {
+                    subtitle = weekDescription
+                }
+                
+                if let toneDescription = Cal.getToneDescription(currentDate) {
+                    if count(subtitle) > 0 {
+                        subtitle += ". "
+                    }
+                    subtitle += toneDescription
+                }
+                
+                cell.subtitle.text = subtitle
+                return cell
+
+            case 1:
+                var cell: ImageCell  = getCell()
                 cell.title.text = fasting.1
-                cell.icon.image = UIImage(named: "food-\(allowedFood)")
+                cell.icon.image = UIImage(named: "food-\(foodIcon[fasting.0]!)")
+                return cell
+                
+            default:
+                var cell: TextCell = getCell()
+                cell.title.textColor = (dayDescription[indexPath.row-2].0 == FeastType.NoSign) ?  UIColor.blackColor() : UIColor.redColor()
+                cell.title.text = dayDescription[indexPath.row-2].1
+                return cell
             }
+        
+        } else if indexPath.section == 1 {
+//            var cell: TextCell = getCell()
+            var cell: TextDetailsCell = getCell()
 
-            return cell
-
-        default:
-            var cell: TextCell = getCell()
-            cell.title.text = "qq qqq qq qqq qqq qqq qqq qqq qqq very very very very long long long long long text"
+            cell.title.textColor = UIColor.blackColor()
+            cell.title.text = readings[indexPath.row]
+            cell.subtitle.text = ""
             return cell
         }
+        
+        var cell: TextCell = getCell()
+        return cell
 
     }
     
@@ -109,6 +147,10 @@ class DailyTab: UITableViewController {
     func reload() {
         formatter.locale = Translate.locale
         
+        dayDescription = Cal.getDayDescription(currentDate)
+        readings = DailyReading.getDailyReading(currentDate)
+        fasting = Cal.getFastingDescription(currentDate)
+
         tableView.reloadData()
     }
 

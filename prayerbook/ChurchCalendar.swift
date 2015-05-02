@@ -1,6 +1,10 @@
 
 import UIKit
 
+enum FeastType: Int {
+    case NoSign=0, SixVerse, Doxology, Polyeleos, Vigil, Great
+}
+
 enum NameOfDay: Int {
     case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod=5, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord=10, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition=15, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple=20, StNicholas, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon=25, SundayOfDreadJudgement, ForgivenessSunday, FirstSundayOfGreatLent, SecondSundayOfGreatLent, ThirdSundayOfGreatLent=30, FourthSundayOfGreatLent, FifthSundayOfGreatLent, LazarusSaturday, SecondSundayAfterPascha, ThirdSundayAfterPascha=35, FourthSundayAfterPascha, FifthSundayAfterPascha, SixthSundayAfterPascha, SeventhSundayAfterPascha, BeginningOfDormitionFast=40, BeginningOfNativityFast, BeginningOfApostolesFast, HolySpirit, SundayOfForefathers, SundayOfFathers=45, PaschaPrevYear, HolySpiritPrevYear, SundayAfterExaltation, SundayAfterExaltationPrevYear, SaturdayAfterExaltation=50, SaturdayBeforeExaltation, SundayBeforeExaltation, SaturdayBeforeNativity, SaturdayAfterNativity, SundayAfterNativity=55, SaturdayBeforeTheophany, SundayBeforeTheophany, SaturdayAfterTheophany, SundayAfterTheophany, FridayAfterExaltation=60, EndOfYear
 }
@@ -33,10 +37,10 @@ func == (lhs: DateCache, rhs: DateCache) -> Bool {
 
 struct ChurchCalendar {
     
-    static var dict: NSArray = {
+    static var dict: [[String : String]] = {
         let bundle = NSBundle.mainBundle().pathForResource("ChurchCalendar", ofType: "plist")
         let dict = NSArray(contentsOfFile: bundle!)
-        return dict!
+        return dict as! [[String : String]]
     }()
     
     static var formatter: NSDateFormatter = {
@@ -239,19 +243,24 @@ struct ChurchCalendar {
         return false
     }
     
-    static func getDayDescription(date: NSDate) -> NSMutableAttributedString? {
-        var result : NSMutableAttributedString? = nil
+    static func getDayDescription(date: NSDate) -> [(FeastType, String)] {
+        var result = [(FeastType, String)]()
+        let sundays : [NameOfDay] = [.ZacchaeusSunday, .SundayOfPublicianAndPharisee, .SundayOfProdigalSon, .SundayOfDreadJudgement,
+            .ForgivenessSunday, .FirstSundayOfGreatLent, .SecondSundayOfGreatLent, .ThirdSundayOfGreatLent, .FourthSundayOfGreatLent,
+            .FifthSundayOfGreatLent, .SecondSundayAfterPascha, .ThirdSundayAfterPascha, .FourthSundayAfterPascha, .FifthSundayAfterPascha,
+            .SixthSundayAfterPascha, .SeventhSundayAfterPascha]
         
         setDate(date)
 
         if let feastCodes = feastDates[date] {
             for code in feastCodes {
-                if let strings = dict[code.rawValue] as? NSDictionary {
-                    if let str  = strings[Translate.language] as? String {
-                        if !str.isEmpty {
-                        result = result + (str, contains(greatFeastCodes, code) ? UIColor.redColor() : UIColor.grayColor())
-                        result = result + "\n"
-                        }
+                if contains(sundays, code) {
+                    continue
+                }
+                
+                if let str:String = dict[code.rawValue][Translate.language]  {
+                    if !str.isEmpty {
+                        result.append((contains(greatFeastCodes, code) ? .Great : .NoSign, str))
                     }
                 }
             }
@@ -268,19 +277,46 @@ struct ChurchCalendar {
         
         switch (date) {
         case d(.StartOfYear) ..< d(.SundayOfPublicianAndPharisee):
-            return  String(format: Translate.s("\(dayOfWeek) %d after Pentecost"), (d(.HolySpiritPrevYear) >> date)/7+1)
+            if date == d(.ZacchaeusSunday) {
+                return dict[NameOfDay.ZacchaeusSunday.rawValue][Translate.language] as String!
 
+            } else {
+                return  String(format: Translate.s("\(dayOfWeek) %d after Pentecost"), (d(.HolySpiritPrevYear) >> date)/7+1)
+            }
+
+        case d(.SundayOfPublicianAndPharisee):
+            return dict[NameOfDay.SundayOfPublicianAndPharisee.rawValue][Translate.language] as String!
+            
         case d(.SundayOfPublicianAndPharisee)+1.days ..< d(.SundayOfProdigalSon):
             return "Week of the Publican and the Pharisee"
+        
+        case d(.SundayOfProdigalSon):
+            return dict[NameOfDay.SundayOfProdigalSon.rawValue][Translate.language] as String!
             
         case d(.SundayOfProdigalSon)+1.days ..< d(.SundayOfDreadJudgement):
             return "Week of the Prodigal Son"
+        
+        case d(.SundayOfDreadJudgement):
+            return dict[NameOfDay.SundayOfDreadJudgement.rawValue][Translate.language] as String!
             
-        case d(.SundayOfDreadJudgement)+1.days ..< d(.BeginningOfGreatLent):
+        case d(.SundayOfDreadJudgement)+1.days ..< d(.ForgivenessSunday):
             return "Week of the Dread Judgement"
             
+        case d(.ForgivenessSunday):
+            return dict[NameOfDay.ForgivenessSunday.rawValue][Translate.language] as String!
+            
         case d(.BeginningOfGreatLent) ..< d(.PalmSunday):
-            return (currentWeekday == .Sunday) ? nil : "Week \((d(.BeginningOfGreatLent) >> date)/7+1) of Great Lent"
+            let weekNum = (d(.BeginningOfGreatLent) >> date)/7+1
+            
+            if currentWeekday == .Sunday {
+                return (weekNum <= 5) ?
+                    dict[NameOfDay.FirstSundayOfGreatLent.rawValue + weekNum-1][Translate.language] as String!
+                    : nil
+
+            } else {
+                return "Week \(weekNum) of Great Lent"
+                
+            }
             
         case d(.PalmSunday)+1.days ..< d(.Pascha):
             return "Passion Week"
@@ -289,7 +325,16 @@ struct ChurchCalendar {
             return "Bright Week"
             
         case d(.SecondSundayAfterPascha)+1.days ..< d(.Pentecost):
-            return (currentWeekday == .Sunday) ? nil : "Week \((d(.Pascha) >> date)/7+1) after Pascha"
+            let weekNum = (d(.Pascha) >> date)/7+1
+            
+            if currentWeekday == .Sunday {
+                return (weekNum <= 7) ?
+                    dict[NameOfDay.SecondSundayAfterPascha.rawValue + weekNum-2][Translate.language] as String!
+                    : nil
+
+            } else {
+                return  "Week \(weekNum) after Pascha"
+            }
 
         case d(.HolySpirit) ..< d(.Pentecost)+7.days:
             return "Trinity Week"
@@ -299,6 +344,7 @@ struct ChurchCalendar {
             
         default: return nil
         }
+        
     }
     
     static func getToneDescription(date: NSDate) -> String? {
@@ -327,7 +373,7 @@ struct ChurchCalendar {
         }
     }
 
-    static func getFastingDescription(date: NSDate) -> (FastingType, String)? {
+    static func getFastingDescription(date: NSDate) -> (FastingType, String) {
 
         setDate(date)
         
