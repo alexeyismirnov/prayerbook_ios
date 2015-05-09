@@ -12,7 +12,6 @@
 		8A2F469F19E110CF00076AF4 /* prayer_group_0_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469B19E110CF00076AF4 /* prayer_group_0_en.html */; };
 		8A2F46A019E110CF00076AF4 /* prayer_group_1_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469C19E110CF00076AF4 /* prayer_group_1_cn.html */; };
 		8A2F46A119E110CF00076AF4 /* prayer_group_1_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469D19E110CF00076AF4 /* prayer_group_1_en.html */; };
-		8A2F46A319E1129B00076AF4 /* DailyPrayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A219E1129B00076AF4 /* DailyPrayers.swift */; };
 		8A2F46A519E11CEA00076AF4 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A419E11CEA00076AF4 /* Prayer.swift */; };
 		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
 		8A2F46A919E1302700076AF4 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A819E1302700076AF4 /* Translate.swift */; };
@@ -101,7 +100,7 @@
 		8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */; };
 		8AC2060119E63ED8006FC8EA /* FastingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AC205FF19E63ED8006FC8EA /* FastingViewController.xib */; };
 		8AC4558F1A0A2B3F0070FAF7 /* ChurchCalendar.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AC4558E1A0A2B3F0070FAF7 /* ChurchCalendar.plist */; };
-		8AC4E15019DE2BF800CF4271 /* ListOfPrayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4E14F19DE2BF800CF4271 /* ListOfPrayers.swift */; };
+		8AC4E15019DE2BF800CF4271 /* PrayersTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4E14F19DE2BF800CF4271 /* PrayersTab.swift */; };
 		8AC6950B19E3EDED00773FEB /* food-vegetables.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950A19E3EDED00773FEB /* food-vegetables.pdf */; };
 		8AC6951619E3FBC200773FEB /* food-bread.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950C19E3FBC200773FEB /* food-bread.pdf */; };
 		8AC6951719E3FBC200773FEB /* food-cheese.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950D19E3FBC200773FEB /* food-cheese.pdf */; };
@@ -214,7 +213,6 @@
 		8A2F469B19E110CF00076AF4 /* prayer_group_0_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_0_en.html; sourceTree = "<group>"; };
 		8A2F469C19E110CF00076AF4 /* prayer_group_1_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_1_cn.html; sourceTree = "<group>"; };
 		8A2F469D19E110CF00076AF4 /* prayer_group_1_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_1_en.html; sourceTree = "<group>"; };
-		8A2F46A219E1129B00076AF4 /* DailyPrayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyPrayers.swift; sourceTree = "<group>"; };
 		8A2F46A419E11CEA00076AF4 /* Prayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
 		8A2F46A619E12B4100076AF4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A2F46A819E1302700076AF4 /* Translate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
@@ -312,7 +310,7 @@
 		8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastingViewController.swift; sourceTree = "<group>"; };
 		8AC205FF19E63ED8006FC8EA /* FastingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FastingViewController.xib; sourceTree = "<group>"; };
 		8AC4558E1A0A2B3F0070FAF7 /* ChurchCalendar.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ChurchCalendar.plist; sourceTree = "<group>"; };
-		8AC4E14F19DE2BF800CF4271 /* ListOfPrayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfPrayers.swift; sourceTree = "<group>"; };
+		8AC4E14F19DE2BF800CF4271 /* PrayersTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersTab.swift; sourceTree = "<group>"; };
 		8AC6950A19E3EDED00773FEB /* food-vegetables.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-vegetables.pdf"; sourceTree = "<group>"; };
 		8AC6950C19E3FBC200773FEB /* food-bread.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-bread.pdf"; sourceTree = "<group>"; };
 		8AC6950D19E3FBC200773FEB /* food-cheese.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-cheese.pdf"; sourceTree = "<group>"; };
@@ -443,9 +441,8 @@
 				8AAE4D821AC8E332009421AF /* ImageCell.swift */,
 				8AEFC27C1A2C8DF800BAACE0 /* Db.swift */,
 				8A2F46A419E11CEA00076AF4 /* Prayer.swift */,
-				8A2F46A219E1129B00076AF4 /* DailyPrayers.swift */,
 				8AE821F31AC54F8E000460C1 /* DailyTab.swift */,
-				8AC4E14F19DE2BF800CF4271 /* ListOfPrayers.swift */,
+				8AC4E14F19DE2BF800CF4271 /* PrayersTab.swift */,
 				8AE685E81A2559F00029A149 /* Library.swift */,
 				8AEFC27A1A2C747700BAACE0 /* Scripture.swift */,
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
@@ -896,9 +893,8 @@
 				8A3CD13519E51D0400A78A32 /* RDVCalendarDayCell.m in Sources */,
 				8A2F46AB19E145D200076AF4 /* Options.swift in Sources */,
 				8ACEF0FB1A2EDF5100AF98E0 /* Extensions.swift in Sources */,
-				8AC4E15019DE2BF800CF4271 /* ListOfPrayers.swift in Sources */,
+				8AC4E15019DE2BF800CF4271 /* PrayersTab.swift in Sources */,
 				8A2F46A519E11CEA00076AF4 /* Prayer.swift in Sources */,
-				8A2F46A319E1129B00076AF4 /* DailyPrayers.swift in Sources */,
 				8AE5DEF819E7A80B0069C757 /* ChurchCalendar.swift in Sources */,
 				8AE821F41AC54F8E000460C1 /* DailyTab.swift in Sources */,
 			);

@@ -8,13 +8,17 @@
 
 import UIKit
 
-class ListOfPrayers: UITableViewController {
+class PrayersTab: UITableViewController {
 
-    var titles: [String] = []
-    var prayer_type: String!
+    var titles = [[String]]()
+    var tab_index: NSNumber!
+    var sections = [ ["communion"], ["daily", "group"] ]
     
     func reload() {
-        titles = Translate.tableViewStrings(prayer_type)
+        for (index, prayer_type) in enumerate(sections[tab_index as Int]) {
+            titles.append(Translate.tableViewStrings(prayer_type))
+        }
+        
         self.tableView.reloadData()
     }
     
@@ -34,18 +38,18 @@ class ListOfPrayers: UITableViewController {
             var view = segue.destinationViewController as! Prayer
             var index = self.tableView.indexPathForSelectedRow();
             view.index = index!.row
-            view.code = prayer_type
+            view.code = sections[tab_index as Int][index!.section]
         }
     }
     
     // MARK: Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return titles.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titles.count
+        return titles[section].count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -56,7 +60,7 @@ class ListOfPrayers: UITableViewController {
             newCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
         }
         
-        newCell!.textLabel!.text = titles[indexPath.row]
+        newCell!.textLabel!.text = titles[indexPath.section][indexPath.row]
         return newCell!
     }
 

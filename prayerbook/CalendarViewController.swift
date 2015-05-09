@@ -12,7 +12,7 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
 
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var calendarView: RDVCalendarView!
-    weak var delegate: DailyPrayers!
+    weak var delegate: DailyTab!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,14 +66,14 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
             descriptionLabel.attributedText = NSMutableAttributedString(string: "")
             
         } else {
-            
             let currentDate = calendarView.selectedDate
 
-            // FIXME
-//            var description = Cal.getDayDescription(currentDate)
             var description:NSMutableAttributedString? =  nil
+            var dayDescription = filter(Cal.getDayDescription(currentDate)) { $0.0 == FeastType.Great }
 
-            if description == nil {
+            if count(dayDescription) > 0 {
+                description = description + (dayDescription[0].1, UIColor.redColor())
+            } else {
                 description = description + (Cal.getWeekDescription(currentDate), UIColor.grayColor())
             }
 

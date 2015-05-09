@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DailyTab: UITableViewController {
+class DailyTab: UITableViewController, NAModalSheetDelegate {
     
     var fasting: (FastingType, String) = (.Vegetarian, "")
     var foodIcon: [FastingType: String] = [
@@ -128,6 +128,33 @@ class DailyTab: UITableViewController {
 
     }
     
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+        if indexPath.section == 1 && readings.count > 0 {
+            var vc = storyboard.instantiateViewControllerWithIdentifier("Scripture") as! Scripture
+            vc.code = .Pericope(readings[indexPath.row])
+            navigationController?.pushViewController(vc, animated: true)
+
+        } else if indexPath.section == 0 && indexPath.row == 1 {
+            var fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
+            var modal = NAModalSheet(viewController: fastingInfo, presentationStyle: .FadeInCentered)
+            
+            modal.disableBlurredBackground = true
+            modal.cornerRadiusWhenCentered = 10
+            modal.delegate = self
+            
+            fastingInfo.modal = modal
+            fastingInfo.type =  fasting.0
+            fastingInfo.fastTitle = fasting.1
+            
+            modal.presentWithCompletion({})
+        }
+        
+        return nil
+    }
+    
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         var cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
         return calculateHeightForCell(cell)
@@ -140,6 +167,14 @@ class DailyTab: UITableViewController {
         
         var size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
         return size.height+1.0
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "Calendar" {
+            let nav = segue.destinationViewController as! UINavigationController
+            let dest = nav.viewControllers[0] as! CalendarViewController
+            dest.delegate = self
+        }
     }
 
     // MARK: private stuff
@@ -170,6 +205,20 @@ class DailyTab: UITableViewController {
     func next_day() {
         currentDate = currentDate + 1.days;
         reload()
+    }
+    
+    // MARK: NAModalSheetDelegate
+    
+    func modalSheetTouchedOutsideContent(sheet: NAModalSheet!) {
+        sheet.dismissWithCompletion({})
+    }
+    
+    func modalSheetShouldAutorotate(sheet: NAModalSheet!) -> Bool {
+        return shouldAutorotate()
+    }
+    
+    func modalSheetSupportedInterfaceOrientations(sheet: NAModalSheet!) -> UInt {
+        return UInt(supportedInterfaceOrientations())
     }
 
 }
