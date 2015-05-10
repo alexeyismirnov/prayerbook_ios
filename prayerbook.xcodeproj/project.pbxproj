@@ -120,7 +120,6 @@
 		8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89219E4CECB00B51294 /* arrow-left.pdf */; };
 		8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89319E4CECB00B51294 /* arrow-right.pdf */; };
 		8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89619E4D1DE00B51294 /* calendar.pdf */; };
-		8ACBB6FF1AE3419A0008F0D4 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACBB6F81AE341140008F0D4 /* Squeal.framework */; };
 		8ACEF0FB1A2EDF5100AF98E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */; };
 		8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */; };
 		8ADD7D761A56798A00BA9F37 /* ReadingApostle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD7D751A56798A00BA9F37 /* ReadingApostle.plist */; };
@@ -146,6 +145,15 @@
 		8AEF81B11999A194000B3D90 /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81B01999A194000B3D90 /* icon1024.png */; };
 		8AEFC27B1A2C747700BAACE0 /* Scripture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFC27A1A2C747700BAACE0 /* Scripture.swift */; };
 		8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFC27C1A2C8DF800BAACE0 /* Db.swift */; };
+		8AF2496D1AFF27E0000070C0 /* vigil.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF2496C1AFF27E0000070C0 /* vigil.pdf */; };
+		8AF249791AFF308B000070C0 /* doxology.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249741AFF308B000070C0 /* doxology.pdf */; };
+		8AF2497A1AFF308B000070C0 /* great.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249751AFF308B000070C0 /* great.pdf */; };
+		8AF2497B1AFF308B000070C0 /* nosign.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249761AFF308B000070C0 /* nosign.pdf */; };
+		8AF2497C1AFF308B000070C0 /* polyeleos.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249771AFF308B000070C0 /* polyeleos.pdf */; };
+		8AF2497D1AFF308B000070C0 /* sixverse.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249781AFF308B000070C0 /* sixverse.pdf */; };
+		8AF249841AFF4C64000070C0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF249831AFF4C64000070C0 /* libsqlite3.dylib */; };
+		8AF249941AFF5000000070C0 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACBB6F81AE341140008F0D4 /* Squeal.framework */; };
+		8AF249951AFF5000000070C0 /* Squeal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACBB6F81AE341140008F0D4 /* Squeal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,15 +199,23 @@
 			remoteGlobalIDString = CDCBEB7019C5F77900862BFD;
 			remoteInfo = "SquealSpecHelpers-iOS";
 		};
+		8AF249961AFF5000000070C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8ACBB6E81AE341140008F0D4 /* Squeal.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CDCBEB4B19C5F6F500862BFD;
+			remoteInfo = "Squeal-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8A59F7B21AD25E4400181EC7 /* Embed Frameworks */ = {
+		8AF249981AFF5000000070C0 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8AF249951AFF5000000070C0 /* Squeal.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,7 +275,6 @@
 		8A74D806198F20CC0078F39F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8A74D808198F20CC0078F39F /* prayerbook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Prefix.pch"; sourceTree = "<group>"; };
 		8A74D815198F20CC0078F39F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8A74D81C198F20CC0078F39F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8A74D832198F224E0078F39F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8A74D837198F2AF70078F39F /* index_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = index_en.plist; sourceTree = "<group>"; };
 		8A74D83E198F5F350078F39F /* index_cn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = index_cn.plist; sourceTree = "<group>"; };
@@ -356,6 +371,13 @@
 		8AEF81B01999A194000B3D90 /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024.png; sourceTree = "<group>"; };
 		8AEFC27A1A2C747700BAACE0 /* Scripture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripture.swift; sourceTree = "<group>"; };
 		8AEFC27C1A2C8DF800BAACE0 /* Db.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Db.swift; sourceTree = "<group>"; };
+		8AF2496C1AFF27E0000070C0 /* vigil.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = vigil.pdf; sourceTree = "<group>"; };
+		8AF249741AFF308B000070C0 /* doxology.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = doxology.pdf; sourceTree = "<group>"; };
+		8AF249751AFF308B000070C0 /* great.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = great.pdf; sourceTree = "<group>"; };
+		8AF249761AFF308B000070C0 /* nosign.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = nosign.pdf; sourceTree = "<group>"; };
+		8AF249771AFF308B000070C0 /* polyeleos.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = polyeleos.pdf; sourceTree = "<group>"; };
+		8AF249781AFF308B000070C0 /* sixverse.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = sixverse.pdf; sourceTree = "<group>"; };
+		8AF249831AFF4C64000070C0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		FB949D5EE4022DBBF8C2E216 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -364,7 +386,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8ACBB6FF1AE3419A0008F0D4 /* Squeal.framework in Frameworks */,
+				8AF249841AFF4C64000070C0 /* libsqlite3.dylib in Frameworks */,
+				8AF249941AFF5000000070C0 /* Squeal.framework in Frameworks */,
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
@@ -406,10 +429,10 @@
 		8A74D7F9198F20CC0078F39F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8AF249831AFF4C64000070C0 /* libsqlite3.dylib */,
 				8A74D7FA198F20CC0078F39F /* Foundation.framework */,
 				8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */,
 				8A74D7FE198F20CC0078F39F /* UIKit.framework */,
-				8A74D81C198F20CC0078F39F /* XCTest.framework */,
 				FB949D5EE4022DBBF8C2E216 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -476,6 +499,12 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8AF249741AFF308B000070C0 /* doxology.pdf */,
+				8AF249751AFF308B000070C0 /* great.pdf */,
+				8AF249761AFF308B000070C0 /* nosign.pdf */,
+				8AF249771AFF308B000070C0 /* polyeleos.pdf */,
+				8AF249781AFF308B000070C0 /* sixverse.pdf */,
+				8AF2496C1AFF27E0000070C0 /* vigil.pdf */,
 				8AC7B89619E4D1DE00B51294 /* calendar.pdf */,
 				8AC7B89219E4CECB00B51294 /* arrow-left.pdf */,
 				8AC7B89319E4CECB00B51294 /* arrow-right.pdf */,
@@ -618,11 +647,12 @@
 				8A74D7F4198F20CC0078F39F /* Frameworks */,
 				8A74D7F5198F20CC0078F39F /* Resources */,
 				AC7CA402C5C6E3D32ACF0F87 /* Copy Pods Resources */,
-				8A59F7B21AD25E4400181EC7 /* Embed Frameworks */,
+				8AF249981AFF5000000070C0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8AF249971AFF5000000070C0 /* PBXTargetDependency */,
 			);
 			name = prayerbook;
 			productName = prayerbook;
@@ -745,11 +775,15 @@
 				8AEF81A919999D39000B3D90 /* icon-ipad.png in Resources */,
 				8AC6951B19E3FBC200773FEB /* food-no-egg.pdf in Resources */,
 				8AEF81AB19999D39000B3D90 /* icon-ipad6.png in Resources */,
+				8AF2497D1AFF308B000070C0 /* sixverse.pdf in Resources */,
+				8AF249791AFF308B000070C0 /* doxology.pdf in Resources */,
+				8AF2496D1AFF27E0000070C0 /* vigil.pdf in Resources */,
 				8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */,
 				8A2F46A119E110CF00076AF4 /* prayer_group_1_en.html in Resources */,
 				8A41936319E6921600D570A9 /* food-egg.pdf in Resources */,
 				8A9A3DE219D3AE2800A7D82A /* prayer_group_3_en.html in Resources */,
 				8A8810EA1A300DE40095C081 /* mark.sqlite in Resources */,
+				8AF2497B1AFF308B000070C0 /* nosign.pdf in Resources */,
 				8A74D83F198F5F350078F39F /* index_cn.plist in Resources */,
 				8A3A21101A46C0150052861D /* 1john.sqlite in Resources */,
 				8A9A3DE419D3AE2800A7D82A /* prayer_group_4_en.html in Resources */,
@@ -798,6 +832,7 @@
 				8A81858219D2E3F300D4B328 /* prayer_communion_1_en.html in Resources */,
 				8A3A21181A46C0150052861D /* 2tim.sqlite in Resources */,
 				8AC1B10F199866FF00A017C7 /* launch-iphone@2x.png in Resources */,
+				8AF2497C1AFF308B000070C0 /* polyeleos.pdf in Resources */,
 				8AC6950B19E3EDED00773FEB /* food-vegetables.pdf in Resources */,
 				8AC6952719E4011700773FEB /* library.pdf in Resources */,
 				8A9A3DD619D3AE1600A7D82A /* prayer_communion_4_en.html in Resources */,
@@ -830,6 +865,7 @@
 				8A8810E81A300DE40095C081 /* john.sqlite in Resources */,
 				8A3A21161A46C0150052861D /* 2pet.sqlite in Resources */,
 				8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */,
+				8AF2497A1AFF308B000070C0 /* great.pdf in Resources */,
 				8A74D805198F20CC0078F39F /* InfoPlist.strings in Resources */,
 				8AC1B110199866FF00A017C7 /* launch-iphone4.png in Resources */,
 			);
@@ -901,6 +937,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8AF249971AFF5000000070C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Squeal-iOS";
+			targetProxy = 8AF249961AFF5000000070C0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8A74D803198F20CC0078F39F /* InfoPlist.strings */ = {
@@ -995,18 +1039,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexey Smirnov (238ET3G48T)";
 				DEFINES_MODULE = NO;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"SWIFT_INCLUDE_PATHS[arch=*]" = "$(PROJECT_DIR)/../Squeal/modules";
+				"SWIFT_INCLUDE_PATHS[arch=*]" = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "prayerbook/prayerbook-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1021,17 +1064,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexey Smirnov (238ET3G48T)";
 				DEFINES_MODULE = NO;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"SWIFT_INCLUDE_PATHS[arch=*]" = "$(PROJECT_DIR)/../Squeal/modules";
+				"SWIFT_INCLUDE_PATHS[arch=*]" = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "prayerbook/prayerbook-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;

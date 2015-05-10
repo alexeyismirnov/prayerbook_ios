@@ -123,6 +123,7 @@ class Scripture: UIViewController {
     }
     
     func showChapter(name: String, _ chapter: Int) {
+        
         title = "Chapter \(chapter)"
 
         var text : NSMutableAttributedString? = nil

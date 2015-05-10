@@ -271,7 +271,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lDm-jS-VQP">
-                                            <rect key="frame" x="10" y="0.0" width="25" height="25"/>
+                                            <rect key="frame" x="10" y="5" width="25" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="FtU-nR-69d"/>
                                                 <constraint firstAttribute="width" constant="25" id="nwe-ms-0e7"/>
@@ -280,8 +280,8 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="2ra-KW-o5s" secondAttribute="trailing" priority="999" constant="10" id="01Q-cu-oMV"/>
-                                        <constraint firstItem="lDm-jS-VQP" firstAttribute="top" secondItem="mwe-w3-Yzf" secondAttribute="top" priority="999" id="2Xf-zP-oZS"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2ra-KW-o5s" secondAttribute="bottom" priority="999" constant="5" id="9XL-Nt-8HB"/>
+                                        <constraint firstAttribute="centerY" secondItem="lDm-jS-VQP" secondAttribute="centerY" id="D0y-uf-yxH"/>
                                         <constraint firstItem="2ra-KW-o5s" firstAttribute="leading" secondItem="lDm-jS-VQP" secondAttribute="trailing" priority="999" constant="10" id="Pcs-tA-FX3"/>
                                         <constraint firstItem="lDm-jS-VQP" firstAttribute="leading" secondItem="mwe-w3-Yzf" secondAttribute="leading" priority="999" constant="10" id="d2Q-Te-z5F"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lDm-jS-VQP" secondAttribute="bottom" priority="998" constant="5" id="ixk-WR-aRA"/>

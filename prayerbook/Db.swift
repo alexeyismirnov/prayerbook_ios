@@ -48,6 +48,7 @@ let NewTestament: [(String, String)] = [
 let OldTestament: [(String, String)] = [
 ]
 
+
 struct Db {
 
     static func book(name: String, whereExpr: String = "") -> StepSequence {
@@ -71,3 +72,4 @@ struct Db {
     }
     
 }
+

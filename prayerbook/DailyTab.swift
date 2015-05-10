@@ -69,6 +69,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
 
     func getCell<T: ConfigurableCell>() -> T {
         if let newCell  = tableView.dequeueReusableCellWithIdentifier(T.cellId) as? T {
+            newCell.accessoryType = .None
             return newCell
             
         } else {
@@ -103,14 +104,27 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             case 1:
                 var cell: ImageCell  = getCell()
                 cell.title.text = fasting.1
+                cell.title.textColor =  UIColor.blackColor()
                 cell.icon.image = UIImage(named: "food-\(foodIcon[fasting.0]!)")
+                cell.accessoryType = .DisclosureIndicator
                 return cell
                 
             default:
-                var cell: TextCell = getCell()
-                cell.title.textColor = (dayDescription[indexPath.row-2].0 == FeastType.NoSign) ?  UIColor.blackColor() : UIColor.redColor()
-                cell.title.text = dayDescription[indexPath.row-2].1
-                return cell
+                if dayDescription[indexPath.row-2].0 == FeastType.NoSign {
+                    var cell: TextCell = getCell()
+                    cell.title.textColor =  UIColor.blackColor()
+                    cell.title.text = dayDescription[indexPath.row-2].1
+                    return cell
+                    
+                } else {
+                    var cell: ImageCell = getCell()
+                    cell.title.textColor = UIColor.redColor()
+                    cell.title.text = dayDescription[indexPath.row-2].1
+                    cell.icon.image = UIImage(named: "great")
+                    return cell
+                    
+                }
+                
             }
         
         } else if indexPath.section == 1 {
@@ -120,6 +134,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             cell.title.textColor = UIColor.blackColor()
             cell.title.text = readings[indexPath.row]
             cell.subtitle.text = ""
+            cell.accessoryType = .DisclosureIndicator
+
             return cell
         }
         
