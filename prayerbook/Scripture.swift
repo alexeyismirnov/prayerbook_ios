@@ -102,6 +102,13 @@ class Scripture: UIViewController {
                         let row = formatLine(line!["verse"] as! Int64, line!["text"] as! String)
                         text = text + row
                     }
+                    
+                    for chap in range[0].0+1 ..< range[1].0 {
+                        for line in Db.book(fileName, whereExpr: "chapter=\(chap)") {
+                            let row = formatLine(line!["verse"] as! Int64, line!["text"] as! String)
+                            text = text + row
+                        }
+                    }
 
                     for line in Db.book(fileName, whereExpr: "chapter=\(range[1].0) AND verse<=\(range[1].1)") {
                         let row = formatLine(line!["verse"] as! Int64, line!["text"] as! String)

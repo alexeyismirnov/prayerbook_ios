@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Squeal
 
 let NewTestament: [(String, String)] = [
     ("Gospel of St Matthew", "matthew"),

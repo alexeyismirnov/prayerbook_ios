@@ -44,6 +44,17 @@
 		8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */; };
 		8A41936319E6921600D570A9 /* food-egg.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936119E6921600D570A9 /* food-egg.pdf */; };
 		8A41936419E6921600D570A9 /* food-milk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936219E6921600D570A9 /* food-milk.pdf */; };
+		8A46EA391B01873B001F1E59 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA2E1B01873B001F1E59 /* Bindable.swift */; };
+		8A46EA3A1B01873B001F1E59 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA2F1B01873B001F1E59 /* Database.swift */; };
+		8A46EA3B1B01873B001F1E59 /* DatabasePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA301B01873B001F1E59 /* DatabasePool.swift */; };
+		8A46EA3C1B01873B001F1E59 /* DeleteHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA311B01873B001F1E59 /* DeleteHelpers.swift */; };
+		8A46EA3D1B01873B001F1E59 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA321B01873B001F1E59 /* Errors.swift */; };
+		8A46EA3E1B01873B001F1E59 /* InsertHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA331B01873B001F1E59 /* InsertHelpers.swift */; };
+		8A46EA3F1B01873B001F1E59 /* SchemaHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA341B01873B001F1E59 /* SchemaHelpers.swift */; };
+		8A46EA401B01873B001F1E59 /* SelectHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA351B01873B001F1E59 /* SelectHelpers.swift */; };
+		8A46EA411B01873B001F1E59 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA361B01873B001F1E59 /* Statement.swift */; };
+		8A46EA421B01873B001F1E59 /* TransactionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA371B01873B001F1E59 /* TransactionHelpers.swift */; };
+		8A46EA431B01873B001F1E59 /* UpdateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA381B01873B001F1E59 /* UpdateHelpers.swift */; };
 		8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */; };
 		8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */; };
 		8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FA198F20CC0078F39F /* Foundation.framework */; };
@@ -152,75 +163,7 @@
 		8AF2497C1AFF308B000070C0 /* polyeleos.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249771AFF308B000070C0 /* polyeleos.pdf */; };
 		8AF2497D1AFF308B000070C0 /* sixverse.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249781AFF308B000070C0 /* sixverse.pdf */; };
 		8AF249841AFF4C64000070C0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF249831AFF4C64000070C0 /* libsqlite3.dylib */; };
-		8AF249941AFF5000000070C0 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACBB6F81AE341140008F0D4 /* Squeal.framework */; };
-		8AF249951AFF5000000070C0 /* Squeal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACBB6F81AE341140008F0D4 /* Squeal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		8ACBB6F31AE341140008F0D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8ACBB6E81AE341140008F0D4 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CD7247F71996880300151E1E;
-			remoteInfo = "Squeal-OSX";
-		};
-		8ACBB6F51AE341140008F0D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8ACBB6E81AE341140008F0D4 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CD7248021996880300151E1E;
-			remoteInfo = "Squeal-OSXTests";
-		};
-		8ACBB6F71AE341140008F0D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8ACBB6E81AE341140008F0D4 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CDCBEB4C19C5F6F500862BFD;
-			remoteInfo = "Squeal-iOS";
-		};
-		8ACBB6F91AE341140008F0D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8ACBB6E81AE341140008F0D4 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CDCBEB5619C5F6F500862BFD;
-			remoteInfo = "Squeal-iOSTests";
-		};
-		8ACBB6FB1AE341140008F0D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8ACBB6E81AE341140008F0D4 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CD3DE27919BCD44B00DED437;
-			remoteInfo = "SquealSpecHelpers-OSX";
-		};
-		8ACBB6FD1AE341140008F0D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8ACBB6E81AE341140008F0D4 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CDCBEB7019C5F77900862BFD;
-			remoteInfo = "SquealSpecHelpers-iOS";
-		};
-		8AF249961AFF5000000070C0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8ACBB6E81AE341140008F0D4 /* Squeal.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CDCBEB4B19C5F6F500862BFD;
-			remoteInfo = "Squeal-iOS";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8AF249981AFF5000000070C0 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8AF249951AFF5000000070C0 /* Squeal.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -264,6 +207,17 @@
 		8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-cupcake.pdf"; sourceTree = "<group>"; };
 		8A41936119E6921600D570A9 /* food-egg.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-egg.pdf"; sourceTree = "<group>"; };
 		8A41936219E6921600D570A9 /* food-milk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-milk.pdf"; sourceTree = "<group>"; };
+		8A46EA2E1B01873B001F1E59 /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		8A46EA2F1B01873B001F1E59 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		8A46EA301B01873B001F1E59 /* DatabasePool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabasePool.swift; sourceTree = "<group>"; };
+		8A46EA311B01873B001F1E59 /* DeleteHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteHelpers.swift; sourceTree = "<group>"; };
+		8A46EA321B01873B001F1E59 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		8A46EA331B01873B001F1E59 /* InsertHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertHelpers.swift; sourceTree = "<group>"; };
+		8A46EA341B01873B001F1E59 /* SchemaHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaHelpers.swift; sourceTree = "<group>"; };
+		8A46EA351B01873B001F1E59 /* SelectHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectHelpers.swift; sourceTree = "<group>"; };
+		8A46EA361B01873B001F1E59 /* Statement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
+		8A46EA371B01873B001F1E59 /* TransactionHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionHelpers.swift; sourceTree = "<group>"; };
+		8A46EA381B01873B001F1E59 /* UpdateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHelpers.swift; sourceTree = "<group>"; };
 		8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDetailsCell.swift; sourceTree = "<group>"; };
 		8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		8A74D7F7198F20CC0078F39F /* prayerbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prayerbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -345,7 +299,6 @@
 		8AC7B89219E4CECB00B51294 /* arrow-left.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-left.pdf"; sourceTree = "<group>"; };
 		8AC7B89319E4CECB00B51294 /* arrow-right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-right.pdf"; sourceTree = "<group>"; };
 		8AC7B89619E4D1DE00B51294 /* calendar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = calendar.pdf; sourceTree = "<group>"; };
-		8ACBB6E81AE341140008F0D4 /* Squeal.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Squeal.xcodeproj; path = ../Squeal/Squeal.xcodeproj; sourceTree = "<group>"; };
 		8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyReading.swift; sourceTree = "<group>"; };
 		8ADD7D751A56798A00BA9F37 /* ReadingApostle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingApostle.plist; sourceTree = "<group>"; };
@@ -387,7 +340,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AF249841AFF4C64000070C0 /* libsqlite3.dylib in Frameworks */,
-				8AF249941AFF5000000070C0 /* Squeal.framework in Frameworks */,
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
@@ -407,6 +359,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8A46EA261B01867F001F1E59 /* Squeal */ = {
+			isa = PBXGroup;
+			children = (
+				8A46EA2E1B01873B001F1E59 /* Bindable.swift */,
+				8A46EA2F1B01873B001F1E59 /* Database.swift */,
+				8A46EA301B01873B001F1E59 /* DatabasePool.swift */,
+				8A46EA311B01873B001F1E59 /* DeleteHelpers.swift */,
+				8A46EA321B01873B001F1E59 /* Errors.swift */,
+				8A46EA331B01873B001F1E59 /* InsertHelpers.swift */,
+				8A46EA341B01873B001F1E59 /* SchemaHelpers.swift */,
+				8A46EA351B01873B001F1E59 /* SelectHelpers.swift */,
+				8A46EA361B01873B001F1E59 /* Statement.swift */,
+				8A46EA371B01873B001F1E59 /* TransactionHelpers.swift */,
+				8A46EA381B01873B001F1E59 /* UpdateHelpers.swift */,
+			);
+			path = Squeal;
+			sourceTree = "<group>";
+		};
 		8A74D7EE198F20CC0078F39F = {
 			isa = PBXGroup;
 			children = (
@@ -414,7 +384,6 @@
 				8A74D7F9198F20CC0078F39F /* Frameworks */,
 				8A74D7F8198F20CC0078F39F /* Products */,
 				25E93E93270EA3DD693061FB /* Pods */,
-				8ACBB6E81AE341140008F0D4 /* Squeal.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -441,6 +410,7 @@
 		8A74D800198F20CC0078F39F /* prayerbook */ = {
 			isa = PBXGroup;
 			children = (
+				8A46EA261B01867F001F1E59 /* Squeal */,
 				8AAC691A1A2C4D5D00CC5CA1 /* scripture */,
 				8A74D857199076EF0078F39F /* html */,
 				8A74D844198F624C0078F39F /* images */,
@@ -622,19 +592,6 @@
 			path = scripture;
 			sourceTree = "<group>";
 		};
-		8ACBB6E91AE341140008F0D4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8ACBB6F41AE341140008F0D4 /* Squeal.framework */,
-				8ACBB6F61AE341140008F0D4 /* Squeal-OSXTests.xctest */,
-				8ACBB6F81AE341140008F0D4 /* Squeal.framework */,
-				8ACBB6FA1AE341140008F0D4 /* Squeal-iOSTests.xctest */,
-				8ACBB6FC1AE341140008F0D4 /* SquealSpecHelpers.framework */,
-				8ACBB6FE1AE341140008F0D4 /* SquealSpecHelpers.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -647,12 +604,10 @@
 				8A74D7F4198F20CC0078F39F /* Frameworks */,
 				8A74D7F5198F20CC0078F39F /* Resources */,
 				AC7CA402C5C6E3D32ACF0F87 /* Copy Pods Resources */,
-				8AF249981AFF5000000070C0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8AF249971AFF5000000070C0 /* PBXTargetDependency */,
 			);
 			name = prayerbook;
 			productName = prayerbook;
@@ -687,63 +642,12 @@
 			mainGroup = 8A74D7EE198F20CC0078F39F;
 			productRefGroup = 8A74D7F8198F20CC0078F39F /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 8ACBB6E91AE341140008F0D4 /* Products */;
-					ProjectRef = 8ACBB6E81AE341140008F0D4 /* Squeal.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				8A74D7F6198F20CC0078F39F /* prayerbook */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		8ACBB6F41AE341140008F0D4 /* Squeal.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Squeal.framework;
-			remoteRef = 8ACBB6F31AE341140008F0D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8ACBB6F61AE341140008F0D4 /* Squeal-OSXTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Squeal-OSXTests.xctest";
-			remoteRef = 8ACBB6F51AE341140008F0D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8ACBB6F81AE341140008F0D4 /* Squeal.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Squeal.framework;
-			remoteRef = 8ACBB6F71AE341140008F0D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8ACBB6FA1AE341140008F0D4 /* Squeal-iOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Squeal-iOSTests.xctest";
-			remoteRef = 8ACBB6F91AE341140008F0D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8ACBB6FC1AE341140008F0D4 /* SquealSpecHelpers.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SquealSpecHelpers.framework;
-			remoteRef = 8ACBB6FB1AE341140008F0D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8ACBB6FE1AE341140008F0D4 /* SquealSpecHelpers.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SquealSpecHelpers.framework;
-			remoteRef = 8ACBB6FD1AE341140008F0D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8A74D7F5198F20CC0078F39F /* Resources */ = {
@@ -915,36 +819,39 @@
 				8A3CD13819E5233100A78A32 /* CalendarViewController.swift in Sources */,
 				8AE685E91A2559F00029A149 /* Library.swift in Sources */,
 				8A3CD13619E51D0400A78A32 /* RDVCalendarView.m in Sources */,
+				8A46EA431B01873B001F1E59 /* UpdateHelpers.swift in Sources */,
 				8AEFC27B1A2C747700BAACE0 /* Scripture.swift in Sources */,
+				8A46EA391B01873B001F1E59 /* Bindable.swift in Sources */,
+				8A46EA3A1B01873B001F1E59 /* Database.swift in Sources */,
+				8A46EA3D1B01873B001F1E59 /* Errors.swift in Sources */,
 				8AAE4D831AC8E332009421AF /* ImageCell.swift in Sources */,
+				8A46EA3C1B01873B001F1E59 /* DeleteHelpers.swift in Sources */,
 				8A2F46A919E1302700076AF4 /* Translate.swift in Sources */,
 				8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */,
+				8A46EA421B01873B001F1E59 /* TransactionHelpers.swift in Sources */,
 				8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
+				8A46EA401B01873B001F1E59 /* SelectHelpers.swift in Sources */,
 				8AE821F91AC55D8D000460C1 /* RWLabel.swift in Sources */,
 				8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */,
 				8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */,
 				8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */,
 				8A3CD13519E51D0400A78A32 /* RDVCalendarDayCell.m in Sources */,
 				8A2F46AB19E145D200076AF4 /* Options.swift in Sources */,
+				8A46EA3B1B01873B001F1E59 /* DatabasePool.swift in Sources */,
 				8ACEF0FB1A2EDF5100AF98E0 /* Extensions.swift in Sources */,
+				8A46EA411B01873B001F1E59 /* Statement.swift in Sources */,
 				8AC4E15019DE2BF800CF4271 /* PrayersTab.swift in Sources */,
 				8A2F46A519E11CEA00076AF4 /* Prayer.swift in Sources */,
+				8A46EA3F1B01873B001F1E59 /* SchemaHelpers.swift in Sources */,
 				8AE5DEF819E7A80B0069C757 /* ChurchCalendar.swift in Sources */,
+				8A46EA3E1B01873B001F1E59 /* InsertHelpers.swift in Sources */,
 				8AE821F41AC54F8E000460C1 /* DailyTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8AF249971AFF5000000070C0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Squeal-iOS";
-			targetProxy = 8AF249961AFF5000000070C0 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8A74D803198F20CC0078F39F /* InfoPlist.strings */ = {
@@ -1045,7 +952,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1069,7 +976,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
