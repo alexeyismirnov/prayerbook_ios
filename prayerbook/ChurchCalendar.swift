@@ -55,6 +55,15 @@ struct ChurchCalendar {
     static var feastDates = [NSDate: [NameOfDay]]()
     static var dCache = [ DateCache:NSDate ]()
 
+    static let feastIcon : [FeastType: String] = [
+        .NoSign: "nosign",
+        .SixVerse: "sixverse",
+        .Doxology: "doxology",
+        .Polyeleos: "polyeleos",
+        .Vigil: "vigil",
+        .Great: "great"
+    ]
+
     static let greatFeastCodes : [NameOfDay] = [.PalmSunday, .Pascha, .Ascension, .Pentecost, .NativityOfGod, .Circumcision, .Theophany, .MeetingOfLord, .Annunciation, .NativityOfJohn, .PeterAndPaul, .Transfiguration, .Dormition, .BeheadingOfJohn, .NativityOfTheotokos, .ExaltationOfCross, .Veil, .EntryIntoTemple]
 
     static func saveFeastDate(code: NameOfDay, _ year:Int) {
@@ -231,7 +240,7 @@ struct ChurchCalendar {
         }
 
     }
-    
+
     static func isGreatFeast(date: NSDate) -> Bool {
         if let feastCodes = feastDates[date] {
             for code in feastCodes {

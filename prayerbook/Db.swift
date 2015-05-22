@@ -47,9 +47,16 @@ let NewTestament: [(String, String)] = [
 let OldTestament: [(String, String)] = [
 ]
 
-
 struct Db {
-
+    static func saints(date: NSDate) -> StepSequence {
+        var error: NSError?
+        let dc = NSDateComponents(date: date)
+        let path = NSBundle.mainBundle().pathForResource(String(format: "saints_%02d", dc.month), ofType: "sqlite")!
+        let db = Database(path:path, error:&error)
+        
+        return db!.selectFrom("saints", whereExpr:"day=\(dc.day)", orderBy: "-typikon", error:&error)
+    }
+    
     static func book(name: String, whereExpr: String = "") -> StepSequence {
         var error: NSError?
         let path = NSBundle.mainBundle().pathForResource(name.lowercaseString, ofType: "sqlite")!
@@ -69,6 +76,4 @@ struct Db {
         
         return 0
     }
-    
 }
-

@@ -21,6 +21,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     
     var readings = [String]()
     var dayDescription = [(FeastType, String)]()
+    var saints = [(FeastType, String)]()
 
     var currentDate: NSDate = {
         // this is done to remove time component from date
@@ -45,7 +46,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,16 +55,23 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             return count(dayDescription)+2
         case 1:
             return count(readings)
+        case 2:
+            return count(saints)
         default:
             return 0
         }
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if (section == 0) {
+        switch section {
+        case 0:
             return ""
-        } else {
+        case 1:
             return "Daily Reading"
+        case 2:
+            return "Daily Saints"
+        default:
+            return ""
         }
     }
 
@@ -128,15 +136,29 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             }
         
         } else if indexPath.section == 1 {
-//            var cell: TextCell = getCell()
             var cell: TextDetailsCell = getCell()
-
             cell.title.textColor = UIColor.blackColor()
             cell.title.text = readings[indexPath.row]
             cell.subtitle.text = ""
             cell.accessoryType = .DisclosureIndicator
 
             return cell
+            
+        } else if indexPath.section == 2 {
+            if saints[indexPath.row].0 == .None {
+                var cell: TextCell = getCell()
+                cell.title.textColor =  UIColor.blackColor()
+                cell.title.text = saints[indexPath.row].1
+                return cell
+
+            } else {
+                var cell: ImageCell = getCell()
+                cell.title.textColor = UIColor.blackColor()
+                cell.title.text = saints[indexPath.row].1
+                cell.icon.image = UIImage(named: Cal.feastIcon[saints[indexPath.row].0]!)
+                return cell
+
+            }
         }
         
         var cell: TextCell = getCell()
@@ -201,6 +223,13 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         dayDescription = Cal.getDayDescription(currentDate)
         readings = DailyReading.getDailyReading(currentDate)
         fasting = Cal.getFastingDescription(currentDate)
+        
+        saints=[]
+        for line in Db.saints(currentDate) {
+            let name = line!["name"] as! String
+            let typikon = FeastType(rawValue: Int(line!["typikon"] as! Int64))
+            saints.append((typikon!, name))
+        }
 
         tableView.reloadData()
     }
