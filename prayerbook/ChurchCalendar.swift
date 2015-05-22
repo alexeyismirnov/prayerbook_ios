@@ -2,7 +2,7 @@
 import UIKit
 
 enum FeastType: Int {
-    case NoSign=0, SixVerse, Doxology, Polyeleos, Vigil, Great
+    case None=0, NoSign, SixVerse, Doxology, Polyeleos, Vigil, Great
 }
 
 enum NameOfDay: Int {
