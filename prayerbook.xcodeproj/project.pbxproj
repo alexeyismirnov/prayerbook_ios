@@ -163,6 +163,8 @@
 		8AF2497C1AFF308B000070C0 /* polyeleos.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249771AFF308B000070C0 /* polyeleos.pdf */; };
 		8AF2497D1AFF308B000070C0 /* sixverse.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249781AFF308B000070C0 /* sixverse.pdf */; };
 		8AF249841AFF4C64000070C0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF249831AFF4C64000070C0 /* libsqlite3.dylib */; };
+		8AFAA3971B12E57B001699D6 /* saints_05.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AFAA3961B12E57B001699D6 /* saints_05.sqlite */; };
+		8AFAA3991B12E90B001699D6 /* saints_05.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AFAA3981B12E90B001699D6 /* saints_05.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -331,6 +333,8 @@
 		8AF249771AFF308B000070C0 /* polyeleos.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = polyeleos.pdf; sourceTree = "<group>"; };
 		8AF249781AFF308B000070C0 /* sixverse.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = sixverse.pdf; sourceTree = "<group>"; };
 		8AF249831AFF4C64000070C0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		8AFAA3961B12E57B001699D6 /* saints_05.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_05.sqlite; sourceTree = "<group>"; };
+		8AFAA3981B12E90B001699D6 /* saints_05.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_05.txt; sourceTree = "<group>"; };
 		FB949D5EE4022DBBF8C2E216 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -596,6 +600,8 @@
 		8ADFF51E1B0F1D02001AE6A9 /* saints */ = {
 			isa = PBXGroup;
 			children = (
+				8AFAA3981B12E90B001699D6 /* saints_05.txt */,
+				8AFAA3961B12E57B001699D6 /* saints_05.sqlite */,
 			);
 			path = saints;
 			sourceTree = "<group>";
@@ -679,6 +685,7 @@
 				8A41936419E6921600D570A9 /* food-milk.pdf in Resources */,
 				8A9A3DD519D3AE1600A7D82A /* prayer_communion_4_cn.html in Resources */,
 				8A3A21191A46C0150052861D /* 3john.sqlite in Resources */,
+				8AFAA3991B12E90B001699D6 /* saints_05.txt in Resources */,
 				8AEF81AF19999D39000B3D90 /* icon-iphone6@2x.png in Resources */,
 				8AEF81AC19999D39000B3D90 /* icon-ipad6@2x.png in Resources */,
 				8AC1B10E199866FF00A017C7 /* launch-ipad@2x.png in Resources */,
@@ -689,6 +696,7 @@
 				8AEF81AB19999D39000B3D90 /* icon-ipad6.png in Resources */,
 				8AF2497D1AFF308B000070C0 /* sixverse.pdf in Resources */,
 				8AF249791AFF308B000070C0 /* doxology.pdf in Resources */,
+				8AFAA3971B12E57B001699D6 /* saints_05.sqlite in Resources */,
 				8AF2496D1AFF27E0000070C0 /* vigil.pdf in Resources */,
 				8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */,
 				8A2F46A119E110CF00076AF4 /* prayer_group_1_en.html in Resources */,
