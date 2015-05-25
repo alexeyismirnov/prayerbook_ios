@@ -141,7 +141,6 @@
 		8ADD7D851A56A5C200BA9F37 /* gen.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD7D821A56A5C200BA9F37 /* gen.sqlite */; };
 		8ADD7D861A56A5C200BA9F37 /* isa.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD7D831A56A5C200BA9F37 /* isa.sqlite */; };
 		8ADD7D871A56A5C200BA9F37 /* prov.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD7D841A56A5C200BA9F37 /* prov.sqlite */; };
-		8ADFF5201B0F1D48001AE6A9 /* saints_05.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ADFF51F1B0F1D48001AE6A9 /* saints_05.sqlite */; };
 		8AE5DEF819E7A80B0069C757 /* ChurchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */; };
 		8AE685E91A2559F00029A149 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE685E81A2559F00029A149 /* Library.swift */; };
 		8AE821F41AC54F8E000460C1 /* DailyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821F31AC54F8E000460C1 /* DailyTab.swift */; };
@@ -310,7 +309,6 @@
 		8ADD7D821A56A5C200BA9F37 /* gen.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = gen.sqlite; sourceTree = "<group>"; };
 		8ADD7D831A56A5C200BA9F37 /* isa.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = isa.sqlite; sourceTree = "<group>"; };
 		8ADD7D841A56A5C200BA9F37 /* prov.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = prov.sqlite; sourceTree = "<group>"; };
-		8ADFF51F1B0F1D48001AE6A9 /* saints_05.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_05.sqlite; sourceTree = "<group>"; };
 		8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchCalendar.swift; sourceTree = "<group>"; };
 		8AE685E81A2559F00029A149 /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		8AE821F31AC54F8E000460C1 /* DailyTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab.swift; sourceTree = "<group>"; };
@@ -598,7 +596,6 @@
 		8ADFF51E1B0F1D02001AE6A9 /* saints */ = {
 			isa = PBXGroup;
 			children = (
-				8ADFF51F1B0F1D48001AE6A9 /* saints_05.sqlite */,
 			);
 			path = saints;
 			sourceTree = "<group>";
@@ -692,7 +689,6 @@
 				8AEF81AB19999D39000B3D90 /* icon-ipad6.png in Resources */,
 				8AF2497D1AFF308B000070C0 /* sixverse.pdf in Resources */,
 				8AF249791AFF308B000070C0 /* doxology.pdf in Resources */,
-				8ADFF5201B0F1D48001AE6A9 /* saints_05.sqlite in Resources */,
 				8AF2496D1AFF27E0000070C0 /* vigil.pdf in Resources */,
 				8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */,
 				8A2F46A119E110CF00076AF4 /* prayer_group_1_en.html in Resources */,
