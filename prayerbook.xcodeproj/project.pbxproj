@@ -57,6 +57,8 @@
 		8A46EA431B01873B001F1E59 /* UpdateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA381B01873B001F1E59 /* UpdateHelpers.swift */; };
 		8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */; };
 		8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */; };
+		8A59F34D1B14371800B15FA1 /* saints_07.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A59F34B1B14371800B15FA1 /* saints_07.sqlite */; };
+		8A59F34E1B14371800B15FA1 /* saints_07.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A59F34C1B14371800B15FA1 /* saints_07.txt */; };
 		8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FA198F20CC0078F39F /* Foundation.framework */; };
 		8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */; };
 		8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FE198F20CC0078F39F /* UIKit.framework */; };
@@ -224,6 +226,8 @@
 		8A46EA381B01873B001F1E59 /* UpdateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHelpers.swift; sourceTree = "<group>"; };
 		8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDetailsCell.swift; sourceTree = "<group>"; };
 		8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
+		8A59F34B1B14371800B15FA1 /* saints_07.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_07.sqlite; sourceTree = "<group>"; };
+		8A59F34C1B14371800B15FA1 /* saints_07.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_07.txt; sourceTree = "<group>"; };
 		8A74D7F7198F20CC0078F39F /* prayerbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prayerbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A74D7FA198F20CC0078F39F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -604,6 +608,8 @@
 		8ADFF51E1B0F1D02001AE6A9 /* saints */ = {
 			isa = PBXGroup;
 			children = (
+				8A59F34B1B14371800B15FA1 /* saints_07.sqlite */,
+				8A59F34C1B14371800B15FA1 /* saints_07.txt */,
 				8AF163921B1418880093CC77 /* saints_06.sqlite */,
 				8AF163931B1418880093CC77 /* saints_06.txt */,
 				8AFAA3981B12E90B001699D6 /* saints_05.txt */,
@@ -681,6 +687,7 @@
 				8A74D833198F224E0078F39F /* Main.storyboard in Resources */,
 				8A3A211F1A46C0150052861D /* jude.sqlite in Resources */,
 				8AC6951619E3FBC200773FEB /* food-bread.pdf in Resources */,
+				8A59F34E1B14371800B15FA1 /* saints_07.txt in Resources */,
 				8A81858E19D2E3F300D4B328 /* prayer_daily_2_en.html in Resources */,
 				8A81857F19D2E3F300D4B328 /* prayer_communion_0_cn.html in Resources */,
 				8AC1B115199871DE00A017C7 /* trans_cn.plist in Resources */,
@@ -709,6 +716,7 @@
 				8A41936319E6921600D570A9 /* food-egg.pdf in Resources */,
 				8A9A3DE219D3AE2800A7D82A /* prayer_group_3_en.html in Resources */,
 				8A8810EA1A300DE40095C081 /* mark.sqlite in Resources */,
+				8A59F34D1B14371800B15FA1 /* saints_07.sqlite in Resources */,
 				8AF2497B1AFF308B000070C0 /* nosign.pdf in Resources */,
 				8A74D83F198F5F350078F39F /* index_cn.plist in Resources */,
 				8A3A21101A46C0150052861D /* 1john.sqlite in Resources */,
