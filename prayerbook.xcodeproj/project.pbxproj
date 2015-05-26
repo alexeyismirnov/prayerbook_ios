@@ -156,6 +156,8 @@
 		8AEF81B11999A194000B3D90 /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AEF81B01999A194000B3D90 /* icon1024.png */; };
 		8AEFC27B1A2C747700BAACE0 /* Scripture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFC27A1A2C747700BAACE0 /* Scripture.swift */; };
 		8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFC27C1A2C8DF800BAACE0 /* Db.swift */; };
+		8AF163941B1418880093CC77 /* saints_06.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AF163921B1418880093CC77 /* saints_06.sqlite */; };
+		8AF163951B1418880093CC77 /* saints_06.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AF163931B1418880093CC77 /* saints_06.txt */; };
 		8AF2496D1AFF27E0000070C0 /* vigil.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF2496C1AFF27E0000070C0 /* vigil.pdf */; };
 		8AF249791AFF308B000070C0 /* doxology.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249741AFF308B000070C0 /* doxology.pdf */; };
 		8AF2497A1AFF308B000070C0 /* great.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249751AFF308B000070C0 /* great.pdf */; };
@@ -326,6 +328,8 @@
 		8AEF81B01999A194000B3D90 /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024.png; sourceTree = "<group>"; };
 		8AEFC27A1A2C747700BAACE0 /* Scripture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripture.swift; sourceTree = "<group>"; };
 		8AEFC27C1A2C8DF800BAACE0 /* Db.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Db.swift; sourceTree = "<group>"; };
+		8AF163921B1418880093CC77 /* saints_06.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_06.sqlite; sourceTree = "<group>"; };
+		8AF163931B1418880093CC77 /* saints_06.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_06.txt; sourceTree = "<group>"; };
 		8AF2496C1AFF27E0000070C0 /* vigil.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = vigil.pdf; sourceTree = "<group>"; };
 		8AF249741AFF308B000070C0 /* doxology.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = doxology.pdf; sourceTree = "<group>"; };
 		8AF249751AFF308B000070C0 /* great.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = great.pdf; sourceTree = "<group>"; };
@@ -600,6 +604,8 @@
 		8ADFF51E1B0F1D02001AE6A9 /* saints */ = {
 			isa = PBXGroup;
 			children = (
+				8AF163921B1418880093CC77 /* saints_06.sqlite */,
+				8AF163931B1418880093CC77 /* saints_06.txt */,
 				8AFAA3981B12E90B001699D6 /* saints_05.txt */,
 				8AFAA3961B12E57B001699D6 /* saints_05.sqlite */,
 			);
@@ -726,11 +732,13 @@
 				8A81858A19D2E3F300D4B328 /* prayer_daily_0_en.html in Resources */,
 				8A3A21151A46C0150052861D /* 2john.sqlite in Resources */,
 				8A74D816198F20CC0078F39F /* Images.xcassets in Resources */,
+				8AF163951B1418880093CC77 /* saints_06.txt in Resources */,
 				8A81858D19D2E3F300D4B328 /* prayer_daily_2_cn.html in Resources */,
 				8AC6951E19E3FBC200773FEB /* food-no-milk.pdf in Resources */,
 				8ADD7D7D1A56863D00BA9F37 /* ReadingMatthew.plist in Resources */,
 				8ADD7D861A56A5C200BA9F37 /* isa.sqlite in Resources */,
 				8AEF81B11999A194000B3D90 /* icon1024.png in Resources */,
+				8AF163941B1418880093CC77 /* saints_06.sqlite in Resources */,
 				8A3A21121A46C0150052861D /* 1thess.sqlite in Resources */,
 				8AEF81AA19999D39000B3D90 /* icon-ipad@2x.png in Resources */,
 				8A81858C19D2E3F300D4B328 /* prayer_daily_1_en.html in Resources */,
