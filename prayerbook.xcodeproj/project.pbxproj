@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		11D18E423D5F8676724AC564 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB949D5EE4022DBBF8C2E216 /* libPods.a */; };
+		8A06E66F1B187FC300925F63 /* saints_12.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A06E66D1B187FC300925F63 /* saints_12.sqlite */; };
+		8A06E6701B187FC300925F63 /* saints_12.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A06E66E1B187FC300925F63 /* saints_12.txt */; };
 		8A2F469E19E110CF00076AF4 /* prayer_group_0_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469A19E110CF00076AF4 /* prayer_group_0_cn.html */; };
 		8A2F469F19E110CF00076AF4 /* prayer_group_0_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469B19E110CF00076AF4 /* prayer_group_0_en.html */; };
 		8A2F46A019E110CF00076AF4 /* prayer_group_1_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469C19E110CF00076AF4 /* prayer_group_1_cn.html */; };
@@ -182,6 +184,8 @@
 /* Begin PBXFileReference section */
 		5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8A06E66D1B187FC300925F63 /* saints_12.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_12.sqlite; sourceTree = "<group>"; };
+		8A06E66E1B187FC300925F63 /* saints_12.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_12.txt; sourceTree = "<group>"; };
 		8A2F469A19E110CF00076AF4 /* prayer_group_0_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_0_cn.html; sourceTree = "<group>"; };
 		8A2F469B19E110CF00076AF4 /* prayer_group_0_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_0_en.html; sourceTree = "<group>"; };
 		8A2F469C19E110CF00076AF4 /* prayer_group_1_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_1_cn.html; sourceTree = "<group>"; };
@@ -624,6 +628,8 @@
 		8ADFF51E1B0F1D02001AE6A9 /* saints */ = {
 			isa = PBXGroup;
 			children = (
+				8A06E66D1B187FC300925F63 /* saints_12.sqlite */,
+				8A06E66E1B187FC300925F63 /* saints_12.txt */,
 				8AA3DF5C1B185AE800507129 /* saints_11.sqlite */,
 				8AA3DF5D1B185AE800507129 /* saints_11.txt */,
 				8AA3DF541B18594F00507129 /* saints_10.sqlite */,
@@ -794,6 +800,8 @@
 				8ADD7D851A56A5C200BA9F37 /* gen.sqlite in Resources */,
 				8A81858219D2E3F300D4B328 /* prayer_communion_1_en.html in Resources */,
 				8A3A21181A46C0150052861D /* 2tim.sqlite in Resources */,
+				8A06E66F1B187FC300925F63 /* saints_12.sqlite in Resources */,
+				8A06E6701B187FC300925F63 /* saints_12.txt in Resources */,
 				8AC1B10F199866FF00A017C7 /* launch-iphone@2x.png in Resources */,
 				8AF2497C1AFF308B000070C0 /* polyeleos.pdf in Resources */,
 				8AC6950B19E3EDED00773FEB /* food-vegetables.pdf in Resources */,
