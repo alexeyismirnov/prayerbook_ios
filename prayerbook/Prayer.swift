@@ -13,6 +13,7 @@ class Prayer: UIViewController {
     @IBOutlet weak var webView: UIWebView!
     var index:Int!
     var code:String!
+    var name:String!
     
     func reload() {
         let filename = String(format: "prayer_%@_%d_%@.html", code, index, Translate.language)
@@ -31,19 +32,13 @@ class Prayer: UIViewController {
         self.webView.scrollView.bounces = false
         
         self.webView.loadHTMLString(txt, baseURL: NSURL())
-        let titles = Translate.tableViewStrings(code)
-        self.title = titles[index]
-    }
-    
-    func optionsSaved(params: NSNotification) {
-        self.reload()
+        self.title = Translate.s(name)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionsSaved:", name: optionsSavedNotification, object: nil)
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: optionsSavedNotification, object: nil)
         self.reload()
     }
     

@@ -53,7 +53,7 @@ struct ChurchCalendar {
     static var currentYear: Int!
     static var currentWeekday: DayOfWeek!
     static var feastDates = [NSDate: [NameOfDay]]()
-    static var dCache = [ DateCache:NSDate ]()
+    static var dCache = [DateCache:NSDate]()
 
     static let feastIcon : [FeastType: String] = [
         .NoSign: "nosign",

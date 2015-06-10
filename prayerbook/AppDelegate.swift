@@ -10,14 +10,16 @@ import UIKit
 
 class AppDelegate : UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow!
-    
+    var window: UIWindow?
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         
         let prefs = NSUserDefaults.standardUserDefaults()
         var fontSize = prefs.integerForKey("fontSize")
         let lang = NSLocale.preferredLanguages()[0] as! String
 
+        Translate.files.append("trans_ui")
+        
         // the first time app is launched
         if fontSize == 0 {
 

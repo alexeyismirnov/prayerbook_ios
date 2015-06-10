@@ -9,9 +9,10 @@
 import UIKit
 
 struct Translate {
-    private static var dict : NSDictionary?
+    private static var dict = [String:String]()
     static var defaultLanguage = "en"
     static var locale  = NSLocale(localeIdentifier: "en")
+    static var files = [String]()
     
     static var language:String = defaultLanguage {
         didSet {
@@ -21,9 +22,12 @@ struct Translate {
                 return
             }
             
-            let bundle = NSBundle.mainBundle().pathForResource("trans_\(language)", ofType: "plist")
-            dict = NSDictionary(contentsOfFile: bundle!)
-            
+            dict = [:]
+            for (index, file) in enumerate(files) {
+                let bundle = NSBundle.mainBundle().pathForResource("\(file)_\(language)", ofType: "plist")
+                let newDict = NSDictionary(contentsOfFile: bundle!) as! [String: String]
+                dict += newDict
+            }
         }
     }
     
@@ -32,22 +36,10 @@ struct Translate {
             return str
         }
         
-        if let trans_str = dict?.valueForKey(str) as? String  {
+        if let trans_str = dict[str] as String!  {
             return trans_str
         } else {
             return str
         }
     }
-    
-    static func tableViewStrings(code: String) -> [String] {
-        let bundle = NSBundle.mainBundle().pathForResource("index_\(language)", ofType: "plist")
-        let table = NSDictionary(contentsOfFile: bundle!)
-        
-        if let trans_table = table?.objectForKey(code) as? [String] {
-            return trans_table
-        } else {
-            return []
-        }
-    }
-    
 }

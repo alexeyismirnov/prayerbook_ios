@@ -11,12 +11,18 @@ import UIKit
 class PrayersTab: UITableViewController {
 
     var titles = [[String]]()
+    
     var tab_index: NSNumber!
     var sections = [ ["communion"], ["daily", "group"] ]
     
     func reload() {
-        for (index, prayer_type) in enumerate(sections[tab_index as Int]) {
-            titles.append(Translate.tableViewStrings(prayer_type))
+        
+        let bundle = NSBundle.mainBundle().pathForResource("prayers", ofType: "plist")
+        let table = NSDictionary(contentsOfFile: bundle!) as! [String:[String]]
+        
+        titles=[]
+        for (index, code) in enumerate(sections[tab_index as Int]) {
+            titles.append(table[code]!)
         }
         
         self.tableView.reloadData()
@@ -36,9 +42,10 @@ class PrayersTab: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Prayer" {
             var view = segue.destinationViewController as! Prayer
-            var index = self.tableView.indexPathForSelectedRow();
-            view.index = index!.row
-            view.code = sections[tab_index as Int][index!.section]
+            var index = self.tableView.indexPathForSelectedRow() as NSIndexPath!
+            view.index = index.row
+            view.code = sections[tab_index as Int][index.section]
+            view.name = titles[index.section][index.row]
         }
     }
     
@@ -60,7 +67,7 @@ class PrayersTab: UITableViewController {
             newCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
         }
         
-        newCell!.textLabel!.text = titles[indexPath.section][indexPath.row]
+        newCell!.textLabel!.text = Translate.s(titles[indexPath.section][indexPath.row])
         return newCell!
     }
 

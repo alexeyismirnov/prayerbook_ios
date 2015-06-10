@@ -159,6 +159,10 @@ func += <K,V> (inout left: Dictionary<K, [V]>, right: Dictionary<K, [V]>) {
     }
 }
 
+func +=<K, V> (inout left: [K:V], right: [K:V]) {
+    for (k, v) in right { left[k] = v }
+}
+
 extension NSDate: Comparable {
 }
 
