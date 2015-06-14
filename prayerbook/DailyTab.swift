@@ -118,7 +118,9 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                 return cell
                 
             default:
-                if dayDescription[indexPath.row-2].0 == FeastType.NoSign {
+                let feast:FeastType = dayDescription[indexPath.row-2].0
+
+                if feast == .None {
                     var cell: TextCell = getCell()
                     cell.title.textColor =  UIColor.blackColor()
                     cell.title.text = dayDescription[indexPath.row-2].1
@@ -126,13 +128,11 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                     
                 } else {
                     var cell: ImageCell = getCell()
-                    cell.title.textColor = UIColor.redColor()
+                    cell.title.textColor = (feast == .Great) ? UIColor.redColor() : UIColor.blackColor()
                     cell.title.text = dayDescription[indexPath.row-2].1
-                    cell.icon.image = UIImage(named: "great")
+                    cell.icon.image = UIImage(named: Cal.feastIcon[feast]!)
                     return cell
-                    
                 }
-                
             }
         
         } else if indexPath.section == 1 {
