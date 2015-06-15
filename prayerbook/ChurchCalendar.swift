@@ -6,7 +6,7 @@ enum FeastType: Int {
 }
 
 enum NameOfDay: Int {
-    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod=5, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord=10, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition=15, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple=20, StNicholas, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon=25, SundayOfDreadJudgement, ForgivenessSunday, LazarusSaturday, BeginningOfDormitionFast, BeginningOfNativityFast=30, BeginningOfApostolesFast, HolySpirit, SundayOfForefathers, SundayOfFathers, PaschaPrevYear=35, HolySpiritPrevYear, SundayAfterExaltation, SundayAfterExaltationPrevYear, SaturdayAfterExaltation, SaturdayBeforeExaltation=40, SundayBeforeExaltation, SaturdayBeforeNativity, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany=45, SundayBeforeTheophany, SaturdayAfterTheophany, SundayAfterTheophany, FridayAfterExaltation, EndOfYear=50
+    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod=5, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord=10, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition=15, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple=20, StNicholas, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon=25, SundayOfDreadJudgement, BeginningOfDormitionFast, BeginningOfNativityFast, BeginningOfApostolesFast, HolySpirit=30, SundayOfForefathers, SundayOfFathers, PaschaPrevYear, HolySpiritPrevYear, SundayAfterExaltation=35, SundayAfterExaltationPrevYear, SaturdayAfterExaltation, SaturdayBeforeExaltation, SundayBeforeExaltation, SaturdayBeforeNativity=40, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany, SundayBeforeTheophany, SaturdayAfterTheophany=45, SundayAfterTheophany, FridayAfterExaltation, EndOfYear
 }
 
 enum FastingType: Int {
@@ -113,6 +113,7 @@ struct ChurchCalendar {
         let greatLentStart = pascha-48.days
 
         let sundays : [NSDate: [(FeastType, String)]] = [
+            greatLentStart-1.days:  [(.None,   "Cheesefare Sunday (Forgiveness Sunday): Commemoration of the Expulsion of Adam from Paradise")],
             greatLentStart+6.days:  [(.None,   "First Sunday of Lent: Triumph of Orthodoxy")],
             greatLentStart+13.days: [(.None,   "Second Sunday of Great Lent"),
                                      (.NoSign, "Saint Gregory Palamas, Archbishop of Thessalonica († c. 1360)")],
@@ -121,6 +122,7 @@ struct ChurchCalendar {
                                      (.NoSign, "Venerable John Climacus of Sinai, Author of “the Ladder” († 649)")],
             greatLentStart+34.days: [(.None,   "Fifth Sunday of Great Lent"),
                                      (.None,   "Venerable Mary of Egypt")],
+            greatLentStart+40.days: [(.None,   "Saturday of Palms (Lazarus Saturday)")],
             pascha+7.days:          [(.None,   "Second Sunday after Pascha. Thomas Sunday, or Antipascha")],
             pascha+14.days:         [(.None,   "Third Sunday after Pascha. Sunday of the Myrrhbearing Women"),
                                      (.NoSign, "St Joseph of Arimathea, and Nicodemus"),
@@ -148,9 +150,7 @@ struct ChurchCalendar {
             greatLentStart-22.days:                   [.SundayOfPublicianAndPharisee],
             greatLentStart-15.days:                   [.SundayOfProdigalSon],
             greatLentStart-8.days:                    [.SundayOfDreadJudgement],
-            greatLentStart-1.days:                    [.ForgivenessSunday],
             greatLentStart:                           [.BeginningOfGreatLent],
-            greatLentStart+40.days:                   [.LazarusSaturday],
             pascha-7.days:                            [.PalmSunday],
             pascha:                                   [.Pascha],
             pascha+39.days:                           [.Ascension],
@@ -275,8 +275,7 @@ struct ChurchCalendar {
     
     static func getDayDescription(date: NSDate) -> [(FeastType, String)] {
         var result = [(FeastType, String)]()
-        let sundays : [NameOfDay] = [.ZacchaeusSunday, .SundayOfPublicianAndPharisee, .SundayOfProdigalSon, .SundayOfDreadJudgement,
-            .ForgivenessSunday]
+        let sundays : [NameOfDay] = [.ZacchaeusSunday, .SundayOfPublicianAndPharisee, .SundayOfProdigalSon, .SundayOfDreadJudgement]
         
         setDate(date)
 
@@ -333,12 +332,9 @@ struct ChurchCalendar {
         case d(.SundayOfDreadJudgement):
             return dict[NameOfDay.SundayOfDreadJudgement.rawValue][Translate.language] as String!
             
-        case d(.SundayOfDreadJudgement)+1.days ..< d(.ForgivenessSunday):
+        case d(.SundayOfDreadJudgement)+1.days ..< d(.BeginningOfGreatLent)-1.days:
             return "Week of the Dread Judgement"
-            
-        case d(.ForgivenessSunday):
-            return dict[NameOfDay.ForgivenessSunday.rawValue][Translate.language] as String!
-            
+
         case d(.BeginningOfGreatLent) ..< d(.PalmSunday):
             let weekNum = (d(.BeginningOfGreatLent) >> date)/7+1
             
@@ -442,7 +438,7 @@ struct ChurchCalendar {
         case d(.SundayOfPublicianAndPharisee)+1.days ... d(.SundayOfProdigalSon):
             return (.FastFree, "Fast-free week")
             
-        case d(.SundayOfDreadJudgement)+1.days ... d(.ForgivenessSunday):
+        case d(.SundayOfDreadJudgement)+1.days ..< d(.BeginningOfGreatLent):
             return (.Cheesefare, "Maslenitsa")
             
         case d(.BeginningOfGreatLent) ..< d(.PalmSunday):
