@@ -184,12 +184,6 @@
 	</dict>
 	<dict>
 		<key>en</key>
-		<string>Day of the Holy Spirit</string>
-		<key>cn</key>
-		<string>上帝圣灵日</string>
-	</dict>
-	<dict>
-		<key>en</key>
 		<string>Sunday of the Holy Forefathers</string>
 		<key>cn</key>
 		<string>众圣祖主日</string>
@@ -199,18 +193,6 @@
 		<string>Sunday before the Nativity of Christ, of the Fathers</string>
 		<key>cn</key>
 		<string>主降生节前主日——众圣父主日</string>
-	</dict>
-	<dict>
-		<key>en</key>
-		<string></string>
-		<key>cn</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>en</key>
-		<string></string>
-		<key>cn</key>
-		<string></string>
 	</dict>
 	<dict>
 		<key>en</key>
@@ -284,14 +266,13 @@
 		<key>cn</key>
 		<string>主显节后主日</string>
 	</dict>
-    <dict>
-        <key>en</key>
-        <string></string>
-        <key>cn</key>
-        <string></string>
-    </dict>
-
-<dict>
+	<dict>
+		<key>en</key>
+		<string></string>
+		<key>cn</key>
+		<string></string>
+	</dict>
+	<dict>
 		<key>en</key>
 		<string></string>
 		<key>cn</key>

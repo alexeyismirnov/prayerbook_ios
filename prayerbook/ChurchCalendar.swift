@@ -6,7 +6,7 @@ enum FeastType: Int {
 }
 
 enum NameOfDay: Int {
-    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod=5, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord=10, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition=15, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple=20, StNicholas, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon=25, SundayOfDreadJudgement, BeginningOfDormitionFast, BeginningOfNativityFast, BeginningOfApostolesFast, HolySpirit=30, SundayOfForefathers, SundayOfFathers, PaschaPrevYear, HolySpiritPrevYear, SundayAfterExaltation=35, SundayAfterExaltationPrevYear, SaturdayAfterExaltation, SaturdayBeforeExaltation, SundayBeforeExaltation, SaturdayBeforeNativity=40, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany, SundayBeforeTheophany, SaturdayAfterTheophany=45, SundayAfterTheophany, FridayAfterExaltation, EndOfYear
+    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod=5, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord=10, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition=15, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple=20, StNicholas, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon=25, SundayOfDreadJudgement, BeginningOfDormitionFast, BeginningOfNativityFast, BeginningOfApostolesFast, SundayOfForefathers=30, SundayOfFathers, SundayAfterExaltation, SundayAfterExaltationPrevYear, SaturdayAfterExaltation, SaturdayBeforeExaltation=35, SundayBeforeExaltation, SaturdayBeforeNativity, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany=40, SundayBeforeTheophany, SaturdayAfterTheophany, SundayAfterTheophany, FridayAfterExaltation, EndOfYear=45
 }
 
 enum FastingType: Int {
@@ -76,10 +76,7 @@ struct ChurchCalendar {
         
         var res = filter(feastDates, { (date, codes) in
             
-            let targetYear = (code == .PaschaPrevYear ||
-                              code == .HolySpiritPrevYear ||
-                              code == .SundayAfterExaltationPrevYear) ? year-1 : year
-            
+            let targetYear = (code == .SundayAfterExaltationPrevYear) ? year-1 : year
             return contains(codes, code) && NSDateComponents(date:date).year == targetYear
         })
         
@@ -134,7 +131,8 @@ struct ChurchCalendar {
             pascha+35.days:         [(.None,   "Sixth Sunday after Pascha. Sunday of the Blind Man")],
             pascha+42.days:         [(.None,   "Seventh Sunday after Pascha. Commemoration of the 318 Holy Fathers of the First Ecumenical Council (325)"),
                                      (.None,   "Chelnskoy and Pskov-Kiev Caves called “Tenderness” icons of the Mother of God")],
-
+            pascha+50.days:         [(.None,   "Day of the Holy Spirit"),
+                                     (.None,   "Icons of the Mother of God “Tupichevsk” (1847) and “Cypriot” (392) ")],
         ]
         
         otherFeasts += sundays
@@ -142,7 +140,6 @@ struct ChurchCalendar {
     
     static func generateMainFeasts(year: Int) {
         let pascha = paschaDay(year)
-        let prevPascha = paschaDay(year-1)
         let greatLentStart = pascha-48.days
 
         let movingFeasts : [NSDate: [NameOfDay]] = [
@@ -155,11 +152,7 @@ struct ChurchCalendar {
             pascha:                                   [.Pascha],
             pascha+39.days:                           [.Ascension],
             pascha+49.days:                           [.Pentecost],
-            pascha+50.days:                           [.HolySpirit],
             pascha+57.days:                           [.BeginningOfApostolesFast],
-            
-            prevPascha:                               [.PaschaPrevYear],
-            prevPascha+50.days:                       [.HolySpiritPrevYear],
         ]
         
         let fixedFeasts : [NSDate: [NameOfDay]] = [
@@ -314,7 +307,7 @@ struct ChurchCalendar {
                 return dict[NameOfDay.ZacchaeusSunday.rawValue][Translate.language] as String!
 
             } else {
-                return  String(format: Translate.s("\(dayOfWeek) %d after Pentecost"), (d(.HolySpiritPrevYear) >> date)/7+1)
+                return  String(format: Translate.s("\(dayOfWeek) %d after Pentecost"), ((paschaDay(currentYear-1)+50.days) >> date)/7+1)
             }
 
         case d(.SundayOfPublicianAndPharisee):
@@ -360,11 +353,11 @@ struct ChurchCalendar {
                 return  "Week \(weekNum) after Pascha"
             }
 
-        case d(.HolySpirit) ..< d(.Pentecost)+7.days:
+        case d(.Pentecost)+1.days ..< d(.Pentecost)+7.days:
             return "Trinity Week"
             
         case d(.Pentecost)+7.days ... d(.EndOfYear):
-            return  String(format: Translate.s("\(dayOfWeek) %d after Pentecost"), (d(.HolySpirit) >> date)/7+1)
+            return  String(format: Translate.s("\(dayOfWeek) %d after Pentecost"), ((d(.Pentecost)+1.days) >> date)/7+1)
             
         default: return nil
         }
@@ -388,7 +381,7 @@ struct ChurchCalendar {
 
         switch (date) {
         case d(.StartOfYear) ..< d(.PalmSunday):
-            return String(format: Translate.s("Tone %@"), formatter.stringFromNumber(tone(dayNum: d(.PaschaPrevYear) >> date))!)
+            return String(format: Translate.s("Tone %@"), formatter.stringFromNumber(tone(dayNum: paschaDay(currentYear-1) >> date))!)
 
         case d(.Pascha)+7.days ... d(.EndOfYear):
             return String(format: Translate.s("Tone %@"), formatter.stringFromNumber(tone(dayNum: d(.Pascha) >> date))!)

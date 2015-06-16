@@ -71,7 +71,7 @@ struct DailyReading {
         let bundleMatthew = NSBundle.mainBundle().pathForResource("ReadingMatthew", ofType: "plist")
         let gospel = NSArray(contentsOfFile: bundleMatthew!) as! [String]
 
-        var dayNum = Cal.d(.HolySpirit) >> date;
+        var dayNum = (Cal.d(.Pentecost)+1.days) >> date;
         var readings = apostle[dayNum] + " "
         
         if dayNum >= 17*7 {
@@ -95,7 +95,7 @@ struct DailyReading {
 
         var gospelIndex:Int, apostleIndex:Int
         let PAPSunday = Cal.d(.SundayOfPublicianAndPharisee)
-        let daysFromPentecost = Cal.d(.HolySpiritPrevYear) >> date
+        let daysFromPentecost = (Cal.paschaDay(Cal.currentYear-1) + 50.days) >> date
         let daysFromExaltation = (Cal.d(.SundayAfterExaltationPrevYear)+1.days) >> date
         let endOfLukeReadings = Cal.d(.SundayAfterExaltationPrevYear)+112.days
         let totalOffset = endOfLukeReadings >> PAPSunday
@@ -144,12 +144,12 @@ struct DailyReading {
             return apostle[202] + " " + gospel[76]
         }
         
-        var daysFromPentecost = Cal.d(.HolySpirit) >> date
+        var daysFromPentecost = (Cal.d(.Pentecost)+1.days) >> date
         var daysFromLukeStart = (Cal.d(.SundayAfterExaltation)+1.days) >> date
 
         // On 29th Sunday borrow Epistle from Sunday of Forefathers
         if (daysFromPentecost == 202) {
-            daysFromPentecost = Cal.d(.HolySpirit) >> Cal.d(.SundayOfForefathers)
+            daysFromPentecost = (Cal.d(.Pentecost)+1.days) >> Cal.d(.SundayOfForefathers)
         }
         
         // On 28th Sunday borrow Gospel from Sunday of Forefathers
@@ -173,7 +173,7 @@ struct DailyReading {
         case Cal.d(.Pascha) ... Cal.d(.Pentecost):
             return [GospelOfJohn(date)]
             
-        case Cal.d(.HolySpirit) ... Cal.d(.FridayAfterExaltation):
+        case Cal.d(.Pentecost)+1.days ... Cal.d(.FridayAfterExaltation):
             return [GospelOfMatthew(date)]
             
         case Cal.d(.SundayAfterExaltation)+1.days ... Cal.d(.EndOfYear):
