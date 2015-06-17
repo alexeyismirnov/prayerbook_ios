@@ -6,7 +6,7 @@ enum FeastType: Int {
 }
 
 enum NameOfDay: Int {
-    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod=5, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord=10, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition=15, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple=20, StNicholas, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon=25, SundayOfDreadJudgement, BeginningOfDormitionFast, BeginningOfNativityFast, BeginningOfApostolesFast, SundayOfForefathers=30, SundayOfFathers, SundayAfterExaltation, SundayAfterExaltationPrevYear, SaturdayAfterExaltation, SaturdayBeforeExaltation=35, SundayBeforeExaltation, SaturdayBeforeNativity, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany=40, SundayBeforeTheophany, SaturdayAfterTheophany, SundayAfterTheophany, FridayAfterExaltation, EndOfYear=45
+    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod=5, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord=10, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition=15, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple=20, StNicholas, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon=25, SundayOfDreadJudgement, BeginningOfDormitionFast, BeginningOfNativityFast, BeginningOfApostolesFast, SundayOfForefathers=30, SundayOfFathers, SundayAfterExaltation, SaturdayAfterExaltation, SaturdayBeforeExaltation, SundayBeforeExaltation=35, SaturdayBeforeNativity, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany, SundayBeforeTheophany=40, SaturdayAfterTheophany, SundayAfterTheophany, FridayAfterExaltation, EndOfYear
 }
 
 enum FastingType: Int {
@@ -75,9 +75,7 @@ struct ChurchCalendar {
         }
         
         var res = filter(feastDates, { (date, codes) in
-            
-            let targetYear = (code == .SundayAfterExaltationPrevYear) ? year-1 : year
-            return contains(codes, code) && NSDateComponents(date:date).year == targetYear
+            return contains(codes, code) && NSDateComponents(date:date).year == year
         })
         
         dCache[DateCache(code, year)] = res[0].0
@@ -196,10 +194,6 @@ struct ChurchCalendar {
         feastDates += [exaltation - exaltationSunOffset.days: [.SundayBeforeExaltation]]
 
         feastDates += [exaltation - exaltationWeekday.days: [.SaturdayBeforeExaltation]]
-
-        let exaltationPrevYear = NSDateComponents(27, 9, year-1).toDate()
-        let exaltationPrevYearWeekday = NSDateComponents(date: exaltationPrevYear).weekday
-        feastDates += [exaltationPrevYear + (8-exaltationPrevYearWeekday).days: [.SundayAfterExaltationPrevYear]]
 
         let nativity = NSDateComponents(7, 1, year).toDate()
         let nativityWeekday = NSDateComponents(date:nativity).weekday

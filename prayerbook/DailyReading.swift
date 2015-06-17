@@ -96,8 +96,13 @@ struct DailyReading {
         var gospelIndex:Int, apostleIndex:Int
         let PAPSunday = Cal.d(.SundayOfPublicianAndPharisee)
         let daysFromPentecost = (Cal.paschaDay(Cal.currentYear-1) + 50.days) >> date
-        let daysFromExaltation = (Cal.d(.SundayAfterExaltationPrevYear)+1.days) >> date
-        let endOfLukeReadings = Cal.d(.SundayAfterExaltationPrevYear)+112.days
+        
+        let exaltationPrevYear = NSDateComponents(27, 9, Cal.currentYear-1).toDate()
+        let exaltationPrevYearWeekday = NSDateComponents(date: exaltationPrevYear).weekday
+        let sundayAfterExaltationPrevYear = exaltationPrevYear + (8-exaltationPrevYearWeekday).days
+        
+        let daysFromExaltation = (sundayAfterExaltationPrevYear+1.days) >> date
+        let endOfLukeReadings = sundayAfterExaltationPrevYear+112.days
         let totalOffset = endOfLukeReadings >> PAPSunday
         
         let daysBeforePAP = date >> PAPSunday
