@@ -17,7 +17,7 @@ struct DailyReading {
         .ExaltationOfCross:         "John 12:28-36 1Cor 1:18-24 John 19:6-11,13-20,25-28,30-35",
         .SaturdayAfterExaltation:   "1Cor 1:26-29 John 8:21-30",
         .SundayAfterExaltation:     "Gal 2:16-20 Mark 8:34-9:1",
-        .Veil:                      "Luke 1:39-49,56 Heb 9:1-7 Luke 10:38-42,11:27-28",
+        .VeilOfTheotokos:                      "Luke 1:39-49,56 Heb 9:1-7 Luke 10:38-42,11:27-28",
         .EntryIntoTemple:           "Luke 1:39-49,56 Heb 9:1-7 Luke 10:38-42,11:27-28",
         .StNicholas:                "John 10:9-16 Heb 13:17-21 Luke 6:17-23",
         .SundayOfForefathers:       "Col 3:4-11 Luke 14:16-24",
@@ -168,6 +168,11 @@ struct DailyReading {
     static func getRegularReading(date: NSDate) -> [String] {
         Cal.setDate(date)
         
+        let exaltation = NSDateComponents(27, 9, Cal.currentYear).toDate()
+        let exaltationWeekday = NSDateComponents(date: exaltation).weekday
+        var exaltationFriOffset = (exaltationWeekday >= 6) ? 13-exaltationWeekday : 6-exaltationWeekday
+        let fridayAfterExaltation = exaltation + exaltationFriOffset.days
+        
         switch (date) {
         case Cal.d(.StartOfYear) ..< Cal.d(.SundayOfPublicianAndPharisee):
             return [GospelOfLukeSpring(date)]
@@ -178,7 +183,7 @@ struct DailyReading {
         case Cal.d(.Pascha) ... Cal.d(.Pentecost):
             return [GospelOfJohn(date)]
             
-        case Cal.d(.Pentecost)+1.days ... Cal.d(.FridayAfterExaltation):
+        case Cal.d(.Pentecost)+1.days ... fridayAfterExaltation:
             return [GospelOfMatthew(date)]
             
         case Cal.d(.SundayAfterExaltation)+1.days ... Cal.d(.EndOfYear):

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ</key>
+	<string>圣葩斯哈主日——纪念我们的主，救主，上帝，耶稣基督逾越了阴府，自死者中荣耀地复活</string>
+	<key>Pentecost. Sunday of the Holy Trinity. Descent of the Holy Spirit on the Apostles</key>
+	<string>五旬节（上帝圣三主日——纪念至圣圣灵降临于众使徒）</string>
+	<key>Ascension of our Lord, God, and Saviour Jesus Christ</key>
+	<string>主升天节（纪念我们的主，上帝，救主耶稣基督神性的升天）</string>
+	<key>Palm Sunday. Entrance of our Lord into Jerusalem</key>
+	<string>主进圣城耶路撒冷节（圣枝主日）</string>
+	<key>Eve of the Nativity of Christ</key>
+	<string>主降生节前日</string>
+	<key>The Nativity of our Lord God and Savior Jesus Christ</key>
+	<string>主降生节（纪念我们的主，上帝，救主耶稣基督取肉躯而降生于世）</string>
+	<key>Circumcision of our Lord</key>
+	<string>主耶稣基督受割礼日</string>
+	<key>Eve of Theophany</key>
+	<string>主显节前夕</string>
+	<key>Holy Theophany: the Baptism of Our Lord, God, and Saviour Jesus Christ</key>
+	<string>主显节——我们的主，上帝，救主，耶稣基督神性的显现，也即基督受浸礼节</string>
+	<key>The Meeting of our Lord, God, and Saviour Jesus Christ in the Temple</key>
+	<string>主进殿节——纪念我们的主，上帝，救主被奉献于圣殿，也纪念圣母取洁</string>
+	<key>The Annunciation of our Most Holy Lady, Theotokos and Ever-Virgin Mary</key>
+	<string>诞神女福音节（我众至圣之君后，诞神女，永贞玛利亚领报节）</string>
+	<key>Nativity of the Holy Glorious Prophet, Forerunner, and Baptist of the Lord, John</key>
+	<string>尊贵前驱，先知，施浸礼者圣约翰诞辰</string>
+	<key>The Holy Glorious and All-Praised Leaders of the Apostles, Peter and Paul</key>
+	<string>神圣，荣耀，满被赞扬者，使徒之长圣彼得及圣保罗</string>
+	<key>The Holy Transfiguration of Our Lord God and Saviour Jesus Christ</key>
+	<string>主易圣容节（我等主，上帝，救主耶稣基督易显圣容）</string>
+	<key>The Dormition (Repose) of our Most Holy Lady Theotokos and Ever-Virgin Mary</key>
+	<string>圣母安息节（敬忆我众之君后，至圣诞神女，永贞玛利亚之安息）</string>
+	<key>The Beheading of the Holy Glorious Prophet, Forerunner and Baptist of the Lord, John</key>
+	<string>荣耀之先知，前驱，施浸礼者，圣约安授首纪念日</string>
+	<key>Nativity of Our Most Holy Lady Theotokos and Ever-Virgin Mary</key>
+	<string>圣母诞辰节（纪念我众至圣之君后，诞神女，永贞玛利亚之降生）</string>
+	<key>The Universal Exaltation of the Precious and Life-Giving Cross</key>
+	<string>普世举扬尊贵施生命之十字圣架</string>
+	<key>Protection of Our Most Holy Lady Theotokos and Ever-Virgin Mary</key>
+	<string>至圣诞神女帲幪节（圣母护守节）</string>
+	<key>Entry into the Temple of our Most Holy Lady Theotokos and Ever-Virgin Mary</key>
+	<string>圣母进堂节</string>
+	<key>St. Nicholas the Wonderworker</key>
+	<string>圣尼科拉显行灵迹者</string>
+	<key>Beginning of Great Lent</key>
+	<string>大斋期开始</string>
+	<key>Sunday of the Publican and the Pharisee</key>
+	<string>税吏及法利塞人主日</string>
+	<key>Sunday of the Prodigal Son</key>
+	<string>浪子主日</string>
+	<key>Sunday of the Dread Judgement</key>
+	<string>离肉主日</string>
+	<key>Beginning of Dormition fast</key>
+	<string>圣母安息斋期开始</string>
+	<key>Beginning of Nativity fast</key>
+	<string>主降生斋期</string>
+	<key>Beginning of Apostoles&apos; fast</key>
+	<string>使徒斋期开始</string>
+	<key>Sunday of the Holy Forefathers</key>
+	<string>众圣祖主日</string>
+	<key>Sunday before the Nativity of Christ, of the Fathers</key>
+	<string>主降生节前主日——众圣父主日</string>
+	<key>Sunday after the Exaltation</key>
+	<string>举扬圣架节后主日</string>
+	<key>Saturday after the Exaltation</key>
+	<string>举扬圣架节后安息日</string>
+	<key>Saturday before the Exaltation</key>
+	<string>举扬圣架节前安息日</string>
+	<key>Sunday before the Exaltation</key>
+	<string>举扬圣架节前主日</string>
+	<key>Saturday before the Nativity of Christ</key>
+	<string>主降生节前安息日</string>
+	<key>Saturday after the Nativity of Christ</key>
+	<string>主降生节后安息日</string>
+	<key>Sunday after Nativity</key>
+	<string>主降生节后主日</string>
+	<key>Saturday before Theophany</key>
+	<string>主显节前安息日</string>
+	<key>Sunday before Theophany</key>
+	<string>主显节前主日</string>
+	<key>Saturday after Theophany</key>
+	<string>主显节后安息日</string>
+	<key>Sunday after Theophany</key>
+	<string>主显节后主日</string>
+</dict>
+</plist>

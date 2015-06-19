@@ -6,7 +6,7 @@ enum FeastType: Int {
 }
 
 enum NameOfDay: Int {
-    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod=5, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord=10, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition=15, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, Veil, EntryIntoTemple=20, StNicholas, BeginningOfGreatLent, ZacchaeusSunday, SundayOfPublicianAndPharisee, SundayOfProdigalSon=25, SundayOfDreadJudgement, BeginningOfDormitionFast, BeginningOfNativityFast, BeginningOfApostolesFast, SundayOfForefathers=30, SundayOfFathers, SundayAfterExaltation, SaturdayAfterExaltation, SaturdayBeforeExaltation, SundayBeforeExaltation=35, SaturdayBeforeNativity, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany, SundayBeforeTheophany=40, SaturdayAfterTheophany, SundayAfterTheophany, FridayAfterExaltation, EndOfYear
+    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod=5, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord=10, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition=15, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, VeilOfTheotokos, EntryIntoTemple=20, StNicholas, BeginningOfGreatLent, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement=25, BeginningOfDormitionFast, BeginningOfNativityFast, BeginningOfApostolesFast, SundayOfForefathers, SundayOfFathers=30, SundayAfterExaltation, SaturdayAfterExaltation, SaturdayBeforeExaltation, SundayBeforeExaltation, SaturdayBeforeNativity=35, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany, SundayBeforeTheophany, SaturdayAfterTheophany=40, SundayAfterTheophany, EndOfYear
 }
 
 enum FastingType: Int {
@@ -36,13 +36,7 @@ func == (lhs: DateCache, rhs: DateCache) -> Bool {
 }
 
 struct ChurchCalendar {
-    
-    static var dict: [[String : String]] = {
-        let bundle = NSBundle.mainBundle().pathForResource("ChurchCalendar", ofType: "plist")
-        let dict = NSArray(contentsOfFile: bundle!)
-        return dict as! [[String : String]]
-    }()
-    
+
     static var formatter: NSDateFormatter = {
         var formatter = NSDateFormatter()
         formatter.dateStyle = .ShortStyle
@@ -53,8 +47,52 @@ struct ChurchCalendar {
     static var currentYear: Int!
     static var currentWeekday: DayOfWeek!
     static var feastDates = [NSDate: [NameOfDay]]()
-    static var otherFeasts = [NSDate: [(FeastType, String)]]()
     static var dCache = [DateCache:NSDate]()
+
+    static var dateFeastDescr = [NSDate: [(FeastType, String)]]()
+    static let codeFeastDescr : [NameOfDay: [(FeastType, String)]] = [
+        .Pascha:                    [(.Great, "PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ")],
+        .Pentecost:                 [(.Great, "Pentecost. Sunday of the Holy Trinity. Descent of the Holy Spirit on the Apostles")],
+        .Ascension:                 [(.Great, "Ascension of our Lord, God, and Saviour Jesus Christ")],
+        .PalmSunday:                [(.Great, "Palm Sunday. Entrance of our Lord into Jerusalem")],
+        .EveOfNativityOfGod:        [(.NoSign, "Eve of the Nativity of Christ")],
+        .NativityOfGod:             [(.Great, "The Nativity of our Lord God and Savior Jesus Christ")],
+        .Circumcision:              [(.Great, "Circumcision of our Lord")],
+        .EveOfTheophany:            [(.NoSign, "Eve of Theophany")],
+        .Theophany:                 [(.Great, "Holy Theophany: the Baptism of Our Lord, God, and Saviour Jesus Christ")],
+        .MeetingOfLord:             [(.Great, "The Meeting of our Lord, God, and Saviour Jesus Christ in the Temple")],
+        .Annunciation:              [(.Great, "The Annunciation of our Most Holy Lady, Theotokos and Ever-Virgin Mary")],
+        .NativityOfJohn:            [(.Great, "Nativity of the Holy Glorious Prophet, Forerunner, and Baptist of the Lord, John")],
+        .PeterAndPaul:              [(.Great, "The Holy Glorious and All-Praised Leaders of the Apostles, Peter and Paul")],
+        .Transfiguration:           [(.Great, "The Holy Transfiguration of Our Lord God and Saviour Jesus Christ")],
+        .Dormition:                 [(.Great, "The Dormition (Repose) of our Most Holy Lady Theotokos and Ever-Virgin Mary")],
+        .BeheadingOfJohn:           [(.Great, "The Beheading of the Holy Glorious Prophet, Forerunner and Baptist of the Lord, John")],
+        .NativityOfTheotokos:       [(.Great, "Nativity of Our Most Holy Lady Theotokos and Ever-Virgin Mary")],
+        .ExaltationOfCross:         [(.Great, "The Universal Exaltation of the Precious and Life-Giving Cross")],
+        .VeilOfTheotokos:           [(.Great, "Protection of Our Most Holy Lady Theotokos and Ever-Virgin Mary")],
+        .EntryIntoTemple:           [(.Great, "Entry into the Temple of our Most Holy Lady Theotokos and Ever-Virgin Mary")],
+        .BeginningOfGreatLent:      [(.None, "Beginning of Great Lent")],
+        .SundayOfPublicianAndPharisee: [(.None, "Sunday of the Publican and the Pharisee")],
+        .SundayOfProdigalSon:       [(.None, "Sunday of the Prodigal Son")],
+        .SundayOfDreadJudgement:    [(.None, "Sunday of the Dread Judgement")],
+        .BeginningOfDormitionFast:  [(.None, "Beginning of Dormition fast")],
+        .BeginningOfNativityFast:   [(.None, "Beginning of Nativity fast")],
+        .BeginningOfApostolesFast:  [(.None, "Beginning of Apostoles' fast")],
+        .SundayOfForefathers:       [(.None, "Sunday of the Holy Forefathers")],
+        .SundayAfterExaltation:     [(.None, "Sunday after the Exaltation")],
+        .SaturdayAfterExaltation:   [(.None, "Saturday after the Exaltation")],
+        .SaturdayBeforeExaltation:  [(.None, "Saturday before the Exaltation")],
+        .SundayBeforeExaltation:    [(.None, "Sunday before the Exaltation")],
+        .SaturdayBeforeNativity:    [(.None, "Saturday before the Nativity of Christ")],
+        .SundayOfFathers:           [(.None, "Sunday before the Nativity of Christ, of the Fathers")],
+        .SaturdayAfterNativity:     [(.None, "Saturday after the Nativity of Christ")],
+        .SundayAfterNativity:       [(.None, "Sunday after Nativity"),
+                                     (.NoSign, "Saints Joseph the Betrothed, David the King, and James the Brother of the Lord")],
+        .SaturdayBeforeTheophany:   [(.None, "Saturday before Theophany")],
+        .SundayBeforeTheophany:     [(.None, "Sunday before Theophany")],
+        .SaturdayAfterTheophany:    [(.None, "Saturday after Theophany")],
+        .SundayAfterTheophany:      [(.None, "Sunday after Theophany")],
+    ]
 
     static let feastIcon : [FeastType: String] = [
         .NoSign: "nosign",
@@ -65,7 +103,7 @@ struct ChurchCalendar {
         .Great: "great"
     ]
 
-    static let greatFeastCodes : [NameOfDay] = [.PalmSunday, .Pascha, .Ascension, .Pentecost, .NativityOfGod, .Circumcision, .Theophany, .MeetingOfLord, .Annunciation, .NativityOfJohn, .PeterAndPaul, .Transfiguration, .Dormition, .BeheadingOfJohn, .NativityOfTheotokos, .ExaltationOfCross, .Veil, .EntryIntoTemple]
+    static let greatFeastCodes : [NameOfDay] = [.PalmSunday, .Pascha, .Ascension, .Pentecost, .NativityOfGod, .Circumcision, .Theophany, .MeetingOfLord, .Annunciation, .NativityOfJohn, .PeterAndPaul, .Transfiguration, .Dormition, .BeheadingOfJohn, .NativityOfTheotokos, .ExaltationOfCross, .VeilOfTheotokos, .EntryIntoTemple]
 
     static func saveFeastDate(code: NameOfDay, _ year:Int) {
         
@@ -91,8 +129,8 @@ struct ChurchCalendar {
         currentWeekday = DayOfWeek(rawValue: dateComponents.weekday)
         
         if dCache[DateCache(.Pascha, currentYear)] == nil {
-            generateMainFeasts(currentYear)
-            generateOtherFeasts(currentYear)
+            generateFeastDates(currentYear)
+            generateFeastDescription(currentYear)
         }
     }
 
@@ -103,11 +141,11 @@ struct ChurchCalendar {
         return  ((a+b > 10) ? NSDateComponents(a+b-9, 4, year).toDate() : NSDateComponents(22+a+b, 3, year).toDate()) + 13.days
     }
     
-    static func generateOtherFeasts(year: Int) {
+    static func generateFeastDescription(year: Int) {
         let pascha = paschaDay(year)
         let greatLentStart = pascha-48.days
-
-        let sundays : [NSDate: [(FeastType, String)]] = [
+        
+        dateFeastDescr = [
             greatLentStart-1.days:  [(.None,   "Cheesefare Sunday (Forgiveness Sunday): Commemoration of the Expulsion of Adam from Paradise")],
             greatLentStart+6.days:  [(.None,   "First Sunday of Lent: Triumph of Orthodoxy")],
             greatLentStart+13.days: [(.None,   "Second Sunday of Great Lent"),
@@ -133,15 +171,13 @@ struct ChurchCalendar {
                                      (.None,   "Icons of the Mother of God “Tupichevsk” (1847) and “Cypriot” (392) ")],
         ]
         
-        otherFeasts += sundays
     }
     
-    static func generateMainFeasts(year: Int) {
+    static func generateFeastDates(year: Int) {
         let pascha = paschaDay(year)
         let greatLentStart = pascha-48.days
 
         let movingFeasts : [NSDate: [NameOfDay]] = [
-            greatLentStart-29.days:                   [.ZacchaeusSunday],
             greatLentStart-22.days:                   [.SundayOfPublicianAndPharisee],
             greatLentStart-15.days:                   [.SundayOfProdigalSon],
             greatLentStart-8.days:                    [.SundayOfDreadJudgement],
@@ -170,7 +206,7 @@ struct ChurchCalendar {
             NSDateComponents(11, 9, year).toDate():   [.BeheadingOfJohn],
             NSDateComponents(21, 9, year).toDate():   [.NativityOfTheotokos],
             NSDateComponents(27, 9, year).toDate():   [.ExaltationOfCross],
-            NSDateComponents(14, 10, year).toDate():  [.Veil],
+            NSDateComponents(14, 10, year).toDate():  [.VeilOfTheotokos],
             NSDateComponents(28, 11, year).toDate():  [.BeginningOfNativityFast],
             NSDateComponents(4,  12, year).toDate():  [.EntryIntoTemple],
             NSDateComponents(19, 12, year).toDate():  [.StNicholas],
@@ -183,10 +219,7 @@ struct ChurchCalendar {
         let exaltation = NSDateComponents(27, 9, year).toDate()
         let exaltationWeekday = NSDateComponents(date: exaltation).weekday
         feastDates += [exaltation + (8-exaltationWeekday).days: [.SundayAfterExaltation]]
-        
-        var exaltationFriOffset = (exaltationWeekday >= 6) ? 13-exaltationWeekday : 6-exaltationWeekday
-        feastDates += [exaltation + exaltationFriOffset.days: [.FridayAfterExaltation]]
-        
+
         var exaltationSatOffset = (exaltationWeekday == 7) ? 7 : 7-exaltationWeekday
         feastDates += [exaltation + exaltationSatOffset.days: [.SaturdayAfterExaltation]]
         
@@ -262,25 +295,22 @@ struct ChurchCalendar {
     
     static func getDayDescription(date: NSDate) -> [(FeastType, String)] {
         var result = [(FeastType, String)]()
-        let sundays : [NameOfDay] = [.ZacchaeusSunday, .SundayOfPublicianAndPharisee, .SundayOfProdigalSon, .SundayOfDreadJudgement]
         
         setDate(date)
 
         if let codes = feastDates[date] {
             for code in codes {
-                if contains(sundays, code) {
-                    continue
-                }
-                
-                if let str:String = dict[code.rawValue][Translate.language]  {
-                    if !str.isEmpty {
-                        result.append((contains(greatFeastCodes, code) ? .Great : .NoSign, str))
+                if let feasts = codeFeastDescr[code] {
+                    for feast in feasts {
+                        result.append((feast.0, Translate.s(feast.1)))
                     }
                 }
             }
         }
-        
-        if let feasts = otherFeasts[date] {
+
+        result.sort { $0.0.rawValue < $1.0.rawValue }
+
+        if let feasts = dateFeastDescr[date] {
             for feast in feasts {
                 result.append((feast.0, Translate.s(feast.1)))
             }
@@ -297,28 +327,14 @@ struct ChurchCalendar {
         
         switch (date) {
         case d(.StartOfYear) ..< d(.SundayOfPublicianAndPharisee):
-            if date == d(.ZacchaeusSunday) {
-                return dict[NameOfDay.ZacchaeusSunday.rawValue][Translate.language] as String!
-
-            } else {
-                return  String(format: Translate.s("\(dayOfWeek) %d after Pentecost"), ((paschaDay(currentYear-1)+50.days) >> date)/7+1)
-            }
-
-        case d(.SundayOfPublicianAndPharisee):
-            return dict[NameOfDay.SundayOfPublicianAndPharisee.rawValue][Translate.language] as String!
+            return  String(format: Translate.s("\(dayOfWeek) %d after Pentecost"), ((paschaDay(currentYear-1)+50.days) >> date)/7+1)
             
         case d(.SundayOfPublicianAndPharisee)+1.days ..< d(.SundayOfProdigalSon):
             return "Week of the Publican and the Pharisee"
-        
-        case d(.SundayOfProdigalSon):
-            return dict[NameOfDay.SundayOfProdigalSon.rawValue][Translate.language] as String!
-            
+
         case d(.SundayOfProdigalSon)+1.days ..< d(.SundayOfDreadJudgement):
             return "Week of the Prodigal Son"
-        
-        case d(.SundayOfDreadJudgement):
-            return dict[NameOfDay.SundayOfDreadJudgement.rawValue][Translate.language] as String!
-            
+
         case d(.SundayOfDreadJudgement)+1.days ..< d(.BeginningOfGreatLent)-1.days:
             return "Week of the Dread Judgement"
 
@@ -396,7 +412,7 @@ struct ChurchCalendar {
         case d(.NativityOfTheotokos),
         d(.PeterAndPaul),
         d(.Dormition),
-        d(.Veil):
+        d(.VeilOfTheotokos):
             return (currentWeekday == .Wednesday ||
                     currentWeekday == .Friday) ? (.FishAllowed, "Fish Allowed") : (.NoFast, "No fast")
             
