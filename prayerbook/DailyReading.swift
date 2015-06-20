@@ -178,7 +178,8 @@ struct DailyReading {
             return [GospelOfLukeSpring(date)]
             
         case Cal.d(.SundayOfPublicianAndPharisee) ..< Cal.d(.Pascha):
-            return [GospelOfLent(date)]
+            let reading = GospelOfLent(date)
+            return count(reading) > 0 ? [reading] : []
             
         case Cal.d(.Pascha) ... Cal.d(.Pentecost):
             return [GospelOfJohn(date)]

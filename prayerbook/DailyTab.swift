@@ -67,7 +67,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         case 0:
             return ""
         case 1:
-            return "Daily Reading"
+            return count(readings) > 0 ? "Daily Reading" : nil
         case 2:
             return "Daily Saints"
         default:
@@ -85,6 +85,18 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         }
     }
 
+    func imageResize(image:UIImage, sizeChange:CGSize)-> UIImage{
+        
+        let hasAlpha = true
+        let scale: CGFloat = 0.0 // Use scale factor of main screen
+        
+        UIGraphicsBeginImageContextWithOptions(sizeChange, !hasAlpha, scale)
+        image.drawInRect(CGRect(origin: CGPointZero, size: sizeChange))
+        
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        return scaledImage
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         if indexPath.section == 0 {
@@ -126,11 +138,25 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                     cell.title.text = dayDescription[indexPath.row-2].1
                     return cell
                     
-                } else {
+                } else if feast == .Great {
                     var cell: ImageCell = getCell()
                     cell.title.textColor = (feast == .Great) ? UIColor.redColor() : UIColor.blackColor()
                     cell.title.text = dayDescription[indexPath.row-2].1
                     cell.icon.image = UIImage(named: Cal.feastIcon[feast]!)
+                    return cell
+                    
+                } else {
+                    var cell: TextCell = getCell()
+                    var attachment = NSTextAttachment()
+                    var image = UIImage(named: Cal.feastIcon[feast]!)
+                    attachment.image = imageResize(image!, sizeChange: CGSizeMake(15, 15))
+                    var attachmentString = NSAttributedString(attachment: attachment)
+                    
+                    var myString = NSMutableAttributedString(string: "")
+                    myString.appendAttributedString(attachmentString)
+                    myString.appendAttributedString(NSMutableAttributedString(string: dayDescription[indexPath.row-2].1))
+                    cell.title.attributedText = myString
+                    
                     return cell
                 }
             }
@@ -152,10 +178,17 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                 return cell
 
             } else {
-                var cell: ImageCell = getCell()
-                cell.title.textColor = UIColor.blackColor()
-                cell.title.text = saints[indexPath.row].1
-                cell.icon.image = UIImage(named: Cal.feastIcon[saints[indexPath.row].0]!)
+                var cell: TextCell = getCell()
+                var attachment = NSTextAttachment()
+                var image = UIImage(named: Cal.feastIcon[saints[indexPath.row].0]!)
+                attachment.image = imageResize(image!, sizeChange: CGSizeMake(15, 15))
+                var attachmentString = NSAttributedString(attachment: attachment)
+                
+                var myString = NSMutableAttributedString(string: "")
+                myString.appendAttributedString(attachmentString)
+                myString.appendAttributedString(NSMutableAttributedString(string: saints[indexPath.row].1))
+                cell.title.attributedText = myString
+                
                 return cell
 
             }
@@ -223,7 +256,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         dayDescription = Cal.getDayDescription(currentDate)
         readings = DailyReading.getDailyReading(currentDate)
         fasting = Cal.getFastingDescription(currentDate)
-        
+
         saints=[]
         for line in Db.saints(currentDate) {
             let name = line!["name"] as! String
