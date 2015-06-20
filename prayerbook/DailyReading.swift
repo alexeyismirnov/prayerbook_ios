@@ -22,7 +22,7 @@ struct DailyReading {
         .StNicholas:                "John 10:9-16 Heb 13:17-21 Luke 6:17-23",
         .SundayOfForefathers:       "Col 3:4-11 Luke 14:16-24",
         .SaturdayBeforeNativity:    "Gal 3:8-12 Luke 13:18-29",
-        .SundayOfFathers:           "Heb 11:9-10,17-23,32-40 Matthew 1:1-25",
+        .SundayBeforeNativity:           "Heb 11:9-10,17-23,32-40 Matthew 1:1-25",
         .EveOfNativityOfGod:        "Heb 1:1-12 Luke 2:1-20|Gal 3:15-22 Matthew 13:31-36",
         .NativityOfGod:             "Matthew 1:18-25 Gal 4:4-7 Matthew 2:1-12",
         .SaturdayAfterNativity:     "1Tim 6:11-16 Matthew 12:15-21",
@@ -43,7 +43,7 @@ struct DailyReading {
         .BeheadingOfJohn:           "Matthew 14:1-13 Acts 13:25-32 Mark 6:14-30",
     ]
     
-    static let cancelReading : [NameOfDay] = [.SundayOfForefathers, .SundayOfFathers, .EveOfNativityOfGod, .NativityOfGod,
+    static let cancelReading : [NameOfDay] = [.SundayOfForefathers, .SundayBeforeNativity, .EveOfNativityOfGod, .NativityOfGod,
         .SundayAfterNativity, .Circumcision, .SundayBeforeTheophany, .EveOfTheophany, .Theophany, .SundayAfterTheophany]
     
     static let transferredReading : [NameOfDay] = [.ExaltationOfCross, .Transfiguration]

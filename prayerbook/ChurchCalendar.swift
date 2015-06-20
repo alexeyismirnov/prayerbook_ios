@@ -6,7 +6,7 @@ enum FeastType: Int {
 }
 
 enum NameOfDay: Int {
-    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod=5, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord=10, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition=15, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, VeilOfTheotokos, EntryIntoTemple=20, StNicholas, BeginningOfGreatLent, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement=25, BeginningOfDormitionFast, BeginningOfNativityFast, BeginningOfApostolesFast, SundayOfForefathers, SundayOfFathers=30, SundayAfterExaltation, SaturdayAfterExaltation, SaturdayBeforeExaltation, SundayBeforeExaltation, SaturdayBeforeNativity=35, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany, SundayBeforeTheophany, SaturdayAfterTheophany=40, SundayAfterTheophany, EndOfYear
+    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, VeilOfTheotokos, EntryIntoTemple, StNicholas, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement, CheesefareSunday, BeginningOfGreatLent, BeginningOfDormitionFast, BeginningOfNativityFast, BeginningOfApostolesFast, SundayOfForefathers, SundayBeforeNativity, SundayAfterExaltation, SaturdayAfterExaltation, SaturdayBeforeExaltation, SundayBeforeExaltation, SaturdayBeforeNativity, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany, SundayBeforeTheophany, SaturdayAfterTheophany, SundayAfterTheophany, Sunday2AfterPascha, Sunday3AfterPascha, Sunday4AfterPascha, Sunday5AfterPascha, Sunday6AfterPascha, Sunday7AfterPascha, LazarusSaturday, EndOfYear
 }
 
 enum FastingType: Int {
@@ -72,9 +72,6 @@ struct ChurchCalendar {
         .VeilOfTheotokos:           [(.Great, "Protection of Our Most Holy Lady Theotokos and Ever-Virgin Mary")],
         .EntryIntoTemple:           [(.Great, "Entry into the Temple of our Most Holy Lady Theotokos and Ever-Virgin Mary")],
         .BeginningOfGreatLent:      [(.None, "Beginning of Great Lent")],
-        .SundayOfPublicianAndPharisee: [(.None, "Sunday of the Publican and the Pharisee")],
-        .SundayOfProdigalSon:       [(.None, "Sunday of the Prodigal Son")],
-        .SundayOfDreadJudgement:    [(.None, "Sunday of the Dread Judgement")],
         .BeginningOfDormitionFast:  [(.None, "Beginning of Dormition fast")],
         .BeginningOfNativityFast:   [(.None, "Beginning of Nativity fast")],
         .BeginningOfApostolesFast:  [(.None, "Beginning of Apostoles' fast")],
@@ -84,7 +81,7 @@ struct ChurchCalendar {
         .SaturdayBeforeExaltation:  [(.None, "Saturday before the Exaltation")],
         .SundayBeforeExaltation:    [(.None, "Sunday before the Exaltation")],
         .SaturdayBeforeNativity:    [(.None, "Saturday before the Nativity of Christ")],
-        .SundayOfFathers:           [(.None, "Sunday before the Nativity of Christ, of the Fathers")],
+        .SundayBeforeNativity:      [(.None, "Sunday before the Nativity of Christ, of the Fathers")],
         .SaturdayAfterNativity:     [(.None, "Saturday after the Nativity of Christ")],
         .SundayAfterNativity:       [(.None, "Sunday after Nativity"),
                                      (.NoSign, "Saints Joseph the Betrothed, David the King, and James the Brother of the Lord")],
@@ -107,8 +104,8 @@ struct ChurchCalendar {
 
     static func saveFeastDate(code: NameOfDay, _ year:Int) {
         
-        if (code == .SundayOfFathers || code == .SaturdayBeforeNativity) {
-            // it is possible that there will be 2 Sundays of Fathers in a given year
+        if (code == .SundayBeforeNativity || code == .SaturdayBeforeNativity) {
+            // it is possible that there will be 2 Sundays or Saturdays before Nativity in a given year
             return;
         }
         
@@ -146,27 +143,16 @@ struct ChurchCalendar {
         let greatLentStart = pascha-48.days
         
         dateFeastDescr = [
-            greatLentStart-1.days:  [(.None,   "Cheesefare Sunday (Forgiveness Sunday): Commemoration of the Expulsion of Adam from Paradise")],
-            greatLentStart+6.days:  [(.None,   "First Sunday of Lent: Triumph of Orthodoxy")],
-            greatLentStart+13.days: [(.None,   "Second Sunday of Great Lent"),
-                                     (.NoSign, "Saint Gregory Palamas, Archbishop of Thessalonica († c. 1360)")],
-            greatLentStart+20.days: [(.None,   "Third Sunday of Great Lent, Veneration of the Precious Cross")],
-            greatLentStart+27.days: [(.None,   "Fourth Sunday of Great Lent"),
-                                     (.NoSign, "Venerable John Climacus of Sinai, Author of “the Ladder” († 649)")],
-            greatLentStart+34.days: [(.None,   "Fifth Sunday of Great Lent"),
-                                     (.None,   "Venerable Mary of Egypt")],
-            greatLentStart+40.days: [(.None,   "Saturday of Palms (Lazarus Saturday)")],
-            pascha+7.days:          [(.None,   "Second Sunday after Pascha. Thomas Sunday, or Antipascha")],
-            pascha+14.days:         [(.None,   "Third Sunday after Pascha. Sunday of the Myrrhbearing Women"),
-                                     (.NoSign, "St Joseph of Arimathea, and Nicodemus"),
+            greatLentStart+6.days:  [(.None,   "Triumph of Orthodoxy")],
+            greatLentStart+13.days: [(.NoSign, "Saint Gregory Palamas, Archbishop of Thessalonica († c. 1360)")],
+            greatLentStart+20.days: [(.None,   "Veneration of the Precious Cross")],
+            greatLentStart+27.days: [(.NoSign, "Venerable John Climacus of Sinai, Author of “the Ladder” († 649)")],
+            greatLentStart+34.days: [(.None,   "Venerable Mary of Egypt")],
+            pascha+14.days:         [(.NoSign, "St Joseph of Arimathea, and Nicodemus"),
                                      (.NoSign, "Right-believing Tamara, Queen of Georgia († 1213)")],
-            pascha+21.days:         [(.None,   "Fourth Sunday after Pascha. Sunday of the Paralytic"),
-                                     (.NoSign, "Holy Martyr Abraham the Bulgar, Wonderworker of Vladimir († 1229) "),
+            pascha+21.days:         [(.NoSign, "Holy Martyr Abraham the Bulgar, Wonderworker of Vladimir († 1229) "),
                                      (.NoSign, "Righteous Tabitha of Joppa (1st C)")],
-            pascha+28.days:         [(.None,   "Fifth Sunday after Pascha. Sunday of the Samaritan Woman")],
-            pascha+35.days:         [(.None,   "Sixth Sunday after Pascha. Sunday of the Blind Man")],
-            pascha+42.days:         [(.None,   "Seventh Sunday after Pascha. Commemoration of the 318 Holy Fathers of the First Ecumenical Council (325)"),
-                                     (.None,   "Chelnskoy and Pskov-Kiev Caves called “Tenderness” icons of the Mother of God")],
+            pascha+42.days:         [(.None,   "Chelnskoy and Pskov-Kiev Caves called “Tenderness” icons of the Mother of God")],
             pascha+50.days:         [(.None,   "Day of the Holy Spirit"),
                                      (.None,   "Icons of the Mother of God “Tupichevsk” (1847) and “Cypriot” (392) ")],
         ]
@@ -181,9 +167,18 @@ struct ChurchCalendar {
             greatLentStart-22.days:                   [.SundayOfPublicianAndPharisee],
             greatLentStart-15.days:                   [.SundayOfProdigalSon],
             greatLentStart-8.days:                    [.SundayOfDreadJudgement],
+            greatLentStart-1.days:                    [.CheesefareSunday],
             greatLentStart:                           [.BeginningOfGreatLent],
+            pascha-8.days:                            [.LazarusSaturday],
             pascha-7.days:                            [.PalmSunday],
             pascha:                                   [.Pascha],
+            pascha+7.days:                            [.Sunday2AfterPascha],
+            pascha+14.days:                           [.Sunday3AfterPascha],
+            pascha+21.days:                           [.Sunday4AfterPascha],
+            pascha+28.days:                           [.Sunday5AfterPascha],
+            pascha+35.days:                           [.Sunday6AfterPascha],
+            pascha+42.days:                           [.Sunday7AfterPascha],
+
             pascha+39.days:                           [.Ascension],
             pascha+49.days:                           [.Pentecost],
             pascha+57.days:                           [.BeginningOfApostolesFast],
@@ -230,9 +225,9 @@ struct ChurchCalendar {
 
         let nativity = NSDateComponents(7, 1, year).toDate()
         let nativityWeekday = NSDateComponents(date:nativity).weekday
-        var nativitySunOffset = (nativityWeekday == 1) ? 7 : (nativityWeekday-1)
+        let nativitySunOffset = (nativityWeekday == 1) ? 7 : (nativityWeekday-1)
         if nativitySunOffset != 7 {
-            feastDates += [nativity - nativitySunOffset.days: [.SundayOfFathers]]
+            feastDates += [nativity - nativitySunOffset.days: [.SundayBeforeNativity]]
         }
 
         if nativityWeekday != 7 {
@@ -246,30 +241,28 @@ struct ChurchCalendar {
         
         let nativityNextYear = NSDateComponents(7, 1, year+1).toDate()
         let nativityNextYearWeekday = NSDateComponents(date:nativityNextYear).weekday
-        nativitySunOffset = (nativityNextYearWeekday == 1) ? 7 : (nativityNextYearWeekday-1)
+        var nativityNextYearSunOffset = (nativityNextYearWeekday == 1) ? 7 : (nativityNextYearWeekday-1)
 
-        if nativitySunOffset == 7 {
-            feastDates += [nativityNextYear - nativitySunOffset.days: [.SundayOfFathers]]
+        if nativityNextYearSunOffset == 7 {
+            feastDates += [NSDateComponents(31, 12, year).toDate(): [.SundayBeforeNativity]]
         }
         
         if nativityNextYearWeekday == 7 {
-            feastDates += [nativity - nativityNextYearWeekday.days: [.SaturdayBeforeNativity]]
+            feastDates += [NSDateComponents(31, 12, year).toDate(): [.SaturdayBeforeNativity]]
         }
         
-        nativitySunOffset += 7
-        feastDates += [nativityNextYear - nativitySunOffset.days: [.SundayOfForefathers]]
+        nativityNextYearSunOffset += 7
+        feastDates += [nativityNextYear - nativityNextYearSunOffset.days: [.SundayOfForefathers]]
         
         let theophany = NSDateComponents(19, 1, year).toDate()
         let theophanyWeekday = NSDateComponents(date:theophany).weekday
 
         var theophanySunOffset = (theophanyWeekday == 1) ?  7 : (theophanyWeekday-1)
-        feastDates += [theophany - theophanySunOffset.days: [.SundayBeforeTheophany]]
-        
-        feastDates += [theophany - theophanyWeekday.days: [.SaturdayBeforeTheophany]]
-
-        feastDates += [theophany + (8-theophanyWeekday).days: [.SundayAfterTheophany]]
-
         var theophanySatOffset = (theophanyWeekday == 7) ? 7 : 7-theophanyWeekday
+
+        feastDates += [theophany - theophanySunOffset.days: [.SundayBeforeTheophany]]
+        feastDates += [theophany - theophanyWeekday.days: [.SaturdayBeforeTheophany]]
+        feastDates += [theophany + (8-theophanyWeekday).days: [.SundayAfterTheophany]]
         feastDates += [theophany + theophanySatOffset.days: [.SaturdayAfterTheophany]]
 
         let start: Int = NameOfDay.StartOfYear.rawValue
@@ -321,8 +314,30 @@ struct ChurchCalendar {
     
     static func getWeekDescription(date: NSDate) -> String? {
         
+        let sundays : [NameOfDay:String] = [
+            .SundayOfPublicianAndPharisee: "Sunday of the Publican and the Pharisee",
+            .SundayOfProdigalSon: "Sunday of the Prodigal Son",
+            .SundayOfDreadJudgement: "Sunday of the Dread Judgement",
+            .CheesefareSunday: "Cheesefare Sunday (Forgiveness Sunday): Commemoration of the Expulsion of Adam from Paradise",
+            .Sunday2AfterPascha: "Second Sunday after Pascha. Thomas Sunday, or Antipascha",
+            .Sunday3AfterPascha: "Third Sunday after Pascha. Sunday of the Myrrhbearing Women",
+            .Sunday4AfterPascha: "Fourth Sunday after Pascha. Sunday of the Paralytic",
+            .Sunday5AfterPascha: "Fifth Sunday after Pascha. Sunday of the Samaritan Woman",
+            .Sunday6AfterPascha: "Sixth Sunday after Pascha. Sunday of the Blind Man",
+            .Sunday7AfterPascha: "Seventh Sunday after Pascha. Commemoration of the 318 Holy Fathers of the First Ecumenical Council (325)",
+            .LazarusSaturday: "Saturday of Palms (Lazarus Saturday)",
+        ];
+        
         setDate(date)
 
+        if let codes = feastDates[date] {
+            for code in codes {
+                if let descr = sundays[code] {
+                    return Translate.s(descr)
+                }
+            }
+        }
+        
         let dayOfWeek = (currentWeekday == .Sunday) ? "Sunday" : "Week"
         
         switch (date) {
@@ -339,13 +354,7 @@ struct ChurchCalendar {
             return "Week of the Dread Judgement"
 
         case d(.BeginningOfGreatLent) ..< d(.PalmSunday):
-            let weekNum = (d(.BeginningOfGreatLent) >> date)/7+1
-            
-            if currentWeekday == .Sunday {
-                return nil
-            } else {
-                return "Week \(weekNum) of Great Lent"
-            }
+            return  String(format: Translate.s("\(dayOfWeek) %d of Great Lent"), (d(.BeginningOfGreatLent) >> date)/7+1)
             
         case d(.PalmSunday)+1.days ..< d(.Pascha):
             return "Passion Week"
@@ -355,13 +364,7 @@ struct ChurchCalendar {
             
         case d(.Pascha)+8.days ..< d(.Pentecost):
             let weekNum = (d(.Pascha) >> date)/7+1
-            
-            if currentWeekday == .Sunday {
-                return nil
-
-            } else {
-                return  "Week \(weekNum) after Pascha"
-            }
+            return (currentWeekday == .Sunday) ? nil : "Week \(weekNum) after Pascha"
 
         case d(.Pentecost)+1.days ..< d(.Pentecost)+7.days:
             return "Trinity Week"
