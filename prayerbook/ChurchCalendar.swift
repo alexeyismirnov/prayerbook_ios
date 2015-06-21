@@ -6,7 +6,7 @@ enum FeastType: Int {
 }
 
 enum NameOfDay: Int {
-    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, VeilOfTheotokos, EntryIntoTemple, StNicholas, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement, CheesefareSunday, BeginningOfGreatLent, BeginningOfDormitionFast, BeginningOfNativityFast, BeginningOfApostolesFast, SundayOfForefathers, SundayBeforeNativity, SundayAfterExaltation, SaturdayAfterExaltation, SaturdayBeforeExaltation, SundayBeforeExaltation, SaturdayBeforeNativity, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany, SundayBeforeTheophany, SaturdayAfterTheophany, SundayAfterTheophany, Sunday2AfterPascha, Sunday3AfterPascha, Sunday4AfterPascha, Sunday5AfterPascha, Sunday6AfterPascha, Sunday7AfterPascha, LazarusSaturday, EndOfYear
+    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, VeilOfTheotokos, EntryIntoTemple, StNicholas, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement, CheesefareSunday, BeginningOfGreatLent, BeginningOfDormitionFast, BeginningOfNativityFast, BeginningOfApostolesFast, SundayOfForefathers, SundayBeforeNativity, SundayAfterExaltation, SaturdayAfterExaltation, SaturdayBeforeExaltation, SundayBeforeExaltation, SaturdayBeforeNativity, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany, SundayBeforeTheophany, SaturdayAfterTheophany, SundayAfterTheophany, Sunday2AfterPascha, Sunday3AfterPascha, Sunday4AfterPascha, Sunday5AfterPascha, Sunday6AfterPascha, Sunday7AfterPascha, LazarusSaturday, NewMartyrsConfessorsOfRussia, EndOfYear
 }
 
 enum FastingType: Int {
@@ -89,6 +89,7 @@ struct ChurchCalendar {
         .SundayBeforeTheophany:     [(.None, "Sunday before Theophany")],
         .SaturdayAfterTheophany:    [(.None, "Saturday after Theophany")],
         .SundayAfterTheophany:      [(.None, "Sunday after Theophany")],
+        .NewMartyrsConfessorsOfRussia: [(.Vigil, "Holy New Martyrs and Confessors of Russia")],
     ]
 
     static let feastIcon : [FeastType: String] = [
@@ -141,22 +142,48 @@ struct ChurchCalendar {
     static func generateFeastDescription(year: Int) {
         let pascha = paschaDay(year)
         let greatLentStart = pascha-48.days
+        let pentecost = d(.Pentecost)
         
         dateFeastDescr = [
+            greatLentStart-2.days:  [(.NoSign, "Commemoration of all the saints, who showed forth in asceticism")],
+            greatLentStart+5.days:  [(.NoSign, "Great Martyr Theodore the Recruit († c. 306)")],
             greatLentStart+6.days:  [(.None,   "Triumph of Orthodoxy")],
+            greatLentStart+12.days: [(.None,   "Commemoration of the Departed")],
             greatLentStart+13.days: [(.NoSign, "Saint Gregory Palamas, Archbishop of Thessalonica († c. 1360)")],
+            greatLentStart+19.days: [(.None,   "Commemoration of the Departed")],
             greatLentStart+20.days: [(.None,   "Veneration of the Precious Cross")],
+            greatLentStart+26.days: [(.None,   "Commemoration of the Departed")],
             greatLentStart+27.days: [(.NoSign, "Venerable John Climacus of Sinai, Author of “the Ladder” († 649)")],
+            greatLentStart+33.days: [(.None,   "Saturday of the Akathist; Laudation of the Most Holy Theotokos")],
             greatLentStart+34.days: [(.None,   "Venerable Mary of Egypt")],
+            pascha+5.days:          [(.None,   "Feast of the Life-Giving Spring of the Mother of God")],
+            pascha+9.days:          [(.None,   "Radonitsa (Day of Rejoycing)")],
             pascha+14.days:         [(.NoSign, "St Joseph of Arimathea, and Nicodemus"),
                                      (.NoSign, "Right-believing Tamara, Queen of Georgia († 1213)")],
-            pascha+21.days:         [(.NoSign, "Holy Martyr Abraham the Bulgar, Wonderworker of Vladimir († 1229) "),
+            pascha+21.days:         [(.NoSign, "Holy Martyr Abraham the Bulgar, Wonderworker of Vladimir († 1229)"),
                                      (.NoSign, "Righteous Tabitha of Joppa (1st C)")],
+            pascha+24.days:         [(.None,   "Mid-Pentecost"),
+                                     (.None,   "Mozdok and Dubensky-Krasnohorská (17th C) Icons of the Mother of God")],
+            pascha+27.days:         [(.None,   "Synaxis of New Martyrs of Butovo")],
+            pascha+38.days:         [(.None,   "Apodosis of Pascha")],
+            pascha+40.days:         [(.None,   "Afterfeast of the Ascension")],
+            pascha+41.days:         [(.None,   "Afterfeast of the Ascension")],
             pascha+42.days:         [(.None,   "Chelnskoy and Pskov-Kiev Caves called “Tenderness” icons of the Mother of God")],
-            pascha+50.days:         [(.None,   "Day of the Holy Spirit"),
-                                     (.None,   "Icons of the Mother of God “Tupichevsk” (1847) and “Cypriot” (392) ")],
+            pascha+43.days:         [(.None,   "Afterfeast of the Ascension")],
+            pascha+44.days:         [(.None,   "Afterfeast of the Ascension")],
+            pascha+45.days:         [(.None,   "Afterfeast of the Ascension")],
+            pascha+46.days:         [(.None,   "Afterfeast of the Ascension")],
+            pascha+47.days:         [(.None,   "Apodosis of the Ascension")],
+            pascha+48.days:         [(.None,   "Trinity Saturday; Commemoration of the Departed")],
+            pentecost+1.days:       [(.None,   "Day of the Holy Spirit"),
+                                     (.None,   "Icons of the Mother of God “Tupichevsk” (1847) and “Cypriot” (392)")],
+            pentecost+4.days:       [(.None,   "Icon of the Mother of God “Surety of Sinners” in Korets (1622)")],
+            pentecost+6.days:       [(.None,   "Apodosis of Pentecost")],
+            pentecost+7.days:       [(.None,   "Feast of All Saints"),
+                                     (.None,   "Icons of the Mother of God: “the Softener of evil hearts” and “the Indestructible Wall”")],
+            pentecost+14.days:      [(.None,   "All Saints who have shown forth in the land of Russia")],
+
         ]
-        
     }
     
     static func generateFeastDates(year: Int) {
@@ -264,6 +291,11 @@ struct ChurchCalendar {
         feastDates += [theophany - theophanyWeekday.days: [.SaturdayBeforeTheophany]]
         feastDates += [theophany + (8-theophanyWeekday).days: [.SundayAfterTheophany]]
         feastDates += [theophany + theophanySatOffset.days: [.SaturdayAfterTheophany]]
+        
+        let newMartyrs = NSDateComponents(7, 2, year).toDate()
+        let newMartyrsWeekday = NSDateComponents(date:newMartyrs).weekday
+        let newMartyrsSunOffset = (newMartyrsWeekday == 1) ? 0 : 8-newMartyrsWeekday
+        feastDates += [newMartyrs + newMartyrsSunOffset.days: [.NewMartyrsConfessorsOfRussia]]
 
         let start: Int = NameOfDay.StartOfYear.rawValue
         let end: Int = NameOfDay.EndOfYear.rawValue
