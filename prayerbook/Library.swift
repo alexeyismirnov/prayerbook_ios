@@ -40,7 +40,7 @@ class Library: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (code == "Library") ? NewTestament.count :Db.numberOfChapters(code)
+        return (code == "Library") ? NewTestament.count-3 :Db.numberOfChapters(code)
     }
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

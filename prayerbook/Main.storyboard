@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E17e" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="G5G-CB-Hhd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E36b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="G5G-CB-Hhd">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -8,7 +8,7 @@
         <!--Options-->
         <scene sceneID="uNN-Bb-X43">
             <objects>
-                <tableViewController id="adP-n7-Jrr" customClass="Options" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="adP-n7-Jrr" customClass="Options" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vhy-D1-r2C">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -109,7 +109,7 @@
         <!--Calendar View Controller-->
         <scene sceneID="GHt-Ln-le2">
             <objects>
-                <viewController id="3oo-4v-qEy" customClass="CalendarViewController" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3oo-4v-qEy" customClass="CalendarViewController" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wbg-kb-UZP"/>
                         <viewControllerLayoutGuide type="bottom" id="soQ-cD-gxb"/>
@@ -169,7 +169,7 @@
         <!--Title-->
         <scene sceneID="xiR-6X-NLn">
             <objects>
-                <viewController storyboardIdentifier="Prayer" automaticallyAdjustsScrollViewInsets="NO" id="W4B-va-jdc" customClass="Prayer" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Prayer" automaticallyAdjustsScrollViewInsets="NO" id="W4B-va-jdc" customClass="Prayer" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j3E-wc-9mf"/>
                         <viewControllerLayoutGuide type="bottom" id="DOY-Dk-Zuv"/>
@@ -191,13 +191,7 @@
                             <constraint firstItem="2CG-ri-jez" firstAttribute="leading" secondItem="kQ3-4q-rJN" secondAttribute="leading" constant="20" symbolic="YES" id="zcv-Vv-iN0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="w5G-tA-2nV">
-                        <barButtonItem key="rightBarButtonItem" image="options" id="gBM-FD-vZA">
-                            <connections>
-                                <segue destination="Y1p-3w-LEu" kind="modal" identifier="Options" id="fNq-2R-YfY"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="w5G-tA-2nV"/>
                     <connections>
                         <outlet property="webView" destination="2CG-ri-jez" id="SnQ-oc-IZ2"/>
                     </connections>
@@ -230,18 +224,18 @@
         <!--Daily Tab-->
         <scene sceneID="EKN-ka-Srl">
             <objects>
-                <tableViewController id="dd2-at-RAg" customClass="DailyTab" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="dd2-at-RAg" customClass="DailyTab" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tr5-jo-aHH">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="44" id="0YA-pT-vYh" customClass="TextCell" customModule="prayerbook" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="44" id="0YA-pT-vYh" customClass="TextCell" customModule="ponomar" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0YA-pT-vYh" id="wPF-qS-ZcU">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="748" placeholderIntrinsicHeight="33" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="GJZ-ki-hwh" customClass="RWLabel" customModule="prayerbook" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="748" placeholderIntrinsicHeight="33" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="GJZ-ki-hwh" customClass="RWLabel" customModule="ponomar" customModuleProvider="target">
                                             <rect key="frame" x="10" y="0.0" width="748" height="39"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -259,12 +253,12 @@
                                     <outlet property="title" destination="GJZ-ki-hwh" id="o1b-x3-umm"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="35" id="I8y-c9-SkQ" customClass="ImageCell" customModule="prayerbook" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="35" id="I8y-c9-SkQ" customClass="ImageCell" customModule="ponomar" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I8y-c9-SkQ" id="mwe-w3-Yzf">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="702" placeholderIntrinsicHeight="21" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="702" translatesAutoresizingMaskIntoConstraints="NO" id="2ra-KW-o5s" customClass="RWLabel" customModule="prayerbook" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="702" placeholderIntrinsicHeight="21" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="702" translatesAutoresizingMaskIntoConstraints="NO" id="2ra-KW-o5s" customClass="RWLabel" customModule="ponomar" customModuleProvider="target">
                                             <rect key="frame" x="45" y="7" width="713" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -293,19 +287,19 @@
                                     <outlet property="title" destination="2ra-KW-o5s" id="hPQ-mB-fs3"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextDetailsCell" rowHeight="55" id="eHJ-aw-Fnu" customClass="TextDetailsCell" customModule="prayerbook" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextDetailsCell" rowHeight="55" id="eHJ-aw-Fnu" customClass="TextDetailsCell" customModule="ponomar" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eHJ-aw-Fnu" id="8DW-CC-4mE">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Subtitle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="HR8-Py-FPC" customClass="RWLabel" customModule="prayerbook" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Subtitle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="HR8-Py-FPC" customClass="RWLabel" customModule="ponomar" customModuleProvider="target">
                                             <rect key="frame" x="10" y="29" width="748" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="RZ6-2a-aKm" customClass="RWLabel" customModule="prayerbook" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="RZ6-2a-aKm" customClass="RWLabel" customModule="ponomar" customModuleProvider="target">
                                             <rect key="frame" x="10" y="5" width="748" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -348,7 +342,7 @@
         <!--Holy Communion-->
         <scene sceneID="fE8-SV-o0n">
             <objects>
-                <tableViewController id="o6c-oB-QiC" customClass="PrayersTab" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="o6c-oB-QiC" customClass="PrayersTab" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wLS-tm-h4O">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -384,7 +378,7 @@
         <!--Prayers-->
         <scene sceneID="1wL-A0-fFK">
             <objects>
-                <tableViewController id="rbV-jY-Jld" customClass="PrayersTab" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="rbV-jY-Jld" customClass="PrayersTab" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QSQ-U4-BZC">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -421,7 +415,7 @@
         <!--Library-->
         <scene sceneID="fba-ON-Fdn">
             <objects>
-                <tableViewController storyboardIdentifier="Library" id="CmQ-xk-6DO" customClass="Library" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Library" id="CmQ-xk-6DO" customClass="Library" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="L4O-c3-dsP">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -450,7 +444,7 @@
         <!--Scripture-->
         <scene sceneID="5Vw-se-LYd">
             <objects>
-                <viewController storyboardIdentifier="Scripture" automaticallyAdjustsScrollViewInsets="NO" id="xI8-Uf-NsW" customClass="Scripture" customModule="prayerbook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Scripture" automaticallyAdjustsScrollViewInsets="NO" id="xI8-Uf-NsW" customClass="Scripture" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="e2K-hp-5mu"/>
                         <viewControllerLayoutGuide type="bottom" id="By9-xC-C0F"/>
@@ -602,7 +596,6 @@
         <image name="daily" width="30" height="30"/>
         <image name="group" width="30" height="30"/>
         <image name="library" width="30" height="30"/>
-        <image name="options" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
