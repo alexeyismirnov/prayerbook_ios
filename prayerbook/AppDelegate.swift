@@ -24,11 +24,14 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         // the first time app is launched
         if fontSize == 0 {
 
+            prefs.setObject("en", forKey: "language")
+/*
             if (lang == "zh-Hans" || lang == "zh-Hant") {
                 prefs.setObject("cn", forKey: "language")
             } else {
                 prefs.setObject("en", forKey: "language")
             }
+*/
             
             if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
                 prefs.setInteger(14, forKey: "fontSize")

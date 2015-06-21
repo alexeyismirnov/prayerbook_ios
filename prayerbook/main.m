@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "Prayerbook-swift.h"
+#import "Ponomar-swift.h"
 
 int main(int argc, char * argv[])
 {

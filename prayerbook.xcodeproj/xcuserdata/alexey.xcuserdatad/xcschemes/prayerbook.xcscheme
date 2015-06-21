@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8A74D7F6198F20CC0078F39F"
-               BuildableName = "prayerbook.app"
-               BlueprintName = "prayerbook"
+               BuildableName = "ponomar.app"
+               BlueprintName = "ponomar"
                ReferencedContainer = "container:prayerbook.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8A74D7F6198F20CC0078F39F"
-            BuildableName = "prayerbook.app"
-            BlueprintName = "prayerbook"
+            BuildableName = "ponomar.app"
+            BlueprintName = "ponomar"
             ReferencedContainer = "container:prayerbook.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -58,12 +58,13 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8A74D7F6198F20CC0078F39F"
-            BuildableName = "prayerbook.app"
-            BlueprintName = "prayerbook"
+            BuildableName = "ponomar.app"
+            BlueprintName = "ponomar"
             ReferencedContainer = "container:prayerbook.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -76,12 +77,13 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8A74D7F6198F20CC0078F39F"
-            BuildableName = "prayerbook.app"
-            BlueprintName = "prayerbook"
+            BuildableName = "ponomar.app"
+            BlueprintName = "ponomar"
             ReferencedContainer = "container:prayerbook.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
