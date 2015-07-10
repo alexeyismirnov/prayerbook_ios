@@ -255,7 +255,7 @@
 		8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		8A59F34B1B14371800B15FA1 /* saints_07.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_07.sqlite; sourceTree = "<group>"; };
 		8A59F34C1B14371800B15FA1 /* saints_07.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_07.txt; sourceTree = "<group>"; };
-		8A74D7F7198F20CC0078F39F /* prayerbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prayerbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A74D7F7198F20CC0078F39F /* ponomar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ponomar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A74D7FA198F20CC0078F39F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8A74D7FE198F20CC0078F39F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -442,7 +442,7 @@
 		8A74D7F8198F20CC0078F39F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A74D7F7198F20CC0078F39F /* prayerbook.app */,
+				8A74D7F7198F20CC0078F39F /* ponomar.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -698,7 +698,7 @@
 			);
 			name = ponomar;
 			productName = prayerbook;
-			productReference = 8A74D7F7198F20CC0078F39F /* prayerbook.app */;
+			productReference = 8A74D7F7198F20CC0078F39F /* ponomar.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
