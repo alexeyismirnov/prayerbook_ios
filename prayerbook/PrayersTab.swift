@@ -35,6 +35,9 @@ class PrayersTab: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
+        navigationItem.rightBarButtonItems = [button_options]
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionsSaved:", name: optionsSavedNotification, object: nil)
         self.reload()
     }
@@ -47,6 +50,14 @@ class PrayersTab: UITableViewController {
             view.code = sections[tab_index as Int][index.section]
             view.name = titles[index.section][index.row]
         }
+    }
+    
+    func showOptions() {
+        var vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
+        let nav = UINavigationController(rootViewController: vc)
+        vc.delegate = self
+        
+        navigationController?.presentViewController(nav, animated: true, completion: {})
     }
     
     // MARK: Table view data source

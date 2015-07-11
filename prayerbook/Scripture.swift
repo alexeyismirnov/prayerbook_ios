@@ -24,6 +24,9 @@ class Scripture: UIViewController {
         var backButton = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .Plain, target: self, action: "closeView")
         navigationItem.leftBarButtonItem = backButton
         
+        var button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
+        navigationItem.rightBarButtonItems = [button_options]
+        
         switch code {
         case let ScriptureDisplay.Chapter(name, chapter):
             showChapter(name, chapter)
@@ -36,6 +39,14 @@ class Scripture: UIViewController {
 
     override func viewDidAppear(animated: Bool) {
         textView.setContentOffset(CGPointZero, animated: false)
+    }
+    
+    func showOptions() {
+        var vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
+        let nav = UINavigationController(rootViewController: vc)
+        vc.delegate = self
+        
+        navigationController?.presentViewController(nav, animated: true, completion: {})
     }
     
     func formatLine(verse: Int64, _ content : String) -> NSMutableAttributedString? {

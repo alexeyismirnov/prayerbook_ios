@@ -9,7 +9,7 @@
 import UIKit
 
 class DailyTab: UITableViewController, NAModalSheetDelegate {
-    
+
     var fasting: (FastingType, String) = (.Vegetarian, "")
     var foodIcon: [FastingType: String] = [
         .NoFast:        "meat",
@@ -200,11 +200,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     }
     
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
         if indexPath.section == 1 && readings.count > 0 {
-            var vc = storyboard.instantiateViewControllerWithIdentifier("Scripture") as! Scripture
+            var vc = storyboard!.instantiateViewControllerWithIdentifier("Scripture") as! Scripture
             vc.code = .Pericope(readings[indexPath.row])
             navigationController?.pushViewController(vc, animated: true)
 
@@ -239,14 +236,6 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         var size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
         return size.height+1.0
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "Calendar" {
-            let nav = segue.destinationViewController as! UINavigationController
-            let dest = nav.viewControllers[0] as! CalendarViewController
-            dest.delegate = self
-        }
-    }
 
     // MARK: private stuff
     
@@ -268,22 +257,43 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     }
 
     func addBarButtons() {
-        var button_left = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .Plain, target: self, action: "prev_day")
-        var button_right = UIBarButtonItem(image: UIImage(named: "arrow-right"), style: .Plain, target: self, action: "next_day")
-        
+        var button_calendar = UIBarButtonItem(image: UIImage(named: "calendar"), style: .Plain, target: self, action: "showCalendar")
+        var button_left = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .Plain, target: self, action: "prevDay")
+        var button_right = UIBarButtonItem(image: UIImage(named: "arrow-right"), style: .Plain, target: self, action: "nextDay")
+        var button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
+
+        button_calendar.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         button_left.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
-        navigationItem.rightBarButtonItems = [button_right, button_left]
+        
+        navigationItem.leftBarButtonItems = [button_calendar, button_left, button_right]
+        navigationItem.rightBarButtonItems = [button_options]
     }
 
-    func prev_day() {
+    func prevDay() {
         currentDate = currentDate - 1.days;
         reload()
     }
     
-    func next_day() {
+    func nextDay() {
         currentDate = currentDate + 1.days;
         reload()
     }
+    
+    func showCalendar() {
+        var vc = storyboard!.instantiateViewControllerWithIdentifier("Calendar") as! CalendarViewController
+        let nav = UINavigationController(rootViewController: vc)
+        vc.delegate = self
+
+        navigationController?.presentViewController(nav, animated: true, completion: {})
+    }
+    
+    func showOptions() {
+        var vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
+        let nav = UINavigationController(rootViewController: vc)
+        vc.delegate = self
+        
+        navigationController?.presentViewController(nav, animated: true, completion: {})
+    }    
     
     // MARK: NAModalSheetDelegate
     

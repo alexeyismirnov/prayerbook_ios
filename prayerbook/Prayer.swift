@@ -38,16 +38,19 @@ class Prayer: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        var button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
+        navigationItem.rightBarButtonItems = [button_options]
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: optionsSavedNotification, object: nil)
         self.reload()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "Options" {
-            let nav = segue.destinationViewController as! UINavigationController
-            let dest = nav.viewControllers[0] as! Options
-            dest.delegate = self
-        }
+    func showOptions() {
+        var vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
+        let nav = UINavigationController(rootViewController: vc)
+        vc.delegate = self
+        
+        navigationController?.presentViewController(nav, animated: true, completion: {})
     }
 
 }
