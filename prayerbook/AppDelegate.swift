@@ -18,8 +18,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         var fontSize = prefs.integerForKey("fontSize")
         let lang = NSLocale.preferredLanguages()[0] as! String
 
-        Translate.files.append("trans_ui")
-        Translate.files.append("trans_cal")
+        Translate.files = ["trans_ui", "trans_cal", "trans_library"]
         
         // the first time app is launched
         if fontSize == 0 {

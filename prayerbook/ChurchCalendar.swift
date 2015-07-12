@@ -414,22 +414,15 @@ struct ChurchCalendar {
             let reminder = (dayNum/7) % 8
             return (reminder == 0) ? 8 : reminder
         }
-        
-        var formatter = NSNumberFormatter()
-        formatter.locale = Translate.locale
-        
-        if Translate.language == "cn" {
-            formatter.numberStyle = .SpellOutStyle
-        }
 
         setDate(date)
 
         switch (date) {
         case d(.StartOfYear) ..< d(.PalmSunday):
-            return String(format: Translate.s("Tone %@"), formatter.stringFromNumber(tone(dayNum: paschaDay(currentYear-1) >> date))!)
+            return String(format: Translate.s("Tone %@"), Translate.stringFromNumber(tone(dayNum: paschaDay(currentYear-1) >> date)))
 
         case d(.Pascha)+7.days ... d(.EndOfYear):
-            return String(format: Translate.s("Tone %@"), formatter.stringFromNumber(tone(dayNum: d(.Pascha) >> date))!)
+            return String(format: Translate.s("Tone %@"), Translate.stringFromNumber(tone(dayNum: d(.Pascha) >> date)))
 
         default: return nil
         }

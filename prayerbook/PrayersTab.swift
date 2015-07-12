@@ -10,36 +10,34 @@ import UIKit
 
 class PrayersTab: UITableViewController {
 
-    var titles = [[String]]()
+    var entries = [[String]]()
     
     var tab_index: NSNumber!
+    var titles = ["Eucharist", "Prayers"]
     var sections = [ ["communion"], ["daily", "group"] ]
     
     func reload() {
-        
         let bundle = NSBundle.mainBundle().pathForResource("prayers", ofType: "plist")
         let table = NSDictionary(contentsOfFile: bundle!) as! [String:[String]]
         
-        titles=[]
+        entries=[]
         for (index, code) in enumerate(sections[tab_index as Int]) {
-            titles.append(table[code]!)
+            entries.append(table[code]!)
         }
+        
+        title = Translate.s(titles[tab_index as Int])
         
         self.tableView.reloadData()
     }
-    
-    func optionsSaved(params: NSNotification) {
-        self.reload()
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         var button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
         navigationItem.rightBarButtonItems = [button_options]
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "optionsSaved:", name: optionsSavedNotification, object: nil)
-        self.reload()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: optionsSavedNotification, object: nil)
+        reload()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -48,7 +46,7 @@ class PrayersTab: UITableViewController {
             var index = self.tableView.indexPathForSelectedRow() as NSIndexPath!
             view.index = index.row
             view.code = sections[tab_index as Int][index.section]
-            view.name = titles[index.section][index.row]
+            view.name = entries[index.section][index.row]
         }
     }
     
@@ -63,11 +61,11 @@ class PrayersTab: UITableViewController {
     // MARK: Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return titles.count
+        return entries.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titles[section].count
+        return entries[section].count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -78,7 +76,7 @@ class PrayersTab: UITableViewController {
             newCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
         }
         
-        newCell!.textLabel!.text = Translate.s(titles[indexPath.section][indexPath.row])
+        newCell!.textLabel!.text = Translate.s(entries[indexPath.section][indexPath.row])
         return newCell!
     }
 

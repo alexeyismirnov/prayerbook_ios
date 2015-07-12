@@ -175,7 +175,7 @@
                         <viewControllerLayoutGuide type="bottom" id="DOY-Dk-Zuv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kQ3-4q-rJN">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" misplaced="YES" paginationMode="leftToRight" translatesAutoresizingMaskIntoConstraints="NO" id="2CG-ri-jez">
@@ -200,10 +200,10 @@
             </objects>
             <point key="canvasLocation" x="518" y="-1173"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--MainVC-->
         <scene sceneID="Zs1-97-Vp3">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="G5G-CB-Hhd" sceneMemberID="viewController">
+                <tabBarController definesPresentationContext="YES" id="G5G-CB-Hhd" customClass="MainVC" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="xRW-dh-1Of">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -226,7 +226,7 @@
             <objects>
                 <tableViewController id="dd2-at-RAg" customClass="DailyTab" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tr5-jo-aHH">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -338,7 +338,7 @@
             <objects>
                 <tableViewController id="o6c-oB-QiC" customClass="PrayersTab" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wLS-tm-h4O">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -374,7 +374,7 @@
             <objects>
                 <tableViewController id="rbV-jY-Jld" customClass="PrayersTab" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QSQ-U4-BZC">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -411,7 +411,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="Library" id="CmQ-xk-6DO" customClass="Library" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="L4O-c3-dsP">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -480,9 +480,10 @@
         <!--Library-->
         <scene sceneID="BwA-TN-JYu">
             <objects>
-                <navigationController definesPresentationContext="YES" id="0X5-7L-jSp" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="Library" definesPresentationContext="YES" id="0X5-7L-jSp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Library" image="library" id="axO-gz-esa"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gji-eC-yfx">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="gji-eC-yfx">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -496,9 +497,10 @@
         <!--Prayers-->
         <scene sceneID="dCu-sf-oj4">
             <objects>
-                <navigationController definesPresentationContext="YES" id="SsX-Q4-dMs" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="Prayers" definesPresentationContext="YES" id="SsX-Q4-dMs" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Prayers" image="group" id="kA4-di-xhG"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uHF-CH-tyU">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="uHF-CH-tyU">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -509,12 +511,13 @@
             </objects>
             <point key="canvasLocation" x="-1443" y="162"/>
         </scene>
-        <!--Communion-->
+        <!--Eucharist-->
         <scene sceneID="Ylu-Ah-0Bh">
             <objects>
-                <navigationController definesPresentationContext="YES" id="x5e-qi-gb8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Communion" image="communion" id="T2A-zr-QUx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Ro-wi-CsL">
+                <navigationController restorationIdentifier="Communion" definesPresentationContext="YES" id="x5e-qi-gb8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Eucharist" image="communion" id="T2A-zr-QUx"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="5Ro-wi-CsL">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -546,10 +549,11 @@
         <!--Daily-->
         <scene sceneID="o8U-9Z-h5E">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G84-hy-s0A" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="Daily" automaticallyAdjustsScrollViewInsets="NO" id="G84-hy-s0A" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Daily" image="daily" id="gXv-Zf-1Wo"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="unx-wi-BpH">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="unx-wi-BpH">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -565,7 +569,6 @@
         <!--Navigation Controller-->
         <scene sceneID="CjF-6s-WZz">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9hn-mU-d22" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Avd-PZ-bJK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="1pz-iV-Xt0"/>
@@ -578,6 +581,7 @@
                         <segue destination="3oo-4v-qEy" kind="relationship" relationship="rootViewController" id="Udn-Rb-LBb"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9hn-mU-d22" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="412" y="-3397"/>
         </scene>

@@ -42,4 +42,19 @@ struct Translate {
             return str
         }
     }
+    
+    static func stringFromNumber(num : Int) -> String {
+        if language == defaultLanguage {
+            return String(num)
+
+        } else {
+            var formatter = NSNumberFormatter()
+            formatter.locale = locale
+            
+            if language == "cn" {
+                formatter.numberStyle = .SpellOutStyle
+            }
+            return formatter.stringFromNumber(num)!
+        }
+    }
 }

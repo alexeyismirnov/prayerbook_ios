@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Library</key>
+	<string>图书馆</string>
+	<key>Prayers</key>
+	<string>祈祷</string>
+	<key>Eucharist</key>
+	<string>圣餐礼</string>
+	<key>Daily Reading</key>
+	<string>每日经课</string>
+	<key>Daily</key>
+	<string>每日</string>
 	<key>The order of reading Canons and Akathists when alone</key>
 	<string>独自诵念圣颂典和弗坐词仪轨</string>
 	<key>Akathist to our Sweetest Lord Jesus Christ</key>

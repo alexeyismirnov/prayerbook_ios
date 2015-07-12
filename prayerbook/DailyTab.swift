@@ -67,9 +67,9 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         case 0:
             return ""
         case 1:
-            return count(readings) > 0 ? "Daily Reading" : nil
+            return count(readings) > 0 ? Translate.s("Daily Reading") : nil
         case 2:
-            return "Daily Saints"
+            return Translate.s("Daily Saints")
         default:
             return ""
         }

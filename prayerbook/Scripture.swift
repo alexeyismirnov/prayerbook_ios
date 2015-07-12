@@ -72,7 +72,7 @@ class Scripture: UIViewController {
             var chapter: Int = 0
             
             let fileName = pericope[i].lowercaseString
-            let bookTuple = NewTestament.filter { $0.1 == fileName }
+            let bookTuple = (NewTestament+OldTestament).filter { $0.1 == fileName }
             
             var centerStyle = NSMutableParagraphStyle()
             centerStyle.alignment = .Center

@@ -8,14 +8,67 @@
 
 import UIKit
 
+let NewTestament: [(String, String)] = [
+    ("Gospel of St Matthew", "matthew"),
+    ("Gospel of St Mark", "mark"),
+    ("Gospel of St Luke", "luke"),
+    ("Gospel of St John", "john"),
+    ("Acts of the Apostles", "acts"),
+    ("Epistle of St Paul to Romans", "rom"),
+    ("1st Epistle of St Paul to Corinthians", "1cor"),
+    ("2nd Epistle of St Paul to Corinthians", "2cor"),
+    ("Epistle of St Paul to Galatians", "gal"),
+    ("Epistle of St Paul to Ephesians", "ephes"),
+    ("Epistle of St Paul to Philippians", "phil"),
+    ("Epistle of St Paul to Colossians", "col"),
+    ("1st Epistle of St Paul Thessalonians", "1thess"),
+    ("2nd Epistle of St Paul Thessalonians", "2thess"),
+    ("1st Epistle of St Paul to Timothy", "1tim"),
+    ("2nd Epistle of St Paul to Timothy", "2tim"),
+    ("Epistle of St Paul to Titus", "tit"),
+    ("Epistle of St Paul to Philemon", "philem"),
+    ("Epistle of St Paul to Hebrews", "heb"),
+    ("General Epistle of James", "james"),
+    ("1st Epistle General of Peter", "1pet"),
+    ("2nd General Epistle of Peter", "2pet"),
+    ("1st Epistle General of John", "1john"),
+    ("2nd Epistle General of John", "2john"),
+    ("3rd Epistle General of John", "3john"),
+    ("General Epistle of Jude", "jude"),
+    ("Revelation of St John the Devine", "rev")
+]
+
+let OldTestament: [(String, String)] = [
+    ("Genesis", "gen"),
+    ("The Proverbs", "prov"),
+    ("The Book of Prophet Isaiah", "isa")
+]
+
+
 class Library: UITableViewController {
     var code:String = "Library"
+    var index:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: optionsSavedNotification, object: nil)
+
         var button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
         navigationItem.rightBarButtonItems = [button_options]
+        
+        reload()
+    }
+    
+    func reload() {
+        tableView.reloadData()
+
+        if (code == "Library") {
+            title = Translate.s("Library")
+            
+        } else {
+            title = Translate.s(NewTestament[index].0)
+        }
     }
     
     func showOptions() {
@@ -33,7 +86,7 @@ class Library: UITableViewController {
         
         if (code == "Library") {
             var vc = storyboard.instantiateViewControllerWithIdentifier("Library") as! Library
-            vc.title = NewTestament[indexPath.row].0
+            vc.index = indexPath.row
             vc.code = NewTestament[indexPath.row].1
             navigationController?.pushViewController(vc, animated: true)
 
@@ -51,11 +104,11 @@ class Library: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (code == "Library") ? NewTestament.count-3 :Db.numberOfChapters(code)
+        return (code == "Library") ? NewTestament.count : Db.numberOfChapters(code)
     }
 
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return (code == "Library") ? "New Testament" : nil
+        return (code == "Library") ? Translate.s("New Testament") : nil
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -66,7 +119,9 @@ class Library: UITableViewController {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
         }
         
-        cell!.textLabel!.text = (code == "Library") ?  NewTestament[indexPath.row].0 : "Chapter \(indexPath.row+1)"
+        cell!.textLabel!.text = (code == "Library") ?
+            Translate.s(NewTestament[indexPath.row].0) :
+            String(format: Translate.s("Chapter %@"), Translate.stringFromNumber(indexPath.row+1))
         
         return cell!
     }
