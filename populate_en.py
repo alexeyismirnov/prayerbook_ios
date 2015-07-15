@@ -3,9 +3,9 @@ import re
 import pprint as p
 import sqlite3 as lite
 
-bookname = "jude"
+bookname = "prov"
 
-with open("./%s.txt" % bookname, 'r') as content_file, lite.connect("./%s.sqlite" % bookname) as con:
+with open("./%s_en.txt" % bookname, 'r') as content_file, lite.connect("./%s_en.sqlite" % bookname) as con:
     content = content_file.read()
     content = ' '.join(content.split())
     
