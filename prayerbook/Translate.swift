@@ -57,4 +57,19 @@ struct Translate {
             return formatter.stringFromNumber(num)!
         }
     }
+    
+    static func readings(var reading : String) -> String {
+        if language == defaultLanguage {
+            return reading
+        }
+        
+        let bundle = NSBundle.mainBundle().pathForResource("Reading_\(language)", ofType: "plist")
+        let books = NSDictionary(contentsOfFile: bundle!) as! [String:String]
+        
+        for (key, value) in books {
+            reading = reading.stringByReplacingOccurrencesOfString(key, withString: value)
+        }
+        
+        return reading
+    }
 }

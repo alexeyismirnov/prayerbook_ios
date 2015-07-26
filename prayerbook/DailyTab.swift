@@ -164,7 +164,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         } else if indexPath.section == 1 {
             var cell: TextDetailsCell = getCell()
             cell.title.textColor = UIColor.blackColor()
-            cell.title.text = readings[indexPath.row]
+            cell.title.text = Translate.readings(readings[indexPath.row])
             cell.subtitle.text = ""
             cell.accessoryType = .DisclosureIndicator
 

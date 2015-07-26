@@ -20,6 +20,8 @@ class Scripture: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: optionsSavedNotification, object: nil)
 
         var backButton = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .Plain, target: self, action: "closeView")
         navigationItem.leftBarButtonItem = backButton
@@ -27,6 +29,10 @@ class Scripture: UIViewController {
         var button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
         navigationItem.rightBarButtonItems = [button_options]
         
+        reload()
+    }
+    
+    func reload() {
         switch code {
         case let ScriptureDisplay.Chapter(name, chapter):
             showChapter(name, chapter)
@@ -63,7 +69,7 @@ class Scripture: UIViewController {
     }
     
     func showPericope(str: String) {
-        title = "Daily reading"
+        title = Translate.s("Daily Reading")
         var text : NSMutableAttributedString? = nil
         
         var pericope = split(str) { $0 == " " }
@@ -78,7 +84,7 @@ class Scripture: UIViewController {
             centerStyle.alignment = .Center
             
             var bookName = NSMutableAttributedString(
-                    string: bookTuple[0].0 + " " + pericope[i+1],
+                    string: Translate.s(bookTuple[0].0) + " " + pericope[i+1],
                 attributes: [NSParagraphStyleAttributeName: centerStyle,
                                        NSFontAttributeName: UIFont.boldSystemFontOfSize(18) ])
             
@@ -141,8 +147,7 @@ class Scripture: UIViewController {
     }
     
     func showChapter(name: String, _ chapter: Int) {
-        
-        title = "Chapter \(chapter)"
+        title = String(format: Translate.s("Chapter %@"), Translate.stringFromNumber(chapter))
 
         var text : NSMutableAttributedString? = nil
 

@@ -2,89 +2,67 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    
-    
-    <key>Gospel of St Matthew</key>
-    <string>玛窦福音</string>
-    <key>Gospel of St Mark</key>
-    <string>马尔谷福音</string>
-
-    <key>Gospel of St Luke</key>
-    <string>路加福音</string>
-
-    <key>Gospel of St John</key>
-    <string>若望福音</string>
-
-    <key>Acts of the Apostles</key>
-    <string>宗徒大事录</string>
-
-    <key>Epistle of St Paul to Romans</key>
-    <string>罗马书</string>
-
-    <key>1st Epistle of St Paul to Corinthians</key>
-    <string>格林多前书</string>
-
-    <key>2nd Epistle of St Paul to Corinthians</key>
-    <string>格林多后书</string>
-
-    <key>Epistle of St Paul to Galatians</key>
-    <string>迦拉达书</string>
-
-    <key>Epistle of St Paul to Ephesians</key>
-    <string>厄弗所书</string>
-
-    <key>Epistle of St Paul to Philippians</key>
-    <string>斐理伯书</string>
-
-    <key>Epistle of St Paul to Colossians</key>
-    <string>哥罗森书</string>
-
-    <key>1st Epistle of St Paul Thessalonians</key>
-    <string>得撒洛尼前书</string>
-
-    <key>2nd Epistle of St Paul Thessalonians</key>
-    <string>得撒洛尼后书</string>
-
-    <key>1st Epistle of St Paul to Timothy</key>
-    <string>弟茂德前书</string>
-
-    <key>2nd Epistle of St Paul to Timothy</key>
-    <string>弟茂德后书</string>
-
-    <key>Epistle of St Paul to Titus</key>
-    <string>弟铎书</string>
-
-    <key>Epistle of St Paul to Philemon</key>
-    <string>费肋孟书</string>
-
-    <key>Epistle of St Paul to Hebrews</key>
-    <string>希伯来书</string>
-
-    <key>General Epistle of James</key>
-    <string>雅各伯书</string>
-
-    <key>1st Epistle General of Peter</key>
-    <string>伯多禄前书</string>
-
-    <key>2nd General Epistle of Peter</key>
-    <string>伯多禄后书</string>
-
-    <key>1st Epistle General of John</key>
-    <string>若望一书</string>
-
-    <key>2nd Epistle General of John</key>
-    <string>若望二书</string>
-
-    <key>3rd Epistle General of John</key>
-    <string>若望三书</string>
-
-    <key>General Epistle of Jude</key>
-    <string>犹达书</string>
-
-    <key>Revelation of St John the Devine</key>
-    <string>若望默示录</string>
-
-    <key>Chapter %@</key>
+	<key>Genesis</key>
+	<string>创世纪</string>
+	<key>The Proverbs</key>
+	<string>箴言</string>
+	<key>The Book of Prophet Isaiah</key>
+	<string>依撒意亚</string>
+	<key>Gospel of St Matthew</key>
+	<string>玛窦福音</string>
+	<key>Gospel of St Mark</key>
+	<string>马尔谷福音</string>
+	<key>Gospel of St Luke</key>
+	<string>路加福音</string>
+	<key>Gospel of St John</key>
+	<string>若望福音</string>
+	<key>Acts of the Apostles</key>
+	<string>宗徒大事录</string>
+	<key>Epistle of St Paul to Romans</key>
+	<string>罗马书</string>
+	<key>1st Epistle of St Paul to Corinthians</key>
+	<string>格林多前书</string>
+	<key>2nd Epistle of St Paul to Corinthians</key>
+	<string>格林多后书</string>
+	<key>Epistle of St Paul to Galatians</key>
+	<string>迦拉达书</string>
+	<key>Epistle of St Paul to Ephesians</key>
+	<string>厄弗所书</string>
+	<key>Epistle of St Paul to Philippians</key>
+	<string>斐理伯书</string>
+	<key>Epistle of St Paul to Colossians</key>
+	<string>哥罗森书</string>
+	<key>1st Epistle of St Paul Thessalonians</key>
+	<string>得撒洛尼前书</string>
+	<key>2nd Epistle of St Paul Thessalonians</key>
+	<string>得撒洛尼后书</string>
+	<key>1st Epistle of St Paul to Timothy</key>
+	<string>弟茂德前书</string>
+	<key>2nd Epistle of St Paul to Timothy</key>
+	<string>弟茂德后书</string>
+	<key>Epistle of St Paul to Titus</key>
+	<string>弟铎书</string>
+	<key>Epistle of St Paul to Philemon</key>
+	<string>费肋孟书</string>
+	<key>Epistle of St Paul to Hebrews</key>
+	<string>希伯来书</string>
+	<key>General Epistle of James</key>
+	<string>雅各伯书</string>
+	<key>1st Epistle General of Peter</key>
+	<string>伯多禄前书</string>
+	<key>2nd General Epistle of Peter</key>
+	<string>伯多禄后书</string>
+	<key>1st Epistle General of John</key>
+	<string>若望一书</string>
+	<key>2nd Epistle General of John</key>
+	<string>若望二书</string>
+	<key>3rd Epistle General of John</key>
+	<string>若望三书</string>
+	<key>General Epistle of Jude</key>
+	<string>犹达书</string>
+	<key>Revelation of St John the Devine</key>
+	<string>若望默示录</string>
+	<key>Chapter %@</key>
 	<string>第%@章</string>
 	<key>New Testament</key>
 	<string>新约全书</string>
