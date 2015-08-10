@@ -200,6 +200,8 @@
 		8AE6FE8D1B70CCA500FDAA47 /* saints_01_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6FE8B1B70CCA500FDAA47 /* saints_01_cn.txt */; };
 		8AE6FE901B70D60300FDAA47 /* saints_02_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6FE8E1B70D60300FDAA47 /* saints_02_cn.sqlite */; };
 		8AE6FE911B70D60300FDAA47 /* saints_02_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6FE8F1B70D60300FDAA47 /* saints_02_cn.txt */; };
+		8AE798B61B78321600E7F694 /* saints_08_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE798B41B78321600E7F694 /* saints_08_cn.sqlite */; };
+		8AE798B71B78321600E7F694 /* saints_08_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AE798B51B78321600E7F694 /* saints_08_cn.txt */; };
 		8AE821F41AC54F8E000460C1 /* DailyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821F31AC54F8E000460C1 /* DailyTab.swift */; };
 		8AE821F91AC55D8D000460C1 /* RWLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821F81AC55D8D000460C1 /* RWLabel.swift */; };
 		8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821FA1AC560FE000460C1 /* TextCell.swift */; };
@@ -440,6 +442,8 @@
 		8AE6FE8B1B70CCA500FDAA47 /* saints_01_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_01_cn.txt; sourceTree = "<group>"; };
 		8AE6FE8E1B70D60300FDAA47 /* saints_02_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_02_cn.sqlite; sourceTree = "<group>"; };
 		8AE6FE8F1B70D60300FDAA47 /* saints_02_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_02_cn.txt; sourceTree = "<group>"; };
+		8AE798B41B78321600E7F694 /* saints_08_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_08_cn.sqlite; sourceTree = "<group>"; };
+		8AE798B51B78321600E7F694 /* saints_08_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_08_cn.txt; sourceTree = "<group>"; };
 		8AE821F31AC54F8E000460C1 /* DailyTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab.swift; sourceTree = "<group>"; };
 		8AE821F81AC55D8D000460C1 /* RWLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWLabel.swift; sourceTree = "<group>"; };
 		8AE821FA1AC560FE000460C1 /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
@@ -778,6 +782,8 @@
 		8ADFF51E1B0F1D02001AE6A9 /* saints */ = {
 			isa = PBXGroup;
 			children = (
+				8AE798B41B78321600E7F694 /* saints_08_cn.sqlite */,
+				8AE798B51B78321600E7F694 /* saints_08_cn.txt */,
 				8ADF91E81B7731EA0078BB6B /* saints_06_cn.sqlite */,
 				8ADF91E91B7731EA0078BB6B /* saints_06_cn.txt */,
 				8ADF91EA1B7731EA0078BB6B /* saints_07_cn.sqlite */,
@@ -908,6 +914,7 @@
 				8A8D4E0F1B64A349002C614F /* gal_cn.sqlite in Resources */,
 				8A3A21141A46C0150052861D /* 2cor_en.sqlite in Resources */,
 				8A41936419E6921600D570A9 /* food-milk.pdf in Resources */,
+				8AE798B61B78321600E7F694 /* saints_08_cn.sqlite in Resources */,
 				8A9A3DD519D3AE1600A7D82A /* prayer_communion_4_cn.html in Resources */,
 				8A8D4E141B64A349002C614F /* philem_cn.sqlite in Resources */,
 				8A3A21191A46C0150052861D /* 3john_en.sqlite in Resources */,
@@ -1019,6 +1026,7 @@
 				8A2F469E19E110CF00076AF4 /* prayer_group_10_cn.html in Resources */,
 				8AF37E5D1B36C7A500101148 /* newicon_120.png in Resources */,
 				8AA3DF591B18594F00507129 /* saints_10_en.txt in Resources */,
+				8AE798B71B78321600E7F694 /* saints_08_cn.txt in Resources */,
 				8A8D4E031B64A349002C614F /* 1pet_cn.sqlite in Resources */,
 				8A8D4E0A1B64A349002C614F /* 2tim_cn.sqlite in Resources */,
 				8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */,
