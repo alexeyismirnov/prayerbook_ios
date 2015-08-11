@@ -205,6 +205,10 @@
 		8AE821F41AC54F8E000460C1 /* DailyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821F31AC54F8E000460C1 /* DailyTab.swift */; };
 		8AE821F91AC55D8D000460C1 /* RWLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821F81AC55D8D000460C1 /* RWLabel.swift */; };
 		8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821FA1AC560FE000460C1 /* TextCell.swift */; };
+		8AE8A02C1B7980A4000A29F2 /* saints_09_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE8A0281B7980A4000A29F2 /* saints_09_cn.sqlite */; };
+		8AE8A02D1B7980A4000A29F2 /* saints_09_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AE8A0291B7980A4000A29F2 /* saints_09_cn.txt */; };
+		8AE8A02E1B7980A4000A29F2 /* saints_10_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE8A02A1B7980A4000A29F2 /* saints_10_cn.sqlite */; };
+		8AE8A02F1B7980A4000A29F2 /* saints_10_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AE8A02B1B7980A4000A29F2 /* saints_10_cn.txt */; };
 		8AEA34921B5738BF006153F3 /* john_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA348E1B5738BF006153F3 /* john_cn.sqlite */; };
 		8AEA34931B5738BF006153F3 /* luke_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA348F1B5738BF006153F3 /* luke_cn.sqlite */; };
 		8AEA34941B5738BF006153F3 /* mark_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA34901B5738BF006153F3 /* mark_cn.sqlite */; };
@@ -447,6 +451,10 @@
 		8AE821F31AC54F8E000460C1 /* DailyTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab.swift; sourceTree = "<group>"; };
 		8AE821F81AC55D8D000460C1 /* RWLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWLabel.swift; sourceTree = "<group>"; };
 		8AE821FA1AC560FE000460C1 /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
+		8AE8A0281B7980A4000A29F2 /* saints_09_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_09_cn.sqlite; sourceTree = "<group>"; };
+		8AE8A0291B7980A4000A29F2 /* saints_09_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_09_cn.txt; sourceTree = "<group>"; };
+		8AE8A02A1B7980A4000A29F2 /* saints_10_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_10_cn.sqlite; sourceTree = "<group>"; };
+		8AE8A02B1B7980A4000A29F2 /* saints_10_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_10_cn.txt; sourceTree = "<group>"; };
 		8AEA348E1B5738BF006153F3 /* john_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = john_cn.sqlite; sourceTree = "<group>"; };
 		8AEA348F1B5738BF006153F3 /* luke_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = luke_cn.sqlite; sourceTree = "<group>"; };
 		8AEA34901B5738BF006153F3 /* mark_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mark_cn.sqlite; sourceTree = "<group>"; };
@@ -782,6 +790,10 @@
 		8ADFF51E1B0F1D02001AE6A9 /* saints */ = {
 			isa = PBXGroup;
 			children = (
+				8AE8A0281B7980A4000A29F2 /* saints_09_cn.sqlite */,
+				8AE8A0291B7980A4000A29F2 /* saints_09_cn.txt */,
+				8AE8A02A1B7980A4000A29F2 /* saints_10_cn.sqlite */,
+				8AE8A02B1B7980A4000A29F2 /* saints_10_cn.txt */,
 				8AE798B41B78321600E7F694 /* saints_08_cn.sqlite */,
 				8AE798B51B78321600E7F694 /* saints_08_cn.txt */,
 				8ADF91E81B7731EA0078BB6B /* saints_06_cn.sqlite */,
@@ -925,6 +937,8 @@
 				8A9A3DDF19D3AE2800A7D82A /* prayer_group_1_cn.html in Resources */,
 				8AC6951B19E3FBC200773FEB /* food-no-egg.pdf in Resources */,
 				8AFB8DEB1B1FDC12006715A3 /* saints_03_en.sqlite in Resources */,
+				8AE8A02C1B7980A4000A29F2 /* saints_09_cn.sqlite in Resources */,
+				8AE8A02F1B7980A4000A29F2 /* saints_10_cn.txt in Resources */,
 				8A8E99AC1B76F8E3006B6377 /* saints_05_cn.txt in Resources */,
 				8A8D4E121B64A349002C614F /* jude_cn.sqlite in Resources */,
 				8AF2497D1AFF308B000070C0 /* sixverse.pdf in Resources */,
@@ -1006,6 +1020,7 @@
 				8ADD7D851A56A5C200BA9F37 /* gen_en.sqlite in Resources */,
 				8A81858219D2E3F300D4B328 /* prayer_communion_1_en.html in Resources */,
 				8A3A21181A46C0150052861D /* 2tim_en.sqlite in Resources */,
+				8AE8A02E1B7980A4000A29F2 /* saints_10_cn.sqlite in Resources */,
 				8A06E66F1B187FC300925F63 /* saints_12_en.sqlite in Resources */,
 				8AF37E5F1B36C7A500101148 /* newicon_180.png in Resources */,
 				8A0EDB131B1E8E29008E48CB /* saints_02_en.txt in Resources */,
@@ -1052,6 +1067,7 @@
 				8A9A3DD719D3AE1600A7D82A /* prayer_communion_5_cn.html in Resources */,
 				8AF37E5B1B36C7A500101148 /* newicon_80.png in Resources */,
 				8AA3DF501B1847D700507129 /* saints_08_en.sqlite in Resources */,
+				8AE8A02D1B7980A4000A29F2 /* saints_09_cn.txt in Resources */,
 				8AC6951F19E3FBC200773FEB /* food-nuts.pdf in Resources */,
 				8AC6952519E4011700773FEB /* daily.pdf in Resources */,
 				8AB4E2B41B20168E0015E19B /* saints_04_en.sqlite in Resources */,
