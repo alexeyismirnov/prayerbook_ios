@@ -16,7 +16,6 @@ struct Db {
         let dc = NSDateComponents(date: date)
 
         let filename = String(format: "saints_%02d_%@", dc.month, Translate.language)
-//        let filename = String(format: "saints_%02d_en", dc.month)
         
         let path = NSBundle.mainBundle().pathForResource(filename, ofType: "sqlite")!
         let db = Database(path:path, error:&error)
