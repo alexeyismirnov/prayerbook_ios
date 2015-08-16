@@ -1,11 +1,17 @@
 #!/usr/bin/python
+import sys
 import re
+import os
 import pprint as p
 import sqlite3 as lite
 
-month="05"
+if len(sys.argv) != 2:
+    print "Usage: %s filename" % sys.argv[0]
+    sys.exit(0)
 
-with open("./saints_%s.txt" % month, 'r') as f, lite.connect("./saints_%s.sqlite" % month) as con:
+basename = os.path.splitext(sys.argv[1])[0]
+
+with open(sys.argv[1], 'r') as f, lite.connect(basename + ".sqlite") as con:
 
     content = f.read().splitlines()
 
