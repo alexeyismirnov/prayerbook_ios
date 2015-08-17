@@ -144,7 +144,7 @@ struct ChurchCalendar {
         let greatLentStart = pascha-48.days
         let pentecost = d(.Pentecost)
         
-        dateFeastDescr = [
+        var miscFeasts :[NSDate: [(FeastType, String)]] = [
             greatLentStart-2.days:  [(.NoSign, "Commemoration of all the saints, who showed forth in asceticism")],
             greatLentStart+5.days:  [(.NoSign, "Great Martyr Theodore the Recruit († c. 306)")],
             greatLentStart+6.days:  [(.None,   "Triumph of Orthodoxy")],
@@ -165,25 +165,95 @@ struct ChurchCalendar {
             pascha+24.days:         [(.None,   "Mid-Pentecost"),
                                      (.None,   "Mozdok and Dubensky-Krasnohorská (17th C) Icons of the Mother of God")],
             pascha+27.days:         [(.None,   "Synaxis of New Martyrs of Butovo")],
+            pascha+42.days:         [(.None,   "Chelnskoy and Pskov-Kiev Caves called “Tenderness” icons of the Mother of God")],
+            pascha+48.days:         [(.None,   "Trinity Saturday; Commemoration of the Departed")],
+            pentecost+1.days:       [(.None,   "Day of the Holy Spirit"),
+                                     (.None,   "Icons of the Mother of God “Tupichevsk” (1847) and “Cypriot” (392)")],
+            pentecost+4.days:       [(.None,   "Icon of the Mother of God “Surety of Sinners” in Korets (1622)")],
+            pentecost+7.days:       [(.None,   "Feast of All Saints"),
+                                     (.None,   "Icons of the Mother of God: “the Softener of evil hearts” and “the Indestructible Wall”")],
+            pentecost+14.days:      [(.None,   "All Saints who have shown forth in the land of Russia")],
+        ]
+        
+        var beforeAfterFeasts :[NSDate: [(FeastType, String)]] = [
             pascha+38.days:         [(.None,   "Apodosis of Pascha")],
             pascha+40.days:         [(.None,   "Afterfeast of the Ascension")],
             pascha+41.days:         [(.None,   "Afterfeast of the Ascension")],
-            pascha+42.days:         [(.None,   "Chelnskoy and Pskov-Kiev Caves called “Tenderness” icons of the Mother of God")],
+            pascha+42.days:         [(.None,   "Afterfeast of the Ascension")],
             pascha+43.days:         [(.None,   "Afterfeast of the Ascension")],
             pascha+44.days:         [(.None,   "Afterfeast of the Ascension")],
             pascha+45.days:         [(.None,   "Afterfeast of the Ascension")],
             pascha+46.days:         [(.None,   "Afterfeast of the Ascension")],
             pascha+47.days:         [(.None,   "Apodosis of the Ascension")],
-            pascha+48.days:         [(.None,   "Trinity Saturday; Commemoration of the Departed")],
-            pentecost+1.days:       [(.None,   "Day of the Holy Spirit"),
-                                     (.None,   "Icons of the Mother of God “Tupichevsk” (1847) and “Cypriot” (392)")],
-            pentecost+4.days:       [(.None,   "Icon of the Mother of God “Surety of Sinners” in Korets (1622)")],
             pentecost+6.days:       [(.None,   "Apodosis of Pentecost")],
-            pentecost+7.days:       [(.None,   "Feast of All Saints"),
-                                     (.None,   "Icons of the Mother of God: “the Softener of evil hearts” and “the Indestructible Wall”")],
-            pentecost+14.days:      [(.None,   "All Saints who have shown forth in the land of Russia")],
+            
+            NSDateComponents(2, 1, year).toDate(): [(.NoSign, "Forefeast of the Nativity")],
+            NSDateComponents(3, 1, year).toDate(): [(.NoSign, "Forefeast of the Nativity")],
+            NSDateComponents(4, 1, year).toDate(): [(.NoSign, "Forefeast of the Nativity")],
+            NSDateComponents(5, 1, year).toDate(): [(.NoSign, "Forefeast of the Nativity")],
+            NSDateComponents(6, 1, year).toDate(): [(.NoSign, "Forefeast of the Nativity")],
+            NSDateComponents(8, 1, year).toDate(): [(.NoSign, "Afterfeast of the Nativity of Our Lord")],
+            NSDateComponents(9, 1, year).toDate(): [(.NoSign, "Afterfeast of the Nativity of Our Lord")],
+            NSDateComponents(10, 1, year).toDate(): [(.NoSign, "Afterfeast of the Nativity of Our Lord")],
+            NSDateComponents(11, 1, year).toDate(): [(.NoSign, "Afterfeast of the Nativity of Our Lord")],
+            NSDateComponents(12, 1, year).toDate(): [(.NoSign, "Afterfeast of the Nativity of Our Lord")],
+            NSDateComponents(13, 1, year).toDate(): [(.Doxology, "Apodosis of the Nativity of Christ")],
+            NSDateComponents(15, 1, year).toDate(): [(.NoSign, "Forefeast of Theophany")],
+            NSDateComponents(16, 1, year).toDate(): [(.NoSign, "Forefeast of Theophany")],
+            NSDateComponents(17, 1, year).toDate(): [(.NoSign, "Forefeast of Theophany")],
+            NSDateComponents(18, 1, year).toDate(): [(.NoSign, "Forefeast of Theophany")],
+            NSDateComponents(20, 1, year).toDate(): [(.NoSign, "Afterfeast of the Theophany")],
+            NSDateComponents(21, 1, year).toDate(): [(.NoSign, "Afterfeast of the Theophany")],
+            NSDateComponents(22, 1, year).toDate(): [(.NoSign, "Afterfeast of the Theophany")],
+            NSDateComponents(23, 1, year).toDate(): [(.NoSign, "Afterfeast of the Theophany")],
+            NSDateComponents(24, 1, year).toDate(): [(.NoSign, "Afterfeast of the Theophany")],
+            NSDateComponents(25, 1, year).toDate(): [(.NoSign, "Afterfeast of the Theophany")],
+            NSDateComponents(26, 1, year).toDate(): [(.NoSign, "Afterfeast of the Theophany")],
+            NSDateComponents(27, 1, year).toDate(): [(.NoSign, "Apodosis of the Theophany")],
+
+            NSDateComponents(18, 8, year).toDate(): [(.SixVerse, "Forefeast of the Transfiguration of the Lord")],
+            NSDateComponents(20, 8, year).toDate(): [(.NoSign, "Afterfeast of the Transfiguration of the Lord")],
+            NSDateComponents(21, 8, year).toDate(): [(.NoSign, "Afterfeast of the Transfiguration of the Lord")],
+            NSDateComponents(22, 8, year).toDate(): [(.NoSign, "Afterfeast of the Transfiguration of the Lord")],
+            NSDateComponents(23, 8, year).toDate(): [(.NoSign, "Afterfeast of the Transfiguration of the Lord")],
+            NSDateComponents(24, 8, year).toDate(): [(.NoSign, "Afterfeast of the Transfiguration of the Lord")],
+            NSDateComponents(25, 8, year).toDate(): [(.NoSign, "Afterfeast of the Transfiguration of the Lord")],
+            NSDateComponents(26, 8, year).toDate(): [(.Doxology, "Apodosis of the Transfiguration of the Lord")],
+            NSDateComponents(27, 8, year).toDate(): [(.SixVerse, "Forefeast of the Dormition of the Mother of God")],
+            NSDateComponents(29, 8, year).toDate(): [(.NoSign, "Afterfeast of the Dormition")],
+            NSDateComponents(30, 8, year).toDate(): [(.NoSign, "Afterfeast of the Dormition")],
+            NSDateComponents(31, 8, year).toDate(): [(.NoSign, "Afterfeast of the Dormition")],
+            NSDateComponents(1, 9, year).toDate(): [(.NoSign, "Afterfeast of the Dormition")],
+            NSDateComponents(2, 9, year).toDate(): [(.NoSign, "Afterfeast of the Dormition")],
+            NSDateComponents(3, 9, year).toDate(): [(.NoSign, "Afterfeast of the Dormition")],
+            NSDateComponents(4, 9, year).toDate(): [(.NoSign, "Afterfeast of the Dormition")],
+            NSDateComponents(5, 9, year).toDate(): [(.Doxology, "Apodosis of the Dormition")],
+
+            NSDateComponents(20, 9, year).toDate(): [(.NoSign, "Forefeast of the Nativity of the Theotokos")],
+            NSDateComponents(22, 9, year).toDate(): [(.NoSign, "Afterfeast of the Nativity of the Theotokos")],
+            NSDateComponents(23, 9, year).toDate(): [(.NoSign, "Afterfeast of the Nativity of the Theotokos")],
+            NSDateComponents(24, 9, year).toDate(): [(.NoSign, "Afterfeast of the Nativity of the Theotokos")],
+            NSDateComponents(25, 9, year).toDate(): [(.Doxology, "Apodosis of the Nativity of the Theotokos")],
+            NSDateComponents(26, 9, year).toDate(): [(.NoSign, "Forefeast of the Exaltation of the Cross")],
+            NSDateComponents(28, 9, year).toDate(): [(.NoSign, "Afterfeast of the Exaltation of the Cross")],
+            NSDateComponents(29, 9, year).toDate(): [(.NoSign, "Afterfeast of the Exaltation of the Cross")],
+            NSDateComponents(30, 9, year).toDate(): [(.NoSign, "Afterfeast of the Exaltation of the Cross")],
+            NSDateComponents(1, 10, year).toDate(): [(.NoSign, "Afterfeast of the Exaltation of the Cross")],
+            NSDateComponents(2, 10, year).toDate(): [(.NoSign, "Afterfeast of the Exaltation of the Cross")],
+            NSDateComponents(3, 10, year).toDate(): [(.NoSign, "Afterfeast of the Exaltation of the Cross")],
+            NSDateComponents(4, 10, year).toDate(): [(.Doxology, "Apodosis of the Exaltation of the Cross")],
+            NSDateComponents(3, 12, year).toDate(): [(.NoSign, "Forefeast of the Entry of the Theotokos")],
+            NSDateComponents(5, 12, year).toDate(): [(.NoSign, "Afterfeast of the Entry of the Theotokos")],
+            NSDateComponents(6, 12, year).toDate(): [(.NoSign, "Afterfeast of the Entry of the Theotokos")],
+            NSDateComponents(7, 12, year).toDate(): [(.NoSign, "Afterfeast of the Entry of the Theotokos")],
+            NSDateComponents(8, 12, year).toDate(): [(.Doxology, "Apodosis of the Entry of the Theotokos")],
+
 
         ]
+        
+        dateFeastDescr += miscFeasts
+        dateFeastDescr += beforeAfterFeasts
+        
     }
     
     static func generateFeastDates(year: Int) {
