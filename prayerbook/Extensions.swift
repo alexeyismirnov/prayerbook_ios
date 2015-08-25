@@ -163,6 +163,36 @@ func +=<K, V> (inout left: [K:V], right: [K:V]) {
     for (k, v) in right { left[k] = v }
 }
 
+struct DateRange : SequenceType {
+    var startDate: NSDate
+    var endDate: NSDate
+    
+    init (_ arg1: NSDate, _ arg2: NSDate){
+        startDate = arg1-1.days
+        endDate = arg2
+    }
+    
+    func generate() -> Generator {
+        return Generator(range: self)
+    }
+    
+    struct Generator: GeneratorType {
+        var range: DateRange
+        
+        mutating func next() -> NSDate? {
+            let nextDate = range.startDate + 1.days
+            
+            if range.endDate < nextDate {
+                return nil
+            }
+            else {
+                range.startDate = nextDate
+                return nextDate
+            }
+        }
+    }
+}
+
 extension NSDate: Comparable {
 }
 

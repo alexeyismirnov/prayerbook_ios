@@ -136,6 +136,7 @@ struct ChurchCalendar {
         // http://calendar.lenacom.spb.ru/index.php
         let a = (19*(year%19) + 15) % 30
         let b = (2*(year%4) + 4*(year%7) + 6*a + 6) % 7
+
         return  ((a+b > 10) ? NSDateComponents(a+b-9, 4, year).toDate() : NSDateComponents(22+a+b, 3, year).toDate()) + 13.days
     }
     
@@ -248,13 +249,84 @@ struct ChurchCalendar {
             NSDateComponents(7, 12, year).toDate(): [(.NoSign, "Afterfeast of the Entry of the Theotokos")],
             NSDateComponents(8, 12, year).toDate(): [(.Doxology, "Apodosis of the Entry of the Theotokos")],
 
-
         ]
         
         dateFeastDescr += miscFeasts
         dateFeastDescr += beforeAfterFeasts
         
+        // Sources: 
+        // http://azbyka.ru/days/p-tablica-dnej-predprazdnstv-poprazdnstv-i-otdanij-dvunadesjatyh-nepodvizhnyh-i-podvizhnyh-gospodskih-prazdnikov
+        
+        let annunciation = NSDateComponents(7,  4, year).toDate()
+        var annunciationFeasts = [NSDate: [(FeastType, String)]]()
+        
+        switch (annunciation) {
+        case d(.StartOfYear) ..< d(.LazarusSaturday):
+            annunciationFeasts = [
+                annunciation-1.days: [(.SixVerse, "Forefeast of the Annunciation")],
+                annunciation+1.days: [(.Doxology, "Apodosis of the Annunciation")],
+            ]
+        case d(.LazarusSaturday):
+            annunciationFeasts = [
+                annunciation-1.days: [(.SixVerse, "Forefeast of the Annunciation")],
+            ]
+
+        default:
+            break
+        }
+        
+        dateFeastDescr += annunciationFeasts
+
+        // АРХИМАНДРИТ ИОАНН ( МАСЛОВ). КОНСПЕКТ ПО ЛИТУРГИКЕ ДЛЯ 3-го класса
+        // Глава: СРЕТЕНИЕ ГОСПОДНЕ (2 февраля)
+
+        let meetingOfLord = NSDateComponents(15, 2, year).toDate()
+        var meetingOfLordFeasts = [NSDate: [(FeastType, String)]]()
+        
+        meetingOfLordFeasts = [
+            meetingOfLord-1.days: [(.SixVerse, "Forefeast of the Meeting of the Lord")],
+        ]
+        
+        var lastDay = meetingOfLord
+        
+        switch (meetingOfLord) {
+        case d(.StartOfYear) ..< d(.SundayOfProdigalSon)-1.days:
+            lastDay = meetingOfLord+7.days
+
+        case d(.SundayOfProdigalSon)-1.days ... d(.SundayOfProdigalSon)+2.days:
+            lastDay = d(.SundayOfProdigalSon)+5.days
+
+        case d(.SundayOfProdigalSon)+3.days ..< d(.SundayOfDreadJudgement):
+            lastDay = d(.SundayOfDreadJudgement) + 2.days
+            
+        case d(.SundayOfDreadJudgement) ... d(.SundayOfDreadJudgement)+1.days:
+            lastDay = d(.SundayOfDreadJudgement) + 4.days
+
+        case d(.SundayOfDreadJudgement)+2.days ... d(.SundayOfDreadJudgement)+3.days:
+            lastDay = d(.SundayOfDreadJudgement) + 6.days
+
+        case d(.SundayOfDreadJudgement)+4.days ... d(.SundayOfDreadJudgement)+6.days:
+            lastDay = d(.CheesefareSunday)
+
+        default:
+            break
+        }
+
+        if (lastDay != meetingOfLord) {
+            for afterfeastDay in DateRange(meetingOfLord+1.days, lastDay-1.days) {
+                meetingOfLordFeasts += [
+                    afterfeastDay: [(.NoSign, "Afterfeast of the Meeting of the Lord")],
+                ]
+            }
+            meetingOfLordFeasts += [
+                lastDay: [(.Doxology, "Apodosis of the Meeting of the Lord")]
+            ]
+        }
+
+        dateFeastDescr += meetingOfLordFeasts
+
     }
+    
     
     static func generateFeastDates(year: Int) {
         let pascha = paschaDay(year)
@@ -503,8 +575,14 @@ struct ChurchCalendar {
         setDate(date)
         
         switch date {
-        case d(.Theophany),
-        d(.MeetingOfLord):
+        case d(.MeetingOfLord):
+            if date == d(.BeginningOfGreatLent) {
+                return (.Vegetarian, "Great Lent")
+            } else {
+                return (.NoFast, "No fast")
+            }
+
+        case d(.Theophany):
             return (.NoFast, "No fast")
             
         case d(.NativityOfTheotokos),
