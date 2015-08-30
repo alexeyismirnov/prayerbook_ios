@@ -2,6 +2,48 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Saturday of Palms (Lazarus Saturday)</key>
+	<string>圣枝安息日（拉匝若复生之安息日）</string>
+	<key>Seventh Sunday after Pascha. Commemoration of the 318 Holy Fathers of the First Ecumenical Council (325)</key>
+	<string>葩斯哈庆期第七主日（纪念第一届神圣普世大公会议诸圣教父）</string>
+	<key>Sixth Sunday after Pascha. Sunday of the Blind Man</key>
+	<string>葩斯哈庆期第六主日（胎瞽者主日）</string>
+	<key>Fifth Sunday after Pascha. Sunday of the Samaritan Woman</key>
+	<string>葩斯哈庆期第五主日（撒玛利亚汲水妇主日）</string>
+	<key>Fourth Sunday after Pascha. Sunday of the Paralytic</key>
+	<string>葩斯哈庆期第四主日（起瘫主日）</string>
+	<key>Third Sunday after Pascha. Sunday of the Myrrhbearing Women</key>
+	<string>葩斯哈庆期第三主日（携香液女主日）</string>
+	<key>Second Sunday after Pascha. Thomas Sunday, or Antipascha</key>
+	<string>葩斯哈庆期第二主日（圣多马主释疑主日，主复活后主日）</string>
+	<key>Week %@ after Pascha</key>
+	<string>葩斯哈庆期第%@周</string>
+	<key>Great Saturday</key>
+	<string>大安息日</string>
+	<key>Great Friday</key>
+	<string>大预备日（主受难日）</string>
+	<key>Great Thursday</key>
+	<string>大瞻礼五（纪念主的奥秘晚餐）</string>
+	<key>Great Wednesday</key>
+	<string>大瞻礼四（悔罪女以香膏傅抹主圣足）</string>
+	<key>Great Tuesday</key>
+	<string>大瞻礼三（纪念明智的童贞女）</string>
+	<key>Great Monday</key>
+	<string>大瞻礼二（纪念圣约熙福•庞伽洛）</string>
+	<key>Bright Week</key>
+	<string>光明周</string>
+	<key>Cheesefare Sunday (Forgiveness Sunday): Commemoration of the Expulsion of Adam from Paradise</key>
+	<string>离酪主日（宽恕主日）记念首先受造之人阿达穆因为乐园的禁果而堕落</string>
+	<key>Tone %@</key>
+	<string>第%@调式</string>
+	<key>Sunday %@ of Great Lent</key>
+	<string>大斋期第%@主日</string>
+	<key>Week %@ of Great Lent</key>
+	<string>大斋期第%@周</string>
+	<key>Sunday %@ after Pentecost</key>
+	<string>五旬节后第%@主日</string>
+	<key>Week %@ after Pentecost</key>
+	<string>五旬节后第%@周</string>
 	<key>PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ</key>
 	<string>圣葩斯哈主日——纪念我们的主，救主，上帝，耶稣基督逾越了阴府，自死者中荣耀地复活</string>
 	<key>Pentecost. Sunday of the Holy Trinity. Descent of the Holy Spirit on the Apostles</key>
@@ -46,6 +88,12 @@
 	<string>圣尼科拉显行灵迹者</string>
 	<key>Beginning of Great Lent</key>
 	<string>大斋期开始</string>
+	<key>Week of the Publican and the Pharisee</key>
+	<string>税吏及法利塞人周</string>
+	<key>Week of the Prodigal Son</key>
+	<string>浪子周</string>
+	<key>Week of the Dread Judgement</key>
+	<string>离肉周</string>
 	<key>Sunday of the Publican and the Pharisee</key>
 	<string>税吏及法利塞人主日</string>
 	<key>Sunday of the Prodigal Son</key>

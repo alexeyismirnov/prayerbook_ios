@@ -113,7 +113,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                 
                 if let toneDescription = Cal.getToneDescription(currentDate) {
                     if count(subtitle) > 0 {
-                        subtitle += ". "
+                        subtitle += "; "
                     }
                     subtitle += toneDescription
                 }
@@ -140,7 +140,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                     
                 } else if feast == .Great {
                     var cell: ImageCell = getCell()
-                    cell.title.textColor = (feast == .Great) ? UIColor.redColor() : UIColor.blackColor()
+                    cell.title.textColor = UIColor.redColor()
                     cell.title.text = dayDescription[indexPath.row-2].1
                     cell.icon.image = UIImage(named: Cal.feastIcon[feast]!)
                     return cell

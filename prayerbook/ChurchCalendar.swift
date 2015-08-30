@@ -516,35 +516,47 @@ struct ChurchCalendar {
         
         switch (date) {
         case d(.StartOfYear) ..< d(.SundayOfPublicianAndPharisee):
-            return  String(format: Translate.s("\(dayOfWeek) %d after Pentecost"), ((paschaDay(currentYear-1)+50.days) >> date)/7+1)
+            return  String(format: Translate.s("\(dayOfWeek) %@ after Pentecost"), Translate.stringFromNumber(((paschaDay(currentYear-1)+50.days) >> date)/7+1))
             
         case d(.SundayOfPublicianAndPharisee)+1.days ..< d(.SundayOfProdigalSon):
-            return "Week of the Publican and the Pharisee"
+            return Translate.s("Week of the Publican and the Pharisee")
 
         case d(.SundayOfProdigalSon)+1.days ..< d(.SundayOfDreadJudgement):
-            return "Week of the Prodigal Son"
+            return Translate.s("Week of the Prodigal Son")
 
         case d(.SundayOfDreadJudgement)+1.days ..< d(.BeginningOfGreatLent)-1.days:
-            return "Week of the Dread Judgement"
+            return Translate.s("Week of the Dread Judgement")
 
         case d(.BeginningOfGreatLent) ..< d(.PalmSunday):
-            return  String(format: Translate.s("\(dayOfWeek) %d of Great Lent"), (d(.BeginningOfGreatLent) >> date)/7+1)
+            return  String(format: Translate.s("\(dayOfWeek) %@ of Great Lent"), Translate.stringFromNumber((d(.BeginningOfGreatLent) >> date)/7+1))
+        
+        case d(.PalmSunday)+1.days:
+            return Translate.s("Great Monday")
             
-        case d(.PalmSunday)+1.days ..< d(.Pascha):
-            return "Passion Week"
+        case d(.PalmSunday)+2.days:
+            return Translate.s("Great Tuesday")
+
+        case d(.PalmSunday)+3.days:
+            return Translate.s("Great Wednesday")
+
+        case d(.PalmSunday)+4.days:
+            return Translate.s("Great Thursday")
+            
+        case d(.PalmSunday)+5.days:
+            return Translate.s("Great Friday")
+
+        case d(.PalmSunday)+6.days:
+            return Translate.s("Great Saturday")
             
         case d(.Pascha)+1.days ..< d(.Pascha)+7.days:
-            return "Bright Week"
+            return Translate.s("Bright Week")
             
         case d(.Pascha)+8.days ..< d(.Pentecost):
             let weekNum = (d(.Pascha) >> date)/7+1
-            return (currentWeekday == .Sunday) ? nil : "Week \(weekNum) after Pascha"
-
-        case d(.Pentecost)+1.days ..< d(.Pentecost)+7.days:
-            return "Trinity Week"
+            return (currentWeekday == .Sunday) ? nil : String(format: Translate.s("Week %@ after Pascha"), Translate.stringFromNumber(weekNum))
             
-        case d(.Pentecost)+7.days ... d(.EndOfYear):
-            return  String(format: Translate.s("\(dayOfWeek) %d after Pentecost"), ((d(.Pentecost)+1.days) >> date)/7+1)
+        case d(.Pentecost)+1.days ... d(.EndOfYear):
+            return  String(format: Translate.s("\(dayOfWeek) %@ after Pentecost"), Translate.stringFromNumber(((d(.Pentecost)+1.days) >> date)/7+1))
             
         default: return nil
         }
