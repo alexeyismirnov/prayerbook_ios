@@ -57,7 +57,7 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return (section == 0) ? "Allowed" : "Prohibited"
+        return (section == 0) ? Translate.s("Allowed") : Translate.s("Prohibited")
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -81,7 +81,7 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         var capitalized = "\(foodName[0])".uppercaseString + foodName.substringFromIndex(advance(foodName.startIndex, 1))
         
-        cell?.textLabel!.text = capitalized
+        cell?.textLabel!.text = Translate.s(capitalized)
         cell?.imageView!.image =  UIImage(named: getImageName(foodName, allowed: indexPath.section == 0))
         
         return cell!

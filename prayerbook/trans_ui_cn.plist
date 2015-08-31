@@ -2,6 +2,28 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Nuts</key>
+	<string>坚果</string>
+	<key>Bread</key>
+	<string>面包</string>
+	<key>Vegetables</key>
+	<string>蔬菜</string>
+	<key>Cheese</key>
+	<string>奶酪</string>
+	<key>Cupcake</key>
+	<string>蛋糕</string>
+	<key>Egg</key>
+	<string>鸡蛋</string>
+	<key>Milk</key>
+	<string>牛奶</string>
+	<key>Fish</key>
+	<string>鱼</string>
+	<key>Meat</key>
+	<string>肉</string>
+	<key>Prohibited</key>
+	<string>禁止</string>
+	<key>Allowed</key>
+	<string>允许</string>
 	<key>Library</key>
 	<string>图书馆</string>
 	<key>Prayers</key>
@@ -21,10 +43,7 @@
 	<key>Thanksgiving Prayer Service</key>
 	<string>代圣体血礼仪</string>
 	<key>Typica</key>
-	<string>感恩儀軌
-感恩儀軌
-感恩儀軌
-感恩儀軌</string>
+	<string>感恩儀軌</string>
 	<key>Thanksgiving after Holy Communion</key>
 	<string>领圣体圣血后的谢恩经</string>
 	<key>The Divine Liturgy of St John Chrysostom</key>
@@ -45,34 +64,8 @@
 	<string>晨起祈祷</string>
 	<key>Trinity Week</key>
 	<string>圣三一周</string>
-	<key>Bright Week</key>
-	<string>光明周</string>
-	<key>Svyatki</key>
-	<string>圣诞节期周</string>
-	<key>Dormition Fast</key>
-	<string>圣母安息斋期</string>
-	<key>Apostoles&apos; Fast</key>
-	<string>使徒斋期</string>
-	<key>Great Lent</key>
-	<string>大斋期</string>
-	<key>Nativity Fast</key>
-	<string>圣诞斋期</string>
-	<key>Fast day</key>
-	<string>教会斋日
-教会斋日
-教会斋日</string>
 	<key>Passion Week</key>
 	<string>受难周</string>
-	<key>Maslenitsa</key>
-	<string>离肉周</string>
-	<key>No fast</key>
-	<string>无斋</string>
-	<key>Fast-free week</key>
-	<string>免斋周</string>
-	<key>Fish allowed</key>
-	<string>鱼可食</string>
-	<key>Vegetarian</key>
-	<string>果蔬</string>
 	<key>Language</key>
 	<string>语言</string>
 	<key>Font size</key>

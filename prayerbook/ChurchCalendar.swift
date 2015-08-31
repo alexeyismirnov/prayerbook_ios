@@ -589,85 +589,85 @@ struct ChurchCalendar {
         switch date {
         case d(.MeetingOfLord):
             if date == d(.BeginningOfGreatLent) {
-                return (.Vegetarian, "Great Lent")
+                return (.Vegetarian, Translate.s("Great Lent"))
             } else {
-                return (.NoFast, "No fast")
+                return (.NoFast, Translate.s("No fast"))
             }
 
         case d(.Theophany):
-            return (.NoFast, "No fast")
+            return (.NoFast, Translate.s("No fast"))
             
         case d(.NativityOfTheotokos),
         d(.PeterAndPaul),
         d(.Dormition),
         d(.VeilOfTheotokos):
             return (currentWeekday == .Wednesday ||
-                    currentWeekday == .Friday) ? (.FishAllowed, "Fish Allowed") : (.NoFast, "No fast")
+                    currentWeekday == .Friday) ? (.FishAllowed, Translate.s("Fish allowed")) : (.NoFast, Translate.s("No fast"))
             
         case d(.NativityOfJohn),
         d(.Transfiguration),
         d(.EntryIntoTemple),
         d(.StNicholas),
         d(.PalmSunday):
-            return (.FishAllowed, "Fish Allowed")
+            return (.FishAllowed, Translate.s("Fish allowed"))
             
         case d(.EveOfTheophany),
         d(.BeheadingOfJohn),
         d(.ExaltationOfCross):
-            return (.Vegetarian, "Fast day")
+            return (.Vegetarian, Translate.s("Fast day"))
             
         case d(.StartOfYear):
             return (currentWeekday == .Saturday ||
-                    currentWeekday == .Sunday) ? (.FishAllowed, "Nativity Fast") : (.Vegetarian, "Nativity Fast")
+                    currentWeekday == .Sunday) ? (.FishAllowed, Translate.s("Nativity Fast")) : (.Vegetarian, Translate.s("Nativity Fast"))
             
         case d(.StartOfYear)+1.days ..< d(.NativityOfGod):
-            return (.Vegetarian, "Nativity Fast")
+            return (.Vegetarian, Translate.s("Nativity Fast"))
             
         case d(.NativityOfGod) ..< d(.EveOfTheophany):
-            return (.FastFree, "Svyatki")
+            return (.FastFree, Translate.s("Svyatki"))
             
         case d(.SundayOfPublicianAndPharisee)+1.days ... d(.SundayOfProdigalSon):
-            return (.FastFree, "Fast-free week")
+            return (.FastFree, Translate.s("Fast-free week"))
             
         case d(.SundayOfDreadJudgement)+1.days ..< d(.BeginningOfGreatLent):
-            return (.Cheesefare, "Maslenitsa")
+            return (.Cheesefare, Translate.s("Maslenitsa"))
             
         case d(.BeginningOfGreatLent) ..< d(.PalmSunday):
-            return (date == d(.Annunciation)) ? (.FishAllowed, "Fish allowed") : (.Vegetarian, "Great Lent")
+            return (date == d(.Annunciation)) ? (.FishAllowed, Translate.s("Fish allowed")) : (.Vegetarian, Translate.s("Great Lent"))
             
         case d(.PalmSunday)+1.days ..< d(.Pascha):
-            return (.Vegetarian, "Vegetarian")
+            return (.Vegetarian, Translate.s("Vegetarian"))
             
         case d(.Pascha)+1.days ... d(.Pascha)+7.days:
-            return (.FastFree, "Fast-free week")
+            return (.FastFree, Translate.s("Fast-free week"))
             
         case d(.Pentecost)+1.days ... d(.Pentecost)+7.days:
-            return (.FastFree, "Fast-free week")
+            return (.FastFree, Translate.s("Fast-free week"))
             
         case d(.BeginningOfApostolesFast) ... d(.PeterAndPaul)-1.days:
             return (currentWeekday == .Monday ||
                     currentWeekday == .Wednesday ||
-                    currentWeekday == .Friday) ? (.Vegetarian, "Apostoles' Fast") : (.FishAllowed, "Apostoles' Fast")
+                    currentWeekday == .Friday) ? (.Vegetarian, Translate.s("Apostoles' Fast")) : (.FishAllowed, Translate.s("Apostoles' Fast"))
             
         case d(.BeginningOfDormitionFast) ... d(.Dormition)-1.days:
-            return (.Vegetarian, "Dormition Fast")
+            return (.Vegetarian, Translate.s("Dormition Fast"))
             
         case d(.BeginningOfNativityFast) ..< d(.StNicholas):
             return (currentWeekday == .Monday ||
                     currentWeekday == .Wednesday ||
-                    currentWeekday == .Friday) ? (.Vegetarian, "Nativity Fast") : (.FishAllowed, "Nativity Fast")
+                    currentWeekday == .Friday) ? (.Vegetarian, Translate.s("Nativity Fast")) : (.FishAllowed, Translate.s("Nativity Fast"))
             
         case d(.StNicholas) ... d(.EndOfYear):
             return (currentWeekday == .Saturday ||
-                    currentWeekday == .Sunday) ? (.FishAllowed, "Nativity Fast") : (.Vegetarian, "Nativity Fast")
+                    currentWeekday == .Sunday) ? (.FishAllowed, Translate.s("Nativity Fast")) : (.Vegetarian, Translate.s("Nativity Fast"))
             
         case d(.NativityOfGod) ..< d(.Pentecost)+8.days:
             return (currentWeekday == .Wednesday ||
-                    currentWeekday == .Friday) ? (.FishAllowed, "Fish Allowed") : (.NoFast, "No fast")
+                    currentWeekday == .Friday) ? (.FishAllowed, Translate.s("Fish allowed")) : (.NoFast, Translate.s("No fast"))
             
         default:
             return (currentWeekday == .Wednesday ||
-                    currentWeekday == .Friday) ? (.Vegetarian, "Vegetarian") : (.NoFast, "No fast")
+                    currentWeekday == .Friday) ? (.Vegetarian, Translate.s("Vegetarian")) : (.NoFast, Translate.s("No fast"))
         }
     }
 }
