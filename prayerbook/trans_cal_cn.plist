@@ -2,6 +2,46 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Venerable Mary of Egypt</key>
+	<string>埃及的大成德者圣女玛利亚</string>
+	<key>Saturday of the Akathist; Laudation of the Most Holy Theotokos</key>
+	<string>赞颂上帝之母至圣诞神女：于晨时课中恭咏全分圣母弗坐词礼仪</string>
+	<key>Venerable John Climacus of Sinai, Author of “the Ladder” († 649)</key>
+	<string>圣天梯约翰（西奈山修道院修士，〈天梯〉作者，649年）</string>
+	<key>Veneration of the Precious Cross</key>
+	<string>叩拜十字圣架</string>
+	<key>Saint Gregory Palamas, Archbishop of Thessalonica († c. 1360)</key>
+	<string>圣格里高利•帕拉玛斯（德撒洛尼基总主教，1360年）</string>
+	<key>Commemoration of the Departed</key>
+	<string>纪念亡者</string>
+	<key>Triumph of Orthodoxy</key>
+	<string>今日基督的教会庆祝至福的治理者米迦勒和德奥多拉及君士坦丁堡牧首圣麦托迪恢复了对神圣而可敬之圣像的敬礼</string>
+	<key>Great Martyr Theodore the Recruit († c. 306)</key>
+	<string>纪念殉道者新兵德奥多若; 大殉道者新兵德奥多若（306年）</string>
+	<key>Commemoration of all the saints, who showed forth in asceticism</key>
+	<string>Commemoration of all the saints, who showed forth in asceticism</string>
+	<key>Apodosis of the Meeting of the Lord</key>
+	<string>主进殿节庆期圆满日</string>
+	<key>Afterfeast of the Meeting of the Lord</key>
+	<string>主进殿节庆期</string>
+	<key>Forefeast of the Meeting of the Lord</key>
+	<string>主进殿节前期</string>
+	<key>Holy New Martyrs and Confessors of Russia</key>
+	<string>俄罗斯全体新殉道者及新宣信者</string>
+	<key>Apodosis of the Theophany</key>
+	<string>主显节庆期圆满日</string>
+	<key>Afterfeast of the Theophany</key>
+	<string>主显节庆期</string>
+	<key>Forefeast of Theophany</key>
+	<string>主显节前期</string>
+	<key>Saints Joseph the Betrothed, David the King, and James the Brother of the Lord</key>
+	<string>纪念义人圣约熙福——吾主之鞠父；圣王大卫——吾主之先祖；及圣雅各——吾主之圣昆</string>
+	<key>Apodosis of the Nativity of Christ</key>
+	<string>主降生庆期圆满日</string>
+	<key>Afterfeast of the Nativity of Our Lord</key>
+	<string>主降生庆期</string>
+	<key>Forefeast of the Nativity</key>
+	<string>主降生节前期</string>
 	<key>Vegetarian</key>
 	<string>果蔬</string>
 	<key>Fish allowed</key>
