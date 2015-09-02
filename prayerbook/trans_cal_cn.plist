@@ -2,6 +2,40 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Apodosis of the Annunciation</key>
+	<string>诞神女福音节庆期圆满日</string>
+	<key>Forefeast of the Annunciation</key>
+	<string>诞神女福音节前日</string>
+	<key>Apodosis of the Entry of the Theotokos</key>
+	<string>至圣诞神女进殿节庆期圆满日</string>
+	<key>Afterfeast of the Entry of the Theotokos</key>
+	<string>至圣诞神女进殿节庆期</string>
+	<key>Forefeast of the Entry of the Theotokos</key>
+	<string>至圣诞神女进殿节前日</string>
+	<key>Apodosis of the Exaltation of the Cross</key>
+	<string>举扬圣架节庆期圆满日</string>
+	<key>Afterfeast of the Exaltation of the Cross</key>
+	<string>举扬圣架节庆期</string>
+	<key>Forefeast of the Exaltation of the Cross</key>
+	<string>举扬圣架节前日</string>
+	<key>Apodosis of the Nativity of the Theotokos</key>
+	<string>诞神女诞辰节庆期圆满日</string>
+	<key>Afterfeast of the Nativity of the Theotokos</key>
+	<string>诞神女诞辰节庆期</string>
+	<key>Forefeast of the Nativity of the Theotokos</key>
+	<string>至圣诞神女诞辰前日</string>
+	<key>Apodosis of the Dormition</key>
+	<string>圣母安息节庆期圆满日</string>
+	<key>Afterfeast of the Dormition</key>
+	<string>圣母安息节庆期</string>
+	<key>Forefeast of the Dormition of the Mother of God</key>
+	<string>至圣诞神女安息节前日</string>
+	<key>Apodosis of the Transfiguration of the Lord</key>
+	<string>主易圣容节庆期圆满日</string>
+	<key>Afterfeast of the Transfiguration of the Lord</key>
+	<string>主易圣容节庆期</string>
+	<key>Forefeast of the Transfiguration of the Lord</key>
+	<string>主易圣容节前日</string>
 	<key>All Saints who have shown forth in the land of Russia</key>
 	<string>俄罗斯全体圣徒</string>
 	<key>Icons of the Mother of God: “the Softener of evil hearts” and “the Indestructible Wall”</key>
