@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>(C) 2015 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong. This app contains information from ponomar.net and orthodox.cn</key>
+	<string>(C) 2015 香港聖彼得聖保羅教堂。本應用使用網站ponomar.net和orthodox.cn之資料</string>
 	<key>Nuts</key>
 	<string>坚果</string>
 	<key>Bread</key>
@@ -30,8 +32,10 @@
 	<string>祈祷</string>
 	<key>Eucharist</key>
 	<string>圣餐礼</string>
-	<key>Daily Reading</key>
-	<string>每日经课</string>
+	<key>Memory of saints</key>
+	<string>本日記念之聖人</string>
+	<key>Gospel of the day</key>
+	<string>本日讀經</string>
 	<key>Daily</key>
 	<string>每日</string>
 	<key>The order of reading Canons and Akathists when alone</key>

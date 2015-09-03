@@ -74,7 +74,7 @@ class Options: UITableViewController {
         if section == 0 {
             return Translate.s("Language")
         } else {
-            return Translate.s("Font size")
+            return Translate.s("(C) 2015 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong. This app contains information from ponomar.net and orthodox.cn")
         }
     }
     
