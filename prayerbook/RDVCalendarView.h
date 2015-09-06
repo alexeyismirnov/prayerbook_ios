@@ -126,6 +126,8 @@ typedef NS_OPTIONS(NSInteger, RDVCalendarViewDayCellSeparatorType) {
  */
 @property (atomic, strong, readonly) NSDateComponents *month;
 
+@property (atomic, weak) NSLocale *locale;
+
 #pragma mark - Creating Calendar View Day Cells
 
 /**

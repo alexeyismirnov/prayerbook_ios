@@ -218,3 +218,26 @@ extension String {
     }
 }
 
+// http://stackoverflow.com/a/29218836/995049
+extension UIColor {
+    convenience init(var hex: String) {
+        var alpha: Float = 100
+        
+        // Establishing the rgb color
+        var rgb: UInt32 = 0
+        var s: NSScanner = NSScanner(string: hex)
+        // Setting the scan location to ignore the leading `#`
+        s.scanLocation = 1
+        // Scanning the int into the rgb colors
+        s.scanHexInt(&rgb)
+        
+        // Creating the UIColor from hex int
+        self.init(
+            red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgb & 0x0000FF) / 255.0,
+            alpha: CGFloat(alpha / 100)
+        )
+    }
+}
+

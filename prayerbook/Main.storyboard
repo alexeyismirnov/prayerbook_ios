@@ -122,44 +122,18 @@
                                 <rect key="frame" x="66" y="65" width="656" height="732"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytf-Sf-VD2">
-                                <rect key="frame" x="136" y="892" width="255" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="Hkl-tF-JKn"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="This text label has some info about current day, tone.... It might span a few lines... What about fasting today?...">
-                                        <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ytf-Sf-VD2" firstAttribute="leading" secondItem="mbE-CE-VL4" secondAttribute="leading" constant="20" symbolic="YES" id="EGB-35-Y8q"/>
                             <constraint firstItem="9FL-Xp-d7d" firstAttribute="top" secondItem="wbg-kb-UZP" secondAttribute="bottom" constant="8" symbolic="YES" id="ML1-Tb-SQG"/>
-                            <constraint firstAttribute="trailing" secondItem="Ytf-Sf-VD2" secondAttribute="trailing" constant="20" symbolic="YES" id="UXj-nu-N8X"/>
-                            <constraint firstItem="soQ-cD-gxb" firstAttribute="top" secondItem="Ytf-Sf-VD2" secondAttribute="bottom" constant="10" id="ge3-r9-iET"/>
+                            <constraint firstItem="soQ-cD-gxb" firstAttribute="top" secondItem="9FL-Xp-d7d" secondAttribute="bottom" constant="8" symbolic="YES" id="SQZ-1S-kJY"/>
                             <constraint firstItem="9FL-Xp-d7d" firstAttribute="leading" secondItem="mbE-CE-VL4" secondAttribute="leading" constant="20" symbolic="YES" id="ifQ-pT-Iqd"/>
-                            <constraint firstItem="Ytf-Sf-VD2" firstAttribute="top" secondItem="9FL-Xp-d7d" secondAttribute="bottom" constant="10" id="lfk-9E-KBx"/>
                             <constraint firstAttribute="trailing" secondItem="9FL-Xp-d7d" secondAttribute="trailing" constant="20" symbolic="YES" id="o9j-aJ-y98"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ePb-wK-hrj">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="xHP-GD-AOB">
-                            <connections>
-                                <action selector="done:" destination="3oo-4v-qEy" id="VgW-Z3-ZuW"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="ePb-wK-hrj"/>
                     <connections>
                         <outlet property="calendarView" destination="9FL-Xp-d7d" id="bPe-Kv-Nho"/>
-                        <outlet property="descriptionLabel" destination="Ytf-Sf-VD2" id="xWl-WA-eXt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iNJ-LS-15D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -342,14 +316,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PrayerCell" id="GsR-1X-aXX">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="44" id="PU5-zi-Po7" customClass="TextCell" customModule="ponomar" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GsR-1X-aXX" id="zhC-MK-gUU">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PU5-zi-Po7" id="1QO-Sj-CPV">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" misplaced="YES" placeholderIntrinsicWidth="748" placeholderIntrinsicHeight="33" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="dYq-sH-qkB" customClass="RWLabel" customModule="ponomar" customModuleProvider="target">
+                                            <rect key="frame" x="10" y="0.0" width="748" height="39"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="dYq-sH-qkB" secondAttribute="bottom" priority="999" constant="5" id="N8w-Xx-gT5"/>
+                                        <constraint firstItem="dYq-sH-qkB" firstAttribute="leading" secondItem="1QO-Sj-CPV" secondAttribute="leading" priority="999" constant="10" id="OIb-VA-lBQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="dYq-sH-qkB" secondAttribute="trailing" priority="999" constant="10" id="Zry-Fo-2Rq"/>
+                                        <constraint firstItem="dYq-sH-qkB" firstAttribute="top" secondItem="1QO-Sj-CPV" secondAttribute="top" priority="999" id="ddd-Wl-Dae"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="W4B-va-jdc" kind="push" identifier="Prayer" id="FYO-OP-ElQ"/>
+                                    <outlet property="title" destination="dYq-sH-qkB" id="WVz-Ke-zoo"/>
+                                    <segue destination="W4B-va-jdc" kind="push" identifier="Prayer" id="3ph-zp-HFS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -378,15 +366,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PrayerCell" id="ZDj-pb-qvg">
-                                <rect key="frame" x="0.0" y="86" width="768" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="44" id="YQ0-Ek-qcY" customClass="TextCell" customModule="ponomar" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZDj-pb-qvg" id="dP0-bK-g9q">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YQ0-Ek-qcY" id="DkK-zq-q11">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" misplaced="YES" placeholderIntrinsicWidth="748" placeholderIntrinsicHeight="33" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="I5b-Eq-6Z6" customClass="RWLabel" customModule="ponomar" customModuleProvider="target">
+                                            <rect key="frame" x="10" y="0.0" width="748" height="39"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="I5b-Eq-6Z6" firstAttribute="top" secondItem="DkK-zq-q11" secondAttribute="top" priority="999" id="CMQ-Rd-mdt"/>
+                                        <constraint firstAttribute="bottom" secondItem="I5b-Eq-6Z6" secondAttribute="bottom" priority="999" constant="5" id="Fcc-5N-Lae"/>
+                                        <constraint firstItem="I5b-Eq-6Z6" firstAttribute="leading" secondItem="DkK-zq-q11" secondAttribute="leading" priority="999" constant="10" id="TcL-Re-nNp"/>
+                                        <constraint firstAttribute="trailing" secondItem="I5b-Eq-6Z6" secondAttribute="trailing" priority="999" constant="10" id="pN3-V4-5uP"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="W4B-va-jdc" kind="push" identifier="Prayer" id="xjH-sG-H2F"/>
+                                    <outlet property="title" destination="I5b-Eq-6Z6" id="5w5-TL-hkb"/>
+                                    <segue destination="W4B-va-jdc" kind="push" identifier="Prayer" id="m2n-MT-8i0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -415,13 +416,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScriptureCell" id="6bR-rp-g5a">
-                                <rect key="frame" x="0.0" y="86" width="768" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="44" id="Vcd-ER-cae" customClass="TextCell" customModule="ponomar" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6bR-rp-g5a" id="X7T-iY-jXT">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vcd-ER-cae" id="gID-gD-MDZ">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" misplaced="YES" placeholderIntrinsicWidth="748" placeholderIntrinsicHeight="33" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="039-n1-zBh" customClass="RWLabel" customModule="ponomar" customModuleProvider="target">
+                                            <rect key="frame" x="10" y="0.0" width="748" height="39"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="039-n1-zBh" secondAttribute="trailing" priority="999" constant="10" id="5XM-wc-8wb"/>
+                                        <constraint firstItem="039-n1-zBh" firstAttribute="top" secondItem="gID-gD-MDZ" secondAttribute="top" priority="999" id="RLB-mX-Ndk"/>
+                                        <constraint firstAttribute="bottom" secondItem="039-n1-zBh" secondAttribute="bottom" priority="999" constant="5" id="d3p-y3-y6O"/>
+                                        <constraint firstItem="039-n1-zBh" firstAttribute="leading" secondItem="gID-gD-MDZ" secondAttribute="leading" priority="999" constant="10" id="gox-hc-YvK"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="title" destination="039-n1-zBh" id="gB2-7U-3u9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -600,6 +616,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="FYO-OP-ElQ"/>
+        <segue reference="m2n-MT-8i0"/>
     </inferredMetricsTieBreakers>
 </document>

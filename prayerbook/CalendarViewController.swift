@@ -8,9 +8,9 @@
 
 import UIKit
 
+
 class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
 
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var calendarView: RDVCalendarView!
     weak var delegate: DailyTab!
 
@@ -23,6 +23,10 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
         
         navigationItem.rightBarButtonItems = [button_right, button_left]
 
+        var button_close = UIBarButtonItem(image: UIImage(named: "close"), style: .Plain, target: self, action: "close")
+        navigationItem.leftBarButtonItem = button_close
+        
+        calendarView.locale = Translate.locale
         calendarView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
         calendarView.separatorStyle = .Horizontal
         calendarView.delegate = self
@@ -34,7 +38,6 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         calendarView.selectedDate = delegate.currentDate
-        updateDescription()
     }
     
     func prev_month() {
@@ -47,10 +50,10 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
         calendarView.showNextMonth()
     }
     
-    @IBAction func done(sender: AnyObject) {
+    func close() {
         delegate.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
     func doneWithDate(recognizer: UITapGestureRecognizer) {
         let cell = recognizer.view as! RDVCalendarDayCell
         let index = calendarView.indexForDayCell(cell)
@@ -60,53 +63,31 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
         delegate.reload()
         delegate.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    private func updateDescription() {
-        if calendarView.selectedDate == nil {
-            descriptionLabel.attributedText = NSMutableAttributedString(string: "")
-            
-        } else {
-            let currentDate = calendarView.selectedDate
 
-            var description:NSMutableAttributedString? =  nil
-            var dayDescription = filter(Cal.getDayDescription(currentDate)) { $0.0 == FeastType.Great }
-
-            if count(dayDescription) > 0 {
-                description = description + (dayDescription[0].1, UIColor.redColor())
-            } else {
-                description = description + (Cal.getWeekDescription(currentDate), UIColor.grayColor())
-            }
-
-            descriptionLabel.attributedText = description
-        }
-        
-    }
-    
     // MARK: RDVCalendarViewDelegate
     
     func calendarView(calendarView: RDVCalendarView!, didChangeMonth month: NSDateComponents!) {
         title = calendarView.monthLabel.text
-        updateDescription()
     }
     
     func calendarView(calendarView: RDVCalendarView!, configureDayCell dayCell: RDVCalendarDayCell!, atIndex index: Int) {
         // FIXME: refactor to use just one gesture recognizer attached to RDVCalendarView
         var recognizer = UITapGestureRecognizer(target: self, action:Selector("doneWithDate:"))
-        recognizer.numberOfTapsRequired = 2
+        recognizer.numberOfTapsRequired = 1
         dayCell.addGestureRecognizer(recognizer)
-        
+
         var curDate = NSDateComponents(index+1, calendarView.month.month, calendarView.month.year).toDate()
         dayCell.textLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.redColor() : UIColor.blackColor()
 
         switch Cal.getFastingDescription(curDate).0 {
         case .Vegetarian:
-            dayCell.backgroundColor = UIColor.greenColor()
+            dayCell.backgroundColor = UIColor(hex:"#30D5C8")
             break
         case .FishAllowed:
-            dayCell.backgroundColor = UIColor.yellowColor()
+            dayCell.backgroundColor = UIColor(hex:"#FADFAD")
             break
         case .Cheesefare, .FastFree:
-            dayCell.backgroundColor = UIColor.cyanColor()
+            dayCell.backgroundColor = UIColor(hex:"#00BFFF")
             break
         default:
             dayCell.backgroundColor = UIColor.whiteColor()
@@ -115,7 +96,6 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
     }
     
     func calendarView(calendarView: RDVCalendarView!, didSelectDate date: NSDate!) {
-        updateDescription()
     }
     
 }

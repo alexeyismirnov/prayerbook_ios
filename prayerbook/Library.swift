@@ -112,19 +112,35 @@ class Library: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "ScriptureCell"
+        let cellIdentifier = "TextCell"
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
+        var newCell  = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? TextCell
+        if newCell == nil {
+            newCell = TextCell(style: UITableViewCellStyle.Default, reuseIdentifier: TextCell.cellId)
         }
         
-        cell!.textLabel!.text = (code == "Library") ?
+        newCell!.title.textColor =  UIColor.blackColor()
+        newCell!.title.text = (code == "Library") ?
             Translate.s(NewTestament[indexPath.row].0) :
             String(format: Translate.s("Chapter %@"), Translate.stringFromNumber(indexPath.row+1))
-        
-        return cell!
+
+        return newCell!
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        var cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        return calculateHeightForCell(cell)
+    }
+    
+    func calculateHeightForCell(cell: UITableViewCell) -> CGFloat {
+        cell.bounds = CGRectMake(0, 0, CGRectGetWidth(tableView.frame), CGRectGetHeight(cell.bounds))
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
+        
+        var size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        return max(size.height+1.0, 40)
+    }
+
 
 }
 

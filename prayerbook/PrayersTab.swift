@@ -69,15 +69,31 @@ class PrayersTab: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "PrayerCell"
+        let cellIdentifier = "TextCell"
         
-        var newCell  = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
+        var newCell  = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? TextCell
         if newCell == nil {
-            newCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
+            newCell = TextCell(style: UITableViewCellStyle.Default, reuseIdentifier: TextCell.cellId)
         }
         
-        newCell!.textLabel!.text = Translate.s(entries[indexPath.section][indexPath.row])
+        newCell!.title.textColor =  UIColor.blackColor()
+        newCell!.title.text = Translate.s(entries[indexPath.section][indexPath.row])
         return newCell!
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        var cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        return calculateHeightForCell(cell)
+    }
+    
+    func calculateHeightForCell(cell: UITableViewCell) -> CGFloat {
+        cell.bounds = CGRectMake(0, 0, CGRectGetWidth(tableView.frame), CGRectGetHeight(cell.bounds))
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
+        
+        var size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        return max(size.height+1.0, 40)
+    }
+
 
 }

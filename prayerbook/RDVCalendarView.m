@@ -23,6 +23,7 @@
 
 #import "RDVCalendarView.h"
 #import "RDVCalendarDayCell.h"
+#import "ponomar-Swift.h"
 
 @interface RDVCalendarView () {
     NSMutableArray *_visibleCells;
@@ -342,7 +343,8 @@
     
     // We need an NSDateFormatter to have access to the localized weekday strings
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    
+    formatter.locale = self.locale;
+
     NSArray *weekSymbols = [formatter shortWeekdaySymbols];
     
     // weekdaySymbols returns and array of strings
@@ -386,6 +388,7 @@
 - (void)updateMonthLabelMonth:(NSDateComponents*)month {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"LLLL yyyy";
+    formatter.locale = self.locale;
     
     NSDate *date = [month.calendar dateFromComponents:month];
     self.monthLabel.text = [formatter stringFromDate:date];
@@ -440,6 +443,8 @@
 
 - (void)setSelectedDate:(NSDate *)selectedDate {
     NSDate *oldDate = [self selectedDate];
+    
+    [self setupWeekDays];
     
     if (selectedDate == nil) {
         _selectedDay = nil;

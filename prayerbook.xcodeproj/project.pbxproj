@@ -202,6 +202,7 @@
 		8AE6FE8D1B70CCA500FDAA47 /* saints_01_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6FE8B1B70CCA500FDAA47 /* saints_01_cn.txt */; };
 		8AE6FE901B70D60300FDAA47 /* saints_02_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6FE8E1B70D60300FDAA47 /* saints_02_cn.sqlite */; };
 		8AE6FE911B70D60300FDAA47 /* saints_02_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6FE8F1B70D60300FDAA47 /* saints_02_cn.txt */; };
+		8AE74D921B9C103B000DD7D2 /* close2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE74D911B9C103B000DD7D2 /* close2.pdf */; };
 		8AE798B61B78321600E7F694 /* saints_08_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE798B41B78321600E7F694 /* saints_08_cn.sqlite */; };
 		8AE798B71B78321600E7F694 /* saints_08_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AE798B51B78321600E7F694 /* saints_08_cn.txt */; };
 		8AE821F41AC54F8E000460C1 /* DailyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821F31AC54F8E000460C1 /* DailyTab.swift */; };
@@ -452,6 +453,7 @@
 		8AE6FE8B1B70CCA500FDAA47 /* saints_01_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_01_cn.txt; sourceTree = "<group>"; };
 		8AE6FE8E1B70D60300FDAA47 /* saints_02_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_02_cn.sqlite; sourceTree = "<group>"; };
 		8AE6FE8F1B70D60300FDAA47 /* saints_02_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_02_cn.txt; sourceTree = "<group>"; };
+		8AE74D911B9C103B000DD7D2 /* close2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = close2.pdf; sourceTree = "<group>"; };
 		8AE798B41B78321600E7F694 /* saints_08_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_08_cn.sqlite; sourceTree = "<group>"; };
 		8AE798B51B78321600E7F694 /* saints_08_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_08_cn.txt; sourceTree = "<group>"; };
 		8AE821F31AC54F8E000460C1 /* DailyTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab.swift; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8AE74D911B9C103B000DD7D2 /* close2.pdf */,
 				8AF37E4E1B36C7A500101148 /* newicon_29.png */,
 				8AF37E4F1B36C7A500101148 /* newicon_40.png */,
 				8AF37E501B36C7A500101148 /* newicon_58.png */,
@@ -1108,6 +1111,7 @@
 				8A8D4E0D1B64A349002C614F /* col_cn.sqlite in Resources */,
 				8A8D4E131B64A349002C614F /* phil_cn.sqlite in Resources */,
 				8AEA34951B5738BF006153F3 /* matthew_cn.sqlite in Resources */,
+				8AE74D921B9C103B000DD7D2 /* close2.pdf in Resources */,
 				8AA3DF581B18594F00507129 /* saints_10_en.sqlite in Resources */,
 				8ADF91EC1B7731EA0078BB6B /* saints_06_cn.sqlite in Resources */,
 				8AF37E3B1B36B1FD00101148 /* launch-hd5.5.png in Resources */,
@@ -1223,6 +1227,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1262,6 +1267,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1285,7 +1291,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Alexey Smirnov (238ET3G48T)";
-				DEFINES_MODULE = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
@@ -1310,7 +1316,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Alexey Smirnov (238ET3G48T)";
-				DEFINES_MODULE = NO;
+				DEFINES_MODULE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
