@@ -69,7 +69,7 @@ class Scripture: UIViewController {
     }
     
     func showPericope(str: String) {
-        title = Translate.s("Daily Reading")
+        title = Translate.s("Gospel of the day")
         var text : NSMutableAttributedString? = nil
         
         var pericope = split(str) { $0 == " " }
