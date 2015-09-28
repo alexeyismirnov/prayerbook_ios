@@ -23,7 +23,7 @@ struct Translate {
             }
             
             dict = [:]
-            for (index, file) in enumerate(files) {
+            for (_, file) in files.enumerate() {
                 let bundle = NSBundle.mainBundle().pathForResource("\(file)_\(language)", ofType: "plist")
                 let newDict = NSDictionary(contentsOfFile: bundle!) as! [String: String]
                 dict += newDict
@@ -48,7 +48,7 @@ struct Translate {
             return String(num)
 
         } else {
-            var formatter = NSNumberFormatter()
+            let formatter = NSNumberFormatter()
             formatter.locale = locale
             
             if language == "cn" {

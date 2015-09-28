@@ -110,8 +110,8 @@ struct ChurchCalendar {
             return;
         }
         
-        var res = filter(feastDates, { (date, codes) in
-            return contains(codes, code) && NSDateComponents(date:date).year == year
+        var res = feastDates.filter({ (date, codes) in
+            return codes.contains(code) && NSDateComponents(date:date).year == year
         })
         
         dCache[DateCache(code, year)] = res[0].0
@@ -145,7 +145,7 @@ struct ChurchCalendar {
         let greatLentStart = pascha-48.days
         let pentecost = d(.Pentecost)
         
-        var miscFeasts :[NSDate: [(FeastType, String)]] = [
+        let miscFeasts :[NSDate: [(FeastType, String)]] = [
             greatLentStart-2.days:  [(.NoSign, "Commemoration of all the saints, who showed forth in asceticism")],
             greatLentStart+5.days:  [(.NoSign, "Great Martyr Theodore the Recruit († c. 306)")],
             greatLentStart+6.days:  [(.None,   "Triumph of Orthodoxy")],
@@ -176,7 +176,7 @@ struct ChurchCalendar {
             pentecost+14.days:      [(.None,   "All Saints who have shown forth in the land of Russia")],
         ]
         
-        var beforeAfterFeasts :[NSDate: [(FeastType, String)]] = [
+        let beforeAfterFeasts :[NSDate: [(FeastType, String)]] = [
             pascha+38.days:         [(.None,   "Apodosis of Pascha")],
             pascha+40.days:         [(.None,   "Afterfeast of the Ascension")],
             pascha+41.days:         [(.None,   "Afterfeast of the Ascension")],
@@ -382,10 +382,10 @@ struct ChurchCalendar {
         let exaltationWeekday = NSDateComponents(date: exaltation).weekday
         feastDates += [exaltation + (8-exaltationWeekday).days: [.SundayAfterExaltation]]
 
-        var exaltationSatOffset = (exaltationWeekday == 7) ? 7 : 7-exaltationWeekday
+        let exaltationSatOffset = (exaltationWeekday == 7) ? 7 : 7-exaltationWeekday
         feastDates += [exaltation + exaltationSatOffset.days: [.SaturdayAfterExaltation]]
         
-        var exaltationSunOffset = (exaltationWeekday == 1) ? 7 : exaltationWeekday-1
+        let exaltationSunOffset = (exaltationWeekday == 1) ? 7 : exaltationWeekday-1
         feastDates += [exaltation - exaltationSunOffset.days: [.SundayBeforeExaltation]]
 
         feastDates += [exaltation - exaltationWeekday.days: [.SaturdayBeforeExaltation]]
@@ -403,7 +403,7 @@ struct ChurchCalendar {
 
         feastDates += [nativity + (8-nativityWeekday).days: [.SundayAfterNativity]]
         
-        var nativitySatOffset = (nativityWeekday == 7) ? 7 : 7-nativityWeekday
+        let nativitySatOffset = (nativityWeekday == 7) ? 7 : 7-nativityWeekday
         feastDates += [nativity + nativitySatOffset.days: [.SaturdayAfterNativity]]
         
         let nativityNextYear = NSDateComponents(7, 1, year+1).toDate()
@@ -424,8 +424,8 @@ struct ChurchCalendar {
         let theophany = NSDateComponents(19, 1, year).toDate()
         let theophanyWeekday = NSDateComponents(date:theophany).weekday
 
-        var theophanySunOffset = (theophanyWeekday == 1) ?  7 : (theophanyWeekday-1)
-        var theophanySatOffset = (theophanyWeekday == 7) ? 7 : 7-theophanyWeekday
+        let theophanySunOffset = (theophanyWeekday == 1) ?  7 : (theophanyWeekday-1)
+        let theophanySatOffset = (theophanyWeekday == 7) ? 7 : 7-theophanyWeekday
 
         feastDates += [theophany - theophanySunOffset.days: [.SundayBeforeTheophany]]
         feastDates += [theophany - theophanyWeekday.days: [.SaturdayBeforeTheophany]]
@@ -450,7 +450,7 @@ struct ChurchCalendar {
     static func isGreatFeast(date: NSDate) -> Bool {
         if let feastCodes = feastDates[date] {
             for code in feastCodes {
-                if contains(greatFeastCodes, code) {
+                if greatFeastCodes.contains(code) {
                     return true
                 }
             }
@@ -473,7 +473,7 @@ struct ChurchCalendar {
             }
         }
 
-        result.sort { $0.0.rawValue < $1.0.rawValue }
+        result.sortInPlace { $0.0.rawValue < $1.0.rawValue }
 
         if let feasts = dateFeastDescr[date] {
             for feast in feasts {
@@ -562,7 +562,7 @@ struct ChurchCalendar {
     }
     
     static func getToneDescription(date: NSDate) -> String? {
-        func tone(#dayNum: Int) -> Int {
+        func tone(dayNum dayNum: Int) -> Int {
             let reminder = (dayNum/7) % 8
             return (reminder == 0) ? 8 : reminder
         }

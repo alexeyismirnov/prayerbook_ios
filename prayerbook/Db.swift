@@ -7,38 +7,43 @@
 //
 
 import Foundation
-
 import UIKit
+import Squeal
 
 struct Db {
-    static func saints(date: NSDate) -> StepSequence {
-        var error: NSError?
+    static func saints(date: NSDate) -> [[String:Bindable?]] {
         let dc = NSDateComponents(date: date)
-
         let filename = String(format: "saints_%02d_%@", dc.month, Translate.language)
         
         let path = NSBundle.mainBundle().pathForResource(filename, ofType: "sqlite")!
-        let db = Database(path:path, error:&error)
+        let db = try! Database(path:path)
         
-        return db!.selectFrom("saints", whereExpr:"day=\(dc.day)", orderBy: "-typikon", error:&error)
+        return try! db.selectFrom("saints", whereExpr:"day=\(dc.day)", orderBy: "-typikon") { ["name": $0["name"], "typikon": $0["typikon"]] }
     }
     
-    static func book(name: String, whereExpr: String = "") -> StepSequence {
-        var error: NSError?
+    static func book(name: String, whereExpr: String = "") -> [[String:Bindable?]] {
         let path = NSBundle.mainBundle().pathForResource(name.lowercaseString+"_"+Translate.language, ofType: "sqlite")!
-        let db = Database(path:path, error:&error)
-        return db!.selectFrom("scripture", whereExpr:whereExpr, error:&error)
+        let db = try! Database(path:path)
+        return try! db.selectFrom("scripture", whereExpr:whereExpr) { ["verse": $0["verse"], "text": $0["text"]] }
     }
     
     static func numberOfChapters(name: String) -> Int {
-        var error: NSError?
         let path = NSBundle.mainBundle().pathForResource(name.lowercaseString+"_"+Translate.language, ofType: "sqlite")!
-        let db = Database(path:path, error:&error)
+        let db = try! Database(path:path)
         
-        for row in db!.query("SELECT COUNT(DISTINCT chapter) FROM scripture", error:&error) {
+        let results = try! db.prepareStatement("SELECT COUNT(DISTINCT chapter) FROM scripture")
+        
+        while try! results.next() {
+            let num = results[0] as! Int64
+            return Int(num)
+        }
+        
+        /*
+        for row in db.query("SELECT COUNT(DISTINCT chapter) FROM scripture", error:&error) {
             let num = row![0] as! Int64
             return Int(num)
         }
+        */
         
         return 0
     }

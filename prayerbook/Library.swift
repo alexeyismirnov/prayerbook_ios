@@ -54,7 +54,7 @@ class Library: UITableViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: optionsSavedNotification, object: nil)
 
-        var button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
+        let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
         navigationItem.rightBarButtonItems = [button_options]
         
         reload()
@@ -72,7 +72,7 @@ class Library: UITableViewController {
     }
     
     func showOptions() {
-        var vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
+        let vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
         let nav = UINavigationController(rootViewController: vc)
         vc.delegate = self
         
@@ -85,13 +85,13 @@ class Library: UITableViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if (code == "Library") {
-            var vc = storyboard.instantiateViewControllerWithIdentifier("Library") as! Library
+            let vc = storyboard.instantiateViewControllerWithIdentifier("Library") as! Library
             vc.index = indexPath.row
             vc.code = NewTestament[indexPath.row].1
             navigationController?.pushViewController(vc, animated: true)
 
         } else {
-            var vc = storyboard.instantiateViewControllerWithIdentifier("Scripture") as! Scripture
+            let vc = storyboard.instantiateViewControllerWithIdentifier("Scripture") as! Scripture
             vc.code = .Chapter(code, indexPath.row+1)
             navigationController?.pushViewController(vc, animated: true)
         }
@@ -128,7 +128,7 @@ class Library: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        var cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        let cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
         return calculateHeightForCell(cell)
     }
     
@@ -137,7 +137,7 @@ class Library: UITableViewController {
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         
-        var size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
         return max(size.height+1.0, 40)
     }
 

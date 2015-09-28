@@ -12,7 +12,7 @@ enum TimeIntervalUnit {
     case Seconds, Minutes, Hours, Days, Months, Years
     
     func dateComponents(interval: Int) -> NSDateComponents {
-        var components:NSDateComponents = NSDateComponents()
+        let components:NSDateComponents = NSDateComponents()
         
         switch (self) {
         case .Seconds:
@@ -52,14 +52,14 @@ extension Int {
 
 func - (let left:NSDate, let right:TimeInterval) -> NSDate {
     let calendar = NSCalendar.currentCalendar()
-    var components = right.unit.dateComponents(-right.interval)
-    return calendar.dateByAddingComponents(components, toDate: left, options: nil)!
+    let components = right.unit.dateComponents(-right.interval)
+    return calendar.dateByAddingComponents(components, toDate: left, options: [])!
 }
 
 func + (let left:NSDate, let right:TimeInterval) -> NSDate {
     let calendar = NSCalendar.currentCalendar()
-    var components = right.unit.dateComponents(right.interval)
-    return calendar.dateByAddingComponents(components, toDate: left, options: nil)!
+    let components = right.unit.dateComponents(right.interval)
+    return calendar.dateByAddingComponents(components, toDate: left, options: [])!
 }
 
 extension NSDateComponents {
@@ -75,7 +75,7 @@ extension NSDateComponents {
         self.init()
         
         let calendar = NSCalendar.currentCalendar()
-        let dateComponents = calendar.components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear | .CalendarUnitWeekday, fromDate: date)
+        let dateComponents = calendar.components([.Day, .Month, .Year, .Weekday], fromDate: date)
         
         self.day = dateComponents.day
         self.month = dateComponents.month
@@ -90,7 +90,7 @@ extension NSDateComponents {
 }
 
 func + (str: String, date: NSDate) -> String {
-    var formatter = NSDateFormatter()
+    let formatter = NSDateFormatter()
     formatter.dateStyle = .ShortStyle
     formatter.timeStyle = .NoStyle
     
@@ -101,7 +101,7 @@ func + (arg1: NSMutableAttributedString?, arg2: NSMutableAttributedString?) -> N
     
     if let rightArg = arg2 {
         if let leftArg = arg1 {
-            var result = NSMutableAttributedString(attributedString: leftArg)
+            let result = NSMutableAttributedString(attributedString: leftArg)
             result.appendAttributedString(rightArg)
             return result
             
@@ -119,7 +119,7 @@ func + (arg1: NSMutableAttributedString?, arg2: String?) -> NSMutableAttributedS
     
     if let rightArg = arg2 {
         if let leftArg = arg1 {
-            var result = NSMutableAttributedString(attributedString: leftArg)
+            let result = NSMutableAttributedString(attributedString: leftArg)
             result.appendAttributedString(NSMutableAttributedString(string: rightArg))
             return result
             
@@ -136,7 +136,7 @@ func + (arg1: NSMutableAttributedString?, arg2: (String?, UIColor)) -> NSMutable
     
     if let rightArg = arg2.0 {
         if let leftArg = arg1 {
-            var result = NSMutableAttributedString(attributedString: leftArg)
+            let result = NSMutableAttributedString(attributedString: leftArg)
             result.appendAttributedString(NSMutableAttributedString(string: rightArg, attributes: [NSForegroundColorAttributeName: arg2.1]))
             return result
             
@@ -197,35 +197,35 @@ extension NSDate: Comparable {
 }
 
 public func < (let left:NSDate, let right: NSDate) -> Bool {
-    var result:NSComparisonResult = left.compare(right)
+    let result:NSComparisonResult = left.compare(right)
     return (result == .OrderedAscending)
 }
 
 public func == (let left:NSDate, let right: NSDate) -> Bool {
-    var result:NSComparisonResult = left.compare(right)
+    let result:NSComparisonResult = left.compare(right)
     return (result == .OrderedSame)
 }
 
 func >> (left: NSDate, right: NSDate) -> Int {
     let calendar = NSCalendar.currentCalendar()
-    let components = calendar.components(.CalendarUnitDay, fromDate: left, toDate: right, options: nil)
+    let components = calendar.components(.Day, fromDate: left, toDate: right, options: [])
     return components.day
 }
 
 extension String {
     subscript (i: Int) -> String {
-        return String(Array(self)[i])
+        return String(Array(self.characters)[i])
     }
 }
 
 // http://stackoverflow.com/a/29218836/995049
 extension UIColor {
-    convenience init(var hex: String) {
-        var alpha: Float = 100
+    convenience init(hex: String) {
+        let alpha: Float = 100
         
         // Establishing the rgb color
         var rgb: UInt32 = 0
-        var s: NSScanner = NSScanner(string: hex)
+        let s: NSScanner = NSScanner(string: hex)
         // Setting the scan location to ignore the leading `#`
         s.scanLocation = 1
         // Scanning the int into the rgb colors

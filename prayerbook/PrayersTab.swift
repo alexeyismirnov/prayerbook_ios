@@ -21,7 +21,7 @@ class PrayersTab: UITableViewController {
         let table = NSDictionary(contentsOfFile: bundle!) as! [String:[String]]
         
         entries=[]
-        for (index, code) in enumerate(sections[tab_index as Int]) {
+        for (_, code) in sections[tab_index as Int].enumerate() {
             entries.append(table[code]!)
         }
         
@@ -33,7 +33,7 @@ class PrayersTab: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
+        let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
         navigationItem.rightBarButtonItems = [button_options]
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: optionsSavedNotification, object: nil)
@@ -42,8 +42,8 @@ class PrayersTab: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Prayer" {
-            var view = segue.destinationViewController as! Prayer
-            var index = self.tableView.indexPathForSelectedRow() as NSIndexPath!
+            let view = segue.destinationViewController as! Prayer
+            let index = self.tableView.indexPathForSelectedRow as NSIndexPath!
             view.index = index.row
             view.code = sections[tab_index as Int][index.section]
             view.name = entries[index.section][index.row]
@@ -51,7 +51,7 @@ class PrayersTab: UITableViewController {
     }
     
     func showOptions() {
-        var vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
+        let vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
         let nav = UINavigationController(rootViewController: vc)
         vc.delegate = self
         
@@ -82,7 +82,7 @@ class PrayersTab: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        var cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        let cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
         return calculateHeightForCell(cell)
     }
     
@@ -91,7 +91,7 @@ class PrayersTab: UITableViewController {
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         
-        var size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
         return max(size.height+1.0, 40)
     }
 

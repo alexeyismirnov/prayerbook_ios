@@ -69,7 +69,7 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("FastingCell") as! UITableViewCell?
+        var cell = tableView.dequeueReusableCellWithIdentifier("FastingCell") 
         
         if cell == nil {
             cell = UITableViewCell(style: .Default, reuseIdentifier: "FastingCell")
@@ -77,9 +77,9 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell?.backgroundColor = UIColor(white: 1.0, alpha: 0.0)
         
-        var foodName = (indexPath.section == 0) ? allowedFood[type]![indexPath.row] : forbiddenFood[type]![indexPath.row]
+        let foodName = (indexPath.section == 0) ? allowedFood[type]![indexPath.row] : forbiddenFood[type]![indexPath.row]
 
-        var capitalized = "\(foodName[0])".uppercaseString + foodName.substringFromIndex(advance(foodName.startIndex, 1))
+        let capitalized = "\(foodName[0])".uppercaseString + foodName.substringFromIndex(foodName.startIndex.advancedBy(1))
         
         cell?.textLabel!.text = Translate.s(capitalized)
         cell?.imageView!.image =  UIImage(named: getImageName(foodName, allowed: indexPath.section == 0))

@@ -32,12 +32,12 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
         return self
     }
 
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 1
     }
 
     func findIndex<S: SequenceType>(sequence: S, predicate: (S.Generator.Element) -> Bool) -> Int? {
-        for (index, element) in enumerate(sequence) {
+        for (index, element) in sequence.enumerate() {
             if predicate(element) {
                 return index
             }
@@ -50,14 +50,14 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
         let InitialVelocity:CGFloat     = 0.2
         let PaddingBetweenViews:CGFloat = 0
         
-        var inView = transitionContext.containerView()
-        var fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
-        var fromView = fromVC?.view
-        var toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
-        var toView = toVC?.view
+        let inView = transitionContext.containerView()
+        let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
+        let fromView = fromVC?.view
+        let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
+        let toView = toVC?.view
         
-        var indexFrom = findIndex(viewControllers as! [UINavigationController]) { $0.restorationIdentifier == fromVC?.restorationIdentifier }
-        var indexTo = findIndex(viewControllers as! [UINavigationController]) { $0.restorationIdentifier == toVC?.restorationIdentifier }
+        let indexFrom = findIndex(viewControllers as! [UINavigationController]) { $0.restorationIdentifier == fromVC?.restorationIdentifier }
+        let indexTo = findIndex(viewControllers as! [UINavigationController]) { $0.restorationIdentifier == toVC?.restorationIdentifier }
 
         let centerRect =  transitionContext.finalFrameForViewController(toVC!)
         let leftRect   = CGRectOffset(centerRect, -(CGRectGetWidth(centerRect)+PaddingBetweenViews), 0);
@@ -65,25 +65,25 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
 
         if (indexTo > indexFrom) {
             toView!.frame = rightRect;
-            inView.addSubview(toView!)
+            inView!.addSubview(toView!)
 
             UIView.animateWithDuration(transitionDuration(transitionContext),
                 delay: NSTimeInterval(0),
                 usingSpringWithDamping: DampingConstant,
                 initialSpringVelocity: InitialVelocity,
-                options: UIViewAnimationOptions(0),
+                options: UIViewAnimationOptions(rawValue: 0),
                 animations: { fromView!.frame = leftRect; toView!.frame = centerRect },
                 completion: { (value:Bool) in transitionContext.completeTransition(true) } )
                     
         } else {
             toView!.frame = leftRect;
-            inView.addSubview(toView!)
+            inView!.addSubview(toView!)
             
             UIView.animateWithDuration(transitionDuration(transitionContext),
                 delay: NSTimeInterval(0),
                 usingSpringWithDamping: DampingConstant,
                 initialSpringVelocity: -InitialVelocity,
-                options: UIViewAnimationOptions(0),
+                options: UIViewAnimationOptions(rawValue: 0),
                 animations: { fromView!.frame = rightRect; toView!.frame = centerRect },
                 completion: { (value:Bool) in transitionContext.completeTransition(true) } )
             

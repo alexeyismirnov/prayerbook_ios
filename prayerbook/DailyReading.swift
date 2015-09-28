@@ -170,7 +170,7 @@ struct DailyReading {
         
         let exaltation = NSDateComponents(27, 9, Cal.currentYear).toDate()
         let exaltationWeekday = NSDateComponents(date: exaltation).weekday
-        var exaltationFriOffset = (exaltationWeekday >= 6) ? 13-exaltationWeekday : 6-exaltationWeekday
+        let exaltationFriOffset = (exaltationWeekday >= 6) ? 13-exaltationWeekday : 6-exaltationWeekday
         let fridayAfterExaltation = exaltation + exaltationFriOffset.days
         
         switch (date) {
@@ -179,7 +179,7 @@ struct DailyReading {
             
         case Cal.d(.SundayOfPublicianAndPharisee) ..< Cal.d(.Pascha):
             let reading = GospelOfLent(date)
-            return count(reading) > 0 ? [reading] : []
+            return reading.characters.count > 0 ? [reading] : []
             
         case Cal.d(.Pascha) ... Cal.d(.Pentecost):
             return [GospelOfJohn(date)]
@@ -226,11 +226,11 @@ struct DailyReading {
         if let feastCodes = Cal.feastDates[date] {
             for code in feastCodes {
                 
-                if contains(cancelReading, code) || contains(transferredReading, code)  {
+                if cancelReading.contains(code) || transferredReading.contains(code)  {
                     noRegularReading = true
                 }
                 
-                if contains(specialReadings.keys.array, code) {
+                if Array(specialReadings.keys).contains(code) {
                     if (code == .EveOfNativityOfGod) {
                         
                         let choices = specialReadings[code]!.componentsSeparatedByString("|")

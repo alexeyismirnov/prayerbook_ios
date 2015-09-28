@@ -59,11 +59,11 @@ class Options: UITableViewController {
             return
         }
         
-        var cell1: UITableViewCell! = self.tableView.cellForRowAtIndexPath(lastSelected!)
+        let cell1: UITableViewCell! = self.tableView.cellForRowAtIndexPath(lastSelected!)
         cell1.accessoryType = .None
         cell1.selected = false
         
-        var cell2: UITableViewCell! = self.tableView.cellForRowAtIndexPath(indexPath)
+        let cell2: UITableViewCell! = self.tableView.cellForRowAtIndexPath(indexPath)
         cell2.accessoryType = .Checkmark
         cell2.selected = true
         
@@ -83,7 +83,7 @@ class Options: UITableViewController {
     }
     
     @IBAction func done(sender: AnyObject) {
-        var lang = (lang_en.accessoryType == .Checkmark) ? "en" : "cn"
+        let lang = (lang_en.accessoryType == .Checkmark) ? "en" : "cn"
 
         prefs.setObject(lang, forKey: "language")
         Translate.language = lang

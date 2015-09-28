@@ -15,8 +15,8 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         
         let prefs = NSUserDefaults.standardUserDefaults()
-        var fontSize = prefs.integerForKey("fontSize")
-        let lang = NSLocale.preferredLanguages()[0] as! String
+        let fontSize = prefs.integerForKey("fontSize")
+        let lang = NSLocale.preferredLanguages()[0] 
 
         Translate.files = ["trans_ui", "trans_cal", "trans_library"]
         

@@ -19,7 +19,7 @@ class Prayer: UIViewController {
         let filename = String(format: "prayer_%@_%d_%@.html", code, index, Translate.language)
         let bundleName = NSBundle.mainBundle().pathForResource(filename, ofType: nil)
         
-        var txt:String! = String(contentsOfFile: bundleName!, encoding: NSUTF8StringEncoding, error: nil)
+        var txt:String! = try? String(contentsOfFile: bundleName!, encoding: NSUTF8StringEncoding)
 
         let prefs = NSUserDefaults.standardUserDefaults()
         let fontSize = prefs.integerForKey("fontSize")

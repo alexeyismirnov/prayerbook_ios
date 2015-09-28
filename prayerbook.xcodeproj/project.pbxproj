@@ -52,17 +52,6 @@
 		8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */; };
 		8A41936319E6921600D570A9 /* food-egg.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936119E6921600D570A9 /* food-egg.pdf */; };
 		8A41936419E6921600D570A9 /* food-milk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936219E6921600D570A9 /* food-milk.pdf */; };
-		8A46EA391B01873B001F1E59 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA2E1B01873B001F1E59 /* Bindable.swift */; };
-		8A46EA3A1B01873B001F1E59 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA2F1B01873B001F1E59 /* Database.swift */; };
-		8A46EA3B1B01873B001F1E59 /* DatabasePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA301B01873B001F1E59 /* DatabasePool.swift */; };
-		8A46EA3C1B01873B001F1E59 /* DeleteHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA311B01873B001F1E59 /* DeleteHelpers.swift */; };
-		8A46EA3D1B01873B001F1E59 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA321B01873B001F1E59 /* Errors.swift */; };
-		8A46EA3E1B01873B001F1E59 /* InsertHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA331B01873B001F1E59 /* InsertHelpers.swift */; };
-		8A46EA3F1B01873B001F1E59 /* SchemaHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA341B01873B001F1E59 /* SchemaHelpers.swift */; };
-		8A46EA401B01873B001F1E59 /* SelectHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA351B01873B001F1E59 /* SelectHelpers.swift */; };
-		8A46EA411B01873B001F1E59 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA361B01873B001F1E59 /* Statement.swift */; };
-		8A46EA421B01873B001F1E59 /* TransactionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA371B01873B001F1E59 /* TransactionHelpers.swift */; };
-		8A46EA431B01873B001F1E59 /* UpdateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46EA381B01873B001F1E59 /* UpdateHelpers.swift */; };
 		8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */; };
 		8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */; };
 		8A59F34D1B14371800B15FA1 /* saints_07_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A59F34B1B14371800B15FA1 /* saints_07_en.sqlite */; };
@@ -150,6 +139,7 @@
 		8AAE4D831AC8E332009421AF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAE4D821AC8E332009421AF /* ImageCell.swift */; };
 		8AB4E2B41B20168E0015E19B /* saints_04_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AB4E2B21B20168E0015E19B /* saints_04_en.sqlite */; };
 		8AB4E2B51B20168E0015E19B /* saints_04_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AB4E2B31B20168E0015E19B /* saints_04_en.txt */; };
+		8AB4F9531BB9205B00B3EE96 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; };
 		8AC1B10D199866FF00A017C7 /* launch-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1B106199866FF00A017C7 /* launch-ipad.png */; };
 		8AC1B10E199866FF00A017C7 /* launch-ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1B107199866FF00A017C7 /* launch-ipad@2x.png */; };
 		8AC1B10F199866FF00A017C7 /* launch-iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1B108199866FF00A017C7 /* launch-iphone@2x.png */; };
@@ -250,6 +240,51 @@
 		8AFB8DEC1B1FDC12006715A3 /* saints_03_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AFB8DEA1B1FDC12006715A3 /* saints_03_en.txt */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8AB4F9471BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CD7247F71996880300151E1E;
+			remoteInfo = "Squeal-OSX";
+		};
+		8AB4F9491BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CD7248021996880300151E1E;
+			remoteInfo = "Squeal-OSXTests";
+		};
+		8AB4F94B1BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CDCBEB4C19C5F6F500862BFD;
+			remoteInfo = "Squeal-iOS";
+		};
+		8AB4F94D1BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CDCBEB5619C5F6F500862BFD;
+			remoteInfo = "Squeal-iOSTests";
+		};
+		8AB4F94F1BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CD3DE27919BCD44B00DED437;
+			remoteInfo = "SquealSpecHelpers-OSX";
+		};
+		8AB4F9511BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CDCBEB7019C5F77900862BFD;
+			remoteInfo = "SquealSpecHelpers-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -300,17 +335,6 @@
 		8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-cupcake.pdf"; sourceTree = "<group>"; };
 		8A41936119E6921600D570A9 /* food-egg.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-egg.pdf"; sourceTree = "<group>"; };
 		8A41936219E6921600D570A9 /* food-milk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-milk.pdf"; sourceTree = "<group>"; };
-		8A46EA2E1B01873B001F1E59 /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
-		8A46EA2F1B01873B001F1E59 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		8A46EA301B01873B001F1E59 /* DatabasePool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabasePool.swift; sourceTree = "<group>"; };
-		8A46EA311B01873B001F1E59 /* DeleteHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteHelpers.swift; sourceTree = "<group>"; };
-		8A46EA321B01873B001F1E59 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		8A46EA331B01873B001F1E59 /* InsertHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertHelpers.swift; sourceTree = "<group>"; };
-		8A46EA341B01873B001F1E59 /* SchemaHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaHelpers.swift; sourceTree = "<group>"; };
-		8A46EA351B01873B001F1E59 /* SelectHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectHelpers.swift; sourceTree = "<group>"; };
-		8A46EA361B01873B001F1E59 /* Statement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statement.swift; sourceTree = "<group>"; };
-		8A46EA371B01873B001F1E59 /* TransactionHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionHelpers.swift; sourceTree = "<group>"; };
-		8A46EA381B01873B001F1E59 /* UpdateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHelpers.swift; sourceTree = "<group>"; };
 		8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDetailsCell.swift; sourceTree = "<group>"; };
 		8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		8A59F34B1B14371800B15FA1 /* saints_07_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_07_en.sqlite; sourceTree = "<group>"; };
@@ -401,6 +425,7 @@
 		8AAE4D821AC8E332009421AF /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		8AB4E2B21B20168E0015E19B /* saints_04_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_04_en.sqlite; sourceTree = "<group>"; };
 		8AB4E2B31B20168E0015E19B /* saints_04_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_04_en.txt; sourceTree = "<group>"; };
+		8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Squeal.xcodeproj; path = ../Squeal/Squeal.xcodeproj; sourceTree = "<group>"; };
 		8AC1B106199866FF00A017C7 /* launch-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-ipad.png"; sourceTree = "<group>"; };
 		8AC1B107199866FF00A017C7 /* launch-ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-ipad@2x.png"; sourceTree = "<group>"; };
 		8AC1B108199866FF00A017C7 /* launch-iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-iphone@2x.png"; sourceTree = "<group>"; };
@@ -508,6 +533,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AB4F9531BB9205B00B3EE96 /* Squeal.framework in Frameworks */,
 				8AF249841AFF4C64000070C0 /* libsqlite3.dylib in Frameworks */,
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
@@ -528,27 +554,10 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		8A46EA261B01867F001F1E59 /* Squeal */ = {
-			isa = PBXGroup;
-			children = (
-				8A46EA2E1B01873B001F1E59 /* Bindable.swift */,
-				8A46EA2F1B01873B001F1E59 /* Database.swift */,
-				8A46EA301B01873B001F1E59 /* DatabasePool.swift */,
-				8A46EA311B01873B001F1E59 /* DeleteHelpers.swift */,
-				8A46EA321B01873B001F1E59 /* Errors.swift */,
-				8A46EA331B01873B001F1E59 /* InsertHelpers.swift */,
-				8A46EA341B01873B001F1E59 /* SchemaHelpers.swift */,
-				8A46EA351B01873B001F1E59 /* SelectHelpers.swift */,
-				8A46EA361B01873B001F1E59 /* Statement.swift */,
-				8A46EA371B01873B001F1E59 /* TransactionHelpers.swift */,
-				8A46EA381B01873B001F1E59 /* UpdateHelpers.swift */,
-			);
-			path = Squeal;
-			sourceTree = "<group>";
-		};
 		8A74D7EE198F20CC0078F39F = {
 			isa = PBXGroup;
 			children = (
+				8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */,
 				8A74D800198F20CC0078F39F /* prayerbook */,
 				8A74D7F9198F20CC0078F39F /* Frameworks */,
 				8A74D7F8198F20CC0078F39F /* Products */,
@@ -579,7 +588,6 @@
 		8A74D800198F20CC0078F39F /* prayerbook */ = {
 			isa = PBXGroup;
 			children = (
-				8A46EA261B01867F001F1E59 /* Squeal */,
 				8ADFF51E1B0F1D02001AE6A9 /* saints */,
 				8AAC691A1A2C4D5D00CC5CA1 /* scripture */,
 				8A74D857199076EF0078F39F /* html */,
@@ -799,6 +807,19 @@
 			path = scripture;
 			sourceTree = "<group>";
 		};
+		8AB4F93D1BB9203900B3EE96 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8AB4F9481BB9203A00B3EE96 /* Squeal.framework */,
+				8AB4F94A1BB9203A00B3EE96 /* Squeal-OSXTests.xctest */,
+				8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */,
+				8AB4F94E1BB9203A00B3EE96 /* Squeal-iOSTests.xctest */,
+				8AB4F9501BB9203A00B3EE96 /* SquealSpecHelpers.framework */,
+				8AB4F9521BB9203A00B3EE96 /* SquealSpecHelpers.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8ADFF51E1B0F1D02001AE6A9 /* saints */ = {
 			isa = PBXGroup;
 			children = (
@@ -883,6 +904,8 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Prayerbook;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Alexey Smirnov";
 				TargetAttributes = {
@@ -903,12 +926,63 @@
 			mainGroup = 8A74D7EE198F20CC0078F39F;
 			productRefGroup = 8A74D7F8198F20CC0078F39F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8AB4F93D1BB9203900B3EE96 /* Products */;
+					ProjectRef = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8A74D7F6198F20CC0078F39F /* ponomar */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8AB4F9481BB9203A00B3EE96 /* Squeal.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Squeal.framework;
+			remoteRef = 8AB4F9471BB9203A00B3EE96 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8AB4F94A1BB9203A00B3EE96 /* Squeal-OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Squeal-OSXTests.xctest";
+			remoteRef = 8AB4F9491BB9203A00B3EE96 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Squeal.framework;
+			remoteRef = 8AB4F94B1BB9203A00B3EE96 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8AB4F94E1BB9203A00B3EE96 /* Squeal-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Squeal-iOSTests.xctest";
+			remoteRef = 8AB4F94D1BB9203A00B3EE96 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8AB4F9501BB9203A00B3EE96 /* SquealSpecHelpers.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SquealSpecHelpers.framework;
+			remoteRef = 8AB4F94F1BB9203A00B3EE96 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8AB4F9521BB9203A00B3EE96 /* SquealSpecHelpers.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SquealSpecHelpers.framework;
+			remoteRef = 8AB4F9511BB9203A00B3EE96 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8A74D7F5198F20CC0078F39F /* Resources */ = {
@@ -1165,34 +1239,23 @@
 				8A3CD13819E5233100A78A32 /* CalendarViewController.swift in Sources */,
 				8AE685E91A2559F00029A149 /* Library.swift in Sources */,
 				8A3CD13619E51D0400A78A32 /* RDVCalendarView.m in Sources */,
-				8A46EA431B01873B001F1E59 /* UpdateHelpers.swift in Sources */,
 				8AEFC27B1A2C747700BAACE0 /* Scripture.swift in Sources */,
-				8A46EA391B01873B001F1E59 /* Bindable.swift in Sources */,
-				8A46EA3A1B01873B001F1E59 /* Database.swift in Sources */,
-				8A46EA3D1B01873B001F1E59 /* Errors.swift in Sources */,
 				8AAE4D831AC8E332009421AF /* ImageCell.swift in Sources */,
-				8A46EA3C1B01873B001F1E59 /* DeleteHelpers.swift in Sources */,
 				8A2F46A919E1302700076AF4 /* Translate.swift in Sources */,
 				8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */,
-				8A46EA421B01873B001F1E59 /* TransactionHelpers.swift in Sources */,
 				8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
-				8A46EA401B01873B001F1E59 /* SelectHelpers.swift in Sources */,
 				8AE821F91AC55D8D000460C1 /* RWLabel.swift in Sources */,
 				8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */,
 				8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */,
 				8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */,
 				8A3CD13519E51D0400A78A32 /* RDVCalendarDayCell.m in Sources */,
 				8A2F46AB19E145D200076AF4 /* Options.swift in Sources */,
-				8A46EA3B1B01873B001F1E59 /* DatabasePool.swift in Sources */,
 				8ACEF0FB1A2EDF5100AF98E0 /* Extensions.swift in Sources */,
-				8A46EA411B01873B001F1E59 /* Statement.swift in Sources */,
 				8AC4E15019DE2BF800CF4271 /* PrayersTab.swift in Sources */,
 				8A2F46A519E11CEA00076AF4 /* Prayer.swift in Sources */,
-				8A46EA3F1B01873B001F1E59 /* SchemaHelpers.swift in Sources */,
 				8AE5DEF819E7A80B0069C757 /* ChurchCalendar.swift in Sources */,
-				8A46EA3E1B01873B001F1E59 /* InsertHelpers.swift in Sources */,
 				8AE821F41AC54F8E000460C1 /* DailyTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1299,11 +1362,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "885c7a0a-bfde-479e-8a7a-5ae795fceb03";
-				"SWIFT_INCLUDE_PATHS[arch=*]" = "";
+				"SWIFT_INCLUDE_PATHS[arch=*]" = "$(PROJECT_DIR)/../Squeal/modules";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "prayerbook/prayerbook-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1323,11 +1386,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "885c7a0a-bfde-479e-8a7a-5ae795fceb03";
-				"SWIFT_INCLUDE_PATHS[arch=*]" = "";
+				"SWIFT_INCLUDE_PATHS[arch=*]" = "$(PROJECT_DIR)/../Squeal/modules";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "prayerbook/prayerbook-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;

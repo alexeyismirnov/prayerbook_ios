@@ -52,11 +52,11 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return count(dayDescription)+2
+            return dayDescription.count+2
         case 1:
-            return count(readings)
+            return readings.count
         case 2:
-            return count(saints)
+            return saints.count
         default:
             return 0
         }
@@ -67,7 +67,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         case 0:
             return ""
         case 1:
-            return count(readings) > 0 ? Translate.s("Gospel of the day") : nil
+            return readings.count > 0 ? Translate.s("Gospel of the day") : nil
         case 2:
             return Translate.s("Memory of saints")
         default:
@@ -102,7 +102,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
-                var cell: TextDetailsCell = getCell()
+                let cell: TextDetailsCell = getCell()
                 cell.title.text = formatter.stringFromDate(currentDate)
 
                 var subtitle:String = ""
@@ -112,7 +112,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                 }
                 
                 if let toneDescription = Cal.getToneDescription(currentDate) {
-                    if count(subtitle) > 0 {
+                    if subtitle.characters.count > 0 {
                         subtitle += "; "
                     }
                     subtitle += toneDescription
@@ -122,7 +122,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                 return cell
 
             case 1:
-                var cell: ImageCell  = getCell()
+                let cell: ImageCell  = getCell()
                 cell.title.text = fasting.1
                 cell.title.textColor =  UIColor.blackColor()
                 cell.icon.image = UIImage(named: "food-\(foodIcon[fasting.0]!)")
@@ -133,26 +133,26 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                 let feast:FeastType = dayDescription[indexPath.row-2].0
 
                 if feast == .None {
-                    var cell: TextCell = getCell()
+                    let cell: TextCell = getCell()
                     cell.title.textColor =  UIColor.blackColor()
                     cell.title.text = dayDescription[indexPath.row-2].1
                     return cell
                     
                 } else if feast == .Great {
-                    var cell: ImageCell = getCell()
+                    let cell: ImageCell = getCell()
                     cell.title.textColor = UIColor.redColor()
                     cell.title.text = dayDescription[indexPath.row-2].1
                     cell.icon.image = UIImage(named: Cal.feastIcon[feast]!)
                     return cell
                     
                 } else {
-                    var cell: TextCell = getCell()
-                    var attachment = NSTextAttachment()
-                    var image = UIImage(named: Cal.feastIcon[feast]!)
+                    let cell: TextCell = getCell()
+                    let attachment = NSTextAttachment()
+                    let image = UIImage(named: Cal.feastIcon[feast]!)
                     attachment.image = imageResize(image!, sizeChange: CGSizeMake(15, 15))
-                    var attachmentString = NSAttributedString(attachment: attachment)
+                    let attachmentString = NSAttributedString(attachment: attachment)
                     
-                    var myString = NSMutableAttributedString(string: "")
+                    let myString = NSMutableAttributedString(string: "")
                     myString.appendAttributedString(attachmentString)
                     myString.appendAttributedString(NSMutableAttributedString(string: dayDescription[indexPath.row-2].1))
                     cell.title.attributedText = myString
@@ -162,7 +162,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             }
         
         } else if indexPath.section == 1 {
-            var cell: TextDetailsCell = getCell()
+            let cell: TextDetailsCell = getCell()
             cell.title.textColor = UIColor.blackColor()
             cell.title.text = Translate.readings(readings[indexPath.row])
             cell.subtitle.text = ""
@@ -172,19 +172,19 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             
         } else if indexPath.section == 2 {
             if saints[indexPath.row].0 == .None {
-                var cell: TextCell = getCell()
+                let cell: TextCell = getCell()
                 cell.title.textColor =  UIColor.blackColor()
                 cell.title.text = saints[indexPath.row].1
                 return cell
 
             } else {
-                var cell: TextCell = getCell()
-                var attachment = NSTextAttachment()
-                var image = UIImage(named: Cal.feastIcon[saints[indexPath.row].0]!)
+                let cell: TextCell = getCell()
+                let attachment = NSTextAttachment()
+                let image = UIImage(named: Cal.feastIcon[saints[indexPath.row].0]!)
                 attachment.image = imageResize(image!, sizeChange: CGSizeMake(15, 15))
-                var attachmentString = NSAttributedString(attachment: attachment)
+                let attachmentString = NSAttributedString(attachment: attachment)
                 
-                var myString = NSMutableAttributedString(string: "")
+                let myString = NSMutableAttributedString(string: "")
                 myString.appendAttributedString(attachmentString)
                 myString.appendAttributedString(NSMutableAttributedString(string: saints[indexPath.row].1))
                 cell.title.attributedText = myString
@@ -194,20 +194,20 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             }
         }
         
-        var cell: TextCell = getCell()
+        let cell: TextCell = getCell()
         return cell
 
     }
     
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         if indexPath.section == 1 && readings.count > 0 {
-            var vc = storyboard!.instantiateViewControllerWithIdentifier("Scripture") as! Scripture
+            let vc = storyboard!.instantiateViewControllerWithIdentifier("Scripture") as! Scripture
             vc.code = .Pericope(readings[indexPath.row])
             navigationController?.pushViewController(vc, animated: true)
 
         } else if indexPath.section == 0 && indexPath.row == 1 {
-            var fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
-            var modal = NAModalSheet(viewController: fastingInfo, presentationStyle: .FadeInCentered)
+            let fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
+            let modal = NAModalSheet(viewController: fastingInfo, presentationStyle: .FadeInCentered)
             
             modal.disableBlurredBackground = true
             modal.cornerRadiusWhenCentered = 10
@@ -224,7 +224,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        var cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        let cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
         return calculateHeightForCell(cell)
     }
 
@@ -233,7 +233,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         
-        var size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
         return size.height+1.0
     }
 
@@ -248,8 +248,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
 
         saints=[]
         for line in Db.saints(currentDate) {
-            let name = line!["name"] as! String
-            let typikon = FeastType(rawValue: Int(line!["typikon"] as! Int64))
+            let name = line["name"] as! String
+            let typikon = FeastType(rawValue: Int(line["typikon"] as! Int64))
             saints.append((typikon!, name))
         }
 
@@ -257,10 +257,10 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     }
 
     func addBarButtons() {
-        var button_calendar = UIBarButtonItem(image: UIImage(named: "calendar"), style: .Plain, target: self, action: "showCalendar")
-        var button_left = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .Plain, target: self, action: "prevDay")
-        var button_right = UIBarButtonItem(image: UIImage(named: "arrow-right"), style: .Plain, target: self, action: "nextDay")
-        var button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
+        let button_calendar = UIBarButtonItem(image: UIImage(named: "calendar"), style: .Plain, target: self, action: "showCalendar")
+        let button_left = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .Plain, target: self, action: "prevDay")
+        let button_right = UIBarButtonItem(image: UIImage(named: "arrow-right"), style: .Plain, target: self, action: "nextDay")
+        let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
 
         button_calendar.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         button_left.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
@@ -280,7 +280,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     }
     
     func showCalendar() {
-        var vc = storyboard!.instantiateViewControllerWithIdentifier("Calendar") as! CalendarViewController
+        let vc = storyboard!.instantiateViewControllerWithIdentifier("Calendar") as! CalendarViewController
         let nav = UINavigationController(rootViewController: vc)
         vc.delegate = self
 
@@ -288,7 +288,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     }
     
     func showOptions() {
-        var vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
+        let vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
         let nav = UINavigationController(rootViewController: vc)
         vc.delegate = self
         
@@ -306,7 +306,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     }
     
     func modalSheetSupportedInterfaceOrientations(sheet: NAModalSheet!) -> UInt {
-        return UInt(supportedInterfaceOrientations())
+        return supportedInterfaceOrientations().rawValue
     }
 
 }
