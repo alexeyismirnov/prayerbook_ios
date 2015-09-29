@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Squeal
 
 class DailyTab: UITableViewController, NAModalSheetDelegate {
 
@@ -247,7 +248,35 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         fasting = Cal.getFastingDescription(currentDate)
 
         saints=[]
-        for line in Db.saints(currentDate) {
+        
+        var saintsDB = [[String:Bindable?]]()
+        let isLeapYear = (Cal.currentYear % 400) == 0 || ((Cal.currentYear%4 == 0) && (Cal.currentYear%100 != 0))
+
+        if (isLeapYear) {
+            let leapStart = NSDateComponents(29, 2, Cal.currentYear).toDate()
+            let leapEnd = NSDateComponents(13, 3, Cal.currentYear).toDate()
+            
+            switch currentDate {
+            case leapStart ..< leapEnd:
+                saintsDB = Db.saints(currentDate+1.days)
+                break
+                
+            case leapEnd:
+                saintsDB = Db.saints(NSDateComponents(29, 2, Cal.currentYear).toDate())
+                break
+                
+            default:
+                saintsDB = Db.saints(currentDate)
+            }
+
+        } else {
+            saintsDB = Db.saints(currentDate)
+            if (currentDate == NSDateComponents(13, 3, Cal.currentYear).toDate()) {
+                saintsDB += Db.saints(NSDateComponents(29, 2, 2000).toDate())
+            }
+        }
+        
+        for line in saintsDB {
             let name = line["name"] as! String
             let typikon = FeastType(rawValue: Int(line["typikon"] as! Int64))
             saints.append((typikon!, name))

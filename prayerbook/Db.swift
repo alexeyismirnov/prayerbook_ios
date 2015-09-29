@@ -37,14 +37,7 @@ struct Db {
             let num = results[0] as! Int64
             return Int(num)
         }
-        
-        /*
-        for row in db.query("SELECT COUNT(DISTINCT chapter) FROM scripture", error:&error) {
-            let num = row![0] as! Int64
-            return Int(num)
-        }
-        */
-        
+
         return 0
     }
 }
