@@ -146,6 +146,7 @@ struct ChurchCalendar {
         let pentecost = d(.Pentecost)
         
         let miscFeasts :[NSDate: [(FeastType, String)]] = [
+            greatLentStart-9.days: [(.None,    "Commemoration of the Departed")],
             greatLentStart-2.days:  [(.NoSign, "Commemoration of all the saints, who showed forth in asceticism")],
             greatLentStart+5.days:  [(.NoSign, "Great Martyr Theodore the Recruit († c. 306)")],
             greatLentStart+6.days:  [(.None,   "Triumph of Orthodoxy")],
@@ -246,11 +247,17 @@ struct ChurchCalendar {
             NSDateComponents(6, 12, year).toDate(): [(.NoSign, "Afterfeast of the Entry of the Theotokos")],
             NSDateComponents(7, 12, year).toDate(): [(.NoSign, "Afterfeast of the Entry of the Theotokos")],
             NSDateComponents(8, 12, year).toDate(): [(.Doxology, "Apodosis of the Entry of the Theotokos")],
-
         ]
         
         dateFeastDescr += miscFeasts
         dateFeastDescr += beforeAfterFeasts
+        
+        let demetrius = NSDateComponents(8, 11, year).toDate()
+        let demetriusWeekday = NSDateComponents(date: demetrius).weekday
+        
+        dateFeastDescr += [
+            demetrius - demetriusWeekday.days: [(.None, "Demetrius Saturday: Commemoration of the Departed")]
+        ]
         
         // Sources: 
         // http://azbyka.ru/days/p-tablica-dnej-predprazdnstv-poprazdnstv-i-otdanij-dvunadesjatyh-nepodvizhnyh-i-podvizhnyh-gospodskih-prazdnikov
@@ -275,7 +282,7 @@ struct ChurchCalendar {
         
         dateFeastDescr += annunciationFeasts
 
-        // АРХИМАНДРИТ ИОАНН ( МАСЛОВ). КОНСПЕКТ ПО ЛИТУРГИКЕ ДЛЯ 3-го класса
+        // АРХИМАНДРИТ ИОАНН (МАСЛОВ). КОНСПЕКТ ПО ЛИТУРГИКЕ ДЛЯ 3-го класса
         // Глава: СРЕТЕНИЕ ГОСПОДНЕ (2 февраля)
 
         let meetingOfLord = NSDateComponents(15, 2, year).toDate()
