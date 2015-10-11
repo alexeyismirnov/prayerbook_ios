@@ -172,6 +172,10 @@
 		8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89619E4D1DE00B51294 /* calendar.pdf */; };
 		8ACEF0FB1A2EDF5100AF98E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */; };
 		8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */; };
+		8ADBF21B1BC90242000FF559 /* typica_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ADBF21A1BC90242000FF559 /* typica_1.plist */; settings = {ASSET_TAGS = (); }; };
+		8ADBF2231BC905FE000FF559 /* typica_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ADBF2221BC905FE000FF559 /* typica_2.plist */; settings = {ASSET_TAGS = (); }; };
+		8ADBF2251BC90864000FF559 /* typica_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ADBF2241BC90864000FF559 /* typica_3.plist */; settings = {ASSET_TAGS = (); }; };
+		8ADBF2271BC90A4C000FF559 /* typica_4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ADBF2261BC90A4C000FF559 /* typica_4.plist */; settings = {ASSET_TAGS = (); }; };
 		8ADD7D761A56798A00BA9F37 /* ReadingApostle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD7D751A56798A00BA9F37 /* ReadingApostle.plist */; };
 		8ADD7D7B1A56856500BA9F37 /* ReadingJohn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD7D7A1A56856500BA9F37 /* ReadingJohn.plist */; };
 		8ADD7D7D1A56863D00BA9F37 /* ReadingMatthew.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD7D7C1A56863D00BA9F37 /* ReadingMatthew.plist */; };
@@ -188,6 +192,10 @@
 		8ADF91EF1B7731EA0078BB6B /* saints_07_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8ADF91EB1B7731EA0078BB6B /* saints_07_cn.txt */; };
 		8AE5DEF819E7A80B0069C757 /* ChurchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */; };
 		8AE685E91A2559F00029A149 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE685E81A2559F00029A149 /* Library.swift */; };
+		8AE6DEE51BCA1A19007E47CC /* typica_5.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6DEE41BCA1A19007E47CC /* typica_5.plist */; settings = {ASSET_TAGS = (); }; };
+		8AE6DEED1BCA1C9C007E47CC /* typica_6.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6DEEC1BCA1C9C007E47CC /* typica_6.plist */; settings = {ASSET_TAGS = (); }; };
+		8AE6DEEF1BCA1F6F007E47CC /* typica_7.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6DEEE1BCA1F6F007E47CC /* typica_7.plist */; settings = {ASSET_TAGS = (); }; };
+		8AE6DEF11BCA227C007E47CC /* typica_8.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6DEF01BCA227C007E47CC /* typica_8.plist */; settings = {ASSET_TAGS = (); }; };
 		8AE6FE8C1B70CCA500FDAA47 /* saints_01_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6FE8A1B70CCA500FDAA47 /* saints_01_cn.sqlite */; };
 		8AE6FE8D1B70CCA500FDAA47 /* saints_01_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6FE8B1B70CCA500FDAA47 /* saints_01_cn.txt */; };
 		8AE6FE901B70D60300FDAA47 /* saints_02_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6FE8E1B70D60300FDAA47 /* saints_02_cn.sqlite */; };
@@ -458,6 +466,10 @@
 		8AC7B89619E4D1DE00B51294 /* calendar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = calendar.pdf; sourceTree = "<group>"; };
 		8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyReading.swift; sourceTree = "<group>"; };
+		8ADBF21A1BC90242000FF559 /* typica_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_1.plist; sourceTree = "<group>"; };
+		8ADBF2221BC905FE000FF559 /* typica_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_2.plist; sourceTree = "<group>"; };
+		8ADBF2241BC90864000FF559 /* typica_3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_3.plist; sourceTree = "<group>"; };
+		8ADBF2261BC90A4C000FF559 /* typica_4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_4.plist; sourceTree = "<group>"; };
 		8ADD7D751A56798A00BA9F37 /* ReadingApostle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingApostle.plist; sourceTree = "<group>"; };
 		8ADD7D7A1A56856500BA9F37 /* ReadingJohn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingJohn.plist; sourceTree = "<group>"; };
 		8ADD7D7C1A56863D00BA9F37 /* ReadingMatthew.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingMatthew.plist; sourceTree = "<group>"; };
@@ -474,6 +486,10 @@
 		8ADF91EB1B7731EA0078BB6B /* saints_07_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_07_cn.txt; sourceTree = "<group>"; };
 		8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchCalendar.swift; sourceTree = "<group>"; };
 		8AE685E81A2559F00029A149 /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		8AE6DEE41BCA1A19007E47CC /* typica_5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_5.plist; sourceTree = "<group>"; };
+		8AE6DEEC1BCA1C9C007E47CC /* typica_6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_6.plist; sourceTree = "<group>"; };
+		8AE6DEEE1BCA1F6F007E47CC /* typica_7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_7.plist; sourceTree = "<group>"; };
+		8AE6DEF01BCA227C007E47CC /* typica_8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_8.plist; sourceTree = "<group>"; };
 		8AE6FE8A1B70CCA500FDAA47 /* saints_01_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_01_cn.sqlite; sourceTree = "<group>"; };
 		8AE6FE8B1B70CCA500FDAA47 /* saints_01_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_01_cn.txt; sourceTree = "<group>"; };
 		8AE6FE8E1B70D60300FDAA47 /* saints_02_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_02_cn.sqlite; sourceTree = "<group>"; };
@@ -598,6 +614,14 @@
 				8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */,
 				8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */,
 				8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */,
+				8ADBF21A1BC90242000FF559 /* typica_1.plist */,
+				8ADBF2221BC905FE000FF559 /* typica_2.plist */,
+				8ADBF2241BC90864000FF559 /* typica_3.plist */,
+				8ADBF2261BC90A4C000FF559 /* typica_4.plist */,
+				8AE6DEE41BCA1A19007E47CC /* typica_5.plist */,
+				8AE6DEEC1BCA1C9C007E47CC /* typica_6.plist */,
+				8AE6DEEE1BCA1F6F007E47CC /* typica_7.plist */,
+				8AE6DEF01BCA227C007E47CC /* typica_8.plist */,
 				8ADD7D751A56798A00BA9F37 /* ReadingApostle.plist */,
 				8ADD7D7A1A56856500BA9F37 /* ReadingJohn.plist */,
 				8ADD7D7C1A56863D00BA9F37 /* ReadingMatthew.plist */,
@@ -1021,9 +1045,11 @@
 				8AE798B61B78321600E7F694 /* saints_08_cn.sqlite in Resources */,
 				8A9A3DD519D3AE1600A7D82A /* prayer_communion_4_cn.html in Resources */,
 				8A8D4E141B64A349002C614F /* philem_cn.sqlite in Resources */,
+				8ADBF2251BC90864000FF559 /* typica_3.plist in Resources */,
 				8A3A21191A46C0150052861D /* 3john_en.sqlite in Resources */,
 				8AFAA3991B12E90B001699D6 /* saints_05_en.txt in Resources */,
 				8AC1B10E199866FF00A017C7 /* launch-ipad@2x.png in Resources */,
+				8ADBF2231BC905FE000FF559 /* typica_2.plist in Resources */,
 				8A9A3DE119D3AE2800A7D82A /* prayer_group_2_cn.html in Resources */,
 				8AE6FE911B70D60300FDAA47 /* saints_02_cn.txt in Resources */,
 				8A9A3DDF19D3AE2800A7D82A /* prayer_group_1_cn.html in Resources */,
@@ -1039,6 +1065,7 @@
 				8AF2496D1AFF27E0000070C0 /* vigil.pdf in Resources */,
 				8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */,
 				8A2F46A119E110CF00076AF4 /* prayer_group_0_en.html in Resources */,
+				8AE6DEEF1BCA1F6F007E47CC /* typica_7.plist in Resources */,
 				8A8D4E1B1B64AC8F002C614F /* gen_cn.sqlite in Resources */,
 				8A41936319E6921600D570A9 /* food-egg.pdf in Resources */,
 				8A9A3DE219D3AE2800A7D82A /* prayer_group_2_en.html in Resources */,
@@ -1067,12 +1094,14 @@
 				8ADDE7D61B7AD29600EF0F65 /* saints_11_cn.sqlite in Resources */,
 				8A8D4E0B1B64A349002C614F /* 3john_cn.sqlite in Resources */,
 				8AA3DF5E1B185AE800507129 /* saints_11_en.sqlite in Resources */,
+				8AE6DEE51BCA1A19007E47CC /* typica_5.plist in Resources */,
 				8A81858019D2E3F300D4B328 /* prayer_communion_0_en.html in Resources */,
 				8A3A21221A46C0150052861D /* tit_en.sqlite in Resources */,
 				8A8D4E071B64A349002C614F /* 2john_cn.sqlite in Resources */,
 				8AC2060119E63ED8006FC8EA /* FastingViewController.xib in Resources */,
 				8A8D4E021B64A349002C614F /* 1john_cn.sqlite in Resources */,
 				8AF37E5C1B36C7A500101148 /* newicon_87.png in Resources */,
+				8AE6DEED1BCA1C9C007E47CC /* typica_6.plist in Resources */,
 				8AC1B10D199866FF00A017C7 /* launch-ipad.png in Resources */,
 				8AB4E2B51B20168E0015E19B /* saints_04_en.txt in Resources */,
 				8AA3DF511B1847D700507129 /* saints_08_en.txt in Resources */,
@@ -1081,6 +1110,7 @@
 				8AF37E3A1B36B1FD00101148 /* launch-hd5.5-landscape.png in Resources */,
 				8A3A21151A46C0150052861D /* 2john_en.sqlite in Resources */,
 				8A74D816198F20CC0078F39F /* Images.xcassets in Resources */,
+				8ADBF21B1BC90242000FF559 /* typica_1.plist in Resources */,
 				8AF163951B1418880093CC77 /* saints_06_en.txt in Resources */,
 				8AE6FE8C1B70CCA500FDAA47 /* saints_01_cn.sqlite in Resources */,
 				8A81858D19D2E3F300D4B328 /* prayer_daily_2_cn.html in Resources */,
@@ -1153,6 +1183,7 @@
 				8A8D4E101B64A349002C614F /* heb_cn.sqlite in Resources */,
 				8AC6951D19E3FBC200773FEB /* food-no-meat.pdf in Resources */,
 				8A3A211D1A46C0150052861D /* heb_en.sqlite in Resources */,
+				8ADBF2271BC90A4C000FF559 /* typica_4.plist in Resources */,
 				8A181E0E1B1D3C9A00D8C2FB /* saints_01_en.sqlite in Resources */,
 				8AE6FE8D1B70CCA500FDAA47 /* saints_01_cn.txt in Resources */,
 				8A81858419D2E3F300D4B328 /* prayer_communion_2_en.html in Resources */,
@@ -1179,6 +1210,7 @@
 				8A8810E81A300DE40095C081 /* john_en.sqlite in Resources */,
 				8A3A21161A46C0150052861D /* 2pet_en.sqlite in Resources */,
 				8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */,
+				8AE6DEF11BCA227C007E47CC /* typica_8.plist in Resources */,
 				8A8D4E0C1B64A349002C614F /* acts_cn.sqlite in Resources */,
 				8AF2497A1AFF308B000070C0 /* great.pdf in Resources */,
 				8ADF91EE1B7731EA0078BB6B /* saints_07_cn.sqlite in Resources */,
