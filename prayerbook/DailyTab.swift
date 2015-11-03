@@ -46,8 +46,18 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         reload()
     }
     
+    func hasTypica() -> Bool {
+        if (currentDate > Cal.d(.BeginningOfGreatLent) && currentDate < Cal.d(.Sunday2AfterPascha) ||
+            Cal.currentWeekday != .Sunday) {
+            return false
+
+        } else {
+            return true
+        }
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,7 +67,10 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         case 1:
             return readings.count
         case 2:
+            return hasTypica() ? 1 : 0
+        case 3:
             return saints.count
+            
         default:
             return 0
         }
@@ -67,10 +80,16 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         switch section {
         case 0:
             return ""
+
         case 1:
             return readings.count > 0 ? Translate.s("Gospel of the day") : nil
+
         case 2:
+            return hasTypica() ? Translate.s("Services") : nil
+
+        case 3:
             return Translate.s("Memory of saints")
+            
         default:
             return ""
         }
@@ -168,10 +187,17 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             cell.title.text = Translate.readings(readings[indexPath.row])
             cell.subtitle.text = ""
             cell.accessoryType = .DisclosureIndicator
-
             return cell
             
         } else if indexPath.section == 2 {
+            let cell: TextDetailsCell = getCell()
+            cell.title.textColor = UIColor.blackColor()
+            cell.title.text = Translate.s("Typica")
+            cell.subtitle.text = ""
+            cell.accessoryType = .DisclosureIndicator
+            return cell
+
+        } else if indexPath.section == 3 {
             if saints[indexPath.row].0 == .None {
                 let cell: TextCell = getCell()
                 cell.title.textColor =  UIColor.blackColor()
@@ -219,6 +245,14 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             fastingInfo.fastTitle = fasting.1
             
             modal.presentWithCompletion({})
+
+        } else if indexPath.section == 2 {
+            let prayer = storyboard!.instantiateViewControllerWithIdentifier("Prayer") as! Prayer
+            prayer.code = "typica"
+            prayer.index = 0
+            prayer.name = Translate.s("Typica")
+            navigationController?.pushViewController(prayer, animated: true)
+
         }
         
         return nil

@@ -44,7 +44,7 @@ struct DailyReading {
     ]
     
     static let cancelReading : [NameOfDay] = [.SundayOfForefathers, .SundayBeforeNativity, .EveOfNativityOfGod, .NativityOfGod,
-        .SundayAfterNativity, .Circumcision, .SundayBeforeTheophany, .EveOfTheophany, .Theophany, .SundayAfterTheophany]
+        .SundayAfterNativity, .Circumcision, .SundayBeforeTheophany, .EveOfTheophany, .Theophany]
     
     static let transferredReading : [NameOfDay] = [.ExaltationOfCross, .Transfiguration]
 
