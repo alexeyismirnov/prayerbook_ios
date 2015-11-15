@@ -44,6 +44,7 @@ struct ChurchCalendar {
         return formatter
     }()
     
+    static var currentDate: NSDate!
     static var currentYear: Int!
     static var currentWeekday: DayOfWeek!
     static var feastDates = [NSDate: [NameOfDay]]()
@@ -125,6 +126,7 @@ struct ChurchCalendar {
         let dateComponents = NSDateComponents(date: date)
         currentYear = dateComponents.year
         currentWeekday = DayOfWeek(rawValue: dateComponents.weekday)
+        currentDate = date
         
         if dCache[DateCache(.Pascha, currentYear)] == nil {
             generateFeastDates(currentYear)
@@ -568,22 +570,31 @@ struct ChurchCalendar {
         
     }
     
-    static func getToneDescription(date: NSDate) -> String? {
+    static func getTone(date: NSDate) -> Int? {
         func tone(dayNum dayNum: Int) -> Int {
             let reminder = (dayNum/7) % 8
             return (reminder == 0) ? 8 : reminder
         }
-
+        
         setDate(date)
-
+        
         switch (date) {
         case d(.StartOfYear) ..< d(.PalmSunday):
-            return String(format: Translate.s("Tone %@"), Translate.stringFromNumber(tone(dayNum: paschaDay(currentYear-1) >> date)))
-
+            return tone(dayNum: paschaDay(currentYear-1) >> date)
+            
         case d(.Pascha)+7.days ... d(.EndOfYear):
-            return String(format: Translate.s("Tone %@"), Translate.stringFromNumber(tone(dayNum: d(.Pascha) >> date)))
-
+            return tone(dayNum: d(.Pascha) >> date)
+            
         default: return nil
+        }
+    }
+    
+    static func getToneDescription(date: NSDate) -> String? {
+        if let tone = getTone(date) {
+            return String(format: Translate.s("Tone %@"), Translate.stringFromNumber(tone))
+
+        } else {
+            return nil
         }
     }
 

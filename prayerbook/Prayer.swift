@@ -26,6 +26,21 @@ class Prayer: UIViewController {
         
         txt = txt.stringByReplacingOccurrencesOfString("FONTSIZE", withString: "\(fontSize)pt")
         
+        if (code == "typica") {
+            let tone = Cal.getTone(Cal.currentDate)
+            txt = txt.stringByReplacingOccurrencesOfString("GLAS", withString: Translate.stringFromNumber(tone!))
+            
+            let bundleTypica = NSBundle.mainBundle().pathForResource(String(format: "typica_%d", tone!), ofType: "plist")
+            let fragments = NSArray(contentsOfFile: bundleTypica!) as! [[String:String]]
+
+            for (i, fragment) in fragments.enumerate() {
+                txt = txt.stringByReplacingOccurrencesOfString(
+                    String(format:"FRAGMENT%d!", i),
+                    withString: fragment[Translate.language]!)
+                
+            }
+        }
+        
         self.webView.paginationBreakingMode = UIWebPaginationBreakingMode.Page
         self.webView.paginationMode = UIWebPaginationMode.LeftToRight
         self.webView.scrollView.pagingEnabled = true
