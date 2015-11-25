@@ -13,7 +13,13 @@ class RWLabel : UILabel {
         didSet {
             if numberOfLines == 0 && bounds.size.width != preferredMaxLayoutWidth {
                 preferredMaxLayoutWidth = self.bounds.size.width
-                setNeedsUpdateConstraints()
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.setNeedsUpdateConstraints()
+                    self.setNeedsDisplay()
+
+                })
+
+                
             }
         }
     }
