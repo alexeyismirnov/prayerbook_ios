@@ -47,6 +47,10 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     }
     
     func hasTypica() -> Bool {
+        if Translate.language != "cn" {
+            return false
+        }
+        
         if (currentDate > Cal.d(.BeginningOfGreatLent) && currentDate < Cal.d(.Sunday2AfterPascha) ||
             Cal.currentWeekday != .Sunday) {
             return false
@@ -85,7 +89,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             return readings.count > 0 ? Translate.s("Gospel of the day") : nil
 
         case 2:
-            return hasTypica() ? Translate.s("Services") : nil
+            return hasTypica() ? Translate.s("Prayers") : nil
 
         case 3:
             return Translate.s("Memory of saints")

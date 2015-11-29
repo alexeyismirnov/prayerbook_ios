@@ -39,6 +39,21 @@ class Prayer: UIViewController {
                     withString: fragment[Translate.language]!)
                 
             }
+            
+            let readingStr = DailyReading.getRegularReading(Cal.currentDate)!
+            let readings = DailyReading.getPericope(readingStr, decorated: false)
+            
+            for (i, (title, content)) in readings.enumerate() {
+                txt = txt.stringByReplacingOccurrencesOfString(
+                    String(format:"TITLE%d", (i+1)),
+                    withString: title.string)
+
+                txt = txt.stringByReplacingOccurrencesOfString(
+                    String(format:"READING%d", (i+1)),
+                    withString: content.string)
+
+            }
+            
         }
         
         self.webView.paginationBreakingMode = UIWebPaginationBreakingMode.Page

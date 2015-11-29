@@ -165,7 +165,7 @@ struct DailyReading {
         return apostle[daysFromPentecost] + " " + gospel[daysFromLukeStart]
     }
     
-    static func getRegularReading(date: NSDate) -> [String] {
+    static func getRegularReading(date: NSDate) -> String? {
         Cal.setDate(date)
         
         let exaltation = NSDateComponents(27, 9, Cal.currentYear).toDate()
@@ -175,22 +175,22 @@ struct DailyReading {
         
         switch (date) {
         case Cal.d(.StartOfYear) ..< Cal.d(.SundayOfPublicianAndPharisee):
-            return [GospelOfLukeSpring(date)]
+            return GospelOfLukeSpring(date)
             
         case Cal.d(.SundayOfPublicianAndPharisee) ..< Cal.d(.Pascha):
             let reading = GospelOfLent(date)
-            return reading.characters.count > 0 ? [reading] : []
+            return reading.characters.count > 0 ? reading : nil
             
         case Cal.d(.Pascha) ... Cal.d(.Pentecost):
-            return [GospelOfJohn(date)]
+            return GospelOfJohn(date)
             
         case Cal.d(.Pentecost)+1.days ... fridayAfterExaltation:
-            return [GospelOfMatthew(date)]
+            return GospelOfMatthew(date)
             
         case Cal.d(.SundayAfterExaltation)+1.days ... Cal.d(.EndOfYear):
-            return [GospelOfLukeFall(date)]
+            return GospelOfLukeFall(date)
             
-        default: return []
+        default: return nil
         }
     }
 
@@ -219,7 +219,7 @@ struct DailyReading {
 
         for code in transferredReading {
             if let newDate = transferReading(Cal.d(code)) {
-                transferred[newDate] = getRegularReading(Cal.d(code))[0]
+                transferred[newDate] = getRegularReading(Cal.d(code))
             }
         }
         
@@ -248,18 +248,129 @@ struct DailyReading {
 
         if readings.count > 0 {
             if !noRegularReading {
-                readings += getRegularReading(date)
+                readings += [getRegularReading(date)!]
             }
             return readings
             
         } else {
             if let reading=transferred[date] {
-                return getRegularReading(date) + [reading]
+                return [getRegularReading(date)!] + [reading]
             } else {
-                return getRegularReading(date)
+                return [getRegularReading(date)!]
             }
         }
     }
+    
+    static func decorateLine(verse: Int64, _ content : String) -> NSMutableAttributedString {
+        var text : NSMutableAttributedString? = nil
+        text = text + ("\(verse) ", UIColor.redColor())
+        text = text + (content, UIColor.blackColor())
+        text = text + "\n"
+        
+        text!.addAttribute(NSFontAttributeName,
+            value: UIFont.systemFontOfSize(18),
+            range: NSMakeRange(0, text!.length))
+        
+        return text!
+    }
+    
+    static func getPericope(str: String, decorated: Bool) -> [(NSMutableAttributedString, NSMutableAttributedString)] {
+        var result = [(NSMutableAttributedString, NSMutableAttributedString)]()
+        
+        var pericope = str.characters.split { $0 == " " }.map { String($0) }
+        
+        for (var i=0; i<pericope.count; i+=2) {
+            var chapter: Int = 0
+            
+            let fileName = pericope[i].lowercaseString
+            let bookTuple = (NewTestament+OldTestament).filter { $0.1 == fileName }
+            
+            let centerStyle = NSMutableParagraphStyle()
+            centerStyle.alignment = .Center
+            
+            var bookName:NSMutableAttributedString
+            var text : NSMutableAttributedString? = nil
 
+            if decorated {
+                bookName = NSMutableAttributedString(
+                    string: Translate.s(bookTuple[0].0) + " " + pericope[i+1],
+                    attributes: [NSParagraphStyleAttributeName: centerStyle,
+                        NSFontAttributeName: UIFont.boldSystemFontOfSize(18) ])
+                
+            } else {
+                bookName = NSMutableAttributedString(string: Translate.s(bookTuple[0].0))
+            }
+
+            let arr2 = pericope[i+1].componentsSeparatedByString(",")
+            
+            for segment in arr2 {
+                var range: [(Int, Int)]  = []
+                
+                let arr3 = segment.componentsSeparatedByString("-")
+                for offset in arr3 {
+                    var arr4 = offset.componentsSeparatedByString(":")
+                    
+                    if arr4.count == 1 {
+                        range += [ (chapter, Int(arr4[0])!) ]
+                        
+                    } else {
+                        chapter = Int(arr4[0])!
+                        range += [ (chapter, Int(arr4[1])!) ]
+                    }
+                }
+                
+                if range.count == 1 {
+                    for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse=\(range[0].1)") {
+                        if decorated {
+                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String)
+                        } else {
+                            text = text + (line["text"] as! String) + " "
+                        }
+                    }
+                    
+                } else if range[0].0 != range[1].0 {
+                    for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1)") {
+                        if decorated {
+                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String)
+                        } else {
+                            text = text + (line["text"] as! String) + " "
+                        }
+                    }
+                    
+                    for chap in range[0].0+1 ..< range[1].0 {
+                        for line in Db.book(fileName, whereExpr: "chapter=\(chap)") {
+                            if decorated {
+                                text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String)
+                            } else {
+                                text = text + (line["text"] as! String) + " "
+                            }
+                        }
+                    }
+                    
+                    for line in Db.book(fileName, whereExpr: "chapter=\(range[1].0) AND verse<=\(range[1].1)") {
+                        if decorated {
+                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String)
+                        } else {
+                            text = text + (line["text"] as! String) + " "
+                        }
+                    }
+                    
+                } else {
+                    for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1) AND verse<=\(range[1].1)") {
+                        if decorated {
+                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String)
+                        } else {
+                            text = text + (line["text"] as! String) + " "
+                        }
+                    }
+                }
+            }
+            
+            text = text + "\n"
+            result += [(bookName, text!)]
+        }
+
+        return result
+    }
     
 }
