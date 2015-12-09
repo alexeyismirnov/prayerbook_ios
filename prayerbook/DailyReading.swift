@@ -245,18 +245,23 @@ struct DailyReading {
             }
         }
         
+        var regularReading = [String]()
+        
+        if let reading = getRegularReading(date) {
+                regularReading = [reading]
+        }
 
         if readings.count > 0 {
             if !noRegularReading {
-                readings += [getRegularReading(date)!]
+                readings += regularReading
             }
             return readings
             
         } else {
             if let reading=transferred[date] {
-                return [getRegularReading(date)!] + [reading]
+                return regularReading + [reading]
             } else {
-                return [getRegularReading(date)!]
+                return regularReading
             }
         }
     }
