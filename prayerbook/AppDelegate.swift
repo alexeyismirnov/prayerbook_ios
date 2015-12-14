@@ -30,7 +30,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
             }
             
             if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
-                prefs.setInteger(14, forKey: "fontSize")
+                prefs.setInteger(18, forKey: "fontSize")
             } else {
                 prefs.setInteger(20, forKey: "fontSize")
             }

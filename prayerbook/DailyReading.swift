@@ -266,20 +266,20 @@ struct DailyReading {
         }
     }
     
-    static func decorateLine(verse: Int64, _ content : String) -> NSMutableAttributedString {
+    static func decorateLine(verse:Int64, _ content:String, _ fontSize:Int) -> NSMutableAttributedString {
         var text : NSMutableAttributedString? = nil
         text = text + ("\(verse) ", UIColor.redColor())
         text = text + (content, UIColor.blackColor())
         text = text + "\n"
         
         text!.addAttribute(NSFontAttributeName,
-            value: UIFont.systemFontOfSize(18),
+            value: UIFont.systemFontOfSize(CGFloat(fontSize)),
             range: NSMakeRange(0, text!.length))
         
         return text!
     }
     
-    static func getPericope(str: String, decorated: Bool) -> [(NSMutableAttributedString, NSMutableAttributedString)] {
+    static func getPericope(str: String, decorated: Bool, fontSize: Int = 0) -> [(NSMutableAttributedString, NSMutableAttributedString)] {
         var result = [(NSMutableAttributedString, NSMutableAttributedString)]()
         
         var pericope = str.characters.split { $0 == " " }.map { String($0) }
@@ -300,7 +300,7 @@ struct DailyReading {
                 bookName = NSMutableAttributedString(
                     string: Translate.s(bookTuple[0].0) + " " + pericope[i+1],
                     attributes: [NSParagraphStyleAttributeName: centerStyle,
-                        NSFontAttributeName: UIFont.boldSystemFontOfSize(18) ])
+                        NSFontAttributeName: UIFont.boldSystemFontOfSize(CGFloat(fontSize)) ])
                 
             } else {
                 bookName = NSMutableAttributedString(string: Translate.s(bookTuple[0].0))
@@ -327,7 +327,7 @@ struct DailyReading {
                 if range.count == 1 {
                     for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse=\(range[0].1)") {
                         if decorated {
-                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String)
+                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize )
                         } else {
                             text = text + (line["text"] as! String) + " "
                         }
@@ -336,7 +336,7 @@ struct DailyReading {
                 } else if range[0].0 != range[1].0 {
                     for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1)") {
                         if decorated {
-                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String)
+                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
                         } else {
                             text = text + (line["text"] as! String) + " "
                         }
@@ -345,7 +345,7 @@ struct DailyReading {
                     for chap in range[0].0+1 ..< range[1].0 {
                         for line in Db.book(fileName, whereExpr: "chapter=\(chap)") {
                             if decorated {
-                                text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String)
+                                text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
                             } else {
                                 text = text + (line["text"] as! String) + " "
                             }
@@ -354,7 +354,7 @@ struct DailyReading {
                     
                     for line in Db.book(fileName, whereExpr: "chapter=\(range[1].0) AND verse<=\(range[1].1)") {
                         if decorated {
-                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String)
+                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
                         } else {
                             text = text + (line["text"] as! String) + " "
                         }
@@ -363,7 +363,7 @@ struct DailyReading {
                 } else {
                     for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1) AND verse<=\(range[1].1)") {
                         if decorated {
-                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String)
+                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
                         } else {
                             text = text + (line["text"] as! String) + " "
                         }

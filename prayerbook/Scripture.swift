@@ -15,7 +15,10 @@ enum ScriptureDisplay {
 
 class Scripture: UIViewController {
 
+    var fontSize: Int = 0
     var code: ScriptureDisplay = .Chapter("", 0)
+    let prefs = NSUserDefaults.standardUserDefaults()
+
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
@@ -26,9 +29,30 @@ class Scripture: UIViewController {
         let backButton = UIBarButtonItem(image: UIImage(named: "close"), style: .Plain, target: self, action: "closeView")
         navigationItem.leftBarButtonItem = backButton
         
-        let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
-        navigationItem.rightBarButtonItems = [button_options]
+        let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in"), style: .Plain, target: self, action: "zoom_in")
+        let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out"), style: .Plain, target: self, action: "zoom_out")
+
+        button_zoom_in.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
+        navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
         
+        fontSize = prefs.integerForKey("fontSize")
+
+        reload()
+    }
+    
+    func zoom_in() {
+        fontSize += 2
+        prefs.setObject(fontSize, forKey: "fontSize")
+        prefs.synchronize()
+        
+        reload()
+    }
+    
+    func zoom_out() {
+        fontSize -= 2
+        prefs.setObject(fontSize, forKey: "fontSize")
+        prefs.synchronize()
+
         reload()
     }
     
@@ -56,10 +80,11 @@ class Scripture: UIViewController {
     }
 
     func showPericope(str: String)  {
-        title = Translate.s("Gospel of the day")
+        title = ""
+        //Translate.s("Gospel of the day")
         
         var text : NSMutableAttributedString? = nil
-        let pericope = DailyReading.getPericope(str, decorated: true)
+        let pericope = DailyReading.getPericope(str, decorated: true, fontSize: fontSize)
         
         for (title, content) in pericope {
             text = text + title + "\n\n"
@@ -75,7 +100,7 @@ class Scripture: UIViewController {
         var text : NSMutableAttributedString? = nil
 
         for line in Db.book(name, whereExpr: "chapter=\(chapter)") {
-            let row  = DailyReading.decorateLine(line["verse"] as! Int64, line["text"] as! String)
+            let row  = DailyReading.decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
             text = text + row
         }
         

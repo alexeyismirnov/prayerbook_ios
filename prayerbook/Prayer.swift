@@ -11,6 +11,8 @@ import UIKit
 class Prayer: UIViewController {
     
     @IBOutlet weak var webView: UIWebView!
+    let prefs = NSUserDefaults.standardUserDefaults()
+    var fontSize: Int = 0
     var index:Int!
     var code:String!
     var name:String!
@@ -18,13 +20,10 @@ class Prayer: UIViewController {
     func reload() {
         let filename = String(format: "prayer_%@_%d_%@.html", code, index, Translate.language)
         let bundleName = NSBundle.mainBundle().pathForResource(filename, ofType: nil)
-        
         var txt:String! = try? String(contentsOfFile: bundleName!, encoding: NSUTF8StringEncoding)
-
-        let prefs = NSUserDefaults.standardUserDefaults()
-        let fontSize = prefs.integerForKey("fontSize")
         
-        txt = txt.stringByReplacingOccurrencesOfString("FONTSIZE", withString: "\(fontSize)pt")
+        fontSize = prefs.integerForKey("fontSize")
+        txt = txt.stringByReplacingOccurrencesOfString("FONTSIZE", withString: "\(fontSize)px")
         
         if (code == "typica") {
             let tone = Cal.getTone(Cal.currentDate)
@@ -56,21 +55,41 @@ class Prayer: UIViewController {
             
         }
         
-        self.webView.paginationBreakingMode = UIWebPaginationBreakingMode.Page
-        self.webView.paginationMode = UIWebPaginationMode.LeftToRight
-        self.webView.scrollView.pagingEnabled = true
-        self.webView.scrollView.bounces = false
+        let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in"), style: .Plain, target: self, action: "zoom_in")
+        let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out"), style: .Plain, target: self, action: "zoom_out")
         
-        self.webView.loadHTMLString(txt, baseURL: NSURL())
-        self.title = Translate.s(name)
+        button_zoom_in.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
+        navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
+        
+        webView.paginationBreakingMode = UIWebPaginationBreakingMode.Page
+        webView.paginationMode = UIWebPaginationMode.LeftToRight
+        webView.scrollView.pagingEnabled = true
+        webView.scrollView.bounces = false
+        
+        webView.loadHTMLString(txt, baseURL: NSURL())
+        title = Translate.s(name)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: optionsSavedNotification, object: nil)
-        self.reload()
+        reload()
     }
     
+    func zoom_in() {
+        fontSize += 2
+        prefs.setObject(fontSize, forKey: "fontSize")
+        prefs.synchronize()
+        
+        reload()
+    }
+    
+    func zoom_out() {
+        fontSize -= 2
+        prefs.setObject(fontSize, forKey: "fontSize")
+        prefs.synchronize()
+        reload()
+    }
 
 }
