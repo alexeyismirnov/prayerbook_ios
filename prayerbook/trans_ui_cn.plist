@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Rate Orthodox Calendar</key>
+	<string>给正教日历评分</string>
+	<key>Remind me later</key>
+	<string>稍后提醒我</string>
+	<key>No, thanks</key>
+	<string>不，谢谢</string>
+	<key>If you enjoy using Orthodox Calendar, would you mind taking a moment to rate it? It won&apos;t take more than a minute. Thanks for your support!</key>
+	<string>如果你喜欢使用正教日历，你介意花一点时间给它评分吗？不会超过一分钟。感谢您的支持！</string>
 	<key>(C) 2015 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong. This app contains information from ponomar.net and orthodox.cn</key>
 	<string>(C) 2015 香港聖彼得聖保羅教堂。本應用使用網站ponomar.net和orthodox.cn之資料</string>
 	<key>Nuts</key>

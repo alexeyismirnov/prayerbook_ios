@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Translate {
+@objc class Translate: NSObject {
     private static var dict = [String:String]()
     static var defaultLanguage = "en"
     static var locale  = NSLocale(localeIdentifier: "en")
