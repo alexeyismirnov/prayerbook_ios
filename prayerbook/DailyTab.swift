@@ -347,12 +347,34 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     }
     
     func showCalendar() {
+        
+        /*
+        let cal = storyboard!.instantiateViewControllerWithIdentifier("CalendarGrid") as! CalendarGridViewController
+        let nav = UINavigationController(rootViewController: cal)
+
+        navigationController?.presentViewController(nav, animated: true, completion: {})
+*/
+        
+        let container = storyboard!.instantiateViewControllerWithIdentifier("CalendarContainer") as! UINavigationController
+        let modal = NAModalSheet(viewController: container, presentationStyle: .FadeInCentered)
+        
+        modal.disableBlurredBackground = true
+        modal.cornerRadiusWhenCentered = 10
+        modal.delegate = self
+        modal.adjustContentSize(CGSizeMake(300, 300), animated: false)
+
+        modal.presentWithCompletion({})
+    }
+    
+    /*
+    func showCalendar() {
         let vc = storyboard!.instantiateViewControllerWithIdentifier("Calendar") as! CalendarViewController
         let nav = UINavigationController(rootViewController: vc)
         vc.delegate = self
 
         navigationController?.presentViewController(nav, animated: true, completion: {})
     }
+*/
     
     func showOptions() {
         let vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options

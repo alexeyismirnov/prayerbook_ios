@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		11D18E423D5F8676724AC564 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB949D5EE4022DBBF8C2E216 /* libPods.a */; };
+		8A0132F41C2027BC006F2505 /* CalendarGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F31C2027BC006F2505 /* CalendarGridViewController.swift */; };
+		8A0132F61C2029F5006F2505 /* CalendarViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */; };
 		8A06E66F1B187FC300925F63 /* saints_12_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A06E66D1B187FC300925F63 /* saints_12_en.sqlite */; };
 		8A06E6701B187FC300925F63 /* saints_12_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A06E66E1B187FC300925F63 /* saints_12_en.txt */; };
 		8A08D8D81B71D4DD00495BEB /* saints_03_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A08D8D61B71D4DD00495BEB /* saints_03_cn.sqlite */; };
@@ -50,6 +52,7 @@
 		8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */; };
 		8A41936319E6921600D570A9 /* food-egg.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936119E6921600D570A9 /* food-egg.pdf */; };
 		8A41936419E6921600D570A9 /* food-milk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936219E6921600D570A9 /* food-milk.pdf */; };
+		8A419E2A1C268D01003AA378 /* CalendarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A419E291C268D01003AA378 /* CalendarContainer.swift */; };
 		8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */; };
 		8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */; };
 		8A59F34D1B14371800B15FA1 /* saints_07_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A59F34B1B14371800B15FA1 /* saints_07_en.sqlite */; };
@@ -322,6 +325,8 @@
 /* Begin PBXFileReference section */
 		5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8A0132F31C2027BC006F2505 /* CalendarGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarGridViewController.swift; sourceTree = "<group>"; };
+		8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewTextCell.swift; sourceTree = "<group>"; };
 		8A06E66D1B187FC300925F63 /* saints_12_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_12_en.sqlite; sourceTree = "<group>"; };
 		8A06E66E1B187FC300925F63 /* saints_12_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_12_en.txt; sourceTree = "<group>"; };
 		8A08D8D61B71D4DD00495BEB /* saints_03_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_03_cn.sqlite; sourceTree = "<group>"; };
@@ -367,6 +372,7 @@
 		8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-cupcake.pdf"; sourceTree = "<group>"; };
 		8A41936119E6921600D570A9 /* food-egg.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-egg.pdf"; sourceTree = "<group>"; };
 		8A41936219E6921600D570A9 /* food-milk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-milk.pdf"; sourceTree = "<group>"; };
+		8A419E291C268D01003AA378 /* CalendarContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarContainer.swift; sourceTree = "<group>"; };
 		8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDetailsCell.swift; sourceTree = "<group>"; };
 		8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		8A59F34B1B14371800B15FA1 /* saints_07_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_07_en.sqlite; sourceTree = "<group>"; };
@@ -434,7 +440,7 @@
 		8A8D4E181B64AC8F002C614F /* gen_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = gen_cn.sqlite; sourceTree = "<group>"; };
 		8A8D4E191B64AC8F002C614F /* isa_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = isa_cn.sqlite; sourceTree = "<group>"; };
 		8A8D4E1A1B64AC8F002C614F /* prov_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = prov_cn.sqlite; sourceTree = "<group>"; };
-		8A8D4E1E1B64DA23002C614F /* Reading_cn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Reading_cn.plist; sourceTree = "<group>"; };
+		8A8D4E1E1B64DA23002C614F /* Reading_cn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Reading_cn.plist; path = ../Reading_cn.plist; sourceTree = "<group>"; };
 		8A8E99A51B76F342006B6377 /* saints_04_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_04_cn.sqlite; sourceTree = "<group>"; };
 		8A8E99A61B76F342006B6377 /* saints_04_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_04_cn.txt; sourceTree = "<group>"; };
 		8A8E99A91B76F8E3006B6377 /* saints_05_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_05_cn.sqlite; sourceTree = "<group>"; };
@@ -497,15 +503,15 @@
 		8AC7B89619E4D1DE00B51294 /* calendar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = calendar.pdf; sourceTree = "<group>"; };
 		8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyReading.swift; sourceTree = "<group>"; };
-		8ADBF21A1BC90242000FF559 /* typica_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_1.plist; sourceTree = "<group>"; };
-		8ADBF2221BC905FE000FF559 /* typica_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_2.plist; sourceTree = "<group>"; };
-		8ADBF2241BC90864000FF559 /* typica_3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_3.plist; sourceTree = "<group>"; };
-		8ADBF2261BC90A4C000FF559 /* typica_4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_4.plist; sourceTree = "<group>"; };
-		8ADD7D751A56798A00BA9F37 /* ReadingApostle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingApostle.plist; sourceTree = "<group>"; };
-		8ADD7D7A1A56856500BA9F37 /* ReadingJohn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingJohn.plist; sourceTree = "<group>"; };
-		8ADD7D7C1A56863D00BA9F37 /* ReadingMatthew.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingMatthew.plist; sourceTree = "<group>"; };
-		8ADD7D7E1A56875400BA9F37 /* ReadingLuke.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingLuke.plist; sourceTree = "<group>"; };
-		8ADD7D801A568C0A00BA9F37 /* ReadingLent.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingLent.plist; sourceTree = "<group>"; };
+		8ADBF21A1BC90242000FF559 /* typica_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = typica_1.plist; path = ../typica_1.plist; sourceTree = "<group>"; };
+		8ADBF2221BC905FE000FF559 /* typica_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = typica_2.plist; path = ../typica_2.plist; sourceTree = "<group>"; };
+		8ADBF2241BC90864000FF559 /* typica_3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = typica_3.plist; path = ../typica_3.plist; sourceTree = "<group>"; };
+		8ADBF2261BC90A4C000FF559 /* typica_4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = typica_4.plist; path = ../typica_4.plist; sourceTree = "<group>"; };
+		8ADD7D751A56798A00BA9F37 /* ReadingApostle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ReadingApostle.plist; path = ../ReadingApostle.plist; sourceTree = "<group>"; };
+		8ADD7D7A1A56856500BA9F37 /* ReadingJohn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ReadingJohn.plist; path = ../ReadingJohn.plist; sourceTree = "<group>"; };
+		8ADD7D7C1A56863D00BA9F37 /* ReadingMatthew.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ReadingMatthew.plist; path = ../ReadingMatthew.plist; sourceTree = "<group>"; };
+		8ADD7D7E1A56875400BA9F37 /* ReadingLuke.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ReadingLuke.plist; path = ../ReadingLuke.plist; sourceTree = "<group>"; };
+		8ADD7D801A568C0A00BA9F37 /* ReadingLent.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ReadingLent.plist; path = ../ReadingLent.plist; sourceTree = "<group>"; };
 		8ADD7D821A56A5C200BA9F37 /* gen_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = gen_en.sqlite; sourceTree = "<group>"; };
 		8ADD7D831A56A5C200BA9F37 /* isa_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = isa_en.sqlite; sourceTree = "<group>"; };
 		8ADD7D841A56A5C200BA9F37 /* prov_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = prov_en.sqlite; sourceTree = "<group>"; };
@@ -517,10 +523,10 @@
 		8ADF91EB1B7731EA0078BB6B /* saints_07_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_07_cn.txt; sourceTree = "<group>"; };
 		8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchCalendar.swift; sourceTree = "<group>"; };
 		8AE685E81A2559F00029A149 /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
-		8AE6DEE41BCA1A19007E47CC /* typica_5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_5.plist; sourceTree = "<group>"; };
-		8AE6DEEC1BCA1C9C007E47CC /* typica_6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_6.plist; sourceTree = "<group>"; };
-		8AE6DEEE1BCA1F6F007E47CC /* typica_7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_7.plist; sourceTree = "<group>"; };
-		8AE6DEF01BCA227C007E47CC /* typica_8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_8.plist; sourceTree = "<group>"; };
+		8AE6DEE41BCA1A19007E47CC /* typica_5.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = typica_5.plist; path = ../typica_5.plist; sourceTree = "<group>"; };
+		8AE6DEEC1BCA1C9C007E47CC /* typica_6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = typica_6.plist; path = ../typica_6.plist; sourceTree = "<group>"; };
+		8AE6DEEE1BCA1F6F007E47CC /* typica_7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = typica_7.plist; path = ../typica_7.plist; sourceTree = "<group>"; };
+		8AE6DEF01BCA227C007E47CC /* typica_8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = typica_8.plist; path = ../typica_8.plist; sourceTree = "<group>"; };
 		8AE6FE8A1B70CCA500FDAA47 /* saints_01_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_01_cn.sqlite; sourceTree = "<group>"; };
 		8AE6FE8B1B70CCA500FDAA47 /* saints_01_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_01_cn.txt; sourceTree = "<group>"; };
 		8AE6FE8E1B70D60300FDAA47 /* saints_02_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_02_cn.sqlite; sourceTree = "<group>"; };
@@ -636,6 +642,7 @@
 		8A74D800198F20CC0078F39F /* prayerbook */ = {
 			isa = PBXGroup;
 			children = (
+				8AFEE0591C210FB0004A68DC /* readings */,
 				8ADFF51E1B0F1D02001AE6A9 /* saints */,
 				8AAC691A1A2C4D5D00CC5CA1 /* scripture */,
 				8A74D857199076EF0078F39F /* html */,
@@ -646,20 +653,6 @@
 				8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */,
 				8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */,
 				8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */,
-				8ADBF21A1BC90242000FF559 /* typica_1.plist */,
-				8ADBF2221BC905FE000FF559 /* typica_2.plist */,
-				8ADBF2241BC90864000FF559 /* typica_3.plist */,
-				8ADBF2261BC90A4C000FF559 /* typica_4.plist */,
-				8AE6DEE41BCA1A19007E47CC /* typica_5.plist */,
-				8AE6DEEC1BCA1C9C007E47CC /* typica_6.plist */,
-				8AE6DEEE1BCA1F6F007E47CC /* typica_7.plist */,
-				8AE6DEF01BCA227C007E47CC /* typica_8.plist */,
-				8ADD7D751A56798A00BA9F37 /* ReadingApostle.plist */,
-				8ADD7D7A1A56856500BA9F37 /* ReadingJohn.plist */,
-				8ADD7D7C1A56863D00BA9F37 /* ReadingMatthew.plist */,
-				8ADD7D7E1A56875400BA9F37 /* ReadingLuke.plist */,
-				8ADD7D801A568C0A00BA9F37 /* ReadingLent.plist */,
-				8A8D4E1E1B64DA23002C614F /* Reading_cn.plist */,
 				8A2F46A819E1302700076AF4 /* Translate.swift */,
 				8AE821F81AC55D8D000460C1 /* RWLabel.swift */,
 				8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */,
@@ -675,6 +668,9 @@
 				8AEFC27A1A2C747700BAACE0 /* Scripture.swift */,
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
 				8A3CD13719E5233100A78A32 /* CalendarViewController.swift */,
+				8A419E291C268D01003AA378 /* CalendarContainer.swift */,
+				8A0132F31C2027BC006F2505 /* CalendarGridViewController.swift */,
+				8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */,
 				8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */,
 				8AC205FF19E63ED8006FC8EA /* FastingViewController.xib */,
 				8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */,
@@ -934,6 +930,27 @@
 				8AFAA3961B12E57B001699D6 /* saints_05_en.sqlite */,
 			);
 			path = saints;
+			sourceTree = "<group>";
+		};
+		8AFEE0591C210FB0004A68DC /* readings */ = {
+			isa = PBXGroup;
+			children = (
+				8ADBF21A1BC90242000FF559 /* typica_1.plist */,
+				8ADBF2221BC905FE000FF559 /* typica_2.plist */,
+				8ADBF2241BC90864000FF559 /* typica_3.plist */,
+				8ADBF2261BC90A4C000FF559 /* typica_4.plist */,
+				8AE6DEE41BCA1A19007E47CC /* typica_5.plist */,
+				8AE6DEEC1BCA1C9C007E47CC /* typica_6.plist */,
+				8AE6DEEE1BCA1F6F007E47CC /* typica_7.plist */,
+				8AE6DEF01BCA227C007E47CC /* typica_8.plist */,
+				8ADD7D751A56798A00BA9F37 /* ReadingApostle.plist */,
+				8ADD7D7A1A56856500BA9F37 /* ReadingJohn.plist */,
+				8ADD7D7C1A56863D00BA9F37 /* ReadingMatthew.plist */,
+				8ADD7D7E1A56875400BA9F37 /* ReadingLuke.plist */,
+				8ADD7D801A568C0A00BA9F37 /* ReadingLent.plist */,
+				8A8D4E1E1B64DA23002C614F /* Reading_cn.plist */,
+			);
+			path = readings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1307,6 +1324,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A0132F41C2027BC006F2505 /* CalendarGridViewController.swift in Sources */,
+				8A0132F61C2029F5006F2505 /* CalendarViewTextCell.swift in Sources */,
 				8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
 				8A3CD13819E5233100A78A32 /* CalendarViewController.swift in Sources */,
@@ -1324,6 +1343,7 @@
 				8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */,
 				8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */,
 				8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */,
+				8A419E2A1C268D01003AA378 /* CalendarContainer.swift in Sources */,
 				8A3CD13519E51D0400A78A32 /* RDVCalendarDayCell.m in Sources */,
 				8A2F46AB19E145D200076AF4 /* Options.swift in Sources */,
 				8ACEF0FB1A2EDF5100AF98E0 /* Extensions.swift in Sources */,
