@@ -12,8 +12,12 @@ private let reuseIdentifier = "CalendarTextCell"
 
 class CalendarGridViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    var currentDate: NSDate!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        currentDate = ChurchCalendar.currentDate
     }
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -21,7 +25,8 @@ class CalendarGridViewController: UICollectionViewController, UICollectionViewDe
     }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        let range = NSCalendar.currentCalendar().rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: currentDate)
+        return range.length
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

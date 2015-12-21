@@ -26,8 +26,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
 
     var currentDate: NSDate = {
         // this is done to remove time component from date
-        let dateComponents = NSDateComponents(date: NSDate())
-        return dateComponents.toDate()
+        return NSDateComponents(date: NSDate()).toDate()
     }()
     
     var formatter: NSDateFormatter = {
@@ -291,8 +290,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         let isLeapYear = (Cal.currentYear % 400) == 0 || ((Cal.currentYear%4 == 0) && (Cal.currentYear%100 != 0))
 
         if (isLeapYear) {
-            let leapStart = NSDateComponents(29, 2, Cal.currentYear).toDate()
-            let leapEnd = NSDateComponents(13, 3, Cal.currentYear).toDate()
+            let leapStart = NSDate(29, 2, Cal.currentYear)
+            let leapEnd = NSDate(13, 3, Cal.currentYear)
             
             switch currentDate {
             case leapStart ..< leapEnd:
@@ -300,7 +299,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                 break
                 
             case leapEnd:
-                saintsDB = Db.saints(NSDateComponents(29, 2, Cal.currentYear).toDate())
+                saintsDB = Db.saints(NSDate(29, 2, Cal.currentYear))
                 break
                 
             default:
@@ -309,8 +308,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
 
         } else {
             saintsDB = Db.saints(currentDate)
-            if (currentDate == NSDateComponents(13, 3, Cal.currentYear).toDate()) {
-                saintsDB += Db.saints(NSDateComponents(29, 2, 2000).toDate())
+            if (currentDate == NSDate(13, 3, Cal.currentYear)) {
+                saintsDB += Db.saints(NSDate(29, 2, 2000))
             }
         }
         

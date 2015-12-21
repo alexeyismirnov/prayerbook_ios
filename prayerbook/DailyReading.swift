@@ -97,7 +97,7 @@ struct DailyReading {
         let PAPSunday = Cal.d(.SundayOfPublicianAndPharisee)
         let daysFromPentecost = (Cal.paschaDay(Cal.currentYear-1) + 50.days) >> date
         
-        let exaltationPrevYear = NSDateComponents(27, 9, Cal.currentYear-1).toDate()
+        let exaltationPrevYear = NSDate(27, 9, Cal.currentYear-1)
         let exaltationPrevYearWeekday = NSDateComponents(date: exaltationPrevYear).weekday
         let sundayAfterExaltationPrevYear = exaltationPrevYear + (8-exaltationPrevYearWeekday).days
         
@@ -168,7 +168,7 @@ struct DailyReading {
     static func getRegularReading(date: NSDate) -> String? {
         Cal.setDate(date)
         
-        let exaltation = NSDateComponents(27, 9, Cal.currentYear).toDate()
+        let exaltation = NSDate(27, 9, Cal.currentYear)
         let exaltationWeekday = NSDateComponents(date: exaltation).weekday
         let exaltationFriOffset = (exaltationWeekday >= 6) ? 13-exaltationWeekday : 6-exaltationWeekday
         let fridayAfterExaltation = exaltation + exaltationFriOffset.days

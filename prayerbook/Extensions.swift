@@ -89,6 +89,25 @@ extension NSDateComponents {
     }
 }
 
+extension NSDate {
+    convenience init(_ day: Int, _ month:Int, _ year: Int) {
+        self.init(timeInterval: 0, sinceDate: NSDateComponents(day, month, year).toDate())
+    }
+    
+    func day() -> Int {
+        return NSDateComponents(date: self).day
+    }
+
+    func month() -> Int {
+        return NSDateComponents(date: self).month
+    }
+    
+    func year() -> Int {
+        return NSDateComponents(date: self).year
+    }
+}
+
+
 func + (str: String, date: NSDate) -> String {
     let formatter = NSDateFormatter()
     formatter.dateStyle = .ShortStyle

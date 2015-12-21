@@ -57,7 +57,7 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
     func doneWithDate(recognizer: UITapGestureRecognizer) {
         let cell = recognizer.view as! RDVCalendarDayCell
         let index = calendarView.indexForDayCell(cell)
-        let currentDate = NSDateComponents(index+1, calendarView.month.month, calendarView.month.year).toDate()
+        let currentDate = NSDate(index+1, calendarView.month.month, calendarView.month.year)
 
         delegate.currentDate = currentDate
         delegate.reload()
@@ -76,7 +76,7 @@ class CalendarViewController: UIViewController, RDVCalendarViewDelegate {
         recognizer.numberOfTapsRequired = 1
         dayCell.addGestureRecognizer(recognizer)
 
-        let curDate = NSDateComponents(index+1, calendarView.month.month, calendarView.month.year).toDate()
+        let curDate = NSDate(index+1, calendarView.month.month, calendarView.month.year)
         dayCell.textLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.redColor() : UIColor.blackColor()
 
         switch Cal.getFastingDescription(curDate).0 {
