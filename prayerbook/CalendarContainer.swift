@@ -10,14 +10,18 @@ import UIKit
 
 class CalendarContainer: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var calendarDelegate :CalendarGridDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let cal = storyboard!.instantiateViewControllerWithIdentifier("CalendarGrid") as! CalendarGridViewController
-
-        navigationController?.pushViewController(cal, animated: false)
+        
+        calendarDelegate = CalendarGridDelegate()
+        collectionView.delegate = calendarDelegate
+        collectionView.dataSource = calendarDelegate
+        
     }
     
-
 
 }

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		11D18E423D5F8676724AC564 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB949D5EE4022DBBF8C2E216 /* libPods.a */; };
-		8A0132F41C2027BC006F2505 /* CalendarGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F31C2027BC006F2505 /* CalendarGridViewController.swift */; };
+		8A0132F41C2027BC006F2505 /* CalendarGridDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F31C2027BC006F2505 /* CalendarGridDelegate.swift */; };
 		8A0132F61C2029F5006F2505 /* CalendarViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */; };
 		8A06E66F1B187FC300925F63 /* saints_12_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A06E66D1B187FC300925F63 /* saints_12_en.sqlite */; };
 		8A06E6701B187FC300925F63 /* saints_12_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A06E66E1B187FC300925F63 /* saints_12_en.txt */; };
@@ -325,7 +325,7 @@
 /* Begin PBXFileReference section */
 		5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		8A0132F31C2027BC006F2505 /* CalendarGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarGridViewController.swift; sourceTree = "<group>"; };
+		8A0132F31C2027BC006F2505 /* CalendarGridDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarGridDelegate.swift; sourceTree = "<group>"; };
 		8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewTextCell.swift; sourceTree = "<group>"; };
 		8A06E66D1B187FC300925F63 /* saints_12_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_12_en.sqlite; sourceTree = "<group>"; };
 		8A06E66E1B187FC300925F63 /* saints_12_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_12_en.txt; sourceTree = "<group>"; };
@@ -669,7 +669,7 @@
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
 				8A3CD13719E5233100A78A32 /* CalendarViewController.swift */,
 				8A419E291C268D01003AA378 /* CalendarContainer.swift */,
-				8A0132F31C2027BC006F2505 /* CalendarGridViewController.swift */,
+				8A0132F31C2027BC006F2505 /* CalendarGridDelegate.swift */,
 				8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */,
 				8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */,
 				8AC205FF19E63ED8006FC8EA /* FastingViewController.xib */,
@@ -1324,7 +1324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A0132F41C2027BC006F2505 /* CalendarGridViewController.swift in Sources */,
+				8A0132F41C2027BC006F2505 /* CalendarGridDelegate.swift in Sources */,
 				8A0132F61C2029F5006F2505 /* CalendarViewTextCell.swift in Sources */,
 				8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
