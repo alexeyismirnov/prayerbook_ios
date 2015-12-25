@@ -23,5 +23,12 @@ class CalendarContainer: UIViewController {
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        let upperBorder = CALayer();
+        upperBorder.backgroundColor = UIColor.lightGrayColor().CGColor;
+        upperBorder.frame = CGRectMake(0, 0, CGRectGetWidth(collectionView.frame), 2.0);
+        collectionView.layer.addSublayer(upperBorder)
+    }
+    
 
 }

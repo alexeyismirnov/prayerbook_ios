@@ -346,21 +346,27 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     }
     
     func showCalendar() {
+        var width, height : CGFloat
         
-        /*
-        let cal = storyboard!.instantiateViewControllerWithIdentifier("CalendarGrid") as! CalendarGridViewController
-        let nav = UINavigationController(rootViewController: cal)
+        if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
+            width = 300
+            height = 350
 
-        navigationController?.presentViewController(nav, animated: true, completion: {})
-*/
+        } else {
+            width = 500
+            height = 500
+        }
         
         let container = storyboard!.instantiateViewControllerWithIdentifier("CalendarContainer") as! UINavigationController
+        
+        container.view.frame = CGRectMake(0, 0, width, height)
+        
         let modal = NAModalSheet(viewController: container, presentationStyle: .FadeInCentered)
         
         modal.disableBlurredBackground = true
         modal.cornerRadiusWhenCentered = 10
         modal.delegate = self
-        modal.adjustContentSize(CGSizeMake(300, 300), animated: false)
+        modal.adjustContentSize(CGSizeMake(width, height), animated: false)
 
         modal.presentWithCompletion({})
     }

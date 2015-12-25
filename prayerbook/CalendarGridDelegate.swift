@@ -37,9 +37,10 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     }
     
     @objc func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(40, 40)
+        
+        let cellWidth = collectionView.bounds.width / 7.0
+        return CGSizeMake(cellWidth, cellWidth)
     }
     
-
 
 }
