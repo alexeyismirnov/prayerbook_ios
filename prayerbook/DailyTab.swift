@@ -356,7 +356,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             width = 500
             height = 500
         }
-        
+
         let container = storyboard!.instantiateViewControllerWithIdentifier("CalendarContainer") as! UINavigationController
         
         container.view.frame = CGRectMake(0, 0, width, height)

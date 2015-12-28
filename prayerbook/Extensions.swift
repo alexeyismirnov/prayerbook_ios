@@ -48,6 +48,10 @@ extension Int {
     var days: TimeInterval {
         return TimeInterval(interval: self, unit: TimeIntervalUnit.Days);
     }
+    
+    var months: TimeInterval {
+        return TimeInterval(interval: self, unit: TimeIntervalUnit.Months);
+    }
 }
 
 func - (let left:NSDate, let right:TimeInterval) -> NSDate {
@@ -93,18 +97,31 @@ extension NSDate {
     convenience init(_ day: Int, _ month:Int, _ year: Int) {
         self.init(timeInterval: 0, sinceDate: NSDateComponents(day, month, year).toDate())
     }
-    
-    func day() -> Int {
-        return NSDateComponents(date: self).day
+
+    var day: Int {
+        get {
+            return NSDateComponents(date: self).day
+        }
     }
 
-    func month() -> Int {
-        return NSDateComponents(date: self).month
+    var weekday: Int {
+        get {
+            return NSDateComponents(date: self).weekday
+        }
     }
     
-    func year() -> Int {
-        return NSDateComponents(date: self).year
+    var month: Int {
+        get {
+            return NSDateComponents(date: self).month
+        }
     }
+
+    var year: Int {
+        get {
+            return NSDateComponents(date: self).year
+        }
+    }
+
 }
 
 
