@@ -28,8 +28,8 @@ class CalendarContainer: UIViewController {
     }()
     
     var currentDate: NSDate = ChurchCalendar.currentDate
-
-    var calendarDelegate :CalendarGridDelegate!
+    var calendarDelegate: CalendarGridDelegate!
+    var delegate: DailyTab!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,10 @@ class CalendarContainer: UIViewController {
         collectionView.delegate = calendarDelegate
         collectionView.dataSource = calendarDelegate
         
+        let recognizer = UITapGestureRecognizer(target: self, action:Selector("doneWithDate:"))
+        recognizer.numberOfTapsRequired = 1
+        collectionView.addGestureRecognizer(recognizer)
+
         let dayLabel = formatter.shortWeekdaySymbols as [String]
         
         for index in cal.firstWeekday...7 {
@@ -62,6 +66,20 @@ class CalendarContainer: UIViewController {
         upperBorder.backgroundColor = UIColor.lightGrayColor().CGColor;
         upperBorder.frame = CGRectMake(0, 0, CGRectGetWidth(collectionView.frame), 2.0);
         collectionView.layer.addSublayer(upperBorder)
+    }
+    
+    func doneWithDate(recognizer: UITapGestureRecognizer) {
+        let loc = recognizer.locationInView(collectionView)
+        var curDate: NSDate? = nil
+        
+        if let
+            path = collectionView.indexPathForItemAtPoint(loc),
+            cell = collectionView.cellForItemAtIndexPath(path) as? CalendarViewTextCell,
+            dayNum = Int(cell.dateLabel.text!) {
+                curDate = NSDate(dayNum, currentDate.month, currentDate.year)
+        }
+        
+        delegate.hideCalendar(curDate)
     }
     
     func refresh() {

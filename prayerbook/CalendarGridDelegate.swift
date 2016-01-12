@@ -45,12 +45,30 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
         
         if indexPath.row < startGap {
             cell.dateLabel.text = ""
+            cell.contentView.backgroundColor = UIColor.whiteColor()
             return cell
         }
         
         let dayIndex = indexPath.row + 1 - startGap
+        let curDate = NSDate(dayIndex, currentDate.month, currentDate.year)
 
         cell.dateLabel.text = String(format: "%d", dayIndex)
+        cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.redColor() : UIColor.blackColor()
+
+        switch Cal.getFastingDescription(curDate).0 {
+        case .Vegetarian:
+            cell.contentView.backgroundColor = UIColor(hex:"#30D5C8")
+            break
+        case .FishAllowed:
+            cell.contentView.backgroundColor = UIColor(hex:"#FADFAD")
+            break
+        case .Cheesefare, .FastFree:
+            cell.contentView.backgroundColor = UIColor(hex:"#00BFFF")
+            break
+        default:
+            cell.contentView.backgroundColor = UIColor.whiteColor()
+            break
+        }
         
         return cell
     }

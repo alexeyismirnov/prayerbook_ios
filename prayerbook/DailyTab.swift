@@ -35,6 +35,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         formatter.timeStyle = .NoStyle
         return formatter
     }()
+    
+    var modal: NAModalSheet!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -358,17 +360,27 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         }
 
         let container = storyboard!.instantiateViewControllerWithIdentifier("CalendarContainer") as! UINavigationController
-        
         container.view.frame = CGRectMake(0, 0, width, height)
         
-        let modal = NAModalSheet(viewController: container, presentationStyle: .FadeInCentered)
+        modal = NAModalSheet(viewController: container, presentationStyle: .FadeInCentered)
         
         modal.disableBlurredBackground = true
         modal.cornerRadiusWhenCentered = 10
         modal.delegate = self
         modal.adjustContentSize(CGSizeMake(width, height), animated: false)
+        
+        (container.topViewController as! CalendarContainer).delegate = self
 
         modal.presentWithCompletion({})
+    }
+    
+    func hideCalendar(date: NSDate?) {
+        if let newDate = date {
+            currentDate = newDate
+            reload()
+        }
+        
+        modal.dismissWithCompletion({})
     }
     
     /*
