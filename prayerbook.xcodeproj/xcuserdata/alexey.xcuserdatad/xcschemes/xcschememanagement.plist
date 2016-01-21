@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CalendarWidget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>prayerbook.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>8A74D81A198F20CC0078F39F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8AB7499E1C4C7A3400CD1B32</key>
 		<dict>
 			<key>primary</key>
 			<true/>

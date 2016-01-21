@@ -14,7 +14,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         
-        let prefs = NSUserDefaults.standardUserDefaults()
+        let prefs = NSUserDefaults(suiteName: "group.rlc.ponomar")!
         let fontSize = prefs.integerForKey("fontSize")
         let lang = NSLocale.preferredLanguages()[0] 
 

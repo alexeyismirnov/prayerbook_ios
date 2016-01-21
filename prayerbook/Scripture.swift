@@ -17,7 +17,7 @@ class Scripture: UIViewController {
 
     var fontSize: Int = 0
     var code: ScriptureDisplay = .Chapter("", 0)
-    let prefs = NSUserDefaults.standardUserDefaults()
+    let prefs = NSUserDefaults(suiteName: "group.rlc.ponomar")!
 
     @IBOutlet weak var textView: UITextView!
     

@@ -10,6 +10,10 @@ import UIKit
 
 private let reuseIdentifier = "CalendarTextCell"
 
+enum CalendarContainerType: Int {
+    case MainApp=0, TodayExtension
+}
+
 class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     let cal: NSCalendar = {
@@ -26,6 +30,7 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     }
     
     var startGap: Int!
+    var containerType : CalendarContainerType!
 
     override init() {
         super.init()
@@ -43,9 +48,10 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     @objc func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CalendarViewTextCell
         
+        cell.contentView.backgroundColor =  UIColor.clearColor()
+
         if indexPath.row < startGap {
             cell.dateLabel.text = ""
-            cell.contentView.backgroundColor = UIColor.whiteColor()
             return cell
         }
         
@@ -53,20 +59,25 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
         let curDate = NSDate(dayIndex, currentDate.month, currentDate.year)
 
         cell.dateLabel.text = String(format: "%d", dayIndex)
+        
         cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.redColor() : UIColor.blackColor()
 
         switch Cal.getFastingDescription(curDate).0 {
         case .Vegetarian:
             cell.contentView.backgroundColor = UIColor(hex:"#30D5C8")
             break
+
         case .FishAllowed:
             cell.contentView.backgroundColor = UIColor(hex:"#FADFAD")
             break
+
         case .Cheesefare, .FastFree:
             cell.contentView.backgroundColor = UIColor(hex:"#00BFFF")
             break
+
         default:
-            cell.contentView.backgroundColor = UIColor.whiteColor()
+            let textColor = (containerType == .MainApp) ? UIColor.blackColor() : UIColor.whiteColor()
+            cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.redColor() : textColor
             break
         }
         
@@ -75,7 +86,7 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     
     @objc func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        let cellWidth = collectionView.bounds.width / 7.0
+        let cellWidth = (collectionView.bounds.width-1) / 7.0
         return CGSizeMake(cellWidth, cellWidth)
     }
     
