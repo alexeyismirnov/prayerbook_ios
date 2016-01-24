@@ -195,6 +195,7 @@
 		8AC6952619E4011700773FEB /* group.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952219E4011700773FEB /* group.pdf */; };
 		8AC6952719E4011700773FEB /* library.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952319E4011700773FEB /* library.pdf */; };
 		8AC6952919E4034D00773FEB /* options.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952819E4034D00773FEB /* options.pdf */; };
+		8AC757C21C550BFD0088D4D0 /* Images.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D815198F20CC0078F39F /* Images.xcassets */; };
 		8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89219E4CECB00B51294 /* arrow-left.pdf */; };
 		8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89319E4CECB00B51294 /* arrow-right.pdf */; };
 		8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89619E4D1DE00B51294 /* calendar.pdf */; };
@@ -1457,6 +1458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AC757C21C550BFD0088D4D0 /* Images.xcassets in Sources */,
 				8A0F6F5E1C50C8910063DBF1 /* CalendarViewTextCell.swift in Sources */,
 				8A0F6F5D1C50C8820063DBF1 /* CalendarGridDelegate.swift in Sources */,
 				8A0F6F5A1C50C12D0063DBF1 /* Translate.swift in Sources */,
