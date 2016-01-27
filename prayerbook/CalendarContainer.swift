@@ -43,22 +43,8 @@ class CalendarContainer: UIViewController {
         let recognizer = UITapGestureRecognizer(target: self, action:Selector("doneWithDate:"))
         recognizer.numberOfTapsRequired = 1
         collectionView.addGestureRecognizer(recognizer)
-
-        let dayLabel = formatter.shortWeekdaySymbols as [String]
         
-        for index in cal.firstWeekday...7 {
-            if let label = self.view.viewWithTag(index-cal.firstWeekday+1) as? UILabel {
-                label.text = dayLabel[index-1]
-            }
-        }
-
-        if cal.firstWeekday > 1 {
-            for index in 1...cal.firstWeekday-1 {
-                if let label = self.view.viewWithTag(8-cal.firstWeekday+index) as? UILabel {
-                    label.text = dayLabel[index-1]
-                }
-            }
-        }
+        calendarDelegate.generateLabels(view)
         
         refresh()
     }
