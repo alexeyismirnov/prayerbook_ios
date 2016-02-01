@@ -8,7 +8,9 @@
 
 import UIKit
 
-@objc class Translate: NSObject {
+@objc class Translate: NSObject {    
+    static let groupURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.rlc.ponomar")!
+
     private static var dict = [String:String]()
     static var defaultLanguage = "en"
     static var locale  = NSLocale(localeIdentifier: "en")
@@ -24,8 +26,10 @@ import UIKit
             
             dict = [:]
             for (_, file) in files.enumerate() {
-                let bundle = NSBundle.mainBundle().pathForResource("\(file)_\(language)", ofType: "plist")
-                let newDict = NSDictionary(contentsOfFile: bundle!) as! [String: String]
+                let filename = "\(file)_\(language).plist"
+                let dst = groupURL.URLByAppendingPathComponent(filename)
+                let newDict = NSDictionary(contentsOfFile: dst.path!) as! [String: String]
+                
                 dict += newDict
             }
         }

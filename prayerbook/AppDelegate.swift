@@ -17,12 +17,9 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         let prefs = NSUserDefaults(suiteName: "group.rlc.ponomar")!
         let fontSize = prefs.integerForKey("fontSize")
         let lang = NSLocale.preferredLanguages()[0] 
-
-        Translate.files = ["trans_ui", "trans_cal", "trans_library"]
         
         // the first time app is launched
         if fontSize == 0 {
-
             if (lang == "zh-Hans" || lang == "zh-Hant") {
                 prefs.setObject("cn", forKey: "language")
             } else {
@@ -38,6 +35,10 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
             prefs.synchronize()
         }
         
+        setupFiles()
+
+        Translate.files = ["trans_ui", "trans_cal", "trans_library"]
+        
         let language = prefs.objectForKey("language") as! String
         Translate.language = language
         
@@ -50,6 +51,34 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         Appirater.appLaunched(true)
         
         return true
+    }
+    
+    func setupFiles() {
+
+        for lang in ["en", "cn"] {
+            for month in 1...12 {
+                let filename = String(format: "saints_%02d_%@", month, lang)
+                copyFile(filename, "sqlite")
+            }
+        }
+        
+        copyFile("trans_ui_cn", "plist")
+        copyFile("trans_cal_cn", "plist")
+        copyFile("trans_library_cn", "plist")
+    }
+    
+    func copyFile(filename: String, _ ext: String)  {
+        let fileManager = NSFileManager.defaultManager()
+        let groupURL = fileManager.containerURLForSecurityApplicationGroupIdentifier("group.rlc.ponomar")!
+        let srcPath = NSBundle.mainBundle().URLForResource(filename, withExtension: ext)!
+        let dstPath = groupURL.URLByAppendingPathComponent(filename+"."+ext)
+        
+        do {
+            try fileManager.copyItemAtURL(srcPath, toURL: dstPath)
+            
+        } catch {
+            // maybe file already exists
+        }
     }
     
     func applicationWillEnterForeground(application: UIApplication) {

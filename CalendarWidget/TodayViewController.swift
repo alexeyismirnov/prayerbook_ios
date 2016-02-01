@@ -15,6 +15,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var buttonRight: UIButton!
     @IBOutlet weak var buttonLeft: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var saintsLabel: UILabel!
     
     var currentDate: NSDate = {
         return NSDateComponents(date: NSDate()).toDate()
@@ -48,6 +49,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
         collectionView.delegate = calendarDelegate
         collectionView.dataSource = calendarDelegate
+        
+        let recognizer = UITapGestureRecognizer(target: self, action:Selector("tapOnCell:"))
+        recognizer.numberOfTapsRequired = 1
+        collectionView.addGestureRecognizer(recognizer)
+        
+        saintsLabel.attributedText = nil
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -83,6 +90,39 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBAction func nextMonth(sender: AnyObject) {
         currentDate = currentDate + 1.months
         refresh()
+    }
+    
+    func tapOnCell(recognizer: UITapGestureRecognizer) {
+        let loc = recognizer.locationInView(collectionView)
+        var curDate: NSDate? = nil
+        
+        if let
+            path = collectionView.indexPathForItemAtPoint(loc),
+            cell = collectionView.cellForItemAtIndexPath(path) as? CalendarViewTextCell,
+            dayNum = Int(cell.dateLabel.text!) {
+                curDate = NSDate(dayNum, currentDate.month, currentDate.year)
+                
+                let saints = Db.saints(curDate!)
+                let dayDescription = Cal.getDayDescription(curDate!)
+                let feasts = (saints+dayDescription).sort { $0.0.rawValue > $1.0.rawValue }
+                
+                let myString = NSMutableAttributedString(string: "")
+                
+                if let iconName = Cal.feastIcon[feasts[0].0] {
+                    let attachment = NSTextAttachment()
+                    let iconColor = (feasts[0].0 == .NoSign || feasts[0].0 == .SixVerse) ? UIColor.whiteColor() : UIColor.redColor()
+                    let image = UIImage(named: iconName)?.maskWithColor(iconColor)
+                    
+                    attachment.image = imageResize(image!, sizeChange: CGSizeMake(15, 15))
+                    myString.appendAttributedString(NSAttributedString(attachment: attachment))
+                }
+                
+                myString.appendAttributedString(NSMutableAttributedString(string: feasts[0].1,
+                    attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()] ))
+                
+                saintsLabel.attributedText = myString
+        }
+        
     }
     
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {

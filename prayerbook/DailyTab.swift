@@ -109,18 +109,6 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             return T(style: UITableViewCellStyle.Default, reuseIdentifier: T.cellId)
         }
     }
-
-    func imageResize(image:UIImage, sizeChange:CGSize)-> UIImage{
-        
-        let hasAlpha = true
-        let scale: CGFloat = 0.0 // Use scale factor of main screen
-        
-        UIGraphicsBeginImageContextWithOptions(sizeChange, !hasAlpha, scale)
-        image.drawInRect(CGRect(origin: CGPointZero, size: sizeChange))
-        
-        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
-        return scaledImage
-    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
@@ -175,10 +163,9 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                     let attachment = NSTextAttachment()
                     let image = UIImage(named: Cal.feastIcon[feast]!)
                     attachment.image = imageResize(image!, sizeChange: CGSizeMake(15, 15))
-                    let attachmentString = NSAttributedString(attachment: attachment)
                     
                     let myString = NSMutableAttributedString(string: "")
-                    myString.appendAttributedString(attachmentString)
+                    myString.appendAttributedString(NSAttributedString(attachment: attachment))
                     myString.appendAttributedString(NSMutableAttributedString(string: dayDescription[indexPath.row-2].1))
                     cell.title.attributedText = myString
                     
@@ -285,41 +272,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         dayDescription = Cal.getDayDescription(currentDate)
         readings = DailyReading.getDailyReading(currentDate)
         fasting = Cal.getFastingDescription(currentDate)
-
-        saints=[]
-        
-        var saintsDB = [[String:Bindable?]]()
-        let isLeapYear = (Cal.currentYear % 400) == 0 || ((Cal.currentYear%4 == 0) && (Cal.currentYear%100 != 0))
-
-        if (isLeapYear) {
-            let leapStart = NSDate(29, 2, Cal.currentYear)
-            let leapEnd = NSDate(13, 3, Cal.currentYear)
-            
-            switch currentDate {
-            case leapStart ..< leapEnd:
-                saintsDB = Db.saints(currentDate+1.days)
-                break
-                
-            case leapEnd:
-                saintsDB = Db.saints(NSDate(29, 2, Cal.currentYear))
-                break
-                
-            default:
-                saintsDB = Db.saints(currentDate)
-            }
-
-        } else {
-            saintsDB = Db.saints(currentDate)
-            if (currentDate == NSDate(13, 3, Cal.currentYear)) {
-                saintsDB += Db.saints(NSDate(29, 2, 2000))
-            }
-        }
-        
-        for line in saintsDB {
-            let name = line["name"] as! String
-            let typikon = FeastType(rawValue: Int(line["typikon"] as! Int64))
-            saints.append((typikon!, name))
-        }
+        saints=Db.saints(currentDate)
 
         tableView.reloadData()
     }

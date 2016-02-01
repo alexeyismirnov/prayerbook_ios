@@ -143,6 +143,7 @@
 		8AA3DF5E1B185AE800507129 /* saints_11_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3DF5C1B185AE800507129 /* saints_11_en.sqlite */; };
 		8AA3DF5F1B185AE800507129 /* saints_11_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3DF5D1B185AE800507129 /* saints_11_en.txt */; };
 		8AAE4D831AC8E332009421AF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAE4D821AC8E332009421AF /* ImageCell.swift */; };
+		8AB018E11C5EED5D00DE96B0 /* Db.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFC27C1A2C8DF800BAACE0 /* Db.swift */; };
 		8AB0DC951C27EFEC00C6A494 /* typica_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC8D1C27EFEC00C6A494 /* typica_1.plist */; };
 		8AB0DC961C27EFEC00C6A494 /* typica_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC8E1C27EFEC00C6A494 /* typica_2.plist */; };
 		8AB0DC971C27EFEC00C6A494 /* typica_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC8F1C27EFEC00C6A494 /* typica_3.plist */; };
@@ -1466,6 +1467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AB018E11C5EED5D00DE96B0 /* Db.swift in Sources */,
 				8AC757C21C550BFD0088D4D0 /* Images.xcassets in Sources */,
 				8A0F6F5E1C50C8910063DBF1 /* CalendarViewTextCell.swift in Sources */,
 				8A0F6F5D1C50C8820063DBF1 /* CalendarGridDelegate.swift in Sources */,
