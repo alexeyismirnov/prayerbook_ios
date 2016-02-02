@@ -107,40 +107,6 @@
             </objects>
             <point key="canvasLocation" x="2281" y="-1182"/>
         </scene>
-        <!--Calendar View Controller-->
-        <scene sceneID="GHt-Ln-le2">
-            <objects>
-                <viewController storyboardIdentifier="Calendar" id="3oo-4v-qEy" customClass="CalendarViewController" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wbg-kb-UZP"/>
-                        <viewControllerLayoutGuide type="bottom" id="soQ-cD-gxb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mbE-CE-VL4">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9FL-Xp-d7d" customClass="RDVCalendarView">
-                                <rect key="frame" x="66" y="65" width="656" height="732"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="9FL-Xp-d7d" firstAttribute="top" secondItem="wbg-kb-UZP" secondAttribute="bottom" constant="8" symbolic="YES" id="ML1-Tb-SQG"/>
-                            <constraint firstItem="soQ-cD-gxb" firstAttribute="top" secondItem="9FL-Xp-d7d" secondAttribute="bottom" constant="8" symbolic="YES" id="SQZ-1S-kJY"/>
-                            <constraint firstItem="9FL-Xp-d7d" firstAttribute="leading" secondItem="mbE-CE-VL4" secondAttribute="leading" constant="20" symbolic="YES" id="ifQ-pT-Iqd"/>
-                            <constraint firstAttribute="trailing" secondItem="9FL-Xp-d7d" secondAttribute="trailing" constant="20" symbolic="YES" id="o9j-aJ-y98"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="ePb-wK-hrj"/>
-                    <connections>
-                        <outlet property="calendarView" destination="9FL-Xp-d7d" id="bPe-Kv-Nho"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iNJ-LS-15D" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1388" y="-3395"/>
-        </scene>
         <!--Title-->
         <scene sceneID="xiR-6X-NLn">
             <objects>
@@ -730,25 +696,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S4e-fy-YBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1489" y="-2176"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="CjF-6s-WZz">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Avd-PZ-bJK" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="1pz-iV-Xt0"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xLi-U3-3aS">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="3oo-4v-qEy" kind="relationship" relationship="rootViewController" id="Udn-Rb-LBb"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9hn-mU-d22" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="412" y="-3397"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gpQ-rp-mcg">

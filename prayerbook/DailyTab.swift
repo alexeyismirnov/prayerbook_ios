@@ -160,9 +160,10 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                     
                 } else {
                     let cell: TextCell = getCell()
+                    let image = UIImage(named: Cal.feastIcon[feast]!)!
+                    
                     let attachment = NSTextAttachment()
-                    let image = UIImage(named: Cal.feastIcon[feast]!)
-                    attachment.image = imageResize(image!, sizeChange: CGSizeMake(15, 15))
+                    attachment.image = image.resize(CGSizeMake(15, 15))
                     
                     let myString = NSMutableAttributedString(string: "")
                     myString.appendAttributedString(NSAttributedString(attachment: attachment))
@@ -198,9 +199,10 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
 
             } else {
                 let cell: TextCell = getCell()
+                let image = UIImage(named: Cal.feastIcon[saints[indexPath.row].0]!)!
+                
                 let attachment = NSTextAttachment()
-                let image = UIImage(named: Cal.feastIcon[saints[indexPath.row].0]!)
-                attachment.image = imageResize(image!, sizeChange: CGSizeMake(15, 15))
+                attachment.image = image.resize(CGSizeMake(15, 15))
                 let attachmentString = NSAttributedString(attachment: attachment)
                 
                 let myString = NSMutableAttributedString(string: "")
@@ -335,17 +337,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         
         modal.dismissWithCompletion({})
     }
-    
-    /*
-    func showCalendar() {
-        let vc = storyboard!.instantiateViewControllerWithIdentifier("Calendar") as! CalendarViewController
-        let nav = UINavigationController(rootViewController: vc)
-        vc.delegate = self
 
-        navigationController?.presentViewController(nav, animated: true, completion: {})
-    }
-*/
-    
     func showOptions() {
         let vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
         let nav = UINavigationController(rootViewController: vc)

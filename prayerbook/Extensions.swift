@@ -277,18 +277,6 @@ extension UIColor {
     }
 }
 
-func imageResize(image:UIImage, sizeChange:CGSize)-> UIImage{
-    
-    let hasAlpha = true
-    let scale: CGFloat = 0.0 // Use scale factor of main screen
-    
-    UIGraphicsBeginImageContextWithOptions(sizeChange, !hasAlpha, scale)
-    image.drawInRect(CGRect(origin: CGPointZero, size: sizeChange))
-    
-    let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
-    return scaledImage
-}
-
 extension UIImage {
     func maskWithColor(color: UIColor) -> UIImage {
         
@@ -310,5 +298,17 @@ extension UIImage {
         
         return coloredImage
     }
+    
+    func resize(sizeChange:CGSize)-> UIImage {
+        let hasAlpha = true
+        let scale: CGFloat = 0.0 // Use scale factor of main screen
+        
+        UIGraphicsBeginImageContextWithOptions(sizeChange, !hasAlpha, scale)
+        drawInRect(CGRect(origin: CGPointZero, size: sizeChange))
+        
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        return scaledImage
+    }
+
 }
 

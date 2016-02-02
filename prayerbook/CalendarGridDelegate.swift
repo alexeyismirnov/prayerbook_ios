@@ -24,7 +24,7 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     var currentDate: NSDate! {
         didSet {
             let monthStart = NSDate(1, currentDate.month, currentDate.year)
-            cal.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "ru")
+            cal.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "zh_CN")
             startGap = (monthStart.weekday < cal.firstWeekday) ? 7 - (cal.firstWeekday-monthStart.weekday) : monthStart.weekday - cal.firstWeekday
         }
     }
@@ -39,6 +39,7 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     
     var startGap: Int!
     var containerType : CalendarContainerType!
+    var selectedDate: NSDate?
 
     override init() {
         super.init()
@@ -71,26 +72,30 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
         let curDate = NSDate(dayIndex, currentDate.month, currentDate.year)
 
         cell.dateLabel.text = String(format: "%d", dayIndex)
-        
         cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.redColor() : UIColor.blackColor()
 
-        switch Cal.getFastingDescription(curDate).0 {
-        case .Vegetarian:
-            cell.contentView.backgroundColor = UIColor(hex:"#30D5C8")
-            break
+        if curDate == selectedDate {
+            cell.contentView.backgroundColor = UIColor(hex:"#FF8C00")
 
-        case .FishAllowed:
-            cell.contentView.backgroundColor = UIColor(hex:"#FADFAD")
-            break
-
-        case .Cheesefare, .FastFree:
-            cell.contentView.backgroundColor = UIColor(hex:"#00BFFF")
-            break
-
-        default:
-            let textColor = (containerType == .MainApp) ? UIColor.blackColor() : UIColor.whiteColor()
-            cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.redColor() : textColor
-            break
+        } else {
+            switch Cal.getFastingDescription(curDate).0 {
+            case .Vegetarian:
+                cell.contentView.backgroundColor = UIColor(hex:"#30D5C8")
+                break
+                
+            case .FishAllowed:
+                cell.contentView.backgroundColor = UIColor(hex:"#FADFAD")
+                break
+                
+            case .Cheesefare, .FastFree:
+                cell.contentView.backgroundColor = UIColor(hex:"#00BFFF")
+                break
+                
+            default:
+                let textColor = (containerType == .MainApp) ? UIColor.blackColor() : UIColor.whiteColor()
+                cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.redColor() : textColor
+                break
+            }
         }
         
         return cell
@@ -103,10 +108,10 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     }
     
     func generateLabels(view: UIView) {
-        formatter.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "ru")
-        cal.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "ru")
+        formatter.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "zh_CN")
+        cal.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "zh_CN")
 
-        let dayLabel = formatter.shortWeekdaySymbols as [String]
+        let dayLabel = formatter.veryShortWeekdaySymbols as [String]
         
         for index in cal.firstWeekday...7 {
             if let label = view.viewWithTag(index-cal.firstWeekday+1) as? UILabel {

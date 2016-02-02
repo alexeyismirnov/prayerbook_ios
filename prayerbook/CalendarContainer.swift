@@ -14,7 +14,7 @@ class CalendarContainer: UIViewController {
     
     let cal: NSCalendar = {
         let c = NSCalendar.currentCalendar()
-        c.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "ru")
+        c.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "zh_CN")
         return c
     }()
 
@@ -23,7 +23,7 @@ class CalendarContainer: UIViewController {
         formatter.dateStyle = .ShortStyle
         formatter.timeStyle = .NoStyle
         formatter.dateFormat = "LLLL yyyy"
-        formatter.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "ru")
+        formatter.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "zh_CN")
         return formatter
     }()
     

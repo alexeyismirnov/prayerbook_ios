@@ -35,6 +35,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Translate.files = ["trans_ui", "trans_cal", "trans_library"]
 
         let arrowLeft = UIImage(named: "fat-left")?.imageWithRenderingMode(.AlwaysTemplate)
         buttonLeft.imageView?.tintColor = UIColor.whiteColor()
@@ -54,7 +56,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         recognizer.numberOfTapsRequired = 1
         collectionView.addGestureRecognizer(recognizer)
         
-        saintsLabel.attributedText = nil
+        calendarDelegate.selectedDate = currentDate
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -75,21 +77,48 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
 
     func refresh() {
-        formatter.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "ru")
+        formatter.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "zh_CN")
 
         monthLabel.text = formatter.stringFromDate(currentDate)
         calendarDelegate.currentDate = currentDate
         collectionView.reloadData()
+        
+        showSaints()
     }
 
     @IBAction func prevMonth(sender: AnyObject) {
         currentDate = currentDate - 1.months
+        calendarDelegate.selectedDate = NSDate(1, currentDate.month, currentDate.year)
         refresh()
     }
     
     @IBAction func nextMonth(sender: AnyObject) {
         currentDate = currentDate + 1.months
+        calendarDelegate.selectedDate = NSDate(1, currentDate.month, currentDate.year)
         refresh()
+    }
+    
+    func showSaints() {
+        let date = calendarDelegate.selectedDate!
+        let saints = Db.saints(date)
+        let dayDescription = Cal.getDayDescription(date)
+        let feasts = (saints+dayDescription).sort { $0.0.rawValue > $1.0.rawValue }
+        
+        let myString = NSMutableAttributedString(string: "")
+        
+        if let iconName = Cal.feastIcon[feasts[0].0] {
+            let iconColor = (feasts[0].0 == .NoSign || feasts[0].0 == .SixVerse) ? UIColor.whiteColor() : UIColor.redColor()
+            let image = UIImage(named: iconName)!.maskWithColor(iconColor)
+            
+            let attachment = NSTextAttachment()
+            attachment.image = image.resize(CGSizeMake(15, 15))
+            myString.appendAttributedString(NSAttributedString(attachment: attachment))
+        }
+        
+        myString.appendAttributedString(NSMutableAttributedString(string: feasts[0].1,
+            attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()] ))
+        
+        saintsLabel.attributedText = myString
     }
     
     func tapOnCell(recognizer: UITapGestureRecognizer) {
@@ -101,28 +130,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             cell = collectionView.cellForItemAtIndexPath(path) as? CalendarViewTextCell,
             dayNum = Int(cell.dateLabel.text!) {
                 curDate = NSDate(dayNum, currentDate.month, currentDate.year)
+                calendarDelegate.selectedDate = curDate
                 
-                let saints = Db.saints(curDate!)
-                let dayDescription = Cal.getDayDescription(curDate!)
-                let feasts = (saints+dayDescription).sort { $0.0.rawValue > $1.0.rawValue }
-                
-                let myString = NSMutableAttributedString(string: "")
-                
-                if let iconName = Cal.feastIcon[feasts[0].0] {
-                    let attachment = NSTextAttachment()
-                    let iconColor = (feasts[0].0 == .NoSign || feasts[0].0 == .SixVerse) ? UIColor.whiteColor() : UIColor.redColor()
-                    let image = UIImage(named: iconName)?.maskWithColor(iconColor)
-                    
-                    attachment.image = imageResize(image!, sizeChange: CGSizeMake(15, 15))
-                    myString.appendAttributedString(NSAttributedString(attachment: attachment))
-                }
-                
-                myString.appendAttributedString(NSMutableAttributedString(string: feasts[0].1,
-                    attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()] ))
-                
-                saintsLabel.attributedText = myString
+                showSaints()
+                collectionView.reloadData()
+
         }
-        
     }
     
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {

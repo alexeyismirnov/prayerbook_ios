@@ -51,9 +51,6 @@
 		8A3A21221A46C0150052861D /* tit_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A210E1A46C0150052861D /* tit_en.sqlite */; };
 		8A3A21281A46C14D0052861D /* philem_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21261A46C14D0052861D /* philem_en.sqlite */; };
 		8A3A21291A46C14D0052861D /* rev_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21271A46C14D0052861D /* rev_en.sqlite */; };
-		8A3CD13519E51D0400A78A32 /* RDVCalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CD13219E51D0400A78A32 /* RDVCalendarDayCell.m */; };
-		8A3CD13619E51D0400A78A32 /* RDVCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CD13419E51D0400A78A32 /* RDVCalendarView.m */; };
-		8A3CD13819E5233100A78A32 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3CD13719E5233100A78A32 /* CalendarViewController.swift */; };
 		8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */; };
 		8A41936319E6921600D570A9 /* food-egg.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936119E6921600D570A9 /* food-egg.pdf */; };
 		8A41936419E6921600D570A9 /* food-milk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936219E6921600D570A9 /* food-milk.pdf */; };
@@ -397,11 +394,6 @@
 		8A3A210E1A46C0150052861D /* tit_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = tit_en.sqlite; sourceTree = "<group>"; };
 		8A3A21261A46C14D0052861D /* philem_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = philem_en.sqlite; sourceTree = "<group>"; };
 		8A3A21271A46C14D0052861D /* rev_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = rev_en.sqlite; sourceTree = "<group>"; };
-		8A3CD13119E51D0400A78A32 /* RDVCalendarDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVCalendarDayCell.h; sourceTree = "<group>"; };
-		8A3CD13219E51D0400A78A32 /* RDVCalendarDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarDayCell.m; sourceTree = "<group>"; };
-		8A3CD13319E51D0400A78A32 /* RDVCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVCalendarView.h; sourceTree = "<group>"; };
-		8A3CD13419E51D0400A78A32 /* RDVCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarView.m; sourceTree = "<group>"; };
-		8A3CD13719E5233100A78A32 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-cupcake.pdf"; sourceTree = "<group>"; };
 		8A41936119E6921600D570A9 /* food-egg.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-egg.pdf"; sourceTree = "<group>"; };
 		8A41936219E6921600D570A9 /* food-milk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-milk.pdf"; sourceTree = "<group>"; };
@@ -719,7 +711,6 @@
 				8AE685E81A2559F00029A149 /* Library.swift */,
 				8AEFC27A1A2C747700BAACE0 /* Scripture.swift */,
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
-				8A3CD13719E5233100A78A32 /* CalendarViewController.swift */,
 				8A419E291C268D01003AA378 /* CalendarContainer.swift */,
 				8A0132F31C2027BC006F2505 /* CalendarGridDelegate.swift */,
 				8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */,
@@ -730,10 +721,6 @@
 				8AC1B114199871DE00A017C7 /* trans_ui_cn.plist */,
 				8AEB5AD41B3410B000CCFC72 /* trans_cal_cn.plist */,
 				8AEC2B0B1B52600900A94FA6 /* trans_library_cn.plist */,
-				8A3CD13119E51D0400A78A32 /* RDVCalendarDayCell.h */,
-				8A3CD13219E51D0400A78A32 /* RDVCalendarDayCell.m */,
-				8A3CD13319E51D0400A78A32 /* RDVCalendarView.h */,
-				8A3CD13419E51D0400A78A32 /* RDVCalendarView.m */,
 				8A81FB4C1C1ECB7600D28F58 /* Appirater.h */,
 				8A81FB4D1C1ECB7600D28F58 /* Appirater.m */,
 				8A81FB4E1C1ECB7600D28F58 /* AppiraterDelegate.h */,
@@ -1437,9 +1424,7 @@
 				8A0132F61C2029F5006F2505 /* CalendarViewTextCell.swift in Sources */,
 				8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
-				8A3CD13819E5233100A78A32 /* CalendarViewController.swift in Sources */,
 				8AE685E91A2559F00029A149 /* Library.swift in Sources */,
-				8A3CD13619E51D0400A78A32 /* RDVCalendarView.m in Sources */,
 				8AEFC27B1A2C747700BAACE0 /* Scripture.swift in Sources */,
 				8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */,
 				8AAE4D831AC8E332009421AF /* ImageCell.swift in Sources */,
@@ -1453,7 +1438,6 @@
 				8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */,
 				8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */,
 				8A419E2A1C268D01003AA378 /* CalendarContainer.swift in Sources */,
-				8A3CD13519E51D0400A78A32 /* RDVCalendarDayCell.m in Sources */,
 				8A2F46AB19E145D200076AF4 /* Options.swift in Sources */,
 				8ACEF0FB1A2EDF5100AF98E0 /* Extensions.swift in Sources */,
 				8AC4E15019DE2BF800CF4271 /* PrayersTab.swift in Sources */,
