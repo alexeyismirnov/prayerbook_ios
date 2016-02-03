@@ -20,7 +20,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         
         // the first time app is launched
         if fontSize == 0 {
-            if (lang == "zh-Hans" || lang == "zh-Hant") {
+            if (lang.hasPrefix("zh-Hans") || lang.hasPrefix("zh-Hant")) {
                 prefs.setObject("cn", forKey: "language")
             } else {
                 prefs.setObject("en", forKey: "language")

@@ -21,6 +21,7 @@
 		8A0F6F5A1C50C12D0063DBF1 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A819E1302700076AF4 /* Translate.swift */; };
 		8A0F6F5D1C50C8820063DBF1 /* CalendarGridDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F31C2027BC006F2505 /* CalendarGridDelegate.swift */; };
 		8A0F6F5E1C50C8910063DBF1 /* CalendarViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */; };
+		8A16AB891C60B475009F3B6C /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F9481BB9203A00B3EE96 /* Squeal.framework */; };
 		8A181E0E1B1D3C9A00D8C2FB /* saints_01_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0C1B1D3C9A00D8C2FB /* saints_01_en.sqlite */; };
 		8A181E0F1B1D3C9A00D8C2FB /* saints_01_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0D1B1D3C9A00D8C2FB /* saints_01_en.txt */; };
 		8A2F46A019E110CF00076AF4 /* prayer_group_0_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469C19E110CF00076AF4 /* prayer_group_0_cn.html */; };
@@ -176,6 +177,11 @@
 		8AC1B115199871DE00A017C7 /* trans_ui_cn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1B114199871DE00A017C7 /* trans_ui_cn.plist */; };
 		8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */; };
 		8AC2060119E63ED8006FC8EA /* FastingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AC205FF19E63ED8006FC8EA /* FastingViewController.xib */; };
+		8AC278071C61986000436D51 /* widget.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC278061C61986000436D51 /* widget.pdf */; };
+		8AC278091C61A0C800436D51 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D803198F20CC0078F39F /* InfoPlist.strings */; };
+		8AC2780B1C61D48A00436D51 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC2780A1C61D48A00436D51 /* Tutorial.swift */; };
+		8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */; };
+		8AC2780F1C61D9E300436D51 /* widget.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8AC2780E1C61D9E300436D51 /* widget.mp4 */; };
 		8AC4E15019DE2BF800CF4271 /* PrayersTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4E14F19DE2BF800CF4271 /* PrayersTab.swift */; };
 		8AC6950B19E3EDED00773FEB /* food-vegetables.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950A19E3EDED00773FEB /* food-vegetables.pdf */; };
 		8AC6951619E3FBC200773FEB /* food-bread.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950C19E3FBC200773FEB /* food-bread.pdf */; };
@@ -524,6 +530,11 @@
 		8AC1B114199871DE00A017C7 /* trans_ui_cn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_ui_cn.plist; sourceTree = "<group>"; };
 		8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastingViewController.swift; sourceTree = "<group>"; };
 		8AC205FF19E63ED8006FC8EA /* FastingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FastingViewController.xib; sourceTree = "<group>"; };
+		8AC278061C61986000436D51 /* widget.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = widget.pdf; sourceTree = "<group>"; };
+		8AC278081C619EFB00436D51 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		8AC2780A1C61D48A00436D51 /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
+		8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		8AC2780E1C61D9E300436D51 /* widget.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = widget.mp4; path = ../../../Desktop/widget.mp4; sourceTree = "<group>"; };
 		8AC4E14F19DE2BF800CF4271 /* PrayersTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersTab.swift; sourceTree = "<group>"; };
 		8AC6950A19E3EDED00773FEB /* food-vegetables.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-vegetables.pdf"; sourceTree = "<group>"; };
 		8AC6950C19E3FBC200773FEB /* food-bread.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-bread.pdf"; sourceTree = "<group>"; };
@@ -564,7 +575,6 @@
 		8AE718CD1C560C420035CDCE /* fat-left.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-left.pdf"; sourceTree = "<group>"; };
 		8AE718D41C560CC30035CDCE /* fat-right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-right.pdf"; sourceTree = "<group>"; };
 		8AE74D911B9C103B000DD7D2 /* close2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = close2.pdf; sourceTree = "<group>"; };
-		8AE74D931B9C37FE000DD7D2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		8AE798B41B78321600E7F694 /* saints_08_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_08_cn.sqlite; sourceTree = "<group>"; };
 		8AE798B51B78321600E7F694 /* saints_08_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_08_cn.txt; sourceTree = "<group>"; };
 		8AE821F31AC54F8E000460C1 /* DailyTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab.swift; sourceTree = "<group>"; };
@@ -618,6 +628,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */,
 				8AB4F9531BB9205B00B3EE96 /* Squeal.framework in Frameworks */,
 				8AC966111BE5DB3D00841FEE /* Squeal.framework in Frameworks */,
 				8AF249841AFF4C64000070C0 /* libsqlite3.dylib in Frameworks */,
@@ -632,6 +643,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A16AB891C60B475009F3B6C /* Squeal.framework in Frameworks */,
 				8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,6 +685,7 @@
 		8A74D7F9198F20CC0078F39F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */,
 				8AF249831AFF4C64000070C0 /* libsqlite3.dylib */,
 				8A74D7FA198F20CC0078F39F /* Foundation.framework */,
 				8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */,
@@ -693,6 +706,7 @@
 				8A74D844198F624C0078F39F /* images */,
 				8A74D832198F224E0078F39F /* Main.storyboard */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
+				8AC2780E1C61D9E300436D51 /* widget.mp4 */,
 				8A2F46A619E12B4100076AF4 /* AppDelegate.swift */,
 				8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */,
 				8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */,
@@ -711,6 +725,7 @@
 				8AE685E81A2559F00029A149 /* Library.swift */,
 				8AEFC27A1A2C747700BAACE0 /* Scripture.swift */,
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
+				8AC2780A1C61D48A00436D51 /* Tutorial.swift */,
 				8A419E291C268D01003AA378 /* CalendarContainer.swift */,
 				8A0132F31C2027BC006F2505 /* CalendarGridDelegate.swift */,
 				8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */,
@@ -743,6 +758,7 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8AC278061C61986000436D51 /* widget.pdf */,
 				8AE718D41C560CC30035CDCE /* fat-right.pdf */,
 				8AE718CD1C560C420035CDCE /* fat-left.pdf */,
 				8AB62A651C180F4F001ACD2A /* zoom_in.pdf */,
@@ -1208,6 +1224,7 @@
 				8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */,
 				8A2F46A119E110CF00076AF4 /* prayer_group_0_en.html in Resources */,
 				8A8D4E1B1B64AC8F002C614F /* gen_cn.sqlite in Resources */,
+				8AC2780F1C61D9E300436D51 /* widget.mp4 in Resources */,
 				8A41936319E6921600D570A9 /* food-egg.pdf in Resources */,
 				8A9A3DE219D3AE2800A7D82A /* prayer_group_2_en.html in Resources */,
 				8A8810EA1A300DE40095C081 /* mark_en.sqlite in Resources */,
@@ -1258,6 +1275,7 @@
 				8A81858D19D2E3F300D4B328 /* prayer_daily_2_cn.html in Resources */,
 				8AC6951E19E3FBC200773FEB /* food-no-milk.pdf in Resources */,
 				8ADD7D861A56A5C200BA9F37 /* isa_en.sqlite in Resources */,
+				8AC278071C61986000436D51 /* widget.pdf in Resources */,
 				8AF163941B1418880093CC77 /* saints_06_en.sqlite in Resources */,
 				8A3A21121A46C0150052861D /* 1thess_en.sqlite in Resources */,
 				8A81858C19D2E3F300D4B328 /* prayer_daily_1_en.html in Resources */,
@@ -1376,6 +1394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AC278091C61A0C800436D51 /* InfoPlist.strings in Resources */,
 				8AB749A71C4C7A3500CD1B32 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1434,6 +1453,7 @@
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
 				8AE821F91AC55D8D000460C1 /* RWLabel.swift in Sources */,
+				8AC2780B1C61D48A00436D51 /* Tutorial.swift in Sources */,
 				8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */,
 				8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */,
 				8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */,
@@ -1482,7 +1502,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8A74D804198F20CC0078F39F /* en */,
-				8AE74D931B9C37FE000DD7D2 /* zh-Hans */,
+				8AC278081C619EFB00436D51 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1640,7 +1660,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rlc.ponomar.CalendarWidget;
@@ -1663,7 +1683,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rlc.ponomar.CalendarWidget;

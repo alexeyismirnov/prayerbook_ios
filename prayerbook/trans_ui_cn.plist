@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Add widget</key>
+	<string>今天小部件的</string>
 	<key>Rate Orthodox Calendar</key>
 	<string>给正教日历评分</string>
 	<key>Remind me later</key>

@@ -283,13 +283,16 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         let button_calendar = UIBarButtonItem(image: UIImage(named: "calendar"), style: .Plain, target: self, action: "showCalendar")
         let button_left = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .Plain, target: self, action: "prevDay")
         let button_right = UIBarButtonItem(image: UIImage(named: "arrow-right"), style: .Plain, target: self, action: "nextDay")
+        
+        let button_widget = UIBarButtonItem(image: UIImage(named: "widget"), style: .Plain, target: self, action: "showTutorial")
         let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
 
         button_calendar.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         button_left.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
+        button_widget.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         
         navigationItem.leftBarButtonItems = [button_calendar, button_left, button_right]
-        navigationItem.rightBarButtonItems = [button_options]
+        navigationItem.rightBarButtonItems = [button_options, button_widget]
     }
 
     func prevDay() {
@@ -336,6 +339,14 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         }
         
         modal.dismissWithCompletion({})
+    }
+    
+    func showTutorial() {
+        let vc = storyboard!.instantiateViewControllerWithIdentifier("Tutorial") as! Tutorial
+        let nav = UINavigationController(rootViewController: vc)
+        vc.delegate = self
+        
+        navigationController?.presentViewController(nav, animated: true, completion: {})
     }
 
     func showOptions() {
