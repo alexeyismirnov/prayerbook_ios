@@ -67,7 +67,7 @@ class CalendarContainer: UIViewController {
                 curDate = NSDate(dayNum, currentDate.month, currentDate.year)
         }
         
-        delegate.hideCalendar(curDate)
+        delegate.updateDate(curDate)
     }
     
     func refresh() {

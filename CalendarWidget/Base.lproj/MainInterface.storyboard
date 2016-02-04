@@ -142,8 +142,9 @@
                                     <action selector="nextMonth:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="yLS-dH-jEf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vF4-zE-F8V">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vF4-zE-F8V">
                                 <rect key="frame" x="91" y="299" width="250" height="32"/>
+                                <gestureRecognizers/>
                                 <attributedString key="attributedText">
                                     <fragment content="Memory of saints">
                                         <attributes>
@@ -154,6 +155,9 @@
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="KnC-e3-wjh" appends="YES" id="jZf-ul-A8S"/>
+                                </connections>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -209,6 +213,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="KnC-e3-wjh">
+                    <connections>
+                        <action selector="onTapLabel:" destination="M4Y-Lb-cyx" id="zig-gK-FJ4"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="516" y="285"/>
         </scene>

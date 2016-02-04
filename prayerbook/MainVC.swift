@@ -18,7 +18,7 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
 
         reload()
     }
-    
+
     func reload() {
         if let controllers = viewControllers  {
             (controllers[0] as! UINavigationController).title = Translate.s("Daily")

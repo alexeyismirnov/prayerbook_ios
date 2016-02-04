@@ -11,6 +11,30 @@ import UIKit
 class AppDelegate : UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var openDate: NSDate?
+    
+    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+        
+        if url.scheme == "ponomar" {
+            openDate = NSDate(timeIntervalSince1970: Double(url.query!)!)            
+        }
+        
+        return true
+    }
+    
+    func applicationDidBecomeActive(application: UIApplication) {
+        if let root = window?.rootViewController as? MainVC,
+            controllers = root.viewControllers,
+            nav = controllers[0] as? UINavigationController,
+            vc = nav.topViewController as? DailyTab,
+            date = openDate {
+                root.selectedIndex = 0
+                vc.currentDate = date
+                vc.reload()
+
+                openDate = nil
+        }
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         

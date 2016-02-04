@@ -46,7 +46,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
 
         reload()
     }
-    
+
     func hasTypica() -> Bool {
         if Translate.language != "cn" {
             return false
@@ -332,13 +332,13 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         modal.presentWithCompletion({})
     }
     
-    func hideCalendar(date: NSDate?) {
+    func updateDate(date: NSDate?) {
         if let newDate = date {
             currentDate = newDate
             reload()
         }
         
-        modal.dismissWithCompletion({})
+        modal.dismissWithCompletion({  })
     }
     
     func showTutorial() {

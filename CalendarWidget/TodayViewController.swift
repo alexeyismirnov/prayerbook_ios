@@ -138,6 +138,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
+    @IBAction func onTapLabel(sender: AnyObject) {
+        let seconds = calendarDelegate.selectedDate!.timeIntervalSince1970
+        let url = NSURL(string: "ponomar://open?\(seconds)")!
+        extensionContext!.openURL(url, completionHandler: nil)
+    }
+    
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
         return UIEdgeInsetsZero
     }
