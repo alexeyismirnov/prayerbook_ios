@@ -11,7 +11,7 @@ import UIKit
 import Squeal
 
 struct Db {
-    static let groupURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.rlc.ponomar")!
+    static let groupURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(groupId)!
 
     static func saints(date: NSDate) -> [(FeastType, String)] {
         var saintsDB = [[String:Bindable?]]()

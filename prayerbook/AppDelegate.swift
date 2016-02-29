@@ -38,7 +38,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         
-        let prefs = NSUserDefaults(suiteName: "group.rlc.ponomar")!
+        let prefs = NSUserDefaults(suiteName: groupId)!
         let fontSize = prefs.integerForKey("fontSize")
         let lang = NSLocale.preferredLanguages()[0] 
         
@@ -93,7 +93,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     
     func copyFile(filename: String, _ ext: String)  {
         let fileManager = NSFileManager.defaultManager()
-        let groupURL = fileManager.containerURLForSecurityApplicationGroupIdentifier("group.rlc.ponomar")!
+        let groupURL = fileManager.containerURLForSecurityApplicationGroupIdentifier(groupId)!
         let srcPath = NSBundle.mainBundle().URLForResource(filename, withExtension: ext)!
         let dstPath = groupURL.URLByAppendingPathComponent(filename+"."+ext)
         

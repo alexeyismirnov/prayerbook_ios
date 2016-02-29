@@ -11,7 +11,7 @@ import UIKit
 class Prayer: UIViewController {
     
     @IBOutlet weak var webView: UIWebView!
-    let prefs = NSUserDefaults(suiteName: "group.rlc.ponomar")!
+    let prefs = NSUserDefaults(suiteName: groupId)!
     var fontSize: Int = 0
     var index:Int!
     var code:String!

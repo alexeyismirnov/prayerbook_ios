@@ -8,8 +8,10 @@
 
 import UIKit
 
+var groupId = "group.rlc.ponomar"
+
 @objc class Translate: NSObject {    
-    static let groupURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.rlc.ponomar")!
+    static let groupURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(groupId)!
 
     private static var dict = [String:String]()
     static var defaultLanguage = "en"

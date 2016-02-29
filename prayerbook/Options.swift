@@ -12,7 +12,7 @@ var optionsSavedNotification  = "OPTIONS_SAVED"
 
 class Options: UITableViewController {
     
-    let prefs = NSUserDefaults(suiteName: "group.rlc.ponomar")!
+    let prefs = NSUserDefaults(suiteName: groupId)!
     var lastSelected: NSIndexPath?
     weak var delegate: UIViewController!
 
