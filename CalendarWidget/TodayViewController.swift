@@ -29,7 +29,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         return formatter
     }()
     
-    let prefs = NSUserDefaults(suiteName: "group.rlc.ponomar")!
+    let prefs = NSUserDefaults(suiteName: groupId)!
     
     var calendarDelegate: CalendarGridDelegate!
 
@@ -77,7 +77,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
 
     func refresh() {
-        formatter.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "zh_CN")
+        formatter.locale = NSLocale(localeIdentifier: "ru")
 
         monthLabel.text = formatter.stringFromDate(currentDate)
         calendarDelegate.currentDate = currentDate

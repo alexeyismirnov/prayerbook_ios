@@ -24,7 +24,7 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     var currentDate: NSDate! {
         didSet {
             let monthStart = NSDate(1, currentDate.month, currentDate.year)
-            cal.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "zh_CN")
+            cal.locale = NSLocale(localeIdentifier: "ru")
             startGap = (monthStart.weekday < cal.firstWeekday) ? 7 - (cal.firstWeekday-monthStart.weekday) : monthStart.weekday - cal.firstWeekday
         }
     }
@@ -108,8 +108,8 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     }
     
     func generateLabels(view: UIView) {
-        formatter.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "zh_CN")
-        cal.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "zh_CN")
+        formatter.locale = NSLocale(localeIdentifier: "ru")
+        cal.locale = NSLocale(localeIdentifier: "ru")
 
         let dayLabel = formatter.veryShortWeekdaySymbols as [String]
         

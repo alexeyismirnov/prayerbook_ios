@@ -40,16 +40,11 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         
         let prefs = NSUserDefaults(suiteName: groupId)!
         let fontSize = prefs.integerForKey("fontSize")
-        let lang = NSLocale.preferredLanguages()[0] 
         
         // the first time app is launched
         if fontSize == 0 {
-            if (lang.hasPrefix("zh-Hans") || lang.hasPrefix("zh-Hant")) {
-                prefs.setObject("cn", forKey: "language")
-            } else {
-                prefs.setObject("en", forKey: "language")
-            }
-            
+            prefs.setObject("ru", forKey: "language")
+
             if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
                 prefs.setInteger(18, forKey: "fontSize")
             } else {
@@ -78,8 +73,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     }
     
     func setupFiles() {
-
-        for lang in ["en", "cn"] {
+        for lang in ["ru"] {
             for month in 1...12 {
                 let filename = String(format: "saints_%02d_%@", month, lang)
                 copyFile(filename, "sqlite")
@@ -100,8 +94,9 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         do {
             try fileManager.copyItemAtURL(srcPath, toURL: dstPath)
             
-        } catch {
+        } catch let error as NSError  {            
             // maybe file already exists
+            // print(error.description)
         }
     }
     

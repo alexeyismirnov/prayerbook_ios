@@ -8,7 +8,7 @@
 
 import UIKit
 
-var groupId = "group.rlc.ponomar"
+var groupId = "group.rlc.ponomar-ru"
 
 @objc class Translate: NSObject {    
     static let groupURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(groupId)!
@@ -20,13 +20,15 @@ var groupId = "group.rlc.ponomar"
     
     static var language:String = defaultLanguage {
         didSet {
-            locale = NSLocale(localeIdentifier: (language == "en") ? "en" : "zh_CN")
+            locale = NSLocale(localeIdentifier: "ru")
             
             if language == defaultLanguage {
                 return
             }
             
             dict = [:]
+            
+            /*
             for (_, file) in files.enumerate() {
                 let filename = "\(file)_\(language).plist"
                 let dst = groupURL.URLByAppendingPathComponent(filename)
@@ -34,6 +36,7 @@ var groupId = "group.rlc.ponomar"
                 
                 dict += newDict
             }
+*/
         }
     }
     
@@ -64,17 +67,19 @@ var groupId = "group.rlc.ponomar"
         }
     }
     
-    static func readings(var reading : String) -> String {
+    static func readings(let reading : String) -> String {
         if language == defaultLanguage {
             return reading
         }
         
+        /*
         let bundle = NSBundle.mainBundle().pathForResource("Reading_\(language)", ofType: "plist")
         let books = NSDictionary(contentsOfFile: bundle!) as! [String:String]
         
         for (key, value) in books {
             reading = reading.stringByReplacingOccurrencesOfString(key, withString: value)
         }
+*/
         
         return reading
     }
