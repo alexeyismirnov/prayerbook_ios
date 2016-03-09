@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   Reading_ru.plist
+   prayerbook
+
+   Created by Alexey Smirnov on 3/7/16.
+   Copyright (c) 2016 Alexey Smirnov. All rights reserved.
+-->
+<plist version="1.0">
+    <dict>
+        <key>Matthew</key>
+        <string>Мф.</string>
+        <key>Mark</key>
+        <string>Мк.</string>
+        <key>Luke</key>
+        <string>Лк.</string>
+        <key>John</key>
+        <string>Ин.</string>
+        <key>Acts</key>
+        <string>Деян.</string>
+        <key>Rom</key>
+        <string>Рим.</string>
+        <key>1Cor</key>
+        <string>1 Кор.</string>
+        <key>2Cor</key>
+        <string>2 Кор.</string>
+        <key>Gal</key>
+        <string>Гал.</string>
+        <key>Ephes</key>
+        <string>Еф.</string>
+        <key>Phil</key>
+        <string>Флп.</string>
+        <key>Col</key>
+        <string>Кол.</string>
+        <key>1Thess</key>
+        <string>1 Сол.</string>
+        <key>2Thess</key>
+        <string>2 Сол.</string>
+        <key>1Tim</key>
+        <string>1 Тим.</string>
+        <key>2Tim</key>
+        <string>2 Тим.</string>
+        <key>Tit</key>
+        <string>Тит.</string>
+        <key>Philem</key>
+        <string>Флм.</string>
+        <key>Heb</key>
+        <string>Евр.</string>
+        <key>James</key>
+        <string>Иак.</string>
+        <key>1Pet</key>
+        <string>1 Пет.</string>
+        <key>2Pet</key>
+        <string>2 Пет.</string>
+        <key>1John</key>
+        <string>1 Ин.</string>
+        <key>2John</key>
+        <string>2 Ин.</string>
+        <key>3John</key>
+        <string>3 Ин.</string>
+        <key>Jude</key>
+        <string>Иуд.</string>
+        <key>Rev</key>
+        <string>Откр.</string>
+        <key>Gen</key>
+        <string>Быт.</string>
+        <key>Prov</key>
+        <string>Прит.</string>
+        <key>Isa</key>
+        <string>Ис.</string>
+    </dict>
+</plist>

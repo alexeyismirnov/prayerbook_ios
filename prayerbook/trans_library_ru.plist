@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   trans_library_ru.plist
+   prayerbook
+
+   Created by Alexey Smirnov on 3/8/16.
+   Copyright (c) 2016 Alexey Smirnov. All rights reserved.
+-->
+<plist version="1.0">
+    <dict>
+        <key>Genesis</key>
+        <string>Бытие</string>
+        <key>The Proverbs</key>
+        <string>Притчи</string>
+        <key>The Book of Prophet Isaiah</key>
+        <string>Книга пророка Исаии</string>
+        <key>Gospel of St Matthew</key>
+        <string>Евангелие от Матфея</string>
+        <key>Gospel of St Mark</key>
+        <string>Евангелие от Марка</string>
+        <key>Gospel of St Luke</key>
+        <string>Евангелие от Луки</string>
+        <key>Gospel of St John</key>
+        <string>Евангелие от Иоанна</string>
+        <key>Acts of the Apostles</key>
+        <string>Деяния святых апостолов</string>
+        <key>Epistle of St Paul to Romans</key>
+        <string>Послание к Римлянам</string>
+        <key>1st Epistle of St Paul to Corinthians</key>
+        <string>1-е послание к Коринфянам</string>
+        <key>2nd Epistle of St Paul to Corinthians</key>
+        <string>2-е послание к Коринфянам</string>
+        <key>Epistle of St Paul to Galatians</key>
+        <string>Послание к Галатам</string>
+        <key>Epistle of St Paul to Ephesians</key>
+        <string>Послание к Ефесянам</string>
+        <key>Epistle of St Paul to Philippians</key>
+        <string>Послание к Филиппийцам</string>
+        <key>Epistle of St Paul to Colossians</key>
+        <string>Послание к Колоссянам</string>
+        <key>1st Epistle of St Paul Thessalonians</key>
+        <string>1-е послание к Фессалоникийцам</string>
+        <key>2nd Epistle of St Paul Thessalonians</key>
+        <string>2-е послание к Фессалоникийцам</string>
+        <key>1st Epistle of St Paul to Timothy</key>
+        <string>1-е послание к Тимофею</string>
+        <key>2nd Epistle of St Paul to Timothy</key>
+        <string>2-е послание к Тимофею</string>
+        <key>Epistle of St Paul to Titus</key>
+        <string>Послание к Титу</string>
+        <key>Epistle of St Paul to Philemon</key>
+        <string>Послание к Филимону</string>
+        <key>Epistle of St Paul to Hebrews</key>
+        <string>Послание к Евреям</string>
+        <key>General Epistle of James</key>
+        <string>Послание Иакова</string>
+        <key>1st Epistle General of Peter</key>
+        <string>1-е послание Петра</string>
+        <key>2nd General Epistle of Peter</key>
+        <string>2-е послание Петра</string>
+        <key>1st Epistle General of John</key>
+        <string>1-е послание Иоанна</string>
+        <key>2nd Epistle General of John</key>
+        <string>2-е послание Иоанна</string>
+        <key>3rd Epistle General of John</key>
+        <string>3-е послание Иоанна</string>
+        <key>General Epistle of Jude</key>
+        <string>Послание Иуды</string>
+        <key>Revelation of St John the Devine</key>
+        <string>Откровение Иоанна Богослова</string>
+        <key>Chapter %@</key>
+        <string>Глава %@</string>
+        <key>New Testament</key>
+        <string>Новый Завет</string>
+
+    </dict>
+</plist>

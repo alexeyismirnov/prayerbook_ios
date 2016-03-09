@@ -80,9 +80,9 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
             }
         }
         
-        copyFile("trans_ui_cn", "plist")
-        copyFile("trans_cal_cn", "plist")
-        copyFile("trans_library_cn", "plist")
+        copyFile("trans_ui_ru", "plist")
+        copyFile("trans_cal_ru", "plist")
+        copyFile("trans_library_ru", "plist")
     }
     
     func copyFile(filename: String, _ ext: String)  {

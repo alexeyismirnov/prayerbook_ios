@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Add widget</key>
+	<string>Настроить виджет</string>
+	<key>Rate Orthodox Calendar</key>
+	<string>Оценить приложение</string>
+	<key>Remind me later</key>
+	<string>Напомнить позже</string>
+	<key>No, thanks</key>
+	<string>Нет, спасибо</string>
+	<key>If you enjoy using Orthodox Calendar, would you mind taking a moment to rate it? It won&apos;t take more than a minute. Thanks for your support!
+    </key>
+    <string>Если Вам понравилось это приложение, пожалуйста оцените его. Спасибо за поддержку!</string>
+	<key>(C) 2015 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong. This app contains information from ponomar.net and orthodox.cn</key>
+	<string>(C) 2015 Приход Свв. Апп. Петра и Павла в Гонконге (Московский Патриархат)</string>
+	<key>Nuts</key>
+	<string>Орехи</string>
+	<key>Bread</key>
+	<string>Хлеб</string>
+	<key>Vegetables</key>
+	<string>Овощи</string>
+	<key>Cheese</key>
+	<string>Сыр</string>
+	<key>Cupcake</key>
+	<string>Пирожное</string>
+	<key>Egg</key>
+	<string>Яйцо</string>
+	<key>Milk</key>
+	<string>Молоко</string>
+	<key>Fish</key>
+	<string>Рыба</string>
+	<key>Meat</key>
+	<string>Мясо</string>
+	<key>Prohibited</key>
+	<string>Запрещено</string>
+	<key>Allowed</key>
+	<string>Разрешено</string>
+	<key>Library</key>
+	<string>Библиотека</string>
+	<key>Prayers</key>
+	<string>Молитвы</string>
+	<key>Eucharist</key>
+	<string>Литургия</string>
+	<key>Memory of saints</key>
+	<string>Память святых</string>
+	<key>Gospel of the day</key>
+	<string>Чтение дня</string>
+	<key>Daily</key>
+	<string>Календарь</string>
+ 	<key>Typica</key>
+	<string>Обедница</string>
+	<key>Language</key>
+	<string>Язык</string>
+	<key>Font size</key>
+	<string>Размер шрифта</string>
+	<key>Done</key>
+	<string>OK</string>
+	<key>Cancel</key>
+	<string>Отменить</string>
+	<key>Options</key>
+	<string>Настройки</string>
+	<key>Prayerbook</key>
+	<string>Молитвослов</string>
+</dict>
+</plist>
