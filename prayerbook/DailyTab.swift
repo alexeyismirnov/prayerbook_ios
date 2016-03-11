@@ -31,11 +31,18 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     
     var formatter: NSDateFormatter = {
         var formatter = NSDateFormatter()
-        formatter.dateStyle = .FullStyle
         formatter.timeStyle = .NoStyle
+        formatter.dateFormat = "cccc d MMMM yyyy г."
         return formatter
     }()
-    
+
+    var formatterOldStyle: NSDateFormatter = {
+        var formatter = NSDateFormatter()
+        formatter.timeStyle = .NoStyle
+        formatter.dateFormat = "d MMMM yyyy г. (ст. ст.)"
+        return formatter
+    }()
+
     var modal: NAModalSheet!
 
     override func viewDidLoad() {
@@ -47,11 +54,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         reload()
     }
 
-    func hasTypica() -> Bool {
-        if Translate.language != "cn" {
-            return false
-        }
-        
+    func hasTypica() -> Bool {        
         if (currentDate > Cal.d(.BeginningOfGreatLent) && currentDate < Cal.d(.Sunday2AfterPascha) ||
             Cal.currentWeekday != .Sunday) {
             return false
@@ -68,7 +71,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return dayDescription.count+2
+            return dayDescription.count+3
         case 1:
             return readings.count
         case 2:
@@ -117,24 +120,29 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             case 0:
                 let cell: TextDetailsCell = getCell()
                 cell.title.text = formatter.stringFromDate(currentDate)
-
-                var subtitle:String = ""
-                
-                if let weekDescription = Cal.getWeekDescription(currentDate) {
-                    subtitle = weekDescription
-                }
-                
-                if let toneDescription = Cal.getToneDescription(currentDate) {
-                    if subtitle.characters.count > 0 {
-                        subtitle += "; "
-                    }
-                    subtitle += toneDescription
-                }
-                
-                cell.subtitle.text = subtitle
+                cell.subtitle.text = formatterOldStyle.stringFromDate(currentDate-13.days)
                 return cell
 
             case 1:
+                let cell: TextCell = getCell()
+                var descr = ""
+                
+                if let weekDescription = Cal.getWeekDescription(currentDate) {
+                    descr = weekDescription
+                }
+                
+                if let toneDescription = Cal.getToneDescription(currentDate) {
+                    if descr.characters.count > 0 {
+                        descr += "; "
+                    }
+                    descr += toneDescription
+                }
+
+                cell.title.textColor =  UIColor.blackColor()
+                cell.title.text = descr
+                return cell
+
+            case 2:
                 let cell: ImageCell  = getCell()
                 cell.title.text = fasting.1
                 cell.title.textColor =  UIColor.blackColor()
@@ -143,18 +151,18 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                 return cell
                 
             default:
-                let feast:FeastType = dayDescription[indexPath.row-2].0
+                let feast:FeastType = dayDescription[indexPath.row-3].0
 
                 if feast == .None {
                     let cell: TextCell = getCell()
                     cell.title.textColor =  UIColor.blackColor()
-                    cell.title.text = dayDescription[indexPath.row-2].1
+                    cell.title.text = dayDescription[indexPath.row-3].1
                     return cell
                     
                 } else if feast == .Great {
                     let cell: ImageCell = getCell()
                     cell.title.textColor = UIColor.redColor()
-                    cell.title.text = dayDescription[indexPath.row-2].1
+                    cell.title.text = dayDescription[indexPath.row-3].1
                     cell.icon.image = UIImage(named: Cal.feastIcon[feast]!)
                     return cell
                     
@@ -167,7 +175,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                     
                     let myString = NSMutableAttributedString(string: "")
                     myString.appendAttributedString(NSAttributedString(attachment: attachment))
-                    myString.appendAttributedString(NSMutableAttributedString(string: dayDescription[indexPath.row-2].1))
+                    myString.appendAttributedString(NSMutableAttributedString(string: dayDescription[indexPath.row-3].1))
                     cell.title.attributedText = myString
                     
                     return cell
@@ -226,7 +234,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             vc.code = .Pericope(readings[indexPath.row])
             navigationController?.pushViewController(vc, animated: true)
 
-        } else if indexPath.section == 0 && indexPath.row == 1 {
+        } else if indexPath.section == 0 && indexPath.row == 2 {
             let fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
             let modal = NAModalSheet(viewController: fastingInfo, presentationStyle: .FadeInCentered)
             
@@ -270,7 +278,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     
     func reload() {
         formatter.locale = Translate.locale
-        
+        formatterOldStyle.locale = Translate.locale
+
         dayDescription = Cal.getDayDescription(currentDate)
         readings = DailyReading.getDailyReading(currentDate)
         fasting = Cal.getFastingDescription(currentDate)
