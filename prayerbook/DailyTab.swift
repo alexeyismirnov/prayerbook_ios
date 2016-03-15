@@ -11,13 +11,21 @@ import Squeal
 
 class DailyTab: UITableViewController, NAModalSheetDelegate {
 
+    let prefs = NSUserDefaults(suiteName: groupId)!
+
     var fasting: (FastingType, String) = (.Vegetarian, "")
+    var fastingLevel: FastingLevel = .Monastic
+    
     var foodIcon: [FastingType: String] = [
         .NoFast:        "meat",
         .Vegetarian:    "vegetables",
         .FishAllowed:   "fish",
         .FastFree:      "cupcake",
         .Cheesefare:    "cheese",
+        .NoFood:        "nothing",
+        .Xerography:    "xerography",
+        .WithoutOil:    "without-oil",
+        .NoFastMonastic:"pizza"
     ]
     
     var readings = [String]()
@@ -65,18 +73,20 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return dayDescription.count+3
+            return dayDescription.count+2
         case 1:
-            return readings.count
+            return 1
         case 2:
-            return hasTypica() ? 1 : 0
+            return readings.count
         case 3:
+            return hasTypica() ? 1 : 0
+        case 4:
             return saints.count
             
         default:
@@ -90,12 +100,14 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             return ""
 
         case 1:
+            return (fastingLevel == .Monastic) ? Translate.s("Monastic fasting") : Translate.s("Laymen fasting")
+        case 2:
             return readings.count > 0 ? Translate.s("Gospel of the day") : nil
 
-        case 2:
+        case 3:
             return hasTypica() ? Translate.s("Prayers") : nil
 
-        case 3:
+        case 4:
             return Translate.s("Memory of saints")
             
         default:
@@ -141,28 +153,20 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                 cell.title.textColor =  UIColor.blackColor()
                 cell.title.text = descr
                 return cell
-
-            case 2:
-                let cell: ImageCell  = getCell()
-                cell.title.text = fasting.1
-                cell.title.textColor =  UIColor.blackColor()
-                cell.icon.image = UIImage(named: "food-\(foodIcon[fasting.0]!)")
-                cell.accessoryType = .DisclosureIndicator
-                return cell
                 
             default:
-                let feast:FeastType = dayDescription[indexPath.row-3].0
+                let feast:FeastType = dayDescription[indexPath.row-2].0
 
                 if feast == .None {
                     let cell: TextCell = getCell()
                     cell.title.textColor =  UIColor.blackColor()
-                    cell.title.text = dayDescription[indexPath.row-3].1
+                    cell.title.text = dayDescription[indexPath.row-2].1
                     return cell
                     
                 } else if feast == .Great {
                     let cell: ImageCell = getCell()
                     cell.title.textColor = UIColor.redColor()
-                    cell.title.text = dayDescription[indexPath.row-3].1
+                    cell.title.text = dayDescription[indexPath.row-2].1
                     cell.icon.image = UIImage(named: Cal.feastIcon[feast]!)
                     return cell
                     
@@ -175,7 +179,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                     
                     let myString = NSMutableAttributedString(string: "")
                     myString.appendAttributedString(NSAttributedString(attachment: attachment))
-                    myString.appendAttributedString(NSMutableAttributedString(string: dayDescription[indexPath.row-3].1))
+                    myString.appendAttributedString(NSMutableAttributedString(string: dayDescription[indexPath.row-2].1))
                     cell.title.attributedText = myString
                     
                     return cell
@@ -183,6 +187,14 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             }
         
         } else if indexPath.section == 1 {
+            let cell: ImageCell  = getCell()
+            cell.title.text = fasting.1
+            cell.title.textColor =  UIColor.blackColor()
+            cell.icon.image = UIImage(named: "food-\(foodIcon[fasting.0]!)")
+            cell.accessoryType = (fastingLevel == .Monastic) ?  .None : .DisclosureIndicator
+            return cell
+
+        } else if indexPath.section == 2 {
             let cell: TextDetailsCell = getCell()
             cell.title.textColor = UIColor.blackColor()
             cell.title.text = Translate.readings(readings[indexPath.row])
@@ -190,7 +202,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             cell.accessoryType = .DisclosureIndicator
             return cell
             
-        } else if indexPath.section == 2 {
+        } else if indexPath.section == 3 {
             let cell: TextDetailsCell = getCell()
             cell.title.textColor = UIColor.blackColor()
             cell.title.text = Translate.s("Typica")
@@ -198,7 +210,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             cell.accessoryType = .DisclosureIndicator
             return cell
 
-        } else if indexPath.section == 3 {
+        } else if indexPath.section == 4 {
             if saints[indexPath.row].0 == .None {
                 let cell: TextCell = getCell()
                 cell.title.textColor =  UIColor.blackColor()
@@ -229,12 +241,12 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     }
     
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        if indexPath.section == 1 && readings.count > 0 {
+        if indexPath.section == 2 && readings.count > 0 {
             let vc = storyboard!.instantiateViewControllerWithIdentifier("Scripture") as! Scripture
             vc.code = .Pericope(readings[indexPath.row])
             navigationController?.pushViewController(vc, animated: true)
 
-        } else if indexPath.section == 0 && indexPath.row == 2 {
+        } else if fastingLevel == .Laymen && indexPath.section == 0 && indexPath.row == 2 {
             let fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
             let modal = NAModalSheet(viewController: fastingInfo, presentationStyle: .FadeInCentered)
             
@@ -248,7 +260,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             
             modal.presentWithCompletion({})
 
-        } else if indexPath.section == 2 {
+        } else if indexPath.section == 3 {
             let prayer = storyboard!.instantiateViewControllerWithIdentifier("Prayer") as! Prayer
             prayer.code = "typica"
             prayer.index = 0
@@ -282,7 +294,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
 
         dayDescription = Cal.getDayDescription(currentDate)
         readings = DailyReading.getDailyReading(currentDate)
-        fasting = Cal.getFastingDescription(currentDate)
+        fastingLevel = FastingLevel(rawValue: prefs.integerForKey("fastingLevel"))!
+        fasting = Cal.getFastingDescription(currentDate, fastingLevel)
         saints=Db.saints(currentDate)
 
         tableView.reloadData()

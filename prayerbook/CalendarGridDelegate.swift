@@ -16,6 +16,8 @@ enum CalendarContainerType: Int {
 
 class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    let prefs = NSUserDefaults(suiteName: groupId)!
+
     let cal: NSCalendar = {
         let c = NSCalendar.currentCalendar()
         return c
@@ -78,7 +80,7 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
             cell.contentView.backgroundColor = UIColor(hex:"#FF8C00")
 
         } else {
-            switch Cal.getFastingDescription(curDate).0 {
+            switch Cal.getFastingDescription(curDate, FastingLevel(rawValue: prefs.integerForKey("fastingLevel"))!).0 {
             case .Vegetarian:
                 cell.contentView.backgroundColor = UIColor(hex:"#30D5C8")
                 break

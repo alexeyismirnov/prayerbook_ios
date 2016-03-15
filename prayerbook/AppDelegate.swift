@@ -39,10 +39,10 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         
         let prefs = NSUserDefaults(suiteName: groupId)!
-        let fontSize = prefs.integerForKey("fontSize")
         
         // the first time app is launched
-        if fontSize == 0 {
+        if prefs.objectForKey("fontSize") == nil {
+
             prefs.setObject("ru", forKey: "language")
 
             if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
@@ -51,6 +51,11 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
                 prefs.setInteger(20, forKey: "fontSize")
             }
             
+            prefs.synchronize()
+        }
+        
+        if prefs.objectForKey("fastingLevel") == nil {
+            prefs.setInteger(1, forKey: "fastingLevel")
             prefs.synchronize()
         }
         

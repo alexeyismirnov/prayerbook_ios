@@ -153,6 +153,10 @@
 		8AC966121BE5DB3D00841FEE /* Squeal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8ACEF0FB1A2EDF5100AF98E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */; };
 		8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */; };
+		8AE36B2C1C97B228005CAD8D /* food-nothing.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE36B281C97B228005CAD8D /* food-nothing.pdf */; };
+		8AE36B2D1C97B228005CAD8D /* food-pizza.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE36B291C97B228005CAD8D /* food-pizza.pdf */; };
+		8AE36B2E1C97B228005CAD8D /* food-without-oil.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE36B2A1C97B228005CAD8D /* food-without-oil.pdf */; };
+		8AE36B2F1C97B228005CAD8D /* food-xerography.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE36B2B1C97B228005CAD8D /* food-xerography.pdf */; };
 		8AE529E41C8E63710082FF65 /* trans_library_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE529E31C8E63710082FF65 /* trans_library_ru.plist */; };
 		8AE529EB1C8E68FD0082FF65 /* trans_cal_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE529EA1C8E68FD0082FF65 /* trans_cal_ru.plist */; };
 		8AE5DEF819E7A80B0069C757 /* ChurchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */; };
@@ -421,6 +425,10 @@
 		8AC7B89619E4D1DE00B51294 /* calendar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = calendar.pdf; sourceTree = "<group>"; };
 		8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyReading.swift; sourceTree = "<group>"; };
+		8AE36B281C97B228005CAD8D /* food-nothing.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-nothing.pdf"; sourceTree = "<group>"; };
+		8AE36B291C97B228005CAD8D /* food-pizza.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-pizza.pdf"; sourceTree = "<group>"; };
+		8AE36B2A1C97B228005CAD8D /* food-without-oil.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-without-oil.pdf"; sourceTree = "<group>"; };
+		8AE36B2B1C97B228005CAD8D /* food-xerography.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-xerography.pdf"; sourceTree = "<group>"; };
 		8AE529E31C8E63710082FF65 /* trans_library_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_library_ru.plist; sourceTree = "<group>"; };
 		8AE529EA1C8E68FD0082FF65 /* trans_cal_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_cal_ru.plist; sourceTree = "<group>"; };
 		8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchCalendar.swift; sourceTree = "<group>"; };
@@ -626,6 +634,10 @@
 				8AC6952119E4011700773FEB /* daily.pdf */,
 				8AC6952219E4011700773FEB /* group.pdf */,
 				8AC6952319E4011700773FEB /* library.pdf */,
+				8AE36B281C97B228005CAD8D /* food-nothing.pdf */,
+				8AE36B291C97B228005CAD8D /* food-pizza.pdf */,
+				8AE36B2A1C97B228005CAD8D /* food-without-oil.pdf */,
+				8AE36B2B1C97B228005CAD8D /* food-xerography.pdf */,
 				8A41936119E6921600D570A9 /* food-egg.pdf */,
 				8A41936219E6921600D570A9 /* food-milk.pdf */,
 				8AC6950C19E3FBC200773FEB /* food-bread.pdf */,
@@ -964,6 +976,7 @@
 				8A41936319E6921600D570A9 /* food-egg.pdf in Resources */,
 				8A0B4CAE1C8C1E8000747BB4 /* saints_04_ru.txt in Resources */,
 				8A0B4CA91C8C1E8000747BB4 /* saints_02_ru.sqlite in Resources */,
+				8AE36B2D1C97B228005CAD8D /* food-pizza.pdf in Resources */,
 				8AB0DCA51C27F00400C6A494 /* ReadingJohn.plist in Resources */,
 				8A0B4CF11C8C1ECF00747BB4 /* gen_ru.sqlite in Resources */,
 				8AF2497B1AFF308B000070C0 /* nosign.pdf in Resources */,
@@ -987,6 +1000,7 @@
 				8A0B4CB81C8C1E8000747BB4 /* saints_09_ru.txt in Resources */,
 				8AF37E3A1B36B1FD00101148 /* launch-hd5.5-landscape.png in Resources */,
 				8A0B4CBB1C8C1E8000747BB4 /* saints_11_ru.sqlite in Resources */,
+				8AE36B2E1C97B228005CAD8D /* food-without-oil.pdf in Resources */,
 				8A74D816198F20CC0078F39F /* Images.xcassets in Resources */,
 				8A0B4CB21C8C1E8000747BB4 /* saints_06_ru.txt in Resources */,
 				8AC6951E19E3FBC200773FEB /* food-no-milk.pdf in Resources */,
@@ -1034,6 +1048,7 @@
 				8AC6951D19E3FBC200773FEB /* food-no-meat.pdf in Resources */,
 				8AE529E41C8E63710082FF65 /* trans_library_ru.plist in Resources */,
 				8AC6951C19E3FBC200773FEB /* food-no-fish.pdf in Resources */,
+				8AE36B2C1C97B228005CAD8D /* food-nothing.pdf in Resources */,
 				8AB0DC9B1C27EFEC00C6A494 /* typica_7.plist in Resources */,
 				8AF37E5B1B36C7A500101148 /* newicon_80.png in Resources */,
 				8AC6951F19E3FBC200773FEB /* food-nuts.pdf in Resources */,
@@ -1057,6 +1072,7 @@
 				8A74D805198F20CC0078F39F /* InfoPlist.strings in Resources */,
 				8AEA68321C8FFA9F009E9FD8 /* trans_ui_ru.plist in Resources */,
 				8AC1B110199866FF00A017C7 /* launch-iphone4.png in Resources */,
+				8AE36B2F1C97B228005CAD8D /* food-xerography.pdf in Resources */,
 				8AB0DCA81C27F00400C6A494 /* ReadingMatthew.plist in Resources */,
 				8A0B4CA71C8C1E8000747BB4 /* saints_01_ru.sqlite in Resources */,
 				8A0B4CF51C8C1ECF00747BB4 /* john_ru.sqlite in Resources */,

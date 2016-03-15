@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>No food</key>
+	<string>Полное воздержание от пищи</string>
+	<key>With oil</key>
+	<string>Горячая с маслом</string>
+	<key>Without oil</key>
+	<string>Горячая без масла</string>
+	<key>Xerography</key>
+	<string>Сухоядение</string>
 	<key>Demetrius Saturday: Commemoration of the Departed</key>
 	<string>Димитриевская родительская суббота</string>
 	<key>Apodosis of the Annunciation</key>

@@ -9,8 +9,12 @@ enum NameOfDay: Int {
     case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, VeilOfTheotokos, EntryIntoTemple, StNicholas, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement, CheesefareSunday, BeginningOfGreatLent, BeginningOfDormitionFast, BeginningOfNativityFast, BeginningOfApostolesFast, SundayOfForefathers, SundayBeforeNativity, SundayAfterExaltation, SaturdayAfterExaltation, SaturdayBeforeExaltation, SundayBeforeExaltation, SaturdayBeforeNativity, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany, SundayBeforeTheophany, SaturdayAfterTheophany, SundayAfterTheophany, Sunday2AfterPascha, Sunday3AfterPascha, Sunday4AfterPascha, Sunday5AfterPascha, Sunday6AfterPascha, Sunday7AfterPascha, LazarusSaturday, NewMartyrsConfessorsOfRussia, EndOfYear
 }
 
+enum FastingLevel: Int {
+    case Laymen=0, Monastic
+}
+
 enum FastingType: Int {
-    case NoFast=0, Vegetarian, FishAllowed, FastFree, Cheesefare
+    case NoFast=0, Vegetarian, FishAllowed, FastFree, Cheesefare, NoFood, Xerography, WithoutOil, NoFastMonastic
 }
 
 enum DayOfWeek: Int  {
@@ -46,7 +50,7 @@ struct ChurchCalendar {
     
     static var currentDate: NSDate!
     static var currentYear: Int!
-    static var currentWeekday: DayOfWeek!
+    static var currentWeekday: DayOfWeek = .Monday
     static var feastDates = [NSDate: [NameOfDay]]()
     static var dCache = [DateCache:NSDate]()
 
@@ -125,7 +129,7 @@ struct ChurchCalendar {
     static func setDate(date: NSDate) {
         let dateComponents = NSDateComponents(date: date)
         currentYear = dateComponents.year
-        currentWeekday = DayOfWeek(rawValue: dateComponents.weekday)
+        currentWeekday = DayOfWeek(rawValue: dateComponents.weekday)!
         currentDate = date
         
         if dCache[DateCache(.Pascha, currentYear)] == nil {
@@ -598,9 +602,133 @@ struct ChurchCalendar {
         }
     }
 
-    static func getFastingDescription(date: NSDate) -> (FastingType, String) {
-
+    static func getFastingDescription(date: NSDate, _ level: FastingLevel) -> (FastingType, String) {
         setDate(date)
+        
+        switch level {
+        case .Laymen:
+            return getFastingLaymen(date)
+            
+        case .Monastic:
+            return getFastingMonastic(date)
+        }
+    }
+    
+    static func monasticGreatLent() -> (FastingType, String) {
+        switch currentWeekday {
+        case .Monday, .Wednesday, .Friday:
+            return (.Xerography, Translate.s("Xerography"))
+
+        case .Tuesday, .Thursday:
+            return (.WithoutOil, Translate.s("Without oil"))
+
+        case .Saturday, .Sunday:
+            return (.Vegetarian, Translate.s("With oil"))
+
+        }
+    }
+
+    static func monasticApostolesFast() -> (FastingType, String) {
+        switch currentWeekday {
+        case .Monday:
+            return (.WithoutOil, Translate.s("Without oil"))
+            
+        case .Wednesday, .Friday:
+            return (.Xerography, Translate.s("Xerography"))
+            
+        case .Tuesday, .Thursday, .Saturday, .Sunday:
+            return (.FishAllowed, Translate.s("Fish allowed"))
+            
+        }
+    }
+
+    static func getFastingMonastic(date: NSDate) -> (FastingType, String) {
+
+        switch date {
+        case d(.MeetingOfLord):
+            if date == d(.BeginningOfGreatLent) {
+                return (.NoFood, Translate.s("No food"))
+            } else {
+                return (.NoFastMonastic, Translate.s("No fast"))
+            }
+            
+        case d(.Theophany):
+            return (.NoFastMonastic, Translate.s("No fast"))
+            
+        case d(.NativityOfTheotokos),
+        d(.PeterAndPaul),
+        d(.Dormition),
+        d(.VeilOfTheotokos):
+            return (currentWeekday == .Wednesday ||
+                currentWeekday == .Friday) ? (.FishAllowed, Translate.s("Fish allowed")) : (.NoFastMonastic, Translate.s("No fast"))
+            
+        case d(.NativityOfJohn),
+        d(.Transfiguration),
+        d(.EntryIntoTemple),
+        d(.StNicholas),
+        d(.PalmSunday):
+            return (.FishAllowed, Translate.s("Fish allowed"))
+            
+        case d(.EveOfTheophany),
+        d(.BeheadingOfJohn),
+        d(.ExaltationOfCross):
+            return (.Vegetarian, Translate.s("Fast day"))
+            
+        case d(.StartOfYear):
+            return (currentWeekday == .Tuesday || currentWeekday == .Thursday) ?
+                (.Vegetarian, Translate.s("With oil")) : monasticApostolesFast()
+            
+        case d(.StartOfYear)+1.days ..< d(.NativityOfGod):
+            return monasticGreatLent()
+            
+        case d(.NativityOfGod) ..< d(.EveOfTheophany):
+            return (.FastFree, Translate.s("Svyatki"))
+            
+        case d(.SundayOfPublicianAndPharisee)+1.days ... d(.SundayOfProdigalSon):
+            return (.FastFree, Translate.s("Fast-free week"))
+            
+        case d(.SundayOfDreadJudgement)+1.days ..< d(.BeginningOfGreatLent):
+            return (.Cheesefare, Translate.s("Maslenitsa"))
+            
+        case d(.BeginningOfGreatLent):
+            return (.NoFood, Translate.s("No food"))
+            
+        case d(.BeginningOfGreatLent)+1.days ..< d(.PalmSunday):
+            return (date == d(.Annunciation)) ? (.FishAllowed, Translate.s("Fish allowed")) : monasticGreatLent()
+            
+        case d(.PalmSunday)+1.days ..< d(.Pascha):
+            return monasticGreatLent()
+            
+        case d(.Pascha)+1.days ... d(.Pascha)+7.days:
+            return (.FastFree, Translate.s("Fast-free week"))
+            
+        case d(.Pentecost)+1.days ... d(.Pentecost)+7.days:
+            return (.FastFree, Translate.s("Fast-free week"))
+            
+        case d(.BeginningOfApostolesFast) ... d(.PeterAndPaul)-1.days:
+            return monasticApostolesFast()
+            
+        case d(.BeginningOfDormitionFast) ... d(.Dormition)-1.days:
+            return monasticGreatLent()
+            
+        case d(.BeginningOfNativityFast) ..< d(.StNicholas):
+            return monasticApostolesFast()
+            
+        case d(.StNicholas) ... d(.EndOfYear):
+            return (currentWeekday == .Tuesday || currentWeekday == .Thursday) ? (.Vegetarian, Translate.s("With oil")) : monasticApostolesFast()
+            
+        case d(.NativityOfGod) ..< d(.Pentecost)+8.days:
+            return (currentWeekday == .Wednesday || currentWeekday == .Friday) ?
+                (.FishAllowed, Translate.s("Fish allowed")) : (.NoFastMonastic, Translate.s("No fast"))
+            
+        default:
+            return (currentWeekday == .Wednesday || currentWeekday == .Friday) ?
+                (.Xerography, Translate.s("Xerography")) : (.NoFastMonastic, Translate.s("No fast"))
+        }
+    }
+
+    
+    static func getFastingLaymen(date: NSDate) -> (FastingType, String) {
         
         switch date {
         case d(.MeetingOfLord):

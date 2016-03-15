@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Laymen fasting</key>
+	<string>Пост для мирян</string>
+	<key>Monastic fasting</key>
+	<string>Монастырский устав</string>
 	<key>Add widget</key>
 	<string>Настроить виджет</string>
 	<key>Rate Orthodox Calendar</key>
@@ -12,7 +16,7 @@
 	<string>Нет, спасибо</string>
 	<key>If you enjoy using Orthodox Calendar, would you mind taking a moment to rate it? It won&apos;t take more than a minute. Thanks for your support!
     </key>
-    <string>Если Вам понравилось это приложение, пожалуйста оцените его. Спасибо за поддержку!</string>
+	<string>Если Вам понравилось это приложение, пожалуйста оцените его. Спасибо за поддержку!</string>
 	<key>(C) 2015 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong. This app contains information from ponomar.net and orthodox.cn</key>
 	<string>(C) 2015 Приход Свв. Апп. Петра и Павла в Гонконге (Московский Патриархат)</string>
 	<key>Nuts</key>
@@ -49,7 +53,7 @@
 	<string>Чтение дня</string>
 	<key>Daily</key>
 	<string>Календарь</string>
- 	<key>Typica</key>
+	<key>Typica</key>
 	<string>Обедница</string>
 	<key>Language</key>
 	<string>Язык</string>
