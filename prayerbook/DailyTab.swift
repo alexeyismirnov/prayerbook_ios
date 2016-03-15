@@ -246,7 +246,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             vc.code = .Pericope(readings[indexPath.row])
             navigationController?.pushViewController(vc, animated: true)
 
-        } else if fastingLevel == .Laymen && indexPath.section == 0 && indexPath.row == 2 {
+        } else if fastingLevel == .Laymen && indexPath.section == 1 && indexPath.row == 0 {
             let fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
             let modal = NAModalSheet(viewController: fastingInfo, presentationStyle: .FadeInCentered)
             
@@ -374,8 +374,6 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     func showOptions() {
         let vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
         let nav = UINavigationController(rootViewController: vc)
-        vc.delegate = self
-        
         navigationController?.presentViewController(nav, animated: true, completion: {})
     }    
     

@@ -25,7 +25,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>ponomar</string>
+				<string>ponomar-ru</string>
 			</array>
 		</dict>
 	</array>

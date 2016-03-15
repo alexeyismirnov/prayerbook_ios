@@ -105,6 +105,19 @@ struct ChurchCalendar {
         .Vigil: "vigil",
         .Great: "great"
     ]
+    
+    static let fastingColor : [FastingType: String] = [
+        .NoFast: "",
+        .NoFastMonastic: "",
+        .Vegetarian: "#30D5C8",
+        .FishAllowed: "#FADFAD",
+        .FastFree: "#00BFFF",
+        .Cheesefare: "#00BFFF",
+        .NoFood: "#7B78EE",
+        .Xerography: "#B4EEB4",
+        .WithoutOil: "#9BCD9B",
+    ]
+
 
     static let greatFeastCodes : [NameOfDay] = [.PalmSunday, .Pascha, .Ascension, .Pentecost, .NativityOfGod, .Circumcision, .Theophany, .MeetingOfLord, .Annunciation, .NativityOfJohn, .PeterAndPaul, .Transfiguration, .Dormition, .BeheadingOfJohn, .NativityOfTheotokos, .ExaltationOfCross, .VeilOfTheotokos, .EntryIntoTemple]
 
@@ -696,6 +709,9 @@ struct ChurchCalendar {
         case d(.BeginningOfGreatLent)+1.days ..< d(.PalmSunday):
             return (date == d(.Annunciation)) ? (.FishAllowed, Translate.s("Fish allowed")) : monasticGreatLent()
             
+        case d(.PalmSunday)+5.days:
+            return (.NoFood, Translate.s("No food"))
+
         case d(.PalmSunday)+1.days ..< d(.Pascha):
             return monasticGreatLent()
             
@@ -811,7 +827,7 @@ struct ChurchCalendar {
             
         default:
             return (currentWeekday == .Wednesday ||
-                    currentWeekday == .Friday) ? (.Vegetarian, Translate.s("Vegetarian")) : (.NoFast, Translate.s("No fast"))
+                    currentWeekday == .Friday) ? (.FishAllowed, Translate.s("Fish allowed")) : (.NoFast, Translate.s("No fast"))
         }
     }
 }

@@ -73,9 +73,7 @@ class Library: UITableViewController {
     
     func showOptions() {
         let vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
-        let nav = UINavigationController(rootViewController: vc)
-        vc.delegate = self
-        
+        let nav = UINavigationController(rootViewController: vc)        
         navigationController?.presentViewController(nav, animated: true, completion: {})
     }
 

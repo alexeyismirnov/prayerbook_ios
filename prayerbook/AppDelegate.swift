@@ -15,7 +15,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
         
-        if url.scheme == "ponomar" {
+        if url.scheme == "ponomar-ru" {
             openDate = NSDate(timeIntervalSince1970: Double(url.query!)!)            
         }
         

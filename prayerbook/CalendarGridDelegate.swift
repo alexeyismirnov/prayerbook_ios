@@ -80,24 +80,17 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
             cell.contentView.backgroundColor = UIColor(hex:"#FF8C00")
 
         } else {
-            switch Cal.getFastingDescription(curDate, FastingLevel(rawValue: prefs.integerForKey("fastingLevel"))!).0 {
-            case .Vegetarian:
-                cell.contentView.backgroundColor = UIColor(hex:"#30D5C8")
-                break
-                
-            case .FishAllowed:
-                cell.contentView.backgroundColor = UIColor(hex:"#FADFAD")
-                break
-                
-            case .Cheesefare, .FastFree:
-                cell.contentView.backgroundColor = UIColor(hex:"#00BFFF")
-                break
-                
-            default:
+            
+            let (fastType, _) = Cal.getFastingDescription(curDate, FastingLevel(rawValue: prefs.integerForKey("fastingLevel"))!)
+            
+            if fastType == .NoFast || fastType == .NoFastMonastic {
                 let textColor = (containerType == .MainApp) ? UIColor.blackColor() : UIColor.whiteColor()
                 cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.redColor() : textColor
-                break
+
+            } else {
+                cell.contentView.backgroundColor = UIColor(hex:Cal.fastingColor[fastType]!)
             }
+            
         }
         
         return cell

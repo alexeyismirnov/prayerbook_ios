@@ -15,43 +15,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="Language" id="ckX-R5-y8p">
+                            <tableViewSection headerTitle="Fasting type" id="ckX-R5-y8p" userLabel="Fasting type">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xD0-ml-ftX">
-                                        <rect key="frame" x="0.0" y="114" width="768" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="45" id="xD0-ml-ftX">
+                                        <rect key="frame" x="0.0" y="114" width="768" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xD0-ml-ftX" id="kQ6-DU-Okh">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="US.png" translatesAutoresizingMaskIntoConstraints="NO" id="dTM-ZW-IOl">
-                                                    <rect key="frame" x="18" y="16" width="24" height="16"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="food-meat" translatesAutoresizingMaskIntoConstraints="NO" id="dTM-ZW-IOl">
+                                                    <rect key="frame" x="18" y="8" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="DyQ-12-m6M"/>
+                                                        <constraint firstAttribute="width" constant="32" id="MMV-rI-3Tm"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="English" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFI-GF-PAP">
-                                                    <rect key="frame" x="56" y="13" width="69" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Для мирян" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFI-GF-PAP">
+                                                    <rect key="frame" x="56" y="13" width="104" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dTM-ZW-IOl" firstAttribute="leading" secondItem="kQ6-DU-Okh" secondAttribute="leading" constant="20" symbolic="YES" id="71o-u6-yZX"/>
+                                                <constraint firstItem="aFI-GF-PAP" firstAttribute="leading" secondItem="dTM-ZW-IOl" secondAttribute="trailing" constant="8" symbolic="YES" id="HlM-Gp-aqr"/>
+                                                <constraint firstItem="dTM-ZW-IOl" firstAttribute="centerY" secondItem="kQ6-DU-Okh" secondAttribute="centerY" id="Xbs-xT-fFe"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Jrl-vr-KXE">
-                                        <rect key="frame" x="0.0" y="158" width="768" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="45" id="Jrl-vr-KXE">
+                                        <rect key="frame" x="0.0" y="159" width="768" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jrl-vr-KXE" id="nGb-gg-TrL">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CN.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fpc-rv-nng">
-                                                    <rect key="frame" x="18" y="13" width="24" height="16"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="food-fish" translatesAutoresizingMaskIntoConstraints="NO" id="Fpc-rv-nng">
+                                                    <rect key="frame" x="16" y="6" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="hjZ-rN-V2G"/>
+                                                        <constraint firstAttribute="width" constant="32" id="wel-dl-N1O"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="简体中文" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fS-UU-bMZ">
-                                                    <rect key="frame" x="58" y="11" width="72" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Монастырский устав" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fS-UU-bMZ">
+                                                    <rect key="frame" x="58" y="11" width="191" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4fS-UU-bMZ" firstAttribute="leading" secondItem="Fpc-rv-nng" secondAttribute="trailing" constant="8" symbolic="YES" id="2cz-0a-jsR"/>
+                                                <constraint firstItem="Fpc-rv-nng" firstAttribute="leading" secondItem="nGb-gg-TrL" secondAttribute="leading" constant="20" symbolic="YES" id="uZr-A3-WhP"/>
+                                                <constraint firstItem="Fpc-rv-nng" firstAttribute="centerY" secondItem="nGb-gg-TrL" secondAttribute="centerY" id="xNZ-NB-Lup"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -59,7 +77,7 @@
                             <tableViewSection headerTitle="Copyright" id="Wap-Ys-4u7">
                                 <cells>
                                     <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2wG-Gk-1wN">
-                                        <rect key="frame" x="0.0" y="245" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="247" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2wG-Gk-1wN" id="BFj-S9-76S">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
@@ -84,24 +102,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Options" id="4ZD-8K-RMG">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="DZG-LG-ewW">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="CPv-b9-r3A">
                             <connections>
-                                <action selector="cancel:" destination="adP-n7-Jrr" id="PTO-Jb-w6I"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="ga1-mJ-VeY">
-                            <connections>
-                                <action selector="done:" destination="adP-n7-Jrr" id="nPt-BG-ca0"/>
+                                <action selector="done:" destination="adP-n7-Jrr" id="xbK-ca-ndD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="cancelButton" destination="DZG-LG-ewW" id="SH1-fM-U8e"/>
-                        <outlet property="doneButton" destination="ga1-mJ-VeY" id="Eir-Wb-9n6"/>
-                        <outlet property="fontSizeSlider" destination="IBg-K4-xO7" id="wmc-tn-Gfa"/>
-                        <outlet property="lang_cn" destination="Jrl-vr-KXE" id="NjR-ty-Uxa"/>
-                        <outlet property="lang_en" destination="xD0-ml-ftX" id="u51-aJ-IkN"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSl-pD-wjo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -627,11 +633,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CN.png" width="24" height="16"/>
-        <image name="US.png" width="24" height="16"/>
         <image name="arrow-left" width="25" height="25"/>
         <image name="arrow-right" width="25" height="25"/>
         <image name="daily" width="30" height="30"/>
+        <image name="food-fish" width="64" height="64"/>
+        <image name="food-meat" width="64" height="64"/>
         <image name="library" width="30" height="30"/>
     </resources>
 </document>

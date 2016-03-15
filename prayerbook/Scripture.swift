@@ -71,14 +71,6 @@ class Scripture: UIViewController {
         textView.setContentOffset(CGPointZero, animated: false)
     }
     
-    func showOptions() {
-        let vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
-        let nav = UINavigationController(rootViewController: vc)
-        vc.delegate = self
-        
-        navigationController?.presentViewController(nav, animated: true, completion: {})
-    }
-
     func showPericope(str: String)  {
         title = ""
         //Translate.s("Gospel of the day")
