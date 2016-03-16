@@ -17,12 +17,11 @@ struct DailyReading {
         .ExaltationOfCross:         "John 12:28-36 1Cor 1:18-24 John 19:6-11,13-20,25-28,30-35",
         .SaturdayAfterExaltation:   "1Cor 1:26-29 John 8:21-30",
         .SundayAfterExaltation:     "Gal 2:16-20 Mark 8:34-9:1",
-        .VeilOfTheotokos:                      "Luke 1:39-49,56 Heb 9:1-7 Luke 10:38-42,11:27-28",
+        .VeilOfTheotokos:           "Luke 1:39-49,56 Heb 9:1-7 Luke 10:38-42,11:27-28",
         .EntryIntoTemple:           "Luke 1:39-49,56 Heb 9:1-7 Luke 10:38-42,11:27-28",
-        .StNicholas:                "John 10:9-16 Heb 13:17-21 Luke 6:17-23",
         .SundayOfForefathers:       "Col 3:4-11 Luke 14:16-24",
         .SaturdayBeforeNativity:    "Gal 3:8-12 Luke 13:18-29",
-        .SundayBeforeNativity:           "Heb 11:9-10,17-23,32-40 Matthew 1:1-25",
+        .SundayBeforeNativity:      "Heb 11:9-10,17-23,32-40 Matthew 1:1-25",
         .EveOfNativityOfGod:        "Heb 1:1-12 Luke 2:1-20|Gal 3:15-22 Matthew 13:31-36",
         .NativityOfGod:             "Matthew 1:18-25 Gal 4:4-7 Matthew 2:1-12",
         .SaturdayAfterNativity:     "1Tim 6:11-16 Matthew 12:15-21",
@@ -41,13 +40,21 @@ struct DailyReading {
         .Transfiguration:           "Luke 9:28-36 2Pet 1:10-19 Matthew 17:1-9",
         .Dormition:                 "Luke 1:39-49,56 Phil 2:5-11 Luke 10:38-42,11:27-28",
         .BeheadingOfJohn:           "Matthew 14:1-13 Acts 13:25-32 Mark 6:14-30",
+        .NewMartyrsConfessorsOfRussia: "Rom 8:28-39 Luke 21:8-19",
     ]
     
-    static let cancelReading : [NameOfDay] = [.SundayOfForefathers, .SundayBeforeNativity, .EveOfNativityOfGod, .NativityOfGod,
-        .SundayAfterNativity, .Circumcision, .SundayBeforeTheophany, .EveOfTheophany, .Theophany]
-    
-    static let transferredReading : [NameOfDay] = [.ExaltationOfCross, .Transfiguration]
+    static let dontTransferReading : [NameOfDay] = [.SundayOfForefathers, .NewMartyrsConfessorsOfRussia,
+        .SundayBeforeNativity, .SaturdayBeforeNativity, .EveOfNativityOfGod, .NativityOfGod, .SundayAfterNativity, .SaturdayAfterNativity,
+        .Circumcision,
+        .SundayBeforeTheophany, .SaturdayBeforeTheophany, .EveOfTheophany, .Theophany, .SundayAfterTheophany, .SaturdayAfterTheophany,
+        .SaturdayBeforeExaltation, .SundayBeforeExaltation, .SaturdayAfterExaltation, .SundayAfterExaltation
+    ]
 
+    static let specialAndRegular: [NameOfDay] = [.SaturdayBeforeNativity, .SaturdayAfterNativity, .SaturdayBeforeTheophany, .SaturdayAfterTheophany,
+        .SaturdayBeforeExaltation,  .SaturdayAfterExaltation]
+    
+    static var vigils = [NSDate:String]()
+    
     static func GospelOfLent(date: NSDate) -> String {
         let bundle = NSBundle.mainBundle().pathForResource("ReadingLent", ofType: "plist")
         let readings = NSArray(contentsOfFile: bundle!) as! [String]
@@ -166,8 +173,6 @@ struct DailyReading {
     }
     
     static func getRegularReading(date: NSDate) -> String? {
-        Cal.setDate(date)
-        
         let exaltation = NSDate(27, 9, Cal.currentYear)
         let exaltationWeekday = NSDateComponents(date: exaltation).weekday
         let exaltationFriOffset = (exaltationWeekday >= 6) ? 13-exaltationWeekday : 6-exaltationWeekday
@@ -195,187 +200,107 @@ struct DailyReading {
     }
 
     static func transferReading(date: NSDate) -> NSDate? {
-        let weekday = NSDateComponents(date:date).weekday
+        let weekday = DayOfWeek(rawValue: NSDateComponents(date:date).weekday)
         var newDate:NSDate
         
-        if weekday == 1 {
+        if (date > Cal.d(.Pascha) && date < Cal.d(.Pentecost)) {
+            return date
+        }
+        
+        if weekday == .Sunday {
             return nil
             
-        } else if weekday == 2 {
-            newDate = date+1.days
+        } else if weekday == .Monday {
+            newDate = date + 1.days
+            
+            if let _ = vigils[newDate] {
+                return date
+            }
             
         } else {
             newDate = date - 1.days
+            if let _ = vigils[newDate] {
+                return date + 1.days
+            }
         }
         
         return newDate
     }
     
     static func getDailyReading(date: NSDate) -> [String] {
-        
         var readings = [String]()
         var transferred = [NSDate:String]()
         var noRegularReading = false
+        
+        Cal.setDate(date)
+        
+        vigils = [
+            NSDate(30, 1, Cal.currentYear):     "Heb 13:17-21 Luke 6:17-23",
+            NSDate(2, 2, Cal.currentYear):      "Heb 13:17-21 Luke 6:17-23",
+            NSDate(12, 2, Cal.currentYear):     "Heb 13:7-16 Matthew 5:14-19",
+            NSDate(6, 5, Cal.currentYear):      "Acts 12:1-11 John 15:17-16:2",
+            NSDate(21, 5, Cal.currentYear):     "1John 1:1-7 John 19:25-27,21:24-25",
+            NSDate(24, 5, Cal.currentYear):     "Heb 7:26-8:2 Matthew 5:14-19",
+            NSDate(28, 7, Cal.currentYear):     "Gal 1:11-19 John 10:1-9",
+            NSDate(1, 8, Cal.currentYear):      "Gal 5:22-6:2 Luke 6:17-23",
+            NSDate(2, 8, Cal.currentYear):      "James 5:10-20 Luke 4:22-30",
+            NSDate(9, 10, Cal.currentYear):     "1John 4:12-19 John 19:25-27,21:24-25",
+            NSDate(26, 11, Cal.currentYear):    "Heb 7:26-8:2 John 10:9-16",
+            NSDate(18, 12, Cal.currentYear):    "Gal 5:22-6:2 Matthew 11:27-30",
+            NSDate(19, 12, Cal.currentYear):    "Heb 13:17-21 Luke 6:17-23",
+        ]
 
-        for code in transferredReading {
+        for code in Array(specialReadings.keys) where !dontTransferReading.contains(code) {
             if let newDate = transferReading(Cal.d(code)) {
                 transferred[newDate] = getRegularReading(Cal.d(code))
             }
         }
         
-        if let feastCodes = Cal.feastDates[date] {
-            for code in feastCodes {
-                
-                if cancelReading.contains(code) || transferredReading.contains(code)  {
-                    noRegularReading = true
-                }
-                
-                if Array(specialReadings.keys).contains(code) {
-                    if (code == .EveOfNativityOfGod) {
-                        
-                        let choices = specialReadings[code]!.componentsSeparatedByString("|")
-                        let weekday = NSDateComponents(date:date).weekday
-                        readings.append((weekday == 7 || weekday == 1) ? choices[1] : choices[0])
-
-                    } else {
-                        readings += [specialReadings[code]!]
-                        
-                    }
-                }
+        for (vigilDate, _) in vigils {
+            if let newDate = transferReading(vigilDate) {
+                transferred[newDate] = getRegularReading(vigilDate)
             }
         }
         
-        var regularReading = [String]()
-        
-        if let reading = getRegularReading(date) {
-                regularReading = [reading]
-        }
-
-        if readings.count > 0 {
-            if !noRegularReading {
-                readings += regularReading
-            }
-            return readings
-            
-        } else {
-            if let reading=transferred[date] {
-                return regularReading + [reading]
-            } else {
-                return regularReading
-            }
-        }
-    }
-    
-    static func decorateLine(verse:Int64, _ content:String, _ fontSize:Int) -> NSMutableAttributedString {
-        var text : NSMutableAttributedString? = nil
-        text = text + ("\(verse) ", UIColor.redColor())
-        text = text + (content, UIColor.blackColor())
-        text = text + "\n"
-        
-        text!.addAttribute(NSFontAttributeName,
-            value: UIFont.systemFontOfSize(CGFloat(fontSize)),
-            range: NSMakeRange(0, text!.length))
-        
-        return text!
-    }
-    
-    static func getPericope(str: String, decorated: Bool, fontSize: Int = 0) -> [(NSMutableAttributedString, NSMutableAttributedString)] {
-        var result = [(NSMutableAttributedString, NSMutableAttributedString)]()
-        
-        var pericope = str.characters.split { $0 == " " }.map { String($0) }
-        
-        for (var i=0; i<pericope.count; i+=2) {
-            var chapter: Int = 0
-            
-            let fileName = pericope[i].lowercaseString
-            let bookTuple = (NewTestament+OldTestament).filter { $0.1 == fileName }
-            
-            let centerStyle = NSMutableParagraphStyle()
-            centerStyle.alignment = .Center
-            
-            var bookName:NSMutableAttributedString
-            var text : NSMutableAttributedString? = nil
-
-            if decorated {
-                bookName = NSMutableAttributedString(
-                    string: Translate.s(bookTuple[0].0) + " " + pericope[i+1],
-                    attributes: [NSParagraphStyleAttributeName: centerStyle,
-                        NSFontAttributeName: UIFont.boldSystemFontOfSize(CGFloat(fontSize)) ])
+        for code in Cal.feastDates[date] ?? [] {
+            if Array(specialReadings.keys).contains(code) {
+                noRegularReading = true
                 
-            } else {
-                bookName = NSMutableAttributedString(string: Translate.s(bookTuple[0].0))
-            }
-
-            let arr2 = pericope[i+1].componentsSeparatedByString(",")
-            
-            for segment in arr2 {
-                var range: [(Int, Int)]  = []
-                
-                let arr3 = segment.componentsSeparatedByString("-")
-                for offset in arr3 {
-                    var arr4 = offset.componentsSeparatedByString(":")
-                    
-                    if arr4.count == 1 {
-                        range += [ (chapter, Int(arr4[0])!) ]
-                        
-                    } else {
-                        chapter = Int(arr4[0])!
-                        range += [ (chapter, Int(arr4[1])!) ]
-                    }
-                }
-                
-                if range.count == 1 {
-                    for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse=\(range[0].1)") {
-                        if decorated {
-                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize )
-                        } else {
-                            text = text + (line["text"] as! String) + " "
-                        }
-                    }
-                    
-                } else if range[0].0 != range[1].0 {
-                    for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1)") {
-                        if decorated {
-                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
-                        } else {
-                            text = text + (line["text"] as! String) + " "
-                        }
-                    }
-                    
-                    for chap in range[0].0+1 ..< range[1].0 {
-                        for line in Db.book(fileName, whereExpr: "chapter=\(chap)") {
-                            if decorated {
-                                text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
-                            } else {
-                                text = text + (line["text"] as! String) + " "
-                            }
-                        }
-                    }
-                    
-                    for line in Db.book(fileName, whereExpr: "chapter=\(range[1].0) AND verse<=\(range[1].1)") {
-                        if decorated {
-                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
-                        } else {
-                            text = text + (line["text"] as! String) + " "
-                        }
-                    }
+                if (code == .EveOfNativityOfGod) {
+                    let choices = specialReadings[code]!.componentsSeparatedByString("|")
+                    let weekday = NSDateComponents(date:date).weekday
+                    readings.append((weekday == 7 || weekday == 1) ? choices[1] : choices[0])
                     
                 } else {
-                    for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1) AND verse<=\(range[1].1)") {
-                        if decorated {
-                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
-                        } else {
-                            text = text + (line["text"] as! String) + " "
-                        }
-                    }
+                    readings += [specialReadings[code]!]
+                    
                 }
             }
-            
-            text = text + "\n"
-            result += [(bookName, text!)]
+        }
+        
+        if Cal.currentWeekday == .Sunday {
+            noRegularReading = false
+        }
+        
+        for code in Cal.feastDates[date] ?? [] where specialAndRegular.contains(code) {
+                noRegularReading = false
+                break
+        }
+        
+        if (noRegularReading) {
+            return readings
+        }
+        
+        if let vigilReading = vigils[date] {
+            readings += [vigilReading]
+
+            if Cal.currentWeekday != .Sunday {
+                return readings + (transferred[date].map { [$0] } ?? [])
+            }
         }
 
-        return result
+        return readings + (getRegularReading(date).map { [$0] } ?? []) + (transferred[date].map { [$0] } ?? [])
+
     }
-    
+        
 }

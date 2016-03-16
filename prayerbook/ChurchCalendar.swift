@@ -682,8 +682,10 @@ struct ChurchCalendar {
         d(.PalmSunday):
             return (.FishAllowed, Translate.s("Fish allowed"))
             
-        case d(.EveOfTheophany),
-        d(.BeheadingOfJohn),
+        case d(.EveOfTheophany):
+            return (.Xerography, Translate.s("Fast day"))
+            
+        case d(.BeheadingOfJohn),
         d(.ExaltationOfCross):
             return (.Vegetarian, Translate.s("Fast day"))
             
