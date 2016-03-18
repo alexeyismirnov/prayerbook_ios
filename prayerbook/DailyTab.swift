@@ -197,8 +197,10 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         } else if indexPath.section == 2 {
             let cell: TextDetailsCell = getCell()
             cell.title.textColor = UIColor.blackColor()
-            cell.title.text = Translate.readings(readings[indexPath.row])
-            cell.subtitle.text = ""
+            let currentReading = readings[indexPath.row].componentsSeparatedByString("#")
+
+            cell.title.text = Translate.readings(currentReading[0])
+            cell.subtitle.text = (currentReading.count > 1) ? Translate.s(currentReading[1].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())) : ""
             cell.accessoryType = .DisclosureIndicator
             return cell
             
@@ -243,7 +245,10 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         if indexPath.section == 2 && readings.count > 0 {
             let vc = storyboard!.instantiateViewControllerWithIdentifier("Scripture") as! Scripture
-            vc.code = .Pericope(readings[indexPath.row])
+            
+            let currentReading = readings[indexPath.row].componentsSeparatedByString("#")
+
+            vc.code = .Pericope(currentReading[0])
             navigationController?.pushViewController(vc, animated: true)
 
         } else if fastingLevel == .Laymen && indexPath.section == 1 && indexPath.row == 0 {

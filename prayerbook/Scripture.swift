@@ -75,7 +75,7 @@ class Scripture: UIViewController {
         title = ""
         
         var text : NSMutableAttributedString? = nil
-        let pericope = Scripture.getPericope(str, decorated: true, fontSize: fontSize)
+        let pericope = Scripture.getPericope(str.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()), decorated: true, fontSize: fontSize)
         
         for (title, content) in pericope {
             text = text + title + "\n\n"

@@ -2,6 +2,66 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>St. Nicholas</key>
+	<string>святителю</string>
+	<key>St. John</key>
+	<string>святителю</string>
+	<key>Repose of the John the Theologian</key>
+	<string>апостолу</string>
+	<key>Prophet</key>
+	<string>пророку</string>
+	<key>Saint</key>
+	<string>преподобному</string>
+	<key>Equal-to-the Apostles</key>
+	<string>равноапп.</string>
+	<key>Apostle</key>
+	<string>апостолу</string>
+	<key>St. George</key>
+	<string>великомученику</string>
+	<key>Hierarchs</key>
+	<string>святителям</string>
+	<key>Venerable Euthymius</key>
+	<string>преподобному</string>
+	<key>Venerable Anthony</key>
+	<string>преподобному</string>
+	<key>Martyrs</key>
+	<string>мученикам</string>
+	<key>Sunday after the Theophany</key>
+	<string>недели по Богоявлении</string>
+	<key>Saturday after the Theophany</key>
+	<string>субботы по Богоявлении</string>
+	<key>Sunday before the Theophany</key>
+	<string>недели пред Богоявлением</string>
+	<key>Saturday before the Theophany</key>
+	<string>субботы пред Богоявлением</string>
+	<key>Sunday after the Nativity</key>
+	<string>недели по Рождестве Xристовом</string>
+	<key>Saturday after the Nativity</key>
+	<string>субботы по Рождестве Xристовом</string>
+	<key>Sunday before the Nativity</key>
+	<string>недели пред Рождеством Xристовым</string>
+	<key>Saturday before the Nativity</key>
+	<string>субботы пред Рождеством Xристовым</string>
+	<key>Sunday after the Universal Elevation</key>
+	<string>недели по Воздвижении</string>
+	<key>Saturday after the Universal Elevation</key>
+	<string>субботы по Воздвижении</string>
+	<key>Sunday before the Universal Elevation</key>
+	<string>недели пред Воздвижением</string>
+	<key>Saturday before the Universal Elevation</key>
+	<string>субботы пред Воздвижением</string>
+	<key>Saturday Reading</key>
+	<string>За субботу</string>
+	<key>Friday Reading</key>
+	<string>За пятницу</string>
+	<key>Thursday Reading</key>
+	<string>За четверг</string>
+	<key>Wednesday Reading</key>
+	<string>За среду</string>
+	<key>Tuesday Reading</key>
+	<string>За вторник</string>
+	<key>Monday Reading</key>
+	<string>За понедельник</string>
 	<key>No food</key>
 	<string>Полное воздержание от пищи</string>
 	<key>With oil</key>
