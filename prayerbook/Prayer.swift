@@ -39,7 +39,7 @@ class Prayer: UIViewController {
                 
             }
             
-            let readingStr = DailyReading.getRegularReading(Cal.currentDate)!
+            let readingStr = DailyReading.getDailyReading(Cal.currentDate)[0]
             let readings = Scripture.getPericope(readingStr, decorated: false)
             
             for (i, (title, content)) in readings.enumerate() {

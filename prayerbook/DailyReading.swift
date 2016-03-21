@@ -10,6 +10,15 @@ import UIKit
 
 struct DailyReading {
     
+    struct LukeSpringParams {
+        var PAPSunday : NSDate!
+        var pentecostPrevYear : NSDate!
+        var sundayAfterExaltationPrevYear : NSDate!
+        var totalOffset : Int!
+    }
+    
+    static var LS = LukeSpringParams()
+    
     static let specialReadings : [NameOfDay: String] = [
         .NativityOfTheotokos:       "Luke 1:39-49,56 Phil 2:5-11 Luke 10:38-42,11:27-28",
         .ExaltationOfCross:         "John 12:28-36 1Cor 1:18-24 John 19:6-11,13-20,25-28,30-35",
@@ -90,6 +99,18 @@ struct DailyReading {
         return readings
     }
     
+    static func initLukeSpring() {
+        LS.PAPSunday = Cal.d(.SundayOfPublicianAndPharisee)
+        LS.pentecostPrevYear = Cal.paschaDay(Cal.currentYear-1) + 50.days
+        
+        let exaltationPrevYear = NSDate(27, 9, Cal.currentYear-1)
+        let exaltationPrevYearWeekday = NSDateComponents(date: exaltationPrevYear).weekday
+        LS.sundayAfterExaltationPrevYear = exaltationPrevYear + (8-exaltationPrevYearWeekday).days
+
+        let endOfLukeReadings = LS.sundayAfterExaltationPrevYear+112.days
+        LS.totalOffset = endOfLukeReadings >> LS.PAPSunday
+    }
+    
     static func GospelOfLukeSpring(date: NSDate) -> String {
         let bundleApostle = NSBundle.mainBundle().pathForResource("ReadingApostle", ofType: "plist")
         let apostle = NSArray(contentsOfFile: bundleApostle!) as! [String]
@@ -101,23 +122,15 @@ struct DailyReading {
         let gospelMatthew = NSArray(contentsOfFile: bundleMatthew!) as! [String]
 
         var gospelIndex:Int, apostleIndex:Int
-        let PAPSunday = Cal.d(.SundayOfPublicianAndPharisee)
-        let daysFromPentecost = (Cal.paschaDay(Cal.currentYear-1) + 50.days) >> date
         
-        let exaltationPrevYear = NSDate(27, 9, Cal.currentYear-1)
-        let exaltationPrevYearWeekday = NSDateComponents(date: exaltationPrevYear).weekday
-        let sundayAfterExaltationPrevYear = exaltationPrevYear + (8-exaltationPrevYearWeekday).days
-        
-        let daysFromExaltation = (sundayAfterExaltationPrevYear+1.days) >> date
-        let endOfLukeReadings = sundayAfterExaltationPrevYear+112.days
-        let totalOffset = endOfLukeReadings >> PAPSunday
-        
-        let daysBeforePAP = date >> PAPSunday
+        let daysFromPentecost = LS.pentecostPrevYear >> date
+        let daysFromExaltation = (LS.sundayAfterExaltationPrevYear+1.days) >> date
+        let daysBeforePAP = date >> LS.PAPSunday
         
         if daysFromExaltation >= 16*7-1 {
-            
+
             // need more than three additional Sundays, use 17th week Matthew readings
-            if totalOffset > 28 {
+            if LS.totalOffset > 28 {
                 if daysBeforePAP < 21 && daysBeforePAP >= 14 {
                     let indexMatthew = 118 - (daysBeforePAP-14)
                     return apostle[indexMatthew] + " " + gospelMatthew[indexMatthew]
@@ -231,6 +244,7 @@ struct DailyReading {
         var readings = [String]()
         var transferred = [NSDate:String]()
         var noRegularReading = false
+        var sundayBeforeNativity = false
         
         let formatter = NSDateFormatter()
         formatter.timeStyle = .NoStyle
@@ -238,6 +252,7 @@ struct DailyReading {
         formatter.locale = NSLocale(localeIdentifier: "en")
         
         Cal.setDate(date)
+        initLukeSpring()
         
         vigils = [
             NSDate(30, 1, Cal.currentYear):     "Heb 13:17-21 Luke 6:17-23 # Venerable Anthony",
@@ -271,6 +286,10 @@ struct DailyReading {
         }
         
         for code in Cal.feastDates[date] ?? [] {
+            if code == .SundayBeforeNativity {
+                sundayBeforeNativity = true
+            }
+            
             if Array(specialReadings.keys).contains(code) {
                 noRegularReading = true
                 
@@ -285,14 +304,33 @@ struct DailyReading {
                 }
             }
         }
+
+        let synaxisTheotokos = Cal.d(.SynaxisTheotokos)
+        let synaxisWeekday = DayOfWeek(rawValue: synaxisTheotokos.weekday)
         
-        if Cal.currentWeekday == .Sunday {
+        if date == synaxisTheotokos {
+            if synaxisWeekday == .Monday {
+                return ["Heb 2:11-18 # Theotokos", "Gal 1:11-19 Matthew 2:13-23 # Holy Ancestors"]
+                
+            } else if synaxisWeekday != .Sunday {
+                return ["Heb 2:11-18 Matthew 2:13-23 # Theotokos"]
+            }
+        }
+        
+        if date == Cal.d(.SundayAfterNativity) {
+            let daysFromExaltation = (LS.sundayAfterExaltationPrevYear+1.days) >> date
+            
+            if (111-daysFromExaltation >= LS.totalOffset) {
+                noRegularReading = false
+            }
+                        
+        } else if Cal.currentWeekday == .Sunday && !sundayBeforeNativity {
             noRegularReading = false
         }
         
         for code in Cal.feastDates[date] ?? [] where specialAndRegular.contains(code) {
-                noRegularReading = false
-                break
+            noRegularReading = false
+            break
         }
         
         if (noRegularReading) {

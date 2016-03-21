@@ -6,7 +6,7 @@ enum FeastType: Int {
 }
 
 enum NameOfDay: Int {
-    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, VeilOfTheotokos, EntryIntoTemple, StNicholas, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement, CheesefareSunday, BeginningOfGreatLent, BeginningOfDormitionFast, BeginningOfNativityFast, BeginningOfApostolesFast, SundayOfForefathers, SundayBeforeNativity, SundayAfterExaltation, SaturdayAfterExaltation, SaturdayBeforeExaltation, SundayBeforeExaltation, SaturdayBeforeNativity, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany, SundayBeforeTheophany, SaturdayAfterTheophany, SundayAfterTheophany, Sunday2AfterPascha, Sunday3AfterPascha, Sunday4AfterPascha, Sunday5AfterPascha, Sunday6AfterPascha, Sunday7AfterPascha, LazarusSaturday, NewMartyrsConfessorsOfRussia, EndOfYear
+    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, VeilOfTheotokos, EntryIntoTemple, StNicholas, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement, CheesefareSunday, BeginningOfGreatLent, BeginningOfDormitionFast, BeginningOfNativityFast, BeginningOfApostolesFast, SundayOfForefathers, SundayBeforeNativity, SundayAfterExaltation, SaturdayAfterExaltation, SaturdayBeforeExaltation, SundayBeforeExaltation, SaturdayBeforeNativity, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany, SundayBeforeTheophany, SaturdayAfterTheophany, SundayAfterTheophany, Sunday2AfterPascha, Sunday3AfterPascha, Sunday4AfterPascha, Sunday5AfterPascha, Sunday6AfterPascha, Sunday7AfterPascha, LazarusSaturday, NewMartyrsConfessorsOfRussia, JosephBetrothed, SynaxisTheotokos, EndOfYear
 }
 
 enum FastingLevel: Int {
@@ -88,8 +88,8 @@ struct ChurchCalendar {
         .SaturdayBeforeNativity:    [(.None, "Saturday before the Nativity of Christ")],
         .SundayBeforeNativity:      [(.None, "Sunday before the Nativity of Christ, of the Fathers")],
         .SaturdayAfterNativity:     [(.None, "Saturday after the Nativity of Christ")],
-        .SundayAfterNativity:       [(.None, "Sunday after Nativity"),
-                                     (.NoSign, "Saints Joseph the Betrothed, David the King, and James the Brother of the Lord")],
+        .SundayAfterNativity:       [(.None, "Sunday after Nativity")],
+        .JosephBetrothed:           [(.NoSign, "Saints Joseph the Betrothed, David the King, and James the Brother of the Lord")],
         .SaturdayBeforeTheophany:   [(.None, "Saturday before Theophany")],
         .SundayBeforeTheophany:     [(.None, "Sunday before Theophany")],
         .SaturdayAfterTheophany:    [(.None, "Saturday after Theophany")],
@@ -117,7 +117,6 @@ struct ChurchCalendar {
         .Xerography: "#B4EEB4",
         .WithoutOil: "#9BCD9B",
     ]
-
 
     static let greatFeastCodes : [NameOfDay] = [.PalmSunday, .Pascha, .Ascension, .Pentecost, .NativityOfGod, .Circumcision, .Theophany, .MeetingOfLord, .Annunciation, .NativityOfJohn, .PeterAndPaul, .Transfiguration, .Dormition, .BeheadingOfJohn, .NativityOfTheotokos, .ExaltationOfCross, .VeilOfTheotokos, .EntryIntoTemple]
 
@@ -351,7 +350,6 @@ struct ChurchCalendar {
 
     }
     
-    
     static func generateFeastDates(year: Int) {
         let pascha = paschaDay(year)
         let greatLentStart = pascha-48.days
@@ -381,6 +379,7 @@ struct ChurchCalendar {
             NSDate(1,  1, year):   [.StartOfYear],
             NSDate(6,  1, year):   [.EveOfNativityOfGod],
             NSDate(7,  1, year):   [.NativityOfGod],
+            NSDate(8,  1, year):   [.SynaxisTheotokos],
             NSDate(14, 1, year):   [.Circumcision],
             NSDate(18, 1, year):   [.EveOfTheophany],
             NSDate(19, 1, year):   [.Theophany],
@@ -428,6 +427,13 @@ struct ChurchCalendar {
         }
 
         feastDates += [nativity + (8-nativityWeekday).days: [.SundayAfterNativity]]
+        
+        if nativityWeekday == 1 {
+            feastDates += [nativity + 1.days: [.JosephBetrothed]]
+
+        } else {
+            feastDates += [nativity + (8-nativityWeekday).days: [.JosephBetrothed]]
+        }
         
         let nativitySatOffset = (nativityWeekday == 7) ? 7 : 7-nativityWeekday
         feastDates += [nativity + nativitySatOffset.days: [.SaturdayAfterNativity]]
