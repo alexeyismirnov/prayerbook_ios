@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Synaxis of all saints of Moscow</key>
+	<string>Собор Московских святых</string>
+	<key>Synaxis of all saints of Nizhny Novgorod</key>
+	<string>Собор Нижнегородских святых</string>
+	<key>Commemoration of the Holy Fathers of the First Six Councils</key>
+	<string>Память свв. отцев шести Вселенских Соборов</string>
 	<key>Holy Ancestors</key>
 	<string>святым Богоотцам</string>
 	<key>Theotokos</key>
