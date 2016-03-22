@@ -215,8 +215,12 @@ struct DailyReading {
     static func transferReading(date: NSDate) -> NSDate? {
         let weekday = DayOfWeek(rawValue: NSDateComponents(date:date).weekday)
         var newDate:NSDate
-        
-        if (date > Cal.d(.Pascha) && date < Cal.d(.Pentecost)) {
+
+        if Cal.d(.BeginningOfGreatLent) ... Cal.d(.Pascha) ~= date {
+            return nil
+        }
+
+        if  Cal.d(.Pascha)...Cal.d(.Pentecost) ~= date {
             return date
         }
         
@@ -269,9 +273,9 @@ struct DailyReading {
             NSDate(18, 12, Cal.currentYear):    "Gal 5:22-6:2 Matthew 11:27-30 # Saint",
             NSDate(19, 12, Cal.currentYear):    "Heb 13:17-21 Luke 6:17-23 # St. Nicholas",
         ]
-
+        
         for code in Array(specialReadings.keys) where !dontTransferReading.contains(code) {
-            if let newDate = transferReading(Cal.d(code)) {
+            if let newDate = transferReading(Cal.d(code))  {
                 let oldDate = Cal.d(code)
                 let comment = (newDate == oldDate) ? "" : String(format: "# %@ Reading", formatter.stringFromDate(oldDate))
                 transferred[newDate] =  String(format: "%@ %@", getRegularReading(oldDate)!, comment)
@@ -324,7 +328,7 @@ struct DailyReading {
                 noRegularReading = false
             }
                         
-        } else if Cal.currentWeekday == .Sunday && !sundayBeforeNativity {
+        } else if Cal.currentWeekday == .Sunday && !sundayBeforeNativity && !(Cal.d(.BeginningOfGreatLent) ... Cal.d(.Pascha) ~= date) {
             noRegularReading = false
         }
         
