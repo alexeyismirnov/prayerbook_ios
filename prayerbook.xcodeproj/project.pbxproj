@@ -92,6 +92,7 @@
 		8A74D84E198F691A0078F39F /* US.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D84A198F691A0078F39F /* US.png */; };
 		8A74D84F198F691A0078F39F /* US@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D84B198F691A0078F39F /* US@2x.png */; };
 		8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A81FB4D1C1ECB7600D28F58 /* Appirater.m */; };
+		8A9F698D1CA13C70009D90E7 /* widget.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8A9F698C1CA13C70009D90E7 /* widget.mp4 */; };
 		8AAE4D831AC8E332009421AF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAE4D821AC8E332009421AF /* ImageCell.swift */; };
 		8AB018E11C5EED5D00DE96B0 /* Db.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFC27C1A2C8DF800BAACE0 /* Db.swift */; };
 		8AB0DC951C27EFEC00C6A494 /* typica_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC8D1C27EFEC00C6A494 /* typica_1.plist */; };
@@ -169,7 +170,6 @@
 		8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821FA1AC560FE000460C1 /* TextCell.swift */; };
 		8AEA68321C8FFA9F009E9FD8 /* trans_ui_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */; };
 		8AEA68391C90028B009E9FD8 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEA68381C90028B009E9FD8 /* Prayer.swift */; };
-		8AEB65D81C62E17C00ABD976 /* widget.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8AEB65D71C62E17C00ABD976 /* widget.mp4 */; };
 		8AEBFAA31C8D16A30056F97B /* Reading_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AEBFAA21C8D16A30056F97B /* Reading_ru.plist */; };
 		8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */; };
 		8AEFC27B1A2C747700BAACE0 /* Scripture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFC27A1A2C747700BAACE0 /* Scripture.swift */; };
@@ -180,7 +180,6 @@
 		8AF2497B1AFF308B000070C0 /* nosign.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249761AFF308B000070C0 /* nosign.pdf */; };
 		8AF2497C1AFF308B000070C0 /* polyeleos.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249771AFF308B000070C0 /* polyeleos.pdf */; };
 		8AF2497D1AFF308B000070C0 /* sixverse.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249781AFF308B000070C0 /* sixverse.pdf */; };
-		8AF249841AFF4C64000070C0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF249831AFF4C64000070C0 /* libsqlite3.dylib */; };
 		8AF37E391B36B1FD00101148 /* launch-hd4.7.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E361B36B1FD00101148 /* launch-hd4.7.png */; };
 		8AF37E3A1B36B1FD00101148 /* launch-hd5.5-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E371B36B1FD00101148 /* launch-hd5.5-landscape.png */; };
 		8AF37E3B1B36B1FD00101148 /* launch-hd5.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E381B36B1FD00101148 /* launch-hd5.5.png */; };
@@ -368,6 +367,8 @@
 		8A81FB4C1C1ECB7600D28F58 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		8A81FB4D1C1ECB7600D28F58 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		8A81FB4E1C1ECB7600D28F58 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
+		8A9A36D81CAD127400D33D5A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		8A9F698C1CA13C70009D90E7 /* widget.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = widget.mp4; sourceTree = "<group>"; };
 		8AAE4D821AC8E332009421AF /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		8AB0DC8D1C27EFEC00C6A494 /* typica_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_1.plist; sourceTree = "<group>"; };
 		8AB0DC8E1C27EFEC00C6A494 /* typica_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_2.plist; sourceTree = "<group>"; };
@@ -441,7 +442,6 @@
 		8AE821FA1AC560FE000460C1 /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_ui_ru.plist; sourceTree = "<group>"; };
 		8AEA68381C90028B009E9FD8 /* Prayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
-		8AEB65D71C62E17C00ABD976 /* widget.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = widget.mp4; sourceTree = "<group>"; };
 		8AEBFAA21C8D16A30056F97B /* Reading_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Reading_ru.plist; sourceTree = "<group>"; };
 		8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		8AEFC27A1A2C747700BAACE0 /* Scripture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripture.swift; sourceTree = "<group>"; };
@@ -476,7 +476,6 @@
 				8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */,
 				8AB4F9531BB9205B00B3EE96 /* Squeal.framework in Frameworks */,
 				8AC966111BE5DB3D00841FEE /* Squeal.framework in Frameworks */,
-				8AF249841AFF4C64000070C0 /* libsqlite3.dylib in Frameworks */,
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
@@ -530,6 +529,7 @@
 		8A74D7F9198F20CC0078F39F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A9A36D81CAD127400D33D5A /* libsqlite3.tbd */,
 				8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */,
 				8AF249831AFF4C64000070C0 /* libsqlite3.dylib */,
 				8A74D7FA198F20CC0078F39F /* Foundation.framework */,
@@ -550,7 +550,7 @@
 				8A74D857199076EF0078F39F /* html */,
 				8A74D844198F624C0078F39F /* images */,
 				8A74D832198F224E0078F39F /* Main.storyboard */,
-				8AEB65D71C62E17C00ABD976 /* widget.mp4 */,
+				8A9F698C1CA13C70009D90E7 /* widget.mp4 */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
 				8A2F46A619E12B4100076AF4 /* AppDelegate.swift */,
 				8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */,
@@ -952,6 +952,7 @@
 				8A41936419E6921600D570A9 /* food-milk.pdf in Resources */,
 				8A0B4CEB1C8C1ECF00747BB4 /* 2tim_ru.sqlite in Resources */,
 				8A0B4CAC1C8C1E8000747BB4 /* saints_03_ru.txt in Resources */,
+				8A9F698D1CA13C70009D90E7 /* widget.mp4 in Resources */,
 				8A0B4CEE1C8C1ECF00747BB4 /* col_ru.sqlite in Resources */,
 				8A0B4CBA1C8C1E8000747BB4 /* saints_10_ru.txt in Resources */,
 				8ABAFC461C0B0385008DB93C /* prayer_typica_0_cn.html in Resources */,
@@ -972,7 +973,6 @@
 				8A0B4CE71C8C1ECF00747BB4 /* 2cor_ru.sqlite in Resources */,
 				8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */,
 				8A0B4CE81C8C1ECF00747BB4 /* 2john_ru.sqlite in Resources */,
-				8AEB65D81C62E17C00ABD976 /* widget.mp4 in Resources */,
 				8A41936319E6921600D570A9 /* food-egg.pdf in Resources */,
 				8A0B4CAE1C8C1E8000747BB4 /* saints_04_ru.txt in Resources */,
 				8A0B4CA91C8C1E8000747BB4 /* saints_02_ru.sqlite in Resources */,
@@ -1239,8 +1239,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1280,9 +1280,9 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1307,8 +1307,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ponomar.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEFINES_MODULE = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1317,6 +1317,12 @@
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lsqlite3",
+					"-ObjC",
+					"-l\"NAModalSheet\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1336,8 +1342,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ponomar.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -1346,6 +1352,12 @@
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lsqlite3",
+					"-ObjC",
+					"-l\"NAModalSheet\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1361,8 +1373,8 @@
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = CalendarWidget/CalendarWidget.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1384,8 +1396,8 @@
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = CalendarWidget/CalendarWidget.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

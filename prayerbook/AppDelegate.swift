@@ -66,7 +66,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         let language = prefs.objectForKey("language") as! String
         Translate.language = language
         
-        Appirater.setAppId("1010208102")
+        Appirater.setAppId("1095609748")
         Appirater.setDaysUntilPrompt(5)
         Appirater.setUsesUntilPrompt(5)
         Appirater.setSignificantEventsUntilPrompt(-1)
