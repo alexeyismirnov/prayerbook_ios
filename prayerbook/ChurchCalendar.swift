@@ -730,15 +730,21 @@ struct ChurchCalendar {
             
         case d(.BeginningOfGreatLent):
             return (.NoFood, Translate.s("No food"))
+        
+        case d(.BeginningOfGreatLent)+1.days ... d(.BeginningOfGreatLent)+4.days:
+            return (.Xerography, Translate.s("Xerography"))
             
-        case d(.BeginningOfGreatLent)+1.days ..< d(.PalmSunday):
+        case d(.BeginningOfGreatLent)+5.days ..< d(.PalmSunday):
             return (date == d(.Annunciation)) ? (.FishAllowed, Translate.s("Fish allowed")) : monasticGreatLent()
-            
+        
+        case d(.PalmSunday)+1.days ... d(.PalmSunday)+4.days:
+            return (.Xerography, Translate.s("Xerography"))
+
         case d(.PalmSunday)+5.days:
             return (.NoFood, Translate.s("No food"))
 
-        case d(.PalmSunday)+1.days ..< d(.Pascha):
-            return monasticGreatLent()
+        case d(.PalmSunday)+6.days:
+            return (.Vegetarian, Translate.s("With oil"))
             
         case d(.Pascha)+1.days ... d(.Pascha)+7.days:
             return (.FastFree, Translate.s("Fast-free week"))
