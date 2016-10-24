@@ -11,16 +11,16 @@ import UIKit
 var groupId = "group.rlc.ponomar-ru"
 
 @objc class Translate: NSObject {    
-    static let groupURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(groupId)!
+    static let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
 
-    private static var dict = [String:String]()
+    fileprivate static var dict = [String:String]()
     static var defaultLanguage = "en"
-    static var locale  = NSLocale(localeIdentifier: "en")
+    static var locale  = Locale(identifier: "en")
     static var files = [String]()
     
     static var language:String = defaultLanguage {
         didSet {
-            locale = NSLocale(localeIdentifier: "ru")
+            locale = Locale(identifier: "ru")
             
             if language == defaultLanguage {
                 return
@@ -28,17 +28,17 @@ var groupId = "group.rlc.ponomar-ru"
             
             dict = [:]
             
-            for (_, file) in files.enumerate() {
+            for (_, file) in files.enumerated() {
                 let filename = "\(file)_\(language).plist"
-                let dst = groupURL.URLByAppendingPathComponent(filename)
-                let newDict = NSDictionary(contentsOfFile: dst.path!) as! [String: String]
+                let dst = groupURL.appendingPathComponent(filename)
+                let newDict = NSDictionary(contentsOfFile: dst.path) as! [String: String]
                 
                 dict += newDict
             }
         }
     }
     
-    static func s(str : String) -> String {
+    static func s(_ str : String) -> String {
         if language == defaultLanguage {
             return str
         }
@@ -50,31 +50,33 @@ var groupId = "group.rlc.ponomar-ru"
         }
     }
     
-    static func stringFromNumber(num : Int) -> String {
+    static func stringFromNumber(_ num : Int) -> String {
         if language == defaultLanguage {
             return String(num)
 
         } else {
-            let formatter = NSNumberFormatter()
+            let formatter = NumberFormatter()
             formatter.locale = locale
             
             if language == "cn" {
-                formatter.numberStyle = .SpellOutStyle
+                formatter.numberStyle = .spellOut
             }
-            return formatter.stringFromNumber(num)!
+            
+            return formatter.string(from: NSNumber(integerLiteral: num))!
         }
     }
     
-    static func readings(var reading : String) -> String {
+    static func readings(_ reading : String) -> String {
+        var reading = reading
         if language == defaultLanguage {
             return reading
         }
         
-        let bundle = NSBundle.mainBundle().pathForResource("Reading_\(language)", ofType: "plist")
+        let bundle = Bundle.main.path(forResource: "Reading_\(language)", ofType: "plist")
         let books = NSDictionary(contentsOfFile: bundle!) as! [String:String]
         
         for (key, value) in books {
-            reading = reading.stringByReplacingOccurrencesOfString(key, withString: value)
+            reading = reading.replacingOccurrences(of: key, with: value)
         }
         
         return reading

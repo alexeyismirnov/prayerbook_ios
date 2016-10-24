@@ -9,40 +9,40 @@
 import UIKit
 
 enum ScriptureDisplay {
-    case Chapter(String, Int)
-    case Pericope(String)
+    case chapter(String, Int)
+    case pericope(String)
 }
 
 class Scripture: UIViewController {
 
     var fontSize: Int = 0
-    var code: ScriptureDisplay = .Chapter("", 0)
-    let prefs = NSUserDefaults(suiteName: groupId)!
+    var code: ScriptureDisplay = .chapter("", 0)
+    let prefs = UserDefaults(suiteName: groupId)!
 
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: optionsSavedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(Scripture.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 
-        let backButton = UIBarButtonItem(image: UIImage(named: "close"), style: .Plain, target: self, action: "closeView")
+        let backButton = UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(Scripture.closeView))
         navigationItem.leftBarButtonItem = backButton
         
-        let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in"), style: .Plain, target: self, action: "zoom_in")
-        let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out"), style: .Plain, target: self, action: "zoom_out")
+        let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in"), style: .plain, target: self, action: #selector(Scripture.zoom_in))
+        let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out"), style: .plain, target: self, action: #selector(Scripture.zoom_out))
 
         button_zoom_in.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
         
-        fontSize = prefs.integerForKey("fontSize")
+        fontSize = prefs.integer(forKey: "fontSize")
 
         reload()
     }
     
     func zoom_in() {
         fontSize += 2
-        prefs.setObject(fontSize, forKey: "fontSize")
+        prefs.set(fontSize, forKey: "fontSize")
         prefs.synchronize()
         
         reload()
@@ -50,7 +50,7 @@ class Scripture: UIViewController {
     
     func zoom_out() {
         fontSize -= 2
-        prefs.setObject(fontSize, forKey: "fontSize")
+        prefs.set(fontSize, forKey: "fontSize")
         prefs.synchronize()
 
         reload()
@@ -58,24 +58,24 @@ class Scripture: UIViewController {
     
     func reload() {
         switch code {
-        case let ScriptureDisplay.Chapter(name, chapter):
+        case let ScriptureDisplay.chapter(name, chapter):
             showChapter(name, chapter)
             break
-        case let ScriptureDisplay.Pericope(str):
+        case let ScriptureDisplay.pericope(str):
             showPericope(str)
             break
         }
     }
 
-    override func viewDidAppear(animated: Bool) {
-        textView.setContentOffset(CGPointZero, animated: false)
+    override func viewDidAppear(_ animated: Bool) {
+        textView.setContentOffset(CGPoint.zero, animated: false)
     }
     
-    func showPericope(str: String)  {
+    func showPericope(_ str: String)  {
         title = ""
         
         var text : NSMutableAttributedString? = nil
-        let pericope = Scripture.getPericope(str.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()), decorated: true, fontSize: fontSize)
+        let pericope = Scripture.getPericope(str.trimmingCharacters(in: CharacterSet.whitespaces), decorated: true, fontSize: fontSize)
         
         for (title, content) in pericope {
             text = text + title + "\n\n"
@@ -85,7 +85,7 @@ class Scripture: UIViewController {
         textView.attributedText =  text
     }
     
-    func showChapter(name: String, _ chapter: Int) {
+    func showChapter(_ name: String, _ chapter: Int) {
         title = String(format: Translate.s("Chapter %@"), Translate.stringFromNumber(chapter))
 
         var text : NSMutableAttributedString? = nil
@@ -99,35 +99,35 @@ class Scripture: UIViewController {
     }
     
     func closeView() {
-        navigationController?.popViewControllerAnimated(true)
+        let _ = navigationController?.popViewController(animated: true)
     }
     
-    static func decorateLine(verse:Int64, _ content:String, _ fontSize:Int) -> NSMutableAttributedString {
+    static func decorateLine(_ verse:Int64, _ content:String, _ fontSize:Int) -> NSMutableAttributedString {
         var text : NSMutableAttributedString? = nil
-        text = text + ("\(verse) ", UIColor.redColor())
-        text = text + (content, UIColor.blackColor())
+        text = text + ("\(verse) ", UIColor.red)
+        text = text + (content, UIColor.black)
         text = text + "\n"
         
         text!.addAttribute(NSFontAttributeName,
-            value: UIFont.systemFontOfSize(CGFloat(fontSize)),
+            value: UIFont.systemFont(ofSize: CGFloat(fontSize)),
             range: NSMakeRange(0, text!.length))
         
         return text!
     }
     
-    static func getPericope(str: String, decorated: Bool, fontSize: Int = 0) -> [(NSMutableAttributedString, NSMutableAttributedString)] {
+    static func getPericope(_ str: String, decorated: Bool, fontSize: Int = 0) -> [(NSMutableAttributedString, NSMutableAttributedString)] {
         var result = [(NSMutableAttributedString, NSMutableAttributedString)]()
         
         var pericope = str.characters.split { $0 == " " }.map { String($0) }
         
-        for (var i=0; i<pericope.count; i+=2) {
+        for i in stride(from: 0, to: pericope.count-1, by: 2) {
             var chapter: Int = 0
             
-            let fileName = pericope[i].lowercaseString
+            let fileName = pericope[i].lowercased()
             let bookTuple = (NewTestament+OldTestament).filter { $0.1 == fileName }
             
             let centerStyle = NSMutableParagraphStyle()
-            centerStyle.alignment = .Center
+            centerStyle.alignment = .center
             
             var bookName:NSMutableAttributedString
             var text : NSMutableAttributedString? = nil
@@ -136,20 +136,20 @@ class Scripture: UIViewController {
                 bookName = NSMutableAttributedString(
                     string: Translate.s(bookTuple[0].0) + " " + pericope[i+1],
                     attributes: [NSParagraphStyleAttributeName: centerStyle,
-                        NSFontAttributeName: UIFont.boldSystemFontOfSize(CGFloat(fontSize)) ])
+                        NSFontAttributeName: UIFont.boldSystemFont(ofSize: CGFloat(fontSize)) ])
                 
             } else {
                 bookName = NSMutableAttributedString(string: Translate.s(bookTuple[0].0))
             }
             
-            let arr2 = pericope[i+1].componentsSeparatedByString(",")
+            let arr2 = pericope[i+1].components(separatedBy: ",")
             
             for segment in arr2 {
                 var range: [(Int, Int)]  = []
                 
-                let arr3 = segment.componentsSeparatedByString("-")
+                let arr3 = segment.components(separatedBy: "-")
                 for offset in arr3 {
-                    var arr4 = offset.componentsSeparatedByString(":")
+                    var arr4 = offset.components(separatedBy: ":")
                     
                     if arr4.count == 1 {
                         range += [ (chapter, Int(arr4[0])!) ]

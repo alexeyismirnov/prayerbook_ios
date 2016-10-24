@@ -15,74 +15,74 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var fastTitleLabel: UILabel!
     
     var fastTitle: String = ""
-    var modal: NAModalSheet!
-    var type: FastingType = .Vegetarian {
+    var modalSheet: NAModalSheet!
+    var type: FastingType = .vegetarian {
         didSet {
             self.foodTableView?.reloadData()
         }
     }
     
     var allowedFood: [FastingType: [String]] = [
-        .NoFast:        ["meat", "fish", "milk", "egg", "cupcake"],
-        .Vegetarian:    ["vegetables", "bread", "nuts"],
-        .FishAllowed:   ["fish", "vegetables", "bread", "nuts"],
-        .FastFree:      ["cupcake", "meat", "fish", "cheese"],
-        .Cheesefare:    ["cheese", "cupcake", "milk", "egg"]
+        .noFast:        ["meat", "fish", "milk", "egg", "cupcake"],
+        .vegetarian:    ["vegetables", "bread", "nuts"],
+        .fishAllowed:   ["fish", "vegetables", "bread", "nuts"],
+        .fastFree:      ["cupcake", "meat", "fish", "cheese"],
+        .cheesefare:    ["cheese", "cupcake", "milk", "egg"]
     ]
     
     var forbiddenFood: [FastingType: [String]] = [
-        .NoFast:        [],
-        .Vegetarian:    ["fish", "meat", "milk", "egg", "cupcake"] ,
-        .FishAllowed:   ["meat", "milk", "egg",  "cupcake"],
-        .FastFree:      [],
-        .Cheesefare:    ["meat"]
+        .noFast:        [],
+        .vegetarian:    ["fish", "meat", "milk", "egg", "cupcake"] ,
+        .fishAllowed:   ["meat", "milk", "egg",  "cupcake"],
+        .fastFree:      [],
+        .cheesefare:    ["meat"]
     ]
     
     override func viewDidLoad() {
         fastTitleLabel.text = fastTitle
     }
     
-    private func getImageName(foodName: String, allowed: Bool) -> String {
+    fileprivate func getImageName(_ foodName: String, allowed: Bool) -> String {
         return allowed ? "food-\(foodName)" : "food-no-\(foodName)"
     }
     
-    @IBAction func clicked(sender: AnyObject) {
-        modal.dismissWithCompletion({})
+    @IBAction func clicked(_ sender: AnyObject) {
+        modalSheet.dismiss(completion: {})
     }
     
     // MARK: UITableViewDataSource
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return (section == 0) ? Translate.s("Allowed") : Translate.s("Prohibited")
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (section == 0) ? allowedFood[type]!.count : forbiddenFood[type]!.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("FastingCell") 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "FastingCell") 
         
         if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: "FastingCell")
+            cell = UITableViewCell(style: .default, reuseIdentifier: "FastingCell")
         }
         
         cell?.backgroundColor = UIColor(white: 1.0, alpha: 0.0)
         
-        let foodName = (indexPath.section == 0) ? allowedFood[type]![indexPath.row] : forbiddenFood[type]![indexPath.row]
+        let foodName = ((indexPath as NSIndexPath).section == 0) ? allowedFood[type]![(indexPath as NSIndexPath).row] : forbiddenFood[type]![(indexPath as NSIndexPath).row]
 
-        let capitalized = "\(foodName[0])".uppercaseString + foodName.substringFromIndex(foodName.startIndex.advancedBy(1))
+        let capitalized = "\(foodName[0])".uppercased() + foodName.substring(from: foodName.characters.index(foodName.startIndex, offsetBy: 1))
         
         cell?.textLabel!.text = Translate.s(capitalized)
-        cell?.imageView!.image =  UIImage(named: getImageName(foodName, allowed: indexPath.section == 0))
+        cell?.imageView!.image =  UIImage(named: getImageName(foodName, allowed: (indexPath as NSIndexPath).section == 0))
         
         return cell!
     }

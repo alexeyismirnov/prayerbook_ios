@@ -9,21 +9,21 @@
 import UIKit
 
 enum TimeIntervalUnit {
-    case Seconds, Minutes, Hours, Days, Months, Years
+    case seconds, minutes, hours, days, months, years
     
-    func dateComponents(interval: Int) -> NSDateComponents {
-        let components:NSDateComponents = NSDateComponents()
+    func dateComponents(_ interval: Int) -> DateComponents {
+        var components:DateComponents = DateComponents()
         
         switch (self) {
-        case .Seconds:
+        case .seconds:
             components.second = interval
-        case .Minutes:
+        case .minutes:
             components.minute = interval
-        case .Days:
+        case .days:
             components.day = interval
-        case .Months:
+        case .months:
             components.month = interval
-        case .Years:
+        case .years:
             components.year = interval
         default:
             components.day = interval
@@ -32,7 +32,7 @@ enum TimeIntervalUnit {
     }
 }
 
-struct TimeInterval {
+struct CalTimeInterval {
     var interval: Int
     var unit: TimeIntervalUnit
     
@@ -45,29 +45,29 @@ struct TimeInterval {
 // FYI: http://stackoverflow.com/questions/24116271/whats-the-cleanest-way-of-applying-map-to-a-dictionary-in-swift
 
 extension Int {
-    var days: TimeInterval {
-        return TimeInterval(interval: self, unit: TimeIntervalUnit.Days);
+    var days: CalTimeInterval {
+        return CalTimeInterval(interval: self, unit: TimeIntervalUnit.days);
     }
     
-    var months: TimeInterval {
-        return TimeInterval(interval: self, unit: TimeIntervalUnit.Months);
+    var months: CalTimeInterval {
+        return CalTimeInterval(interval: self, unit: TimeIntervalUnit.months);
     }
 }
 
-func - (let left:NSDate, let right:TimeInterval) -> NSDate {
-    let calendar = NSCalendar.currentCalendar()
+func - (left:Date, right:CalTimeInterval) -> Date {
+    let calendar = Calendar.current
     let components = right.unit.dateComponents(-right.interval)
-    return calendar.dateByAddingComponents(components, toDate: left, options: [])!
+    return (calendar as NSCalendar).date(byAdding: components, to: left, options: [])!
 }
 
-func + (let left:NSDate, let right:TimeInterval) -> NSDate {
-    let calendar = NSCalendar.currentCalendar()
+func + (left:Date, right:CalTimeInterval) -> Date {
+    let calendar = Calendar.current
     let components = right.unit.dateComponents(right.interval)
-    return calendar.dateByAddingComponents(components, toDate: left, options: [])!
+    return (calendar as NSCalendar).date(byAdding: components, to: left, options: [])!
 }
 
-extension NSDateComponents {
-    convenience init(_ day: Int, _ month:Int, _ year: Int) {
+extension DateComponents {
+    init(_ day: Int, _ month:Int, _ year: Int) {
         self.init()
         
         self.day = day
@@ -75,11 +75,11 @@ extension NSDateComponents {
         self.year = year
     }
     
-    convenience init(date: NSDate) {
+    init(date: Date) {
         self.init()
         
-        let calendar = NSCalendar.currentCalendar()
-        let dateComponents = calendar.components([.Day, .Month, .Year, .Weekday], fromDate: date)
+        let calendar = Calendar.current
+        let dateComponents = (calendar as NSCalendar).components([.day, .month, .year, .weekday], from: date)
         
         self.day = dateComponents.day
         self.month = dateComponents.month
@@ -87,50 +87,50 @@ extension NSDateComponents {
         self.weekday = dateComponents.weekday
     }
     
-    func toDate() -> NSDate {
-        let calendar = NSCalendar.currentCalendar()
-        return calendar.dateFromComponents(self)!
+    func toDate() -> Date {
+        let calendar = Calendar.current
+        return calendar.date(from: self)!
     }
 }
 
-extension NSDate {
-    convenience init(_ day: Int, _ month:Int, _ year: Int) {
-        self.init(timeInterval: 0, sinceDate: NSDateComponents(day, month, year).toDate())
+extension Date {
+    init(_ day: Int, _ month:Int, _ year: Int) {
+        self.init(timeInterval: 0, since: DateComponents(day, month, year).toDate())
     }
 
     var day: Int {
         get {
-            return NSDateComponents(date: self).day
+            return DateComponents(date: self).day!
         }
     }
 
     var weekday: Int {
         get {
-            return NSDateComponents(date: self).weekday
+            return DateComponents(date: self).weekday!
         }
     }
     
     var month: Int {
         get {
-            return NSDateComponents(date: self).month
+            return DateComponents(date: self).month!
         }
     }
 
     var year: Int {
         get {
-            return NSDateComponents(date: self).year
+            return DateComponents(date: self).year!
         }
     }
 
 }
 
 
-func + (str: String, date: NSDate) -> String {
-    let formatter = NSDateFormatter()
-    formatter.dateStyle = .ShortStyle
-    formatter.timeStyle = .NoStyle
+func + (str: String, date: Date) -> String {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .short
+    formatter.timeStyle = .none
     
-    return formatter.stringFromDate(date)
+    return formatter.string(from: date)
 }
 
 func + (arg1: NSMutableAttributedString?, arg2: NSMutableAttributedString?) -> NSMutableAttributedString? {
@@ -138,7 +138,7 @@ func + (arg1: NSMutableAttributedString?, arg2: NSMutableAttributedString?) -> N
     if let rightArg = arg2 {
         if let leftArg = arg1 {
             let result = NSMutableAttributedString(attributedString: leftArg)
-            result.appendAttributedString(rightArg)
+            result.append(rightArg)
             return result
             
         } else {
@@ -156,7 +156,7 @@ func + (arg1: NSMutableAttributedString?, arg2: String?) -> NSMutableAttributedS
     if let rightArg = arg2 {
         if let leftArg = arg1 {
             let result = NSMutableAttributedString(attributedString: leftArg)
-            result.appendAttributedString(NSMutableAttributedString(string: rightArg))
+            result.append(NSMutableAttributedString(string: rightArg))
             return result
             
         } else {
@@ -173,7 +173,7 @@ func + (arg1: NSMutableAttributedString?, arg2: (String?, UIColor)) -> NSMutable
     if let rightArg = arg2.0 {
         if let leftArg = arg1 {
             let result = NSMutableAttributedString(attributedString: leftArg)
-            result.appendAttributedString(NSMutableAttributedString(string: rightArg, attributes: [NSForegroundColorAttributeName: arg2.1]))
+            result.append(NSMutableAttributedString(string: rightArg, attributes: [NSForegroundColorAttributeName: arg2.1]))
             return result
             
         } else {
@@ -185,7 +185,7 @@ func + (arg1: NSMutableAttributedString?, arg2: (String?, UIColor)) -> NSMutable
     }
 }
 
-func += <K,V> (inout left: Dictionary<K, [V]>, right: Dictionary<K, [V]>) {
+func += <K,V> (left: inout Dictionary<K, [V]>, right: Dictionary<K, [V]>) {
     for (k, v) in right {
         if let leftValue = left[k] {
             left.updateValue(v + leftValue, forKey: k)
@@ -195,27 +195,27 @@ func += <K,V> (inout left: Dictionary<K, [V]>, right: Dictionary<K, [V]>) {
     }
 }
 
-func +=<K, V> (inout left: [K:V], right: [K:V]) {
+func +=<K, V> (left: inout [K:V], right: [K:V]) {
     for (k, v) in right { left[k] = v }
 }
 
-struct DateRange : SequenceType {
-    var startDate: NSDate
-    var endDate: NSDate
+struct DateRange : Sequence {
+    var startDate: Date
+    var endDate: Date
     
-    init (_ arg1: NSDate, _ arg2: NSDate){
+    init (_ arg1: Date, _ arg2: Date){
         startDate = arg1-1.days
         endDate = arg2
     }
     
-    func generate() -> Generator {
-        return Generator(range: self)
+    func makeIterator() -> Iterator {
+        return Iterator(range: self)
     }
     
-    struct Generator: GeneratorType {
+    struct Iterator: IteratorProtocol {
         var range: DateRange
         
-        mutating func next() -> NSDate? {
+        mutating func next() -> Date? {
             let nextDate = range.startDate + 1.days
             
             if range.endDate < nextDate {
@@ -229,23 +229,10 @@ struct DateRange : SequenceType {
     }
 }
 
-extension NSDate: Comparable {
-}
-
-public func < (let left:NSDate, let right: NSDate) -> Bool {
-    let result:NSComparisonResult = left.compare(right)
-    return (result == .OrderedAscending)
-}
-
-public func == (let left:NSDate, let right: NSDate) -> Bool {
-    let result:NSComparisonResult = left.compare(right)
-    return (result == .OrderedSame)
-}
-
-func >> (left: NSDate, right: NSDate) -> Int {
-    let calendar = NSCalendar.currentCalendar()
-    let components = calendar.components(.Day, fromDate: left, toDate: right, options: [])
-    return components.day
+func >> (left: Date, right: Date) -> Int {
+    let calendar = Calendar.current
+    let components = (calendar as NSCalendar).components(.day, from: left, to: right, options: [])
+    return components.day!
 }
 
 extension String {
@@ -261,11 +248,11 @@ extension UIColor {
         
         // Establishing the rgb color
         var rgb: UInt32 = 0
-        let s: NSScanner = NSScanner(string: hex)
+        let s: Scanner = Scanner(string: hex)
         // Setting the scan location to ignore the leading `#`
         s.scanLocation = 1
         // Scanning the int into the rgb colors
-        s.scanHexInt(&rgb)
+        s.scanHexInt32(&rgb)
         
         // Creating the UIColor from hex int
         self.init(
@@ -278,36 +265,36 @@ extension UIColor {
 }
 
 extension UIImage {
-    func maskWithColor(color: UIColor) -> UIImage {
+    func maskWithColor(_ color: UIColor) -> UIImage {
         
-        let maskImage = self.CGImage
+        let maskImage = self.cgImage
         let width = self.size.width
         let height = self.size.height
-        let bounds = CGRectMake(0, 0, width, height)
+        let bounds = CGRect(x: 0, y: 0, width: width, height: height)
         
         let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue)
-        let bitmapContext = CGBitmapContextCreate(nil, Int(width), Int(height), 8, 0, colorSpace, bitmapInfo.rawValue)
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+        let bitmapContext = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
         
-        CGContextClipToMask(bitmapContext, bounds, maskImage)
-        CGContextSetFillColorWithColor(bitmapContext, color.CGColor)
-        CGContextFillRect(bitmapContext, bounds)
+        bitmapContext?.clip(to: bounds, mask: maskImage!)
+        bitmapContext?.setFillColor(color.cgColor)
+        bitmapContext?.fill(bounds)
         
-        let cImage = CGBitmapContextCreateImage(bitmapContext)
-        let coloredImage = UIImage(CGImage: cImage!)
+        let cImage = bitmapContext?.makeImage()
+        let coloredImage = UIImage(cgImage: cImage!)
         
         return coloredImage
     }
     
-    func resize(sizeChange:CGSize)-> UIImage {
+    func resize(_ sizeChange:CGSize)-> UIImage {
         let hasAlpha = true
         let scale: CGFloat = 0.0 // Use scale factor of main screen
         
         UIGraphicsBeginImageContextWithOptions(sizeChange, !hasAlpha, scale)
-        drawInRect(CGRect(origin: CGPointZero, size: sizeChange))
+        draw(in: CGRect(origin: CGPoint.zero, size: sizeChange))
         
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
-        return scaledImage
+        return scaledImage!
     }
 
 }

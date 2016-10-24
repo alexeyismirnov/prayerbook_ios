@@ -11,23 +11,23 @@ import UIKit
 class AppDelegate : UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var openDate: NSDate?
+    var openDate: Date?
     
-    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
         
         if url.scheme == "ponomar-ru" {
-            openDate = NSDate(timeIntervalSince1970: Double(url.query!)!)            
+            openDate = Date(timeIntervalSince1970: Double(url.query!)!)            
         }
         
         return true
     }
     
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         if let root = window?.rootViewController as? MainVC,
-            controllers = root.viewControllers,
-            nav = controllers[0] as? UINavigationController,
-            vc = nav.topViewController as? DailyTab,
-            date = openDate {
+            let controllers = root.viewControllers,
+            let nav = controllers[0] as? UINavigationController,
+            let vc = nav.topViewController as? DailyTab,
+            let date = openDate {
                 root.selectedIndex = 0
                 vc.currentDate = date
                 vc.reload()
@@ -36,26 +36,26 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         }
     }
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let prefs = NSUserDefaults(suiteName: groupId)!
+        let prefs = UserDefaults(suiteName: groupId)!
         
         // the first time app is launched
-        if prefs.objectForKey("fontSize") == nil {
+        if prefs.object(forKey: "fontSize") == nil {
 
-            prefs.setObject("ru", forKey: "language")
+            prefs.set("ru", forKey: "language")
 
-            if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
-                prefs.setInteger(18, forKey: "fontSize")
+            if (UIDevice.current.userInterfaceIdiom == .phone) {
+                prefs.set(18, forKey: "fontSize")
             } else {
-                prefs.setInteger(20, forKey: "fontSize")
+                prefs.set(20, forKey: "fontSize")
             }
             
             prefs.synchronize()
         }
         
-        if prefs.objectForKey("fastingLevel") == nil {
-            prefs.setInteger(1, forKey: "fastingLevel")
+        if prefs.object(forKey: "fastingLevel") == nil {
+            prefs.set(1, forKey: "fastingLevel")
             prefs.synchronize()
         }
         
@@ -63,7 +63,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
 
         Translate.files = ["trans_ui", "trans_cal", "trans_library"]
         
-        let language = prefs.objectForKey("language") as! String
+        let language = prefs.object(forKey: "language") as! String
         Translate.language = language
         
         Appirater.setAppId("1095609748")
@@ -90,22 +90,22 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         copyFile("trans_library_ru", "plist")
     }
     
-    func copyFile(filename: String, _ ext: String)  {
-        let fileManager = NSFileManager.defaultManager()
-        let groupURL = fileManager.containerURLForSecurityApplicationGroupIdentifier(groupId)!
-        let srcPath = NSBundle.mainBundle().URLForResource(filename, withExtension: ext)!
-        let dstPath = groupURL.URLByAppendingPathComponent(filename+"."+ext)
+    func copyFile(_ filename: String, _ ext: String)  {
+        let fileManager = FileManager.default
+        let groupURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
+        let srcPath = Bundle.main.url(forResource: filename, withExtension: ext)!
+        let dstPath = groupURL.appendingPathComponent(filename+"."+ext)
         
         do {
-            try fileManager.copyItemAtURL(srcPath, toURL: dstPath)
+            try fileManager.copyItem(at: srcPath, to: dstPath)
             
         } catch let error as NSError  {            
             // maybe file already exists
-            // print(error.description)
+            print(error.description)
         }
     }
     
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         Appirater.appEnteredForeground(true)
     }
     

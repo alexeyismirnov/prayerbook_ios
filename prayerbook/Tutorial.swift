@@ -17,21 +17,21 @@ class Tutorial : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let videoURL = NSBundle.mainBundle().URLForResource("widget", withExtension: "mp4")
+        let videoURL = Bundle.main.url(forResource: "widget", withExtension: "mp4")
         videoController = MPMoviePlayerController()
-        videoController.backgroundView.backgroundColor = UIColor.whiteColor()
+        videoController.backgroundView.backgroundColor = UIColor.white
         videoController.contentURL = videoURL
         
         title = Translate.s("Add widget")
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
         view.addSubview(videoController.view)
-        var frame = view.convertRect(view.frame, toView: navigationController!.view)
+        var frame = view.convert(view.frame, to: navigationController!.view)
         
-        let navBarHeight = navigationController!.navigationBar.frame.size.height + UIApplication.sharedApplication().statusBarFrame.size.height
+        let navBarHeight = navigationController!.navigationBar.frame.size.height + UIApplication.shared.statusBarFrame.size.height
         
         frame.origin.y = navBarHeight
         frame.size.height -= navBarHeight
@@ -40,8 +40,8 @@ class Tutorial : UIViewController {
         videoController.play()
     }
 
-    @IBAction func close(sender: AnyObject) {
-        delegate.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func close(_ sender: AnyObject) {
+        delegate.dismiss(animated: true, completion: nil)
 
     }
 }
