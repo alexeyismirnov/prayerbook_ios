@@ -52,9 +52,9 @@ class Library: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: optionsSavedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(Library.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 
-        let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
+        let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .plain, target: self, action: #selector(Library.showOptions))
         navigationItem.rightBarButtonItems = [button_options]
         
         reload()
@@ -72,72 +72,72 @@ class Library: UITableViewController {
     }
     
     func showOptions() {
-        let vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
+        let vc = storyboard!.instantiateViewController(withIdentifier: "Options") as! Options
         let nav = UINavigationController(rootViewController: vc)
         vc.delegate = self
         
-        navigationController?.presentViewController(nav, animated: true, completion: {})
+        navigationController?.present(nav, animated: true, completion: {})
     }
 
     // MARK: Table view data source
 
-    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if (code == "Library") {
-            let vc = storyboard.instantiateViewControllerWithIdentifier("Library") as! Library
-            vc.index = indexPath.row
-            vc.code = NewTestament[indexPath.row].1
+            let vc = storyboard.instantiateViewController(withIdentifier: "Library") as! Library
+            vc.index = (indexPath as NSIndexPath).row
+            vc.code = NewTestament[(indexPath as NSIndexPath).row].1
             navigationController?.pushViewController(vc, animated: true)
 
         } else {
-            let vc = storyboard.instantiateViewControllerWithIdentifier("Scripture") as! Scripture
-            vc.code = .Chapter(code, indexPath.row+1)
+            let vc = storyboard.instantiateViewController(withIdentifier: "Scripture") as! Scripture
+            vc.code = .chapter(code, (indexPath as NSIndexPath).row+1)
             navigationController?.pushViewController(vc, animated: true)
         }
         
         return nil
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (code == "Library") ? NewTestament.count : Db.numberOfChapters(code)
     }
 
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return (code == "Library") ? Translate.s("New Testament") : nil
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "TextCell"
         
-        var newCell  = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? TextCell
+        var newCell  = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TextCell
         if newCell == nil {
-            newCell = TextCell(style: UITableViewCellStyle.Default, reuseIdentifier: TextCell.cellId)
+            newCell = TextCell(style: UITableViewCellStyle.default, reuseIdentifier: TextCell.cellId)
         }
         
-        newCell!.title.textColor =  UIColor.blackColor()
+        newCell!.title.textColor =  UIColor.black
         newCell!.title.text = (code == "Library") ?
-            Translate.s(NewTestament[indexPath.row].0) :
-            String(format: Translate.s("Chapter %@"), Translate.stringFromNumber(indexPath.row+1))
+            Translate.s(NewTestament[(indexPath as NSIndexPath).row].0) :
+            String(format: Translate.s("Chapter %@"), Translate.stringFromNumber((indexPath as NSIndexPath).row+1))
 
         return newCell!
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
         return calculateHeightForCell(cell)
     }
     
-    func calculateHeightForCell(cell: UITableViewCell) -> CGFloat {
-        cell.bounds = CGRectMake(0, 0, CGRectGetWidth(tableView.frame), CGRectGetHeight(cell.bounds))
+    func calculateHeightForCell(_ cell: UITableViewCell) -> CGFloat {
+        cell.bounds = CGRect(x: 0, y: 0, width: tableView.frame.width, height: cell.bounds.height)
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         
-        let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        let size = cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         return max(size.height+1.0, 40)
     }
 

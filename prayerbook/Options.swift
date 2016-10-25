@@ -12,8 +12,8 @@ var optionsSavedNotification  = "OPTIONS_SAVED"
 
 class Options: UITableViewController {
     
-    let prefs = NSUserDefaults(suiteName: groupId)!
-    var lastSelected: NSIndexPath?
+    let prefs = UserDefaults(suiteName: groupId)!
+    var lastSelected: IndexPath?
     weak var delegate: UIViewController!
 
     @IBOutlet weak var lang_en: UITableViewCell!
@@ -30,21 +30,21 @@ class Options: UITableViewController {
         doneButton.title = Translate.s("Done")
         
         if Translate.language == "en" {
-            lastSelected = NSIndexPath(forRow: 0, inSection: 0)
-            lang_en.accessoryType = UITableViewCellAccessoryType.Checkmark;
+            lastSelected = IndexPath(row: 0, section: 0)
+            lang_en.accessoryType = UITableViewCellAccessoryType.checkmark;
             lang_en.setSelected(true, animated: true)
             
         } else {
-            lastSelected = NSIndexPath(forRow: 1, inSection: 0)
-            lang_cn.accessoryType = UITableViewCellAccessoryType.Checkmark;
+            lastSelected = IndexPath(row: 1, section: 0)
+            lang_cn.accessoryType = UITableViewCellAccessoryType.checkmark;
             lang_cn.setSelected(true, animated: true)
             
         }
         
-        let fontSize = prefs.integerForKey("fontSize")
+        let fontSize = prefs.integer(forKey: "fontSize")
         fontSizeSlider.value = Float(fontSize)
         
-        if (UIDevice.currentDevice().userInterfaceIdiom == .Phone) {
+        if (UIDevice.current.userInterfaceIdiom == .phone) {
             fontSizeSlider.minimumValue = 8
             fontSizeSlider.maximumValue = 20
             
@@ -54,23 +54,23 @@ class Options: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if lastSelected == indexPath || indexPath.section == 1 {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if lastSelected == indexPath || (indexPath as NSIndexPath).section == 1 {
             return
         }
         
-        let cell1: UITableViewCell! = self.tableView.cellForRowAtIndexPath(lastSelected!)
-        cell1.accessoryType = .None
-        cell1.selected = false
+        let cell1: UITableViewCell! = self.tableView.cellForRow(at: lastSelected!)
+        cell1.accessoryType = .none
+        cell1.isSelected = false
         
-        let cell2: UITableViewCell! = self.tableView.cellForRowAtIndexPath(indexPath)
-        cell2.accessoryType = .Checkmark
-        cell2.selected = true
+        let cell2: UITableViewCell! = self.tableView.cellForRow(at: indexPath)
+        cell2.accessoryType = .checkmark
+        cell2.isSelected = true
         
         lastSelected = indexPath
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return Translate.s("Language")
         } else {
@@ -78,20 +78,20 @@ class Options: UITableViewController {
         }
     }
     
-    @IBAction func cancel(sender: AnyObject) {
-        delegate.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancel(_ sender: AnyObject) {
+        delegate.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func done(sender: AnyObject) {
-        let lang = (lang_en.accessoryType == .Checkmark) ? "en" : "cn"
+    @IBAction func done(_ sender: AnyObject) {
+        let lang = (lang_en.accessoryType == .checkmark) ? "en" : "cn"
 
-        prefs.setObject(lang, forKey: "language")
+        prefs.set(lang, forKey: "language")
         Translate.language = lang
-        prefs.setInteger(Int(fontSizeSlider.value), forKey: "fontSize")
+        prefs.set(Int(fontSizeSlider.value), forKey: "fontSize")
         prefs.synchronize()
         
-        NSNotificationCenter.defaultCenter().postNotificationName(optionsSavedNotification, object: nil)
-        delegate.dismissViewControllerAnimated(true, completion: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: optionsSavedNotification), object: nil)
+        delegate.dismiss(animated: true, completion: nil)
     }
 
 }

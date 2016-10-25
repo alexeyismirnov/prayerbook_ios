@@ -7,6 +7,26 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAnimatedTransitioning {
 
@@ -14,7 +34,7 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
         super.viewDidLoad()
         
         delegate = self
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: optionsSavedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MainVC.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 
         reload()
     }
@@ -28,16 +48,16 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
         }
     }
     
-    func tabBarController(tabBarController: UITabBarController, animationControllerForTransitionFromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self
     }
 
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 1
     }
 
-    func findIndex<S: SequenceType>(sequence: S, predicate: (S.Generator.Element) -> Bool) -> Int? {
-        for (index, element) in sequence.enumerate() {
+    func findIndex<S: Sequence>(_ sequence: S, predicate: (S.Iterator.Element) -> Bool) -> Int? {
+        for (index, element) in sequence.enumerated() {
             if predicate(element) {
                 return index
             }
@@ -45,30 +65,30 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
         return nil
     }
 
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let DampingConstant:CGFloat     = 1.0
         let InitialVelocity:CGFloat     = 0.2
         let PaddingBetweenViews:CGFloat = 0
         
-        let inView = transitionContext.containerView()
-        let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
+        let inView = transitionContext.containerView
+        let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
         let fromView = fromVC?.view
-        let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
+        let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
         let toView = toVC?.view
         
         let indexFrom = findIndex(viewControllers as! [UINavigationController]) { $0.restorationIdentifier == fromVC?.restorationIdentifier }
         let indexTo = findIndex(viewControllers as! [UINavigationController]) { $0.restorationIdentifier == toVC?.restorationIdentifier }
 
-        let centerRect =  transitionContext.finalFrameForViewController(toVC!)
-        let leftRect   = CGRectOffset(centerRect, -(CGRectGetWidth(centerRect)+PaddingBetweenViews), 0);
-        let rightRect  = CGRectOffset(centerRect, CGRectGetWidth(centerRect)+PaddingBetweenViews, 0);
+        let centerRect =  transitionContext.finalFrame(for: toVC!)
+        let leftRect   = centerRect.offsetBy(dx: -(centerRect.width+PaddingBetweenViews), dy: 0);
+        let rightRect  = centerRect.offsetBy(dx: centerRect.width+PaddingBetweenViews, dy: 0);
 
         if (indexTo > indexFrom) {
             toView!.frame = rightRect;
-            inView!.addSubview(toView!)
+            inView.addSubview(toView!)
 
-            UIView.animateWithDuration(transitionDuration(transitionContext),
-                delay: NSTimeInterval(0),
+            UIView.animate(withDuration: transitionDuration(using: transitionContext),
+                delay: Foundation.TimeInterval(0),
                 usingSpringWithDamping: DampingConstant,
                 initialSpringVelocity: InitialVelocity,
                 options: UIViewAnimationOptions(rawValue: 0),
@@ -77,10 +97,10 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
                     
         } else {
             toView!.frame = leftRect;
-            inView!.addSubview(toView!)
+            inView.addSubview(toView!)
             
-            UIView.animateWithDuration(transitionDuration(transitionContext),
-                delay: NSTimeInterval(0),
+            UIView.animate(withDuration: transitionDuration(using: transitionContext),
+                delay: Foundation.TimeInterval(0),
                 usingSpringWithDamping: DampingConstant,
                 initialSpringVelocity: -InitialVelocity,
                 options: UIViewAnimationOptions(rawValue: 0),

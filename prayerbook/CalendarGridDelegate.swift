@@ -11,89 +11,89 @@ import UIKit
 private let reuseIdentifier = "CalendarTextCell"
 
 enum CalendarContainerType: Int {
-    case MainApp=0, TodayExtension
+    case mainApp=0, todayExtension
 }
 
 class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    let cal: NSCalendar = {
-        let c = NSCalendar.currentCalendar()
+    var cal: Calendar = {
+        let c = Calendar.current
         return c
     }()
 
-    var currentDate: NSDate! {
+    var currentDate: Date! {
         didSet {
-            let monthStart = NSDate(1, currentDate.month, currentDate.year)
-            cal.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "zh_CN")
+            let monthStart = Date(1, currentDate.month, currentDate.year)
+            cal.locale = Locale(identifier: (Translate.language == "en") ? "en" : "zh_CN")
             startGap = (monthStart.weekday < cal.firstWeekday) ? 7 - (cal.firstWeekday-monthStart.weekday) : monthStart.weekday - cal.firstWeekday
         }
     }
     
-    var formatter: NSDateFormatter = {
-        var formatter = NSDateFormatter()
-        formatter.dateStyle = .ShortStyle
-        formatter.timeStyle = .NoStyle
+    var formatter: DateFormatter = {
+        var formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
         formatter.dateFormat = "LLLL yyyy"
         return formatter
     }()
     
     var startGap: Int!
     var containerType : CalendarContainerType!
-    var selectedDate: NSDate?
+    var selectedDate: Date?
 
     override init() {
         super.init()
     }
 
-    @objc func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    @objc func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
-    @objc func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    @objc func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (currentDate == nil) {
             return 0
         }
         
-        let range = NSCalendar.currentCalendar().rangeOfUnit(NSCalendarUnit.Day, inUnit: NSCalendarUnit.Month, forDate: currentDate)
+        let range = (Calendar.current as NSCalendar).range(of: NSCalendar.Unit.day, in: NSCalendar.Unit.month, for: currentDate)
         return range.length + startGap
     }
 
-    @objc func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CalendarViewTextCell
+    @objc func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CalendarViewTextCell
         
-        cell.contentView.backgroundColor =  UIColor.clearColor()
+        cell.contentView.backgroundColor =  UIColor.clear
 
-        if indexPath.row < startGap {
+        if (indexPath as NSIndexPath).row < startGap {
             cell.dateLabel.text = ""
             return cell
         }
         
-        let dayIndex = indexPath.row + 1 - startGap
-        let curDate = NSDate(dayIndex, currentDate.month, currentDate.year)
+        let dayIndex = (indexPath as NSIndexPath).row + 1 - startGap
+        let curDate = Date(dayIndex, currentDate.month, currentDate.year)
 
         cell.dateLabel.text = String(format: "%d", dayIndex)
-        cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.redColor() : UIColor.blackColor()
+        cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.red : UIColor.black
 
         if curDate == selectedDate {
             cell.contentView.backgroundColor = UIColor(hex:"#FF8C00")
 
         } else {
             switch Cal.getFastingDescription(curDate).0 {
-            case .Vegetarian:
+            case .vegetarian:
                 cell.contentView.backgroundColor = UIColor(hex:"#30D5C8")
                 break
                 
-            case .FishAllowed:
+            case .fishAllowed:
                 cell.contentView.backgroundColor = UIColor(hex:"#FADFAD")
                 break
                 
-            case .Cheesefare, .FastFree:
+            case .cheesefare, .fastFree:
                 cell.contentView.backgroundColor = UIColor(hex:"#00BFFF")
                 break
                 
             default:
-                let textColor = (containerType == .MainApp) ? UIColor.blackColor() : UIColor.whiteColor()
-                cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.redColor() : textColor
+                let textColor = (containerType == .mainApp) ? UIColor.black : UIColor.white
+                cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.red : textColor
                 break
             }
         }
@@ -101,15 +101,15 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
         return cell
     }
     
-    @objc func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    @objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let cellWidth = (collectionView.bounds.width) / 7.0
-        return CGSizeMake(cellWidth, cellWidth)
+        return CGSize(width: cellWidth, height: cellWidth)
     }
     
-    func generateLabels(view: UIView) {
-        formatter.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "zh_CN")
-        cal.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "zh_CN")
+    func generateLabels(_ view: UIView) {
+        formatter.locale = Locale(identifier: (Translate.language == "en") ? "en" : "zh_CN")
+        cal.locale = Locale(identifier: (Translate.language == "en") ? "en" : "zh_CN")
 
         let dayLabel = formatter.veryShortWeekdaySymbols as [String]
         

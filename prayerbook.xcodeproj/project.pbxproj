@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		11D18E423D5F8676724AC564 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB949D5EE4022DBBF8C2E216 /* libPods.a */; };
+		8A00C81D1DBEFE50000893A7 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; };
+		8A00C81E1DBEFE56000893A7 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; };
+		8A00C8281DBF0A82000893A7 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; };
+		8A00C8291DBF0A82000893A7 /* Squeal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A0132F41C2027BC006F2505 /* CalendarGridDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F31C2027BC006F2505 /* CalendarGridDelegate.swift */; };
 		8A0132F61C2029F5006F2505 /* CalendarViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */; };
 		8A06E66F1B187FC300925F63 /* saints_12_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A06E66D1B187FC300925F63 /* saints_12_en.sqlite */; };
@@ -21,7 +25,6 @@
 		8A0F6F5A1C50C12D0063DBF1 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A819E1302700076AF4 /* Translate.swift */; };
 		8A0F6F5D1C50C8820063DBF1 /* CalendarGridDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F31C2027BC006F2505 /* CalendarGridDelegate.swift */; };
 		8A0F6F5E1C50C8910063DBF1 /* CalendarViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */; };
-		8A16AB891C60B475009F3B6C /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F9481BB9203A00B3EE96 /* Squeal.framework */; };
 		8A181E0E1B1D3C9A00D8C2FB /* saints_01_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0C1B1D3C9A00D8C2FB /* saints_01_en.sqlite */; };
 		8A181E0F1B1D3C9A00D8C2FB /* saints_01_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0D1B1D3C9A00D8C2FB /* saints_01_en.txt */; };
 		8A2F46A019E110CF00076AF4 /* prayer_group_0_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469C19E110CF00076AF4 /* prayer_group_0_cn.html */; };
@@ -158,7 +161,6 @@
 		8AB0DCA81C27F00400C6A494 /* ReadingMatthew.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DCA21C27F00400C6A494 /* ReadingMatthew.plist */; };
 		8AB4E2B41B20168E0015E19B /* saints_04_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AB4E2B21B20168E0015E19B /* saints_04_en.sqlite */; };
 		8AB4E2B51B20168E0015E19B /* saints_04_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AB4E2B31B20168E0015E19B /* saints_04_en.txt */; };
-		8AB4F9531BB9205B00B3EE96 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; };
 		8AB62A671C180F4F001ACD2A /* zoom_in.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AB62A651C180F4F001ACD2A /* zoom_in.pdf */; };
 		8AB62A681C180F4F001ACD2A /* zoom_out.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AB62A661C180F4F001ACD2A /* zoom_out.pdf */; };
 		8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */; };
@@ -202,8 +204,6 @@
 		8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89219E4CECB00B51294 /* arrow-left.pdf */; };
 		8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89319E4CECB00B51294 /* arrow-right.pdf */; };
 		8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89619E4D1DE00B51294 /* calendar.pdf */; };
-		8AC966111BE5DB3D00841FEE /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; };
-		8AC966121BE5DB3D00841FEE /* Squeal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8ACEF0FB1A2EDF5100AF98E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */; };
 		8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */; };
 		8ADD7D851A56A5C200BA9F37 /* gen_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ADD7D821A56A5C200BA9F37 /* gen_en.sqlite */; };
@@ -273,6 +273,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8A00C82A1DBF0A82000893A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CDCBEB4B19C5F6F500862BFD;
+			remoteInfo = "Squeal-iOS";
+		};
 		8AB4F9471BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
@@ -322,16 +329,20 @@
 			remoteGlobalIDString = 8AB7499E1C4C7A3400CD1B32;
 			remoteInfo = CalendarWidget;
 		};
-		8AC966131BE5DB3D00841FEE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CDCBEB4B19C5F6F500862BFD;
-			remoteInfo = "Squeal-iOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		8A00C82C1DBF0A82000893A7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8A00C8291DBF0A82000893A7 /* Squeal.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8AB749B41C4C7A3500CD1B32 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -341,17 +352,6 @@
 				8AB749AB1C4C7A3500CD1B32 /* CalendarWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8AC966151BE5DB3D00841FEE /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8AC966121BE5DB3D00841FEE /* Squeal.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -628,14 +628,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A00C81D1DBEFE50000893A7 /* Squeal.framework in Frameworks */,
 				8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */,
-				8AB4F9531BB9205B00B3EE96 /* Squeal.framework in Frameworks */,
-				8AC966111BE5DB3D00841FEE /* Squeal.framework in Frameworks */,
 				8AF249841AFF4C64000070C0 /* libsqlite3.dylib in Frameworks */,
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
 				11D18E423D5F8676724AC564 /* libPods.a in Frameworks */,
+				8A00C8281DBF0A82000893A7 /* Squeal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,7 +643,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A16AB891C60B475009F3B6C /* Squeal.framework in Frameworks */,
+				8A00C81E1DBEFE56000893A7 /* Squeal.framework in Frameworks */,
 				8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1033,14 +1033,14 @@
 				8A74D7F4198F20CC0078F39F /* Frameworks */,
 				8A74D7F5198F20CC0078F39F /* Resources */,
 				AC7CA402C5C6E3D32ACF0F87 /* Copy Pods Resources */,
-				8AC966151BE5DB3D00841FEE /* Embed Frameworks */,
 				8AB749B41C4C7A3500CD1B32 /* Embed App Extensions */,
+				8A00C82C1DBF0A82000893A7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8AC966141BE5DB3D00841FEE /* PBXTargetDependency */,
 				8AB749AA1C4C7A3500CD1B32 /* PBXTargetDependency */,
+				8A00C82B1DBF0A82000893A7 /* PBXTargetDependency */,
 			);
 			name = ponomar;
 			productName = prayerbook;
@@ -1078,6 +1078,7 @@
 				TargetAttributes = {
 					8A74D7F6198F20CC0078F39F = {
 						DevelopmentTeam = 3NQ697ND22;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1087,6 +1088,7 @@
 					8AB7499E1C4C7A3400CD1B32 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 3NQ697ND22;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1485,15 +1487,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8A00C82B1DBF0A82000893A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Squeal-iOS";
+			targetProxy = 8A00C82A1DBF0A82000893A7 /* PBXContainerItemProxy */;
+		};
 		8AB749AA1C4C7A3500CD1B32 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8AB7499E1C4C7A3400CD1B32 /* CalendarWidget */;
 			targetProxy = 8AB749A91C4C7A3500CD1B32 /* PBXContainerItemProxy */;
-		};
-		8AC966141BE5DB3D00841FEE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Squeal-iOS";
-			targetProxy = 8AC966131BE5DB3D00841FEE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1598,6 +1600,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -1618,6 +1621,7 @@
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "prayerbook/prayerbook-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1626,6 +1630,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -1645,6 +1650,7 @@
 				"SWIFT_INCLUDE_PATHS[arch=*]" = "$(PROJECT_DIR)/../Squeal/modules";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "prayerbook/prayerbook-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1669,6 +1675,7 @@
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1691,6 +1698,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

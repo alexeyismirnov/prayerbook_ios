@@ -17,11 +17,11 @@ class PrayersTab: UITableViewController {
     var sections = [ ["communion"], ["daily", "group"] ]
     
     func reload() {
-        let bundle = NSBundle.mainBundle().pathForResource("prayers", ofType: "plist")
+        let bundle = Bundle.main.path(forResource: "prayers", ofType: "plist")
         let table = NSDictionary(contentsOfFile: bundle!) as! [String:[String]]
         
         entries=[]
-        for (_, code) in sections[tab_index as Int].enumerate() {
+        for (_, code) in sections[tab_index as Int].enumerated() {
             entries.append(table[code]!)
         }
         
@@ -33,65 +33,65 @@ class PrayersTab: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .Plain, target: self, action: "showOptions")
+        let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .plain, target: self, action: #selector(PrayersTab.showOptions))
         navigationItem.rightBarButtonItems = [button_options]
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: optionsSavedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(PrayersTab.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
         reload()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Prayer" {
-            let view = segue.destinationViewController as! Prayer
-            let index = self.tableView.indexPathForSelectedRow as NSIndexPath!
-            view.index = index.row
-            view.code = sections[tab_index as Int][index.section]
-            view.name = entries[index.section][index.row]
+            let view = segue.destination as! Prayer
+            let index = self.tableView.indexPathForSelectedRow as IndexPath!
+            view.index = index?.row
+            view.code = sections[tab_index as Int][(index?.section)!]
+            view.name = entries[(index?.section)!][(index?.row)!]
         }
     }
     
     func showOptions() {
-        let vc = storyboard!.instantiateViewControllerWithIdentifier("Options") as! Options
+        let vc = storyboard!.instantiateViewController(withIdentifier: "Options") as! Options
         let nav = UINavigationController(rootViewController: vc)
         vc.delegate = self
         
-        navigationController?.presentViewController(nav, animated: true, completion: {})
+        navigationController?.present(nav, animated: true, completion: {})
     }
     
     // MARK: Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return entries.count
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries[section].count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "TextCell"
         
-        var newCell  = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? TextCell
+        var newCell  = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TextCell
         if newCell == nil {
-            newCell = TextCell(style: UITableViewCellStyle.Default, reuseIdentifier: TextCell.cellId)
+            newCell = TextCell(style: UITableViewCellStyle.default, reuseIdentifier: TextCell.cellId)
         }
         
-        newCell!.title.textColor =  UIColor.blackColor()
-        newCell!.title.text = Translate.s(entries[indexPath.section][indexPath.row])
+        newCell!.title.textColor =  UIColor.black
+        newCell!.title.text = Translate.s(entries[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row])
         return newCell!
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let cell : UITableViewCell = self.tableView(tableView, cellForRowAtIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
         return calculateHeightForCell(cell)
     }
     
-    func calculateHeightForCell(cell: UITableViewCell) -> CGFloat {
-        cell.bounds = CGRectMake(0, 0, CGRectGetWidth(tableView.frame), CGRectGetHeight(cell.bounds))
+    func calculateHeightForCell(_ cell: UITableViewCell) -> CGFloat {
+        cell.bounds = CGRect(x: 0, y: 0, width: tableView.frame.width, height: cell.bounds.height)
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         
-        let size = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        let size = cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         return max(size.height+1.0, 40)
     }
 

@@ -12,22 +12,22 @@ class CalendarContainer: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let cal: NSCalendar = {
-        let c = NSCalendar.currentCalendar()
-        c.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "zh_CN")
+    let cal: Calendar = {
+        var c = Calendar.current
+        c.locale = Locale(identifier: (Translate.language == "en") ? "en" : "zh_CN")
         return c
     }()
 
-    var formatter: NSDateFormatter = {
-        var formatter = NSDateFormatter()
-        formatter.dateStyle = .ShortStyle
-        formatter.timeStyle = .NoStyle
+    var formatter: DateFormatter = {
+        var formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
         formatter.dateFormat = "LLLL yyyy"
-        formatter.locale = NSLocale(localeIdentifier: (Translate.language == "en") ? "en" : "zh_CN")
+        formatter.locale = Locale(identifier: (Translate.language == "en") ? "en" : "zh_CN")
         return formatter
     }()
     
-    var currentDate: NSDate = ChurchCalendar.currentDate
+    var currentDate: Date = ChurchCalendar.currentDate as Date
     var calendarDelegate: CalendarGridDelegate!
     var delegate: DailyTab!
     
@@ -35,12 +35,12 @@ class CalendarContainer: UIViewController {
         super.viewDidLoad()
         
         calendarDelegate = CalendarGridDelegate()
-        calendarDelegate.containerType = .MainApp
+        calendarDelegate.containerType = .mainApp
         
         collectionView.delegate = calendarDelegate
         collectionView.dataSource = calendarDelegate
         
-        let recognizer = UITapGestureRecognizer(target: self, action:Selector("doneWithDate:"))
+        let recognizer = UITapGestureRecognizer(target: self, action:#selector(CalendarContainer.doneWithDate(_:)))
         recognizer.numberOfTapsRequired = 1
         collectionView.addGestureRecognizer(recognizer)
         
@@ -49,39 +49,39 @@ class CalendarContainer: UIViewController {
         refresh()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         let upperBorder = CALayer();
-        upperBorder.backgroundColor = UIColor.lightGrayColor().CGColor;
-        upperBorder.frame = CGRectMake(0, 0, CGRectGetWidth(collectionView.frame), 2.0);
+        upperBorder.backgroundColor = UIColor.lightGray.cgColor;
+        upperBorder.frame = CGRect(x: 0, y: 0, width: collectionView.frame.width, height: 2.0);
         collectionView.layer.addSublayer(upperBorder)
     }
     
-    func doneWithDate(recognizer: UITapGestureRecognizer) {
-        let loc = recognizer.locationInView(collectionView)
-        var curDate: NSDate? = nil
+    func doneWithDate(_ recognizer: UITapGestureRecognizer) {
+        let loc = recognizer.location(in: collectionView)
+        var curDate: Date? = nil
         
         if let
-            path = collectionView.indexPathForItemAtPoint(loc),
-            cell = collectionView.cellForItemAtIndexPath(path) as? CalendarViewTextCell,
-            dayNum = Int(cell.dateLabel.text!) {
-                curDate = NSDate(dayNum, currentDate.month, currentDate.year)
+            path = collectionView.indexPathForItem(at: loc),
+            let cell = collectionView.cellForItem(at: path) as? CalendarViewTextCell,
+            let dayNum = Int(cell.dateLabel.text!) {
+                curDate = Date(dayNum, currentDate.month, currentDate.year)
         }
         
         delegate.updateDate(curDate)
     }
     
     func refresh() {
-        title = formatter.stringFromDate(currentDate)
+        title = formatter.string(from: currentDate)
         calendarDelegate.currentDate = currentDate
         collectionView.reloadData()
     }
 
-    @IBAction func prevMonth(sender: AnyObject) {
+    @IBAction func prevMonth(_ sender: AnyObject) {
         currentDate = currentDate - 1.months
         refresh()
     }
     
-    @IBAction func nextMonth(sender: AnyObject) {
+    @IBAction func nextMonth(_ sender: AnyObject) {
         currentDate = currentDate + 1.months
         refresh()
     }

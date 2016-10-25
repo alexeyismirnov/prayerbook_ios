@@ -2,19 +2,19 @@
 import UIKit
 
 enum FeastType: Int {
-    case None=0, NoSign, SixVerse, Doxology, Polyeleos, Vigil, Great
+    case none=0, noSign, sixVerse, doxology, polyeleos, vigil, great
 }
 
 enum NameOfDay: Int {
-    case StartOfYear=0, Pascha, Pentecost, Ascension, PalmSunday, EveOfNativityOfGod, NativityOfGod, Circumcision, EveOfTheophany, Theophany, MeetingOfLord, Annunciation, NativityOfJohn, PeterAndPaul, Transfiguration, Dormition, BeheadingOfJohn, NativityOfTheotokos, ExaltationOfCross, VeilOfTheotokos, EntryIntoTemple, StNicholas, SundayOfPublicianAndPharisee, SundayOfProdigalSon, SundayOfDreadJudgement, CheesefareSunday, BeginningOfGreatLent, BeginningOfDormitionFast, BeginningOfNativityFast, BeginningOfApostolesFast, SundayOfForefathers, SundayBeforeNativity, SundayAfterExaltation, SaturdayAfterExaltation, SaturdayBeforeExaltation, SundayBeforeExaltation, SaturdayBeforeNativity, SaturdayAfterNativity, SundayAfterNativity, SaturdayBeforeTheophany, SundayBeforeTheophany, SaturdayAfterTheophany, SundayAfterTheophany, Sunday2AfterPascha, Sunday3AfterPascha, Sunday4AfterPascha, Sunday5AfterPascha, Sunday6AfterPascha, Sunday7AfterPascha, LazarusSaturday, NewMartyrsConfessorsOfRussia, EndOfYear
+    case startOfYear=0, pascha, pentecost, ascension, palmSunday, eveOfNativityOfGod, nativityOfGod, circumcision, eveOfTheophany, theophany, meetingOfLord, annunciation, nativityOfJohn, peterAndPaul, transfiguration, dormition, beheadingOfJohn, nativityOfTheotokos, exaltationOfCross, veilOfTheotokos, entryIntoTemple, stNicholas, sundayOfPublicianAndPharisee, sundayOfProdigalSon, sundayOfDreadJudgement, cheesefareSunday, beginningOfGreatLent, beginningOfDormitionFast, beginningOfNativityFast, beginningOfApostolesFast, sundayOfForefathers, sundayBeforeNativity, sundayAfterExaltation, saturdayAfterExaltation, saturdayBeforeExaltation, sundayBeforeExaltation, saturdayBeforeNativity, saturdayAfterNativity, sundayAfterNativity, saturdayBeforeTheophany, sundayBeforeTheophany, saturdayAfterTheophany, sundayAfterTheophany, sunday2AfterPascha, sunday3AfterPascha, sunday4AfterPascha, sunday5AfterPascha, sunday6AfterPascha, sunday7AfterPascha, lazarusSaturday, newMartyrsConfessorsOfRussia, endOfYear
 }
 
 enum FastingType: Int {
-    case NoFast=0, Vegetarian, FishAllowed, FastFree, Cheesefare
+    case noFast=0, vegetarian, fishAllowed, fastFree, cheesefare
 }
 
 enum DayOfWeek: Int  {
-    case Sunday=1, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+    case sunday=1, monday, tuesday, wednesday, thursday, friday, saturday
 }
 
 struct DateCache : Hashable {
@@ -37,245 +37,256 @@ func == (lhs: DateCache, rhs: DateCache) -> Bool {
 
 struct ChurchCalendar {
 
-    static var formatter: NSDateFormatter = {
-        var formatter = NSDateFormatter()
-        formatter.dateStyle = .ShortStyle
-        formatter.timeStyle = .NoStyle
+    static var formatter: DateFormatter = {
+        var formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
         return formatter
     }()
     
-    static var currentDate: NSDate!
+    static var currentDate: Date!
     static var currentYear: Int!
     static var currentWeekday: DayOfWeek!
-    static var feastDates = [NSDate: [NameOfDay]]()
-    static var dCache = [DateCache:NSDate]()
+    static var feastDates = [Date: [NameOfDay]]()
+    static var dCache = [DateCache:Date]()
 
-    static var dateFeastDescr = [NSDate: [(FeastType, String)]]()
+    static var dateFeastDescr = [Date: [(FeastType, String)]]()
     static let codeFeastDescr : [NameOfDay: [(FeastType, String)]] = [
-        .Pascha:                    [(.Great, "PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ")],
-        .Pentecost:                 [(.Great, "Pentecost. Sunday of the Holy Trinity. Descent of the Holy Spirit on the Apostles")],
-        .Ascension:                 [(.Great, "Ascension of our Lord, God, and Saviour Jesus Christ")],
-        .PalmSunday:                [(.Great, "Palm Sunday. Entrance of our Lord into Jerusalem")],
-        .EveOfNativityOfGod:        [(.NoSign, "Eve of the Nativity of Christ")],
-        .NativityOfGod:             [(.Great, "The Nativity of our Lord God and Savior Jesus Christ")],
-        .Circumcision:              [(.Great, "Circumcision of our Lord")],
-        .EveOfTheophany:            [(.NoSign, "Eve of Theophany")],
-        .Theophany:                 [(.Great, "Holy Theophany: the Baptism of Our Lord, God, and Saviour Jesus Christ")],
-        .MeetingOfLord:             [(.Great, "The Meeting of our Lord, God, and Saviour Jesus Christ in the Temple")],
-        .Annunciation:              [(.Great, "The Annunciation of our Most Holy Lady, Theotokos and Ever-Virgin Mary")],
-        .NativityOfJohn:            [(.Great, "Nativity of the Holy Glorious Prophet, Forerunner, and Baptist of the Lord, John")],
-        .PeterAndPaul:              [(.Great, "The Holy Glorious and All-Praised Leaders of the Apostles, Peter and Paul")],
-        .Transfiguration:           [(.Great, "The Holy Transfiguration of Our Lord God and Saviour Jesus Christ")],
-        .Dormition:                 [(.Great, "The Dormition (Repose) of our Most Holy Lady Theotokos and Ever-Virgin Mary")],
-        .BeheadingOfJohn:           [(.Great, "The Beheading of the Holy Glorious Prophet, Forerunner and Baptist of the Lord, John")],
-        .NativityOfTheotokos:       [(.Great, "Nativity of Our Most Holy Lady Theotokos and Ever-Virgin Mary")],
-        .ExaltationOfCross:         [(.Great, "The Universal Exaltation of the Precious and Life-Giving Cross")],
-        .VeilOfTheotokos:           [(.Great, "Protection of Our Most Holy Lady Theotokos and Ever-Virgin Mary")],
-        .EntryIntoTemple:           [(.Great, "Entry into the Temple of our Most Holy Lady Theotokos and Ever-Virgin Mary")],
-        .BeginningOfGreatLent:      [(.None, "Beginning of Great Lent")],
-        .BeginningOfDormitionFast:  [(.None, "Beginning of Dormition fast")],
-        .BeginningOfNativityFast:   [(.None, "Beginning of Nativity fast")],
-        .BeginningOfApostolesFast:  [(.None, "Beginning of Apostoles' fast")],
-        .SundayOfForefathers:       [(.None, "Sunday of the Holy Forefathers")],
-        .SundayAfterExaltation:     [(.None, "Sunday after the Exaltation")],
-        .SaturdayAfterExaltation:   [(.None, "Saturday after the Exaltation")],
-        .SaturdayBeforeExaltation:  [(.None, "Saturday before the Exaltation")],
-        .SundayBeforeExaltation:    [(.None, "Sunday before the Exaltation")],
-        .SaturdayBeforeNativity:    [(.None, "Saturday before the Nativity of Christ")],
-        .SundayBeforeNativity:      [(.None, "Sunday before the Nativity of Christ, of the Fathers")],
-        .SaturdayAfterNativity:     [(.None, "Saturday after the Nativity of Christ")],
-        .SundayAfterNativity:       [(.None, "Sunday after Nativity"),
-                                     (.NoSign, "Saints Joseph the Betrothed, David the King, and James the Brother of the Lord")],
-        .SaturdayBeforeTheophany:   [(.None, "Saturday before Theophany")],
-        .SundayBeforeTheophany:     [(.None, "Sunday before Theophany")],
-        .SaturdayAfterTheophany:    [(.None, "Saturday after Theophany")],
-        .SundayAfterTheophany:      [(.None, "Sunday after Theophany")],
-        .NewMartyrsConfessorsOfRussia: [(.Vigil, "Holy New Martyrs and Confessors of Russia")],
+        .pascha:                    [(.great, "PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ")],
+        .pentecost:                 [(.great, "Pentecost. Sunday of the Holy Trinity. Descent of the Holy Spirit on the Apostles")],
+        .ascension:                 [(.great, "Ascension of our Lord, God, and Saviour Jesus Christ")],
+        .palmSunday:                [(.great, "Palm Sunday. Entrance of our Lord into Jerusalem")],
+        .eveOfNativityOfGod:        [(.noSign, "Eve of the Nativity of Christ")],
+        .nativityOfGod:             [(.great, "The Nativity of our Lord God and Savior Jesus Christ")],
+        .circumcision:              [(.great, "Circumcision of our Lord")],
+        .eveOfTheophany:            [(.noSign, "Eve of Theophany")],
+        .theophany:                 [(.great, "Holy Theophany: the Baptism of Our Lord, God, and Saviour Jesus Christ")],
+        .meetingOfLord:             [(.great, "The Meeting of our Lord, God, and Saviour Jesus Christ in the Temple")],
+        .annunciation:              [(.great, "The Annunciation of our Most Holy Lady, Theotokos and Ever-Virgin Mary")],
+        .nativityOfJohn:            [(.great, "Nativity of the Holy Glorious Prophet, Forerunner, and Baptist of the Lord, John")],
+        .peterAndPaul:              [(.great, "The Holy Glorious and All-Praised Leaders of the Apostles, Peter and Paul")],
+        .transfiguration:           [(.great, "The Holy Transfiguration of Our Lord God and Saviour Jesus Christ")],
+        .dormition:                 [(.great, "The Dormition (Repose) of our Most Holy Lady Theotokos and Ever-Virgin Mary")],
+        .beheadingOfJohn:           [(.great, "The Beheading of the Holy Glorious Prophet, Forerunner and Baptist of the Lord, John")],
+        .nativityOfTheotokos:       [(.great, "Nativity of Our Most Holy Lady Theotokos and Ever-Virgin Mary")],
+        .exaltationOfCross:         [(.great, "The Universal Exaltation of the Precious and Life-Giving Cross")],
+        .veilOfTheotokos:           [(.great, "Protection of Our Most Holy Lady Theotokos and Ever-Virgin Mary")],
+        .entryIntoTemple:           [(.great, "Entry into the Temple of our Most Holy Lady Theotokos and Ever-Virgin Mary")],
+        .beginningOfGreatLent:      [(.none, "Beginning of Great Lent")],
+        .beginningOfDormitionFast:  [(.none, "Beginning of Dormition fast")],
+        .beginningOfNativityFast:   [(.none, "Beginning of Nativity fast")],
+        .beginningOfApostolesFast:  [(.none, "Beginning of Apostoles' fast")],
+        .sundayOfForefathers:       [(.none, "Sunday of the Holy Forefathers")],
+        .sundayAfterExaltation:     [(.none, "Sunday after the Exaltation")],
+        .saturdayAfterExaltation:   [(.none, "Saturday after the Exaltation")],
+        .saturdayBeforeExaltation:  [(.none, "Saturday before the Exaltation")],
+        .sundayBeforeExaltation:    [(.none, "Sunday before the Exaltation")],
+        .saturdayBeforeNativity:    [(.none, "Saturday before the Nativity of Christ")],
+        .sundayBeforeNativity:      [(.none, "Sunday before the Nativity of Christ, of the Fathers")],
+        .saturdayAfterNativity:     [(.none, "Saturday after the Nativity of Christ")],
+        .sundayAfterNativity:       [(.none, "Sunday after Nativity"),
+                                     (.noSign, "Saints Joseph the Betrothed, David the King, and James the Brother of the Lord")],
+        .saturdayBeforeTheophany:   [(.none, "Saturday before Theophany")],
+        .sundayBeforeTheophany:     [(.none, "Sunday before Theophany")],
+        .saturdayAfterTheophany:    [(.none, "Saturday after Theophany")],
+        .sundayAfterTheophany:      [(.none, "Sunday after Theophany")],
+        .newMartyrsConfessorsOfRussia: [(.vigil, "Holy New Martyrs and Confessors of Russia")],
     ]
 
     static let feastIcon : [FeastType: String] = [
-        .NoSign: "nosign",
-        .SixVerse: "sixverse",
-        .Doxology: "doxology",
-        .Polyeleos: "polyeleos",
-        .Vigil: "vigil",
-        .Great: "great"
+        .noSign: "nosign",
+        .sixVerse: "sixverse",
+        .doxology: "doxology",
+        .polyeleos: "polyeleos",
+        .vigil: "vigil",
+        .great: "great"
     ]
 
-    static let greatFeastCodes : [NameOfDay] = [.PalmSunday, .Pascha, .Ascension, .Pentecost, .NativityOfGod, .Circumcision, .Theophany, .MeetingOfLord, .Annunciation, .NativityOfJohn, .PeterAndPaul, .Transfiguration, .Dormition, .BeheadingOfJohn, .NativityOfTheotokos, .ExaltationOfCross, .VeilOfTheotokos, .EntryIntoTemple]
+    static let greatFeastCodes : [NameOfDay] = [.palmSunday, .pascha, .ascension, .pentecost, .nativityOfGod, .circumcision, .theophany, .meetingOfLord, .annunciation, .nativityOfJohn, .peterAndPaul, .transfiguration, .dormition, .beheadingOfJohn, .nativityOfTheotokos, .exaltationOfCross, .veilOfTheotokos, .entryIntoTemple]
 
-    static func saveFeastDate(code: NameOfDay, _ year:Int) {
+    static func saveFeastDate(_ code: NameOfDay, _ year:Int) {
         
-        if (code == .SundayBeforeNativity || code == .SaturdayBeforeNativity) {
+        if (code == .sundayBeforeNativity || code == .saturdayBeforeNativity) {
             // it is possible that there will be 2 Sundays or Saturdays before Nativity in a given year
             return;
         }
         
         var res = feastDates.filter({ (date, codes) in
-            return codes.contains(code) && NSDateComponents(date:date).year == year
+            return codes.contains(code) && DateComponents(date:date).year == year
         })
         
         dCache[DateCache(code, year)] = res[0].0
     }
     
-    static func d(code: NameOfDay) -> NSDate {
+    static func d(_ code: NameOfDay) -> Date {
         return dCache[DateCache(code, currentYear)]!
     }
     
-    static func setDate(date: NSDate) {
-        let dateComponents = NSDateComponents(date: date)
+    static func setDate(_ date: Date) {
+        let dateComponents = DateComponents(date: date)
         currentYear = dateComponents.year
-        currentWeekday = DayOfWeek(rawValue: dateComponents.weekday)
+        currentWeekday = DayOfWeek(rawValue: dateComponents.weekday!)
         currentDate = date
         
-        if dCache[DateCache(.Pascha, currentYear)] == nil {
+        if dCache[DateCache(.pascha, currentYear)] == nil {
             generateFeastDates(currentYear)
             generateFeastDescription(currentYear)
         }
     }
 
-    static func paschaDay(year: Int) -> NSDate {
+    static func paschaDay(_ year: Int) -> Date {
         // http://calendar.lenacom.spb.ru/index.php
         let a = (19*(year%19) + 15) % 30
         let b = (2*(year%4) + 4*(year%7) + 6*a + 6) % 7
 
-        return  ((a+b > 10) ? NSDate(a+b-9, 4, year) : NSDate(22+a+b, 3, year)) + 13.days
+        return  ((a+b > 10) ? Date(a+b-9, 4, year) : Date(22+a+b, 3, year)) + 13.days
     }
     
-    static func generateFeastDescription(year: Int) {
+    static func generateFeastDescription(_ year: Int) {
         let pascha = paschaDay(year)
         let greatLentStart = pascha-48.days
-        let pentecost = d(.Pentecost)
+        let pentecost = d(.pentecost)
         
-        let miscFeasts :[NSDate: [(FeastType, String)]] = [
-            greatLentStart-9.days: [(.None,    "Commemoration of the Departed")],
-            greatLentStart-2.days:  [(.NoSign, "Commemoration of all the saints, who showed forth in asceticism")],
-            greatLentStart+5.days:  [(.NoSign, "Great Martyr Theodore the Recruit († c. 306)")],
-            greatLentStart+6.days:  [(.None,   "Triumph of Orthodoxy")],
-            greatLentStart+12.days: [(.None,   "Commemoration of the Departed")],
-            greatLentStart+13.days: [(.NoSign, "Saint Gregory Palamas, Archbishop of Thessalonica († c. 1360)")],
-            greatLentStart+19.days: [(.None,   "Commemoration of the Departed")],
-            greatLentStart+20.days: [(.None,   "Veneration of the Precious Cross")],
-            greatLentStart+26.days: [(.None,   "Commemoration of the Departed")],
-            greatLentStart+27.days: [(.NoSign, "Venerable John Climacus of Sinai, Author of “the Ladder” († 649)")],
-            greatLentStart+33.days: [(.None,   "Saturday of the Akathist; Laudation of the Most Holy Theotokos")],
-            greatLentStart+34.days: [(.None,   "Venerable Mary of Egypt")],
-            pascha+5.days:          [(.None,   "Feast of the Life-Giving Spring of the Mother of God")],
-            pascha+9.days:          [(.None,   "Radonitsa (Day of Rejoycing)")],
-            pascha+14.days:         [(.NoSign, "St Joseph of Arimathea, and Nicodemus"),
-                                     (.NoSign, "Right-believing Tamara, Queen of Georgia († 1213)")],
-            pascha+21.days:         [(.NoSign, "Holy Martyr Abraham the Bulgar, Wonderworker of Vladimir († 1229)"),
-                                     (.NoSign, "Righteous Tabitha of Joppa (1st C)")],
-            pascha+24.days:         [(.None,   "Mid-Pentecost"),
-                                     (.None,   "Mozdok and Dubensky-Krasnohorská (17th C) Icons of the Mother of God")],
-            pascha+27.days:         [(.None,   "Synaxis of New Martyrs of Butovo")],
-            pascha+42.days:         [(.None,   "Chelnskoy and Pskov-Kiev Caves called “Tenderness” icons of the Mother of God")],
-            pascha+48.days:         [(.None,   "Trinity Saturday; Commemoration of the Departed")],
-            pentecost+1.days:       [(.None,   "Day of the Holy Spirit"),
-                                     (.None,   "Icons of the Mother of God “Tupichevsk” (1847) and “Cypriot” (392)")],
-            pentecost+4.days:       [(.None,   "Icon of the Mother of God “Surety of Sinners” in Korets (1622)")],
-            pentecost+7.days:       [(.None,   "Feast of All Saints"),
-                                     (.None,   "Icons of the Mother of God: “the Softener of evil hearts” and “the Indestructible Wall”")],
-            pentecost+14.days:      [(.None,   "All Saints who have shown forth in the land of Russia")],
+        var miscFeasts = [Date: [(FeastType, String)]]()
+            
+        miscFeasts += [
+            greatLentStart-9.days: [(.none,    "Commemoration of the Departed")],
+            greatLentStart-2.days:  [(.noSign, "Commemoration of all the saints, who showed forth in asceticism")],
+            greatLentStart+5.days:  [(.noSign, "Great Martyr Theodore the Recruit († c. 306)")],
+            greatLentStart+6.days:  [(.none,   "Triumph of Orthodoxy")],
+            greatLentStart+12.days: [(.none,   "Commemoration of the Departed")],
+            greatLentStart+13.days: [(.noSign, "Saint Gregory Palamas, Archbishop of Thessalonica († c. 1360)")],
+            greatLentStart+19.days: [(.none,   "Commemoration of the Departed")],
+            greatLentStart+20.days: [(.none,   "Veneration of the Precious Cross")],
+            greatLentStart+26.days: [(.none,   "Commemoration of the Departed")],
+            greatLentStart+27.days: [(.noSign, "Venerable John Climacus of Sinai, Author of “the Ladder” († 649)")],
+            greatLentStart+33.days: [(.none,   "Saturday of the Akathist; Laudation of the Most Holy Theotokos")],
+            greatLentStart+34.days: [(.none,   "Venerable Mary of Egypt")],
         ]
         
-        let beforeAfterFeasts :[NSDate: [(FeastType, String)]] = [
-            pascha+38.days:         [(.None,   "Apodosis of Pascha")],
-            pascha+40.days:         [(.None,   "Afterfeast of the Ascension")],
-            pascha+41.days:         [(.None,   "Afterfeast of the Ascension")],
-            pascha+42.days:         [(.None,   "Afterfeast of the Ascension")],
-            pascha+43.days:         [(.None,   "Afterfeast of the Ascension")],
-            pascha+44.days:         [(.None,   "Afterfeast of the Ascension")],
-            pascha+45.days:         [(.None,   "Afterfeast of the Ascension")],
-            pascha+46.days:         [(.None,   "Afterfeast of the Ascension")],
-            pascha+47.days:         [(.None,   "Apodosis of the Ascension")],
-            pentecost+6.days:       [(.None,   "Apodosis of Pentecost")],
+        miscFeasts += [
+            pascha+5.days:          [(.none,   "Feast of the Life-Giving Spring of the Mother of God")],
+            pascha+9.days:          [(.none,   "Radonitsa (Day of Rejoycing)")],
+            pascha+14.days:         [(.noSign, "St Joseph of Arimathea, and Nicodemus"),
+                                     (.noSign, "Right-believing Tamara, Queen of Georgia († 1213)")],
+            pascha+21.days:         [(.noSign, "Holy Martyr Abraham the Bulgar, Wonderworker of Vladimir († 1229)"),
+                                     (.noSign, "Righteous Tabitha of Joppa (1st C)")],
+            pascha+24.days:         [(.none,   "Mid-Pentecost"),
+                                     (.none,   "Mozdok and Dubensky-Krasnohorská (17th C) Icons of the Mother of God")],
+            pascha+27.days:         [(.none,   "Synaxis of New Martyrs of Butovo")],
+            pascha+42.days:         [(.none,   "Chelnskoy and Pskov-Kiev Caves called “Tenderness” icons of the Mother of God")],
+            pascha+48.days:         [(.none,   "Trinity Saturday; Commemoration of the Departed")],
+            pentecost+1.days:       [(.none,   "Day of the Holy Spirit"),
+                                     (.none,   "Icons of the Mother of God “Tupichevsk” (1847) and “Cypriot” (392)")],
+            pentecost+4.days:       [(.none,   "Icon of the Mother of God “Surety of Sinners” in Korets (1622)")],
+            pentecost+7.days:       [(.none,   "Feast of All Saints"),
+                                     (.none,   "Icons of the Mother of God: “the Softener of evil hearts” and “the Indestructible Wall”")],
+            pentecost+14.days:      [(.none,   "All Saints who have shown forth in the land of Russia")],
+        ]
+        
+        var beforeAfterFeasts = [Date: [(FeastType, String)]]()
             
-            NSDate(2, 1, year): [(.NoSign, "Forefeast of the Nativity")],
-            NSDate(3, 1, year): [(.NoSign, "Forefeast of the Nativity")],
-            NSDate(4, 1, year): [(.NoSign, "Forefeast of the Nativity")],
-            NSDate(5, 1, year): [(.NoSign, "Forefeast of the Nativity")],
-            NSDate(8, 1, year): [(.NoSign, "Afterfeast of the Nativity of Our Lord")],
-            NSDate(9, 1, year): [(.NoSign, "Afterfeast of the Nativity of Our Lord")],
-            NSDate(10, 1, year): [(.NoSign, "Afterfeast of the Nativity of Our Lord")],
-            NSDate(11, 1, year): [(.NoSign, "Afterfeast of the Nativity of Our Lord")],
-            NSDate(12, 1, year): [(.NoSign, "Afterfeast of the Nativity of Our Lord")],
-            NSDate(13, 1, year): [(.Doxology, "Apodosis of the Nativity of Christ")],
-            NSDate(15, 1, year): [(.NoSign, "Forefeast of Theophany")],
-            NSDate(16, 1, year): [(.NoSign, "Forefeast of Theophany")],
-            NSDate(17, 1, year): [(.NoSign, "Forefeast of Theophany")],
-            NSDate(20, 1, year): [(.NoSign, "Afterfeast of the Theophany")],
-            NSDate(21, 1, year): [(.NoSign, "Afterfeast of the Theophany")],
-            NSDate(22, 1, year): [(.NoSign, "Afterfeast of the Theophany")],
-            NSDate(23, 1, year): [(.NoSign, "Afterfeast of the Theophany")],
-            NSDate(24, 1, year): [(.NoSign, "Afterfeast of the Theophany")],
-            NSDate(25, 1, year): [(.NoSign, "Afterfeast of the Theophany")],
-            NSDate(26, 1, year): [(.NoSign, "Afterfeast of the Theophany")],
-            NSDate(27, 1, year): [(.NoSign, "Apodosis of the Theophany")],
+        beforeAfterFeasts = [
+            pascha+38.days:         [(.none,   "Apodosis of Pascha")],
+            pascha+40.days:         [(.none,   "Afterfeast of the Ascension")],
+            pascha+41.days:         [(.none,   "Afterfeast of the Ascension")],
+            pascha+42.days:         [(.none,   "Afterfeast of the Ascension")],
+            pascha+43.days:         [(.none,   "Afterfeast of the Ascension")],
+            pascha+44.days:         [(.none,   "Afterfeast of the Ascension")],
+            pascha+45.days:         [(.none,   "Afterfeast of the Ascension")],
+            pascha+46.days:         [(.none,   "Afterfeast of the Ascension")],
+            pascha+47.days:         [(.none,   "Apodosis of the Ascension")],
+            pentecost+6.days:       [(.none,   "Apodosis of Pentecost")],
+        ]
+        
+        beforeAfterFeasts += [
+            Date(2, 1, year): [(.noSign, "Forefeast of the Nativity")],
+            Date(3, 1, year): [(.noSign, "Forefeast of the Nativity")],
+            Date(4, 1, year): [(.noSign, "Forefeast of the Nativity")],
+            Date(5, 1, year): [(.noSign, "Forefeast of the Nativity")],
+            Date(8, 1, year): [(.noSign, "Afterfeast of the Nativity of Our Lord")],
+            Date(9, 1, year): [(.noSign, "Afterfeast of the Nativity of Our Lord")],
+            Date(10, 1, year): [(.noSign, "Afterfeast of the Nativity of Our Lord")],
+            Date(11, 1, year): [(.noSign, "Afterfeast of the Nativity of Our Lord")],
+            Date(12, 1, year): [(.noSign, "Afterfeast of the Nativity of Our Lord")],
+            Date(13, 1, year): [(.doxology, "Apodosis of the Nativity of Christ")],
+            Date(15, 1, year): [(.noSign, "Forefeast of Theophany")],
+            Date(16, 1, year): [(.noSign, "Forefeast of Theophany")],
+            Date(17, 1, year): [(.noSign, "Forefeast of Theophany")],
+            Date(20, 1, year): [(.noSign, "Afterfeast of the Theophany")],
+            Date(21, 1, year): [(.noSign, "Afterfeast of the Theophany")],
+            Date(22, 1, year): [(.noSign, "Afterfeast of the Theophany")],
+            Date(23, 1, year): [(.noSign, "Afterfeast of the Theophany")],
+            Date(24, 1, year): [(.noSign, "Afterfeast of the Theophany")],
+            Date(25, 1, year): [(.noSign, "Afterfeast of the Theophany")],
+            Date(26, 1, year): [(.noSign, "Afterfeast of the Theophany")],
+            Date(27, 1, year): [(.noSign, "Apodosis of the Theophany")],
+        ]
+        
+        beforeAfterFeasts += [
+            Date(18, 8, year): [(.sixVerse, "Forefeast of the Transfiguration of the Lord")],
+            Date(20, 8, year): [(.noSign, "Afterfeast of the Transfiguration of the Lord")],
+            Date(21, 8, year): [(.noSign, "Afterfeast of the Transfiguration of the Lord")],
+            Date(22, 8, year): [(.noSign, "Afterfeast of the Transfiguration of the Lord")],
+            Date(23, 8, year): [(.noSign, "Afterfeast of the Transfiguration of the Lord")],
+            Date(24, 8, year): [(.noSign, "Afterfeast of the Transfiguration of the Lord")],
+            Date(25, 8, year): [(.noSign, "Afterfeast of the Transfiguration of the Lord")],
+            Date(26, 8, year): [(.doxology, "Apodosis of the Transfiguration of the Lord")],
+            Date(27, 8, year): [(.sixVerse, "Forefeast of the Dormition of the Mother of God")],
+            Date(29, 8, year): [(.noSign, "Afterfeast of the Dormition")],
+            Date(30, 8, year): [(.noSign, "Afterfeast of the Dormition")],
+            Date(31, 8, year): [(.noSign, "Afterfeast of the Dormition")],
+            Date(1, 9, year): [(.noSign, "Afterfeast of the Dormition")],
+            Date(2, 9, year): [(.noSign, "Afterfeast of the Dormition")],
+            Date(3, 9, year): [(.noSign, "Afterfeast of the Dormition")],
+            Date(4, 9, year): [(.noSign, "Afterfeast of the Dormition")],
+            Date(5, 9, year): [(.doxology, "Apodosis of the Dormition")],
 
-            NSDate(18, 8, year): [(.SixVerse, "Forefeast of the Transfiguration of the Lord")],
-            NSDate(20, 8, year): [(.NoSign, "Afterfeast of the Transfiguration of the Lord")],
-            NSDate(21, 8, year): [(.NoSign, "Afterfeast of the Transfiguration of the Lord")],
-            NSDate(22, 8, year): [(.NoSign, "Afterfeast of the Transfiguration of the Lord")],
-            NSDate(23, 8, year): [(.NoSign, "Afterfeast of the Transfiguration of the Lord")],
-            NSDate(24, 8, year): [(.NoSign, "Afterfeast of the Transfiguration of the Lord")],
-            NSDate(25, 8, year): [(.NoSign, "Afterfeast of the Transfiguration of the Lord")],
-            NSDate(26, 8, year): [(.Doxology, "Apodosis of the Transfiguration of the Lord")],
-            NSDate(27, 8, year): [(.SixVerse, "Forefeast of the Dormition of the Mother of God")],
-            NSDate(29, 8, year): [(.NoSign, "Afterfeast of the Dormition")],
-            NSDate(30, 8, year): [(.NoSign, "Afterfeast of the Dormition")],
-            NSDate(31, 8, year): [(.NoSign, "Afterfeast of the Dormition")],
-            NSDate(1, 9, year): [(.NoSign, "Afterfeast of the Dormition")],
-            NSDate(2, 9, year): [(.NoSign, "Afterfeast of the Dormition")],
-            NSDate(3, 9, year): [(.NoSign, "Afterfeast of the Dormition")],
-            NSDate(4, 9, year): [(.NoSign, "Afterfeast of the Dormition")],
-            NSDate(5, 9, year): [(.Doxology, "Apodosis of the Dormition")],
-
-            NSDate(20, 9, year): [(.NoSign, "Forefeast of the Nativity of the Theotokos")],
-            NSDate(22, 9, year): [(.NoSign, "Afterfeast of the Nativity of the Theotokos")],
-            NSDate(23, 9, year): [(.NoSign, "Afterfeast of the Nativity of the Theotokos")],
-            NSDate(24, 9, year): [(.NoSign, "Afterfeast of the Nativity of the Theotokos")],
-            NSDate(25, 9, year): [(.Doxology, "Apodosis of the Nativity of the Theotokos")],
-            NSDate(26, 9, year): [(.NoSign, "Forefeast of the Exaltation of the Cross")],
-            NSDate(28, 9, year): [(.NoSign, "Afterfeast of the Exaltation of the Cross")],
-            NSDate(29, 9, year): [(.NoSign, "Afterfeast of the Exaltation of the Cross")],
-            NSDate(30, 9, year): [(.NoSign, "Afterfeast of the Exaltation of the Cross")],
-            NSDate(1, 10, year): [(.NoSign, "Afterfeast of the Exaltation of the Cross")],
-            NSDate(2, 10, year): [(.NoSign, "Afterfeast of the Exaltation of the Cross")],
-            NSDate(3, 10, year): [(.NoSign, "Afterfeast of the Exaltation of the Cross")],
-            NSDate(4, 10, year): [(.Doxology, "Apodosis of the Exaltation of the Cross")],
-            NSDate(3, 12, year): [(.NoSign, "Forefeast of the Entry of the Theotokos")],
-            NSDate(5, 12, year): [(.NoSign, "Afterfeast of the Entry of the Theotokos")],
-            NSDate(6, 12, year): [(.NoSign, "Afterfeast of the Entry of the Theotokos")],
-            NSDate(7, 12, year): [(.NoSign, "Afterfeast of the Entry of the Theotokos")],
-            NSDate(8, 12, year): [(.Doxology, "Apodosis of the Entry of the Theotokos")],
+            Date(20, 9, year): [(.noSign, "Forefeast of the Nativity of the Theotokos")],
+            Date(22, 9, year): [(.noSign, "Afterfeast of the Nativity of the Theotokos")],
+            Date(23, 9, year): [(.noSign, "Afterfeast of the Nativity of the Theotokos")],
+            Date(24, 9, year): [(.noSign, "Afterfeast of the Nativity of the Theotokos")],
+            Date(25, 9, year): [(.doxology, "Apodosis of the Nativity of the Theotokos")],
+            Date(26, 9, year): [(.noSign, "Forefeast of the Exaltation of the Cross")],
+            Date(28, 9, year): [(.noSign, "Afterfeast of the Exaltation of the Cross")],
+            Date(29, 9, year): [(.noSign, "Afterfeast of the Exaltation of the Cross")],
+            Date(30, 9, year): [(.noSign, "Afterfeast of the Exaltation of the Cross")],
+            Date(1, 10, year): [(.noSign, "Afterfeast of the Exaltation of the Cross")],
+            Date(2, 10, year): [(.noSign, "Afterfeast of the Exaltation of the Cross")],
+            Date(3, 10, year): [(.noSign, "Afterfeast of the Exaltation of the Cross")],
+            Date(4, 10, year): [(.doxology, "Apodosis of the Exaltation of the Cross")],
+            Date(3, 12, year): [(.noSign, "Forefeast of the Entry of the Theotokos")],
+            Date(5, 12, year): [(.noSign, "Afterfeast of the Entry of the Theotokos")],
+            Date(6, 12, year): [(.noSign, "Afterfeast of the Entry of the Theotokos")],
+            Date(7, 12, year): [(.noSign, "Afterfeast of the Entry of the Theotokos")],
+            Date(8, 12, year): [(.doxology, "Apodosis of the Entry of the Theotokos")],
         ]
         
         dateFeastDescr += miscFeasts
         dateFeastDescr += beforeAfterFeasts
         
-        let demetrius = NSDate(8, 11, year)
-        let demetriusWeekday = NSDateComponents(date: demetrius).weekday
+        let demetrius = Date(8, 11, year)
+        let demetriusWeekday = DateComponents(date: demetrius).weekday!
         
         dateFeastDescr += [
-            demetrius - demetriusWeekday.days: [(.None, "Demetrius Saturday: Commemoration of the Departed")]
+            demetrius - demetriusWeekday.days: [(.none, "Demetrius Saturday: Commemoration of the Departed")]
         ]
         
         // Sources: 
         // http://azbyka.ru/days/p-tablica-dnej-predprazdnstv-poprazdnstv-i-otdanij-dvunadesjatyh-nepodvizhnyh-i-podvizhnyh-gospodskih-prazdnikov
         
-        let annunciation = NSDate(7,  4, year)
-        var annunciationFeasts = [NSDate: [(FeastType, String)]]()
+        let annunciation = Date(7,  4, year)
+        var annunciationFeasts = [Date: [(FeastType, String)]]()
         
         switch (annunciation) {
-        case d(.StartOfYear) ..< d(.LazarusSaturday):
+        case d(.startOfYear) ..< d(.lazarusSaturday):
             annunciationFeasts = [
-                annunciation-1.days: [(.SixVerse, "Forefeast of the Annunciation")],
-                annunciation+1.days: [(.Doxology, "Apodosis of the Annunciation")],
+                annunciation-1.days: [(.sixVerse, "Forefeast of the Annunciation")],
+                annunciation+1.days: [(.doxology, "Apodosis of the Annunciation")],
             ]
-        case d(.LazarusSaturday):
+        case d(.lazarusSaturday):
             annunciationFeasts = [
-                annunciation-1.days: [(.SixVerse, "Forefeast of the Annunciation")],
+                annunciation-1.days: [(.sixVerse, "Forefeast of the Annunciation")],
             ]
 
         default:
@@ -287,33 +298,33 @@ struct ChurchCalendar {
         // АРХИМАНДРИТ ИОАНН (МАСЛОВ). КОНСПЕКТ ПО ЛИТУРГИКЕ ДЛЯ 3-го класса
         // Глава: СРЕТЕНИЕ ГОСПОДНЕ (2 февраля)
 
-        let meetingOfLord = NSDate(15, 2, year)
-        var meetingOfLordFeasts = [NSDate: [(FeastType, String)]]()
+        let meetingOfLord = Date(15, 2, year)
+        var meetingOfLordFeasts = [Date: [(FeastType, String)]]()
         
         meetingOfLordFeasts = [
-            meetingOfLord-1.days: [(.SixVerse, "Forefeast of the Meeting of the Lord")],
+            meetingOfLord-1.days: [(.sixVerse, "Forefeast of the Meeting of the Lord")],
         ]
         
         var lastDay = meetingOfLord
         
         switch (meetingOfLord) {
-        case d(.StartOfYear) ..< d(.SundayOfProdigalSon)-1.days:
+        case d(.startOfYear) ..< d(.sundayOfProdigalSon)-1.days:
             lastDay = meetingOfLord+7.days
 
-        case d(.SundayOfProdigalSon)-1.days ... d(.SundayOfProdigalSon)+2.days:
-            lastDay = d(.SundayOfProdigalSon)+5.days
+        case d(.sundayOfProdigalSon)-1.days ... d(.sundayOfProdigalSon)+2.days:
+            lastDay = d(.sundayOfProdigalSon)+5.days
 
-        case d(.SundayOfProdigalSon)+3.days ..< d(.SundayOfDreadJudgement):
-            lastDay = d(.SundayOfDreadJudgement) + 2.days
+        case d(.sundayOfProdigalSon)+3.days ..< d(.sundayOfDreadJudgement):
+            lastDay = d(.sundayOfDreadJudgement) + 2.days
             
-        case d(.SundayOfDreadJudgement) ... d(.SundayOfDreadJudgement)+1.days:
-            lastDay = d(.SundayOfDreadJudgement) + 4.days
+        case d(.sundayOfDreadJudgement) ... d(.sundayOfDreadJudgement)+1.days:
+            lastDay = d(.sundayOfDreadJudgement) + 4.days
 
-        case d(.SundayOfDreadJudgement)+2.days ... d(.SundayOfDreadJudgement)+3.days:
-            lastDay = d(.SundayOfDreadJudgement) + 6.days
+        case d(.sundayOfDreadJudgement)+2.days ... d(.sundayOfDreadJudgement)+3.days:
+            lastDay = d(.sundayOfDreadJudgement) + 6.days
 
-        case d(.SundayOfDreadJudgement)+4.days ... d(.SundayOfDreadJudgement)+6.days:
-            lastDay = d(.CheesefareSunday)
+        case d(.sundayOfDreadJudgement)+4.days ... d(.sundayOfDreadJudgement)+6.days:
+            lastDay = d(.cheesefareSunday)
 
         default:
             break
@@ -322,11 +333,11 @@ struct ChurchCalendar {
         if (lastDay != meetingOfLord) {
             for afterfeastDay in DateRange(meetingOfLord+1.days, lastDay-1.days) {
                 meetingOfLordFeasts += [
-                    afterfeastDay: [(.NoSign, "Afterfeast of the Meeting of the Lord")],
+                    afterfeastDay: [(.noSign, "Afterfeast of the Meeting of the Lord")],
                 ]
             }
             meetingOfLordFeasts += [
-                lastDay: [(.Doxology, "Apodosis of the Meeting of the Lord")]
+                lastDay: [(.doxology, "Apodosis of the Meeting of the Lord")]
             ]
         }
 
@@ -335,119 +346,119 @@ struct ChurchCalendar {
     }
     
     
-    static func generateFeastDates(year: Int) {
+    static func generateFeastDates(_ year: Int) {
         let pascha = paschaDay(year)
         let greatLentStart = pascha-48.days
 
-        let movingFeasts : [NSDate: [NameOfDay]] = [
-            greatLentStart-22.days:                   [.SundayOfPublicianAndPharisee],
-            greatLentStart-15.days:                   [.SundayOfProdigalSon],
-            greatLentStart-8.days:                    [.SundayOfDreadJudgement],
-            greatLentStart-1.days:                    [.CheesefareSunday],
-            greatLentStart:                           [.BeginningOfGreatLent],
-            pascha-8.days:                            [.LazarusSaturday],
-            pascha-7.days:                            [.PalmSunday],
-            pascha:                                   [.Pascha],
-            pascha+7.days:                            [.Sunday2AfterPascha],
-            pascha+14.days:                           [.Sunday3AfterPascha],
-            pascha+21.days:                           [.Sunday4AfterPascha],
-            pascha+28.days:                           [.Sunday5AfterPascha],
-            pascha+35.days:                           [.Sunday6AfterPascha],
-            pascha+42.days:                           [.Sunday7AfterPascha],
+        let movingFeasts : [Date: [NameOfDay]] = [
+            greatLentStart-22.days:                   [.sundayOfPublicianAndPharisee],
+            greatLentStart-15.days:                   [.sundayOfProdigalSon],
+            greatLentStart-8.days:                    [.sundayOfDreadJudgement],
+            greatLentStart-1.days:                    [.cheesefareSunday],
+            greatLentStart:                           [.beginningOfGreatLent],
+            pascha-8.days:                            [.lazarusSaturday],
+            pascha-7.days:                            [.palmSunday],
+            pascha:                                   [.pascha],
+            pascha+7.days:                            [.sunday2AfterPascha],
+            pascha+14.days:                           [.sunday3AfterPascha],
+            pascha+21.days:                           [.sunday4AfterPascha],
+            pascha+28.days:                           [.sunday5AfterPascha],
+            pascha+35.days:                           [.sunday6AfterPascha],
+            pascha+42.days:                           [.sunday7AfterPascha],
 
-            pascha+39.days:                           [.Ascension],
-            pascha+49.days:                           [.Pentecost],
-            pascha+57.days:                           [.BeginningOfApostolesFast],
+            pascha+39.days:                           [.ascension],
+            pascha+49.days:                           [.pentecost],
+            pascha+57.days:                           [.beginningOfApostolesFast],
         ]
         
-        let fixedFeasts : [NSDate: [NameOfDay]] = [
-            NSDate(1,  1, year):   [.StartOfYear],
-            NSDate(6,  1, year):   [.EveOfNativityOfGod],
-            NSDate(7,  1, year):   [.NativityOfGod],
-            NSDate(14, 1, year):   [.Circumcision],
-            NSDate(18, 1, year):   [.EveOfTheophany],
-            NSDate(19, 1, year):   [.Theophany],
-            NSDate(15, 2, year):   [.MeetingOfLord],
-            NSDate(7,  4, year):   [.Annunciation],
-            NSDate(7,  7, year):   [.NativityOfJohn],
-            NSDate(12, 7, year):   [.PeterAndPaul],
-            NSDate(14, 8, year):   [.BeginningOfDormitionFast],
-            NSDate(19, 8, year):   [.Transfiguration],
-            NSDate(28, 8, year):   [.Dormition],
-            NSDate(11, 9, year):   [.BeheadingOfJohn],
-            NSDate(21, 9, year):   [.NativityOfTheotokos],
-            NSDate(27, 9, year):   [.ExaltationOfCross],
-            NSDate(14, 10, year):  [.VeilOfTheotokos],
-            NSDate(28, 11, year):  [.BeginningOfNativityFast],
-            NSDate(4,  12, year):  [.EntryIntoTemple],
-            NSDate(19, 12, year):  [.StNicholas],
-            NSDate(31, 12, year):  [.EndOfYear],
+        let fixedFeasts : [Date: [NameOfDay]] = [
+            Date(1,  1, year):   [.startOfYear],
+            Date(6,  1, year):   [.eveOfNativityOfGod],
+            Date(7,  1, year):   [.nativityOfGod],
+            Date(14, 1, year):   [.circumcision],
+            Date(18, 1, year):   [.eveOfTheophany],
+            Date(19, 1, year):   [.theophany],
+            Date(15, 2, year):   [.meetingOfLord],
+            Date(7,  4, year):   [.annunciation],
+            Date(7,  7, year):   [.nativityOfJohn],
+            Date(12, 7, year):   [.peterAndPaul],
+            Date(14, 8, year):   [.beginningOfDormitionFast],
+            Date(19, 8, year):   [.transfiguration],
+            Date(28, 8, year):   [.dormition],
+            Date(11, 9, year):   [.beheadingOfJohn],
+            Date(21, 9, year):   [.nativityOfTheotokos],
+            Date(27, 9, year):   [.exaltationOfCross],
+            Date(14, 10, year):  [.veilOfTheotokos],
+            Date(28, 11, year):  [.beginningOfNativityFast],
+            Date(4,  12, year):  [.entryIntoTemple],
+            Date(19, 12, year):  [.stNicholas],
+            Date(31, 12, year):  [.endOfYear],
         ];
 
         feastDates += movingFeasts
         feastDates += fixedFeasts
         
-        let exaltation = NSDate(27, 9, year)
-        let exaltationWeekday = NSDateComponents(date: exaltation).weekday
-        feastDates += [exaltation + (8-exaltationWeekday).days: [.SundayAfterExaltation]]
+        let exaltation = Date(27, 9, year)
+        let exaltationWeekday = DateComponents(date: exaltation).weekday!
+        feastDates += [exaltation + (8-exaltationWeekday).days: [.sundayAfterExaltation]]
 
         let exaltationSatOffset = (exaltationWeekday == 7) ? 7 : 7-exaltationWeekday
-        feastDates += [exaltation + exaltationSatOffset.days: [.SaturdayAfterExaltation]]
+        feastDates += [exaltation + exaltationSatOffset.days: [.saturdayAfterExaltation]]
         
         let exaltationSunOffset = (exaltationWeekday == 1) ? 7 : exaltationWeekday-1
-        feastDates += [exaltation - exaltationSunOffset.days: [.SundayBeforeExaltation]]
+        feastDates += [exaltation - exaltationSunOffset.days: [.sundayBeforeExaltation]]
 
-        feastDates += [exaltation - exaltationWeekday.days: [.SaturdayBeforeExaltation]]
+        feastDates += [exaltation - exaltationWeekday.days: [.saturdayBeforeExaltation]]
 
-        let nativity = NSDate(7, 1, year)
-        let nativityWeekday = NSDateComponents(date:nativity).weekday
+        let nativity = Date(7, 1, year)
+        let nativityWeekday = DateComponents(date:nativity).weekday!
         let nativitySunOffset = (nativityWeekday == 1) ? 7 : (nativityWeekday-1)
         if nativitySunOffset != 7 {
-            feastDates += [nativity - nativitySunOffset.days: [.SundayBeforeNativity]]
+            feastDates += [nativity - nativitySunOffset.days: [.sundayBeforeNativity]]
         }
 
         if nativityWeekday != 7 {
-            feastDates += [nativity - nativityWeekday.days: [.SaturdayBeforeNativity]]
+            feastDates += [nativity - nativityWeekday.days: [.saturdayBeforeNativity]]
         }
 
-        feastDates += [nativity + (8-nativityWeekday).days: [.SundayAfterNativity]]
+        feastDates += [nativity + (8-nativityWeekday).days: [.sundayAfterNativity]]
         
         let nativitySatOffset = (nativityWeekday == 7) ? 7 : 7-nativityWeekday
-        feastDates += [nativity + nativitySatOffset.days: [.SaturdayAfterNativity]]
+        feastDates += [nativity + nativitySatOffset.days: [.saturdayAfterNativity]]
         
-        let nativityNextYear = NSDate(7, 1, year+1)
-        let nativityNextYearWeekday = NSDateComponents(date:nativityNextYear).weekday
+        let nativityNextYear = Date(7, 1, year+1)
+        let nativityNextYearWeekday = DateComponents(date:nativityNextYear).weekday!
         var nativityNextYearSunOffset = (nativityNextYearWeekday == 1) ? 7 : (nativityNextYearWeekday-1)
 
         if nativityNextYearSunOffset == 7 {
-            feastDates += [NSDate(31, 12, year): [.SundayBeforeNativity]]
+            feastDates += [Date(31, 12, year): [.sundayBeforeNativity]]
         }
         
         if nativityNextYearWeekday == 7 {
-            feastDates += [NSDate(31, 12, year): [.SaturdayBeforeNativity]]
+            feastDates += [Date(31, 12, year): [.saturdayBeforeNativity]]
         }
         
         nativityNextYearSunOffset += 7
-        feastDates += [nativityNextYear - nativityNextYearSunOffset.days: [.SundayOfForefathers]]
+        feastDates += [nativityNextYear - nativityNextYearSunOffset.days: [.sundayOfForefathers]]
         
-        let theophany = NSDate(19, 1, year)
-        let theophanyWeekday = NSDateComponents(date:theophany).weekday
+        let theophany = Date(19, 1, year)
+        let theophanyWeekday = DateComponents(date:theophany).weekday!
 
         let theophanySunOffset = (theophanyWeekday == 1) ?  7 : (theophanyWeekday-1)
         let theophanySatOffset = (theophanyWeekday == 7) ? 7 : 7-theophanyWeekday
 
-        feastDates += [theophany - theophanySunOffset.days: [.SundayBeforeTheophany]]
-        feastDates += [theophany - theophanyWeekday.days: [.SaturdayBeforeTheophany]]
-        feastDates += [theophany + (8-theophanyWeekday).days: [.SundayAfterTheophany]]
-        feastDates += [theophany + theophanySatOffset.days: [.SaturdayAfterTheophany]]
+        feastDates += [theophany - theophanySunOffset.days: [.sundayBeforeTheophany]]
+        feastDates += [theophany - theophanyWeekday.days: [.saturdayBeforeTheophany]]
+        feastDates += [theophany + (8-theophanyWeekday).days: [.sundayAfterTheophany]]
+        feastDates += [theophany + theophanySatOffset.days: [.saturdayAfterTheophany]]
         
-        let newMartyrs = NSDate(7, 2, year)
-        let newMartyrsWeekday = NSDateComponents(date:newMartyrs).weekday
+        let newMartyrs = Date(7, 2, year)
+        let newMartyrsWeekday = DateComponents(date:newMartyrs).weekday!
         let newMartyrsSunOffset = (newMartyrsWeekday == 1) ? 0 : 8-newMartyrsWeekday
-        feastDates += [newMartyrs + newMartyrsSunOffset.days: [.NewMartyrsConfessorsOfRussia]]
+        feastDates += [newMartyrs + newMartyrsSunOffset.days: [.newMartyrsConfessorsOfRussia]]
 
-        let start: Int = NameOfDay.StartOfYear.rawValue
-        let end: Int = NameOfDay.EndOfYear.rawValue
+        let start: Int = NameOfDay.startOfYear.rawValue
+        let end: Int = NameOfDay.endOfYear.rawValue
         
         for index in start...end {
             let code = NameOfDay(rawValue: index)
@@ -456,7 +467,7 @@ struct ChurchCalendar {
 
     }
 
-    static func isGreatFeast(date: NSDate) -> Bool {
+    static func isGreatFeast(_ date: Date) -> Bool {
         if let feastCodes = feastDates[date] {
             for code in feastCodes {
                 if greatFeastCodes.contains(code) {
@@ -467,7 +478,7 @@ struct ChurchCalendar {
         return false
     }
     
-    static func getDayDescription(date: NSDate) -> [(FeastType, String)] {
+    static func getDayDescription(_ date: Date) -> [(FeastType, String)] {
         var result = [(FeastType, String)]()
         
         setDate(date)
@@ -482,7 +493,7 @@ struct ChurchCalendar {
             }
         }
 
-        result.sortInPlace { $0.0.rawValue < $1.0.rawValue }
+        result.sort { $0.0.rawValue < $1.0.rawValue }
 
         if let feasts = dateFeastDescr[date] {
             for feast in feasts {
@@ -493,20 +504,20 @@ struct ChurchCalendar {
         return result
     }
     
-    static func getWeekDescription(date: NSDate) -> String? {
+    static func getWeekDescription(_ date: Date) -> String? {
         
         let sundays : [NameOfDay:String] = [
-            .SundayOfPublicianAndPharisee: "Sunday of the Publican and the Pharisee",
-            .SundayOfProdigalSon: "Sunday of the Prodigal Son",
-            .SundayOfDreadJudgement: "Sunday of the Dread Judgement",
-            .CheesefareSunday: "Cheesefare Sunday (Forgiveness Sunday): Commemoration of the Expulsion of Adam from Paradise",
-            .Sunday2AfterPascha: "Second Sunday after Pascha. Thomas Sunday, or Antipascha",
-            .Sunday3AfterPascha: "Third Sunday after Pascha. Sunday of the Myrrhbearing Women",
-            .Sunday4AfterPascha: "Fourth Sunday after Pascha. Sunday of the Paralytic",
-            .Sunday5AfterPascha: "Fifth Sunday after Pascha. Sunday of the Samaritan Woman",
-            .Sunday6AfterPascha: "Sixth Sunday after Pascha. Sunday of the Blind Man",
-            .Sunday7AfterPascha: "Seventh Sunday after Pascha. Commemoration of the 318 Holy Fathers of the First Ecumenical Council (325)",
-            .LazarusSaturday: "Saturday of Palms (Lazarus Saturday)",
+            .sundayOfPublicianAndPharisee: "Sunday of the Publican and the Pharisee",
+            .sundayOfProdigalSon: "Sunday of the Prodigal Son",
+            .sundayOfDreadJudgement: "Sunday of the Dread Judgement",
+            .cheesefareSunday: "Cheesefare Sunday (Forgiveness Sunday): Commemoration of the Expulsion of Adam from Paradise",
+            .sunday2AfterPascha: "Second Sunday after Pascha. Thomas Sunday, or Antipascha",
+            .sunday3AfterPascha: "Third Sunday after Pascha. Sunday of the Myrrhbearing Women",
+            .sunday4AfterPascha: "Fourth Sunday after Pascha. Sunday of the Paralytic",
+            .sunday5AfterPascha: "Fifth Sunday after Pascha. Sunday of the Samaritan Woman",
+            .sunday6AfterPascha: "Sixth Sunday after Pascha. Sunday of the Blind Man",
+            .sunday7AfterPascha: "Seventh Sunday after Pascha. Commemoration of the 318 Holy Fathers of the First Ecumenical Council (325)",
+            .lazarusSaturday: "Saturday of Palms (Lazarus Saturday)",
         ];
         
         setDate(date)
@@ -519,59 +530,59 @@ struct ChurchCalendar {
             }
         }
         
-        let dayOfWeek = (currentWeekday == .Sunday) ? "Sunday" : "Week"
+        let dayOfWeek = (currentWeekday == .sunday) ? "Sunday" : "Week"
         
         switch (date) {
-        case d(.StartOfYear) ..< d(.SundayOfPublicianAndPharisee):
+        case d(.startOfYear) ..< d(.sundayOfPublicianAndPharisee):
             return  String(format: Translate.s("\(dayOfWeek) %@ after Pentecost"), Translate.stringFromNumber(((paschaDay(currentYear-1)+50.days) >> date)/7+1))
             
-        case d(.SundayOfPublicianAndPharisee)+1.days ..< d(.SundayOfProdigalSon):
+        case d(.sundayOfPublicianAndPharisee)+1.days ..< d(.sundayOfProdigalSon):
             return Translate.s("Week of the Publican and the Pharisee")
 
-        case d(.SundayOfProdigalSon)+1.days ..< d(.SundayOfDreadJudgement):
+        case d(.sundayOfProdigalSon)+1.days ..< d(.sundayOfDreadJudgement):
             return Translate.s("Week of the Prodigal Son")
 
-        case d(.SundayOfDreadJudgement)+1.days ..< d(.BeginningOfGreatLent)-1.days:
+        case d(.sundayOfDreadJudgement)+1.days ..< d(.beginningOfGreatLent)-1.days:
             return Translate.s("Week of the Dread Judgement")
 
-        case d(.BeginningOfGreatLent) ..< d(.PalmSunday):
-            return  String(format: Translate.s("\(dayOfWeek) %@ of Great Lent"), Translate.stringFromNumber((d(.BeginningOfGreatLent) >> date)/7+1))
+        case d(.beginningOfGreatLent) ..< d(.palmSunday):
+            return  String(format: Translate.s("\(dayOfWeek) %@ of Great Lent"), Translate.stringFromNumber((d(.beginningOfGreatLent) >> date)/7+1))
         
-        case d(.PalmSunday)+1.days:
+        case d(.palmSunday)+1.days:
             return Translate.s("Great Monday")
             
-        case d(.PalmSunday)+2.days:
+        case d(.palmSunday)+2.days:
             return Translate.s("Great Tuesday")
 
-        case d(.PalmSunday)+3.days:
+        case d(.palmSunday)+3.days:
             return Translate.s("Great Wednesday")
 
-        case d(.PalmSunday)+4.days:
+        case d(.palmSunday)+4.days:
             return Translate.s("Great Thursday")
             
-        case d(.PalmSunday)+5.days:
+        case d(.palmSunday)+5.days:
             return Translate.s("Great Friday")
 
-        case d(.PalmSunday)+6.days:
+        case d(.palmSunday)+6.days:
             return Translate.s("Great Saturday")
             
-        case d(.Pascha)+1.days ..< d(.Pascha)+7.days:
+        case d(.pascha)+1.days ..< d(.pascha)+7.days:
             return Translate.s("Bright Week")
             
-        case d(.Pascha)+8.days ..< d(.Pentecost):
-            let weekNum = (d(.Pascha) >> date)/7+1
-            return (currentWeekday == .Sunday) ? nil : String(format: Translate.s("Week %@ after Pascha"), Translate.stringFromNumber(weekNum))
+        case d(.pascha)+8.days ..< d(.pentecost):
+            let weekNum = (d(.pascha) >> date)/7+1
+            return (currentWeekday == .sunday) ? nil : String(format: Translate.s("Week %@ after Pascha"), Translate.stringFromNumber(weekNum))
             
-        case d(.Pentecost)+1.days ... d(.EndOfYear):
-            return  String(format: Translate.s("\(dayOfWeek) %@ after Pentecost"), Translate.stringFromNumber(((d(.Pentecost)+1.days) >> date)/7+1))
+        case d(.pentecost)+1.days ... d(.endOfYear):
+            return  String(format: Translate.s("\(dayOfWeek) %@ after Pentecost"), Translate.stringFromNumber(((d(.pentecost)+1.days) >> date)/7+1))
             
         default: return nil
         }
         
     }
     
-    static func getTone(date: NSDate) -> Int? {
-        func tone(dayNum dayNum: Int) -> Int {
+    static func getTone(_ date: Date) -> Int? {
+        func tone(dayNum: Int) -> Int {
             let reminder = (dayNum/7) % 8
             return (reminder == 0) ? 8 : reminder
         }
@@ -579,17 +590,17 @@ struct ChurchCalendar {
         setDate(date)
         
         switch (date) {
-        case d(.StartOfYear) ..< d(.PalmSunday):
+        case d(.startOfYear) ..< d(.palmSunday):
             return tone(dayNum: paschaDay(currentYear-1) >> date)
             
-        case d(.Pascha)+7.days ... d(.EndOfYear):
-            return tone(dayNum: d(.Pascha) >> date)
+        case d(.pascha)+7.days ... d(.endOfYear):
+            return tone(dayNum: d(.pascha) >> date)
             
         default: return nil
         }
     }
     
-    static func getToneDescription(date: NSDate) -> String? {
+    static func getToneDescription(_ date: Date) -> String? {
         if let tone = getTone(date) {
             return String(format: Translate.s("Tone %@"), Translate.stringFromNumber(tone))
 
@@ -598,92 +609,92 @@ struct ChurchCalendar {
         }
     }
 
-    static func getFastingDescription(date: NSDate) -> (FastingType, String) {
+    static func getFastingDescription(_ date: Date) -> (FastingType, String) {
 
         setDate(date)
         
         switch date {
-        case d(.MeetingOfLord):
-            if date == d(.BeginningOfGreatLent) {
-                return (.Vegetarian, Translate.s("Great Lent"))
+        case d(.meetingOfLord):
+            if date == d(.beginningOfGreatLent) {
+                return (.vegetarian, Translate.s("Great Lent"))
             } else {
-                return (.NoFast, Translate.s("No fast"))
+                return (.noFast, Translate.s("No fast"))
             }
 
-        case d(.Theophany):
-            return (.NoFast, Translate.s("No fast"))
+        case d(.theophany):
+            return (.noFast, Translate.s("No fast"))
             
-        case d(.NativityOfTheotokos),
-        d(.PeterAndPaul),
-        d(.Dormition),
-        d(.VeilOfTheotokos):
-            return (currentWeekday == .Wednesday ||
-                    currentWeekday == .Friday) ? (.FishAllowed, Translate.s("Fish allowed")) : (.NoFast, Translate.s("No fast"))
+        case d(.nativityOfTheotokos),
+        d(.peterAndPaul),
+        d(.dormition),
+        d(.veilOfTheotokos):
+            return (currentWeekday == .wednesday ||
+                    currentWeekday == .friday) ? (.fishAllowed, Translate.s("Fish allowed")) : (.noFast, Translate.s("No fast"))
             
-        case d(.NativityOfJohn),
-        d(.Transfiguration),
-        d(.EntryIntoTemple),
-        d(.StNicholas),
-        d(.PalmSunday):
-            return (.FishAllowed, Translate.s("Fish allowed"))
+        case d(.nativityOfJohn),
+        d(.transfiguration),
+        d(.entryIntoTemple),
+        d(.stNicholas),
+        d(.palmSunday):
+            return (.fishAllowed, Translate.s("Fish allowed"))
             
-        case d(.EveOfTheophany),
-        d(.BeheadingOfJohn),
-        d(.ExaltationOfCross):
-            return (.Vegetarian, Translate.s("Fast day"))
+        case d(.eveOfTheophany),
+        d(.beheadingOfJohn),
+        d(.exaltationOfCross):
+            return (.vegetarian, Translate.s("Fast day"))
             
-        case d(.StartOfYear):
-            return (currentWeekday == .Saturday ||
-                    currentWeekday == .Sunday) ? (.FishAllowed, Translate.s("Nativity Fast")) : (.Vegetarian, Translate.s("Nativity Fast"))
+        case d(.startOfYear):
+            return (currentWeekday == .saturday ||
+                    currentWeekday == .sunday) ? (.fishAllowed, Translate.s("Nativity Fast")) : (.vegetarian, Translate.s("Nativity Fast"))
             
-        case d(.StartOfYear)+1.days ..< d(.NativityOfGod):
-            return (.Vegetarian, Translate.s("Nativity Fast"))
+        case d(.startOfYear)+1.days ..< d(.nativityOfGod):
+            return (.vegetarian, Translate.s("Nativity Fast"))
             
-        case d(.NativityOfGod) ..< d(.EveOfTheophany):
-            return (.FastFree, Translate.s("Svyatki"))
+        case d(.nativityOfGod) ..< d(.eveOfTheophany):
+            return (.fastFree, Translate.s("Svyatki"))
             
-        case d(.SundayOfPublicianAndPharisee)+1.days ... d(.SundayOfProdigalSon):
-            return (.FastFree, Translate.s("Fast-free week"))
+        case d(.sundayOfPublicianAndPharisee)+1.days ... d(.sundayOfProdigalSon):
+            return (.fastFree, Translate.s("Fast-free week"))
             
-        case d(.SundayOfDreadJudgement)+1.days ..< d(.BeginningOfGreatLent):
-            return (.Cheesefare, Translate.s("Maslenitsa"))
+        case d(.sundayOfDreadJudgement)+1.days ..< d(.beginningOfGreatLent):
+            return (.cheesefare, Translate.s("Maslenitsa"))
             
-        case d(.BeginningOfGreatLent) ..< d(.PalmSunday):
-            return (date == d(.Annunciation)) ? (.FishAllowed, Translate.s("Fish allowed")) : (.Vegetarian, Translate.s("Great Lent"))
+        case d(.beginningOfGreatLent) ..< d(.palmSunday):
+            return (date == d(.annunciation)) ? (.fishAllowed, Translate.s("Fish allowed")) : (.vegetarian, Translate.s("Great Lent"))
             
-        case d(.PalmSunday)+1.days ..< d(.Pascha):
-            return (.Vegetarian, Translate.s("Vegetarian"))
+        case d(.palmSunday)+1.days ..< d(.pascha):
+            return (.vegetarian, Translate.s("Vegetarian"))
             
-        case d(.Pascha)+1.days ... d(.Pascha)+7.days:
-            return (.FastFree, Translate.s("Fast-free week"))
+        case d(.pascha)+1.days ... d(.pascha)+7.days:
+            return (.fastFree, Translate.s("Fast-free week"))
             
-        case d(.Pentecost)+1.days ... d(.Pentecost)+7.days:
-            return (.FastFree, Translate.s("Fast-free week"))
+        case d(.pentecost)+1.days ... d(.pentecost)+7.days:
+            return (.fastFree, Translate.s("Fast-free week"))
             
-        case d(.BeginningOfApostolesFast) ... d(.PeterAndPaul)-1.days:
-            return (currentWeekday == .Monday ||
-                    currentWeekday == .Wednesday ||
-                    currentWeekday == .Friday) ? (.Vegetarian, Translate.s("Apostoles' Fast")) : (.FishAllowed, Translate.s("Apostoles' Fast"))
+        case d(.beginningOfApostolesFast) ... d(.peterAndPaul)-1.days:
+            return (currentWeekday == .monday ||
+                    currentWeekday == .wednesday ||
+                    currentWeekday == .friday) ? (.vegetarian, Translate.s("Apostoles' Fast")) : (.fishAllowed, Translate.s("Apostoles' Fast"))
             
-        case d(.BeginningOfDormitionFast) ... d(.Dormition)-1.days:
-            return (.Vegetarian, Translate.s("Dormition Fast"))
+        case d(.beginningOfDormitionFast) ... d(.dormition)-1.days:
+            return (.vegetarian, Translate.s("Dormition Fast"))
             
-        case d(.BeginningOfNativityFast) ..< d(.StNicholas):
-            return (currentWeekday == .Monday ||
-                    currentWeekday == .Wednesday ||
-                    currentWeekday == .Friday) ? (.Vegetarian, Translate.s("Nativity Fast")) : (.FishAllowed, Translate.s("Nativity Fast"))
+        case d(.beginningOfNativityFast) ..< d(.stNicholas):
+            return (currentWeekday == .monday ||
+                    currentWeekday == .wednesday ||
+                    currentWeekday == .friday) ? (.vegetarian, Translate.s("Nativity Fast")) : (.fishAllowed, Translate.s("Nativity Fast"))
             
-        case d(.StNicholas) ... d(.EndOfYear):
-            return (currentWeekday == .Saturday ||
-                    currentWeekday == .Sunday) ? (.FishAllowed, Translate.s("Nativity Fast")) : (.Vegetarian, Translate.s("Nativity Fast"))
+        case d(.stNicholas) ... d(.endOfYear):
+            return (currentWeekday == .saturday ||
+                    currentWeekday == .sunday) ? (.fishAllowed, Translate.s("Nativity Fast")) : (.vegetarian, Translate.s("Nativity Fast"))
             
-        case d(.NativityOfGod) ..< d(.Pentecost)+8.days:
-            return (currentWeekday == .Wednesday ||
-                    currentWeekday == .Friday) ? (.FishAllowed, Translate.s("Fish allowed")) : (.NoFast, Translate.s("No fast"))
+        case d(.nativityOfGod) ..< d(.pentecost)+8.days:
+            return (currentWeekday == .wednesday ||
+                    currentWeekday == .friday) ? (.fishAllowed, Translate.s("Fish allowed")) : (.noFast, Translate.s("No fast"))
             
         default:
-            return (currentWeekday == .Wednesday ||
-                    currentWeekday == .Friday) ? (.Vegetarian, Translate.s("Vegetarian")) : (.NoFast, Translate.s("No fast"))
+            return (currentWeekday == .wednesday ||
+                    currentWeekday == .friday) ? (.vegetarian, Translate.s("Vegetarian")) : (.noFast, Translate.s("No fast"))
         }
     }
 }
