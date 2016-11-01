@@ -34,9 +34,7 @@ class CalendarContainer: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        calendarDelegate = CalendarGridDelegate()
-        calendarDelegate.containerType = .mainApp
-        
+        calendarDelegate = CalendarGridDelegate()        
         collectionView.delegate = calendarDelegate
         collectionView.dataSource = calendarDelegate
         

@@ -10,10 +10,6 @@ import UIKit
 
 private let reuseIdentifier = "CalendarTextCell"
 
-enum CalendarContainerType: Int {
-    case mainApp=0, todayExtension
-}
-
 class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     let prefs = UserDefaults(suiteName: groupId)!
@@ -40,7 +36,6 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     }()
     
     var startGap: Int!
-    var containerType : CalendarContainerType!
     var selectedDate: Date?
 
     override init() {
@@ -84,7 +79,7 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
             let (fastType, _) = Cal.getFastingDescription(curDate, FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!)
             
             if fastType == .noFast || fastType == .noFastMonastic {
-                let textColor = (containerType == .mainApp) ? UIColor.black : UIColor.white
+                let textColor = UIColor.black
                 cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.red : textColor
 
             } else {
