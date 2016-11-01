@@ -41,10 +41,20 @@ class CompactViewController: UIViewController {
     
     @IBOutlet weak var dayDescription: UILabel!
     @IBOutlet weak var saintsDescription: UILabel!
+    @IBOutlet weak var buttonUp: UIButton!
+    @IBOutlet weak var buttonDown: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let image1 = UIImage(named: "fat-up")!.withRenderingMode(.alwaysTemplate)
+        buttonUp.setImage(image1, for: UIControlState())
+        buttonUp.imageView?.tintColor = UIColor.darkGray
+
+        let image2 = UIImage(named: "fat-down")!.withRenderingMode(.alwaysTemplate)
+        buttonDown.setImage(image2, for: UIControlState())
+        buttonDown.imageView?.tintColor = UIColor.darkGray
+
         Translate.files = ["trans_ui", "trans_cal", "trans_library"]
 
         if let language = prefs.object(forKey: "language") as? String {
@@ -79,6 +89,14 @@ class CompactViewController: UIViewController {
         
         MainViewController.describe(saints: feasts, label: saintsDescription)
 
+    }
+    
+    @IBAction func prevDay(_ sender: Any) {
+        print("prev day")
+    }
+    
+    @IBAction func nextDay(_ sender: Any) {
+        print("next day")
     }
     
     

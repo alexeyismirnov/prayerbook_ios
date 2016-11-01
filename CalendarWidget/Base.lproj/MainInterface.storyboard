@@ -46,6 +46,9 @@
                                     <constraint firstAttribute="height" constant="35" id="xCe-rD-dHi"/>
                                 </constraints>
                                 <state key="normal" image="fat-up"/>
+                                <connections>
+                                    <action selector="prevDay:" destination="lhJ-F1-SaC" eventType="touchUpInside" id="u2a-S5-9Lb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfZ-CC-xmf">
                                 <rect key="frame" x="397" y="97" width="35" height="35"/>
@@ -54,6 +57,9 @@
                                     <constraint firstAttribute="height" constant="35" id="K7V-Qe-w5R"/>
                                 </constraints>
                                 <state key="normal" image="fat-down"/>
+                                <connections>
+                                    <action selector="nextDay:" destination="lhJ-F1-SaC" eventType="touchUpInside" id="CMt-BI-VQ8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -76,6 +82,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="450" height="150"/>
                     <connections>
+                        <outlet property="buttonDown" destination="PfZ-CC-xmf" id="3oO-bK-ygz"/>
+                        <outlet property="buttonUp" destination="f5L-ho-hpC" id="cev-gK-eYd"/>
                         <outlet property="dayDescription" destination="nhA-xW-cRz" id="Q7U-B4-xG9"/>
                         <outlet property="saintsDescription" destination="9Qy-uD-kXS" id="lAE-hj-EkR"/>
                     </connections>

@@ -11,29 +11,22 @@ import NotificationCenter
 
 class MainViewController : UINavigationController, NCWidgetProviding {
     
-    init() {
-        let storyboard = UIStoryboard(name: "MainInterface", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "Expanded")
-        
-        super.init(rootViewController: viewController)
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         isNavigationBarHidden = true
-    
 
         if #available(iOSApplicationExtension 10.0, *) { // Xcode would suggest you implement this.
             extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         }
-        
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-
-    }
-    
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     @available(iOSApplicationExtension 10.0, *)
@@ -53,7 +46,7 @@ class MainViewController : UINavigationController, NCWidgetProviding {
         }
 
         pushViewController(viewController, animated: false)
-}
+    }
 
     func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
         return UIEdgeInsets.zero
