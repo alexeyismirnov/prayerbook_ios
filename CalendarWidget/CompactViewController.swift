@@ -8,6 +8,18 @@
 
 import UIKit
 
+extension String {
+    func capitalizingFirstLetter() -> String {
+        let first = String(characters.prefix(1)).capitalized
+        let other = String(characters.dropFirst())
+        return first + other
+    }
+    
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
+}
+
 class CompactViewController: UIViewController {
 
     var formatter: DateFormatter = {
@@ -41,7 +53,7 @@ class CompactViewController: UIViewController {
         
         formatter.locale = Translate.locale as Locale!
         
-        var descr = formatter.string(from: currentDate)
+        var descr = formatter.string(from: currentDate).capitalizingFirstLetter()
         
         if let weekDescription = Cal.getWeekDescription(currentDate) {
             descr += weekDescription

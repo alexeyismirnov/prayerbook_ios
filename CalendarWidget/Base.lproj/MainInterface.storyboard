@@ -22,13 +22,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Day description" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhA-xW-cRz">
-                                <rect key="frame" x="20" y="22" width="408" height="45"/>
+                                <rect key="frame" x="20" y="22" width="362" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Qy-uD-kXS">
-                                <rect key="frame" x="26" y="85" width="398" height="45"/>
+                                <rect key="frame" x="26" y="85" width="346" height="45"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Saints">
                                         <attributes>
@@ -39,14 +39,34 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5L-ho-hpC">
+                                <rect key="frame" x="393" y="14" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="6x3-nz-Qej"/>
+                                    <constraint firstAttribute="height" constant="35" id="xCe-rD-dHi"/>
+                                </constraints>
+                                <state key="normal" image="fat-up"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfZ-CC-xmf">
+                                <rect key="frame" x="397" y="97" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="9yd-zB-mH2"/>
+                                    <constraint firstAttribute="height" constant="35" id="K7V-Qe-w5R"/>
+                                </constraints>
+                                <state key="normal" image="fat-down"/>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="nhA-xW-cRz" firstAttribute="leading" secondItem="0mK-L8-bOk" secondAttribute="leading" constant="15" id="3wB-dj-e6u"/>
+                            <constraint firstAttribute="trailing" secondItem="f5L-ho-hpC" secondAttribute="trailing" constant="10" id="87w-P0-xLr"/>
                             <constraint firstItem="9Qy-uD-kXS" firstAttribute="top" secondItem="nhA-xW-cRz" secondAttribute="bottom" constant="10" id="9SU-lu-xQI"/>
                             <constraint firstItem="9Qy-uD-kXS" firstAttribute="leading" secondItem="0mK-L8-bOk" secondAttribute="leading" constant="15" id="Bmn-D3-9Oo"/>
+                            <constraint firstItem="fku-2Q-BjI" firstAttribute="top" secondItem="PfZ-CC-xmf" secondAttribute="bottom" constant="10" id="DXm-Kn-YvV"/>
+                            <constraint firstItem="f5L-ho-hpC" firstAttribute="leading" secondItem="nhA-xW-cRz" secondAttribute="trailing" constant="10" id="Im2-gH-f1i"/>
+                            <constraint firstItem="f5L-ho-hpC" firstAttribute="top" secondItem="yaP-4H-5bA" secondAttribute="bottom" constant="10" id="LE1-Zd-8CC"/>
                             <constraint firstItem="nhA-xW-cRz" firstAttribute="top" secondItem="yaP-4H-5bA" secondAttribute="bottom" constant="10" id="MNz-6q-FrB"/>
-                            <constraint firstAttribute="trailing" secondItem="9Qy-uD-kXS" secondAttribute="trailing" constant="15" id="TAc-kV-ejO"/>
-                            <constraint firstAttribute="trailing" secondItem="nhA-xW-cRz" secondAttribute="trailing" constant="15" id="itV-8z-L3x"/>
+                            <constraint firstItem="PfZ-CC-xmf" firstAttribute="leading" secondItem="9Qy-uD-kXS" secondAttribute="trailing" constant="10" id="Sj4-Mm-4g2"/>
+                            <constraint firstAttribute="trailing" secondItem="PfZ-CC-xmf" secondAttribute="trailing" constant="10" id="ipu-Y8-MeU"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -286,8 +306,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="fat-down" width="25" height="25"/>
         <image name="fat-left" width="25" height="25"/>
         <image name="fat-right" width="25" height="25"/>
+        <image name="fat-up" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

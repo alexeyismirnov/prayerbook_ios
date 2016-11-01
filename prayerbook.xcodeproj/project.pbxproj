@@ -74,6 +74,8 @@
 		8A2F46A919E1302700076AF4 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A819E1302700076AF4 /* Translate.swift */; };
 		8A2F46AB19E145D200076AF4 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46AA19E145D200076AF4 /* Options.swift */; };
 		8A339AD81DC83F7B0026FD10 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A339AD71DC83F7B0026FD10 /* CompactViewController.swift */; };
+		8A339AE01DC87B730026FD10 /* fat-down.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A339ADE1DC87B730026FD10 /* fat-down.pdf */; };
+		8A339AE11DC87B730026FD10 /* fat-up.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A339ADF1DC87B730026FD10 /* fat-up.pdf */; };
 		8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */; };
 		8A41936319E6921600D570A9 /* food-egg.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936119E6921600D570A9 /* food-egg.pdf */; };
 		8A41936419E6921600D570A9 /* food-milk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936219E6921600D570A9 /* food-milk.pdf */; };
@@ -342,6 +344,8 @@
 		8A2F46AA19E145D200076AF4 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Bridging-Header.h"; sourceTree = "<group>"; };
 		8A339AD71DC83F7B0026FD10 /* CompactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
+		8A339ADE1DC87B730026FD10 /* fat-down.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-down.pdf"; sourceTree = "<group>"; };
+		8A339ADF1DC87B730026FD10 /* fat-up.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-up.pdf"; sourceTree = "<group>"; };
 		8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-cupcake.pdf"; sourceTree = "<group>"; };
 		8A41936119E6921600D570A9 /* food-egg.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-egg.pdf"; sourceTree = "<group>"; };
 		8A41936219E6921600D570A9 /* food-milk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-milk.pdf"; sourceTree = "<group>"; };
@@ -598,9 +602,11 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
-				8AC278061C61986000436D51 /* widget.pdf */,
+				8A339ADE1DC87B730026FD10 /* fat-down.pdf */,
+				8A339ADF1DC87B730026FD10 /* fat-up.pdf */,
 				8AE718D41C560CC30035CDCE /* fat-right.pdf */,
 				8AE718CD1C560C420035CDCE /* fat-left.pdf */,
+				8AC278061C61986000436D51 /* widget.pdf */,
 				8AB62A651C180F4F001ACD2A /* zoom_in.pdf */,
 				8AB62A661C180F4F001ACD2A /* zoom_out.pdf */,
 				8AE74D911B9C103B000DD7D2 /* close2.pdf */,
@@ -1084,7 +1090,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A339AE01DC87B730026FD10 /* fat-down.pdf in Resources */,
 				8AB749A71C4C7A3500CD1B32 /* MainInterface.storyboard in Resources */,
+				8A339AE11DC87B730026FD10 /* fat-up.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
