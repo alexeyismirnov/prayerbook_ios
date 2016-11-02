@@ -72,7 +72,7 @@ class ExpandedViewController: UIViewController {
     func refresh() {
         formatter.locale = Locale(identifier: "ru")
 
-        monthLabel.text = formatter.string(from: currentDate)
+        monthLabel.text = formatter.string(from: currentDate).capitalizingFirstLetter()
         calendarDelegate.currentDate = currentDate
         collectionView.reloadData()
         
@@ -97,7 +97,7 @@ class ExpandedViewController: UIViewController {
         let dayDescription = Cal.getDayDescription(date)
         let feasts = (saints+dayDescription).sorted { $0.0.rawValue > $1.0.rawValue }
         
-        MainViewController.describe(saints: feasts, label: saintsLabel)
+        saintsLabel.attributedText = MainViewController.describe(saints: feasts, font: saintsLabel.font)
     }
     
     func tapOnCell(_ recognizer: UITapGestureRecognizer) {

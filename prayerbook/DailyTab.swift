@@ -131,7 +131,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             switch (indexPath as NSIndexPath).row {
             case 0:
                 let cell: TextDetailsCell = getCell()
-                cell.title.text = formatter.string(from: currentDate)
+                cell.title.text = formatter.string(from: currentDate).capitalizingFirstLetter()
                 cell.subtitle.text = formatterOldStyle.string(from: currentDate-13.days)
                 return cell
 

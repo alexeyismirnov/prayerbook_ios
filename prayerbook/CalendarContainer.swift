@@ -69,7 +69,7 @@ class CalendarContainer: UIViewController {
     }
     
     func refresh() {
-        title = formatter.string(from: currentDate)
+        title = formatter.string(from: currentDate).capitalizingFirstLetter()
         calendarDelegate.currentDate = currentDate
         collectionView.reloadData()
     }

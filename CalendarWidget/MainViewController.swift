@@ -56,7 +56,7 @@ class MainViewController : UINavigationController, NCWidgetProviding {
         completionHandler(NCUpdateResult.newData)
     }
     
-    static func describe(saints: [(FeastType, String)], label: UILabel!)  {
+    static func describe(saints: [(FeastType, String)], font: UIFont!) -> NSAttributedString {
         let myString = NSMutableAttributedString(string: "")
         
         if let iconName = Cal.feastIcon[saints[0].0] {
@@ -66,7 +66,7 @@ class MainViewController : UINavigationController, NCWidgetProviding {
             let attachment = NSTextAttachment()
             attachment.image = image.resize(CGSize(width: 15, height: 15))
             
-            attachment.bounds = CGRect(x: 0.0, y: label.font.descender, width: attachment.image!.size.width, height: attachment.image!.size.height)
+            attachment.bounds = CGRect(x: 0.0, y: font.descender, width: attachment.image!.size.width, height: attachment.image!.size.height)
             
             myString.append(NSAttributedString(attachment: attachment))
         }
@@ -75,7 +75,7 @@ class MainViewController : UINavigationController, NCWidgetProviding {
                                                   attributes: [NSForegroundColorAttributeName:
                                                     (saints[0].0 == .great) ? UIColor.red:UIColor.black] ))
         
-        label.attributedText = myString
+        return myString
     }
     
 
