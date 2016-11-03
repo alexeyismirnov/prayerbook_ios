@@ -24,8 +24,15 @@ class MainViewController : UINavigationController, NCWidgetProviding {
         
         isNavigationBarHidden = true
 
-        if #available(iOSApplicationExtension 10.0, *) { // Xcode would suggest you implement this.
+        if #available(iOSApplicationExtension 10.0, *) {
             extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+            
+        } else {
+            self.preferredContentSize = CGSize(width: 0.0, height: 350)
+
+            let storyboard = UIStoryboard(name: "MainInterface", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "Expanded")
+            pushViewController(viewController, animated: false)
         }
     }
     
@@ -60,7 +67,15 @@ class MainViewController : UINavigationController, NCWidgetProviding {
         let myString = NSMutableAttributedString(string: "")
         
         if let iconName = Cal.feastIcon[saints[0].0] {
-            let iconColor = (saints[0].0 == .noSign || saints[0].0 == .sixVerse) ? UIColor.black : UIColor.red
+            
+            var iconColor:UIColor
+            
+            if #available(iOSApplicationExtension 10.0, *) {
+                iconColor = (saints[0].0 == .noSign || saints[0].0 == .sixVerse) ? UIColor.black : UIColor.red
+            } else {
+                iconColor = (saints[0].0 == .noSign || saints[0].0 == .sixVerse) ? UIColor.white : UIColor.red
+            }
+            
             let image = UIImage(named: iconName)!.maskWithColor(iconColor)
             
             let attachment = NSTextAttachment()
@@ -71,9 +86,19 @@ class MainViewController : UINavigationController, NCWidgetProviding {
             myString.append(NSAttributedString(attachment: attachment))
         }
         
+        var textColor:UIColor
+        
+        if #available(iOSApplicationExtension 10.0, *) {
+            textColor = (saints[0].0 == .great) ? UIColor.red:UIColor.black
+        } else {
+            textColor = (saints[0].0 == .great) ? UIColor.red:UIColor.white
+        }
+        
         myString.append(NSMutableAttributedString(string: saints[0].1,
-                                                  attributes: [NSForegroundColorAttributeName:
-                                                    (saints[0].0 == .great) ? UIColor.red:UIColor.black] ))
+                                                  attributes: [
+                                                    NSForegroundColorAttributeName: textColor,
+                                                               NSFontAttributeName: font
+                                                               ]))
         
         return myString
     }

@@ -10,6 +10,10 @@ import UIKit
 
 private let reuseIdentifier = "CalendarTextCell"
 
+enum CalendarContainerType: Int {
+    case mainApp=0, todayExtension
+}
+
 class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     let prefs = UserDefaults(suiteName: groupId)!
@@ -37,6 +41,7 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     
     var startGap: Int!
     var selectedDate: Date?
+    var containerType : CalendarContainerType!
 
     override init() {
         super.init()
@@ -70,17 +75,30 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
 
         cell.dateLabel.text = String(format: "%d", dayIndex)
         cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.red : UIColor.black
-
+        
         if curDate == selectedDate {
             cell.contentView.backgroundColor = UIColor(hex:"#FF8C00")
 
         } else {
-            
             let (fastType, _) = Cal.getFastingDescription(curDate, FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!)
             
             if fastType == .noFast || fastType == .noFastMonastic {
-                let textColor = UIColor.black
-                cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.red : textColor
+                var textColor:UIColor
+
+                if Cal.isGreatFeast(curDate) {
+                    textColor =  UIColor.red
+                    
+                } else if containerType == .mainApp {
+                    textColor =  UIColor.black
+                    
+                } else if #available(iOSApplicationExtension 10.0, *) {
+                    textColor =  UIColor.black
+                    
+                } else {
+                    textColor =  UIColor.white
+                }
+        
+                cell.dateLabel.textColor =  textColor
 
             } else {
                 cell.contentView.backgroundColor = UIColor(hex:Cal.fastingColor[fastType]!)

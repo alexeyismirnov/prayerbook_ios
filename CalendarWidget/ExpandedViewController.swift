@@ -47,6 +47,7 @@ class ExpandedViewController: UIViewController {
         buttonRight.setImage(arrowRight, for: UIControlState())
 
         calendarDelegate = CalendarGridDelegate()
+        calendarDelegate.containerType = .todayExtension
         collectionView.delegate = calendarDelegate
         collectionView.dataSource = calendarDelegate
         
