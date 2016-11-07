@@ -91,7 +91,7 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
                 } else if containerType == .mainApp {
                     textColor =  UIColor.black
                     
-                } else if #available(iOSApplicationExtension 10.0, *) {
+                } else if #available(iOS 10.0, *) {
                     textColor =  UIColor.black
                     
                 } else {
@@ -131,6 +131,15 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
             for index in 1...cal.firstWeekday-1 {
                 if let label = view.viewWithTag(8-cal.firstWeekday+index) as? UILabel {
                     label.text = dayLabel[index-1]
+                }
+            }
+        }
+        
+        if #available(iOS 10.0, *) {
+        } else if containerType == .todayExtension  {
+            for index in 1...7 {
+                if let label = view.viewWithTag(index) as? UILabel {
+                    label.textColor = UIColor.white
                 }
             }
         }

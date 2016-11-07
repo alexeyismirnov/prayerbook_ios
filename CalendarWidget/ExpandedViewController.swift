@@ -10,7 +10,12 @@ import UIKit
 import NotificationCenter
 
 class ExpandedViewController: UIViewController {
-    
+
+    enum AnimationDirection: Int {
+        case positive = 1
+        case negative = -1
+    }
+
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var buttonRight: UIButton!
     @IBOutlet weak var buttonLeft: UIButton!
@@ -80,16 +85,55 @@ class ExpandedViewController: UIViewController {
         showSaints()
     }
 
+    private func animateCalendar(direction : AnimationDirection) {
+        collectionView.superview?.constraints.forEach { con in
+            if con.identifier == "calendar" {
+                con.constant = view.frame.width * CGFloat(direction.rawValue) * -1.0
+            }
+        }
+        
+        UIView.animate(withDuration: 0.5,
+                       animations: { self.view.layoutIfNeeded() },
+                       completion: { _ in
+                        self.collectionView.superview?.constraints.forEach { con in
+                            if con.identifier == "calendar" {
+                                con.constant = self.view.frame.width * CGFloat(direction.rawValue)
+                                
+                                if direction == .positive {
+                                    self.currentDate = self.currentDate + 1.months
+                                } else {
+                                    self.currentDate = self.currentDate - 1.months
+                                }
+                                
+                                self.calendarDelegate.selectedDate = Date(1, self.currentDate.month, self.currentDate.year)
+                                self.refresh()
+                            }
+                        }
+                        
+                        self.view.layoutIfNeeded()
+                        
+                        self.collectionView.superview?.constraints.forEach { con in
+                            if con.identifier == "calendar" {
+                                con.constant = 0
+                            }
+                        }
+                        
+                        UIView.animate(withDuration: 0.5,
+                                       animations: { self.view.layoutIfNeeded() },
+                                       completion: nil
+                        )
+                        
+        }
+        )
+
+    }
+    
     @IBAction func prevMonth(_ sender: AnyObject) {
-        currentDate = currentDate - 1.months
-        calendarDelegate.selectedDate = Date(1, currentDate.month, currentDate.year)
-        refresh()
+        animateCalendar(direction: .negative)
     }
     
     @IBAction func nextMonth(_ sender: AnyObject) {
-        currentDate = currentDate + 1.months
-        calendarDelegate.selectedDate = Date(1, currentDate.month, currentDate.year)
-        refresh()
+        animateCalendar(direction: .positive)
     }
     
     func showSaints() {

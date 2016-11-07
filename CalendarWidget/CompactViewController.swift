@@ -140,7 +140,7 @@ class CompactViewController: UIViewController {
         dayDescription = UILabel(frame: frame)
         view.addSubview(dayDescription)
         
-        if ["iPhone 4", "iPhone 4s", "iPhone 5", "iPhone 5s", "iPhone 5c"].contains(UIDevice.modelName) {
+        if ["iPhone 5", "iPhone 5s", "iPhone 5c", "iPhone 6", "iPhone 6s", "iPhone 7"].contains(UIDevice.modelName) {
             dayDescription.numberOfLines = 5
         } else {
             dayDescription.numberOfLines = 4
@@ -155,7 +155,7 @@ class CompactViewController: UIViewController {
         
         var fontSize : CGFloat
 
-        if ["iPhone 4", "iPhone 4s", "iPhone 5", "iPhone 5s", "iPhone 5c"].contains(UIDevice.modelName) {
+        if ["iPhone 5", "iPhone 5s", "iPhone 5c", "iPhone 6", "iPhone 6s", "iPhone 7"].contains(UIDevice.modelName) {
             fontSize = 15
         } else {
             fontSize = 18
