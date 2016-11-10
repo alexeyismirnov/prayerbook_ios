@@ -81,7 +81,7 @@ class MainViewController : UINavigationController, NCWidgetProviding {
             let attachment = NSTextAttachment()
             attachment.image = image.resize(CGSize(width: 15, height: 15))
             
-            attachment.bounds = CGRect(x: 0.0, y: font.descender, width: attachment.image!.size.width, height: attachment.image!.size.height)
+            attachment.bounds = CGRect(x: 0.0, y: font.descender/2, width: attachment.image!.size.width, height: attachment.image!.size.height)
             
             myString.append(NSAttributedString(attachment: attachment))
         }

@@ -85,55 +85,30 @@ class ExpandedViewController: UIViewController {
         showSaints()
     }
 
-    private func animateCalendar(direction : AnimationDirection) {
-        collectionView.superview?.constraints.forEach { con in
-            if con.identifier == "calendar" {
-                con.constant = view.frame.width * CGFloat(direction.rawValue) * -1.0
-            }
-        }
-        
-        UIView.animate(withDuration: 0.5,
-                       animations: { self.view.layoutIfNeeded() },
-                       completion: { _ in
-                        self.collectionView.superview?.constraints.forEach { con in
-                            if con.identifier == "calendar" {
-                                con.constant = self.view.frame.width * CGFloat(direction.rawValue)
-                                
-                                if direction == .positive {
-                                    self.currentDate = self.currentDate + 1.months
-                                } else {
-                                    self.currentDate = self.currentDate - 1.months
-                                }
-                                
-                                self.calendarDelegate.selectedDate = Date(1, self.currentDate.month, self.currentDate.year)
-                                self.refresh()
-                            }
-                        }
-                        
-                        self.view.layoutIfNeeded()
-                        
-                        self.collectionView.superview?.constraints.forEach { con in
-                            if con.identifier == "calendar" {
-                                con.constant = 0
-                            }
-                        }
-                        
-                        UIView.animate(withDuration: 0.5,
-                                       animations: { self.view.layoutIfNeeded() },
-                                       completion: nil
-                        )
-                        
-        }
-        )
-
-    }
-    
     @IBAction func prevMonth(_ sender: AnyObject) {
-        animateCalendar(direction: .negative)
+        Animation.swipe(orientation: .horizontal,
+                        direction: .negative,
+                        inView: view,
+                        update: {
+                            self.currentDate = self.currentDate - 1.months
+                            self.calendarDelegate.selectedDate = Date(1, self.currentDate.month, self.currentDate.year)
+                            self.refresh()
+        })
+        
+        // animateCalendar(direction: .negative)
     }
     
     @IBAction func nextMonth(_ sender: AnyObject) {
-        animateCalendar(direction: .positive)
+        Animation.swipe(orientation: .horizontal,
+                        direction: .positive,
+                        inView: view,
+                        update: {
+                            self.currentDate = self.currentDate + 1.months
+                            self.calendarDelegate.selectedDate = Date(1, self.currentDate.month, self.currentDate.year)
+                            self.refresh()
+        })
+        
+        // animateCalendar(direction: .positive)
     }
     
     func showSaints() {
