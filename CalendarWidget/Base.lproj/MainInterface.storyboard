@@ -43,7 +43,7 @@
                                     <action selector="nextDay:" destination="lhJ-F1-SaC" eventType="touchUpInside" id="CMt-BI-VQ8"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="TopLeft" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQk-WH-oDR">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQk-WH-oDR">
                                 <rect key="frame" x="19" y="10" width="358" height="86"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="ZDI-hu-FaE"/>

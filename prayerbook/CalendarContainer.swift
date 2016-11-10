@@ -39,6 +39,18 @@ class CalendarContainer: UIViewController {
         collectionView.delegate = calendarDelegate
         collectionView.dataSource = calendarDelegate
         
+        collectionView.constraints.forEach { con in
+            if con.identifier == "calendar-width" {
+                if (UIDevice.current.userInterfaceIdiom == .phone) {
+                    con.constant = 300
+                } else {
+                    con.constant = 500
+                }
+            }
+        }
+        
+        view.setNeedsLayout()
+        
         let recognizer = UITapGestureRecognizer(target: self, action:#selector(CalendarContainer.doneWithDate(_:)))
         recognizer.numberOfTapsRequired = 1
         collectionView.addGestureRecognizer(recognizer)
@@ -76,14 +88,23 @@ class CalendarContainer: UIViewController {
     }
 
     @IBAction func prevMonth(_ sender: AnyObject) {
-        currentDate = currentDate - 1.months
-        refresh()
+        Animation.swipe(orientation: .horizontal,
+                        direction: .negative,
+                        inView: view,
+                        update: {
+                            self.currentDate = self.currentDate - 1.months
+                            self.refresh()
+        })
     }
     
     @IBAction func nextMonth(_ sender: AnyObject) {
-        currentDate = currentDate + 1.months
-        refresh()
+        Animation.swipe(orientation: .horizontal,
+                        direction: .positive,
+                        inView: view,
+                        update: {
+                            self.currentDate = self.currentDate + 1.months
+                            self.refresh()
+        })
     }
-    
 
 }

@@ -53,6 +53,10 @@ class CompactViewController: UIViewController {
         }
         
         formatter.locale = Translate.locale as Locale!
+        
+        let recognizer = UITapGestureRecognizer(target: self, action:#selector(self.onTapLabel(_:)))
+        recognizer.numberOfTapsRequired = 1
+        dayInfo.addGestureRecognizer(recognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,7 +135,13 @@ class CompactViewController: UIViewController {
                             self.currentDate = self.currentDate + 1.days
                             self.dayInfo.attributedText = self.describe()
         })
-
     }
+    
+    @IBAction func onTapLabel(_ sender: AnyObject) {
+        let seconds = currentDate.timeIntervalSince1970
+        let url = URL(string: "ponomar-ru://open?\(seconds)")!
+        extensionContext!.open(url, completionHandler: nil)
+    }
+
     
 }

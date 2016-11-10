@@ -94,8 +94,6 @@ class ExpandedViewController: UIViewController {
                             self.calendarDelegate.selectedDate = Date(1, self.currentDate.month, self.currentDate.year)
                             self.refresh()
         })
-        
-        // animateCalendar(direction: .negative)
     }
     
     @IBAction func nextMonth(_ sender: AnyObject) {
@@ -107,8 +105,6 @@ class ExpandedViewController: UIViewController {
                             self.calendarDelegate.selectedDate = Date(1, self.currentDate.month, self.currentDate.year)
                             self.refresh()
         })
-        
-        // animateCalendar(direction: .positive)
     }
     
     func showSaints() {
