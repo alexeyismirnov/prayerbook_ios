@@ -9,8 +9,9 @@
 import UIKit
 import Squeal
 
-class DailyTab: UITableViewController, NAModalSheetDelegate {
+class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControllerDelegate {
 
+    let animation = DailyAnimator()
     let prefs = UserDefaults(suiteName: groupId)!
 
     var fasting: (FastingType, String) = (.vegetarian, "")
@@ -60,6 +61,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(DailyTab.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 
         reload()
+        
+        navigationController?.delegate = self
     }
 
     func hasTypica() -> Bool {        
@@ -321,15 +324,33 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         navigationItem.leftBarButtonItems = [button_calendar, button_left, button_right]
         navigationItem.rightBarButtonItems = [button_options, button_widget]
     }
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 
+        if animation.direction != .none {
+            return animation
+            
+        } else {
+            return nil
+        }
+    }
+    
     func prevDay() {
-        currentDate = currentDate - 1.days;
-        reload()
+        animation.direction = .negative
+        
+        let vc = storyboard!.instantiateViewController(withIdentifier: "Daily") as! DailyTab
+        vc.currentDate = currentDate - 1.days
+        
+        navigationController?.setViewControllers([vc], animated: true)
     }
     
     func nextDay() {
-        currentDate = currentDate + 1.days;
-        reload()
+        animation.direction = .positive
+        
+        let vc = storyboard!.instantiateViewController(withIdentifier: "Daily") as! DailyTab
+        vc.currentDate = currentDate + 1.days
+        
+        navigationController?.setViewControllers([vc], animated: true)
     }
     
     func showCalendar() {

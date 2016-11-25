@@ -192,8 +192,8 @@
         <!--Daily Tab-->
         <scene sceneID="EKN-ka-Srl">
             <objects>
-                <tableViewController id="dd2-at-RAg" customClass="DailyTab" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tr5-jo-aHH">
+                <tableViewController storyboardIdentifier="Daily" id="dd2-at-RAg" customClass="DailyTab" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tr5-jo-aHH">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -571,7 +571,7 @@
         <!--Daily-->
         <scene sceneID="o8U-9Z-h5E">
             <objects>
-                <navigationController restorationIdentifier="Daily" automaticallyAdjustsScrollViewInsets="NO" id="G84-hy-s0A" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G84-hy-s0A" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Daily" image="daily" id="gXv-Zf-1Wo"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
