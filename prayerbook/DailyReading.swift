@@ -268,6 +268,7 @@ struct DailyReading {
             Date(28, 7, Cal.currentYear):     "Gal 1:11-19 John 10:1-9 # Equal-to-the Apostles",
             Date(1, 8, Cal.currentYear):      "Gal 5:22-6:2 Luke 6:17-23 # Saint",
             Date(2, 8, Cal.currentYear):      "James 5:10-20 Luke 4:22-30 # Prophet",
+            Date(14, 9, Cal.currentYear):     "1Tim 2:1-7 Luke 4:16-22 # New Year",
             Date(9, 10, Cal.currentYear):     "1John 4:12-19 John 19:25-27,21:24-25 # Repose of the John the Theologian",
             Date(26, 11, Cal.currentYear):    "Heb 7:26-8:2 John 10:9-16 # St. John",
             Date(18, 12, Cal.currentYear):    "Gal 5:22-6:2 Matthew 11:27-30 # Saint",

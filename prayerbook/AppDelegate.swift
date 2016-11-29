@@ -96,11 +96,11 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         let srcPath = Bundle.main.url(forResource: filename, withExtension: ext)!
         let dstPath = groupURL.appendingPathComponent(filename+"."+ext)
         
-        do {
-            try fileManager.copyItem(at: srcPath, to: dstPath)
+        do {            
+            let data = try Data(contentsOf: srcPath)
+            try data.write(to: dstPath, options: .atomic)
             
         } catch let error as NSError  {            
-            // maybe file already exists
             print(error.description)
         }
     }

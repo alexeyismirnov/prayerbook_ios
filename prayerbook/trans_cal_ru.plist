@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>New Year</key>
+	<string>Новолетию</string>
 	<key>Synaxis of all saints of Moscow</key>
 	<string>Собор Московских святых</string>
 	<key>Synaxis of all saints of Nizhny Novgorod</key>
