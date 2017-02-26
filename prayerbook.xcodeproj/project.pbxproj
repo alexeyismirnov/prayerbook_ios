@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11D18E423D5F8676724AC564 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB949D5EE4022DBBF8C2E216 /* libPods.a */; };
+		43F42B4227482D89597768C1 /* libPods-ponomar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBAEF257347A74AAEDC4E67 /* libPods-ponomar.a */; };
 		8A0132F41C2027BC006F2505 /* CalendarGridDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F31C2027BC006F2505 /* CalendarGridDelegate.swift */; };
 		8A0132F61C2029F5006F2505 /* CalendarViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */; };
 		8A0B4CA71C8C1E8000747BB4 /* saints_01_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C8F1C8C1E8000747BB4 /* saints_01_ru.sqlite */; };
@@ -276,7 +276,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1D4D67C7A719042A81FE3D8C /* Pods-ponomar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ponomar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ponomar/Pods-ponomar.debug.xcconfig"; sourceTree = "<group>"; };
 		5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6E01426EC83DA15B72CE617C /* Pods-ponomar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ponomar.release.xcconfig"; path = "Pods/Target Support Files/Pods-ponomar/Pods-ponomar.release.xcconfig"; sourceTree = "<group>"; };
 		8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8A0132F31C2027BC006F2505 /* CalendarGridDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarGridDelegate.swift; sourceTree = "<group>"; };
 		8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewTextCell.swift; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 		8AF37E541B36C7A500101148 /* newicon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_120.png; sourceTree = "<group>"; };
 		8AF37E551B36C7A500101148 /* newicon_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_152.png; sourceTree = "<group>"; };
 		8AF37E561B36C7A500101148 /* newicon_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_180.png; sourceTree = "<group>"; };
+		9DBAEF257347A74AAEDC4E67 /* libPods-ponomar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ponomar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB949D5EE4022DBBF8C2E216 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -475,7 +478,7 @@
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
-				11D18E423D5F8676724AC564 /* libPods.a in Frameworks */,
+				43F42B4227482D89597768C1 /* libPods-ponomar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +499,8 @@
 			children = (
 				8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */,
 				5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */,
+				1D4D67C7A719042A81FE3D8C /* Pods-ponomar.debug.xcconfig */,
+				6E01426EC83DA15B72CE617C /* Pods-ponomar.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 				8A74D7FE198F20CC0078F39F /* UIKit.framework */,
 				FB949D5EE4022DBBF8C2E216 /* libPods.a */,
 				8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */,
+				9DBAEF257347A74AAEDC4E67 /* libPods-ponomar.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -793,14 +799,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A74D82C198F20CC0078F39F /* Build configuration list for PBXNativeTarget "ponomar" */;
 			buildPhases = (
-				D38BA3FCE733F88380D63661 /* Check Pods Manifest.lock */,
+				D38BA3FCE733F88380D63661 /* [CP] Check Pods Manifest.lock */,
 				8A74D7F3198F20CC0078F39F /* Sources */,
 				8A74D7F4198F20CC0078F39F /* Frameworks */,
 				8A74D7F5198F20CC0078F39F /* Resources */,
-				AC7CA402C5C6E3D32ACF0F87 /* Copy Pods Resources */,
+				AC7CA402C5C6E3D32ACF0F87 /* [CP] Copy Pods Resources */,
 				8AC966151BE5DB3D00841FEE /* Embed Frameworks */,
 				8AB749B41C4C7A3500CD1B32 /* Embed App Extensions */,
-				7C98CB98B97156383C636D41 /* Embed Pods Frameworks */,
+				7C98CB98B97156383C636D41 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1087,49 +1093,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7C98CB98B97156383C636D41 /* Embed Pods Frameworks */ = {
+		7C98CB98B97156383C636D41 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ponomar/Pods-ponomar-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AC7CA402C5C6E3D32ACF0F87 /* Copy Pods Resources */ = {
+		AC7CA402C5C6E3D32ACF0F87 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ponomar/Pods-ponomar-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D38BA3FCE733F88380D63661 /* Check Pods Manifest.lock */ = {
+		D38BA3FCE733F88380D63661 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1302,7 +1308,7 @@
 		};
 		8A74D82D198F20CC0078F39F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 1D4D67C7A719042A81FE3D8C /* Pods-ponomar.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1312,6 +1318,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3NQ697ND22;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
@@ -1338,7 +1345,7 @@
 		};
 		8A74D82E198F20CC0078F39F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 6E01426EC83DA15B72CE617C /* Pods-ponomar.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1349,6 +1356,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3NQ697ND22;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";

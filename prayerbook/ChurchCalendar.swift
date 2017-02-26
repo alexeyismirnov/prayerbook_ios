@@ -488,7 +488,21 @@ struct ChurchCalendar {
         feastDates += [theophany + (8-theophanyWeekday).days: [.sundayAfterTheophany]]
         feastDates += [theophany + theophanySatOffset.days: [.saturdayAfterTheophany]]
         
-        feastDates += [nearestSundayAfter(Date(7, 2, year)):  [.newMartyrsConfessorsOfRussia]]
+        let newMartyrs = Date(7,2,year)
+        let newMartyrsWeekday = DayOfWeek(rawValue: DateComponents(date:newMartyrs).weekday!)!
+        
+        switch (newMartyrsWeekday) {
+        case .sunday:
+            feastDates += [newMartyrs: [.newMartyrsConfessorsOfRussia]]
+            
+        case .monday, .tuesday, .wednesday:
+            feastDates += [nearestSundayBefore(newMartyrs): [.newMartyrsConfessorsOfRussia]]
+
+        default:
+            feastDates += [nearestSundayAfter(newMartyrs): [.newMartyrsConfessorsOfRussia]]
+
+        }
+        
         feastDates += [nearestSundayAfter(Date(29, 7, year)): [.holyFathersSixCouncils]]
         feastDates += [nearestSundayBefore(Date(8, 9, year)): [.synaxisMoscowSaints]]
         feastDates += [nearestSundayAfter(Date(8, 9, year)):  [.synaxisNizhnyNovgorodSaints]]
@@ -689,10 +703,16 @@ struct ChurchCalendar {
 
         switch date {
         case d(.meetingOfLord):
-            if date == d(.beginningOfGreatLent) {
+            if d(.beginningOfGreatLent)-7.days ... d(.beginningOfGreatLent)-1.days ~= date {
+                return (.cheesefare, Translate.s("Maslenitsa"))
+                
+            } else if date == d(.beginningOfGreatLent) {
                 return (.noFood, Translate.s("No food"))
+                
             } else {
-                return (.noFastMonastic, Translate.s("No fast"))
+                return (currentWeekday == .monday ||
+                        currentWeekday == .wednesday ||
+                        currentWeekday == .friday) ? (.fishAllowed, Translate.s("Fish allowed")) : (.noFastMonastic, Translate.s("No fast"))
             }
             
         case d(.theophany):
@@ -702,8 +722,9 @@ struct ChurchCalendar {
         d(.peterAndPaul),
         d(.dormition),
         d(.veilOfTheotokos):
-            return (currentWeekday == .wednesday ||
-                currentWeekday == .friday) ? (.fishAllowed, Translate.s("Fish allowed")) : (.noFastMonastic, Translate.s("No fast"))
+            return (currentWeekday == .monday ||
+                    currentWeekday == .wednesday ||
+                    currentWeekday == .friday) ? (.fishAllowed, Translate.s("Fish allowed")) : (.noFastMonastic, Translate.s("No fast"))
             
         case d(.nativityOfJohn),
         d(.transfiguration),
@@ -771,13 +792,26 @@ struct ChurchCalendar {
         case d(.stNicholas) ... d(.endOfYear):
             return (currentWeekday == .tuesday || currentWeekday == .thursday) ? (.vegetarian, Translate.s("With oil")) : monasticApostolesFast()
             
-        case d(.nativityOfGod) ..< d(.pentecost)+8.days:
-            return (currentWeekday == .wednesday || currentWeekday == .friday) ?
-                (.fishAllowed, Translate.s("Fish allowed")) : (.noFastMonastic, Translate.s("No fast"))
-            
         default:
-            return (currentWeekday == .wednesday || currentWeekday == .friday) ?
-                (.xerography, Translate.s("Xerography")) : (.noFastMonastic, Translate.s("No fast"))
+            if (currentWeekday == .monday || currentWeekday == .wednesday || currentWeekday == .friday) {
+                let saints = Db.saints(date)
+                let maxSaint = saints.max { $0.0.rawValue < $1.0.rawValue }!
+
+                switch maxSaint.0 {
+                case .vigil:
+                    return (.fishAllowed, Translate.s("Fish allowed"))
+                    
+                case .doxology, .polyeleos:
+                    return (.vegetarian, Translate.s("With oil"))
+                    
+                default:
+                    return (.xerography, Translate.s("Xerography"))
+                }
+
+            } else {
+                return (.noFastMonastic, Translate.s("No fast"))
+            }
+            
         }
     }
 
@@ -786,10 +820,15 @@ struct ChurchCalendar {
         
         switch date {
         case d(.meetingOfLord):
-            if date == d(.beginningOfGreatLent) {
+            if d(.beginningOfGreatLent)-7.days ... d(.beginningOfGreatLent)-1.days ~= date {
+                return (.cheesefare, Translate.s("Maslenitsa"))
+            
+            } else if date == d(.beginningOfGreatLent) {
                 return (.vegetarian, Translate.s("Great Lent"))
+
             } else {
-                return (.noFast, Translate.s("No fast"))
+                return (currentWeekday == .wednesday ||
+                        currentWeekday == .friday) ? (.fishAllowed, Translate.s("Fish allowed")) : (.noFast, Translate.s("No fast"))
             }
 
         case d(.theophany):
