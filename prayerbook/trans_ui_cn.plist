@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>Laymen fasting</key>
+    <string>外行斋戒</string>
+    <key>Monastic fasting</key>
+    <string>修道院的禁食</string>
+    <key>Fasting type</key>
+    <string>禁食</string>
 	<key>Add widget</key>
 	<string>今天小部件的</string>
 	<key>Rate Orthodox Calendar</key>

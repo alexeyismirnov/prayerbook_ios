@@ -2,6 +2,56 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>Xerography</key>
+    <string>干食</string>
+    <key>No food</key>
+    <string>完全的禁食</string>
+    <key>Without oil</key>
+    <string>食品免油</string>
+    <key>With oil</key>
+    <string>斋期（酒、油可食）</string>
+    <key>Commemoration of the Holy Fathers of the First Six Councils</key>
+    <string>纪念前六次神圣普世大公会议之诸位圣教父</string>
+    <key>Holy Ancestors</key>
+    <string></string>
+    <key>Theotokos</key>
+    <string></string>
+    <key>St. Nicholas</key>
+    <string></string>
+    <key>St. John</key>
+    <string></string>
+    <key>Repose of the John the Theologian</key>
+    <string></string>
+    <key>Prophet</key>
+    <string></string>
+    <key>Saint</key>
+    <string></string>
+    <key>Equal-to-the Apostles</key>
+    <string></string>
+    <key>Apostle</key>
+    <string></string>
+    <key>St. George</key>
+    <string></string>
+    <key>Hierarchs</key>
+    <string></string>
+    <key>Venerable Euthymius</key>
+    <string></string>
+    <key>Venerable Anthony</key>
+    <string></string>
+    <key>Martyrs</key>
+    <string></string>
+    <key>Saturday Reading</key>
+    <string></string>
+    <key>Friday Reading</key>
+    <string></string>
+    <key>Thursday Reading</key>
+    <string></string>
+    <key>Wednesday Reading</key>
+    <string></string>
+    <key>Tuesday Reading</key>
+    <string></string>
+    <key>Monday Reading</key>
+    <string></string>
 	<key>Demetrius Saturday: Commemoration of the Departed</key>
 	<string>圣迪弥特里节前安息日：纪念亡者之安息日</string>
 	<key>Apodosis of the Annunciation</key>

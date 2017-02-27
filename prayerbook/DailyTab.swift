@@ -9,8 +9,9 @@
 import UIKit
 import Squeal
 
-class DailyTab: UITableViewController, NAModalSheetDelegate {
+class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControllerDelegate {
 
+    let animation = DailyAnimator()
     let prefs = UserDefaults(suiteName: groupId)!
 
     var fasting: (FastingType, String) = (.vegetarian, "")
@@ -53,6 +54,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(DailyTab.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 
         reload()
+        
+        navigationController?.delegate = self
     }
 
     func hasTypica() -> Bool {
@@ -70,7 +73,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,10 +81,12 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         case 0:
             return dayDescription.count+2
         case 1:
-            return readings.count
+            return 1
         case 2:
-            return hasTypica() ? 1 : 0
+            return readings.count
         case 3:
+            return hasTypica() ? 1 : 0
+        case 4:
             return saints.count
             
         default:
@@ -93,14 +98,16 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         switch section {
         case 0:
             return ""
-
+            
         case 1:
-            return readings.count > 0 ? Translate.s("Gospel of the day") : nil
-
+            return (fastingLevel == .monastic) ? Translate.s("Monastic fasting") : Translate.s("Laymen fasting")
         case 2:
-            return hasTypica() ? Translate.s("Prayers") : nil
-
+            return readings.count > 0 ? Translate.s("Gospel of the day") : nil
+            
         case 3:
+            return hasTypica() ? Translate.s("Prayers") : nil
+            
+        case 4:
             return Translate.s("Memory of saints")
             
         default:
@@ -117,42 +124,39 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             return T(style: UITableViewCellStyle.default, reuseIdentifier: T.cellId)
         }
     }
-    
+   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         if (indexPath as NSIndexPath).section == 0 {
             switch (indexPath as NSIndexPath).row {
             case 0:
                 let cell: TextDetailsCell = getCell()
-                cell.title.text = formatter.string(from: currentDate)
-
-                var subtitle:String = ""
+                cell.title.text = formatter.string(from: currentDate).capitalizingFirstLetter()
+                cell.subtitle.text = ""
+                return cell
+                
+            case 1:
+                let cell: TextCell = getCell()
+                var descr = ""
                 
                 if let weekDescription = Cal.getWeekDescription(currentDate) {
-                    subtitle = weekDescription
+                    descr = weekDescription
                 }
                 
                 if let toneDescription = Cal.getToneDescription(currentDate) {
-                    if subtitle.characters.count > 0 {
-                        subtitle += "; "
+                    if descr.characters.count > 0 {
+                        descr += "; "
                     }
-                    subtitle += toneDescription
+                    descr += toneDescription
                 }
                 
-                cell.subtitle.text = subtitle
-                return cell
-
-            case 1:
-                let cell: ImageCell  = getCell()
-                cell.title.text = fasting.1
                 cell.title.textColor =  UIColor.black
-                cell.icon.image = UIImage(named: "food-\(foodIcon[fasting.0]!)")
-                cell.accessoryType = .disclosureIndicator
+                cell.title.text = descr
                 return cell
                 
             default:
                 let feast:FeastType = dayDescription[(indexPath as NSIndexPath).row-2].0
-
+                
                 if feast == .none {
                     let cell: TextCell = getCell()
                     cell.title.textColor =  UIColor.black
@@ -181,30 +185,40 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                     return cell
                 }
             }
-        
+            
         } else if (indexPath as NSIndexPath).section == 1 {
-            let cell: TextDetailsCell = getCell()
-            cell.title.textColor = UIColor.black
-            cell.title.text = Translate.readings(readings[(indexPath as NSIndexPath).row])
-            cell.subtitle.text = ""
-            cell.accessoryType = .disclosureIndicator
+            let cell: ImageCell  = getCell()
+            cell.title.text = fasting.1
+            cell.title.textColor =  UIColor.black
+            cell.icon.image = UIImage(named: "food-\(foodIcon[fasting.0]!)")
+            cell.accessoryType = (fastingLevel == .monastic) ?  .none : .disclosureIndicator
             return cell
             
         } else if (indexPath as NSIndexPath).section == 2 {
+            let cell: TextDetailsCell = getCell()
+            cell.title.textColor = UIColor.black
+            let currentReading = readings[(indexPath as NSIndexPath).row].components(separatedBy: "#")
+            
+            cell.title.text = Translate.readings(currentReading[0])
+            cell.subtitle.text = (currentReading.count > 1) ? Translate.s(currentReading[1].trimmingCharacters(in: CharacterSet.whitespaces)) : ""
+            cell.accessoryType = .disclosureIndicator
+            return cell
+            
+        } else if (indexPath as NSIndexPath).section == 3 {
             let cell: TextDetailsCell = getCell()
             cell.title.textColor = UIColor.black
             cell.title.text = Translate.s("Typica")
             cell.subtitle.text = ""
             cell.accessoryType = .disclosureIndicator
             return cell
-
-        } else if (indexPath as NSIndexPath).section == 3 {
+            
+        } else if (indexPath as NSIndexPath).section == 4 {
             if saints[(indexPath as NSIndexPath).row].0 == .none {
                 let cell: TextCell = getCell()
                 cell.title.textColor =  UIColor.black
                 cell.title.text = saints[(indexPath as NSIndexPath).row].1
                 return cell
-
+                
             } else {
                 let cell: TextCell = getCell()
                 let image = UIImage(named: Cal.feastIcon[saints[(indexPath as NSIndexPath).row].0]!)!
@@ -219,24 +233,27 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
                 cell.title.attributedText = myString
                 
                 return cell
-
+                
             }
         }
         
         let cell: TextCell = getCell()
         return cell
-
+        
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if (indexPath as NSIndexPath).section == 1 && readings.count > 0 {
+        if (indexPath as NSIndexPath).section == 2 && readings.count > 0 {
             let vc = storyboard!.instantiateViewController(withIdentifier: "Scripture") as! Scripture
-            vc.code = .pericope(readings[(indexPath as NSIndexPath).row])
+            
+            let currentReading = readings[(indexPath as NSIndexPath).row].components(separatedBy: "#")
+            
+            vc.code = .pericope(currentReading[0])
             navigationController?.pushViewController(vc, animated: true)
-
-        } else if (indexPath as NSIndexPath).section == 0 && (indexPath as NSIndexPath).row == 1 {
+            
+        } else if fastingLevel == .laymen && (indexPath as NSIndexPath).section == 1 && (indexPath as NSIndexPath).row == 0 {
             let fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
-            modalSheet = NAModalSheet(viewController: fastingInfo, presentationStyle: .fadeInCentered)
+            modalSheet = NAModalSheet(viewController: fastingInfo, presentationStyle: .fadeInCentered)!
             
             modalSheet.disableBlurredBackground = true
             modalSheet.cornerRadiusWhenCentered = 10
@@ -247,14 +264,14 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
             fastingInfo.fastTitle = fasting.1
             
             modalSheet.present(completion: {})
-
-        } else if (indexPath as NSIndexPath).section == 2 {
+            
+        } else if (indexPath as NSIndexPath).section == 3 {
             let prayer = storyboard!.instantiateViewController(withIdentifier: "Prayer") as! Prayer
             prayer.code = "typica"
             prayer.index = 0
             prayer.name = Translate.s("Typica")
             navigationController?.pushViewController(prayer, animated: true)
-
+            
         }
         
         return nil
@@ -304,14 +321,32 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         navigationItem.rightBarButtonItems = [button_options, button_widget]
     }
 
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        if animation.direction != .none {
+            return animation
+            
+        } else {
+            return nil
+        }
+    }
+    
     func prevDay() {
-        currentDate = currentDate - 1.days;
-        reload()
+        animation.direction = .negative
+        
+        let vc = storyboard!.instantiateViewController(withIdentifier: "Daily") as! DailyTab
+        vc.currentDate = currentDate - 1.days
+        
+        navigationController?.setViewControllers([vc], animated: true)
     }
     
     func nextDay() {
-        currentDate = currentDate + 1.days;
-        reload()
+        animation.direction = .positive
+        
+        let vc = storyboard!.instantiateViewController(withIdentifier: "Daily") as! DailyTab
+        vc.currentDate = currentDate + 1.days
+        
+        navigationController?.setViewControllers([vc], animated: true)
     }
     
     func showCalendar() {
@@ -361,7 +396,6 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
     func showOptions() {
         let vc = storyboard!.instantiateViewController(withIdentifier: "Options") as! Options
         let nav = UINavigationController(rootViewController: vc)
-        vc.delegate = self
         
         navigationController?.present(nav, animated: true, completion: {})
     }    

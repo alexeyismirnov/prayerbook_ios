@@ -6,7 +6,7 @@ enum FeastType: Int {
 }
 
 enum NameOfDay: Int {
-    case startOfYear=0, pascha, pentecost, ascension, palmSunday, eveOfNativityOfGod, nativityOfGod, circumcision, eveOfTheophany, theophany, meetingOfLord, annunciation, nativityOfJohn, peterAndPaul, transfiguration, dormition, beheadingOfJohn, nativityOfTheotokos, exaltationOfCross, veilOfTheotokos, entryIntoTemple, stNicholas, sundayOfPublicianAndPharisee, sundayOfProdigalSon, sundayOfDreadJudgement, cheesefareSunday, beginningOfGreatLent, beginningOfDormitionFast, beginningOfNativityFast, beginningOfApostolesFast, sundayOfForefathers, sundayBeforeNativity, sundayAfterExaltation, saturdayAfterExaltation, saturdayBeforeExaltation, sundayBeforeExaltation, saturdayBeforeNativity, saturdayAfterNativity, sundayAfterNativity, saturdayBeforeTheophany, sundayBeforeTheophany, saturdayAfterTheophany, sundayAfterTheophany, sunday2AfterPascha, sunday3AfterPascha, sunday4AfterPascha, sunday5AfterPascha, sunday6AfterPascha, sunday7AfterPascha, lazarusSaturday, newMartyrsConfessorsOfRussia, josephBetrothed, synaxisTheotokos, holyFathersSixCouncils, synaxisMoscowSaints, synaxisNizhnyNovgorodSaints, endOfYear
+    case startOfYear=0, pascha, pentecost, ascension, palmSunday, eveOfNativityOfGod, nativityOfGod, circumcision, eveOfTheophany, theophany, meetingOfLord, annunciation, nativityOfJohn, peterAndPaul, transfiguration, dormition, beheadingOfJohn, nativityOfTheotokos, exaltationOfCross, veilOfTheotokos, entryIntoTemple, stNicholas, sundayOfPublicianAndPharisee, sundayOfProdigalSon, sundayOfDreadJudgement, cheesefareSunday, beginningOfGreatLent, beginningOfDormitionFast, beginningOfNativityFast, beginningOfApostolesFast, sundayOfForefathers, sundayBeforeNativity, sundayAfterExaltation, saturdayAfterExaltation, saturdayBeforeExaltation, sundayBeforeExaltation, saturdayBeforeNativity, saturdayAfterNativity, sundayAfterNativity, saturdayBeforeTheophany, sundayBeforeTheophany, saturdayAfterTheophany, sundayAfterTheophany, sunday2AfterPascha, sunday3AfterPascha, sunday4AfterPascha, sunday5AfterPascha, sunday6AfterPascha, sunday7AfterPascha, lazarusSaturday, newMartyrsConfessorsOfRussia, josephBetrothed, synaxisTheotokos, holyFathersSixCouncils, endOfYear
 }
 
 enum FastingLevel: Int {
@@ -96,9 +96,6 @@ struct ChurchCalendar {
         .sundayAfterTheophany:      [(.none, "Sunday after Theophany")],
         .newMartyrsConfessorsOfRussia: [(.vigil, "Holy New Martyrs and Confessors of Russia")],
         .holyFathersSixCouncils:    [(.none, "Commemoration of the Holy Fathers of the First Six Councils")],
-        .synaxisMoscowSaints:       [(.none, "Synaxis of all saints of Moscow")],
-        .synaxisNizhnyNovgorodSaints:       [(.none, "Synaxis of all saints of Nizhny Novgorod")],
-
 
     ]
 
@@ -504,8 +501,6 @@ struct ChurchCalendar {
         }
         
         feastDates += [nearestSundayAfter(Date(29, 7, year)): [.holyFathersSixCouncils]]
-        feastDates += [nearestSundayBefore(Date(8, 9, year)): [.synaxisMoscowSaints]]
-        feastDates += [nearestSundayAfter(Date(8, 9, year)):  [.synaxisNizhnyNovgorodSaints]]
 
         let start: Int = NameOfDay.startOfYear.rawValue
         let end: Int = NameOfDay.endOfYear.rawValue

@@ -14,7 +14,6 @@ class Options: UITableViewController {
     
     let prefs = UserDefaults(suiteName: groupId)!
     var lastSelected: IndexPath?
-    weak var delegate: UIViewController!
 
     @IBOutlet weak var lang_en: UITableViewCell!
     @IBOutlet weak var lang_cn: UITableViewCell!
@@ -79,7 +78,7 @@ class Options: UITableViewController {
     }
     
     @IBAction func cancel(_ sender: AnyObject) {
-        delegate.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func done(_ sender: AnyObject) {
@@ -91,7 +90,7 @@ class Options: UITableViewController {
         prefs.synchronize()
         
         NotificationCenter.default.post(name: Notification.Name(rawValue: optionsSavedNotification), object: nil)
-        delegate.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
 }
