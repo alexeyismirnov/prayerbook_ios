@@ -11,13 +11,21 @@ import Squeal
 
 class DailyTab: UITableViewController, NAModalSheetDelegate {
 
+    let prefs = UserDefaults(suiteName: groupId)!
+
     var fasting: (FastingType, String) = (.vegetarian, "")
+    var fastingLevel: FastingLevel = .monastic
+    
     var foodIcon: [FastingType: String] = [
         .noFast:        "meat",
         .vegetarian:    "vegetables",
         .fishAllowed:   "fish",
         .fastFree:      "cupcake",
         .cheesefare:    "cheese",
+        .noFood:        "nothing",
+        .xerography:    "xerography",
+        .withoutOil:    "without-oil",
+        .noFastMonastic:"pizza"
     ]
     
     var readings = [String]()
@@ -273,7 +281,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate {
         
         dayDescription = Cal.getDayDescription(currentDate)
         readings = DailyReading.getDailyReading(currentDate)
-        fasting = Cal.getFastingDescription(currentDate)
+        fastingLevel = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!
+        fasting = Cal.getFastingDescription(currentDate, fastingLevel)
         saints=Db.saints(currentDate)
 
         tableView.reloadData()

@@ -39,11 +39,10 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let prefs = UserDefaults(suiteName: groupId)!
-        let fontSize = prefs.integer(forKey: "fontSize")
-        let lang = Locale.preferredLanguages[0] 
+        let lang = Locale.preferredLanguages[0]
         
         // the first time app is launched
-        if fontSize == 0 {
+        if prefs.object(forKey: "fontSize") == nil {
             if (lang.hasPrefix("zh-Hans") || lang.hasPrefix("zh-Hant")) {
                 prefs.set("cn", forKey: "language")
             } else {
@@ -56,6 +55,11 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
                 prefs.set(20, forKey: "fontSize")
             }
             
+            prefs.synchronize()
+        }
+        
+        if prefs.object(forKey: "fastingLevel") == nil {
+            prefs.set(1, forKey: "fastingLevel")
             prefs.synchronize()
         }
         
@@ -78,7 +82,6 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     }
     
     func setupFiles() {
-
         for lang in ["en", "cn"] {
             for month in 1...12 {
                 let filename = String(format: "saints_%02d_%@", month, lang)
@@ -98,10 +101,11 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         let dstPath = groupURL.appendingPathComponent(filename+"."+ext)
         
         do {
-            try fileManager.copyItem(at: srcPath, to: dstPath)
+            let data = try Data(contentsOf: srcPath)
+            try data.write(to: dstPath, options: .atomic)
             
-        } catch {
-            // maybe file already exists
+        } catch let error as NSError  {
+            print(error.description)
         }
     }
     

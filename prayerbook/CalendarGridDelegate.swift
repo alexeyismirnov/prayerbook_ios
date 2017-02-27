@@ -16,6 +16,8 @@ enum CalendarContainerType: Int {
 
 class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    let prefs = UserDefaults(suiteName: groupId)!
+
     var cal: Calendar = {
         let c = Calendar.current
         return c
@@ -38,8 +40,8 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     }()
     
     var startGap: Int!
-    var containerType : CalendarContainerType!
     var selectedDate: Date?
+    var containerType : CalendarContainerType!
 
     override init() {
         super.init()
@@ -73,29 +75,35 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
 
         cell.dateLabel.text = String(format: "%d", dayIndex)
         cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.red : UIColor.black
-
+        
         if curDate == selectedDate {
             cell.contentView.backgroundColor = UIColor(hex:"#FF8C00")
 
         } else {
-            switch Cal.getFastingDescription(curDate).0 {
-            case .vegetarian:
-                cell.contentView.backgroundColor = UIColor(hex:"#30D5C8")
-                break
-                
-            case .fishAllowed:
-                cell.contentView.backgroundColor = UIColor(hex:"#FADFAD")
-                break
-                
-            case .cheesefare, .fastFree:
-                cell.contentView.backgroundColor = UIColor(hex:"#00BFFF")
-                break
-                
-            default:
-                let textColor = (containerType == .mainApp) ? UIColor.black : UIColor.white
-                cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.red : textColor
-                break
+            let (fastType, _) = Cal.getFastingDescription(curDate, FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!)
+            
+            if fastType == .noFast || fastType == .noFastMonastic {
+                var textColor:UIColor
+
+                if Cal.isGreatFeast(curDate) {
+                    textColor =  UIColor.red
+                    
+                } else if containerType == .mainApp {
+                    textColor =  UIColor.black
+                    
+                } else if #available(iOS 10.0, *) {
+                    textColor =  UIColor.black
+                    
+                } else {
+                    textColor =  UIColor.white
+                }
+        
+                cell.dateLabel.textColor =  textColor
+
+            } else {
+                cell.contentView.backgroundColor = UIColor(hex:Cal.fastingColor[fastType]!)
             }
+            
         }
         
         return cell
@@ -123,6 +131,15 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
             for index in 1...cal.firstWeekday-1 {
                 if let label = view.viewWithTag(8-cal.firstWeekday+index) as? UILabel {
                     label.text = dayLabel[index-1]
+                }
+            }
+        }
+        
+        if #available(iOS 10.0, *) {
+        } else if containerType == .todayExtension  {
+            for index in 1...7 {
+                if let label = view.viewWithTag(index) as? UILabel {
+                    label.textColor = UIColor.white
                 }
             }
         }

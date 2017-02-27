@@ -6,11 +6,15 @@ enum FeastType: Int {
 }
 
 enum NameOfDay: Int {
-    case startOfYear=0, pascha, pentecost, ascension, palmSunday, eveOfNativityOfGod, nativityOfGod, circumcision, eveOfTheophany, theophany, meetingOfLord, annunciation, nativityOfJohn, peterAndPaul, transfiguration, dormition, beheadingOfJohn, nativityOfTheotokos, exaltationOfCross, veilOfTheotokos, entryIntoTemple, stNicholas, sundayOfPublicianAndPharisee, sundayOfProdigalSon, sundayOfDreadJudgement, cheesefareSunday, beginningOfGreatLent, beginningOfDormitionFast, beginningOfNativityFast, beginningOfApostolesFast, sundayOfForefathers, sundayBeforeNativity, sundayAfterExaltation, saturdayAfterExaltation, saturdayBeforeExaltation, sundayBeforeExaltation, saturdayBeforeNativity, saturdayAfterNativity, sundayAfterNativity, saturdayBeforeTheophany, sundayBeforeTheophany, saturdayAfterTheophany, sundayAfterTheophany, sunday2AfterPascha, sunday3AfterPascha, sunday4AfterPascha, sunday5AfterPascha, sunday6AfterPascha, sunday7AfterPascha, lazarusSaturday, newMartyrsConfessorsOfRussia, endOfYear
+    case startOfYear=0, pascha, pentecost, ascension, palmSunday, eveOfNativityOfGod, nativityOfGod, circumcision, eveOfTheophany, theophany, meetingOfLord, annunciation, nativityOfJohn, peterAndPaul, transfiguration, dormition, beheadingOfJohn, nativityOfTheotokos, exaltationOfCross, veilOfTheotokos, entryIntoTemple, stNicholas, sundayOfPublicianAndPharisee, sundayOfProdigalSon, sundayOfDreadJudgement, cheesefareSunday, beginningOfGreatLent, beginningOfDormitionFast, beginningOfNativityFast, beginningOfApostolesFast, sundayOfForefathers, sundayBeforeNativity, sundayAfterExaltation, saturdayAfterExaltation, saturdayBeforeExaltation, sundayBeforeExaltation, saturdayBeforeNativity, saturdayAfterNativity, sundayAfterNativity, saturdayBeforeTheophany, sundayBeforeTheophany, saturdayAfterTheophany, sundayAfterTheophany, sunday2AfterPascha, sunday3AfterPascha, sunday4AfterPascha, sunday5AfterPascha, sunday6AfterPascha, sunday7AfterPascha, lazarusSaturday, newMartyrsConfessorsOfRussia, josephBetrothed, synaxisTheotokos, holyFathersSixCouncils, synaxisMoscowSaints, synaxisNizhnyNovgorodSaints, endOfYear
+}
+
+enum FastingLevel: Int {
+    case laymen=0, monastic
 }
 
 enum FastingType: Int {
-    case noFast=0, vegetarian, fishAllowed, fastFree, cheesefare
+    case noFast=0, vegetarian, fishAllowed, fastFree, cheesefare, noFood, xerography, withoutOil, noFastMonastic
 }
 
 enum DayOfWeek: Int  {
@@ -46,7 +50,7 @@ struct ChurchCalendar {
     
     static var currentDate: Date!
     static var currentYear: Int!
-    static var currentWeekday: DayOfWeek!
+    static var currentWeekday: DayOfWeek = .monday
     static var feastDates = [Date: [NameOfDay]]()
     static var dCache = [DateCache:Date]()
 
@@ -84,13 +88,18 @@ struct ChurchCalendar {
         .saturdayBeforeNativity:    [(.none, "Saturday before the Nativity of Christ")],
         .sundayBeforeNativity:      [(.none, "Sunday before the Nativity of Christ, of the Fathers")],
         .saturdayAfterNativity:     [(.none, "Saturday after the Nativity of Christ")],
-        .sundayAfterNativity:       [(.none, "Sunday after Nativity"),
-                                     (.noSign, "Saints Joseph the Betrothed, David the King, and James the Brother of the Lord")],
+        .sundayAfterNativity:       [(.none, "Sunday after Nativity")],
+        .josephBetrothed:           [(.noSign, "Saints Joseph the Betrothed, David the King, and James the Brother of the Lord")],
         .saturdayBeforeTheophany:   [(.none, "Saturday before Theophany")],
         .sundayBeforeTheophany:     [(.none, "Sunday before Theophany")],
         .saturdayAfterTheophany:    [(.none, "Saturday after Theophany")],
         .sundayAfterTheophany:      [(.none, "Sunday after Theophany")],
         .newMartyrsConfessorsOfRussia: [(.vigil, "Holy New Martyrs and Confessors of Russia")],
+        .holyFathersSixCouncils:    [(.none, "Commemoration of the Holy Fathers of the First Six Councils")],
+        .synaxisMoscowSaints:       [(.none, "Synaxis of all saints of Moscow")],
+        .synaxisNizhnyNovgorodSaints:       [(.none, "Synaxis of all saints of Nizhny Novgorod")],
+
+
     ]
 
     static let feastIcon : [FeastType: String] = [
@@ -100,6 +109,18 @@ struct ChurchCalendar {
         .polyeleos: "polyeleos",
         .vigil: "vigil",
         .great: "great"
+    ]
+    
+    static let fastingColor : [FastingType: String] = [
+        .noFast: "",
+        .noFastMonastic: "",
+        .vegetarian: "#30D5C8",
+        .fishAllowed: "#FADFAD",
+        .fastFree: "#00BFFF",
+        .cheesefare: "#00BFFF",
+        .noFood: "#7B78EE",
+        .xerography: "#B4EEB4",
+        .withoutOil: "#9BCD9B",
     ]
 
     static let greatFeastCodes : [NameOfDay] = [.palmSunday, .pascha, .ascension, .pentecost, .nativityOfGod, .circumcision, .theophany, .meetingOfLord, .annunciation, .nativityOfJohn, .peterAndPaul, .transfiguration, .dormition, .beheadingOfJohn, .nativityOfTheotokos, .exaltationOfCross, .veilOfTheotokos, .entryIntoTemple]
@@ -125,7 +146,7 @@ struct ChurchCalendar {
     static func setDate(_ date: Date) {
         let dateComponents = DateComponents(date: date)
         currentYear = dateComponents.year
-        currentWeekday = DayOfWeek(rawValue: dateComponents.weekday!)
+        currentWeekday = DayOfWeek(rawValue: dateComponents.weekday!)!
         currentDate = date
         
         if dCache[DateCache(.pascha, currentYear)] == nil {
@@ -161,8 +182,7 @@ struct ChurchCalendar {
             greatLentStart+26.days: [(.none,   "Commemoration of the Departed")],
             greatLentStart+27.days: [(.noSign, "Venerable John Climacus of Sinai, Author of “the Ladder” († 649)")],
             greatLentStart+33.days: [(.none,   "Saturday of the Akathist; Laudation of the Most Holy Theotokos")],
-            greatLentStart+34.days: [(.none,   "Venerable Mary of Egypt")],
-        ]
+            greatLentStart+34.days: [(.none,   "Venerable Mary of Egypt")]]
         
         miscFeasts += [
             pascha+5.days:          [(.none,   "Feast of the Life-Giving Spring of the Mother of God")],
@@ -184,9 +204,7 @@ struct ChurchCalendar {
             pentecost+14.days:      [(.none,   "All Saints who have shown forth in the land of Russia")],
         ]
         
-        var beforeAfterFeasts = [Date: [(FeastType, String)]]()
-            
-        beforeAfterFeasts = [
+        var beforeAfterFeasts :[Date: [(FeastType, String)]] = [
             pascha+38.days:         [(.none,   "Apodosis of Pascha")],
             pascha+40.days:         [(.none,   "Afterfeast of the Ascension")],
             pascha+41.days:         [(.none,   "Afterfeast of the Ascension")],
@@ -196,8 +214,7 @@ struct ChurchCalendar {
             pascha+45.days:         [(.none,   "Afterfeast of the Ascension")],
             pascha+46.days:         [(.none,   "Afterfeast of the Ascension")],
             pascha+47.days:         [(.none,   "Apodosis of the Ascension")],
-            pentecost+6.days:       [(.none,   "Apodosis of Pentecost")],
-        ]
+            pentecost+6.days:       [(.none,   "Apodosis of Pentecost")]]
         
         beforeAfterFeasts += [
             Date(2, 1, year): [(.noSign, "Forefeast of the Nativity")],
@@ -220,8 +237,7 @@ struct ChurchCalendar {
             Date(24, 1, year): [(.noSign, "Afterfeast of the Theophany")],
             Date(25, 1, year): [(.noSign, "Afterfeast of the Theophany")],
             Date(26, 1, year): [(.noSign, "Afterfeast of the Theophany")],
-            Date(27, 1, year): [(.noSign, "Apodosis of the Theophany")],
-        ]
+            Date(27, 1, year): [(.noSign, "Apodosis of the Theophany")]]
         
         beforeAfterFeasts += [
             Date(18, 8, year): [(.sixVerse, "Forefeast of the Transfiguration of the Lord")],
@@ -240,9 +256,10 @@ struct ChurchCalendar {
             Date(2, 9, year): [(.noSign, "Afterfeast of the Dormition")],
             Date(3, 9, year): [(.noSign, "Afterfeast of the Dormition")],
             Date(4, 9, year): [(.noSign, "Afterfeast of the Dormition")],
-            Date(5, 9, year): [(.doxology, "Apodosis of the Dormition")],
-
-            Date(20, 9, year): [(.noSign, "Forefeast of the Nativity of the Theotokos")],
+            Date(5, 9, year): [(.doxology, "Apodosis of the Dormition")]]
+        
+        beforeAfterFeasts += [
+            Date(20, 9, year): [(.sixVerse, "Forefeast of the Nativity of the Theotokos")],
             Date(22, 9, year): [(.noSign, "Afterfeast of the Nativity of the Theotokos")],
             Date(23, 9, year): [(.noSign, "Afterfeast of the Nativity of the Theotokos")],
             Date(24, 9, year): [(.noSign, "Afterfeast of the Nativity of the Theotokos")],
@@ -345,7 +362,18 @@ struct ChurchCalendar {
 
     }
     
-    
+    static func nearestSundayAfter(_ date: Date) -> Date {
+        let weekday = DateComponents(date:date).weekday!
+        let sunOffset = (weekday == 1) ? 0 : 8-weekday
+        return date + sunOffset.days
+    }
+
+    static func nearestSundayBefore(_ date: Date) -> Date {
+        let weekday = DateComponents(date:date).weekday!
+        let sunOffset = (weekday == 1) ? 0 : weekday-1
+        return date - sunOffset.days
+    }
+
     static func generateFeastDates(_ year: Int) {
         let pascha = paschaDay(year)
         let greatLentStart = pascha-48.days
@@ -375,6 +403,7 @@ struct ChurchCalendar {
             Date(1,  1, year):   [.startOfYear],
             Date(6,  1, year):   [.eveOfNativityOfGod],
             Date(7,  1, year):   [.nativityOfGod],
+            Date(8,  1, year):   [.synaxisTheotokos],
             Date(14, 1, year):   [.circumcision],
             Date(18, 1, year):   [.eveOfTheophany],
             Date(19, 1, year):   [.theophany],
@@ -423,6 +452,13 @@ struct ChurchCalendar {
 
         feastDates += [nativity + (8-nativityWeekday).days: [.sundayAfterNativity]]
         
+        if nativityWeekday == 1 {
+            feastDates += [nativity + 1.days: [.josephBetrothed]]
+
+        } else {
+            feastDates += [nativity + (8-nativityWeekday).days: [.josephBetrothed]]
+        }
+        
         let nativitySatOffset = (nativityWeekday == 7) ? 7 : 7-nativityWeekday
         feastDates += [nativity + nativitySatOffset.days: [.saturdayAfterNativity]]
         
@@ -452,10 +488,24 @@ struct ChurchCalendar {
         feastDates += [theophany + (8-theophanyWeekday).days: [.sundayAfterTheophany]]
         feastDates += [theophany + theophanySatOffset.days: [.saturdayAfterTheophany]]
         
-        let newMartyrs = Date(7, 2, year)
-        let newMartyrsWeekday = DateComponents(date:newMartyrs).weekday!
-        let newMartyrsSunOffset = (newMartyrsWeekday == 1) ? 0 : 8-newMartyrsWeekday
-        feastDates += [newMartyrs + newMartyrsSunOffset.days: [.newMartyrsConfessorsOfRussia]]
+        let newMartyrs = Date(7,2,year)
+        let newMartyrsWeekday = DayOfWeek(rawValue: DateComponents(date:newMartyrs).weekday!)!
+        
+        switch (newMartyrsWeekday) {
+        case .sunday:
+            feastDates += [newMartyrs: [.newMartyrsConfessorsOfRussia]]
+            
+        case .monday, .tuesday, .wednesday:
+            feastDates += [nearestSundayBefore(newMartyrs): [.newMartyrsConfessorsOfRussia]]
+
+        default:
+            feastDates += [nearestSundayAfter(newMartyrs): [.newMartyrsConfessorsOfRussia]]
+
+        }
+        
+        feastDates += [nearestSundayAfter(Date(29, 7, year)): [.holyFathersSixCouncils]]
+        feastDates += [nearestSundayBefore(Date(8, 9, year)): [.synaxisMoscowSaints]]
+        feastDates += [nearestSundayAfter(Date(8, 9, year)):  [.synaxisNizhnyNovgorodSaints]]
 
         let start: Int = NameOfDay.startOfYear.rawValue
         let end: Int = NameOfDay.endOfYear.rawValue
@@ -609,16 +659,176 @@ struct ChurchCalendar {
         }
     }
 
-    static func getFastingDescription(_ date: Date) -> (FastingType, String) {
-
+    static func getFastingDescription(_ date: Date, _ level: FastingLevel) -> (FastingType, String) {
         setDate(date)
+        
+        switch level {
+        case .laymen:
+            return getFastingLaymen(date)
+            
+        case .monastic:
+            return getFastingMonastic(date)
+        }
+    }
+    
+    static func monasticGreatLent() -> (FastingType, String) {
+        switch currentWeekday {
+        case .monday, .wednesday, .friday:
+            return (.xerography, Translate.s("Xerography"))
+
+        case .tuesday, .thursday:
+            return (.withoutOil, Translate.s("Without oil"))
+
+        case .saturday, .sunday:
+            return (.vegetarian, Translate.s("With oil"))
+
+        }
+    }
+
+    static func monasticApostolesFast() -> (FastingType, String) {
+        switch currentWeekday {
+        case .monday:
+            return (.withoutOil, Translate.s("Without oil"))
+            
+        case .wednesday, .friday:
+            return (.xerography, Translate.s("Xerography"))
+            
+        case .tuesday, .thursday, .saturday, .sunday:
+            return (.fishAllowed, Translate.s("Fish allowed"))
+            
+        }
+    }
+
+    static func getFastingMonastic(_ date: Date) -> (FastingType, String) {
+
+        switch date {
+        case d(.meetingOfLord):
+            if d(.beginningOfGreatLent)-7.days ... d(.beginningOfGreatLent)-1.days ~= date {
+                return (.cheesefare, Translate.s("Maslenitsa"))
+                
+            } else if date == d(.beginningOfGreatLent) {
+                return (.noFood, Translate.s("No food"))
+                
+            } else {
+                return (currentWeekday == .monday ||
+                        currentWeekday == .wednesday ||
+                        currentWeekday == .friday) ? (.fishAllowed, Translate.s("Fish allowed")) : (.noFastMonastic, Translate.s("No fast"))
+            }
+            
+        case d(.theophany):
+            return (.noFastMonastic, Translate.s("No fast"))
+            
+        case d(.nativityOfTheotokos),
+        d(.peterAndPaul),
+        d(.dormition),
+        d(.veilOfTheotokos):
+            return (currentWeekday == .monday ||
+                    currentWeekday == .wednesday ||
+                    currentWeekday == .friday) ? (.fishAllowed, Translate.s("Fish allowed")) : (.noFastMonastic, Translate.s("No fast"))
+            
+        case d(.nativityOfJohn),
+        d(.transfiguration),
+        d(.entryIntoTemple),
+        d(.stNicholas),
+        d(.palmSunday):
+            return (.fishAllowed, Translate.s("Fish allowed"))
+            
+        case d(.eveOfTheophany):
+            return (.xerography, Translate.s("Fast day"))
+            
+        case d(.beheadingOfJohn),
+        d(.exaltationOfCross):
+            return (.vegetarian, Translate.s("Fast day"))
+            
+        case d(.startOfYear):
+            return (currentWeekday == .tuesday || currentWeekday == .thursday) ?
+                (.vegetarian, Translate.s("With oil")) : monasticApostolesFast()
+            
+        case d(.startOfYear)+1.days ..< d(.nativityOfGod):
+            return monasticGreatLent()
+            
+        case d(.nativityOfGod) ..< d(.eveOfTheophany):
+            return (.fastFree, Translate.s("Svyatki"))
+            
+        case d(.sundayOfPublicianAndPharisee)+1.days ... d(.sundayOfProdigalSon):
+            return (.fastFree, Translate.s("Fast-free week"))
+            
+        case d(.sundayOfDreadJudgement)+1.days ..< d(.beginningOfGreatLent):
+            return (.cheesefare, Translate.s("Maslenitsa"))
+            
+        case d(.beginningOfGreatLent):
+            return (.noFood, Translate.s("No food"))
+        
+        case d(.beginningOfGreatLent)+1.days ... d(.beginningOfGreatLent)+4.days:
+            return (.xerography, Translate.s("Xerography"))
+            
+        case d(.beginningOfGreatLent)+5.days ..< d(.palmSunday):
+            return (date == d(.annunciation)) ? (.fishAllowed, Translate.s("Fish allowed")) : monasticGreatLent()
+        
+        case d(.palmSunday)+1.days ... d(.palmSunday)+4.days:
+            return (.xerography, Translate.s("Xerography"))
+
+        case d(.palmSunday)+5.days:
+            return (.noFood, Translate.s("No food"))
+
+        case d(.palmSunday)+6.days:
+            return (.vegetarian, Translate.s("With oil"))
+            
+        case d(.pascha)+1.days ... d(.pascha)+7.days:
+            return (.fastFree, Translate.s("Fast-free week"))
+            
+        case d(.pentecost)+1.days ... d(.pentecost)+7.days:
+            return (.fastFree, Translate.s("Fast-free week"))
+            
+        case d(.beginningOfApostolesFast) ... d(.peterAndPaul)-1.days:
+            return monasticApostolesFast()
+            
+        case d(.beginningOfDormitionFast) ... d(.dormition)-1.days:
+            return monasticGreatLent()
+            
+        case d(.beginningOfNativityFast) ..< d(.stNicholas):
+            return monasticApostolesFast()
+            
+        case d(.stNicholas) ... d(.endOfYear):
+            return (currentWeekday == .tuesday || currentWeekday == .thursday) ? (.vegetarian, Translate.s("With oil")) : monasticApostolesFast()
+            
+        default:
+            if (currentWeekday == .monday || currentWeekday == .wednesday || currentWeekday == .friday) {
+                let saints = Db.saints(date)
+                let maxSaint = saints.max { $0.0.rawValue < $1.0.rawValue }!
+
+                switch maxSaint.0 {
+                case .vigil:
+                    return (.fishAllowed, Translate.s("Fish allowed"))
+                    
+                case .doxology, .polyeleos:
+                    return (.vegetarian, Translate.s("With oil"))
+                    
+                default:
+                    return (.xerography, Translate.s("Xerography"))
+                }
+
+            } else {
+                return (.noFastMonastic, Translate.s("No fast"))
+            }
+            
+        }
+    }
+
+    
+    static func getFastingLaymen(_ date: Date) -> (FastingType, String) {
         
         switch date {
         case d(.meetingOfLord):
-            if date == d(.beginningOfGreatLent) {
+            if d(.beginningOfGreatLent)-7.days ... d(.beginningOfGreatLent)-1.days ~= date {
+                return (.cheesefare, Translate.s("Maslenitsa"))
+            
+            } else if date == d(.beginningOfGreatLent) {
                 return (.vegetarian, Translate.s("Great Lent"))
+
             } else {
-                return (.noFast, Translate.s("No fast"))
+                return (currentWeekday == .wednesday ||
+                        currentWeekday == .friday) ? (.fishAllowed, Translate.s("Fish allowed")) : (.noFast, Translate.s("No fast"))
             }
 
         case d(.theophany):
@@ -694,7 +904,7 @@ struct ChurchCalendar {
             
         default:
             return (currentWeekday == .wednesday ||
-                    currentWeekday == .friday) ? (.vegetarian, Translate.s("Vegetarian")) : (.noFast, Translate.s("No fast"))
+                    currentWeekday == .friday) ? (.fishAllowed, Translate.s("Fish allowed")) : (.noFast, Translate.s("No fast"))
         }
     }
 }
