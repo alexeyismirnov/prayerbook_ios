@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11D18E423D5F8676724AC564 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB949D5EE4022DBBF8C2E216 /* libPods.a */; };
+		683EEAF66C7EFA6D67007E33 /* libPods-ponomar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B821728D44F8ECF99F4F8B3 /* libPods-ponomar.a */; };
 		8A00C81D1DBEFE50000893A7 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; };
 		8A00C81E1DBEFE56000893A7 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; };
 		8A00C8281DBF0A82000893A7 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; };
@@ -358,6 +358,7 @@
 
 /* Begin PBXFileReference section */
 		5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		837BEB4B22499DD2905795D3 /* Pods-ponomar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ponomar.release.xcconfig"; path = "Pods/Target Support Files/Pods-ponomar/Pods-ponomar.release.xcconfig"; sourceTree = "<group>"; };
 		8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8A0132F31C2027BC006F2505 /* CalendarGridDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarGridDelegate.swift; sourceTree = "<group>"; };
 		8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewTextCell.swift; sourceTree = "<group>"; };
@@ -440,6 +441,7 @@
 		8A81FB4C1C1ECB7600D28F58 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		8A81FB4D1C1ECB7600D28F58 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		8A81FB4E1C1ECB7600D28F58 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
+		8A851D3E549C35694A51B97D /* Pods-ponomar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ponomar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ponomar/Pods-ponomar.debug.xcconfig"; sourceTree = "<group>"; };
 		8A8810E21A300DE40095C081 /* acts_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = acts_en.sqlite; sourceTree = "<group>"; };
 		8A8810E31A300DE40095C081 /* john_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = john_en.sqlite; sourceTree = "<group>"; };
 		8A8810E41A300DE40095C081 /* luke_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = luke_en.sqlite; sourceTree = "<group>"; };
@@ -620,6 +622,7 @@
 		8AFAA3981B12E90B001699D6 /* saints_05_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_05_en.txt; sourceTree = "<group>"; };
 		8AFB8DE91B1FDC12006715A3 /* saints_03_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_03_en.sqlite; sourceTree = "<group>"; };
 		8AFB8DEA1B1FDC12006715A3 /* saints_03_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_03_en.txt; sourceTree = "<group>"; };
+		8B821728D44F8ECF99F4F8B3 /* libPods-ponomar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ponomar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB949D5EE4022DBBF8C2E216 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -634,8 +637,8 @@
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
-				11D18E423D5F8676724AC564 /* libPods.a in Frameworks */,
 				8A00C8281DBF0A82000893A7 /* Squeal.framework in Frameworks */,
+				683EEAF66C7EFA6D67007E33 /* libPods-ponomar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +659,8 @@
 			children = (
 				8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */,
 				5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */,
+				8A851D3E549C35694A51B97D /* Pods-ponomar.debug.xcconfig */,
+				837BEB4B22499DD2905795D3 /* Pods-ponomar.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -692,6 +697,7 @@
 				8A74D7FE198F20CC0078F39F /* UIKit.framework */,
 				FB949D5EE4022DBBF8C2E216 /* libPods.a */,
 				8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */,
+				8B821728D44F8ECF99F4F8B3 /* libPods-ponomar.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1028,13 +1034,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A74D82C198F20CC0078F39F /* Build configuration list for PBXNativeTarget "ponomar" */;
 			buildPhases = (
-				D38BA3FCE733F88380D63661 /* Check Pods Manifest.lock */,
+				D38BA3FCE733F88380D63661 /* [CP] Check Pods Manifest.lock */,
 				8A74D7F3198F20CC0078F39F /* Sources */,
 				8A74D7F4198F20CC0078F39F /* Frameworks */,
 				8A74D7F5198F20CC0078F39F /* Resources */,
-				AC7CA402C5C6E3D32ACF0F87 /* Copy Pods Resources */,
+				AC7CA402C5C6E3D32ACF0F87 /* [CP] Copy Pods Resources */,
 				8AB749B41C4C7A3500CD1B32 /* Embed App Extensions */,
 				8A00C82C1DBF0A82000893A7 /* Embed Frameworks */,
+				C00E30B932C96A083AA35A73 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1404,34 +1411,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AC7CA402C5C6E3D32ACF0F87 /* Copy Pods Resources */ = {
+		AC7CA402C5C6E3D32ACF0F87 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ponomar/Pods-ponomar-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D38BA3FCE733F88380D63661 /* Check Pods Manifest.lock */ = {
+		C00E30B932C96A083AA35A73 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ponomar/Pods-ponomar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D38BA3FCE733F88380D63661 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1598,7 +1620,7 @@
 		};
 		8A74D82D198F20CC0078F39F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 8A851D3E549C35694A51B97D /* Pods-ponomar.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1628,7 +1650,7 @@
 		};
 		8A74D82E198F20CC0078F39F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 837BEB4B22499DD2905795D3 /* Pods-ponomar.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
