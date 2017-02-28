@@ -23,6 +23,10 @@
 		8A0F6F5E1C50C8910063DBF1 /* CalendarViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */; };
 		8A181E0E1B1D3C9A00D8C2FB /* saints_01_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0C1B1D3C9A00D8C2FB /* saints_01_en.sqlite */; };
 		8A181E0F1B1D3C9A00D8C2FB /* saints_01_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0D1B1D3C9A00D8C2FB /* saints_01_en.txt */; };
+		8A2CD31A1E654DC20060D524 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3171E654DC20060D524 /* CompactViewController.swift */; };
+		8A2CD31B1E654DC20060D524 /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */; };
+		8A2CD31C1E654DC20060D524 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3191E654DC20060D524 /* MainViewController.swift */; };
+		8A2CD31E1E654DD50060D524 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2CD31D1E654DD50060D524 /* MainInterface.storyboard */; };
 		8A2F46A019E110CF00076AF4 /* prayer_group_0_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469C19E110CF00076AF4 /* prayer_group_0_cn.html */; };
 		8A2F46A119E110CF00076AF4 /* prayer_group_0_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469D19E110CF00076AF4 /* prayer_group_0_en.html */; };
 		8A2F46A519E11CEA00076AF4 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A419E11CEA00076AF4 /* Prayer.swift */; };
@@ -176,8 +180,6 @@
 		8AB62A671C180F4F001ACD2A /* zoom_in.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AB62A651C180F4F001ACD2A /* zoom_in.pdf */; };
 		8AB62A681C180F4F001ACD2A /* zoom_out.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AB62A661C180F4F001ACD2A /* zoom_out.pdf */; };
 		8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */; };
-		8AB749A41C4C7A3500CD1B32 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB749A31C4C7A3500CD1B32 /* TodayViewController.swift */; };
-		8AB749A71C4C7A3500CD1B32 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AB749A51C4C7A3500CD1B32 /* MainInterface.storyboard */; };
 		8AB749AB1C4C7A3500CD1B32 /* CalendarWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8ABAFC461C0B0385008DB93C /* prayer_typica_0_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8ABAFC441C0B0385008DB93C /* prayer_typica_0_cn.html */; };
 		8ABAFC491C0B03A9008DB93C /* prayer_typica_0_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8ABAFC481C0B03A9008DB93C /* prayer_typica_0_en.html */; };
@@ -379,6 +381,10 @@
 		8A0F6F5C1C50C4EC0063DBF1 /* CalendarWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CalendarWidget.entitlements; sourceTree = "<group>"; };
 		8A181E0C1B1D3C9A00D8C2FB /* saints_01_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_01_en.sqlite; sourceTree = "<group>"; };
 		8A181E0D1B1D3C9A00D8C2FB /* saints_01_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_01_en.txt; sourceTree = "<group>"; };
+		8A2CD3171E654DC20060D524 /* CompactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
+		8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedViewController.swift; sourceTree = "<group>"; };
+		8A2CD3191E654DC20060D524 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8A2CD31D1E654DD50060D524 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		8A2F469C19E110CF00076AF4 /* prayer_group_0_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_0_cn.html; sourceTree = "<group>"; };
 		8A2F469D19E110CF00076AF4 /* prayer_group_0_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_0_en.html; sourceTree = "<group>"; };
 		8A2F46A419E11CEA00076AF4 /* Prayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
@@ -536,8 +542,6 @@
 		8AB62A661C180F4F001ACD2A /* zoom_out.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = zoom_out.pdf; sourceTree = "<group>"; };
 		8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalendarWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		8AB749A31C4C7A3500CD1B32 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		8AB749A61C4C7A3500CD1B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		8AB749A81C4C7A3500CD1B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8ABAFC441C0B0385008DB93C /* prayer_typica_0_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_typica_0_cn.html; sourceTree = "<group>"; };
 		8ABAFC481C0B03A9008DB93C /* prayer_typica_0_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_typica_0_en.html; sourceTree = "<group>"; };
@@ -965,9 +969,11 @@
 		8AB749A21C4C7A3500CD1B32 /* CalendarWidget */ = {
 			isa = PBXGroup;
 			children = (
+				8A2CD31D1E654DD50060D524 /* MainInterface.storyboard */,
+				8A2CD3171E654DC20060D524 /* CompactViewController.swift */,
+				8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */,
+				8A2CD3191E654DC20060D524 /* MainViewController.swift */,
 				8A0F6F5C1C50C4EC0063DBF1 /* CalendarWidget.entitlements */,
-				8AB749A31C4C7A3500CD1B32 /* TodayViewController.swift */,
-				8AB749A51C4C7A3500CD1B32 /* MainInterface.storyboard */,
 				8AB749A81C4C7A3500CD1B32 /* Info.plist */,
 			);
 			path = CalendarWidget;
@@ -1432,7 +1438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AC278091C61A0C800436D51 /* InfoPlist.strings in Resources */,
-				8AB749A71C4C7A3500CD1B32 /* MainInterface.storyboard in Resources */,
+				8A2CD31E1E654DD50060D524 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1524,6 +1530,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A2CD31A1E654DC20060D524 /* CompactViewController.swift in Sources */,
+				8A2CD31C1E654DC20060D524 /* MainViewController.swift in Sources */,
+				8A2CD31B1E654DC20060D524 /* ExpandedViewController.swift in Sources */,
 				8A4EA0E11E63F30900E63399 /* CalendarGridDelegate.swift in Sources */,
 				8A4EA0DE1E63F24000E63399 /* ChurchCalendar.swift in Sources */,
 				8A4EA0D71E63EFE600E63399 /* Animation.swift in Sources */,
@@ -1532,7 +1541,6 @@
 				8AC757C21C550BFD0088D4D0 /* Images.xcassets in Sources */,
 				8A0F6F5E1C50C8910063DBF1 /* CalendarViewTextCell.swift in Sources */,
 				8A0F6F5A1C50C12D0063DBF1 /* Translate.swift in Sources */,
-				8AB749A41C4C7A3500CD1B32 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1559,14 +1567,6 @@
 				8AC278081C619EFB00436D51 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		8AB749A51C4C7A3500CD1B32 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8AB749A61C4C7A3500CD1B32 /* Base */,
-			);
-			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
