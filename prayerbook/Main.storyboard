@@ -29,11 +29,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="US.png" translatesAutoresizingMaskIntoConstraints="NO" id="dTM-ZW-IOl">
-                                                    <rect key="frame" x="18" y="16" width="24" height="16"/>
+                                                    <rect key="frame" x="18" y="13" width="24" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="English" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFI-GF-PAP">
-                                                    <rect key="frame" x="56" y="13" width="69" height="21"/>
+                                                    <rect key="frame" x="60" y="11" width="69" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -64,26 +64,54 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Copyright" id="Wap-Ys-4u7">
+                            <tableViewSection headerTitle="Fasting type" id="Wap-Ys-4u7">
                                 <cells>
-                                    <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2wG-Gk-1wN">
-                                        <rect key="frame" x="0.0" y="193" width="768" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="45" id="2wG-Gk-1wN">
+                                        <rect key="frame" x="0.0" y="193" width="768" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2wG-Gk-1wN" id="BFj-S9-76S">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="10" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="IBg-K4-xO7">
-                                                    <rect key="frame" x="321" y="7" width="118" height="31"/>
-                                                </slider>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food-meat" translatesAutoresizingMaskIntoConstraints="NO" id="WMF-LK-0lv">
+                                                    <rect key="frame" x="18" y="5" width="32" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Laymen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UnW-kQ-K4t">
+                                                    <rect key="frame" x="68" y="9" width="184" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="IBg-K4-xO7" firstAttribute="leading" secondItem="BFj-S9-76S" secondAttribute="leading" constant="20" symbolic="YES" id="LQg-I9-e55"/>
-                                                <constraint firstAttribute="trailing" secondItem="IBg-K4-xO7" secondAttribute="trailing" constant="20" symbolic="YES" id="jlF-2s-8wF"/>
-                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="45" id="Icw-67-oWK">
+                                        <rect key="frame" x="0.0" y="238" width="768" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Icw-67-oWK" id="5ym-3Q-Xms">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="food-fish" translatesAutoresizingMaskIntoConstraints="NO" id="gLZ-p6-IjW">
+                                                    <rect key="frame" x="18" y="6" width="32" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Monastic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ath-DV-BI9">
+                                                    <rect key="frame" x="67" y="10" width="136" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Copyright" id="sbe-Xm-3O4">
+                                <cells/>
                             </tableViewSection>
                         </sections>
                         <connections>
@@ -106,9 +134,12 @@
                     <connections>
                         <outlet property="cancelButton" destination="DZG-LG-ewW" id="SH1-fM-U8e"/>
                         <outlet property="doneButton" destination="ga1-mJ-VeY" id="Eir-Wb-9n6"/>
-                        <outlet property="fontSizeSlider" destination="IBg-K4-xO7" id="wmc-tn-Gfa"/>
                         <outlet property="lang_cn" destination="Jrl-vr-KXE" id="NjR-ty-Uxa"/>
                         <outlet property="lang_en" destination="xD0-ml-ftX" id="u51-aJ-IkN"/>
+                        <outlet property="laymen_label" destination="UnW-kQ-K4t" id="3M1-Fh-fhn"/>
+                        <outlet property="laymen_lent" destination="2wG-Gk-1wN" id="6rf-5M-37o"/>
+                        <outlet property="monastic_label" destination="Ath-DV-BI9" id="9UA-ss-wyB"/>
+                        <outlet property="monastic_lent" destination="Icw-67-oWK" id="Gbe-UG-n3e"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSl-pD-wjo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -785,6 +816,8 @@
         <image name="arrow-right" width="25" height="25"/>
         <image name="communion" width="30" height="30"/>
         <image name="daily" width="30" height="30"/>
+        <image name="food-fish" width="64" height="64"/>
+        <image name="food-meat" width="64" height="64"/>
         <image name="group" width="30" height="30"/>
         <image name="library" width="30" height="30"/>
     </resources>

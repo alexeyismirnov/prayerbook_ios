@@ -899,7 +899,7 @@ struct ChurchCalendar {
             
         default:
             return (currentWeekday == .wednesday ||
-                    currentWeekday == .friday) ? (.fishAllowed, Translate.s("Fish allowed")) : (.noFast, Translate.s("No fast"))
+                    currentWeekday == .friday) ? (.vegetarian, Translate.s("Vegetarian")) : (.noFast, Translate.s("No fast"))
         }
     }
 }

@@ -11,13 +11,14 @@ import UIKit
 var optionsSavedNotification  = "OPTIONS_SAVED"
 
 class Options: UITableViewController {
-    
     let prefs = UserDefaults(suiteName: groupId)!
-    var lastSelected: IndexPath?
 
+    @IBOutlet weak var laymen_label: UILabel!
+    @IBOutlet weak var monastic_label: UILabel!
+    @IBOutlet weak var laymen_lent: UITableViewCell!
+    @IBOutlet weak var monastic_lent: UITableViewCell!
     @IBOutlet weak var lang_en: UITableViewCell!
     @IBOutlet weak var lang_cn: UITableViewCell!
-    @IBOutlet weak var fontSizeSlider: UISlider!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
@@ -28,52 +29,59 @@ class Options: UITableViewController {
         cancelButton.title = Translate.s("Cancel")
         doneButton.title = Translate.s("Done")
         
+        laymen_label.text = Translate.s("Laymen fasting")
+        monastic_label.text = Translate.s("Monastic fasting")
+        
         if Translate.language == "en" {
-            lastSelected = IndexPath(row: 0, section: 0)
-            lang_en.accessoryType = UITableViewCellAccessoryType.checkmark;
+            lang_en.accessoryType = .checkmark;
             lang_en.setSelected(true, animated: true)
             
         } else {
-            lastSelected = IndexPath(row: 1, section: 0)
-            lang_cn.accessoryType = UITableViewCellAccessoryType.checkmark;
+            lang_cn.accessoryType = .checkmark;
             lang_cn.setSelected(true, animated: true)
-            
         }
         
-        let fontSize = prefs.integer(forKey: "fontSize")
-        fontSizeSlider.value = Float(fontSize)
-        
-        if (UIDevice.current.userInterfaceIdiom == .phone) {
-            fontSizeSlider.minimumValue = 8
-            fontSizeSlider.maximumValue = 20
+        if prefs.integer(forKey: "fastingLevel") == 0 {
+            laymen_lent.accessoryType = .checkmark
+            laymen_lent.setSelected(true, animated: true)
             
         } else {
-            fontSizeSlider.minimumValue = 10
-            fontSizeSlider.maximumValue = 30
+            monastic_lent.accessoryType = .checkmark
+            monastic_lent.setSelected(true, animated: true)
         }
-    }
+        
+     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if lastSelected == indexPath || (indexPath as NSIndexPath).section == 1 {
-            return
+        if indexPath.section ==  0 {
+            lang_en.accessoryType = .none
+            lang_en.isSelected = false
+
+            lang_cn.accessoryType = .none
+            lang_cn.isSelected = false
+            
+        } else if indexPath.section ==  1 {
+            laymen_lent.accessoryType = .none
+            laymen_lent.isSelected = false
+
+            monastic_lent.accessoryType = .none
+            monastic_lent.isSelected = false
         }
-        
-        let cell1: UITableViewCell! = self.tableView.cellForRow(at: lastSelected!)
-        cell1.accessoryType = .none
-        cell1.isSelected = false
-        
-        let cell2: UITableViewCell! = self.tableView.cellForRow(at: indexPath)
-        cell2.accessoryType = .checkmark
-        cell2.isSelected = true
-        
-        lastSelected = indexPath
+
+        let cell: UITableViewCell! = self.tableView.cellForRow(at: indexPath)
+        cell.accessoryType = .checkmark
+        cell.isSelected = true
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return Translate.s("Language")
+        
+        } else if section == 1 {
+            return Translate.s("Fasting type")
+        
         } else {
-            return Translate.s("(C) 2015 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong. This app contains information from ponomar.net and orthodox.cn")
+            return Translate.s("(C) 2017 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong. This app contains information from ponomar.net and orthodox.cn")
         }
     }
     
@@ -83,10 +91,13 @@ class Options: UITableViewController {
     
     @IBAction func done(_ sender: AnyObject) {
         let lang = (lang_en.accessoryType == .checkmark) ? "en" : "cn"
+        let fasting = (laymen_lent.accessoryType == .checkmark) ? 0 : 1
+
+        Translate.language = lang
 
         prefs.set(lang, forKey: "language")
-        Translate.language = lang
-        prefs.set(Int(fontSizeSlider.value), forKey: "fontSize")
+        prefs.set(fasting, forKey: "fastingLevel")
+
         prefs.synchronize()
         
         NotificationCenter.default.post(name: Notification.Name(rawValue: optionsSavedNotification), object: nil)
