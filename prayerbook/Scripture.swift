@@ -24,6 +24,13 @@ class Scripture: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "bg3.jpg")?.draw(in: self.view.bounds)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        view.backgroundColor = UIColor(patternImage: image)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(Scripture.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 
         let backButton = UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(Scripture.closeView))

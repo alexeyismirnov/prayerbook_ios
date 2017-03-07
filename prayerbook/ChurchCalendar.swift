@@ -115,7 +115,7 @@ struct ChurchCalendar {
         .noFast: "",
         .noFastMonastic: "",
         .vegetarian: "#30D5C8",
-        .fishAllowed: "#FADFAD",
+        .fishAllowed: "#FFCF6C",
         .fastFree: "#00BFFF",
         .cheesefare: "#00BFFF",
         .noFood: "#7B78EE",
@@ -904,7 +904,7 @@ struct ChurchCalendar {
             
         default:
             return (currentWeekday == .wednesday ||
-                    currentWeekday == .friday) ? (.fishAllowed, Translate.s("Fish allowed")) : (.noFast, Translate.s("No fast"))
+                    currentWeekday == .friday) ? (.vegetarian, Translate.s("Vegetarian")) : (.noFast, Translate.s("No fast"))
         }
     }
 }

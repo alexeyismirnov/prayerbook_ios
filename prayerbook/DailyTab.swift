@@ -57,6 +57,14 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIGraphicsBeginImageContext(view.frame.size)
+        UIImage(named: "bg3.jpg")?.draw(in: view.bounds)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        view.backgroundColor = UIColor.clear
+        tableView.backgroundView = UIImageView(image: image)
+        
         addBarButtons()
         NotificationCenter.default.addObserver(self, selector: #selector(DailyTab.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 
@@ -116,6 +124,12 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         default:
             return ""
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        headerView.contentView.backgroundColor = UIColor.clear
+        headerView.backgroundView?.backgroundColor = UIColor.clear
     }
 
     func getCell<T: ConfigurableCell>() -> T {

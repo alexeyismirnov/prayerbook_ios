@@ -52,6 +52,14 @@ class Library: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "bg3.jpg")?.draw(in: self.view.bounds)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        view.backgroundColor = UIColor.clear
+        tableView.backgroundView = UIImageView(image: image)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(Library.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 
         let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .plain, target: self, action: #selector(Library.showOptions))
@@ -99,6 +107,12 @@ class Library: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        headerView.contentView.backgroundColor = UIColor.clear
+        headerView.backgroundView?.backgroundColor = UIColor.clear
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

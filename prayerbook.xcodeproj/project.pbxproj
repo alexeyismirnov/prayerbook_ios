@@ -10,6 +10,7 @@
 		43F42B4227482D89597768C1 /* libPods-ponomar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBAEF257347A74AAEDC4E67 /* libPods-ponomar.a */; };
 		8A0132F41C2027BC006F2505 /* CalendarGridDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F31C2027BC006F2505 /* CalendarGridDelegate.swift */; };
 		8A0132F61C2029F5006F2505 /* CalendarViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */; };
+		8A0AB7E01E6E8F220056FBA5 /* bg3@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A0AB7DF1E6E8F220056FBA5 /* bg3@2x.jpg */; };
 		8A0B4CA71C8C1E8000747BB4 /* saints_01_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C8F1C8C1E8000747BB4 /* saints_01_ru.sqlite */; };
 		8A0B4CA81C8C1E8000747BB4 /* saints_01_ru.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C901C8C1E8000747BB4 /* saints_01_ru.txt */; };
 		8A0B4CA91C8C1E8000747BB4 /* saints_02_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C911C8C1E8000747BB4 /* saints_02_ru.sqlite */; };
@@ -282,6 +283,7 @@
 		8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8A0132F31C2027BC006F2505 /* CalendarGridDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarGridDelegate.swift; sourceTree = "<group>"; };
 		8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewTextCell.swift; sourceTree = "<group>"; };
+		8A0AB7DF1E6E8F220056FBA5 /* bg3@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg3@2x.jpg"; sourceTree = "<group>"; };
 		8A0B4C8F1C8C1E8000747BB4 /* saints_01_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_01_ru.sqlite; sourceTree = "<group>"; };
 		8A0B4C901C8C1E8000747BB4 /* saints_01_ru.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_01_ru.txt; sourceTree = "<group>"; };
 		8A0B4C911C8C1E8000747BB4 /* saints_02_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_02_ru.sqlite; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8A0AB7DF1E6E8F220056FBA5 /* bg3@2x.jpg */,
 				8A1F2CB31DD9C18600F13A3D /* newicon_167.png */,
 				8A1F2CAF1DD9B80600F13A3D /* landscape2.png */,
 				8A1F2CB01DD9B80600F13A3D /* landscape3.png */,
@@ -1054,6 +1057,7 @@
 				8AF37E5B1B36C7A500101148 /* newicon_80.png in Resources */,
 				8AC6951F19E3FBC200773FEB /* food-nuts.pdf in Resources */,
 				8AC6952519E4011700773FEB /* daily.pdf in Resources */,
+				8A0AB7E01E6E8F220056FBA5 /* bg3@2x.jpg in Resources */,
 				8A0B4CA81C8C1E8000747BB4 /* saints_01_ru.txt in Resources */,
 				8AC6951719E3FBC200773FEB /* food-cheese.pdf in Resources */,
 				8AE718D51C560CC30035CDCE /* fat-right.pdf in Resources */,

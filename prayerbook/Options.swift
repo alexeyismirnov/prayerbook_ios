@@ -47,7 +47,7 @@ class Options: UITableViewController {
         if section == 0 {
             return Translate.s("Fasting type")
         } else {
-            return Translate.s("(C) 2016 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong.")
+            return Translate.s("(C) 2017 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong.")
         }
     }
 

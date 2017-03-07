@@ -60,13 +60,6 @@ class CalendarContainer: UIViewController {
         refresh()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        let upperBorder = CALayer();
-        upperBorder.backgroundColor = UIColor.lightGray.cgColor;
-        upperBorder.frame = CGRect(x: 0, y: 0, width: collectionView.frame.width, height: 2.0);
-        collectionView.layer.addSublayer(upperBorder)
-    }
-    
     func doneWithDate(_ recognizer: UITapGestureRecognizer) {
         let loc = recognizer.location(in: collectionView)
         var curDate: Date? = nil

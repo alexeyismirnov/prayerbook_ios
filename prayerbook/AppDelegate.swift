@@ -38,6 +38,10 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        UINavigationBar.appearance().barTintColor = UIColor(red: 255/255.0, green: 233/255.0, blue: 210/255.0, alpha: 1.0)
+        UINavigationBar.appearance().tintColor = UIColor.blue
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black]
+        
         let prefs = UserDefaults(suiteName: groupId)!
         
         // the first time app is launched
