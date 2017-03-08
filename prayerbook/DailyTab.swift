@@ -94,7 +94,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         case 1:
             return 1
         case 2:
-            return readings.count
+            return readings.count + (Cal.synaxarion[currentDate] != nil ? 1:0)
         case 3:
             return hasTypica() ? 1 : 0
         case 4:
@@ -144,8 +144,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if (indexPath as NSIndexPath).section == 0 {
-            switch (indexPath as NSIndexPath).row {
+        if indexPath.section == 0 {
+            switch indexPath.row {
             case 0:
                 let cell: TextDetailsCell = getCell()
                 cell.title.text = formatter.string(from: currentDate).capitalizingFirstLetter()
@@ -203,7 +203,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
                 }
             }
         
-        } else if (indexPath as NSIndexPath).section == 1 {
+        } else if indexPath.section == 1 {
             let cell: ImageCell  = getCell()
             cell.title.text = fasting.1
             cell.title.textColor =  UIColor.black
@@ -211,17 +211,26 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
             cell.accessoryType = (fastingLevel == .monastic) ?  .none : .disclosureIndicator
             return cell
 
-        } else if (indexPath as NSIndexPath).section == 2 {
+        } else if indexPath.section == 2 {
             let cell: TextDetailsCell = getCell()
+            
             cell.title.textColor = UIColor.black
-            let currentReading = readings[(indexPath as NSIndexPath).row].components(separatedBy: "#")
-
-            cell.title.text = Translate.readings(currentReading[0])
-            cell.subtitle.text = (currentReading.count > 1) ? Translate.s(currentReading[1].trimmingCharacters(in: CharacterSet.whitespaces)) : ""
             cell.accessoryType = .disclosureIndicator
+
+            if indexPath.row >= readings.count {
+                guard let synaxarion = Cal.synaxarion[currentDate]  else { cell.title.text = "" ; cell.subtitle.text = ""; return cell }
+                cell.title.text = synaxarion.0
+                cell.subtitle.text = ""
+            
+            } else {
+                let currentReading = readings[indexPath.row].components(separatedBy: "#")
+                cell.title.text = Translate.readings(currentReading[0])
+                cell.subtitle.text = (currentReading.count > 1) ? Translate.s(currentReading[1].trimmingCharacters(in: CharacterSet.whitespaces)) : ""
+            }
+            
             return cell
             
-        } else if (indexPath as NSIndexPath).section == 3 {
+        } else if indexPath.section == 3 {
             let cell: TextDetailsCell = getCell()
             cell.title.textColor = UIColor.black
             cell.title.text = Translate.s("Typica")
@@ -229,11 +238,11 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
             cell.accessoryType = .disclosureIndicator
             return cell
 
-        } else if (indexPath as NSIndexPath).section == 4 {
-            if saints[(indexPath as NSIndexPath).row].0 == .none {
+        } else if indexPath.section == 4 {
+            if saints[indexPath.row].0 == .none {
                 let cell: TextCell = getCell()
                 cell.title.textColor =  UIColor.black
-                cell.title.text = saints[(indexPath as NSIndexPath).row].1
+                cell.title.text = saints[indexPath.row].1
                 return cell
 
             } else {
@@ -250,7 +259,6 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
                 cell.title.attributedText = myString
                 
                 return cell
-
             }
         }
         
@@ -260,15 +268,26 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if (indexPath as NSIndexPath).section == 2 && readings.count > 0 {
-            let vc = storyboard!.instantiateViewController(withIdentifier: "Scripture") as! Scripture
-            
-            let currentReading = readings[(indexPath as NSIndexPath).row].components(separatedBy: "#")
+        if indexPath.section == 2 {
+            if indexPath.row < readings.count {
+                let vc = storyboard!.instantiateViewController(withIdentifier: "Scripture") as! Scripture
+                let currentReading = readings[(indexPath as NSIndexPath).row].components(separatedBy: "#")
+                
+                vc.code = .pericope(currentReading[0])
+                navigationController?.pushViewController(vc, animated: true)
+                
+            } else {
+                let vc = storyboard!.instantiateViewController(withIdentifier: "RTFDocument") as! RTFDocument
+                let synaxarion = Cal.synaxarion[currentDate]!
+                
+                vc.docTitle = synaxarion.0
+                vc.docFilename = synaxarion.1
+                
+                navigationController?.pushViewController(vc, animated: true)
+                
+            }
 
-            vc.code = .pericope(currentReading[0])
-            navigationController?.pushViewController(vc, animated: true)
-
-        } else if fastingLevel == .laymen && (indexPath as NSIndexPath).section == 1 && (indexPath as NSIndexPath).row == 0 {
+        } else if fastingLevel == .laymen && indexPath.section == 1 && indexPath.row == 0 {
             let fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
             modalSheet = NAModalSheet(viewController: fastingInfo, presentationStyle: .fadeInCentered)!
             
@@ -282,13 +301,12 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
             
             modalSheet.present(completion: {})
 
-        } else if (indexPath as NSIndexPath).section == 3 {
+        } else if indexPath.section == 3 {
             let prayer = storyboard!.instantiateViewController(withIdentifier: "Prayer") as! Prayer
             prayer.code = "typica"
             prayer.index = 0
             prayer.name = Translate.s("Typica")
             navigationController?.pushViewController(prayer, animated: true)
-
         }
         
         return nil

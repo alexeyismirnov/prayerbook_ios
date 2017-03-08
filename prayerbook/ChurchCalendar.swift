@@ -55,6 +55,8 @@ struct ChurchCalendar {
     static var dCache = [DateCache:Date]()
 
     static var dateFeastDescr = [Date: [(FeastType, String)]]()
+    static var synaxarion = [Date: (String, String)]()
+
     static let codeFeastDescr : [NameOfDay: [(FeastType, String)]] = [
         .pascha:                    [(.great, "PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ")],
         .pentecost:                 [(.great, "Pentecost. Sunday of the Holy Trinity. Descent of the Holy Spirit on the Apostles")],
@@ -152,6 +154,7 @@ struct ChurchCalendar {
         if dCache[DateCache(.pascha, currentYear)] == nil {
             generateFeastDates(currentYear)
             generateFeastDescription(currentYear)
+            generateSynaxarion(currentYear)
         }
     }
 
@@ -161,6 +164,34 @@ struct ChurchCalendar {
         let b = (2*(year%4) + 4*(year%7) + 6*a + 6) % 7
 
         return  ((a+b > 10) ? Date(a+b-9, 4, year) : Date(22+a+b, 3, year)) + 13.days
+    }
+    
+    static func generateSynaxarion(_ year: Int) {
+        let pascha = paschaDay(year)
+        let greatLentStart = pascha-48.days
+
+        synaxarion += [
+            greatLentStart-22.days: ("Синаксарь в неделю о мытаре и фарисее", "synaxarion1"),
+            greatLentStart-15.days: ("Синаксарь в неделю о блудном сыне", ""),
+            greatLentStart-9.days:  ("Синаксарь в субботу мясопустную", ""),
+            greatLentStart-8.days:  ("Синаксарь в неделю мясопустную, о Страшном Суде", ""),
+            greatLentStart-2.days:  ("Синаксарь в субботу Сырной седмицы", ""),
+            greatLentStart-1.days:  ("Синаксарь в неделю сыропустную", ""),
+            greatLentStart+5.days:  ("Синаксарь в субботу первой седмицы Великого поста", ""),
+            greatLentStart+6.days:  ("Синаксарь в неделю первую Великого поста", ""),
+            greatLentStart+13.days: ("Синаксарь в неделю вторую Великого поста", ""),
+            greatLentStart+20.days: ("Синаксарь в неделю третью Великого поста", ""),
+            greatLentStart+27.days: ("Синаксарь в неделю четвертую Великого поста", ""),
+            greatLentStart+31.days: ("Синаксарь в четверток пятой седмицы Великого поста", ""),
+            greatLentStart+33.days: ("Синаксарь в субботу пятой седмицы Великого поста", ""),
+            d(.palmSunday)-1.days:  ("Синаксарь в Лазареву субботу", ""),
+            d(.palmSunday):         ("Синаксарь в Неделю ваий", ""),
+            d(.palmSunday)+1.days:  ("Синаксарь во Святый Великий Понедельник", ""),
+            d(.palmSunday)+2.days:  ("Синаксарь во Святой Великий Вторник", ""),
+            d(.palmSunday)+3.days:  ("Синаксарь во Святую Великую Среду", ""),
+            d(.palmSunday)+4.days:  ("Синаксарь во Святой Великий Четверг", ""),
+            d(.palmSunday)+5.days:  ("Синаксарь во Святую Великую Пятницу", ""),
+        ]
     }
     
     static func generateFeastDescription(_ year: Int) {
@@ -181,6 +212,7 @@ struct ChurchCalendar {
             greatLentStart+20.days: [(.none,   "Veneration of the Precious Cross")],
             greatLentStart+26.days: [(.none,   "Commemoration of the Departed")],
             greatLentStart+27.days: [(.noSign, "Venerable John Climacus of Sinai, Author of “the Ladder” († 649)")],
+            greatLentStart+31.days: [(.none,   "Thursday of the Great Canon, with the Life of St. Mary of Egypt")],
             greatLentStart+33.days: [(.none,   "Saturday of the Akathist; Laudation of the Most Holy Theotokos")],
             greatLentStart+34.days: [(.none,   "Venerable Mary of Egypt")]]
         

@@ -55,8 +55,8 @@ class Prayer: UIViewController {
             
         }
         
-        let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in"), style: .plain, target: self, action: #selector(Prayer.zoom_in))
-        let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out"), style: .plain, target: self, action: #selector(Prayer.zoom_out))
+        let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in"), style: .plain, target: self, action: #selector(self.zoom_in))
+        let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out"), style: .plain, target: self, action: #selector(self.zoom_out))
         
         button_zoom_in.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
