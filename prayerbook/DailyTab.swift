@@ -9,6 +9,17 @@
 import UIKit
 import Squeal
 
+extension UIAlertController {
+    
+    convenience init(title: String, message: String, view: UIViewController, handler: @escaping (UIAlertAction) -> ()) {
+        self.init(title: title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { action in handler(action) });
+        addAction(defaultAction)
+        view.present(self, animated: true, completion: {})
+    }
+    
+}
+
 class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControllerDelegate {
 
     let animation = DailyAnimator()
@@ -71,6 +82,17 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         reload()
         
         navigationController?.delegate = self
+        
+        if prefs.object(forKey: "welcome15") == nil {
+            prefs.set(true, forKey: "welcome15")
+            prefs.synchronize()
+
+            _ = UIAlertController(title: "Православный календарь",
+                                  message: "В новой версии программы добавлен Синаксарь Постной Триоди (в разделе \"Чтение дня\")",
+                                  view: self,
+                                  handler: { _ in })
+
+        }
     }
 
     func hasTypica() -> Bool {        
@@ -432,8 +454,20 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
     func showOptions() {
         let vc = storyboard!.instantiateViewController(withIdentifier: "Options") as! Options
         let nav = UINavigationController(rootViewController: vc)
+        
+        vc.delegate = self
         navigationController?.present(nav, animated: true, completion: {})
-    }    
+    }
+
+    func showHistory() {
+        navigationController?.dismiss(animated: false, completion: {
+            let vc = self.storyboard!.instantiateViewController(withIdentifier: "RTFDocument") as! RTFDocument
+            vc.docTitle = "История храма"
+            vc.docFilename = "church_history"
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        })
+    }
     
     // MARK: NAModalSheetDelegate
     
