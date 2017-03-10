@@ -62,9 +62,6 @@ class Library: UITableViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(Library.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 
-        let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .plain, target: self, action: #selector(Library.showOptions))
-        navigationItem.rightBarButtonItems = [button_options]
-        
         reload()
     }
     
@@ -79,12 +76,6 @@ class Library: UITableViewController {
         }
     }
     
-    func showOptions() {
-        let vc = storyboard!.instantiateViewController(withIdentifier: "Options") as! Options
-        let nav = UINavigationController(rootViewController: vc)        
-        navigationController?.present(nav, animated: true, completion: {})
-    }
-
     // MARK: Table view data source
 
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
