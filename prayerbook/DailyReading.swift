@@ -351,7 +351,22 @@ struct DailyReading {
         }
 
         return readings + (getRegularReading(date).map { [$0] } ?? []) + (transferred[date].map { [$0] } ?? [])
+    }
+    
+    static func getFeofan(_ date: Date) -> [(String, String)] {
+        let readings = DailyReading.getDailyReading(date)
+        var feofan = [(String,String)]()
+        
+        for r in readings {
+            let pericope = Translate.readings(r.components(separatedBy: "#")[0])
+            let id = pericope.replacingOccurrences(of: " ", with: "")
+            
+            if let f = Db.feofan(id) {
+                feofan.append((pericope,f))
+            }
+        }
 
+        return feofan
     }
         
 }

@@ -41,6 +41,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
     ]
     
     var readings = [String]()
+    var feofan = [(String,String)]()
     var dayDescription = [(FeastType, String)]()
     var saints = [(FeastType, String)]()
 
@@ -113,12 +114,16 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         switch section {
         case 0:
             return dayDescription.count+2
+        
         case 1:
             return 1
+            
         case 2:
-            return readings.count + (Cal.synaxarion[currentDate] != nil ? 1:0)
+            return readings.count + feofan.count + (Cal.synaxarion[currentDate] != nil ? 1:0)
+            
         case 3:
             return hasTypica() ? 1 : 0
+            
         case 4:
             return saints.count
             
@@ -134,6 +139,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
 
         case 1:
             return (fastingLevel == .monastic) ? Translate.s("Monastic fasting") : Translate.s("Laymen fasting")
+            
         case 2:
             return readings.count > 0 ? Translate.s("Gospel of the day") : nil
 
@@ -238,16 +244,22 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
             
             cell.title.textColor = UIColor.black
             cell.accessoryType = .disclosureIndicator
-
-            if indexPath.row >= readings.count {
-                guard let synaxarion = Cal.synaxarion[currentDate]  else { cell.title.text = "" ; cell.subtitle.text = ""; return cell }
-                cell.title.text = synaxarion.0
-                cell.subtitle.text = ""
             
-            } else {
+            switch indexPath.row {
+            case 0 ..< readings.count:
                 let currentReading = readings[indexPath.row].components(separatedBy: "#")
                 cell.title.text = Translate.readings(currentReading[0])
                 cell.subtitle.text = (currentReading.count > 1) ? Translate.s(currentReading[1].trimmingCharacters(in: CharacterSet.whitespaces)) : ""
+
+            case readings.count ..< readings.count + feofan.count:
+                let ind = indexPath.row - readings.count
+                cell.title.text = "Мысли на каждый день"
+                cell.subtitle.text = feofan[ind].0
+
+            default:
+                guard let synaxarion = Cal.synaxarion[currentDate]  else { cell.title.text = "" ; cell.subtitle.text = ""; return cell }
+                cell.title.text = synaxarion.0
+                cell.subtitle.text = ""
             }
             
             return cell
@@ -286,29 +298,35 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         
         let cell: TextCell = getCell()
         return cell
-
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if indexPath.section == 2 {
-            if indexPath.row < readings.count {
-                let vc = storyboard!.instantiateViewController(withIdentifier: "Scripture") as! Scripture
-                let currentReading = readings[(indexPath as NSIndexPath).row].components(separatedBy: "#")
-                
-                vc.code = .pericope(currentReading[0])
-                navigationController?.pushViewController(vc, animated: true)
-                
-            } else {
-                let vc = storyboard!.instantiateViewController(withIdentifier: "RTFDocument") as! RTFDocument
-                let synaxarion = Cal.synaxarion[currentDate]!
-                
-                vc.docTitle = synaxarion.0
-                vc.docFilename = synaxarion.1
-                
-                navigationController?.pushViewController(vc, animated: true)
-                
-            }
+            var vc : UIViewController!
+            
+            switch indexPath.row {
+            case 0 ..< readings.count:
+                let currentReading = readings[indexPath.row].components(separatedBy: "#")
+                vc = storyboard!.instantiateViewController(withIdentifier: "Scripture")
+                (vc as! Scripture).code = .pericope(currentReading[0])
 
+            case readings.count ..< readings.count + feofan.count:
+                let ind = indexPath.row - readings.count
+                
+                vc = storyboard!.instantiateViewController(withIdentifier: "RTFDocument")
+                (vc as! RTFDocument).content = NSAttributedString(string: feofan[ind].1)
+                
+            default:
+                let synaxarion = Cal.synaxarion[currentDate]!
+
+                vc = storyboard!.instantiateViewController(withIdentifier: "RTFDocument")
+                (vc as! RTFDocument).docTitle = synaxarion.0
+                (vc as! RTFDocument).docFilename = synaxarion.1
+
+            }
+            
+            navigationController?.pushViewController(vc, animated: true)
+            
         } else if fastingLevel == .laymen && indexPath.section == 1 && indexPath.row == 0 {
             let fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
             modalSheet = NAModalSheet(viewController: fastingInfo, presentationStyle: .fadeInCentered)!
@@ -356,6 +374,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
 
         dayDescription = Cal.getDayDescription(currentDate)
         readings = DailyReading.getDailyReading(currentDate)
+        feofan = DailyReading.getFeofan(currentDate)
+        
         fastingLevel = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!
         fasting = Cal.getFastingDescription(currentDate, fastingLevel)
         saints=Db.saints(currentDate)

@@ -10,6 +10,13 @@ import Foundation
 import UIKit
 import Squeal
 
+extension Collection where Indices.Iterator.Element == Index {
+    /// Returns the element at the specified index iff it is within bounds, otherwise nil.
+    subscript (safe index: Index) -> Generator.Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
+
 struct Db {
     static let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
 
@@ -84,4 +91,18 @@ struct Db {
 
         return 0
     }
+    
+    static func feofan(_ id: String) -> String? {
+        let path = Bundle.main.path(forResource: "feofan", ofType: "sqlite")!
+        let db = try! Database(path:path)
+
+        let results = try! db.selectFrom("thoughts", whereExpr:"id=\"\(id)\"") { ["id": $0["id"] , "descr": $0["descr"]] }
+        
+        if let res = results[safe: 0] {
+            return res["descr"] as? String
+        }
+        
+        return nil
+    }
+    
 }

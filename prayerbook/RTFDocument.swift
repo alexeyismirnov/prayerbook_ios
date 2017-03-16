@@ -21,7 +21,8 @@ class RTFDocument: UIViewController {
     var fontSize: Int = 0
 
     var docTitle : String!
-    var docFilename : String!
+    var docFilename : String?
+    var content : NSAttributedString!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,17 +43,20 @@ class RTFDocument: UIViewController {
         view.backgroundColor = UIColor(patternImage: image)
         title = docTitle
         
-        if let rtfPath = Bundle.main.url(forResource: docFilename, withExtension: "rtf") {
+        if let filename = docFilename,
+           let rtfPath = Bundle.main.url(forResource: filename, withExtension: "rtf") {
+            
             do {
-                
-                let string = try NSAttributedString(fileURL: rtfPath, options: [NSDocumentTypeDocumentAttribute:NSRTFTextDocumentType], documentAttributes: nil)
-                self.textView.attributedText = string
-                self.textView.font =  UIFont(name: (textView.font?.fontName)!, size: CGFloat(fontSize))!
+                content = try NSAttributedString(fileURL: rtfPath, options: [NSDocumentTypeDocumentAttribute:NSRTFTextDocumentType], documentAttributes: nil)
 
             } catch let error {
                 print("We got an error \(error)")
             }
         }
+        
+        self.textView.attributedText = content
+        self.textView.font =  UIFont(name: (textView.font?.fontName)!, size: CGFloat(fontSize))!
+
 
     }
     
