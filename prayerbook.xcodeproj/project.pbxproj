@@ -125,7 +125,6 @@
 		8A74D833198F224E0078F39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D832198F224E0078F39F /* Main.storyboard */; };
 		8A74D838198F2AF70078F39F /* prayers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D837198F2AF70078F39F /* prayers.plist */; };
 		8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A81FB4D1C1ECB7600D28F58 /* Appirater.m */; };
-		8A825F291E7A9AB8006438AF /* feofan.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A825F281E7A9AB8006438AF /* feofan.sqlite */; };
 		8A865FCC1DED2B5E004A845F /* widget.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8A865FCB1DED2B5E004A845F /* widget.mp4 */; };
 		8A953B371DC736C2001062AF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A953B361DC736C2001062AF /* MainViewController.swift */; };
 		8AAE4D831AC8E332009421AF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAE4D821AC8E332009421AF /* ImageCell.swift */; };
@@ -143,6 +142,7 @@
 		8AB0DCA61C27F00400C6A494 /* ReadingLent.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DCA01C27F00400C6A494 /* ReadingLent.plist */; };
 		8AB0DCA71C27F00400C6A494 /* ReadingLuke.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DCA11C27F00400C6A494 /* ReadingLuke.plist */; };
 		8AB0DCA81C27F00400C6A494 /* ReadingMatthew.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DCA21C27F00400C6A494 /* ReadingMatthew.plist */; };
+		8AB13B0C1E7FEA5900FB6006 /* feofan.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AB13B0B1E7FEA5900FB6006 /* feofan.sqlite */; };
 		8AB62A671C180F4F001ACD2A /* zoom_in.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AB62A651C180F4F001ACD2A /* zoom_in.pdf */; };
 		8AB62A681C180F4F001ACD2A /* zoom_out.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AB62A661C180F4F001ACD2A /* zoom_out.pdf */; };
 		8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */; };
@@ -425,7 +425,6 @@
 		8A81FB4C1C1ECB7600D28F58 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		8A81FB4D1C1ECB7600D28F58 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		8A81FB4E1C1ECB7600D28F58 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
-		8A825F281E7A9AB8006438AF /* feofan.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = feofan.sqlite; sourceTree = "<group>"; };
 		8A865FCB1DED2B5E004A845F /* widget.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = widget.mp4; sourceTree = "<group>"; };
 		8A953B361DC736C2001062AF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8A9A36D81CAD127400D33D5A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -443,6 +442,7 @@
 		8AB0DCA01C27F00400C6A494 /* ReadingLent.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingLent.plist; sourceTree = "<group>"; };
 		8AB0DCA11C27F00400C6A494 /* ReadingLuke.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingLuke.plist; sourceTree = "<group>"; };
 		8AB0DCA21C27F00400C6A494 /* ReadingMatthew.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingMatthew.plist; sourceTree = "<group>"; };
+		8AB13B0B1E7FEA5900FB6006 /* feofan.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = feofan.sqlite; sourceTree = "<group>"; };
 		8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Squeal.xcodeproj; path = ../Squeal/Squeal.xcodeproj; sourceTree = "<group>"; };
 		8AB62A651C180F4F001ACD2A /* zoom_in.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = zoom_in.pdf; sourceTree = "<group>"; };
 		8AB62A661C180F4F001ACD2A /* zoom_out.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = zoom_out.pdf; sourceTree = "<group>"; };
@@ -848,7 +848,7 @@
 		8AFEE0591C210FB0004A68DC /* readings */ = {
 			isa = PBXGroup;
 			children = (
-				8A825F281E7A9AB8006438AF /* feofan.sqlite */,
+				8AB13B0B1E7FEA5900FB6006 /* feofan.sqlite */,
 				8AEBFAA21C8D16A30056F97B /* Reading_ru.plist */,
 				8AB0DC9E1C27F00400C6A494 /* ReadingApostle.plist */,
 				8AB0DC9F1C27F00400C6A494 /* ReadingJohn.plist */,
@@ -1144,7 +1144,7 @@
 				8AC6951C19E3FBC200773FEB /* food-no-fish.pdf in Resources */,
 				8A5457551E6FEACA00A86B5A /* church@2x.jpg in Resources */,
 				8AE36B2C1C97B228005CAD8D /* food-nothing.pdf in Resources */,
-				8A825F291E7A9AB8006438AF /* feofan.sqlite in Resources */,
+				8AB13B0C1E7FEA5900FB6006 /* feofan.sqlite in Resources */,
 				8A1F2CA71DD9B5C500F13A3D /* Default-736@2x.png in Resources */,
 				8AB0DC9B1C27EFEC00C6A494 /* typica_7.plist in Resources */,
 				8A5457771E70174300A86B5A /* synaxarion7.rtf in Resources */,

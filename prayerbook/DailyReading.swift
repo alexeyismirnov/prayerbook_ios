@@ -216,12 +216,8 @@ struct DailyReading {
         let weekday = DayOfWeek(rawValue: DateComponents(date:date).weekday!)
         var newDate:Date
 
-        if Cal.d(.beginningOfGreatLent) ... Cal.d(.pascha) ~= date {
+        if Cal.d(.beginningOfGreatLent) ... Cal.d(.pentecost) ~= date  {
             return nil
-        }
-
-        if  Cal.d(.pascha)...Cal.d(.pentecost) ~= date {
-            return date
         }
         
         if weekday == .sunday {
@@ -344,6 +340,10 @@ struct DailyReading {
         
         if let vigilReading = vigils[date] {
             readings += [vigilReading]
+            
+            if Cal.d(.pascha) ... Cal.d(.pentecost) ~= date {
+               return readings + (getRegularReading(date).map { [$0] } ?? [])
+            }
 
             if Cal.currentWeekday != .sunday {
                 return readings + (transferred[date].map { [$0] } ?? [])
@@ -354,17 +354,33 @@ struct DailyReading {
     }
     
     static func getFeofan(_ date: Date) -> [(String, String)] {
-        let readings = DailyReading.getDailyReading(date)
         var feofan = [(String,String)]()
         
-        for r in readings {
-            let pericope = Translate.readings(r.components(separatedBy: "#")[0])
-            let id = pericope.replacingOccurrences(of: " ", with: "")
-            
-            if let f = Db.feofan(id) {
-                feofan.append((pericope,f))
+        let pascha = Cal.paschaDay(date.year)
+        let greatLentStart = pascha-48.days
+        
+        switch date {
+        case greatLentStart..<pascha:
+            let num = (greatLentStart >> date) + 39
+
+            if let f = Db.feofan("\(num)") {
+                feofan.append(("",f))
             }
+            
+        default:
+            let readings = DailyReading.getDailyReading(date)
+            
+            for r in readings {
+                let pericope = Translate.readings(r.components(separatedBy: "#")[0])
+                let id = pericope.replacingOccurrences(of: " ", with: "")
+                
+                if let f = Db.feofan(id) {
+                    feofan.append((pericope,f))
+                }
+            }
+
         }
+        
 
         return feofan
     }
