@@ -38,7 +38,9 @@
 	<string>преподобному</string>
 	<key>Venerable Anthony</key>
 	<string>преподобному</string>
-	<key>Martyrs</key>
+    <key>Fathers</key>
+    <string>отцам</string>
+    <key>Martyrs</key>
 	<string>мученикам</string>
 	<key>Sunday after the Theophany</key>
 	<string>недели по Богоявлении</string>

@@ -6,7 +6,7 @@ enum FeastType: Int {
 }
 
 enum NameOfDay: Int {
-    case startOfYear=0, pascha, pentecost, ascension, palmSunday, eveOfNativityOfGod, nativityOfGod, circumcision, eveOfTheophany, theophany, meetingOfLord, annunciation, nativityOfJohn, peterAndPaul, transfiguration, dormition, beheadingOfJohn, nativityOfTheotokos, exaltationOfCross, veilOfTheotokos, entryIntoTemple, stNicholas, sundayOfPublicianAndPharisee, sundayOfProdigalSon, sundayOfDreadJudgement, cheesefareSunday, beginningOfGreatLent, beginningOfDormitionFast, beginningOfNativityFast, beginningOfApostolesFast, sundayOfForefathers, sundayBeforeNativity, sundayAfterExaltation, saturdayAfterExaltation, saturdayBeforeExaltation, sundayBeforeExaltation, saturdayBeforeNativity, saturdayAfterNativity, sundayAfterNativity, saturdayBeforeTheophany, sundayBeforeTheophany, saturdayAfterTheophany, sundayAfterTheophany, sunday2AfterPascha, sunday3AfterPascha, sunday4AfterPascha, sunday5AfterPascha, sunday6AfterPascha, sunday7AfterPascha, lazarusSaturday, newMartyrsConfessorsOfRussia, josephBetrothed, synaxisTheotokos, holyFathersSixCouncils, synaxisMoscowSaints, synaxisNizhnyNovgorodSaints, endOfYear
+    case startOfYear=0, pascha, pentecost, ascension, palmSunday, eveOfNativityOfGod, nativityOfGod, circumcision, eveOfTheophany, theophany, meetingOfLord, annunciation, nativityOfJohn, peterAndPaul, transfiguration, dormition, beheadingOfJohn, nativityOfTheotokos, exaltationOfCross, veilOfTheotokos, entryIntoTemple, stNicholas, sundayOfPublicianAndPharisee, sundayOfProdigalSon, sundayOfDreadJudgement, cheesefareSunday, beginningOfGreatLent, beginningOfDormitionFast, beginningOfNativityFast, beginningOfApostolesFast, sundayOfForefathers, sundayBeforeNativity, sundayAfterExaltation, saturdayAfterExaltation, saturdayBeforeExaltation, sundayBeforeExaltation, saturdayBeforeNativity, saturdayAfterNativity, sundayAfterNativity, saturdayBeforeTheophany, sundayBeforeTheophany, saturdayAfterTheophany, sundayAfterTheophany, sunday2AfterPascha, sunday3AfterPascha, sunday4AfterPascha, sunday5AfterPascha, sunday6AfterPascha, sunday7AfterPascha, lazarusSaturday, newMartyrsConfessorsOfRussia, josephBetrothed, synaxisTheotokos, holyFathersSixCouncils, synaxisMoscowSaints, synaxisNizhnyNovgorodSaints, saturdayOfFathers, endOfYear
 }
 
 enum FastingLevel: Int {
@@ -100,6 +100,7 @@ struct ChurchCalendar {
         .holyFathersSixCouncils:    [(.none, "Commemoration of the Holy Fathers of the First Six Councils")],
         .synaxisMoscowSaints:       [(.none, "Synaxis of all saints of Moscow")],
         .synaxisNizhnyNovgorodSaints:       [(.none, "Synaxis of all saints of Nizhny Novgorod")],
+        .saturdayOfFathers:         [(.noSign, "Commemoration of all the saints, who showed forth in asceticism")],
 
 
     ]
@@ -203,7 +204,6 @@ struct ChurchCalendar {
             
         miscFeasts += [
             greatLentStart-9.days: [(.none,    "Commemoration of the Departed")],
-            greatLentStart-2.days:  [(.noSign, "Commemoration of all the saints, who showed forth in asceticism")],
             greatLentStart+5.days:  [(.noSign, "Great Martyr Theodore the Recruit († c. 306)")],
             greatLentStart+6.days:  [(.none,   "Triumph of Orthodoxy")],
             greatLentStart+12.days: [(.none,   "Commemoration of the Departed")],
@@ -414,6 +414,7 @@ struct ChurchCalendar {
             greatLentStart-22.days:                   [.sundayOfPublicianAndPharisee],
             greatLentStart-15.days:                   [.sundayOfProdigalSon],
             greatLentStart-8.days:                    [.sundayOfDreadJudgement],
+            greatLentStart-2.days:                    [.saturdayOfFathers],
             greatLentStart-1.days:                    [.cheesefareSunday],
             greatLentStart:                           [.beginningOfGreatLent],
             pascha-8.days:                            [.lazarusSaturday],

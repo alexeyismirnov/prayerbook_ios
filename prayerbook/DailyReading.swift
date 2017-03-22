@@ -50,9 +50,10 @@ struct DailyReading {
         .saturdayAfterTheophany:    "Ephes 6:10-17 Matthew 4:1-11 # Saturday after the Theophany",
         .sundayAfterTheophany:      "Ephes 4:7-13 Matthew 4:12-17 # Sunday after the Theophany",
         .newMartyrsConfessorsOfRussia: "Rom 8:28-39 Luke 21:8-19 # Martyrs",
+        .saturdayOfFathers:         "Gal 5:22-6:2 Matthew 11:27-30 # Fathers"
     ]
     
-    static let dontTransferReading : [NameOfDay] = [.newMartyrsConfessorsOfRussia,
+    static let dontTransferReading : [NameOfDay] = [.newMartyrsConfessorsOfRussia, .saturdayOfFathers,
         .sundayBeforeNativity, .saturdayBeforeNativity, .eveOfNativityOfGod, .nativityOfGod, .sundayAfterNativity, .saturdayAfterNativity,
         .circumcision,
         .sundayBeforeTheophany, .saturdayBeforeTheophany, .eveOfTheophany, .theophany, .sundayAfterTheophany, .saturdayAfterTheophany,
@@ -60,7 +61,7 @@ struct DailyReading {
     ]
 
     static let specialAndRegular: [NameOfDay] = [.saturdayBeforeNativity, .saturdayAfterNativity, .saturdayBeforeTheophany, .saturdayAfterTheophany,
-        .saturdayBeforeExaltation,  .saturdayAfterExaltation]
+        .saturdayBeforeExaltation,  .saturdayAfterExaltation, .saturdayOfFathers]
     
     static var vigils = [Date:String]()
     
