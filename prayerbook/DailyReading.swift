@@ -186,11 +186,6 @@ struct DailyReading {
     }
     
     static func getRegularReading(_ date: Date) -> String? {
-        let exaltation = Date(27, 9, Cal.currentYear)
-        let exaltationWeekday = DateComponents(date: exaltation).weekday!
-        let exaltationFriOffset = (exaltationWeekday >= 6) ? 13-exaltationWeekday : 6-exaltationWeekday
-        let fridayAfterExaltation = exaltation + exaltationFriOffset.days
-        
         switch (date) {
         case Cal.d(.startOfYear) ..< Cal.d(.sundayOfPublicianAndPharisee):
             return GospelOfLukeSpring(date)
@@ -202,7 +197,7 @@ struct DailyReading {
         case Cal.d(.pascha) ... Cal.d(.pentecost):
             return GospelOfJohn(date)
             
-        case Cal.d(.pentecost)+1.days ... fridayAfterExaltation:
+        case Cal.d(.pentecost)+1.days ... Cal.d(.sundayAfterExaltation):
             return GospelOfMatthew(date)
             
         case Cal.d(.sundayAfterExaltation)+1.days ... Cal.d(.endOfYear):
@@ -245,6 +240,7 @@ struct DailyReading {
         var transferred = [Date:String]()
         var noRegularReading = false
         var sundayBeforeNativity = false
+        var greatFeast = false
         
         let formatter = DateFormatter()
         formatter.timeStyle = .none
@@ -294,6 +290,10 @@ struct DailyReading {
             if Array(specialReadings.keys).contains(code) {
                 noRegularReading = true
                 
+                if Cal.greatFeastCodes.contains(code) {
+                    greatFeast = true
+                }
+                
                 if (code == .eveOfNativityOfGod) {
                     let choices = specialReadings[code]!.components(separatedBy: "|")
                     let weekday = DateComponents(date:date).weekday
@@ -325,7 +325,7 @@ struct DailyReading {
                 noRegularReading = false
             }
                         
-        } else if Cal.currentWeekday == .sunday && !sundayBeforeNativity && !(Cal.d(.beginningOfGreatLent) ... Cal.d(.pascha) ~= date) {
+        } else if Cal.currentWeekday == .sunday && !sundayBeforeNativity && !greatFeast {
             noRegularReading = false
         }
         
@@ -349,7 +349,7 @@ struct DailyReading {
                 return readings + (transferred[date].map { [$0] } ?? [])
             }
         }
-
+        
         return readings + (getRegularReading(date).map { [$0] } ?? []) + (transferred[date].map { [$0] } ?? [])
     }
     
@@ -371,12 +371,30 @@ struct DailyReading {
             let readings = DailyReading.getDailyReading(date)
             
             for r in readings {
-                let pericope = Translate.readings(r.components(separatedBy: "#")[0])
+                let str = r.components(separatedBy: "#")[0]
+                
+                let pericope = Translate.readings(str)
                 let id = pericope.replacingOccurrences(of: " ", with: "")
                 
                 if let f = Db.feofan(id) {
                     feofan.append((pericope,f))
+                    
+                } else {
+                    let p = str.characters.split { $0 == " " }.map { String($0) }
+                    
+                    for i in stride(from: 0, to: p.count-1, by: 2) {
+                        
+                        if ["John", "Luke", "Mark", "Matthew"].contains(p[i]) {
+                            let pericope = Translate.readings(p[i] + " " + p[i+1])
+                            let id = pericope.replacingOccurrences(of: " ", with: "")
+                            
+                            if let f = Db.feofanFuzzy(id) {
+                                feofan.append((pericope,f))
+                            }
+                        }
+                    }
                 }
+
             }
 
         }

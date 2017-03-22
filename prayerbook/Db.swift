@@ -105,4 +105,21 @@ struct Db {
         return nil
     }
     
+    static func feofanFuzzy(_ id: String) -> String? {
+        let path = Bundle.main.path(forResource: "feofan", ofType: "sqlite")!
+        let db = try! Database(path:path)
+
+        let results = try! db.prepareStatement("SELECT id,descr FROM thoughts WHERE id LIKE'%\(id)'")
+        
+        while try! results.next() {
+            let descr = results[1] as! String
+            return descr
+            
+            // let id = results[0] as! String
+            // print(id, " ", descr)
+        }
+        
+        return nil
+    }
+    
 }
