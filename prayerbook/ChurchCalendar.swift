@@ -6,7 +6,7 @@ enum FeastType: Int {
 }
 
 enum NameOfDay: Int {
-    case startOfYear=0, pascha, pentecost, ascension, palmSunday, eveOfNativityOfGod, nativityOfGod, circumcision, eveOfTheophany, theophany, meetingOfLord, annunciation, nativityOfJohn, peterAndPaul, transfiguration, dormition, beheadingOfJohn, nativityOfTheotokos, exaltationOfCross, veilOfTheotokos, entryIntoTemple, stNicholas, sundayOfPublicianAndPharisee, sundayOfProdigalSon, sundayOfDreadJudgement, cheesefareSunday, beginningOfGreatLent, beginningOfDormitionFast, beginningOfNativityFast, beginningOfApostolesFast, sundayOfForefathers, sundayBeforeNativity, sundayAfterExaltation, saturdayAfterExaltation, saturdayBeforeExaltation, sundayBeforeExaltation, saturdayBeforeNativity, saturdayAfterNativity, sundayAfterNativity, saturdayBeforeTheophany, sundayBeforeTheophany, saturdayAfterTheophany, sundayAfterTheophany, sunday2AfterPascha, sunday3AfterPascha, sunday4AfterPascha, sunday5AfterPascha, sunday6AfterPascha, sunday7AfterPascha, lazarusSaturday, newMartyrsConfessorsOfRussia, josephBetrothed, synaxisTheotokos, holyFathersSixCouncils, synaxisMoscowSaints, synaxisNizhnyNovgorodSaints, saturdayOfFathers, endOfYear
+    case startOfYear=0, pascha, pentecost, ascension, palmSunday, eveOfNativityOfGod, nativityOfGod, circumcision, eveOfTheophany, theophany, meetingOfLord, annunciation, nativityOfJohn, peterAndPaul, transfiguration, dormition, beheadingOfJohn, nativityOfTheotokos, exaltationOfCross, veilOfTheotokos, entryIntoTemple, stNicholas, sundayOfPublicianAndPharisee, sundayOfProdigalSon, sundayOfDreadJudgement, cheesefareSunday, beginningOfGreatLent, beginningOfDormitionFast, beginningOfNativityFast, beginningOfApostolesFast, sundayOfForefathers, sundayBeforeNativity, sundayAfterExaltation, saturdayAfterExaltation, saturdayBeforeExaltation, sundayBeforeExaltation, saturdayBeforeNativity, saturdayAfterNativity, sundayAfterNativity, saturdayBeforeTheophany, sundayBeforeTheophany, saturdayAfterTheophany, sundayAfterTheophany, sunday2AfterPascha, sunday3AfterPascha, sunday4AfterPascha, sunday5AfterPascha, sunday6AfterPascha, sunday7AfterPascha, lazarusSaturday, newMartyrsConfessorsOfRussia, josephBetrothed, synaxisTheotokos, holyFathersSixCouncils, synaxisMoscowSaints, synaxisNizhnyNovgorodSaints, saturdayOfFathers, synaxisForerunner, saturdayTrinity, saturdayOfDeparted, endOfYear
 }
 
 enum FastingLevel: Int {
@@ -101,7 +101,8 @@ struct ChurchCalendar {
         .synaxisMoscowSaints:       [(.none, "Synaxis of all saints of Moscow")],
         .synaxisNizhnyNovgorodSaints:       [(.none, "Synaxis of all saints of Nizhny Novgorod")],
         .saturdayOfFathers:         [(.noSign, "Commemoration of all the saints, who showed forth in asceticism")],
-
+        .saturdayTrinity:           [(.none, "Trinity Saturday; Commemoration of the Departed")],
+        .saturdayOfDeparted:        [(.none, "The Saturday of the Dead")]
 
     ]
 
@@ -203,7 +204,6 @@ struct ChurchCalendar {
         var miscFeasts = [Date: [(FeastType, String)]]()
             
         miscFeasts += [
-            greatLentStart-9.days: [(.none,    "Commemoration of the Departed")],
             greatLentStart+5.days:  [(.noSign, "Great Martyr Theodore the Recruit († c. 306)")],
             greatLentStart+6.days:  [(.none,   "Triumph of Orthodoxy")],
             greatLentStart+12.days: [(.none,   "Commemoration of the Departed")],
@@ -227,7 +227,6 @@ struct ChurchCalendar {
                                      (.none,   "Mozdok and Dubensky-Krasnohorská (17th C) Icons of the Mother of God")],
             pascha+27.days:         [(.none,   "Synaxis of New Martyrs of Butovo")],
             pascha+42.days:         [(.none,   "Chelnskoy and Pskov-Kiev Caves called “Tenderness” icons of the Mother of God")],
-            pascha+48.days:         [(.none,   "Trinity Saturday; Commemoration of the Departed")],
             pentecost+1.days:       [(.none,   "Day of the Holy Spirit"),
                                      (.none,   "Icons of the Mother of God “Tupichevsk” (1847) and “Cypriot” (392)")],
             pentecost+4.days:       [(.none,   "Icon of the Mother of God “Surety of Sinners” in Korets (1622)")],
@@ -410,15 +409,21 @@ struct ChurchCalendar {
         let pascha = paschaDay(year)
         let greatLentStart = pascha-48.days
 
-        let movingFeasts : [Date: [NameOfDay]] = [
+        var movingFeasts = [Date: [NameOfDay]]()
+
+        movingFeasts += [
             greatLentStart-22.days:                   [.sundayOfPublicianAndPharisee],
             greatLentStart-15.days:                   [.sundayOfProdigalSon],
+            greatLentStart-9.days:                    [.saturdayOfDeparted],
             greatLentStart-8.days:                    [.sundayOfDreadJudgement],
             greatLentStart-2.days:                    [.saturdayOfFathers],
             greatLentStart-1.days:                    [.cheesefareSunday],
             greatLentStart:                           [.beginningOfGreatLent],
             pascha-8.days:                            [.lazarusSaturday],
             pascha-7.days:                            [.palmSunday],
+        ]
+        
+        movingFeasts += [
             pascha:                                   [.pascha],
             pascha+7.days:                            [.sunday2AfterPascha],
             pascha+14.days:                           [.sunday3AfterPascha],
@@ -426,12 +431,12 @@ struct ChurchCalendar {
             pascha+28.days:                           [.sunday5AfterPascha],
             pascha+35.days:                           [.sunday6AfterPascha],
             pascha+42.days:                           [.sunday7AfterPascha],
-
             pascha+39.days:                           [.ascension],
+            pascha+48.days:                           [.saturdayTrinity],
             pascha+49.days:                           [.pentecost],
             pascha+57.days:                           [.beginningOfApostolesFast],
         ]
-        
+    
         let fixedFeasts : [Date: [NameOfDay]] = [
             Date(1,  1, year):   [.startOfYear],
             Date(6,  1, year):   [.eveOfNativityOfGod],
@@ -440,6 +445,7 @@ struct ChurchCalendar {
             Date(14, 1, year):   [.circumcision],
             Date(18, 1, year):   [.eveOfTheophany],
             Date(19, 1, year):   [.theophany],
+            Date(20, 1, year):   [.synaxisForerunner],
             Date(15, 2, year):   [.meetingOfLord],
             Date(7,  4, year):   [.annunciation],
             Date(7,  7, year):   [.nativityOfJohn],

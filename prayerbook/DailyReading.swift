@@ -34,7 +34,8 @@ struct DailyReading {
         .transfiguration:           "Luke 9:28-36 2Pet 1:10-19 Matthew 17:1-9",
         .dormition:                 "Luke 1:39-49,56 Phil 2:5-11 Luke 10:38-42,11:27-28",
         .beheadingOfJohn:           "Matthew 14:1-13 Acts 13:25-32 Mark 6:14-30",
-
+        
+        .synaxisForerunner:         "Acts 19:1-8 John 1:29-34 # Forerunner",
         .saturdayBeforeExaltation:  "1Cor 2:6-9 Matthew 10:37-11:1 # Saturday before the Universal Elevation",
         .sundayBeforeExaltation:    "Gal 6:11-18 John 3:13-17 # Sunday before the Universal Elevation",
         .saturdayAfterExaltation:   "1Cor 1:26-29 John 8:21-30 # Saturday after the Universal Elevation",
@@ -50,18 +51,20 @@ struct DailyReading {
         .saturdayAfterTheophany:    "Ephes 6:10-17 Matthew 4:1-11 # Saturday after the Theophany",
         .sundayAfterTheophany:      "Ephes 4:7-13 Matthew 4:12-17 # Sunday after the Theophany",
         .newMartyrsConfessorsOfRussia: "Rom 8:28-39 Luke 21:8-19 # Martyrs",
-        .saturdayOfFathers:         "Gal 5:22-6:2 Matthew 11:27-30 # Fathers"
+        .saturdayOfFathers:         "Gal 5:22-6:2 Matthew 11:27-30 # Fathers",
+        .saturdayOfDeparted:        "1Thess 4:13-17 John 5:24-30 # Departed",
+        .saturdayTrinity:           "1Cor 15:47-57 John 6:35-39 # Departed"
     ]
     
     static let dontTransferReading : [NameOfDay] = [.newMartyrsConfessorsOfRussia, .saturdayOfFathers,
         .sundayBeforeNativity, .saturdayBeforeNativity, .eveOfNativityOfGod, .nativityOfGod, .sundayAfterNativity, .saturdayAfterNativity,
-        .circumcision,
+        .circumcision, .synaxisForerunner, .saturdayOfDeparted, .saturdayTrinity,
         .sundayBeforeTheophany, .saturdayBeforeTheophany, .eveOfTheophany, .theophany, .sundayAfterTheophany, .saturdayAfterTheophany,
         .saturdayBeforeExaltation, .sundayBeforeExaltation, .saturdayAfterExaltation, .sundayAfterExaltation
     ]
 
     static let specialAndRegular: [NameOfDay] = [.saturdayBeforeNativity, .saturdayAfterNativity, .saturdayBeforeTheophany, .saturdayAfterTheophany,
-        .saturdayBeforeExaltation,  .saturdayAfterExaltation, .saturdayOfFathers]
+        .saturdayBeforeExaltation,  .saturdayAfterExaltation, .saturdayOfFathers, .synaxisForerunner, .saturdayOfDeparted, .saturdayTrinity ]
     
     static var vigils = [Date:String]()
     
@@ -92,7 +95,7 @@ struct DailyReading {
         var readings = apostle[dayNum] + " "
         
         if dayNum >= 17*7 {
-            NSLog("matt exceeding 17 weeks by \(dayNum-17*7+1) days")
+            //  NSLog("matt exceeding 17 weeks by \(dayNum-17*7+1) days")
             dayNum = dayNum - 7*7
         }
         
@@ -308,9 +311,10 @@ struct DailyReading {
         }
 
         let synaxisTheotokos = Cal.d(.synaxisTheotokos)
-        let synaxisWeekday = DayOfWeek(rawValue: synaxisTheotokos.weekday)
         
         if date == synaxisTheotokos {
+            let synaxisWeekday = DayOfWeek(rawValue: synaxisTheotokos.weekday)
+
             if synaxisWeekday == .monday {
                 return ["Heb 2:11-18 # Theotokos", "Gal 1:11-19 Matthew 2:13-23 # Holy Ancestors"]
                 
@@ -319,23 +323,7 @@ struct DailyReading {
             }
         }
         
-        if date == Cal.d(.sundayAfterNativity) {
-            let daysFromExaltation = (LS.sundayAfterExaltationPrevYear+1.days) >> date
-            
-            if (111-daysFromExaltation >= LS.totalOffset) {
-                noRegularReading = false
-            }
-                        
-        } else if Cal.currentWeekday == .sunday && !sundayBeforeNativity && !greatFeast {
-            noRegularReading = false
-        }
-        
-        for code in Cal.feastDates[date] ?? [] where specialAndRegular.contains(code) {
-            noRegularReading = false
-            break
-        }
-        
-        if (noRegularReading) {
+        if greatFeast {
             return readings
         }
         
@@ -343,12 +331,36 @@ struct DailyReading {
             readings += [vigilReading]
             
             if Cal.d(.pascha) ... Cal.d(.pentecost) ~= date {
-               return readings + (getRegularReading(date).map { [$0] } ?? [])
+                return readings + (getRegularReading(date).map { [$0] } ?? [])
             }
-
+            
             if Cal.currentWeekday != .sunday {
                 return readings + (transferred[date].map { [$0] } ?? [])
+                
+            } else {
+                return readings + (getRegularReading(date).map { [$0] } ?? []) + (transferred[date].map { [$0] } ?? [])
+
             }
+        }
+
+        if date == Cal.d(.sundayAfterNativity) {
+            let daysFromExaltation = (LS.sundayAfterExaltationPrevYear+1.days) >> date
+            
+            if 111-daysFromExaltation >= LS.totalOffset  {
+                noRegularReading = false
+            }
+            
+        } else if Cal.currentWeekday == .sunday && !sundayBeforeNativity  {
+            noRegularReading = false
+        }
+        
+        for code in Cal.feastDates[date] ?? [] where specialAndRegular.contains(code) {
+            noRegularReading = false
+            break
+        }
+
+        if (noRegularReading) {
+            return readings
         }
         
         return readings + (getRegularReading(date).map { [$0] } ?? []) + (transferred[date].map { [$0] } ?? [])
@@ -361,6 +373,27 @@ struct DailyReading {
         let greatLentStart = pascha-48.days
         
         switch date {
+            
+        case Date(21,9, date.year),
+             Date(14,10, date.year):
+            
+            return []
+
+        case Date(4,12, date.year):
+            feofan.append(("", Db.feofan("325")!))
+
+        case Date(19,8, date.year):
+            feofan.append(("", Db.feofan("218")!))
+
+        case greatLentStart-3.days:
+            feofan.append(("", Db.feofan("36")!))
+
+        case greatLentStart-5.days:
+            feofan.append(("", Db.feofan("34")!))
+            
+        case Cal.d(.sundayOfForefathers):
+            feofan.append(("", Db.feofan("346")!))
+
         case greatLentStart..<pascha:
             let num = (greatLentStart >> date) + 39
 

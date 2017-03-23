@@ -5,7 +5,7 @@
 	<key>Thursday of the Great Canon, with the Life of St. Mary of Egypt</key>
 	<string>Четверток Великого канона (Мариино стояние)</string>
 	<key>New Year</key>
-	<string>Новолетию</string>
+	<string>новолетия</string>
 	<key>Synaxis of all saints of Moscow</key>
 	<string>Собор Московских святых</string>
 	<key>Synaxis of all saints of Nizhny Novgorod</key>
@@ -13,35 +13,39 @@
 	<key>Commemoration of the Holy Fathers of the First Six Councils</key>
 	<string>Память свв. отцев шести Вселенских Соборов</string>
 	<key>Holy Ancestors</key>
-	<string>святым Богоотцам</string>
+	<string>святых Богоотцов</string>
+    <key>Departed</key>
+    <string>за упокой</string>
 	<key>Theotokos</key>
-	<string>Богородице</string>
+	<string>Богородицы</string>
+    <key>Forerunner</key>
+    <string>Предтечи</string>
 	<key>St. Nicholas</key>
-	<string>святителю</string>
+	<string>свт.</string>
 	<key>St. John</key>
-	<string>святителю</string>
+	<string>свт.</string>
 	<key>Repose of the John the Theologian</key>
-	<string>апостолу</string>
+	<string>апостола</string>
 	<key>Prophet</key>
-	<string>пророку</string>
+	<string>прор.</string>
 	<key>Saint</key>
-	<string>преподобному</string>
+	<string>преподобного</string>
 	<key>Equal-to-the Apostles</key>
 	<string>равноапп.</string>
 	<key>Apostle</key>
-	<string>апостолу</string>
+	<string>апостола</string>
 	<key>St. George</key>
-	<string>великомученику</string>
+	<string>великомученика</string>
 	<key>Hierarchs</key>
-	<string>святителям</string>
+	<string>святителей</string>
 	<key>Venerable Euthymius</key>
-	<string>преподобному</string>
+	<string>преподобного</string>
 	<key>Venerable Anthony</key>
-	<string>преподобному</string>
+	<string>преподобного</string>
     <key>Fathers</key>
-    <string>отцам</string>
+    <string>прпп.</string>
     <key>Martyrs</key>
-	<string>мученикам</string>
+	<string>мучеников</string>
 	<key>Sunday after the Theophany</key>
 	<string>недели по Богоявлении</string>
 	<key>Saturday after the Theophany</key>
@@ -138,6 +142,8 @@
 	<string>День Святого Духа</string>
 	<key>Trinity Saturday; Commemoration of the Departed</key>
 	<string>Троицкая родительская суббота</string>
+    <key>The Saturday of the Dead</key>
+    <string>Вселенская родительская суббота</string>
 	<key>Chelnskoy and Pskov-Kiev Caves called “Tenderness” icons of the Mother of God</key>
 	<string>Челнской и Псково-Печерской, именуемой «Умиление» икон Божией Матери</string>
 	<key>Apodosis of the Ascension</key>
