@@ -84,12 +84,12 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         
         navigationController?.delegate = self
         
-        if prefs.object(forKey: "welcome15") == nil {
-            prefs.set(true, forKey: "welcome15")
+        if prefs.object(forKey: "welcome16") == nil {
+            prefs.set(true, forKey: "welcome16")
             prefs.synchronize()
 
             _ = UIAlertController(title: "Православный календарь",
-                                  message: "В новой версии программы добавлен Синаксарь Постной Триоди (в разделе \"Чтение дня\")",
+                                  message: "В новой версии добавлены \"Мысли на каждый день\" свт. Феофана Затворника",
                                   view: self,
                                   handler: { _ in })
 
@@ -374,7 +374,12 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
 
         dayDescription = Cal.getDayDescription(currentDate)
         readings = DailyReading.getDailyReading(currentDate)
+        
         feofan = DailyReading.getFeofan(currentDate)
+        
+        if feofan.count == 0 {
+            feofan = DailyReading.getFeofan(currentDate, fuzzy: true)
+        }
         
         fastingLevel = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!
         fasting = Cal.getFastingDescription(currentDate, fastingLevel)

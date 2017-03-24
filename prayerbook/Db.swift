@@ -109,7 +109,7 @@ struct Db {
         let path = Bundle.main.path(forResource: "feofan", ofType: "sqlite")!
         let db = try! Database(path:path)
 
-        let results = try! db.prepareStatement("SELECT id,descr FROM thoughts WHERE id LIKE'%\(id)'")
+        let results = try! db.prepareStatement("SELECT id,descr FROM thoughts WHERE id LIKE'%\(id)' AND fuzzy=1")
         
         while try! results.next() {
             let descr = results[1] as! String

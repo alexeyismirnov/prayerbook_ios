@@ -366,11 +366,16 @@ struct DailyReading {
         return readings + (getRegularReading(date).map { [$0] } ?? []) + (transferred[date].map { [$0] } ?? [])
     }
     
-    static func getFeofan(_ date: Date) -> [(String, String)] {
+    static func getFeofan(_ date: Date, fuzzy:Bool = false) -> [(String, String)] {
         var feofan = [(String,String)]()
         
         let pascha = Cal.paschaDay(date.year)
         let greatLentStart = pascha-48.days
+        
+        if date == Cal.d(.meetingOfLord) {
+            feofan.append(("", Db.feofan("33")!))
+            return feofan
+        }
         
         switch date {
             
@@ -413,7 +418,7 @@ struct DailyReading {
                 if let f = Db.feofan(id) {
                     feofan.append((pericope,f))
                     
-                } else {
+                } else if fuzzy {
                     let p = str.characters.split { $0 == " " }.map { String($0) }
                     
                     for i in stride(from: 0, to: p.count-1, by: 2) {
