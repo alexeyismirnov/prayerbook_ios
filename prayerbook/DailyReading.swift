@@ -381,7 +381,6 @@ struct DailyReading {
             
         case Date(21,9, date.year),
              Date(14,10, date.year):
-            
             return []
 
         case Date(4,12, date.year):
@@ -395,6 +394,10 @@ struct DailyReading {
 
         case greatLentStart-5.days:
             feofan.append(("", Db.feofan("34")!))
+            
+        case pascha-3.days,
+             pascha-2.days:
+            return []
             
         case Cal.d(.sundayOfForefathers):
             feofan.append(("", Db.feofan("346")!))

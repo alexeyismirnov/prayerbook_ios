@@ -35,7 +35,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         .fastFree:      "cupcake",
         .cheesefare:    "cheese",
         .noFood:        "nothing",
-        .xerography:    "xerography",
+        .xerophagy:     "xerography",
         .withoutOil:    "without-oil",
         .noFastMonastic:"pizza"
     ]

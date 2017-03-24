@@ -14,12 +14,12 @@
 	<string>Память свв. отцев шести Вселенских Соборов</string>
 	<key>Holy Ancestors</key>
 	<string>святых Богоотцов</string>
-    <key>Departed</key>
-    <string>за упокой</string>
+	<key>Departed</key>
+	<string>за упокой</string>
 	<key>Theotokos</key>
 	<string>Богородицы</string>
-    <key>Forerunner</key>
-    <string>Предтечи</string>
+	<key>Forerunner</key>
+	<string>Предтечи</string>
 	<key>St. Nicholas</key>
 	<string>свт.</string>
 	<key>St. John</key>
@@ -42,9 +42,9 @@
 	<string>преподобного</string>
 	<key>Venerable Anthony</key>
 	<string>преподобного</string>
-    <key>Fathers</key>
-    <string>прпп.</string>
-    <key>Martyrs</key>
+	<key>Fathers</key>
+	<string>прпп.</string>
+	<key>Martyrs</key>
 	<string>мучеников</string>
 	<key>Sunday after the Theophany</key>
 	<string>недели по Богоявлении</string>
@@ -88,7 +88,7 @@
 	<string>Горячая с маслом</string>
 	<key>Without oil</key>
 	<string>Горячая без масла</string>
-	<key>Xerography</key>
+	<key>Xerophagy</key>
 	<string>Сухоядение</string>
 	<key>Demetrius Saturday: Commemoration of the Departed</key>
 	<string>Димитриевская родительская суббота</string>
@@ -142,8 +142,8 @@
 	<string>День Святого Духа</string>
 	<key>Trinity Saturday; Commemoration of the Departed</key>
 	<string>Троицкая родительская суббота</string>
-    <key>The Saturday of the Dead</key>
-    <string>Вселенская родительская суббота</string>
+	<key>The Saturday of the Dead</key>
+	<string>Вселенская родительская суббота</string>
 	<key>Chelnskoy and Pskov-Kiev Caves called “Tenderness” icons of the Mother of God</key>
 	<string>Челнской и Псково-Печерской, именуемой «Умиление» икон Божией Матери</string>
 	<key>Apodosis of the Ascension</key>

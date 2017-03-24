@@ -14,7 +14,7 @@ enum FastingLevel: Int {
 }
 
 enum FastingType: Int {
-    case noFast=0, vegetarian, fishAllowed, fastFree, cheesefare, noFood, xerography, withoutOil, noFastMonastic
+    case noFast=0, vegetarian, fishAllowed, fastFree, cheesefare, noFood, xerophagy, withoutOil, noFastMonastic
 }
 
 enum DayOfWeek: Int  {
@@ -123,7 +123,7 @@ struct ChurchCalendar {
         .fastFree: "#00BFFF",
         .cheesefare: "#00BFFF",
         .noFood: "#7B78EE",
-        .xerography: "#B4EEB4",
+        .xerophagy: "#B4EEB4",
         .withoutOil: "#9BCD9B",
     ]
 
@@ -727,7 +727,7 @@ struct ChurchCalendar {
     static func monasticGreatLent() -> (FastingType, String) {
         switch currentWeekday {
         case .monday, .wednesday, .friday:
-            return (.xerography, Translate.s("Xerography"))
+            return (.xerophagy, Translate.s("Xerophagy"))
 
         case .tuesday, .thursday:
             return (.withoutOil, Translate.s("Without oil"))
@@ -744,7 +744,7 @@ struct ChurchCalendar {
             return (.withoutOil, Translate.s("Without oil"))
             
         case .wednesday, .friday:
-            return (.xerography, Translate.s("Xerography"))
+            return (.xerophagy, Translate.s("Xerophagy"))
             
         case .tuesday, .thursday, .saturday, .sunday:
             return (.fishAllowed, Translate.s("Fish allowed"))
@@ -787,7 +787,7 @@ struct ChurchCalendar {
             return (.fishAllowed, Translate.s("Fish allowed"))
             
         case d(.eveOfTheophany):
-            return (.xerography, Translate.s("Fast day"))
+            return (.xerophagy, Translate.s("Fast day"))
             
         case d(.beheadingOfJohn),
         d(.exaltationOfCross):
@@ -813,13 +813,13 @@ struct ChurchCalendar {
             return (.noFood, Translate.s("No food"))
         
         case d(.beginningOfGreatLent)+1.days ... d(.beginningOfGreatLent)+4.days:
-            return (.xerography, Translate.s("Xerography"))
+            return (.xerophagy, Translate.s("Xerophagy"))
             
         case d(.beginningOfGreatLent)+5.days ..< d(.palmSunday):
             return (date == d(.annunciation)) ? (.fishAllowed, Translate.s("Fish allowed")) : monasticGreatLent()
         
         case d(.palmSunday)+1.days ... d(.palmSunday)+4.days:
-            return (.xerography, Translate.s("Xerography"))
+            return (.xerophagy, Translate.s("Xerophagy"))
 
         case d(.palmSunday)+5.days:
             return (.noFood, Translate.s("No food"))
@@ -858,7 +858,7 @@ struct ChurchCalendar {
                     return (.vegetarian, Translate.s("With oil"))
                     
                 default:
-                    return (.xerography, Translate.s("Xerography"))
+                    return (.xerophagy, Translate.s("Xerophagy"))
                 }
 
             } else {
