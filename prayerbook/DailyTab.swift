@@ -92,35 +92,33 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(red: 255/255.0, green: 233/255.0, blue: 210/255.0, alpha: 1.0)
-        
         addBarButtons()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(DailyTab.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 
         navigationController?.delegate = self
-        
+        animationInteractive.completionSpeed = 0.999
+
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan))
+        pan.delegate = self
+        view.addGestureRecognizer(pan)
+
         if prefs.object(forKey: "welcome16") == nil {
             prefs.set(true, forKey: "welcome16")
             prefs.synchronize()
-
+            
             _ = UIAlertController(title: "Православный календарь",
                                   message: "В новой версии добавлены \"Мысли на каждый день\" свт. Феофана Затворника",
                                   view: self,
                                   handler: { _ in })
-
+            
         }
-        
-        animationInteractive.completionSpeed = 0.999
-        
+
         reload()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan))
-        pan.delegate = self
-        view.addGestureRecognizer(pan)
         
         appeared = true
         tableView.reloadData()
@@ -287,7 +285,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
             case readings.count ..< readings.count + feofan.count:
                 let ind = indexPath.row - readings.count
                 cell.title.text = "Мысли на каждый день"
-                cell.subtitle.text = feofan[ind].0
+                cell.subtitle.text =  feofan.count == 1 ? "" : feofan[ind].0
 
             default:
                 guard let synaxarion = synaxarion else { cell.title.text = "" ; cell.subtitle.text = ""; return cell }
@@ -397,9 +395,9 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
                 
             case (1,_):
                 return 35
-
+                
             case (2,_):
-                return 33
+                return 34
                 
             default:
                 return 27
