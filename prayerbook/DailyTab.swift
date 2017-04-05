@@ -20,9 +20,22 @@ extension UIAlertController {
     
 }
 
-class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControllerDelegate {
+class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
-    let animation = DailyAnimator()
+    static let size15 = CGSize(width: 15, height: 15)
+    static let icon15x15 : [FeastType: UIImage] = [
+        .noSign: UIImage(named: "nosign")!.resize(size15),
+        .sixVerse: UIImage(named: "sixverse")!.resize(size15),
+        .doxology: UIImage(named: "doxology")!.resize(size15),
+        .polyeleos: UIImage(named: "polyeleos")!.resize(size15),
+        .vigil: UIImage(named: "vigil")!.resize(size15),
+        .great: UIImage(named: "great")!.resize(size15)
+    ]
+    
+    var animation = DailyAnimator()
+    var animationInteractive = DailyAnimatorInteractive()
+    var appeared = false
+
     let prefs = UserDefaults(suiteName: groupId)!
 
     var fasting: (FastingType, String) = (.vegetarian, "")
@@ -41,6 +54,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
     ]
     
     var readings = [String]()
+    var synaxarion : (String,String)?
+
     var feofan = [(String,String)]()
     var dayDescription = [(FeastType, String)]()
     var saints = [(FeastType, String)]()
@@ -65,23 +80,23 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
     }()
 
     var modalSheet: NAModalSheet!
+    
+    static func date(_ date: Date) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "Daily") as! DailyTab
+        vc.currentDate = date
+        return vc
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIGraphicsBeginImageContext(view.frame.size)
-        UIImage(named: "bg3.jpg")?.draw(in: view.bounds)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        
-        view.backgroundColor = UIColor.clear
-        tableView.backgroundView = UIImageView(image: image)
+        view.backgroundColor = UIColor(red: 255/255.0, green: 233/255.0, blue: 210/255.0, alpha: 1.0)
         
         addBarButtons()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(DailyTab.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 
-        reload()
-        
         navigationController?.delegate = self
         
         if prefs.object(forKey: "welcome16") == nil {
@@ -94,9 +109,26 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
                                   handler: { _ in })
 
         }
+        
+        animationInteractive.completionSpeed = 0.999
+        
+        reload()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
-    func hasTypica() -> Bool {        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan))
+        pan.delegate = self
+        view.addGestureRecognizer(pan)
+        
+        appeared = true
+        tableView.reloadData()
+    }
+    
+    func hasTypica() -> Bool {
+        return false
+/*
         if (currentDate > Cal.d(.beginningOfGreatLent) && currentDate < Cal.d(.sunday2AfterPascha) ||
             Cal.currentWeekday != .sunday) {
             return false
@@ -104,6 +136,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         } else {
             return true
         }
+ */
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -119,7 +152,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
             return 1
             
         case 2:
-            return readings.count + feofan.count + (Cal.synaxarion[currentDate] != nil ? 1:0)
+            return readings.count + feofan.count + (synaxarion != nil ? 1:0)
             
         case 3:
             return hasTypica() ? 1 : 0
@@ -200,31 +233,31 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
                 return cell
                 
             default:
-                let feast:FeastType = dayDescription[(indexPath as NSIndexPath).row-2].0
+                let feast:FeastType = dayDescription[indexPath.row-2].0
 
                 if feast == .none {
                     let cell: TextCell = getCell()
                     cell.title.textColor =  UIColor.black
-                    cell.title.text = dayDescription[(indexPath as NSIndexPath).row-2].1
+                    cell.title.text = dayDescription[indexPath.row-2].1
                     return cell
                     
                 } else if feast == .great {
                     let cell: ImageCell = getCell()
+                    
                     cell.title.textColor = UIColor.red
-                    cell.title.text = dayDescription[(indexPath as NSIndexPath).row-2].1
+                    cell.title.text = dayDescription[indexPath.row-2].1
                     cell.icon.image = UIImage(named: Cal.feastIcon[feast]!)
                     return cell
                     
                 } else {
                     let cell: TextCell = getCell()
-                    let image = UIImage(named: Cal.feastIcon[feast]!)!
                     
                     let attachment = NSTextAttachment()
-                    attachment.image = image.resize(CGSize(width: 15, height: 15))
+                    attachment.image = DailyTab.icon15x15[feast]
                     
                     let myString = NSMutableAttributedString(string: "")
                     myString.append(NSAttributedString(attachment: attachment))
-                    myString.append(NSMutableAttributedString(string: dayDescription[(indexPath as NSIndexPath).row-2].1))
+                    myString.append(NSMutableAttributedString(string: dayDescription[indexPath.row-2].1))
                     cell.title.attributedText = myString
                     
                     return cell
@@ -257,7 +290,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
                 cell.subtitle.text = feofan[ind].0
 
             default:
-                guard let synaxarion = Cal.synaxarion[currentDate]  else { cell.title.text = "" ; cell.subtitle.text = ""; return cell }
+                guard let synaxarion = synaxarion else { cell.title.text = "" ; cell.subtitle.text = ""; return cell }
                 cell.title.text = synaxarion.0
                 cell.subtitle.text = ""
             }
@@ -281,21 +314,20 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
 
             } else {
                 let cell: TextCell = getCell()
-                let image = UIImage(named: Cal.feastIcon[saints[(indexPath as NSIndexPath).row].0]!)!
                 
                 let attachment = NSTextAttachment()
-                attachment.image = image.resize(CGSize(width: 15, height: 15))
+                attachment.image = DailyTab.icon15x15[saints[indexPath.row].0]
                 let attachmentString = NSAttributedString(attachment: attachment)
                 
                 let myString = NSMutableAttributedString(string: "")
                 myString.append(attachmentString)
-                myString.append(NSMutableAttributedString(string: saints[(indexPath as NSIndexPath).row].1))
+                myString.append(NSMutableAttributedString(string: saints[indexPath.row].1))
                 cell.title.attributedText = myString
                 
                 return cell
             }
         }
-        
+
         let cell: TextCell = getCell()
         return cell
     }
@@ -353,8 +385,26 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
-        return calculateHeightForCell(cell)
+        
+        if (appeared) {
+            let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
+            return calculateHeightForCell(cell)
+
+        } else {
+            switch (indexPath.section, indexPath.row) {
+            case (0,0):
+                return 55
+                
+            case (1,_):
+                return 35
+
+            case (2,_):
+                return 33
+                
+            default:
+                return 27
+            }
+        }
     }
 
     func calculateHeightForCell(_ cell: UITableViewCell) -> CGFloat {
@@ -371,9 +421,11 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
     func reload() {
         formatter.locale = Translate.locale as Locale!
         formatterOldStyle.locale = Translate.locale as Locale!
-
+        
         dayDescription = Cal.getDayDescription(currentDate)
-        readings = DailyReading.getDailyReading(currentDate)
+
+        fastingLevel = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!
+        fasting = Cal.getFastingDescription(currentDate, fastingLevel)
         
         feofan = DailyReading.getFeofan(currentDate)
         
@@ -381,57 +433,83 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
             feofan = DailyReading.getFeofan(currentDate, fuzzy: true)
         }
         
-        fastingLevel = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!
-        fasting = Cal.getFastingDescription(currentDate, fastingLevel)
-        saints=Db.saints(currentDate)
+        saints=Db.saints(self.currentDate)
+        readings = DailyReading.getDailyReading(currentDate)
+        synaxarion = Cal.synaxarion[currentDate]
 
         tableView.reloadData()
     }
 
     func addBarButtons() {
         let button_calendar = UIBarButtonItem(image: UIImage(named: "calendar"), style: .plain, target: self, action: #selector(DailyTab.showCalendar))
-        let button_left = UIBarButtonItem(image: UIImage(named: "arrow-left"), style: .plain, target: self, action: #selector(DailyTab.prevDay))
-        let button_right = UIBarButtonItem(image: UIImage(named: "arrow-right"), style: .plain, target: self, action: #selector(DailyTab.nextDay))
-        
         let button_widget = UIBarButtonItem(image: UIImage(named: "widget"), style: .plain, target: self, action: #selector(DailyTab.showTutorial))
         let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .plain, target: self, action: #selector(DailyTab.showOptions))
-
-        button_calendar.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
-        button_left.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
-        button_widget.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         
-        navigationItem.leftBarButtonItems = [button_calendar, button_left, button_right]
+        button_widget.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
+
+        navigationItem.leftBarButtonItems = [button_calendar]
         navigationItem.rightBarButtonItems = [button_options, button_widget]
     }
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        return (animation.direction != .none) ? animation : nil
+    }
+    
+    func navigationController(_ navigationController: UINavigationController,
+                              interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        
+        return (animation.direction != .none) ? animationInteractive : nil
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if let recognizer = gestureRecognizer as? UIPanGestureRecognizer {
+            let translation = recognizer.translation(in: view)
+            return abs(translation.x) > abs(translation.y)
+        }
+        
+        return true
+    }
 
-        if animation.direction != .none {
-            return animation
+    func didPan(recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            let velocity = recognizer.velocity(in: view)
+            animationInteractive.velocity = velocity
             
-        } else {
-            return nil
+            if velocity.x < 0 {
+                animation.direction = .positive
+                navigationController?.pushViewController(DailyTab.date(currentDate + 1.days), animated: true)
+                
+            } else {
+                animation.direction = .negative
+                navigationController?.pushViewController(DailyTab.date(currentDate - 1.days), animated: true)
+            }
+            
+        case .changed:
+            animationInteractive.handlePan(recognizer: recognizer)
+            
+        case .ended:
+            animationInteractive.handlePan(recognizer: recognizer)
+
+            if animationInteractive.cancelled {
+                let vc = DailyTab.date(currentDate)
+                navigationController?.setViewControllers([vc], animated: false)
+                
+            } else {
+                let top = navigationController?.topViewController!
+                navigationController?.setViewControllers([top!], animated: false)
+            }
+            
+        default:
+            break
         }
     }
-    
-    func prevDay() {
-        animation.direction = .negative
-        
-        let vc = storyboard!.instantiateViewController(withIdentifier: "Daily") as! DailyTab
-        vc.currentDate = currentDate - 1.days
-        
-        navigationController?.setViewControllers([vc], animated: true)
-    }
-    
-    func nextDay() {
-        animation.direction = .positive
-        
-        let vc = storyboard!.instantiateViewController(withIdentifier: "Daily") as! DailyTab
-        vc.currentDate = currentDate + 1.days
-        
-        navigationController?.setViewControllers([vc], animated: true)
-    }
-    
+
     func showCalendar() {
         var width, height : CGFloat
         
