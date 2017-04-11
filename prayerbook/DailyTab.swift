@@ -81,6 +81,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
 
     var modalSheet: NAModalSheet!
     
+    static var background : UIImage?
+    
     static func date(_ date: Date) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "Daily") as! DailyTab
@@ -91,8 +93,19 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(red: 255/255.0, green: 233/255.0, blue: 210/255.0, alpha: 1.0)
+        if DailyTab.background == nil {
+            UIGraphicsBeginImageContext(self.view.frame.size)
+            UIImage(named: "bg3.jpg")?.draw(in: self.view.bounds)
+            DailyTab.background = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+        }
+        
+        view.backgroundColor = UIColor.clear
+        tableView.backgroundView = UIImageView(image: DailyTab.background)
+
         addBarButtons()
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 
@@ -120,6 +133,12 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        feofan = DailyReading.getFeofan(currentDate)
+        
+        if feofan.count == 0 {
+            feofan = DailyReading.getFeofan(currentDate, fuzzy: true)
+        }
+
         appeared = true
         tableView.reloadData()
     }
@@ -201,6 +220,12 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         }
     }
     
+    func getSimpleCell() -> UITableViewCell {
+        let newCell  = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        newCell.accessoryType = .none
+        return newCell
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if indexPath.section == 0 {
@@ -209,6 +234,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
                 let cell: TextDetailsCell = getCell()
                 cell.title.text = formatter.string(from: currentDate).capitalizingFirstLetter()
                 cell.subtitle.text = formatterOldStyle.string(from: currentDate-13.days)
+
                 return cell
 
             case 1:
@@ -228,13 +254,14 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
 
                 cell.title.textColor =  UIColor.black
                 cell.title.text = descr
+                
                 return cell
                 
             default:
                 let feast:FeastType = dayDescription[indexPath.row-2].0
 
                 if feast == .none {
-                    let cell: TextCell = getCell()
+                    let cell: TextCell  = getCell()
                     cell.title.textColor =  UIColor.black
                     cell.title.text = dayDescription[indexPath.row-2].1
                     return cell
@@ -268,51 +295,88 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
             cell.title.textColor =  UIColor.black
             cell.icon.image = UIImage(named: "food-\(foodIcon[fasting.0]!)")
             cell.accessoryType = (fastingLevel == .monastic) ?  .none : .disclosureIndicator
+            
             return cell
 
         } else if indexPath.section == 2 {
-            let cell: TextDetailsCell = getCell()
-            
-            cell.title.textColor = UIColor.black
-            cell.accessoryType = .disclosureIndicator
-            
+
+            var title : String!
+            var subtitle : String!
+
             switch indexPath.row {
             case 0 ..< readings.count:
                 let currentReading = readings[indexPath.row].components(separatedBy: "#")
-                cell.title.text = Translate.readings(currentReading[0])
-                cell.subtitle.text = (currentReading.count > 1) ? Translate.s(currentReading[1].trimmingCharacters(in: CharacterSet.whitespaces)) : ""
+
+                title = Translate.readings(currentReading[0])
+                subtitle = (currentReading.count > 1) ? Translate.s(currentReading[1].trimmingCharacters(in: CharacterSet.whitespaces)) : ""
 
             case readings.count ..< readings.count + feofan.count:
                 let ind = indexPath.row - readings.count
-                cell.title.text = "Мысли на каждый день"
-                cell.subtitle.text =  feofan.count == 1 ? "" : feofan[ind].0
+                title = "Мысли на каждый день"
+                subtitle =  feofan.count == 1 ? "" : feofan[ind].0
 
             default:
-                guard let synaxarion = synaxarion else { cell.title.text = "" ; cell.subtitle.text = ""; return cell }
-                cell.title.text = synaxarion.0
-                cell.subtitle.text = ""
+                if let synaxarion = synaxarion {
+                    title = synaxarion.0
+                    subtitle = ""
+                    
+                } else {
+                    title = ""
+                    subtitle=""
+                }
+            }
+
+            if appeared {
+                let cell: TextDetailsCell = getCell()
+                cell.title.textColor = UIColor.black
+                cell.accessoryType = .disclosureIndicator
+
+                cell.title.text = title
+                cell.subtitle.text = subtitle
+                
+                return cell
+
+            } else {
+                let cell = getSimpleCell()
+                cell.backgroundColor = UIColor.clear
+                cell.textLabel?.textColor = UIColor.black
+                cell.accessoryType = .disclosureIndicator
+                cell.textLabel?.text = title
+                
+                return cell
             }
             
-            return cell
             
         } else if indexPath.section == 3 {
+            let cell = getSimpleCell()
+
+            /*
             let cell: TextDetailsCell = getCell()
             cell.title.textColor = UIColor.black
             cell.title.text = Translate.s("Typica")
             cell.subtitle.text = ""
             cell.accessoryType = .disclosureIndicator
+ */
             return cell
 
         } else if indexPath.section == 4 {
+            
             if saints[indexPath.row].0 == .none {
-                let cell: TextCell = getCell()
-                cell.title.textColor =  UIColor.black
-                cell.title.text = saints[indexPath.row].1
-                return cell
+                if appeared {
+                    let cell: TextCell = getCell()
+                    cell.title.textColor =  UIColor.black
+                    cell.title.text = saints[indexPath.row].1
+                    return cell
+
+                } else {
+                    let cell = getSimpleCell()
+                    cell.backgroundColor = UIColor.white.withAlphaComponent(0)
+                    cell.textLabel?.text = saints[indexPath.row].1
+                    return cell
+                }
 
             } else {
-                let cell: TextCell = getCell()
-                
+
                 let attachment = NSTextAttachment()
                 attachment.image = DailyTab.icon15x15[saints[indexPath.row].0]
                 let attachmentString = NSAttributedString(attachment: attachment)
@@ -320,13 +384,23 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
                 let myString = NSMutableAttributedString(string: "")
                 myString.append(attachmentString)
                 myString.append(NSMutableAttributedString(string: saints[indexPath.row].1))
-                cell.title.attributedText = myString
                 
-                return cell
+                if appeared {
+                    let cell: TextCell = getCell()
+                    cell.title.attributedText = myString
+                    return cell
+
+                } else {
+                    let cell = getSimpleCell()
+                    cell.backgroundColor = UIColor.white.withAlphaComponent(0)
+                    cell.textLabel?.attributedText = myString
+                    return cell
+
+                }
             }
         }
 
-        let cell: TextCell = getCell()
+        let cell = getSimpleCell()
         return cell
     }
     
@@ -398,7 +472,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
                 
             case (2,_):
                 return 34
-                
+
             default:
                 return 27
             }
@@ -425,15 +499,20 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         fastingLevel = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!
         fasting = Cal.getFastingDescription(currentDate, fastingLevel)
         
-        feofan = DailyReading.getFeofan(currentDate)
-        
-        if feofan.count == 0 {
-            feofan = DailyReading.getFeofan(currentDate, fuzzy: true)
-        }
-        
         saints=Db.saints(self.currentDate)
         readings = DailyReading.getDailyReading(currentDate)
         synaxarion = Cal.synaxarion[currentDate]
+        
+        if appeared {
+            feofan = DailyReading.getFeofan(currentDate)
+            
+            if feofan.count == 0 {
+                feofan = DailyReading.getFeofan(currentDate, fuzzy: true)
+            }
+            
+        } else {
+            feofan = [("Мысли на каждый день", "")]
+        }
 
         tableView.reloadData()
     }
@@ -466,8 +545,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if let recognizer = gestureRecognizer as? UIPanGestureRecognizer {
-            let translation = recognizer.translation(in: view)
-            return abs(translation.x) > abs(translation.y)
+            let velocity = recognizer.velocity(in: view)
+            return abs(velocity.x) > abs(velocity.y)
         }
         
         return true

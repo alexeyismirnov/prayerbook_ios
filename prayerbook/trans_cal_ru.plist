@@ -29,7 +29,7 @@
 	<key>Prophet</key>
 	<string>прор.</string>
 	<key>Saint</key>
-	<string>преподобного</string>
+	<string>свт.</string>
 	<key>Equal-to-the Apostles</key>
 	<string>равноапп.</string>
 	<key>Apostle</key>
@@ -38,9 +38,7 @@
 	<string>великомученика</string>
 	<key>Hierarchs</key>
 	<string>святителей</string>
-	<key>Venerable Euthymius</key>
-	<string>преподобного</string>
-	<key>Venerable Anthony</key>
+	<key>Venerable</key>
 	<string>преподобного</string>
 	<key>Fathers</key>
 	<string>прпп.</string>
