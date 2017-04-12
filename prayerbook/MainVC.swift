@@ -12,10 +12,7 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UITabBar.appearance().barTintColor = UIColor(red: 255/255.0, green: 233/255.0, blue: 210/255.0, alpha: 1.0)
-        UITabBar.appearance().tintColor = UIColor.red
-        
+                
         delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(MainVC.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Chameleon
 
 class CalendarContainer: UIViewController {
 
@@ -34,10 +35,13 @@ class CalendarContainer: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor =  .flatSand
+        
         calendarDelegate = CalendarGridDelegate()
         calendarDelegate.containerType = .mainApp
         collectionView.delegate = calendarDelegate
         collectionView.dataSource = calendarDelegate
+        collectionView.backgroundColor = UIColor.clear
         
         collectionView.constraints.forEach { con in
             if con.identifier == "calendar-width" {

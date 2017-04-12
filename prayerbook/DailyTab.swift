@@ -9,17 +9,6 @@
 import UIKit
 import Squeal
 
-extension UIAlertController {
-    
-    convenience init(title: String, message: String, view: UIViewController, handler: @escaping (UIAlertAction) -> ()) {
-        self.init(title: title, message: message, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { action in handler(action) });
-        addAction(defaultAction)
-        view.present(self, animated: true, completion: {})
-    }
-    
-}
-
 class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
     static let size15 = CGSize(width: 15, height: 15)
@@ -93,16 +82,20 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if DailyTab.background == nil {
-            UIGraphicsBeginImageContext(self.view.frame.size)
-            UIImage(named: "bg3.jpg")?.draw(in: self.view.bounds)
-            DailyTab.background = UIGraphicsGetImageFromCurrentImageContext()!
-            UIGraphicsEndImageContext()
+        if let bgColor = Theme.mainColor {
+            view.backgroundColor =  bgColor
+            
+        } else {
+            if DailyTab.background == nil {
+                UIGraphicsBeginImageContext(self.view.frame.size)
+                UIImage(named: "bg3.jpg")?.draw(in: self.view.bounds)
+                DailyTab.background = UIGraphicsGetImageFromCurrentImageContext()!
+                UIGraphicsEndImageContext()
+            }
+            view.backgroundColor = UIColor.clear
+            tableView.backgroundView = UIImageView(image: DailyTab.background)
         }
         
-        view.backgroundColor = UIColor.clear
-        tableView.backgroundView = UIImageView(image: DailyTab.background)
-
         addBarButtons()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -208,6 +201,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         let headerView = view as! UITableViewHeaderFooterView
         headerView.contentView.backgroundColor = UIColor.clear
         headerView.backgroundView?.backgroundColor = UIColor.clear
+        headerView.textLabel?.textColor = Theme.secondaryColor
     }
 
     func getCell<T: ConfigurableCell>() -> T {
@@ -234,6 +228,9 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
                 let cell: TextDetailsCell = getCell()
                 cell.title.text = formatter.string(from: currentDate).capitalizingFirstLetter()
                 cell.subtitle.text = formatterOldStyle.string(from: currentDate-13.days)
+                
+                cell.title.textColor = Theme.textColor
+                cell.subtitle.textColor = Theme.secondaryColor
 
                 return cell
 
@@ -252,7 +249,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
                     descr += toneDescription
                 }
 
-                cell.title.textColor =  UIColor.black
+                cell.title.textColor =  Theme.textColor
                 cell.title.text = descr
                 
                 return cell
@@ -262,7 +259,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
 
                 if feast == .none {
                     let cell: TextCell  = getCell()
-                    cell.title.textColor =  UIColor.black
+                    cell.title.textColor = Theme.textColor
                     cell.title.text = dayDescription[indexPath.row-2].1
                     return cell
                     
@@ -282,7 +279,12 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
                     
                     let myString = NSMutableAttributedString(string: "")
                     myString.append(NSAttributedString(attachment: attachment))
-                    myString.append(NSMutableAttributedString(string: dayDescription[indexPath.row-2].1))
+                    
+                    let dayString = dayDescription[indexPath.row-2].1
+                    let day = NSMutableAttributedString(string: dayString)
+                    day.addAttribute(NSForegroundColorAttributeName, value: Theme.textColor!, range: NSMakeRange(0, dayString.characters.count))
+                    myString.append(day)
+                    
                     cell.title.attributedText = myString
                     
                     return cell
@@ -292,7 +294,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         } else if indexPath.section == 1 {
             let cell: ImageCell  = getCell()
             cell.title.text = fasting.1
-            cell.title.textColor =  UIColor.black
+            cell.title.textColor =  Theme.textColor
             cell.icon.image = UIImage(named: "food-\(foodIcon[fasting.0]!)")
             cell.accessoryType = (fastingLevel == .monastic) ?  .none : .disclosureIndicator
             
@@ -328,19 +330,20 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
 
             if appeared {
                 let cell: TextDetailsCell = getCell()
-                cell.title.textColor = UIColor.black
-                cell.accessoryType = .disclosureIndicator
+                cell.accessoryType = .none
 
+                cell.title.textColor = Theme.textColor
                 cell.title.text = title
                 cell.subtitle.text = subtitle
+                cell.subtitle.textColor = Theme.secondaryColor
                 
                 return cell
 
             } else {
                 let cell = getSimpleCell()
                 cell.backgroundColor = UIColor.clear
-                cell.textLabel?.textColor = UIColor.black
-                cell.accessoryType = .disclosureIndicator
+                cell.textLabel?.textColor = Theme.textColor
+                cell.accessoryType = .none
                 cell.textLabel?.text = title
                 
                 return cell
@@ -352,7 +355,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
 
             /*
             let cell: TextDetailsCell = getCell()
-            cell.title.textColor = UIColor.black
+            cell.title.textColor = Theme.textColor
             cell.title.text = Translate.s("Typica")
             cell.subtitle.text = ""
             cell.accessoryType = .disclosureIndicator
@@ -364,14 +367,16 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
             if saints[indexPath.row].0 == .none {
                 if appeared {
                     let cell: TextCell = getCell()
-                    cell.title.textColor =  UIColor.black
+                    cell.title.textColor =  Theme.textColor
                     cell.title.text = saints[indexPath.row].1
                     return cell
 
                 } else {
                     let cell = getSimpleCell()
-                    cell.backgroundColor = UIColor.white.withAlphaComponent(0)
+                    cell.backgroundColor = UIColor.clear
                     cell.textLabel?.text = saints[indexPath.row].1
+                    cell.textLabel?.textColor = Theme.textColor
+
                     return cell
                 }
 
@@ -383,7 +388,11 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
                 
                 let myString = NSMutableAttributedString(string: "")
                 myString.append(attachmentString)
-                myString.append(NSMutableAttributedString(string: saints[indexPath.row].1))
+                
+                let saintString = saints[indexPath.row].1
+                let saint = NSMutableAttributedString(string: saintString)
+                saint.addAttribute(NSForegroundColorAttributeName, value: Theme.textColor!, range: NSMakeRange(0, saintString.characters.count))
+                myString.append(saint)
                 
                 if appeared {
                     let cell: TextCell = getCell()
@@ -392,7 +401,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
 
                 } else {
                     let cell = getSimpleCell()
-                    cell.backgroundColor = UIColor.white.withAlphaComponent(0)
+                    cell.backgroundColor = UIColor.clear
                     cell.textLabel?.attributedText = myString
                     return cell
 
@@ -603,6 +612,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         container.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
         
         modalSheet = NAModalSheet(viewController: container, presentationStyle: .fadeInCentered)
+        modalSheet.setThemeUsingPrimaryColor(.flatSand, with: .contrast)
         
         modalSheet.disableBlurredBackground = true
         modalSheet.cornerRadiusWhenCentered = 10
@@ -610,7 +620,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         modalSheet.adjustContentSize(CGSize(width: width, height: height), animated: false)
         
         (container.topViewController as! CalendarContainer).delegate = self
-
+        
         modalSheet.present(completion: {})
     }
     

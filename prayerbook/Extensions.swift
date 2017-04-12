@@ -377,6 +377,33 @@ extension UIDevice {
         default:                                        return machineString
         }
     }
+}
+
+extension UIAlertController {
+    convenience init(title: String, message: String, view: UIViewController, handler: @escaping (UIAlertAction) -> ()) {
+        self.init(title: title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { action in handler(action) });
+        addAction(defaultAction)
+        view.present(self, animated: true, completion: {})
+    }
+}
+
+
+extension UserDefaults {
+    func color(forKey defaultName: String) -> UIColor? {
+        var color: UIColor?
+        if let colorData = data(forKey: defaultName) {
+            color = NSKeyedUnarchiver.unarchiveObject(with: colorData) as? UIColor
+        }
+        return color
+    }
     
+    func set(_ value: UIColor?, forKey defaultName: String) {
+        var colorData: NSData?
+        if let color = value {
+            colorData = NSKeyedArchiver.archivedData(withRootObject: color) as NSData?
+        }
+        set(colorData, forKey: defaultName)
+    }
 }
 
