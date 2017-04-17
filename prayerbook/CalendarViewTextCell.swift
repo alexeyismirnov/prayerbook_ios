@@ -9,7 +9,36 @@
 import UIKit
 
 class CalendarViewTextCell: UICollectionViewCell {
+    var dateLabel: UILabel!
     
-    @IBOutlet weak var dateLabel: UILabel!
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        var fontSize: Int!
+        
+        if (UIDevice.current.userInterfaceIdiom == .phone) {
+            fontSize = 16
+        } else {
+            fontSize = 18
+        }
+        
+        let initialFrame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
+
+        dateLabel = UILabel(frame: initialFrame)
+        
+        dateLabel.numberOfLines = 1
+        dateLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
+        dateLabel.adjustsFontSizeToFitWidth = true
+        dateLabel.clipsToBounds = true
+        dateLabel.textAlignment = .center
+        dateLabel.baselineAdjustment = .alignCenters
+
+        contentView.addSubview(dateLabel)
+    }
     
 }

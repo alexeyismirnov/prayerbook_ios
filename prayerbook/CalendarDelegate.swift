@@ -8,14 +8,13 @@
 
 import UIKit
 
-private let reuseIdentifier = "CalendarTextCell"
-
 enum CalendarContainerType: Int {
     case mainApp=0, todayExtension
 }
 
-class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    static let cellId = "CalendarTextCell"
+    
     let prefs = UserDefaults(suiteName: groupId)!
 
     var cal: Calendar = {
@@ -30,14 +29,6 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
             startGap = (monthStart.weekday < cal.firstWeekday) ? 7 - (cal.firstWeekday-monthStart.weekday) : monthStart.weekday - cal.firstWeekday
         }
     }
-    
-    var formatter: DateFormatter = {
-        var formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .none
-        formatter.dateFormat = "LLLL yyyy"
-        return formatter
-    }()
     
     var startGap: Int!
     var selectedDate: Date?
@@ -61,7 +52,7 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     }
 
     @objc func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CalendarViewTextCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarDelegate.cellId, for: indexPath) as! CalendarViewTextCell
         
         cell.contentView.backgroundColor =  UIColor.clear
 
@@ -114,11 +105,15 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
         let cellWidth = (collectionView.bounds.width) / 7.0
         return CGSize(width: cellWidth, height: cellWidth)
     }
-    
-    func generateLabels(_ view: UIView) {
-        formatter.locale = Locale(identifier: "ru")
-        cal.locale = Locale(identifier: "ru")
 
+    static func generateLabels(_ view: UIView, container: CalendarContainerType) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "LLLL yyyy"
+        formatter.locale = Locale(identifier: "ru")
+        
+        var cal = Calendar.current
+        cal.locale = Locale(identifier: "ru")
+        
         let dayLabel = formatter.veryShortWeekdaySymbols as [String]
         
         for index in cal.firstWeekday...7 {
@@ -136,15 +131,14 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
         }
         
         if #available(iOS 10.0, *) {
-        } else if containerType == .todayExtension  {
+        } else if container == .todayExtension  {
             for index in 1...7 {
                 if let label = view.viewWithTag(index) as? UILabel {
                     label.textColor = UIColor.white
                 }
             }
         }
-
+        
     }
-    
 
 }

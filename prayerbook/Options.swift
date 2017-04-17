@@ -8,7 +8,7 @@
 
 import UIKit
 
-var optionsSavedNotification  = "OPTIONS_SAVED"
+let optionsSavedNotification  = "OPTIONS_SAVED"
 
 class Options: UITableViewController {
     

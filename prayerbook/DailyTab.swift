@@ -101,6 +101,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: NSNotification.Name(rawValue: dateChangedNotification), object: nil)
 
         navigationController?.delegate = self
         animationInteractive.completionSpeed = 0.999
@@ -605,7 +606,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
 
         } else {
             width = 500
-            height = 500
+            height = 530
         }
 
         let container = storyboard!.instantiateViewController(withIdentifier: "CalendarContainer") as! UINavigationController
@@ -618,14 +619,12 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         modalSheet.cornerRadiusWhenCentered = 10
         modalSheet.delegate = self
         modalSheet.adjustContentSize(CGSize(width: width, height: height), animated: false)
-        
-        (container.topViewController as! CalendarContainer).delegate = self
-        
+                
         modalSheet.present(completion: {})
     }
     
-    func updateDate(_ date: Date?) {
-        if let newDate = date {
+    func updateDate(_ notification: NSNotification) {
+        if let newDate = notification.userInfo?["date"] as? Date {
             currentDate = newDate
             reload()
         }
