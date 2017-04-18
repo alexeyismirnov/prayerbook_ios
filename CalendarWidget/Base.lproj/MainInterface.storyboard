@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -222,11 +222,12 @@
                                     <action selector="nextMonth:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="yLS-dH-jEf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vF4-zE-F8V">
-                                <rect key="frame" x="91" y="299" width="250" height="32"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vF4-zE-F8V">
+                                <rect key="frame" x="100" y="287" width="250" height="35"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="3LL-vz-feY"/>
+                                    <constraint firstAttribute="height" constant="35" id="sb2-BY-mwK"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Memory of saints">
@@ -266,7 +267,6 @@
                             <constraint firstItem="9fX-B8-zKn" firstAttribute="top" secondItem="6Lp-kj-jcG" secondAttribute="bottom" id="Tgn-Pu-Ktn"/>
                             <constraint firstItem="tZc-T5-mjZ" firstAttribute="width" secondItem="9am-Uv-GPx" secondAttribute="width" id="X79-UQ-8Ss"/>
                             <constraint firstItem="hAd-50-Nmq" firstAttribute="trailing" secondItem="vF4-zE-F8V" secondAttribute="trailing" id="YRr-EP-hc4"/>
-                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="vF4-zE-F8V" secondAttribute="bottom" constant="5" id="Ze4-Ls-H1f"/>
                             <constraint firstItem="fEv-CW-iNH" firstAttribute="top" secondItem="zrE-CB-5D9" secondAttribute="bottom" constant="5" id="b6r-Mz-wyV"/>
                             <constraint firstItem="9fX-B8-zKn" firstAttribute="top" secondItem="tZc-T5-mjZ" secondAttribute="bottom" id="cBh-9x-wV7"/>
                             <constraint firstItem="hAd-50-Nmq" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="5" id="ebA-Wl-cSh"/>

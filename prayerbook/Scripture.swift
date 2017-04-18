@@ -24,13 +24,18 @@ class Scripture: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        UIImage(named: "bg3.jpg")?.draw(in: self.view.bounds)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        
-        view.backgroundColor = UIColor(patternImage: image)
-        
+        if let bgColor = Theme.mainColor {
+            view.backgroundColor =  bgColor
+            
+        } else {
+            UIGraphicsBeginImageContext(self.view.frame.size)
+            UIImage(named: "bg3.jpg")?.draw(in: self.view.bounds)
+            let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            
+            view.backgroundColor = UIColor(patternImage: image)
+        }
+
         NotificationCenter.default.addObserver(self, selector: #selector(Scripture.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 
         let backButton = UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(Scripture.closeView))
@@ -112,7 +117,7 @@ class Scripture: UIViewController {
     static func decorateLine(_ verse:Int64, _ content:String, _ fontSize:Int) -> NSMutableAttributedString {
         var text : NSMutableAttributedString? = nil
         text = text + ("\(verse) ", UIColor.red)
-        text = text + (content, UIColor.black)
+        text = text + (content, Theme.textColor)
         text = text + "\n"
         
         text!.addAttribute(NSFontAttributeName,
@@ -143,7 +148,8 @@ class Scripture: UIViewController {
                 bookName = NSMutableAttributedString(
                     string: Translate.s(bookTuple[0].0) + " " + pericope[i+1],
                     attributes: [NSParagraphStyleAttributeName: centerStyle,
-                        NSFontAttributeName: UIFont.boldSystemFont(ofSize: CGFloat(fontSize)) ])
+                        NSFontAttributeName: UIFont.boldSystemFont(ofSize: CGFloat(fontSize)),
+                        NSForegroundColorAttributeName: Theme.textColor  ])
                 
             } else {
                 bookName = NSMutableAttributedString(string: Translate.s(bookTuple[0].0))

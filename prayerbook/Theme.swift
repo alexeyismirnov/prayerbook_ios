@@ -15,9 +15,9 @@ enum AppTheme {
 }
 
 struct Theme {
-    static var textColor: UIColor?
+    static var textColor: UIColor!
     static var mainColor : UIColor?
-    static var secondaryColor : UIColor?
+    static var secondaryColor : UIColor!
 
     /*
  NSUserDefaults.standardUserDefaults().setColor(UIColor.whiteColor(), forKey: "white")

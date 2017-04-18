@@ -346,6 +346,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
                 cell.textLabel?.textColor = Theme.textColor
                 cell.accessoryType = .none
                 cell.textLabel?.text = title
+                cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
                 
                 return cell
             }
@@ -428,7 +429,7 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
                 let ind = indexPath.row - readings.count
                 
                 vc = storyboard!.instantiateViewController(withIdentifier: "RTFDocument")
-                (vc as! RTFDocument).content = NSAttributedString(string: feofan[ind].1)
+                (vc as! RTFDocument).content = NSMutableAttributedString(string: feofan[ind].1)
                 
             default:
                 let synaxarion = Cal.synaxarion[currentDate]!
@@ -477,11 +478,8 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
             case (0,0):
                 return 55
                 
-            case (1,_):
+            case (1,_), (2,_):
                 return 35
-                
-            case (2,_):
-                return 34
 
             default:
                 return 27

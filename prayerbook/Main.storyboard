@@ -265,7 +265,7 @@
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2ra-KW-o5s" secondAttribute="bottom" priority="999" id="9XL-Nt-8HB"/>
                                         <constraint firstAttribute="centerY" secondItem="lDm-jS-VQP" secondAttribute="centerY" id="D0y-uf-yxH"/>
                                         <constraint firstItem="2ra-KW-o5s" firstAttribute="leading" secondItem="lDm-jS-VQP" secondAttribute="trailing" priority="999" constant="10" id="Pcs-tA-FX3"/>
-                                        <constraint firstItem="lDm-jS-VQP" firstAttribute="leading" secondItem="mwe-w3-Yzf" secondAttribute="leading" priority="999" constant="10" id="d2Q-Te-z5F"/>
+                                        <constraint firstItem="lDm-jS-VQP" firstAttribute="leading" secondItem="mwe-w3-Yzf" secondAttribute="leading" priority="999" constant="20" symbolic="YES" id="d2Q-Te-z5F"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lDm-jS-VQP" secondAttribute="bottom" priority="998" id="ixk-WR-aRA"/>
                                         <constraint firstAttribute="centerY" secondItem="2ra-KW-o5s" secondAttribute="centerY" priority="999" id="lY7-xT-oVI"/>
                                     </constraints>
@@ -284,13 +284,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Subtitle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="HR8-Py-FPC" customClass="RWLabel" customModule="ponomar" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="29" width="748" height="21"/>
+                                            <rect key="frame" x="20" y="29" width="738" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="RZ6-2a-aKm" customClass="RWLabel" customModule="ponomar" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="5" width="748" height="24"/>
+                                            <rect key="frame" x="20" y="5" width="738" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -300,10 +300,10 @@
                                         <constraint firstItem="RZ6-2a-aKm" firstAttribute="top" secondItem="8DW-CC-4mE" secondAttribute="top" priority="999" constant="5" id="2p2-Kl-kMo"/>
                                         <constraint firstAttribute="bottom" secondItem="HR8-Py-FPC" secondAttribute="bottom" priority="999" constant="5" id="61z-5X-Fh0"/>
                                         <constraint firstAttribute="trailing" secondItem="HR8-Py-FPC" secondAttribute="trailing" priority="999" constant="10" id="Iio-d1-Gph"/>
-                                        <constraint firstItem="RZ6-2a-aKm" firstAttribute="leading" secondItem="8DW-CC-4mE" secondAttribute="leading" priority="999" constant="10" id="PDy-zp-ifI"/>
+                                        <constraint firstItem="RZ6-2a-aKm" firstAttribute="leading" secondItem="8DW-CC-4mE" secondAttribute="leading" priority="999" constant="20" symbolic="YES" id="PDy-zp-ifI"/>
                                         <constraint firstAttribute="trailing" secondItem="RZ6-2a-aKm" secondAttribute="trailing" priority="999" constant="10" id="aBV-xP-bo6"/>
                                         <constraint firstItem="HR8-Py-FPC" firstAttribute="top" secondItem="RZ6-2a-aKm" secondAttribute="bottom" priority="999" id="aW2-SO-UQY"/>
-                                        <constraint firstItem="HR8-Py-FPC" firstAttribute="leading" secondItem="8DW-CC-4mE" secondAttribute="leading" priority="999" constant="10" id="thH-1z-Zt6"/>
+                                        <constraint firstItem="HR8-Py-FPC" firstAttribute="leading" secondItem="8DW-CC-4mE" secondAttribute="leading" priority="999" constant="20" symbolic="YES" id="thH-1z-Zt6"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

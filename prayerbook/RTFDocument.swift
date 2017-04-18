@@ -22,17 +22,23 @@ class RTFDocument: UIViewController {
 
     var docTitle : String!
     var docFilename : String?
-    var content : NSAttributedString!
+    var content : NSMutableAttributedString!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fontSize = prefs.integer(forKey: "fontSize")
 
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        UIImage(named: "bg3.jpg")?.draw(in: self.view.bounds)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
+        if let bgColor = Theme.mainColor {
+            view.backgroundColor =  bgColor
+            
+        } else {
+            UIGraphicsBeginImageContext(self.view.frame.size)
+            UIImage(named: "bg3.jpg")?.draw(in: self.view.bounds)
+            let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            view.backgroundColor = UIColor(patternImage: image)
+        }
         
         let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in"), style: .plain, target: self, action: #selector(self.zoom_in))
         let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out"), style: .plain, target: self, action: #selector(self.zoom_out))
@@ -40,24 +46,24 @@ class RTFDocument: UIViewController {
         button_zoom_in.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
 
-        view.backgroundColor = UIColor(patternImage: image)
         title = docTitle
         
         if let filename = docFilename,
            let rtfPath = Bundle.main.url(forResource: filename, withExtension: "rtf") {
             
             do {
-                content = try NSAttributedString(fileURL: rtfPath, options: [NSDocumentTypeDocumentAttribute:NSRTFTextDocumentType], documentAttributes: nil)
+                content = try NSMutableAttributedString(fileURL: rtfPath, options: [NSDocumentTypeDocumentAttribute:NSRTFTextDocumentType], documentAttributes: nil)
 
             } catch let error {
                 print("We got an error \(error)")
             }
         }
         
-        self.textView.attributedText = content
-        self.textView.font =  UIFont(name: (textView.font?.fontName)!, size: CGFloat(fontSize))!
+        content!.addAttribute(NSForegroundColorAttributeName, value: Theme.textColor ,
+                           range: NSMakeRange(0, content!.length))
 
-
+        textView.attributedText = content
+        textView.font =  UIFont(name: (textView.font?.fontName)!, size: CGFloat(fontSize))!
     }
     
     override func viewDidAppear(_ animated: Bool) {

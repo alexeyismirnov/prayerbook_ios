@@ -52,14 +52,19 @@ class Library: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        UIImage(named: "bg3.jpg")?.draw(in: self.view.bounds)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        
-        view.backgroundColor = UIColor.clear
-        tableView.backgroundView = UIImageView(image: image)
-        
+        if let bgColor = Theme.mainColor {
+            view.backgroundColor =  bgColor
+            
+        } else {
+            UIGraphicsBeginImageContext(self.view.frame.size)
+            UIImage(named: "bg3.jpg")?.draw(in: self.view.bounds)
+            let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            
+            view.backgroundColor = UIColor.clear
+            tableView.backgroundView = UIImageView(image: image)
+        }
+                
         NotificationCenter.default.addObserver(self, selector: #selector(Library.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 
         reload()
@@ -102,6 +107,7 @@ class Library: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerView = view as! UITableViewHeaderFooterView
+        headerView.textLabel?.textColor = Theme.textColor
         headerView.contentView.backgroundColor = UIColor.clear
         headerView.backgroundView?.backgroundColor = UIColor.clear
     }
@@ -122,7 +128,7 @@ class Library: UITableViewController {
             newCell = TextCell(style: UITableViewCellStyle.default, reuseIdentifier: TextCell.cellId)
         }
         
-        newCell!.title.textColor =  UIColor.black
+        newCell!.title.textColor =  Theme.textColor
         newCell!.title.text = (code == "Library") ?
             Translate.s(NewTestament[(indexPath as NSIndexPath).row].0) :
             String(format: Translate.s("Chapter %@"), Translate.stringFromNumber((indexPath as NSIndexPath).row+1))

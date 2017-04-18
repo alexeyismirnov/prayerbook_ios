@@ -39,6 +39,7 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
     ]
     
     override func viewDidLoad() {
+        view.backgroundColor =  UIColor.flatSand
         fastTitleLabel.text = fastTitle
     }
     
@@ -68,6 +69,12 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
         return (section == 0) ? allowedFood[type]!.count : forbiddenFood[type]!.count
     }
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        headerView.contentView.backgroundColor = UIColor.clear
+        headerView.backgroundView?.backgroundColor = UIColor.clear
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "FastingCell") 
         
@@ -80,6 +87,7 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
         let foodName = ((indexPath as NSIndexPath).section == 0) ? allowedFood[type]![(indexPath as NSIndexPath).row] : forbiddenFood[type]![(indexPath as NSIndexPath).row]
 
         let capitalized = "\(foodName[0])".uppercased() + foodName.substring(from: foodName.characters.index(foodName.startIndex, offsetBy: 1))
+        
         
         cell?.textLabel!.text = Translate.s(capitalized)
         cell?.imageView!.image =  UIImage(named: getImageName(foodName, allowed: (indexPath as NSIndexPath).section == 0))
