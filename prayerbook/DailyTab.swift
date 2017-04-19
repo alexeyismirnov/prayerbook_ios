@@ -87,11 +87,9 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
             
         } else {
             if DailyTab.background == nil {
-                UIGraphicsBeginImageContext(self.view.frame.size)
-                UIImage(named: "bg3.jpg")?.draw(in: self.view.bounds)
-                DailyTab.background = UIGraphicsGetImageFromCurrentImageContext()!
-                UIGraphicsEndImageContext()
+                DailyTab.background = UIImage(background: "bg3.jpg", inView: view)
             }
+            
             view.backgroundColor = UIColor.clear
             tableView.backgroundView = UIImageView(image: DailyTab.background)
         }

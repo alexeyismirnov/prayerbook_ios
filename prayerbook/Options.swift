@@ -19,12 +19,8 @@ class Options: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        UIImage(named: "church.jpg")?.draw(in: self.view.bounds)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        view.backgroundColor = UIColor(patternImage: image)
-
+        view.backgroundColor = UIColor(patternImage: UIImage(background: "church.jpg", inView: view))
+        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true

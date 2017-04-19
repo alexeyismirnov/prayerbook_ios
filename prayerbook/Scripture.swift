@@ -28,12 +28,7 @@ class Scripture: UIViewController {
             view.backgroundColor =  bgColor
             
         } else {
-            UIGraphicsBeginImageContext(self.view.frame.size)
-            UIImage(named: "bg3.jpg")?.draw(in: self.view.bounds)
-            let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-            UIGraphicsEndImageContext()
-            
-            view.backgroundColor = UIColor(patternImage: image)
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view))
         }
 
         NotificationCenter.default.addObserver(self, selector: #selector(Scripture.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)

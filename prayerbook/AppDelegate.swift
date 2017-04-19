@@ -38,7 +38,8 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        Theme.set(.Chameleon(color: .flatNavyBlueDark))
+        // Theme.set(.Chameleon(color: .flatNavyBlueDark))
+        Theme.set(.Default)
         
         let prefs = UserDefaults(suiteName: groupId)!
         

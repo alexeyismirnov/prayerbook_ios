@@ -56,15 +56,10 @@ class Library: UITableViewController {
             view.backgroundColor =  bgColor
             
         } else {
-            UIGraphicsBeginImageContext(self.view.frame.size)
-            UIImage(named: "bg3.jpg")?.draw(in: self.view.bounds)
-            let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-            UIGraphicsEndImageContext()
-            
             view.backgroundColor = UIColor.clear
-            tableView.backgroundView = UIImageView(image: image)
+            tableView.backgroundView = UIImageView(image: UIImage(background: "bg3.jpg", inView: view))
         }
-                
+        
         NotificationCenter.default.addObserver(self, selector: #selector(Library.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
 
         reload()

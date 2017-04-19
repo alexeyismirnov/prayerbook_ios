@@ -33,11 +33,7 @@ class RTFDocument: UIViewController {
             view.backgroundColor =  bgColor
             
         } else {
-            UIGraphicsBeginImageContext(self.view.frame.size)
-            UIImage(named: "bg3.jpg")?.draw(in: self.view.bounds)
-            let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-            UIGraphicsEndImageContext()
-            view.backgroundColor = UIColor(patternImage: image)
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view))
         }
         
         let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in"), style: .plain, target: self, action: #selector(self.zoom_in))

@@ -407,3 +407,14 @@ extension UserDefaults {
     }
 }
 
+extension UIImage {
+    convenience init(background: String , inView view: UIView) {
+        let image = UIImage(named: background)
+        UIGraphicsBeginImageContext(view.frame.size)
+        image!.draw(in: view.bounds)
+        let bgImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        self.init(cgImage: (bgImage.cgImage)!)
+    }
+}
+
