@@ -18,11 +18,6 @@ struct Theme {
     static var textColor: UIColor!
     static var mainColor : UIColor?
     static var secondaryColor : UIColor!
-
-    /*
- NSUserDefaults.standardUserDefaults().setColor(UIColor.whiteColor(), forKey: "white")
- let whiteColor = NSUserDefaults.standardUserDefaults().colorForKey("white")
- */
     
     static func set(_ t: AppTheme) {
         switch t {

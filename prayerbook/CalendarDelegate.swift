@@ -12,9 +12,7 @@ enum CalendarContainerType: Int {
     case mainApp=0, todayExtension
 }
 
-class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    static let cellId = "CalendarTextCell"
-    
+class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {    
     let prefs = UserDefaults(suiteName: groupId)!
 
     var cal: Calendar = {
@@ -52,7 +50,7 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
     }
 
     @objc func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarDelegate.cellId, for: indexPath) as! CalendarViewTextCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarViewTextCell.cellId, for: indexPath) as! CalendarViewTextCell
         
         cell.contentView.backgroundColor =  UIColor.clear
 

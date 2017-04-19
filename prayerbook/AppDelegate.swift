@@ -37,11 +37,15 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        // Theme.set(.Chameleon(color: .flatNavyBlueDark))
-        Theme.set(.Default)
-        
         let prefs = UserDefaults(suiteName: groupId)!
+
+        if prefs.object(forKey: "theme") == nil {
+            Theme.set(.Default)
+
+        } else {
+            let color = prefs.color(forKey: "theme")
+            Theme.set(.Chameleon(color: color!))
+        }
         
         // the first time app is launched
         if prefs.object(forKey: "fontSize") == nil {

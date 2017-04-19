@@ -11,6 +11,7 @@ import UIKit
 let dateChangedNotification = "DATE_CHANGED"
 
 class CalendarViewCell: UICollectionViewCell {
+    static let cellId = "CalendarCell"
 
     var collectionView: UICollectionView!
     var calendarDelegate: CalendarDelegate!
@@ -39,7 +40,7 @@ class CalendarViewCell: UICollectionViewCell {
         collectionView = UICollectionView(frame: initialFrame, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.clear
 
-        collectionView.register(CalendarViewTextCell.self, forCellWithReuseIdentifier: CalendarDelegate.cellId)
+        collectionView.register(CalendarViewTextCell.self, forCellWithReuseIdentifier: CalendarViewTextCell.cellId)
 
         calendarDelegate = CalendarDelegate()
         calendarDelegate.containerType = .mainApp

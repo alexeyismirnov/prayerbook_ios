@@ -114,6 +114,7 @@
 		8A5457821E70174300A86B5A /* synaxarion18.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54576D1E70174300A86B5A /* synaxarion18.rtf */; };
 		8A5457831E70174300A86B5A /* synaxarion19.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54576E1E70174300A86B5A /* synaxarion19.rtf */; };
 		8A5457841E70174300A86B5A /* synaxarion20.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54576F1E70174300A86B5A /* synaxarion20.rtf */; };
+		8A54C4211EA70C7D0083AA2F /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C4201EA70C7D0083AA2F /* Palette.swift */; };
 		8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */; };
 		8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */; };
 		8A71C9F21E9E2F2A0069E7A4 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A71C9F11E9E2F2A0069E7A4 /* Theme.swift */; };
@@ -459,6 +460,7 @@
 		8A54576D1E70174300A86B5A /* synaxarion18.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion18.rtf; sourceTree = "<group>"; };
 		8A54576E1E70174300A86B5A /* synaxarion19.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion19.rtf; sourceTree = "<group>"; };
 		8A54576F1E70174300A86B5A /* synaxarion20.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion20.rtf; sourceTree = "<group>"; };
+		8A54C4201EA70C7D0083AA2F /* Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDetailsCell.swift; sourceTree = "<group>"; };
 		8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		8A71C9F11E9E2F2A0069E7A4 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -680,6 +682,7 @@
 				8A74D832198F224E0078F39F /* Main.storyboard */,
 				8A865FCB1DED2B5E004A845F /* widget.mp4 */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
+				8AC2780A1C61D48A00436D51 /* Tutorial.swift */,
 				8A2F46A619E12B4100076AF4 /* AppDelegate.swift */,
 				8A71C9F11E9E2F2A0069E7A4 /* Theme.swift */,
 				8A298C471DD41DFC006A25F9 /* Animation.swift */,
@@ -700,7 +703,7 @@
 				8A54574F1E6FD13500A86B5A /* RTFDocument.swift */,
 				8AEFC27A1A2C747700BAACE0 /* Scripture.swift */,
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
-				8AC2780A1C61D48A00436D51 /* Tutorial.swift */,
+				8A54C4201EA70C7D0083AA2F /* Palette.swift */,
 				8A419E291C268D01003AA378 /* CalendarContainer.swift */,
 				8AE7CEF51EA4D07300EEA03C /* CalendarView.swift */,
 				8A0132F31C2027BC006F2505 /* CalendarDelegate.swift */,
@@ -1395,6 +1398,7 @@
 				8AE821F91AC55D8D000460C1 /* RWLabel.swift in Sources */,
 				8AC2780B1C61D48A00436D51 /* Tutorial.swift in Sources */,
 				8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */,
+				8A54C4211EA70C7D0083AA2F /* Palette.swift in Sources */,
 				8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */,
 				8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */,
 				8AEA68391C90028B009E9FD8 /* Prayer.swift in Sources */,

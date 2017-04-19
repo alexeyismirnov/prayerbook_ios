@@ -9,8 +9,9 @@
 import UIKit
 
 class CalendarViewTextCell: UICollectionViewCell {
+    static let cellId = "CalendarTextCell"
+
     var dateLabel: UILabel!
-    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

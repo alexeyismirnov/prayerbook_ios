@@ -9,9 +9,7 @@
 import UIKit
 import Chameleon
 
-
 class CalendarContainer: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    static let cellId = "CalendarCell"
     @IBOutlet weak var collectionView: UICollectionView!
     
     var dates = [Date]()
@@ -37,7 +35,7 @@ class CalendarContainer: UIViewController, UICollectionViewDataSource, UICollect
         setTitle(fromDate: currentDate)
         dates = [currentDate-1.months, currentDate, currentDate+1.months]
         
-        collectionView.register(CalendarViewCell.self, forCellWithReuseIdentifier: CalendarContainer.cellId)
+        collectionView.register(CalendarViewCell.self, forCellWithReuseIdentifier: CalendarViewCell.cellId)
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -51,10 +49,6 @@ class CalendarContainer: UIViewController, UICollectionViewDataSource, UICollect
         } else {
             layout.itemSize = CGSize(width: 500, height: 500)
         }
-        
-        
-        /*
-        */
         
         CalendarDelegate.generateLabels(view, container: .mainApp)        
     }
@@ -89,7 +83,7 @@ class CalendarContainer: UIViewController, UICollectionViewDataSource, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarContainer.cellId, for: indexPath) as! CalendarViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarViewCell.cellId, for: indexPath) as! CalendarViewCell
         cell.currentDate = dates[indexPath.row]
         
         return cell

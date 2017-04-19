@@ -82,23 +82,15 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let bgColor = Theme.mainColor {
-            view.backgroundColor =  bgColor
-            
-        } else {
-            if DailyTab.background == nil {
-                DailyTab.background = UIImage(background: "bg3.jpg", inView: view)
-            }
-            
-            view.backgroundColor = UIColor.clear
-            tableView.backgroundView = UIImageView(image: DailyTab.background)
-        }
+        reloadTheme()
         
         addBarButtons()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: NSNotification.Name(rawValue: dateChangedNotification), object: nil)
 
         navigationController?.delegate = self
@@ -494,7 +486,23 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
         return size.height+1.0
     }
 
-    // MARK: private stuff
+
+    func reloadTheme() {
+        if let bgColor = Theme.mainColor {
+            view.backgroundColor =  bgColor
+            tableView.backgroundView = nil
+            
+        } else {
+            if DailyTab.background == nil {
+                DailyTab.background = UIImage(background: "bg3.jpg", inView: view)
+            }
+            
+            view.backgroundColor = UIColor.clear
+            tableView.backgroundView = UIImageView(image: DailyTab.background)
+        }
+        
+        reload()
+    }
     
     func reload() {
         formatter.locale = Translate.locale as Locale!
@@ -620,12 +628,14 @@ class DailyTab: UITableViewController, NAModalSheetDelegate, UINavigationControl
     }
     
     func updateDate(_ notification: NSNotification) {
+        modalSheet.dismiss(completion: {
+        })
+
         if let newDate = notification.userInfo?["date"] as? Date {
-            currentDate = newDate
-            reload()
+            self.currentDate = newDate
+            self.reload()
         }
-        
-        modalSheet.dismiss(completion: {  })
+
     }
     
     func showTutorial() {

@@ -9,17 +9,20 @@
 import UIKit
 
 let optionsSavedNotification  = "OPTIONS_SAVED"
+let themeChangedNotification  = "THEME_CHANGED"
 
-class Options: UITableViewController {
+class Options: UITableViewController, NAModalSheetDelegate {
     
     weak var delegate : DailyTab!
     let prefs = UserDefaults(suiteName: groupId)!
     var lastSelected: IndexPath?
-    
+    var modalSheet: NAModalSheet!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(patternImage: UIImage(background: "church.jpg", inView: view))
+        view.backgroundColor = UIColor.clear
+        tableView.backgroundView = UIImageView(image: UIImage(background: "church.jpg", inView: view))
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -49,10 +52,9 @@ class Options: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 2 {
-            delegate.showHistory()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-        } else if indexPath.section == 1 {
+        if indexPath.section == 1 {
             var cell: UITableViewCell
             
             cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 1)) as UITableViewCell
@@ -64,6 +66,46 @@ class Options: UITableViewController {
             cell = self.tableView(tableView, cellForRowAt: indexPath) as UITableViewCell
             cell.accessoryType = .checkmark
             
+        } else if indexPath.section == 2 {
+            if indexPath.row == 0 {
+                Theme.set(.Default)
+                
+                prefs.removeObject(forKey: "theme")
+                prefs.synchronize()
+                
+                NotificationCenter.default.post(name: Notification.Name(rawValue: themeChangedNotification), object: nil)
+                self.dismiss(animated: false, completion: {})
+                
+            } else {
+                var width, height : CGFloat
+                
+                if (UIDevice.current.userInterfaceIdiom == .phone) {
+                    width = 300
+                    height = 300
+                    
+                } else {
+                    width = 500
+                    height = 500
+                }
+                
+                let container = storyboard.instantiateViewController(withIdentifier: "Palette") as! Palette
+                container.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
+                container.delegate = self
+                
+                modalSheet = NAModalSheet(viewController: container, presentationStyle: .fadeInCentered)
+                modalSheet.setThemeUsingPrimaryColor(.flatSand, with: .contrast)
+                
+                modalSheet.disableBlurredBackground = true
+                modalSheet.cornerRadiusWhenCentered = 10
+                modalSheet.delegate = self
+                modalSheet.adjustContentSize(CGSize(width: width, height: height), animated: false)
+                
+                modalSheet.present(completion: {})
+            }
+            
+        } else if indexPath.section == 3 {
+            delegate.showHistory()
+
         }
     }
     
@@ -72,7 +114,11 @@ class Options: UITableViewController {
             return Translate.s("Fasting type")
             
         } else if section == 2 {
+            return Translate.s("Background color")
+        
+        } else if section == 3 {
             return Translate.s("Brotherhood of Sts Apostoles Peter and Paul, Hong Kong.")
+
         }
         
         return ""
@@ -88,5 +134,32 @@ class Options: UITableViewController {
         NotificationCenter.default.post(name: Notification.Name(rawValue: optionsSavedNotification), object: nil)
         dismiss(animated: true, completion: nil)
     }
+    
+    func doneWithColor(_ color: UIColor) {
+        modalSheet.dismiss(completion: {
+            Theme.set(.Chameleon(color: color))
+            
+            self.prefs.set(color, forKey: "theme")
+            self.prefs.synchronize()
+            
+            NotificationCenter.default.post(name: Notification.Name(rawValue: themeChangedNotification), object: nil)
+            self.dismiss(animated: false, completion: {})
+        })
+    }
+    
+    // MARK: NAModalSheetDelegate
+    
+    func modalSheetTouchedOutsideContent(_ sheet: NAModalSheet!) {
+        sheet.dismiss(completion: {})
+    }
+    
+    func modalSheetShouldAutorotate(_ sheet: NAModalSheet!) -> Bool {
+        return shouldAutorotate
+    }
+    
+    func modalSheetSupportedInterfaceOrientations(_ sheet: NAModalSheet!) -> UInt {
+        return supportedInterfaceOrientations.rawValue
+    }
+
 
 }
