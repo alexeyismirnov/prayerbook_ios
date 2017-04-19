@@ -24,14 +24,8 @@ class Scripture: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let bgColor = Theme.mainColor {
-            view.backgroundColor =  bgColor
-            
-        } else {
-            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view))
-        }
-
         NotificationCenter.default.addObserver(self, selector: #selector(Scripture.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
 
         let backButton = UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(Scripture.closeView))
         navigationItem.leftBarButtonItem = backButton
@@ -44,8 +38,20 @@ class Scripture: UIViewController {
         
         fontSize = prefs.integer(forKey: "fontSize")
 
+        reloadTheme()
+    }
+    
+    func reloadTheme() {
+        if let bgColor = Theme.mainColor {
+            view.backgroundColor =  bgColor
+            
+        } else {
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view))
+        }
+        
         reload()
     }
+
     
     func zoom_in() {
         fontSize += 2

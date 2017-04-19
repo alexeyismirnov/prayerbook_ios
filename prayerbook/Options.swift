@@ -13,7 +13,6 @@ let themeChangedNotification  = "THEME_CHANGED"
 
 class Options: UITableViewController, NAModalSheetDelegate {
     
-    weak var delegate : DailyTab!
     let prefs = UserDefaults(suiteName: groupId)!
     var lastSelected: IndexPath?
     var modalSheet: NAModalSheet!
@@ -104,7 +103,11 @@ class Options: UITableViewController, NAModalSheetDelegate {
             }
             
         } else if indexPath.section == 3 {
-            delegate.showHistory()
+            let vc = self.storyboard!.instantiateViewController(withIdentifier: "RTFDocument") as! RTFDocument
+            vc.docTitle = "История храма"
+            vc.docFilename = "church_history"
+            
+            self.navigationController?.pushViewController(vc, animated: true)
 
         }
     }
