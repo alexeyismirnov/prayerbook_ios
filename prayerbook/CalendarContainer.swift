@@ -17,6 +17,9 @@ class CalendarContainer: UIViewController, UICollectionViewDataSource, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let button_widget = UIBarButtonItem(image: UIImage(named: "question"), style: .plain, target: self, action: #selector(showInfo))
+        navigationItem.rightBarButtonItem = button_widget
+        
         view.backgroundColor =  UIColor.flatSand
         collectionView.backgroundColor = UIColor.clear
         
@@ -57,6 +60,11 @@ class CalendarContainer: UIViewController, UICollectionViewDataSource, UICollect
         super.viewWillAppear(animated)
         collectionView.scrollToItem(at: IndexPath(item: 1, section: 0), at: .left, animated: false)
 
+    }
+    
+    func showInfo() {
+        let vc = UIViewController.named("calendar_info")
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func setTitle(fromDate date: Date) {

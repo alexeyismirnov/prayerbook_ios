@@ -87,7 +87,7 @@ class Options: UITableViewController, NAModalSheetDelegate {
                     height = 500
                 }
                 
-                let container = storyboard.instantiateViewController(withIdentifier: "Palette") as! Palette
+                let container = UIViewController.named("Palette") as! Palette
                 container.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
                 container.delegate = self
                 
@@ -103,7 +103,7 @@ class Options: UITableViewController, NAModalSheetDelegate {
             }
             
         } else if indexPath.section == 3 {
-            let vc = self.storyboard!.instantiateViewController(withIdentifier: "RTFDocument") as! RTFDocument
+            let vc = UIViewController.named("RTFDocument") as! RTFDocument
             vc.docTitle = "История храма"
             vc.docFilename = "church_history"
             

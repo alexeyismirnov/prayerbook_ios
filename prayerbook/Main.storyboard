@@ -171,6 +171,63 @@
             </objects>
             <point key="canvasLocation" x="2094" y="-760"/>
         </scene>
+        <!--Calendar Info-->
+        <scene sceneID="lju-3l-Zvj">
+            <objects>
+                <tableViewController storyboardIdentifier="calendar_info" id="cda-x5-6Df" customClass="CalendarInfo" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="31B-63-6Su">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="35" id="JCI-kn-Ztz" customClass="ImageCell" customModule="ponomar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="768" height="35"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JCI-kn-Ztz" id="WhY-um-cXO">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="34.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" misplaced="YES" placeholderIntrinsicWidth="702" placeholderIntrinsicHeight="21" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="702" translatesAutoresizingMaskIntoConstraints="NO" id="Qjx-ex-OUJ" customClass="RWLabel" customModule="ponomar" customModuleProvider="target">
+                                            <rect key="frame" x="45" y="7" width="713" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ciN-aQ-lvy">
+                                            <rect key="frame" x="10" y="5" width="25" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="lHi-jY-vcP"/>
+                                                <constraint firstAttribute="width" constant="35" id="oHh-bd-E1N"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="ciN-aQ-lvy" secondAttribute="centerY" id="0KA-VT-o0T"/>
+                                        <constraint firstItem="Qjx-ex-OUJ" firstAttribute="leading" secondItem="ciN-aQ-lvy" secondAttribute="trailing" priority="999" constant="10" id="COI-LW-DTC"/>
+                                        <constraint firstItem="ciN-aQ-lvy" firstAttribute="leading" secondItem="WhY-um-cXO" secondAttribute="leading" priority="999" constant="20" symbolic="YES" id="Hj5-lR-ZK7"/>
+                                        <constraint firstAttribute="centerY" secondItem="Qjx-ex-OUJ" secondAttribute="centerY" priority="999" id="S89-8f-o1d"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Qjx-ex-OUJ" secondAttribute="bottom" priority="999" id="YE0-5A-mRH"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ciN-aQ-lvy" secondAttribute="bottom" priority="998" id="Yjb-GU-pk6"/>
+                                        <constraint firstAttribute="trailing" secondItem="Qjx-ex-OUJ" secondAttribute="trailing" priority="999" constant="10" id="lao-f8-xhy"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="icon" destination="ciN-aQ-lvy" id="8Yd-C6-GLx"/>
+                                    <outlet property="title" destination="Qjx-ex-OUJ" id="FDr-z7-7M1"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cda-x5-6Df" id="Vch-gU-WrO"/>
+                            <outlet property="delegate" destination="cda-x5-6Df" id="Kdy-bX-iLF"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VGD-wS-aEy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3006" y="-772"/>
+        </scene>
         <!--Tutorial-->
         <scene sceneID="Zb2-2n-J13">
             <objects>

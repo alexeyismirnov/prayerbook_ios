@@ -100,13 +100,13 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if (code == "Library") {
-            let vc = storyboard.instantiateViewController(withIdentifier: "Library2") as! Library2
+            let vc = UIViewController.named("Library2") as! Library2
             vc.index = (indexPath as NSIndexPath).row
             vc.code = NewTestament[(indexPath as NSIndexPath).row].1
             navigationController?.pushViewController(vc, animated: true)
             
         } else {
-            let vc = storyboard.instantiateViewController(withIdentifier: "Scripture") as! Scripture
+            let vc = UIViewController.named("Scripture") as! Scripture
             vc.code = .chapter(code, (indexPath as NSIndexPath).row+1)
             navigationController?.pushViewController(vc, animated: true)
         }

@@ -73,9 +73,9 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     var modalSheet: NAModalSheet!
     
     static var background : UIImage?
-    
+    static let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
     static func date(_ date: Date) -> UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "Daily2") as! DailyTab2
         vc.currentDate = date
         return vc
@@ -415,19 +415,19 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
             switch indexPath.row {
             case 0 ..< readings.count:
                 let currentReading = readings[indexPath.row].components(separatedBy: "#")
-                vc = storyboard!.instantiateViewController(withIdentifier: "Scripture")
+                vc = UIViewController.named("Scripture")
                 (vc as! Scripture).code = .pericope(currentReading[0])
                 
             case readings.count ..< readings.count + feofan.count:
                 let ind = indexPath.row - readings.count
                 
-                vc = storyboard!.instantiateViewController(withIdentifier: "RTFDocument")
+                vc = UIViewController.named("RTFDocument")
                 (vc as! RTFDocument).content = NSMutableAttributedString(string: feofan[ind].1)
                 
             default:
                 let synaxarion = Cal.synaxarion[currentDate]!
                 
-                vc = storyboard!.instantiateViewController(withIdentifier: "RTFDocument")
+                vc = UIViewController.named("RTFDocument")
                 (vc as! RTFDocument).docTitle = synaxarion.0
                 (vc as! RTFDocument).docFilename = synaxarion.1
                 
@@ -450,7 +450,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
             modalSheet.present(completion: {})
             
         } else if indexPath.section == 3 {
-            let prayer = storyboard!.instantiateViewController(withIdentifier: "Prayer") as! Prayer
+            let prayer = UIViewController.named("Prayer") as! Prayer
             prayer.code = "typica"
             prayer.index = 0
             prayer.name = Translate.s("Typica")
@@ -538,7 +538,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         navigationController!.navigationBar.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
         
         let button_calendar = UIBarButtonItem(image: UIImage(named: "calendar"), style: .plain, target: self, action: #selector(showCalendar))
-        let button_widget = UIBarButtonItem(image: UIImage(named: "widget"), style: .plain, target: self, action: #selector(showTutorial))
+        let button_widget = UIBarButtonItem(image: UIImage(named: "question"), style: .plain, target: self, action: #selector(showTutorial))
         let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .plain, target: self, action: #selector(showOptions))
         
         button_widget.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
@@ -618,7 +618,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
             height = 530
         }
         
-        let container = storyboard!.instantiateViewController(withIdentifier: "CalendarContainer") as! UINavigationController
+        let container = UIViewController.named("CalendarContainer") as! UINavigationController
         container.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
         
         modalSheet = NAModalSheet(viewController: container, presentationStyle: .fadeInCentered)
@@ -644,7 +644,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     }
     
     func showTutorial() {
-        let vc = storyboard!.instantiateViewController(withIdentifier: "Tutorial") as! Tutorial
+        let vc = UIViewController.named("Tutorial") as! Tutorial
         let nav = UINavigationController(rootViewController: vc)
         vc.delegate = self
         
@@ -652,19 +652,9 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     }
     
     func showOptions() {
-        let vc = storyboard!.instantiateViewController(withIdentifier: "Options") as! Options
+        let vc = UIViewController.named("Options") as! Options
         let nav = UINavigationController(rootViewController: vc)
         navigationController?.present(nav, animated: true, completion: {})
-    }
-    
-    func showHistory() {
-        navigationController?.dismiss(animated: false, completion: {
-            let vc = self.storyboard!.instantiateViewController(withIdentifier: "RTFDocument") as! RTFDocument
-            vc.docTitle = "История храма"
-            vc.docFilename = "church_history"
-            
-            self.navigationController?.pushViewController(vc, animated: true)
-        })
     }
     
     // MARK: NAModalSheetDelegate

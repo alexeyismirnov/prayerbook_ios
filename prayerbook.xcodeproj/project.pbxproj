@@ -201,6 +201,8 @@
 		8AE36B2D1C97B228005CAD8D /* food-pizza.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE36B291C97B228005CAD8D /* food-pizza.pdf */; };
 		8AE36B2E1C97B228005CAD8D /* food-without-oil.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE36B2A1C97B228005CAD8D /* food-without-oil.pdf */; };
 		8AE36B2F1C97B228005CAD8D /* food-xerography.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE36B2B1C97B228005CAD8D /* food-xerography.pdf */; };
+		8AE46EF51EA9A1A400CAC1CB /* question.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE46EF41EA9A1A400CAC1CB /* question.pdf */; };
+		8AE46EFE1EA9A6F900CAC1CB /* CalendarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE46EFD1EA9A6F900CAC1CB /* CalendarInfo.swift */; };
 		8AE529E41C8E63710082FF65 /* trans_library_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE529E31C8E63710082FF65 /* trans_library_ru.plist */; };
 		8AE529EB1C8E68FD0082FF65 /* trans_cal_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE529EA1C8E68FD0082FF65 /* trans_cal_ru.plist */; };
 		8AE5DEF819E7A80B0069C757 /* ChurchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */; };
@@ -551,6 +553,8 @@
 		8AE36B291C97B228005CAD8D /* food-pizza.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-pizza.pdf"; sourceTree = "<group>"; };
 		8AE36B2A1C97B228005CAD8D /* food-without-oil.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-without-oil.pdf"; sourceTree = "<group>"; };
 		8AE36B2B1C97B228005CAD8D /* food-xerography.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-xerography.pdf"; sourceTree = "<group>"; };
+		8AE46EF41EA9A1A400CAC1CB /* question.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = question.pdf; sourceTree = "<group>"; };
+		8AE46EFD1EA9A6F900CAC1CB /* CalendarInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarInfo.swift; sourceTree = "<group>"; };
 		8AE529E31C8E63710082FF65 /* trans_library_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_library_ru.plist; sourceTree = "<group>"; };
 		8AE529EA1C8E68FD0082FF65 /* trans_cal_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_cal_ru.plist; sourceTree = "<group>"; };
 		8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchCalendar.swift; sourceTree = "<group>"; };
@@ -704,6 +708,7 @@
 				8AEFC27A1A2C747700BAACE0 /* Scripture.swift */,
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
 				8A54C4201EA70C7D0083AA2F /* Palette.swift */,
+				8AE46EFD1EA9A6F900CAC1CB /* CalendarInfo.swift */,
 				8A419E291C268D01003AA378 /* CalendarContainer.swift */,
 				8AE7CEF51EA4D07300EEA03C /* CalendarView.swift */,
 				8A0132F31C2027BC006F2505 /* CalendarDelegate.swift */,
@@ -736,6 +741,7 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8AE46EF41EA9A1A400CAC1CB /* question.pdf */,
 				8A5457541E6FEACA00A86B5A /* church@2x.jpg */,
 				8A0AB7DF1E6E8F220056FBA5 /* bg3@2x.jpg */,
 				8A1F2CB31DD9C18600F13A3D /* newicon_167.png */,
@@ -1209,6 +1215,7 @@
 				8AC6951919E3FBC200773FEB /* food-fish.pdf in Resources */,
 				8A0B4CB51C8C1E8000747BB4 /* saints_08_ru.sqlite in Resources */,
 				8AADFF541E84C25300CE3D0F /* synaxarion23.rtf in Resources */,
+				8AE46EF51EA9A1A400CAC1CB /* question.pdf in Resources */,
 				8AE718CE1C560C420035CDCE /* fat-left.pdf in Resources */,
 				8AC2060119E63ED8006FC8EA /* FastingViewController.xib in Resources */,
 				8A1F2CAE1DD9B77200F13A3D /* landscape1.png in Resources */,
@@ -1382,6 +1389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A71C9F21E9E2F2A0069E7A4 /* Theme.swift in Sources */,
+				8AE46EFE1EA9A6F900CAC1CB /* CalendarInfo.swift in Sources */,
 				8A0132F41C2027BC006F2505 /* CalendarDelegate.swift in Sources */,
 				8A0132F61C2029F5006F2505 /* CalendarViewTextCell.swift in Sources */,
 				8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */,
