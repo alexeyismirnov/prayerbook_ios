@@ -129,7 +129,7 @@
 		8A74D833198F224E0078F39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D832198F224E0078F39F /* Main.storyboard */; };
 		8A74D838198F2AF70078F39F /* prayers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D837198F2AF70078F39F /* prayers.plist */; };
 		8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A81FB4D1C1ECB7600D28F58 /* Appirater.m */; };
-		8A865FCC1DED2B5E004A845F /* widget.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8A865FCB1DED2B5E004A845F /* widget.mp4 */; };
+		8A8E4DB51EA9BB150076CFAF /* widget.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E4DB41EA9BB150076CFAF /* widget.mp4 */; };
 		8A953B371DC736C2001062AF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A953B361DC736C2001062AF /* MainViewController.swift */; };
 		8AADFF521E84C25300CE3D0F /* synaxarion21.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF441E84C25300CE3D0F /* synaxarion21.rtf */; };
 		8AADFF531E84C25300CE3D0F /* synaxarion22.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF451E84C25300CE3D0F /* synaxarion22.rtf */; };
@@ -481,7 +481,7 @@
 		8A81FB4C1C1ECB7600D28F58 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		8A81FB4D1C1ECB7600D28F58 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		8A81FB4E1C1ECB7600D28F58 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
-		8A865FCB1DED2B5E004A845F /* widget.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = widget.mp4; sourceTree = "<group>"; };
+		8A8E4DB41EA9BB150076CFAF /* widget.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = widget.mp4; sourceTree = "<group>"; };
 		8A953B361DC736C2001062AF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8A9A36D81CAD127400D33D5A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8AADFF441E84C25300CE3D0F /* synaxarion21.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion21.rtf; sourceTree = "<group>"; };
@@ -684,7 +684,7 @@
 				8A74D857199076EF0078F39F /* html */,
 				8A74D844198F624C0078F39F /* images */,
 				8A74D832198F224E0078F39F /* Main.storyboard */,
-				8A865FCB1DED2B5E004A845F /* widget.mp4 */,
+				8A8E4DB41EA9BB150076CFAF /* widget.mp4 */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
 				8AC2780A1C61D48A00436D51 /* Tutorial.swift */,
 				8A2F46A619E12B4100076AF4 /* AppDelegate.swift */,
@@ -1160,6 +1160,7 @@
 				8A0B4CF71C8C1ECF00747BB4 /* luke_ru.sqlite in Resources */,
 				8AF37E591B36C7A500101148 /* newicon_58.png in Resources */,
 				8A5457711E70174300A86B5A /* synaxarion1.rtf in Resources */,
+				8A8E4DB51EA9BB150076CFAF /* widget.mp4 in Resources */,
 				8AB0DC971C27EFEC00C6A494 /* typica_3.plist in Resources */,
 				8A41936419E6921600D570A9 /* food-milk.pdf in Resources */,
 				8AADFF5F1E84C25300CE3D0F /* synaxarion34.rtf in Resources */,
@@ -1231,7 +1232,6 @@
 				8AADFF5C1E84C25300CE3D0F /* synaxarion31.rtf in Resources */,
 				8A0B4CBB1C8C1E8000747BB4 /* saints_11_ru.sqlite in Resources */,
 				8AE36B2E1C97B228005CAD8D /* food-without-oil.pdf in Resources */,
-				8A865FCC1DED2B5E004A845F /* widget.mp4 in Resources */,
 				8AADFF561E84C25300CE3D0F /* synaxarion25.rtf in Resources */,
 				8A74D816198F20CC0078F39F /* Images.xcassets in Resources */,
 				8A0B4CB21C8C1E8000747BB4 /* saints_06_ru.txt in Resources */,

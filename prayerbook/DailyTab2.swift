@@ -103,7 +103,8 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan))
         pan.delegate = self
         view.addGestureRecognizer(pan)
-        
+
+        /*
         if prefs.object(forKey: "welcome16") == nil {
             prefs.set(true, forKey: "welcome16")
             prefs.synchronize()
@@ -114,6 +115,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
                                   handler: { _ in })
             
         }
+        */
         
         reloadTheme()
     }

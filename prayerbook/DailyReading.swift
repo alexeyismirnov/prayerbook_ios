@@ -241,7 +241,15 @@ struct DailyReading {
             let greatLentStart = Cal.d(.beginningOfGreatLent)
 
             let lentFeasts = [
-                greatLentStart+13.days: "Heb 7:26-8:2 John 10:9-16 # Saint"
+                greatLentStart+5.days: "2Tim 2:1-10 John 15:17-16:2 # Great Martyr",
+                greatLentStart+12.days: "1Thess 4:13-17 John 5:24-30 # Departed",
+                greatLentStart+13.days: "Heb 7:26-8:2 John 10:9-16 # Saint",
+                greatLentStart+19.days: "1Thess 4:13-17 John 5:24-30 # Departed",
+                greatLentStart+26.days: "1Cor 15:47-57 John 5:24-30 # Departed",
+                greatLentStart+27.days: "Ephes 5:8-19 Matthew 4:25-5:12 # Venerable",
+                greatLentStart+33.days: "Heb 9:1-7 Luke 10:38-42,11:27-28 # Theotokos",
+                greatLentStart+34.days: "Gal 3:23-29 Luke 7:36-50 # Venerable",
+
             ]
 
             readings.append(GospelOfLent(date))
