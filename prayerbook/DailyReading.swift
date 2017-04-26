@@ -271,7 +271,7 @@ struct DailyReading {
             Date(30, 1, Cal.currentYear):     "Heb 13:17-21 Luke 6:17-23 # Venerable",
             Date(2, 2, Cal.currentYear):      "Heb 13:17-21 Luke 6:17-23 # Venerable",
             Date(12, 2, Cal.currentYear):     "Heb 13:7-16 Matthew 5:14-19 # Hierarchs",
-            Date(6, 5, Cal.currentYear):      "Acts 12:1-11 John 15:17-16:2 # St. George",
+            Date(6, 5, Cal.currentYear):      "Acts 12:1-11 John 15:17-16:2 # Great Martyr",
             Date(21, 5, Cal.currentYear):     "1John 1:1-7 John 19:25-27,21:24-25 # Apostle",
             Date(24, 5, Cal.currentYear):     "Heb 7:26-8:2 Matthew 5:14-19 # Equal-to-the Apostles",
             Date(28, 7, Cal.currentYear):     "Gal 1:11-19 John 10:1-9 # Equal-to-the Apostles",

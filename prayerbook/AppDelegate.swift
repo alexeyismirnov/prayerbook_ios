@@ -16,7 +16,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
         
         if url.scheme == "ponomar-ru" {
-            openDate = Date(timeIntervalSince1970: Double(url.query!)!)            
+            openDate = Date(timeIntervalSince1970: Double(url.query!)!)
         }
         
         return true
@@ -30,7 +30,10 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
             let date = openDate {
                 root.selectedIndex = 0
                 vc.currentDate = date
-                vc.reload()
+            
+                if vc.isViewLoaded {
+                    vc.reload()
+                }
 
                 openDate = nil
         }
