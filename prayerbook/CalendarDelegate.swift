@@ -31,6 +31,8 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
     var startGap: Int!
     var selectedDate: Date?
     var containerType : CalendarContainerType!
+    var textSize : Int?
+    var themeColor : UIColor?
 
     override init() {
         super.init()
@@ -65,6 +67,10 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
         cell.dateLabel.text = String(format: "%d", dayIndex)
         cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.red : UIColor.black
         
+        if let textSize = textSize {
+            cell.dateLabel.font = UIFont.systemFont(ofSize: CGFloat(textSize))
+        }
+        
         if curDate == selectedDate {
             cell.contentView.backgroundColor = UIColor(hex:"#FF8C00")
 
@@ -78,7 +84,12 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
                     textColor =  UIColor.red
                     
                 } else if containerType == .mainApp {
-                    textColor =  UIColor.black
+                    if let color = themeColor {
+                        textColor =  color
+                        
+                    } else {
+                        textColor =  UIColor.black
+                    }
                     
                 } else if #available(iOS 10.0, *) {
                     textColor =  UIColor.black
@@ -98,9 +109,8 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
         return cell
     }
     
-    @objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let cellWidth = (collectionView.bounds.width) / 7.0
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth = (collectionView.bounds.width-1) / 7.0
         return CGSize(width: cellWidth, height: cellWidth)
     }
 

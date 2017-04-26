@@ -61,10 +61,7 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         automaticallyAdjustsScrollViewInsets = false
 
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+        navigationController?.makeTransparent()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
@@ -96,9 +93,7 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Table view data source
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {        
         if (code == "Library") {
             let vc = UIViewController.named("Library2") as! Library2
             vc.index = (indexPath as NSIndexPath).row

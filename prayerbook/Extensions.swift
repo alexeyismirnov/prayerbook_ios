@@ -425,6 +425,14 @@ extension UIViewController {
     }
 }
 
+extension UINavigationController {
+    func makeTransparent() {
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.isTranslucent = true
+        navigationBar.backgroundColor = UIColor.clear
+    }
+}
 
 
 

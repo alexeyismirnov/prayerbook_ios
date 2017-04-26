@@ -15,6 +15,17 @@ class CalendarViewCell: UICollectionViewCell {
 
     var collectionView: UICollectionView!
     var calendarDelegate: CalendarDelegate!
+    var textSize : Int? {
+        didSet {
+            calendarDelegate.textSize = textSize
+        }
+    }
+
+    var textColor : UIColor? {
+        didSet {
+            calendarDelegate.themeColor = textColor
+        }
+    }
 
     var currentDate: Date! {
         didSet {
@@ -29,7 +40,7 @@ class CalendarViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+                
         let initialFrame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
         
         let layout = UICollectionViewFlowLayout()
@@ -44,6 +55,7 @@ class CalendarViewCell: UICollectionViewCell {
 
         calendarDelegate = CalendarDelegate()
         calendarDelegate.containerType = .mainApp
+        
         collectionView.delegate = calendarDelegate
         collectionView.dataSource = calendarDelegate
         
@@ -52,7 +64,6 @@ class CalendarViewCell: UICollectionViewCell {
         collectionView.addGestureRecognizer(recognizer)
         
         contentView.addSubview(collectionView)
-
     }
     
     func doneWithDate(_ recognizer: UITapGestureRecognizer) {

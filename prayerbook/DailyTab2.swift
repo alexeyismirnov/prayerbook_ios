@@ -534,18 +534,18 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     }
     
     func configureNavbar() {
-        navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController!.navigationBar.shadowImage = UIImage()
-        navigationController!.navigationBar.isTranslucent = true
-        navigationController!.navigationBar.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+        navigationController?.makeTransparent()
         
-        let button_calendar = UIBarButtonItem(image: UIImage(named: "calendar"), style: .plain, target: self, action: #selector(showCalendar))
+        let button_monthly = UIBarButtonItem(image: UIImage(named: "calendar"), style: .plain, target: self, action: #selector(showMonthlyCalendar))
+        let button_yearly = UIBarButtonItem(image: UIImage(named: "calendar"), style: .plain, target: self, action: #selector(showYearlyCalendar))
+
         let button_widget = UIBarButtonItem(image: UIImage(named: "question"), style: .plain, target: self, action: #selector(showTutorial))
         let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .plain, target: self, action: #selector(showOptions))
         
+        button_monthly.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         button_widget.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         
-        navigationItem.leftBarButtonItems = [button_calendar]
+        navigationItem.leftBarButtonItems = [button_monthly, button_yearly]
         navigationItem.rightBarButtonItems = [button_options, button_widget]
     }
     
@@ -608,7 +608,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         }
     }
     
-    func showCalendar() {
+    func showMonthlyCalendar() {
         var width, height : CGFloat
         
         if (UIDevice.current.userInterfaceIdiom == .phone) {
@@ -632,6 +632,13 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         modalSheet.adjustContentSize(CGSize(width: width, height: height), animated: false)
         
         modalSheet.present(completion: {})
+    }
+    
+    func showYearlyCalendar() {
+        let vc = UIViewController.named("yearly") as! YearlyCalendar
+        let nav = UINavigationController(rootViewController: vc)
+        
+        navigationController?.present(nav, animated: true, completion: {})
     }
     
     func updateDate(_ notification: NSNotification) {

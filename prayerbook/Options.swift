@@ -23,11 +23,7 @@ class Options: UITableViewController, NAModalSheetDelegate {
         view.backgroundColor = UIColor.clear
         tableView.backgroundView = UIImageView(image: UIImage(background: "church.jpg", inView: view))
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
-        
+        navigationController?.makeTransparent()
         navigationController?.navigationBar.tintColor = UIColor.red
         
         let cell = self.tableView(tableView, cellForRowAt: IndexPath(row: prefs.integer(forKey: "fastingLevel"), section: 1)) as UITableViewCell
@@ -51,8 +47,6 @@ class Options: UITableViewController, NAModalSheetDelegate {
 
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
         if indexPath.section == 1 {
             var cell: UITableViewCell
             
