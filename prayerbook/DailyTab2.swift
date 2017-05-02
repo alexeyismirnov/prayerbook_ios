@@ -204,6 +204,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     func getCell<T: ConfigurableCell>() -> T {
         if let newCell  = tableView.dequeueReusableCell(withIdentifier: T.cellId) as? T {
             newCell.accessoryType = .none
+            newCell.backgroundColor = .clear
             return newCell
             
         } else {

@@ -20,6 +20,8 @@ class Options: UITableViewController, NAModalSheetDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UITableViewCell.appearance().backgroundColor =  UIColor.white.withAlphaComponent(0.5) 
+        
         view.backgroundColor = UIColor.clear
         tableView.backgroundView = UIImageView(image: UIImage(background: "church.jpg", inView: view))
         

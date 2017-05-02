@@ -49,6 +49,7 @@ class CalendarInfo: UITableViewController {
         
         cell.title.text = Translate.s(info.1)
         cell.icon.backgroundColor = UIColor(hex: Cal.fastingColor[info.0]!)
+        cell.backgroundColor = .clear
         
         return cell
     }

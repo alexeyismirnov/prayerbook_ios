@@ -136,6 +136,7 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
             newCell = TextCell(style: UITableViewCellStyle.default, reuseIdentifier: TextCell.cellId)
         }
         
+        newCell?.backgroundColor = .clear
         newCell!.title.textColor =  Theme.textColor
         newCell!.title.text = (code == "Library") ?
             Translate.s(NewTestament[(indexPath as NSIndexPath).row].0) :

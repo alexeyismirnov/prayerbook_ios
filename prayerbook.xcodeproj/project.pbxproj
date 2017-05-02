@@ -129,6 +129,8 @@
 		8A74D816198F20CC0078F39F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D815198F20CC0078F39F /* Images.xcassets */; };
 		8A74D833198F224E0078F39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D832198F224E0078F39F /* Main.storyboard */; };
 		8A74D838198F2AF70078F39F /* prayers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D837198F2AF70078F39F /* prayers.plist */; };
+		8A76870C1EB72A6E000F7533 /* YearlyMonthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */; };
+		8A76870D1EB72A6E000F7533 /* YearlyMonthViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */; };
 		8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A81FB4D1C1ECB7600D28F58 /* Appirater.m */; };
 		8A8E4DB51EA9BB150076CFAF /* widget.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E4DB41EA9BB150076CFAF /* widget.mp4 */; };
 		8A953B371DC736C2001062AF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A953B361DC736C2001062AF /* MainViewController.swift */; };
@@ -480,6 +482,8 @@
 		8A74D815198F20CC0078F39F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8A74D832198F224E0078F39F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8A74D837198F2AF70078F39F /* prayers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prayers.plist; sourceTree = "<group>"; };
+		8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearlyMonthViewCell.swift; sourceTree = "<group>"; };
+		8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearlyMonthViewCell.xib; sourceTree = "<group>"; };
 		8A81FB4C1C1ECB7600D28F58 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		8A81FB4D1C1ECB7600D28F58 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		8A81FB4E1C1ECB7600D28F58 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
@@ -711,6 +715,8 @@
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
 				8A54C4201EA70C7D0083AA2F /* Palette.swift */,
 				8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */,
+				8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */,
+				8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */,
 				8AE46EFD1EA9A6F900CAC1CB /* CalendarInfo.swift */,
 				8A419E291C268D01003AA378 /* CalendarContainer.swift */,
 				8AE7CEF51EA4D07300EEA03C /* CalendarView.swift */,
@@ -1277,6 +1283,7 @@
 				8AF37E5D1B36C7A500101148 /* newicon_120.png in Resources */,
 				8A0B4CE91C8C1ECF00747BB4 /* 2pet_ru.sqlite in Resources */,
 				8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */,
+				8A76870D1EB72A6E000F7533 /* YearlyMonthViewCell.xib in Resources */,
 				8A0B4CB41C8C1E8000747BB4 /* saints_07_ru.txt in Resources */,
 				8AF37E5E1B36C7A500101148 /* newicon_152.png in Resources */,
 				8A0B4CF41C8C1ECF00747BB4 /* james_ru.sqlite in Resources */,
@@ -1402,6 +1409,7 @@
 				8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */,
 				8AAE4D831AC8E332009421AF /* ImageCell.swift in Sources */,
 				8A2F46A919E1302700076AF4 /* Translate.swift in Sources */,
+				8A76870C1EB72A6E000F7533 /* YearlyMonthViewCell.swift in Sources */,
 				8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */,
 				8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,

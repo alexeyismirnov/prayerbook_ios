@@ -31,7 +31,7 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
     var startGap: Int!
     var selectedDate: Date?
     var containerType : CalendarContainerType!
-    var textSize : Int?
+    var textSize : CGFloat?
     var themeColor : UIColor?
 
     override init() {
@@ -68,7 +68,7 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
         cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.red : UIColor.black
         
         if let textSize = textSize {
-            cell.dateLabel.font = UIFont.systemFont(ofSize: CGFloat(textSize))
+            cell.dateLabel.font = UIFont.systemFont(ofSize: textSize)
         }
         
         if curDate == selectedDate {
@@ -114,7 +114,7 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
         return CGSize(width: cellWidth, height: cellWidth)
     }
 
-    static func generateLabels(_ view: UIView, container: CalendarContainerType) {
+    static func generateLabels(_ view: UIView, container: CalendarContainerType, standalone : Bool = false, textColor : UIColor? = nil, fontSize : CGFloat? = nil) {
         let formatter = DateFormatter()
         formatter.dateFormat = "LLLL yyyy"
         formatter.locale = Locale(identifier: "ru")
@@ -122,7 +122,14 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
         var cal = Calendar.current
         cal.locale = Locale(identifier: "ru")
         
-        let dayLabel = formatter.veryShortWeekdaySymbols as [String]
+        var dayLabel = [String]()
+        
+        if standalone {
+            dayLabel = formatter.veryShortStandaloneWeekdaySymbols as [String]
+
+        } else {
+            dayLabel = formatter.veryShortWeekdaySymbols as [String]
+        }
         
         for index in cal.firstWeekday...7 {
             if let label = view.viewWithTag(index-cal.firstWeekday+1) as? UILabel {
@@ -138,7 +145,18 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
             }
         }
         
+        if let color = textColor,
+           let size = fontSize {
+            for index in 1...7 {
+                if let label = view.viewWithTag(index) as? UILabel {
+                    label.textColor = color
+                    label.font = UIFont.systemFont(ofSize: size)
+                }
+            }
+        }
+        
         if #available(iOS 10.0, *) {
+            
         } else if container == .todayExtension  {
             for index in 1...7 {
                 if let label = view.viewWithTag(index) as? UILabel {

@@ -15,7 +15,7 @@ class CalendarViewCell: UICollectionViewCell {
 
     var collectionView: UICollectionView!
     var calendarDelegate: CalendarDelegate!
-    var textSize : Int? {
+    var textSize : CGFloat? {
         didSet {
             calendarDelegate.textSize = textSize
         }

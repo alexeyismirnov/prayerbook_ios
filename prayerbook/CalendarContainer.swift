@@ -101,7 +101,6 @@ class CalendarContainer: UIViewController, UICollectionViewDataSource, UICollect
         let contentOffsetWhenFullyScrolledRight = collectionView.frame.size.width * CGFloat(dates.count - 1)
         var current = dates[1]
 
-
         if scrollView.contentOffset.x == 0 {
             current = dates[0]
         } else if scrollView.contentOffset.x == contentOffsetWhenFullyScrolledRight {
