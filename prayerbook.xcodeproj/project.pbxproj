@@ -82,6 +82,7 @@
 		8A1F2CB21DD9B80600F13A3D /* landscape3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CB01DD9B80600F13A3D /* landscape3.png */; };
 		8A1F2CB41DD9C18600F13A3D /* newicon_167.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CB31DD9C18600F13A3D /* newicon_167.png */; };
 		8A24885E1EB0948A006877D8 /* YearlyCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */; };
+		8A24F52F1EB98A1700CE19E7 /* CalendarImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A24F52E1EB98A1700CE19E7 /* CalendarImageCell.swift */; };
 		8A298C481DD41DFC006A25F9 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A298C471DD41DFC006A25F9 /* Animation.swift */; };
 		8A298C4E1DD4203F006A25F9 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A298C471DD41DFC006A25F9 /* Animation.swift */; };
 		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
@@ -431,6 +432,7 @@
 		8A1F2CB01DD9B80600F13A3D /* landscape3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landscape3.png; sourceTree = "<group>"; };
 		8A1F2CB31DD9C18600F13A3D /* newicon_167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_167.png; sourceTree = "<group>"; };
 		8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearlyCalendar.swift; sourceTree = "<group>"; };
+		8A24F52E1EB98A1700CE19E7 /* CalendarImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarImageCell.swift; sourceTree = "<group>"; };
 		8A298C471DD41DFC006A25F9 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		8A2F46A619E12B4100076AF4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A2F46A819E1302700076AF4 /* Translate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
@@ -717,6 +719,7 @@
 				8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */,
 				8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */,
 				8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */,
+				8A24F52E1EB98A1700CE19E7 /* CalendarImageCell.swift */,
 				8AE46EFD1EA9A6F900CAC1CB /* CalendarInfo.swift */,
 				8A419E291C268D01003AA378 /* CalendarContainer.swift */,
 				8AE7CEF51EA4D07300EEA03C /* CalendarView.swift */,
@@ -1409,6 +1412,7 @@
 				8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */,
 				8AAE4D831AC8E332009421AF /* ImageCell.swift in Sources */,
 				8A2F46A919E1302700076AF4 /* Translate.swift in Sources */,
+				8A24F52F1EB98A1700CE19E7 /* CalendarImageCell.swift in Sources */,
 				8A76870C1EB72A6E000F7533 /* YearlyMonthViewCell.swift in Sources */,
 				8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */,
 				8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */,

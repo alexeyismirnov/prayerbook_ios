@@ -16,6 +16,58 @@ struct YearlyCalendarConfig {
     var fontSize : CGFloat
 }
 
+class TopAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout
+{
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]?
+    {
+        if let attrs = super.layoutAttributesForElements(in: rect)
+        {
+            var baseline: CGFloat = -2
+            var sameLineElements = [UICollectionViewLayoutAttributes]()
+            for element in attrs
+            {
+                if element.representedElementCategory == .cell
+                {
+                    let frame = element.frame
+                    let centerY = frame.midY
+                    if abs(centerY - baseline) > 1
+                    {
+                        baseline = centerY
+                        TopAlignedCollectionViewFlowLayout.alignToTopForSameLineElements(sameLineElements: sameLineElements)
+                        sameLineElements.removeAll()
+                    }
+                    sameLineElements.append(element)
+                }
+            }
+            TopAlignedCollectionViewFlowLayout.alignToTopForSameLineElements(sameLineElements: sameLineElements) // align one more time for the last line
+            return attrs
+        }
+        return nil
+    }
+    
+    private class func alignToTopForSameLineElements(sameLineElements: [UICollectionViewLayoutAttributes])
+    {
+        if sameLineElements.count < 1
+        {
+            return
+        }
+        let sorted = sameLineElements.sorted { (obj1: UICollectionViewLayoutAttributes, obj2: UICollectionViewLayoutAttributes) -> Bool in
+            
+            let height1 = obj1.frame.size.height
+            let height2 = obj2.frame.size.height
+            let delta = height1 - height2
+            return delta <= 0
+        }
+        if let tallest = sorted.last
+        {
+            for obj in sameLineElements
+            {
+                obj.frame = obj.frame.offsetBy(dx: 0, dy: tallest.frame.origin.y - obj.frame.origin.y)
+            }
+        }
+    }
+}
+
 class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -35,7 +87,7 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
 
     static let iPhonePlusConfig = YearlyCalendarConfig(insets: 10,
                                                     interitemSpacing: 15,
-                                                    lineSpacing: 0,
+                                                    lineSpacing: 10,
                                                     titleFontSize: 17,
                                                     fontSize: 10)
 
@@ -80,18 +132,20 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
         } else {
             view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view))
         }
-                
+        
         collectionView.register(UINib(nibName: "YearlyMonthViewCell", bundle: nil), forCellWithReuseIdentifier: YearlyMonthViewCell.cellId)
 
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
         
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let layout = TopAlignedCollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsetsMake(YC.config.insets, YC.config.insets, YC.config.insets, YC.config.insets)
         layout.minimumInteritemSpacing = YC.config.interitemSpacing
         layout.minimumLineSpacing = YC.config.lineSpacing
-
+        
+        collectionView.collectionViewLayout  = layout
+        
         collectionView.reloadData()
     }
     
@@ -99,22 +153,54 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
         super.viewWillAppear(animated)
         collectionView.contentInset.top = 0
     }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        if section == 1 {
+            return (FastingLevel() == .monastic) ? Cal.fastingMonastic.count : Cal.fastingLaymen.count
+        
+        } else {
+            return 12
+            
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: YearlyMonthViewCell.cellId, for: indexPath) as! YearlyMonthViewCell
-        cell.currentDate = Date(1, indexPath.row+1, year)
-        
-        return cell
+        if indexPath.section == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarImageCell", for: indexPath) as! CalendarImageCell
+            let info = (FastingLevel() == .monastic) ? Cal.fastingMonastic[indexPath.row] : Cal.fastingLaymen[indexPath.row]
+
+            cell.imageView.backgroundColor = UIColor(hex: Cal.fastingColor[info.0]!)
+            cell.textLabel.text = Translate.s(info.1)
+            cell.textLabel.font = UIFont.systemFont(ofSize: YC.config.fontSize)
+            
+            return cell
+            
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: YearlyMonthViewCell.cellId, for: indexPath) as! YearlyMonthViewCell
+            cell.currentDate = Date(1, indexPath.row+1, year)
+            return cell
+            
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = (collectionView.bounds.width - YC.config.insets*2.0 - (numCols-1) * YC.config.interitemSpacing) / numCols
         
-        return CGSize(width: cellWidth, height: cellWidth+40)
+        if indexPath.section == 1 {
+            let info = (FastingLevel() == .monastic) ? Cal.fastingMonastic[indexPath.row] : Cal.fastingLaymen[indexPath.row]
+            let str = NSAttributedString(string: Translate.s(info.1), attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: CGFloat(YC.config.fontSize))])
+
+            let rect = str.boundingRect(with:  CGSize(width:cellWidth-35,height:999), options: .usesLineFragmentOrigin, context: nil)
+
+            return CGSize(width: cellWidth-0.1, height: rect.height+10)
+
+        } else {
+            return CGSize(width: cellWidth-0.1, height: cellWidth+40)
+        }
     }
     
     func close() {

@@ -65,8 +65,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         }
         
         if prefs.object(forKey: "fastingLevel") == nil {
-            prefs.set(1, forKey: "fastingLevel")
-            prefs.synchronize()
+            FastingLevel.monastic.save()
         }
         
         setupFiles()

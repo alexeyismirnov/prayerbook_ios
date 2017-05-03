@@ -13,8 +13,6 @@ enum CalendarContainerType: Int {
 }
 
 class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {    
-    let prefs = UserDefaults(suiteName: groupId)!
-
     var cal: Calendar = {
         let c = Calendar.current
         return c
@@ -75,7 +73,7 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
             cell.contentView.backgroundColor = UIColor(hex:"#FF8C00")
 
         } else {
-            let (fastType, _) = Cal.getFastingDescription(curDate, FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!)
+            let (fastType, _) = Cal.getFastingDescription(curDate, FastingLevel())
             
             if fastType == .noFast || fastType == .noFastMonastic {
                 var textColor:UIColor

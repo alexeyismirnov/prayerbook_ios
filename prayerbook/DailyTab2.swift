@@ -27,10 +27,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     var animationInteractive = DailyAnimatorInteractive()
     var appeared = false
     
-    let prefs = UserDefaults(suiteName: groupId)!
-    
     var fasting: (FastingType, String) = (.vegetarian, "")
-    var fastingLevel: FastingLevel = .monastic
     
     var foodIcon: [FastingType: String] = [
         .noFast:        "meat",
@@ -105,6 +102,8 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         view.addGestureRecognizer(pan)
 
         /*
+        let prefs = UserDefaults(suiteName: groupId)!
+
         if prefs.object(forKey: "welcome16") == nil {
             prefs.set(true, forKey: "welcome16")
             prefs.synchronize()
@@ -178,7 +177,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
             return ""
             
         case 1:
-            return (fastingLevel == .monastic) ? Translate.s("Monastic fasting") : Translate.s("Laymen fasting")
+            return (FastingLevel() == .monastic) ? Translate.s("Monastic fasting") : Translate.s("Laymen fasting")
             
         case 2:
             return readings.count > 0 ? Translate.s("Gospel of the day") : nil
@@ -438,7 +437,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
             
             navigationController?.pushViewController(vc, animated: true)
             
-        } else if fastingLevel == .laymen && indexPath.section == 1 && indexPath.row == 0 {
+        } else if FastingLevel() == .laymen && indexPath.section == 1 && indexPath.row == 0 {
             let fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
             modalSheet = NAModalSheet(viewController: fastingInfo, presentationStyle: .fadeInCentered)!
             
@@ -512,9 +511,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         formatterOldStyle.locale = Translate.locale as Locale!
         
         dayDescription = Cal.getDayDescription(currentDate)
-        
-        fastingLevel = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!
-        fasting = Cal.getFastingDescription(currentDate, fastingLevel)
+        fasting = Cal.getFastingDescription(currentDate, FastingLevel())
         
         saints=Db.saints(self.currentDate)
         readings = DailyReading.getDailyReading(currentDate)

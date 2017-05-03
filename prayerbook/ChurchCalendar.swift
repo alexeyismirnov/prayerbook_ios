@@ -11,6 +11,17 @@ enum NameOfDay: Int {
 
 enum FastingLevel: Int {
     case laymen=0, monastic
+    
+    init() {
+        let prefs = UserDefaults(suiteName: groupId)!
+        self = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!
+    }
+    
+    func save() {
+        let prefs = UserDefaults(suiteName: groupId)!
+        prefs.set(self.rawValue, forKey: "fastingLevel")
+        prefs.synchronize()
+    }
 }
 
 enum FastingType: Int {
@@ -126,6 +137,19 @@ struct ChurchCalendar {
         .xerophagy: "#B4EEB4",
         .withoutOil: "#9BCD9B",
     ]
+    
+    static let fastingMonastic : [(FastingType, String)] = [(.xerophagy, "Xerophagy"),
+                                                     (.withoutOil, "Without oil"),
+                                                     (.vegetarian, "With oil"),
+                                                     (.fishAllowed, "Fish allowed"),
+                                                     (.noFood, "No food"),
+                                                     (.fastFree, "Fast-free week")]
+    
+    static let fastingLaymen : [(FastingType, String)] = [
+        (.vegetarian, "Vegetarian"),
+        (.fishAllowed, "Fish allowed"),
+        (.fastFree, "Fast-free week")]
+
 
     static let greatFeastCodes : [NameOfDay] = [.palmSunday, .pascha, .ascension, .pentecost, .nativityOfGod, .circumcision, .theophany, .meetingOfLord, .annunciation, .nativityOfJohn, .peterAndPaul, .transfiguration, .dormition, .beheadingOfJohn, .nativityOfTheotokos, .exaltationOfCross, .veilOfTheotokos, .entryIntoTemple]
 
