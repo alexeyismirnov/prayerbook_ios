@@ -543,7 +543,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gmh-6R-gBk">
-                                <rect key="frame" x="20" y="28" width="728" height="988"/>
+                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VPf-Fh-eVH">
                                     <size key="itemSize" width="305" height="92"/>
@@ -594,10 +594,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gmh-6R-gBk" firstAttribute="leading" secondItem="0EU-Ly-pIB" secondAttribute="leading" constant="20" symbolic="YES" id="AiU-c1-KwH"/>
-                            <constraint firstItem="gmh-6R-gBk" firstAttribute="top" secondItem="daY-Vg-f99" secondAttribute="bottom" constant="8" symbolic="YES" id="Wcs-0C-DLW"/>
-                            <constraint firstAttribute="trailing" secondItem="gmh-6R-gBk" secondAttribute="trailing" constant="20" symbolic="YES" id="cxl-I4-3Kv"/>
-                            <constraint firstItem="HCs-by-44R" firstAttribute="top" secondItem="gmh-6R-gBk" secondAttribute="bottom" constant="8" symbolic="YES" id="ekr-Em-ufX"/>
+                            <constraint firstItem="gmh-6R-gBk" firstAttribute="leading" secondItem="0EU-Ly-pIB" secondAttribute="leading" id="AiU-c1-KwH"/>
+                            <constraint firstItem="gmh-6R-gBk" firstAttribute="top" secondItem="daY-Vg-f99" secondAttribute="bottom" id="Wcs-0C-DLW"/>
+                            <constraint firstAttribute="trailing" secondItem="gmh-6R-gBk" secondAttribute="trailing" id="cxl-I4-3Kv"/>
+                            <constraint firstItem="HCs-by-44R" firstAttribute="top" secondItem="gmh-6R-gBk" secondAttribute="bottom" id="ekr-Em-ufX"/>
                         </constraints>
                     </view>
                     <connections>

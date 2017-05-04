@@ -119,6 +119,7 @@
 		8A54C4211EA70C7D0083AA2F /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C4201EA70C7D0083AA2F /* Palette.swift */; };
 		8A54C42A1EA74CE90083AA2F /* DailyTab2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C4291EA74CE90083AA2F /* DailyTab2.swift */; };
 		8A54C42C1EA760E30083AA2F /* Library2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C42B1EA760E30083AA2F /* Library2.swift */; };
+		8A58D17C1EBB0C46006CA4AC /* share.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A58D17B1EBB0C46006CA4AC /* share.pdf */; };
 		8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */; };
 		8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */; };
 		8A71C9F21E9E2F2A0069E7A4 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A71C9F11E9E2F2A0069E7A4 /* Theme.swift */; };
@@ -471,6 +472,7 @@
 		8A54C4201EA70C7D0083AA2F /* Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		8A54C4291EA74CE90083AA2F /* DailyTab2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab2.swift; sourceTree = "<group>"; };
 		8A54C42B1EA760E30083AA2F /* Library2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library2.swift; sourceTree = "<group>"; };
+		8A58D17B1EBB0C46006CA4AC /* share.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = share.pdf; sourceTree = "<group>"; };
 		8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDetailsCell.swift; sourceTree = "<group>"; };
 		8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		8A71C9F11E9E2F2A0069E7A4 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -753,6 +755,7 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8A58D17B1EBB0C46006CA4AC /* share.pdf */,
 				8AE46EF41EA9A1A400CAC1CB /* question.pdf */,
 				8A5457541E6FEACA00A86B5A /* church@2x.jpg */,
 				8A0AB7DF1E6E8F220056FBA5 /* bg3@2x.jpg */,
@@ -1247,6 +1250,7 @@
 				8AADFF561E84C25300CE3D0F /* synaxarion25.rtf in Resources */,
 				8A74D816198F20CC0078F39F /* Images.xcassets in Resources */,
 				8A0B4CB21C8C1E8000747BB4 /* saints_06_ru.txt in Resources */,
+				8A58D17C1EBB0C46006CA4AC /* share.pdf in Resources */,
 				8AC6951E19E3FBC200773FEB /* food-no-milk.pdf in Resources */,
 				8AC278071C61986000436D51 /* widget.pdf in Resources */,
 				8AB0DCA61C27F00400C6A494 /* ReadingLent.plist in Resources */,

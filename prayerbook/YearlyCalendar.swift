@@ -85,7 +85,7 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
                                                     titleFontSize: 15,
                                                     fontSize: 9)
 
-    static let iPhonePlusConfig = YearlyCalendarConfig(insets: 10,
+    static let iPhonePlusConfig = YearlyCalendarConfig(insets: 20,
                                                     interitemSpacing: 15,
                                                     lineSpacing: 10,
                                                     titleFontSize: 17,
@@ -125,7 +125,10 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
 
         let backButton = UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = backButton
-        
+
+        let shareButton = UIBarButtonItem(image: UIImage(named: "share"), style: .plain, target: self, action: #selector(share))
+        navigationItem.rightBarButtonItem = shareButton
+
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor
             
@@ -205,6 +208,91 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
     
     func close() {
         dismiss(animated: true, completion: {})
+    }
+    
+    func convertPDFPageToImage() {
+        let page = 1
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let filePath = documentsURL.appendingPathComponent("calendar.pdf").path
+        
+        
+        print(filePath)
+        
+        do {
+            
+            let pdfdata = try NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.init(rawValue: 0))
+            
+            let pdfData = pdfdata as CFData
+            let provider:CGDataProvider = CGDataProvider(data: pdfData)!
+            let pdfDoc:CGPDFDocument = CGPDFDocument(provider)!
+
+            let pdfPage:CGPDFPage = pdfDoc.page(at: page)!
+            var pageRect:CGRect = pdfPage.getBoxRect(.mediaBox)
+            pageRect.size = CGSize(width:pageRect.size.width*3, height:pageRect.size.height*3)
+            
+            print("\(pageRect.width) by \(pageRect.height)")
+            
+            UIGraphicsBeginImageContext(pageRect.size)
+            let context:CGContext = UIGraphicsGetCurrentContext()!
+            context.saveGState()
+            context.translateBy(x: 0.0, y: pageRect.size.height)
+            context.scaleBy(x: 3.0, y: -3.0)
+            // context.concatenate(pdfPage.getDrawingTransform(.mediaBox, rect: pageRect, rotate: 0, preserveAspectRatio: true))
+            context.drawPDFPage(pdfPage)
+            context.restoreGState()
+            
+            let pdfImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            
+            if let data = UIImageJPEGRepresentation(pdfImage, 0.9) {
+                let filename = documentsURL.appendingPathComponent("calendar.jpg")
+                
+                print(filename)
+                try? data.write(to: filename)
+            }
+            
+        }
+        catch {
+            
+        }
+        
+    }
+    
+    func share() {
+        let pdfData = NSMutableData()
+        
+        let newSize = CGSize(width: collectionView.contentSize.width,
+                             height: collectionView.contentSize.height + navigationController!.navigationBar.frame.height + UIApplication.shared.statusBarFrame.height)
+        
+        let newFrame = CGRect(origin: CGPoint(x:0,y:0), size: newSize)
+        let newFrame2 = CGRect(x: 0, y: 0, width: collectionView.contentSize.width, height: collectionView.contentSize.height)
+        let origFrame = view.frame
+        let origCollectionFrame = collectionView.frame
+
+        print(origFrame)
+        print(newFrame)
+
+        view.frame = newFrame
+        collectionView.frame = newFrame2
+        
+        UIGraphicsBeginPDFContextToData(pdfData, newFrame2, nil)
+        UIGraphicsBeginPDFPage()
+        
+        guard let pdfContext = UIGraphicsGetCurrentContext() else { return }
+
+        collectionView.layer.render(in: pdfContext)
+        UIGraphicsEndPDFContext()
+
+        view.frame = origFrame
+        collectionView.frame = origCollectionFrame
+        
+        if let documentDirectories = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
+            let documentsFileName = documentDirectories + "/" + "calendar.pdf"
+            debugPrint(documentsFileName)
+            pdfData.write(toFile: documentsFileName, atomically: true)
+            
+            convertPDFPageToImage()
+        }
     }
 }
 
