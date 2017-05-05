@@ -91,7 +91,7 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
                                                     titleFontSize: 17,
                                                     fontSize: 10)
 
-    static let iPadConfig = YearlyCalendarConfig(insets: 10,
+    static let iPadConfig = YearlyCalendarConfig(insets: 20,
                                                 interitemSpacing: 25,
                                                 lineSpacing: 5,
                                                 titleFontSize: 20,
@@ -120,7 +120,6 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
 
         }
         
-        title = "\(year)"
         navigationController?.makeTransparent()
 
         let backButton = UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(close))
@@ -206,56 +205,65 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath as IndexPath)
+        
+        let label = UILabel(frame: headerView.frame)
+        label.textAlignment = .center
+        label.text = "Православный календарь на \(year) г."
+        label.textColor = Theme.textColor
+        
+        headerView.addSubview(label)
+        return headerView
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 0 {
+            return CGSize(width: 0, height: 50)
+        } else {
+            return CGSize(width: 0, height: 0)
+        }
+    }
     func close() {
         dismiss(animated: true, completion: {})
     }
     
-    func convertPDFPageToImage() {
+    func convertPDFPageToImage() -> UIImage {
         let page = 1
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let filePath = documentsURL.appendingPathComponent("calendar.pdf").path
         
-        
         print(filePath)
         
-        do {
-            
-            let pdfdata = try NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.init(rawValue: 0))
-            
-            let pdfData = pdfdata as CFData
-            let provider:CGDataProvider = CGDataProvider(data: pdfData)!
-            let pdfDoc:CGPDFDocument = CGPDFDocument(provider)!
+        let pdfdata = try! NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.init(rawValue: 0))
+        
+        let pdfData = pdfdata as CFData
+        let provider:CGDataProvider = CGDataProvider(data: pdfData)!
+        let pdfDoc:CGPDFDocument = CGPDFDocument(provider)!
 
-            let pdfPage:CGPDFPage = pdfDoc.page(at: page)!
-            var pageRect:CGRect = pdfPage.getBoxRect(.mediaBox)
-            pageRect.size = CGSize(width:pageRect.size.width*3, height:pageRect.size.height*3)
-            
-            print("\(pageRect.width) by \(pageRect.height)")
-            
-            UIGraphicsBeginImageContext(pageRect.size)
-            let context:CGContext = UIGraphicsGetCurrentContext()!
-            context.saveGState()
-            context.translateBy(x: 0.0, y: pageRect.size.height)
-            context.scaleBy(x: 3.0, y: -3.0)
-            // context.concatenate(pdfPage.getDrawingTransform(.mediaBox, rect: pageRect, rotate: 0, preserveAspectRatio: true))
-            context.drawPDFPage(pdfPage)
-            context.restoreGState()
-            
-            let pdfImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-            UIGraphicsEndImageContext()
-            
-            if let data = UIImageJPEGRepresentation(pdfImage, 0.9) {
-                let filename = documentsURL.appendingPathComponent("calendar.jpg")
-                
-                print(filename)
-                try? data.write(to: filename)
-            }
-            
-        }
-        catch {
-            
+        let pdfPage:CGPDFPage = pdfDoc.page(at: page)!
+        var pageRect:CGRect = pdfPage.getBoxRect(.mediaBox)
+        pageRect.size = CGSize(width:pageRect.size.width*3, height:pageRect.size.height*3)
+        
+        print("\(pageRect.width) by \(pageRect.height)")
+        
+        UIGraphicsBeginImageContext(pageRect.size)
+        let context:CGContext = UIGraphicsGetCurrentContext()!
+        context.saveGState()
+        context.translateBy(x: 0.0, y: pageRect.size.height)
+        context.scaleBy(x: 3.0, y: -3.0)
+        context.drawPDFPage(pdfPage)
+        context.restoreGState()
+        
+        let pdfImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        if let data = UIImageJPEGRepresentation(pdfImage, 0.9) {
+            let filename = documentsURL.appendingPathComponent("calendar.jpg")
+            try? data.write(to: filename)
         }
         
+        return pdfImage
     }
     
     func share() {
@@ -291,7 +299,13 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
             debugPrint(documentsFileName)
             pdfData.write(toFile: documentsFileName, atomically: true)
             
-            convertPDFPageToImage()
+            let result = convertPDFPageToImage()
+            
+            let activityViewController = UIActivityViewController(activityItems: [result], applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+            
+            // present the view controller
+            self.present(activityViewController, animated: true, completion: nil)
         }
     }
 }

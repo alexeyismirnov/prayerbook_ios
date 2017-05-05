@@ -66,7 +66,11 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
         cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.red : UIColor.black
         
         if let textSize = textSize {
-            cell.dateLabel.font = UIFont.systemFont(ofSize: textSize)
+            if Cal.isGreatFeast(curDate) {
+                cell.dateLabel.font = UIFont.boldSystemFont(ofSize: textSize)
+            } else {
+                cell.dateLabel.font = UIFont.systemFont(ofSize: textSize)
+            }
         }
         
         if curDate == selectedDate {
