@@ -93,7 +93,8 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: NSNotification.Name(rawValue: dateChangedNotification), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(showYearlyCalendar), name: NSNotification.Name(rawValue:showYearlyNotification), object: nil)
+
         navigationController?.delegate = self
         animationInteractive.completionSpeed = 0.999
         
@@ -535,15 +536,12 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         navigationController?.makeTransparent()
         
         let button_monthly = UIBarButtonItem(image: UIImage(named: "calendar"), style: .plain, target: self, action: #selector(showMonthlyCalendar))
-        let button_yearly = UIBarButtonItem(image: UIImage(named: "calendar"), style: .plain, target: self, action: #selector(showYearlyCalendar))
-
         let button_widget = UIBarButtonItem(image: UIImage(named: "question"), style: .plain, target: self, action: #selector(showTutorial))
         let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .plain, target: self, action: #selector(showOptions))
         
-        button_monthly.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         button_widget.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         
-        navigationItem.leftBarButtonItems = [button_monthly, button_yearly]
+        navigationItem.leftBarButtonItems = [button_monthly]
         navigationItem.rightBarButtonItems = [button_options, button_widget]
     }
     
@@ -620,9 +618,11 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         
         let container = UIViewController.named("CalendarContainer") as! UINavigationController
         container.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
-        
+        container.navigationBar.barTintColor = UIColor(hex: "#FFEBCD")
+        container.navigationBar.tintColor = .blue
+        container.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black]
+
         modalSheet = NAModalSheet(viewController: container, presentationStyle: .fadeInCentered)
-        modalSheet.setThemeUsingPrimaryColor(.flatSand, with: .contrast)
         
         modalSheet.disableBlurredBackground = true
         modalSheet.cornerRadiusWhenCentered = 10
@@ -633,10 +633,12 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     }
     
     func showYearlyCalendar() {
-        let vc = UIViewController.named("yearly") as! YearlyCalendar
-        let nav = UINavigationController(rootViewController: vc)
-        
-        navigationController?.present(nav, animated: true, completion: {})
+        modalSheet.dismiss(completion: {
+            let vc = UIViewController.named("yearly") as! YearlyCalendar
+            let nav = UINavigationController(rootViewController: vc)
+            
+            self.navigationController?.present(nav, animated: true, completion: {})
+        })
     }
     
     func updateDate(_ notification: NSNotification) {

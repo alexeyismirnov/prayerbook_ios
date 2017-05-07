@@ -31,6 +31,8 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
     var containerType : CalendarContainerType!
     var textSize : CGFloat?
     var themeColor : UIColor?
+    
+    static var isSharing = false
 
     override init() {
         super.init()
@@ -74,7 +76,7 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
         }
         
         if curDate == selectedDate {
-            cell.contentView.backgroundColor = UIColor(hex:"#FF8C00")
+            cell.contentView.backgroundColor = UIColor(hex:"#F0FFFF")
 
         } else {
             let (fastType, _) = Cal.getFastingDescription(curDate, FastingLevel())
@@ -87,10 +89,10 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
                     
                 } else if containerType == .mainApp {
                     if let color = themeColor {
-                        textColor =  color
+                        textColor =  CalendarDelegate.isSharing ? .black : color
                         
                     } else {
-                        textColor =  UIColor.black
+                        textColor =  .black
                     }
                     
                 } else if #available(iOS 10.0, *) {
@@ -151,7 +153,7 @@ class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDe
            let size = fontSize {
             for index in 1...7 {
                 if let label = view.viewWithTag(index) as? UILabel {
-                    label.textColor = color
+                    label.textColor = CalendarDelegate.isSharing ? .black : color
                     label.font = UIFont.systemFont(ofSize: size)
                 }
             }

@@ -9,6 +9,8 @@
 import UIKit
 import Chameleon
 
+let showYearlyNotification = "SHOW_YEARLY"
+
 class CalendarContainer: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -20,7 +22,10 @@ class CalendarContainer: UIViewController, UICollectionViewDataSource, UICollect
         let button_widget = UIBarButtonItem(image: UIImage(named: "question"), style: .plain, target: self, action: #selector(showInfo))
         navigationItem.rightBarButtonItem = button_widget
         
-        view.backgroundColor =  UIColor.flatSand
+        let button_year = UIBarButtonItem(title: "Год", style: .plain, target: self, action: #selector(showYear))
+        navigationItem.leftBarButtonItem = button_year
+
+        view.backgroundColor = UIColor(hex: "#FFEBCD")
         collectionView.backgroundColor = UIColor.clear
         
         if (UIDevice.current.userInterfaceIdiom == .phone) {
@@ -65,6 +70,10 @@ class CalendarContainer: UIViewController, UICollectionViewDataSource, UICollect
     func showInfo() {
         let vc = UIViewController.named("calendar_info")
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showYear() {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: showYearlyNotification), object: nil, userInfo: nil)
     }
     
     func setTitle(fromDate date: Date) {

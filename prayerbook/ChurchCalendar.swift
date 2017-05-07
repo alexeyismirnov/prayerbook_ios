@@ -130,7 +130,7 @@ struct ChurchCalendar {
         .noFast: "",
         .noFastMonastic: "",
         .vegetarian: "#30D5C8",
-        .fishAllowed: "#FFCF6C",
+        .fishAllowed: "#FF9933",
         .fastFree: "#00BFFF",
         .cheesefare: "#00BFFF",
         .noFood: "#7B78EE",

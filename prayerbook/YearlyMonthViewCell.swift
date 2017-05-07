@@ -24,17 +24,18 @@ class YearlyMonthViewCell: UICollectionViewCell {
 
             monthLabel.text = formatter.string(from: currentDate).capitalizingFirstLetter()
             monthLabel.font = UIFont.systemFont(ofSize: YC.config.titleFontSize)
+            monthLabel.textColor = CalendarDelegate.isSharing ? .black : Theme.textColor
+
             calendarDelegate.currentDate = currentDate
             collectionView.reloadData()
+            
+            CalendarDelegate.generateLabels(self, container: .mainApp, standalone: true, textColor: Theme.textColor, fontSize: YC.config.fontSize)
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        monthLabel.textColor = Theme.textColor
-        CalendarDelegate.generateLabels(self, container: .mainApp, standalone: true, textColor: Theme.textColor, fontSize: YC.config.fontSize)
-        
+
         collectionView.backgroundColor = .clear
 
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -49,12 +50,12 @@ class YearlyMonthViewCell: UICollectionViewCell {
         calendarDelegate.containerType = .mainApp
         
         calendarDelegate.textSize = YC.config.fontSize
-        calendarDelegate.themeColor = Theme.textColor
+        calendarDelegate.themeColor = CalendarDelegate.isSharing ? .black : Theme.textColor
         
         collectionView.delegate = calendarDelegate
         collectionView.dataSource = calendarDelegate
         
-        collectionView.layer.addBorder(edge: .top, color: Theme.secondaryColor, thickness: 1)
+        collectionView.layer.addBorder(edge: .top, color: CalendarDelegate.isSharing ? .black : Theme.secondaryColor, thickness: 1)
 
     }
 
