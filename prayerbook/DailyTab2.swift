@@ -102,20 +102,18 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         pan.delegate = self
         view.addGestureRecognizer(pan)
 
-        /*
         let prefs = UserDefaults(suiteName: groupId)!
 
-        if prefs.object(forKey: "welcome16") == nil {
-            prefs.set(true, forKey: "welcome16")
+        if prefs.object(forKey: "welcome21") == nil {
+            prefs.set(true, forKey: "welcome21")
             prefs.synchronize()
             
             _ = UIAlertController(title: "Православный календарь",
-                                  message: "В новой версии добавлены \"Мысли на каждый день\" свт. Феофана Затворника",
+                                  message: "В новой версии приложения - календарь на день, месяц и весь год.",
                                   view: self,
                                   handler: { _ in })
             
         }
-        */
         
         reloadTheme()
     }
