@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import NAModalSheet
 
 class FastingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 

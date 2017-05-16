@@ -8,6 +8,7 @@
 
 import UIKit
 import Squeal
+import NAModalSheet
 
 class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, NAModalSheetDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     

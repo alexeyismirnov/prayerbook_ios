@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Chameleon
+import ChameleonFramework
 
 enum AppTheme {
     case Default
@@ -38,6 +38,8 @@ struct Theme {
             secondaryColor = textColor?.flatten()
             
             Chameleon.setGlobalThemeUsingPrimaryColor(mainColor, withSecondaryColor: secondaryColor, andContentStyle: .contrast)
+            UITabBar.appearance().tintColor = secondaryColor
+
         }
     }
     

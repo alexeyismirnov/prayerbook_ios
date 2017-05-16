@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NAModalSheet
 
 let optionsSavedNotification  = "OPTIONS_SAVED"
 let themeChangedNotification  = "THEME_CHANGED"

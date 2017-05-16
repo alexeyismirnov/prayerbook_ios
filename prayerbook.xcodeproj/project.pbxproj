@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E71B668DEB751741778939D /* Pods_ponomar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4B2AD66CF860E617AF86DF /* Pods_ponomar.framework */; };
 		8A0132F41C2027BC006F2505 /* CalendarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F31C2027BC006F2505 /* CalendarDelegate.swift */; };
 		8A0132F61C2029F5006F2505 /* CalendarViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */; };
 		8A0AB7E01E6E8F220056FBA5 /* bg3@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A0AB7DF1E6E8F220056FBA5 /* bg3@2x.jpg */; };
@@ -81,6 +82,7 @@
 		8A1F2CB11DD9B80600F13A3D /* landscape2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CAF1DD9B80600F13A3D /* landscape2.png */; };
 		8A1F2CB21DD9B80600F13A3D /* landscape3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CB01DD9B80600F13A3D /* landscape3.png */; };
 		8A1F2CB41DD9C18600F13A3D /* newicon_167.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CB31DD9C18600F13A3D /* newicon_167.png */; };
+		8A2197DA1ECAD486007CB039 /* ChameleonFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2197D91ECAD486007CB039 /* ChameleonFramework.framework */; };
 		8A24885E1EB0948A006877D8 /* YearlyCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */; };
 		8A24F52F1EB98A1700CE19E7 /* CalendarImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A24F52E1EB98A1700CE19E7 /* CalendarImageCell.swift */; };
 		8A298C481DD41DFC006A25F9 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A298C471DD41DFC006A25F9 /* Animation.swift */; };
@@ -123,7 +125,6 @@
 		8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */; };
 		8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */; };
 		8A71C9F21E9E2F2A0069E7A4 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A71C9F11E9E2F2A0069E7A4 /* Theme.swift */; };
-		8A71C9FD1E9E3B0A0069E7A4 /* Chameleon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A1DD3331E9CD3DD00A04024 /* Chameleon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FA198F20CC0078F39F /* Foundation.framework */; };
 		8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */; };
 		8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FE198F20CC0078F39F /* UIKit.framework */; };
@@ -238,38 +239,9 @@
 		8AF37E5D1B36C7A500101148 /* newicon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E541B36C7A500101148 /* newicon_120.png */; };
 		8AF37E5E1B36C7A500101148 /* newicon_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E551B36C7A500101148 /* newicon_152.png */; };
 		8AF37E5F1B36C7A500101148 /* newicon_180.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E561B36C7A500101148 /* newicon_180.png */; };
-		CC68BE33CEBBEA5DEB9C9B5D /* libPods-ponomar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F213825584D32788B8F7262 /* libPods-ponomar.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8A1DD3321E9CD3DD00A04024 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A1DD32C1E9CD3DD00A04024 /* Chameleon.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 240093F81BB4517400932727;
-			remoteInfo = Chameleon;
-		};
-		8A1DD3341E9CD3DD00A04024 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A1DD32C1E9CD3DD00A04024 /* Chameleon.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 247EB8A71BB61EB3009B4904;
-			remoteInfo = ChameleonDemo;
-		};
-		8A1DD3361E9CD3DD00A04024 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A1DD32C1E9CD3DD00A04024 /* Chameleon.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0C8DABB11C07B5EA00B28FE2;
-			remoteInfo = "ChameleonDemo-Objc";
-		};
-		8A71C9FB1E9E35230069E7A4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A1DD32C1E9CD3DD00A04024 /* Chameleon.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 240093F71BB4517400932727;
-			remoteInfo = Chameleon;
-		};
 		8AB4F9471BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
@@ -346,7 +318,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8A71C9FD1E9E3B0A0069E7A4 /* Chameleon.framework in Embed Frameworks */,
 				8AC966121BE5DB3D00841FEE /* Squeal.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -356,8 +327,8 @@
 
 /* Begin PBXFileReference section */
 		1D4D67C7A719042A81FE3D8C /* Pods-ponomar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ponomar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ponomar/Pods-ponomar.debug.xcconfig"; sourceTree = "<group>"; };
-		1F213825584D32788B8F7262 /* libPods-ponomar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ponomar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5D4B2AD66CF860E617AF86DF /* Pods_ponomar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ponomar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E01426EC83DA15B72CE617C /* Pods-ponomar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ponomar.release.xcconfig"; path = "Pods/Target Support Files/Pods-ponomar/Pods-ponomar.release.xcconfig"; sourceTree = "<group>"; };
 		8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8A0132F31C2027BC006F2505 /* CalendarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDelegate.swift; sourceTree = "<group>"; };
@@ -420,7 +391,6 @@
 		8A0F6F5B1C50C4BE0063DBF1 /* ponomar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ponomar.entitlements; sourceTree = "<group>"; };
 		8A0F6F5C1C50C4EC0063DBF1 /* CalendarWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CalendarWidget.entitlements; sourceTree = "<group>"; };
 		8A1DD3221E9CC82A00A04024 /* NAModalSheet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NAModalSheet.framework; path = "../../Library/Developer/Xcode/DerivedData/prayerbook-ewzsuaxwoacyigdcqavmiszgcxqo/Build/Products/Debug-iphonesimulator/NAModalSheet/NAModalSheet.framework"; sourceTree = "<group>"; };
-		8A1DD32C1E9CD3DD00A04024 /* Chameleon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Chameleon.xcodeproj; path = ../Chameleon/Chameleon.xcodeproj; sourceTree = "<group>"; };
 		8A1F2C971DD9B0F000F13A3D /* newicon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_1024.png; sourceTree = "<group>"; };
 		8A1F2CA11DD9B5C500F13A3D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8A1F2CA21DD9B5C500F13A3D /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
@@ -432,6 +402,7 @@
 		8A1F2CAF1DD9B80600F13A3D /* landscape2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landscape2.png; sourceTree = "<group>"; };
 		8A1F2CB01DD9B80600F13A3D /* landscape3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landscape3.png; sourceTree = "<group>"; };
 		8A1F2CB31DD9C18600F13A3D /* newicon_167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_167.png; sourceTree = "<group>"; };
+		8A2197D91ECAD486007CB039 /* ChameleonFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChameleonFramework.framework; path = "../../Derived3/prayerbook-ewzsuaxwoacyigdcqavmiszgcxqo/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework"; sourceTree = "<group>"; };
 		8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearlyCalendar.swift; sourceTree = "<group>"; };
 		8A24F52E1EB98A1700CE19E7 /* CalendarImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarImageCell.swift; sourceTree = "<group>"; };
 		8A298C471DD41DFC006A25F9 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
@@ -604,11 +575,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A2197DA1ECAD486007CB039 /* ChameleonFramework.framework in Frameworks */,
 				8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */,
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
-				CC68BE33CEBBEA5DEB9C9B5D /* libPods-ponomar.a in Frameworks */,
+				2E71B668DEB751741778939D /* Pods_ponomar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,20 +607,9 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		8A1DD32D1E9CD3DD00A04024 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8A1DD3331E9CD3DD00A04024 /* Chameleon.framework */,
-				8A1DD3351E9CD3DD00A04024 /* ChameleonDemo.app */,
-				8A1DD3371E9CD3DD00A04024 /* ChameleonDemo-Objc.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		8A74D7EE198F20CC0078F39F = {
 			isa = PBXGroup;
 			children = (
-				8A1DD32C1E9CD3DD00A04024 /* Chameleon.xcodeproj */,
 				8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */,
 				8A0F6F5B1C50C4BE0063DBF1 /* ponomar.entitlements */,
 				8A74D800198F20CC0078F39F /* prayerbook */,
@@ -671,6 +632,7 @@
 		8A74D7F9198F20CC0078F39F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A2197D91ECAD486007CB039 /* ChameleonFramework.framework */,
 				8A1DD3221E9CC82A00A04024 /* NAModalSheet.framework */,
 				8A9A36D81CAD127400D33D5A /* libsqlite3.tbd */,
 				8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */,
@@ -680,7 +642,7 @@
 				8A74D7FE198F20CC0078F39F /* UIKit.framework */,
 				FB949D5EE4022DBBF8C2E216 /* libPods.a */,
 				8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */,
-				1F213825584D32788B8F7262 /* libPods-ponomar.a */,
+				5D4B2AD66CF860E617AF86DF /* Pods_ponomar.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1002,7 +964,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				8A71C9FC1E9E35230069E7A4 /* PBXTargetDependency */,
 				8AC966141BE5DB3D00841FEE /* PBXTargetDependency */,
 				8AB749AA1C4C7A3500CD1B32 /* PBXTargetDependency */,
 			);
@@ -1075,10 +1036,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 8A1DD32D1E9CD3DD00A04024 /* Products */;
-					ProjectRef = 8A1DD32C1E9CD3DD00A04024 /* Chameleon.xcodeproj */;
-				},
-				{
 					ProductGroup = 8AB4F93D1BB9203900B3EE96 /* Products */;
 					ProjectRef = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
 				},
@@ -1092,27 +1049,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		8A1DD3331E9CD3DD00A04024 /* Chameleon.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Chameleon.framework;
-			remoteRef = 8A1DD3321E9CD3DD00A04024 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8A1DD3351E9CD3DD00A04024 /* ChameleonDemo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = ChameleonDemo.app;
-			remoteRef = 8A1DD3341E9CD3DD00A04024 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8A1DD3371E9CD3DD00A04024 /* ChameleonDemo-Objc.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "ChameleonDemo-Objc.app";
-			remoteRef = 8A1DD3361E9CD3DD00A04024 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		8AB4F9481BB9203A00B3EE96 /* Squeal.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1462,11 +1398,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8A71C9FC1E9E35230069E7A4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Chameleon;
-			targetProxy = 8A71C9FB1E9E35230069E7A4 /* PBXContainerItemProxy */;
-		};
 		8AB749AA1C4C7A3500CD1B32 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8AB7499E1C4C7A3400CD1B32 /* CalendarWidget */;
@@ -1583,7 +1514,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1D4D67C7A719042A81FE3D8C /* Pods-ponomar.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -1602,7 +1532,6 @@
 					"$(inherited)",
 					"-lsqlite3",
 					"-ObjC",
-					"-l\"NAModalSheet\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1622,7 +1551,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E01426EC83DA15B72CE617C /* Pods-ponomar.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -1641,7 +1569,6 @@
 					"$(inherited)",
 					"-lsqlite3",
 					"-ObjC",
-					"-l\"NAModalSheet\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru";
 				PRODUCT_NAME = "$(TARGET_NAME)";
