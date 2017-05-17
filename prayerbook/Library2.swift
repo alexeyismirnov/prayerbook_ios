@@ -45,24 +45,43 @@ let OldTestament: [(String, String)] = [
 ]
 
 
-class Library: UITableViewController {
+class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var code:String = "Library"
     var index:Int = 0
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(Library.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
-
-        let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .plain, target: self, action: #selector(Library.showOptions))
-        navigationItem.rightBarButtonItems = [button_options]
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = .clear
+        tableView.contentInset = UIEdgeInsets(top: -30, left: 0, bottom: 0, right: 0)
+        
+        automaticallyAdjustsScrollViewInsets = false
+        navigationController?.makeTransparent()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
+        
+        reloadTheme()
+    }
+    
+    func reloadTheme() {
+        if let bgColor = Theme.mainColor {
+            view.backgroundColor =  bgColor
+            
+        } else {
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view))
+        }
         
         reload()
     }
     
     func reload() {
         tableView.reloadData()
-
+        
         if (code == "Library") {
             title = Translate.s("Library")
             
@@ -71,26 +90,17 @@ class Library: UITableViewController {
         }
     }
     
-    func showOptions() {
-        let vc = storyboard!.instantiateViewController(withIdentifier: "Options") as! Options
-        let nav = UINavigationController(rootViewController: vc)
-        
-        navigationController?.present(nav, animated: true, completion: {})
-    }
-
     // MARK: Table view data source
-
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {        
         if (code == "Library") {
-            let vc = storyboard.instantiateViewController(withIdentifier: "Library") as! Library
+            let vc = UIViewController.named("Library2") as! Library2
             vc.index = (indexPath as NSIndexPath).row
             vc.code = NewTestament[(indexPath as NSIndexPath).row].1
             navigationController?.pushViewController(vc, animated: true)
-
+            
         } else {
-            let vc = storyboard.instantiateViewController(withIdentifier: "Scripture") as! Scripture
+            let vc = UIViewController.named("Scripture") as! Scripture
             vc.code = .chapter(code, (indexPath as NSIndexPath).row+1)
             navigationController?.pushViewController(vc, animated: true)
         }
@@ -98,19 +108,26 @@ class Library: UITableViewController {
         return nil
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        headerView.textLabel?.textColor = Theme.textColor
+        headerView.contentView.backgroundColor = UIColor.clear
+        headerView.backgroundView?.backgroundColor = UIColor.clear
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (code == "Library") ? NewTestament.count : Db.numberOfChapters(code)
     }
-
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return (code == "Library") ? Translate.s("New Testament") : nil
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "TextCell"
         
         var newCell  = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TextCell
@@ -118,15 +135,16 @@ class Library: UITableViewController {
             newCell = TextCell(style: UITableViewCellStyle.default, reuseIdentifier: TextCell.cellId)
         }
         
-        newCell!.title.textColor =  UIColor.black
+        newCell?.backgroundColor = .clear
+        newCell!.title.textColor =  Theme.textColor
         newCell!.title.text = (code == "Library") ?
             Translate.s(NewTestament[(indexPath as NSIndexPath).row].0) :
             String(format: Translate.s("Chapter %@"), Translate.stringFromNumber((indexPath as NSIndexPath).row+1))
-
+        
         return newCell!
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
         return calculateHeightForCell(cell)
     }
@@ -139,7 +157,7 @@ class Library: UITableViewController {
         let size = cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         return max(size.height+1.0, 40)
     }
-
-
+    
+    
 }
 
