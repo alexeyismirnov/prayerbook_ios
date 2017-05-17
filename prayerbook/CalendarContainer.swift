@@ -29,7 +29,7 @@ class CalendarContainer: UIViewController {
     
     var currentDate: Date = ChurchCalendar.currentDate as Date
     var calendarDelegate: CalendarGridDelegate!
-    var delegate: DailyTab!
+    var delegate: DailyTab2!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +80,7 @@ class CalendarContainer: UIViewController {
                 curDate = Date(dayNum, currentDate.month, currentDate.year)
         }
         
-        delegate.updateDate(curDate)
+        // delegate.updateDate(curDate)
     }
     
     func refresh() {

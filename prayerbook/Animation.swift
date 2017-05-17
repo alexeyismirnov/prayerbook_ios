@@ -63,12 +63,61 @@ class Animation {
     }
 }
 
-class DailyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class DailyAnimatorInteractive : UIPercentDrivenInteractiveTransition {
+    var shouldComplete = false
+    var lastProgress: CGFloat=0
+    var cancelled = false
+    var velocity = CGPoint()
     
+    func handlePan(recognizer: UIPanGestureRecognizer) {
+        var translation = recognizer.translation(in: recognizer.view!.superview!)
+        
+        let screenWidth: CGFloat = UIScreen.main.bounds.size.width
+        let percentThreshold: CGFloat = 0.5
+        let automaticOverrideThreshold: CGFloat = 0.03
+        
+        if velocity.x > 0 && translation.x < 0 || velocity.x < 0 && translation.x > 0 {
+            translation.x = 0
+        }
+    
+        var progress: CGFloat = abs(translation.x / (screenWidth/2))
+        progress = min(max(progress, 0.01), 0.99)
+
+        switch recognizer.state {
+        case .changed:
+             if progress > lastProgress + automaticOverrideThreshold {
+                shouldComplete = true
+             
+             } else {
+                shouldComplete = progress > percentThreshold
+             }
+            update(progress)
+            
+        case .ended:
+             if recognizer.state == .cancelled || shouldComplete == false {
+                cancelled = true
+                cancel()
+             } else {
+                cancelled = false
+                finish()
+             }
+        default:
+            break
+        }
+        
+        lastProgress = progress
+        
+    }
+    
+}
+
+class DailyAnimator: NSObject, UIViewControllerAnimatedTransitioning  {
     var direction: Animation.Direction!
     
+    static let animationDuration = 0.7
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 1.0
+        return DailyAnimator.animationDuration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -76,6 +125,7 @@ class DailyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let fromVC = transitionContext.viewController(forKey: .from)!
         let toVC = transitionContext.viewController(forKey: .to)!
         
+        containerView.addSubview(fromVC.view)
         containerView.addSubview(toVC.view)
         
         let finalFrame = transitionContext.finalFrame(for: toVC)
@@ -89,12 +139,7 @@ class DailyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         toVC.view.frame = vcFrame
         
-        UIView.animate(withDuration: 1.0, delay: 0,
-                       usingSpringWithDamping: 1.0,
-                       initialSpringVelocity: 0.2,
-                       options: UIViewAnimationOptions(rawValue: 0),
-                       animations: {
-                        
+        UIView.animate(withDuration: DailyAnimator.animationDuration, delay: 0, options: [], animations: {
                         var vcFrame = finalFrame
                         toVC.view.frame = finalFrame
                         
@@ -105,7 +150,10 @@ class DailyAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                         }
                         fromVC.view.frame = vcFrame
         },
-                       completion: { _ in self.direction = .none;  transitionContext.completeTransition(true) })
+                       completion: { _ in
+                        self.direction = .none
+                        transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        })
     }
 }
 

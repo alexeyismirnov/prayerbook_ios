@@ -7,26 +7,6 @@
 //
 
 import UIKit
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
-}
-
 
 class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAnimatedTransitioning {
 
@@ -35,6 +15,11 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
         
         delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(MainVC.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
+
+        tabBar.isTranslucent = true
+        tabBar.backgroundImage = UIImage()
+        tabBar.shadowImage = UIImage()
+        tabBar.backgroundColor = .clear
 
         reload()
     }
@@ -78,38 +63,37 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
         
         let indexFrom = findIndex(viewControllers as! [UINavigationController]) { $0.restorationIdentifier == fromVC?.restorationIdentifier }
         let indexTo = findIndex(viewControllers as! [UINavigationController]) { $0.restorationIdentifier == toVC?.restorationIdentifier }
-
+        
         let centerRect =  transitionContext.finalFrame(for: toVC!)
         let leftRect   = centerRect.offsetBy(dx: -(centerRect.width+PaddingBetweenViews), dy: 0);
         let rightRect  = centerRect.offsetBy(dx: centerRect.width+PaddingBetweenViews, dy: 0);
-
-        if (indexTo > indexFrom) {
+        
+        if (indexTo! > indexFrom!) {
             toView!.frame = rightRect;
             inView.addSubview(toView!)
-
-            UIView.animate(withDuration: transitionDuration(using: transitionContext),
-                delay: Foundation.TimeInterval(0),
-                usingSpringWithDamping: DampingConstant,
-                initialSpringVelocity: InitialVelocity,
-                options: UIViewAnimationOptions(rawValue: 0),
-                animations: { fromView!.frame = leftRect; toView!.frame = centerRect },
-                completion: { (value:Bool) in transitionContext.completeTransition(true) } )
-                    
+            
+            UIView.animate(withDuration: self.transitionDuration(using: transitionContext),
+                           delay: 0,
+                           usingSpringWithDamping: DampingConstant,
+                           initialSpringVelocity: InitialVelocity,
+                           options: UIViewAnimationOptions(rawValue: 0),
+                           animations: { fromView!.frame = leftRect; toView!.frame = centerRect },
+                           completion: { (value:Bool) in transitionContext.completeTransition(true) } )
+            
+            
         } else {
             toView!.frame = leftRect;
             inView.addSubview(toView!)
             
             UIView.animate(withDuration: transitionDuration(using: transitionContext),
-                delay: Foundation.TimeInterval(0),
-                usingSpringWithDamping: DampingConstant,
-                initialSpringVelocity: -InitialVelocity,
-                options: UIViewAnimationOptions(rawValue: 0),
-                animations: { fromView!.frame = rightRect; toView!.frame = centerRect },
-                completion: { (value:Bool) in transitionContext.completeTransition(true) } )
+                           delay: Foundation.TimeInterval(0),
+                           usingSpringWithDamping: DampingConstant,
+                           initialSpringVelocity: -InitialVelocity,
+                           options: UIViewAnimationOptions(rawValue: 0),
+                           animations: { fromView!.frame = rightRect; toView!.frame = centerRect },
+                           completion: { (value:Bool) in transitionContext.completeTransition(true) } )
             
         }
-
     }
-        
     
 }

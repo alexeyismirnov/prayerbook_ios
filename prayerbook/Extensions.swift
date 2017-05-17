@@ -377,6 +377,87 @@ extension UIDevice {
         default:                                        return machineString
         }
     }
-    
 }
 
+extension UIAlertController {
+    convenience init(title: String, message: String, view: UIViewController, handler: @escaping (UIAlertAction) -> ()) {
+        self.init(title: title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: { action in handler(action) });
+        addAction(defaultAction)
+        view.present(self, animated: true, completion: {})
+    }
+}
+
+
+extension UserDefaults {
+    func color(forKey defaultName: String) -> UIColor? {
+        var color: UIColor?
+        if let colorData = data(forKey: defaultName) {
+            color = NSKeyedUnarchiver.unarchiveObject(with: colorData) as? UIColor
+        }
+        return color
+    }
+    
+    func set(_ value: UIColor?, forKey defaultName: String) {
+        var colorData: NSData?
+        if let color = value {
+            colorData = NSKeyedArchiver.archivedData(withRootObject: color) as NSData?
+        }
+        set(colorData, forKey: defaultName)
+    }
+}
+
+extension UIImage {
+    convenience init(background: String , inView view: UIView) {
+        let image = UIImage(named: background)
+        UIGraphicsBeginImageContext(view.frame.size)
+        image!.draw(in: view.bounds)
+        let bgImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        self.init(cgImage: (bgImage.cgImage)!)
+    }
+}
+
+extension UIViewController {
+    static func named(_ name: String) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: name)
+    }
+}
+
+extension UINavigationController {
+    func makeTransparent() {
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.isTranslucent = true
+        navigationBar.backgroundColor = UIColor.clear
+    }
+}
+
+extension CALayer {
+    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+        
+        let border = CALayer()
+        
+        switch edge {
+        case UIRectEdge.top:
+            border.frame = CGRect.init(x: 0, y: 0, width: frame.width, height: thickness)
+            break
+        case UIRectEdge.bottom:
+            border.frame = CGRect.init(x: 0, y: frame.height - thickness, width: frame.width, height: thickness)
+            break
+        case UIRectEdge.left:
+            border.frame = CGRect.init(x: 0, y: 0, width: thickness, height: frame.height)
+            break
+        case UIRectEdge.right:
+            border.frame = CGRect.init(x: frame.width - thickness, y: 0, width: thickness, height: frame.height)
+            break
+        default:
+            break
+        }
+        
+        border.backgroundColor = color.cgColor;
+        
+        self.addSublayer(border)
+    }
+}

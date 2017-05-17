@@ -6,15 +6,26 @@ enum FeastType: Int {
 }
 
 enum NameOfDay: Int {
-    case startOfYear=0, pascha, pentecost, ascension, palmSunday, eveOfNativityOfGod, nativityOfGod, circumcision, eveOfTheophany, theophany, meetingOfLord, annunciation, nativityOfJohn, peterAndPaul, transfiguration, dormition, beheadingOfJohn, nativityOfTheotokos, exaltationOfCross, veilOfTheotokos, entryIntoTemple, stNicholas, sundayOfPublicianAndPharisee, sundayOfProdigalSon, sundayOfDreadJudgement, cheesefareSunday, beginningOfGreatLent, beginningOfDormitionFast, beginningOfNativityFast, beginningOfApostolesFast, sundayOfForefathers, sundayBeforeNativity, sundayAfterExaltation, saturdayAfterExaltation, saturdayBeforeExaltation, sundayBeforeExaltation, saturdayBeforeNativity, saturdayAfterNativity, sundayAfterNativity, saturdayBeforeTheophany, sundayBeforeTheophany, saturdayAfterTheophany, sundayAfterTheophany, sunday2AfterPascha, sunday3AfterPascha, sunday4AfterPascha, sunday5AfterPascha, sunday6AfterPascha, sunday7AfterPascha, lazarusSaturday, newMartyrsConfessorsOfRussia, josephBetrothed, synaxisTheotokos, holyFathersSixCouncils, endOfYear
+    case startOfYear=0, pascha, pentecost, ascension, palmSunday, eveOfNativityOfGod, nativityOfGod, circumcision, eveOfTheophany, theophany, meetingOfLord, annunciation, nativityOfJohn, peterAndPaul, transfiguration, dormition, beheadingOfJohn, nativityOfTheotokos, exaltationOfCross, veilOfTheotokos, entryIntoTemple, stNicholas, sundayOfPublicianAndPharisee, sundayOfProdigalSon, sundayOfDreadJudgement, cheesefareSunday, beginningOfGreatLent, beginningOfDormitionFast, beginningOfNativityFast, beginningOfApostolesFast, sundayOfForefathers, sundayBeforeNativity, sundayAfterExaltation, saturdayAfterExaltation, saturdayBeforeExaltation, sundayBeforeExaltation, saturdayBeforeNativity, saturdayAfterNativity, sundayAfterNativity, saturdayBeforeTheophany, sundayBeforeTheophany, saturdayAfterTheophany, sundayAfterTheophany, sunday2AfterPascha, sunday3AfterPascha, sunday4AfterPascha, sunday5AfterPascha, sunday6AfterPascha, sunday7AfterPascha, lazarusSaturday, newMartyrsConfessorsOfRussia, josephBetrothed, synaxisTheotokos, holyFathersSixCouncils, synaxisMoscowSaints, synaxisNizhnyNovgorodSaints, saturdayOfFathers, synaxisForerunner, saturdayTrinity, saturdayOfDeparted, endOfYear
 }
 
 enum FastingLevel: Int {
     case laymen=0, monastic
+    
+    init() {
+        let prefs = UserDefaults(suiteName: groupId)!
+        self = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!
+    }
+    
+    func save() {
+        let prefs = UserDefaults(suiteName: groupId)!
+        prefs.set(self.rawValue, forKey: "fastingLevel")
+        prefs.synchronize()
+    }
 }
 
 enum FastingType: Int {
-    case noFast=0, vegetarian, fishAllowed, fastFree, cheesefare, noFood, xerography, withoutOil, noFastMonastic
+    case noFast=0, vegetarian, fishAllowed, fastFree, cheesefare, noFood, xerophagy, withoutOil, noFastMonastic
 }
 
 enum DayOfWeek: Int  {
@@ -55,6 +66,7 @@ struct ChurchCalendar {
     static var dCache = [DateCache:Date]()
 
     static var dateFeastDescr = [Date: [(FeastType, String)]]()
+
     static let codeFeastDescr : [NameOfDay: [(FeastType, String)]] = [
         .pascha:                    [(.great, "PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ")],
         .pentecost:                 [(.great, "Pentecost. Sunday of the Holy Trinity. Descent of the Holy Spirit on the Apostles")],
@@ -96,6 +108,11 @@ struct ChurchCalendar {
         .sundayAfterTheophany:      [(.none, "Sunday after Theophany")],
         .newMartyrsConfessorsOfRussia: [(.vigil, "Holy New Martyrs and Confessors of Russia")],
         .holyFathersSixCouncils:    [(.none, "Commemoration of the Holy Fathers of the First Six Councils")],
+        .synaxisMoscowSaints:       [(.none, "Synaxis of all saints of Moscow")],
+        .synaxisNizhnyNovgorodSaints:       [(.none, "Synaxis of all saints of Nizhny Novgorod")],
+        .saturdayOfFathers:         [(.noSign, "Commemoration of all the saints, who showed forth in asceticism")],
+        .saturdayTrinity:           [(.none, "Trinity Saturday; Commemoration of the Departed")],
+        .saturdayOfDeparted:        [(.none, "The Saturday of the Dead")]
 
     ]
 
@@ -112,13 +129,26 @@ struct ChurchCalendar {
         .noFast: "",
         .noFastMonastic: "",
         .vegetarian: "#30D5C8",
-        .fishAllowed: "#FADFAD",
+        .fishAllowed: "#FF9933",
         .fastFree: "#00BFFF",
         .cheesefare: "#00BFFF",
         .noFood: "#7B78EE",
-        .xerography: "#B4EEB4",
+        .xerophagy: "#B4EEB4",
         .withoutOil: "#9BCD9B",
     ]
+    
+    static let fastingMonastic : [(FastingType, String)] = [(.xerophagy, "Xerophagy"),
+                                                     (.withoutOil, "Without oil"),
+                                                     (.vegetarian, "With oil"),
+                                                     (.fishAllowed, "Fish allowed"),
+                                                     (.noFood, "No food"),
+                                                     (.fastFree, "Fast-free week")]
+    
+    static let fastingLaymen : [(FastingType, String)] = [
+        (.vegetarian, "Vegetarian"),
+        (.fishAllowed, "Fish allowed"),
+        (.fastFree, "Fast-free week")]
+
 
     static let greatFeastCodes : [NameOfDay] = [.palmSunday, .pascha, .ascension, .pentecost, .nativityOfGod, .circumcision, .theophany, .meetingOfLord, .annunciation, .nativityOfJohn, .peterAndPaul, .transfiguration, .dormition, .beheadingOfJohn, .nativityOfTheotokos, .exaltationOfCross, .veilOfTheotokos, .entryIntoTemple]
 
@@ -168,8 +198,6 @@ struct ChurchCalendar {
         var miscFeasts = [Date: [(FeastType, String)]]()
             
         miscFeasts += [
-            greatLentStart-9.days: [(.none,    "Commemoration of the Departed")],
-            greatLentStart-2.days:  [(.noSign, "Commemoration of all the saints, who showed forth in asceticism")],
             greatLentStart+5.days:  [(.noSign, "Great Martyr Theodore the Recruit († c. 306)")],
             greatLentStart+6.days:  [(.none,   "Triumph of Orthodoxy")],
             greatLentStart+12.days: [(.none,   "Commemoration of the Departed")],
@@ -178,6 +206,7 @@ struct ChurchCalendar {
             greatLentStart+20.days: [(.none,   "Veneration of the Precious Cross")],
             greatLentStart+26.days: [(.none,   "Commemoration of the Departed")],
             greatLentStart+27.days: [(.noSign, "Venerable John Climacus of Sinai, Author of “the Ladder” († 649)")],
+            greatLentStart+31.days: [(.none,   "Thursday of the Great Canon, with the Life of St. Mary of Egypt")],
             greatLentStart+33.days: [(.none,   "Saturday of the Akathist; Laudation of the Most Holy Theotokos")],
             greatLentStart+34.days: [(.none,   "Venerable Mary of Egypt")]]
         
@@ -192,7 +221,6 @@ struct ChurchCalendar {
                                      (.none,   "Mozdok and Dubensky-Krasnohorská (17th C) Icons of the Mother of God")],
             pascha+27.days:         [(.none,   "Synaxis of New Martyrs of Butovo")],
             pascha+42.days:         [(.none,   "Chelnskoy and Pskov-Kiev Caves called “Tenderness” icons of the Mother of God")],
-            pascha+48.days:         [(.none,   "Trinity Saturday; Commemoration of the Departed")],
             pentecost+1.days:       [(.none,   "Day of the Holy Spirit"),
                                      (.none,   "Icons of the Mother of God “Tupichevsk” (1847) and “Cypriot” (392)")],
             pentecost+4.days:       [(.none,   "Icon of the Mother of God “Surety of Sinners” in Korets (1622)")],
@@ -375,14 +403,21 @@ struct ChurchCalendar {
         let pascha = paschaDay(year)
         let greatLentStart = pascha-48.days
 
-        let movingFeasts : [Date: [NameOfDay]] = [
+        var movingFeasts = [Date: [NameOfDay]]()
+
+        movingFeasts += [
             greatLentStart-22.days:                   [.sundayOfPublicianAndPharisee],
             greatLentStart-15.days:                   [.sundayOfProdigalSon],
+            greatLentStart-9.days:                    [.saturdayOfDeparted],
             greatLentStart-8.days:                    [.sundayOfDreadJudgement],
+            greatLentStart-2.days:                    [.saturdayOfFathers],
             greatLentStart-1.days:                    [.cheesefareSunday],
             greatLentStart:                           [.beginningOfGreatLent],
             pascha-8.days:                            [.lazarusSaturday],
             pascha-7.days:                            [.palmSunday],
+        ]
+        
+        movingFeasts += [
             pascha:                                   [.pascha],
             pascha+7.days:                            [.sunday2AfterPascha],
             pascha+14.days:                           [.sunday3AfterPascha],
@@ -390,12 +425,12 @@ struct ChurchCalendar {
             pascha+28.days:                           [.sunday5AfterPascha],
             pascha+35.days:                           [.sunday6AfterPascha],
             pascha+42.days:                           [.sunday7AfterPascha],
-
             pascha+39.days:                           [.ascension],
+            pascha+48.days:                           [.saturdayTrinity],
             pascha+49.days:                           [.pentecost],
             pascha+57.days:                           [.beginningOfApostolesFast],
         ]
-        
+    
         let fixedFeasts : [Date: [NameOfDay]] = [
             Date(1,  1, year):   [.startOfYear],
             Date(6,  1, year):   [.eveOfNativityOfGod],
@@ -404,6 +439,7 @@ struct ChurchCalendar {
             Date(14, 1, year):   [.circumcision],
             Date(18, 1, year):   [.eveOfTheophany],
             Date(19, 1, year):   [.theophany],
+            Date(20, 1, year):   [.synaxisForerunner],
             Date(15, 2, year):   [.meetingOfLord],
             Date(7,  4, year):   [.annunciation],
             Date(7,  7, year):   [.nativityOfJohn],
@@ -501,6 +537,8 @@ struct ChurchCalendar {
         }
         
         feastDates += [nearestSundayAfter(Date(29, 7, year)): [.holyFathersSixCouncils]]
+        feastDates += [nearestSundayBefore(Date(8, 9, year)): [.synaxisMoscowSaints]]
+        feastDates += [nearestSundayAfter(Date(8, 9, year)):  [.synaxisNizhnyNovgorodSaints]]
 
         let start: Int = NameOfDay.startOfYear.rawValue
         let end: Int = NameOfDay.endOfYear.rawValue
@@ -669,7 +707,7 @@ struct ChurchCalendar {
     static func monasticGreatLent() -> (FastingType, String) {
         switch currentWeekday {
         case .monday, .wednesday, .friday:
-            return (.xerography, Translate.s("Xerography"))
+            return (.xerophagy, Translate.s("Xerophagy"))
 
         case .tuesday, .thursday:
             return (.withoutOil, Translate.s("Without oil"))
@@ -686,7 +724,7 @@ struct ChurchCalendar {
             return (.withoutOil, Translate.s("Without oil"))
             
         case .wednesday, .friday:
-            return (.xerography, Translate.s("Xerography"))
+            return (.xerophagy, Translate.s("Xerophagy"))
             
         case .tuesday, .thursday, .saturday, .sunday:
             return (.fishAllowed, Translate.s("Fish allowed"))
@@ -729,7 +767,7 @@ struct ChurchCalendar {
             return (.fishAllowed, Translate.s("Fish allowed"))
             
         case d(.eveOfTheophany):
-            return (.xerography, Translate.s("Fast day"))
+            return (.xerophagy, Translate.s("Fast day"))
             
         case d(.beheadingOfJohn),
         d(.exaltationOfCross):
@@ -755,13 +793,13 @@ struct ChurchCalendar {
             return (.noFood, Translate.s("No food"))
         
         case d(.beginningOfGreatLent)+1.days ... d(.beginningOfGreatLent)+4.days:
-            return (.xerography, Translate.s("Xerography"))
+            return (.xerophagy, Translate.s("Xerophagy"))
             
         case d(.beginningOfGreatLent)+5.days ..< d(.palmSunday):
             return (date == d(.annunciation)) ? (.fishAllowed, Translate.s("Fish allowed")) : monasticGreatLent()
         
         case d(.palmSunday)+1.days ... d(.palmSunday)+4.days:
-            return (.xerography, Translate.s("Xerography"))
+            return (.xerophagy, Translate.s("Xerophagy"))
 
         case d(.palmSunday)+5.days:
             return (.noFood, Translate.s("No food"))
@@ -800,7 +838,7 @@ struct ChurchCalendar {
                     return (.vegetarian, Translate.s("With oil"))
                     
                 default:
-                    return (.xerography, Translate.s("Xerography"))
+                    return (.xerophagy, Translate.s("Xerophagy"))
                 }
 
             } else {

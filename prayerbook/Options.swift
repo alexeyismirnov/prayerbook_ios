@@ -9,6 +9,8 @@
 import UIKit
 
 var optionsSavedNotification  = "OPTIONS_SAVED"
+let themeChangedNotification  = "THEME_CHANGED"
+let dateChangedNotification = "DATE_CHANGED"
 
 class Options: UITableViewController {
     let prefs = UserDefaults(suiteName: groupId)!

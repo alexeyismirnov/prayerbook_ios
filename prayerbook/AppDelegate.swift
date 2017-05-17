@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class AppDelegate : UIResponder, UIApplicationDelegate {
 
@@ -26,7 +27,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         if let root = window?.rootViewController as? MainVC,
             let controllers = root.viewControllers,
             let nav = controllers[0] as? UINavigationController,
-            let vc = nav.topViewController as? DailyTab,
+            let vc = nav.topViewController as? DailyTab2,
             let date = openDate {
                 root.selectedIndex = 0
                 vc.currentDate = date
@@ -40,6 +41,14 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         
         let prefs = UserDefaults(suiteName: groupId)!
         let lang = Locale.preferredLanguages[0]
+        
+        if prefs.object(forKey: "theme") == nil {
+            Theme.set(.Default)
+            
+        } else {
+            let color = prefs.color(forKey: "theme")
+            Theme.set(.Chameleon(color: color!))
+        }
         
         // the first time app is launched
         if prefs.object(forKey: "fontSize") == nil {
@@ -62,7 +71,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
             prefs.set(1, forKey: "fastingLevel")
             prefs.synchronize()
         }
-        
+                
         setupFiles()
 
         Translate.files = ["trans_ui", "trans_cal", "trans_library"]
