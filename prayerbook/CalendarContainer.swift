@@ -7,111 +7,122 @@
 //
 
 import UIKit
+import ChameleonFramework
 
-class CalendarContainer: UIViewController {
+let showYearlyNotification = "SHOW_YEARLY"
 
+class CalendarContainer: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let cal: Calendar = {
-        var c = Calendar.current
-        c.locale = Locale(identifier: (Translate.language == "en") ? "en" : "zh_CN")
-        return c
-    }()
-
-    var formatter: DateFormatter = {
-        var formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .none
-        formatter.dateFormat = "LLLL yyyy"
-        formatter.locale = Locale(identifier: (Translate.language == "en") ? "en" : "zh_CN")
-        return formatter
-    }()
-    
-    var currentDate: Date = ChurchCalendar.currentDate as Date
-    var calendarDelegate: CalendarGridDelegate!
-    var delegate: DailyTab2!
-    
+    var dates = [Date]()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        calendarDelegate = CalendarGridDelegate()
-        calendarDelegate.containerType = .mainApp
+        let button_widget = UIBarButtonItem(image: UIImage(named: "question"), style: .plain, target: self, action: #selector(showInfo))
+        navigationItem.rightBarButtonItem = button_widget
         
-        collectionView.delegate = calendarDelegate
-        collectionView.dataSource = calendarDelegate
+        view.backgroundColor = UIColor(hex: "#FFEBCD")
+        collectionView.backgroundColor = UIColor.clear
         
-        collectionView.constraints.forEach { con in
-            if con.identifier == "calendar-width" {
-                if (UIDevice.current.userInterfaceIdiom == .phone) {
-                    con.constant = 300
-                } else {
-                    con.constant = 500
-                }
-            }
+        if (UIDevice.current.userInterfaceIdiom == .phone) {
+            collectionView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+            resizeCalendar(300, 300)
+            
+        } else {
+            collectionView.frame = CGRect(x: 0, y: 0, width: 500, height: 500)
+            resizeCalendar(500, 500)
         }
         
         view.setNeedsLayout()
-
         
-        let recognizer = UITapGestureRecognizer(target: self, action:#selector(CalendarContainer.doneWithDate(_:)))
-        recognizer.numberOfTapsRequired = 1
-        collectionView.addGestureRecognizer(recognizer)
+        let currentDate: Date = ChurchCalendar.currentDate
+        setTitle(fromDate: currentDate)
+        dates = [currentDate-1.months, currentDate, currentDate+1.months]
         
-        calendarDelegate.generateLabels(view)
+        collectionView.register(CalendarViewCell.self, forCellWithReuseIdentifier: CalendarViewCell.cellId)
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
-        refresh()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        let upperBorder = CALayer();
-        upperBorder.backgroundColor = UIColor.lightGray.cgColor;
-        upperBorder.frame = CGRect(x: 0, y: 0, width: collectionView.frame.width, height: 2.0);
-        collectionView.layer.addSublayer(upperBorder)
-    }
-    
-    func doneWithDate(_ recognizer: UITapGestureRecognizer) {
-        let loc = recognizer.location(in: collectionView)
-        var curDate: Date? = nil
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
         
-        if let
-            path = collectionView.indexPathForItem(at: loc),
-            let cell = collectionView.cellForItem(at: path) as? CalendarViewTextCell,
-            let dayNum = Int(cell.dateLabel.text!) {
-                curDate = Date(dayNum, currentDate.month, currentDate.year)
+        if (UIDevice.current.userInterfaceIdiom == .phone) {
+            layout.itemSize = CGSize(width: 300, height: 300)
+        } else {
+            layout.itemSize = CGSize(width: 500, height: 500)
         }
         
-        // delegate.updateDate(curDate)
+        CalendarDelegate.generateLabels(view, container: .mainApp)        
     }
     
-    func refresh() {
-        title = formatter.string(from: currentDate).capitalizingFirstLetter()
-        calendarDelegate.currentDate = currentDate
-        collectionView.reloadData()
-    }
-    
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.scrollToItem(at: IndexPath(item: 1, section: 0), at: .left, animated: false)
 
-    @IBAction func prevMonth(_ sender: AnyObject) {
-        Animation.swipe(orientation: .horizontal,
-                        direction: .negative,
-                        inView: view,
-                        update: {
-                            self.currentDate = self.currentDate - 1.months
-                            self.refresh()
+    }
+    
+    func showInfo() {
+        let vc = UIViewController.named("calendar_info")
+        navigationController?.pushViewController(vc, animated: true)
+    }
+        
+    func setTitle(fromDate date: Date) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "LLLL yyyy"
+        formatter.locale = Locale(identifier: (Translate.language == "en") ? "en" : "zh_CN")
+
+        title = formatter.string(from: date).capitalizingFirstLetter()
+    }
+    
+    func resizeCalendar(_ width: Int, _ height: Int) {
+        collectionView.constraints.forEach { con in
+            if con.identifier == "calendar-width" {
+                con.constant = CGFloat(width)
+                
+            } else if con.identifier == "calendar-height" {
+                con.constant = CGFloat(height)
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dates.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarViewCell.cellId, for: indexPath) as! CalendarViewCell
+        cell.currentDate = dates[indexPath.row]
+        
+        return cell
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let contentOffsetWhenFullyScrolledRight = collectionView.frame.size.width * CGFloat(dates.count - 1)
+        var current = dates[1]
+
+        if scrollView.contentOffset.x == 0 {
+            current = dates[0]
+        } else if scrollView.contentOffset.x == contentOffsetWhenFullyScrolledRight {
+            current = dates[2]
+        }
+        
+        setTitle(fromDate: current)
+
+        collectionView.performBatchUpdates({
+            self.dates[0] = current-1.months
+            self.dates[1] = current
+            self.dates[2] = current+1.months
+            
+        }, completion: { _ in
+            UIView.setAnimationsEnabled(false)
+            self.collectionView.reloadData()
+            self.collectionView.scrollToItem(at: IndexPath(item: 1, section: 0), at: .left, animated: false)
+            UIView.setAnimationsEnabled(true)
         })
-
+        
     }
     
-    @IBAction func nextMonth(_ sender: AnyObject) {
-        Animation.swipe(orientation: .horizontal,
-                        direction: .positive,
-                        inView: view,
-                        update: {
-                            self.currentDate = self.currentDate + 1.months
-                            self.refresh()
-        })
-
-    }
-    
-
 }

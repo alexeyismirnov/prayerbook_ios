@@ -8,16 +8,11 @@
 
 import UIKit
 
-private let reuseIdentifier = "CalendarTextCell"
-
 enum CalendarContainerType: Int {
     case mainApp=0, todayExtension
 }
 
-class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
-    let prefs = UserDefaults(suiteName: groupId)!
-
+class CalendarDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {    
     var cal: Calendar = {
         let c = Calendar.current
         return c
@@ -31,17 +26,13 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
         }
     }
     
-    var formatter: DateFormatter = {
-        var formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .none
-        formatter.dateFormat = "LLLL yyyy"
-        return formatter
-    }()
-    
     var startGap: Int!
     var selectedDate: Date?
     var containerType : CalendarContainerType!
+    var textSize : CGFloat?
+    var themeColor : UIColor?
+    
+    static var isSharing = false
 
     override init() {
         super.init()
@@ -61,7 +52,7 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
     }
 
     @objc func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CalendarViewTextCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarViewTextCell.cellId, for: indexPath) as! CalendarViewTextCell
         
         cell.contentView.backgroundColor =  UIColor.clear
 
@@ -76,11 +67,19 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
         cell.dateLabel.text = String(format: "%d", dayIndex)
         cell.dateLabel.textColor = (Cal.isGreatFeast(curDate)) ? UIColor.red : UIColor.black
         
+        if let textSize = textSize {
+            if Cal.isGreatFeast(curDate) {
+                cell.dateLabel.font = UIFont.boldSystemFont(ofSize: textSize)
+            } else {
+                cell.dateLabel.font = UIFont.systemFont(ofSize: textSize)
+            }
+        }
+        
         if curDate == selectedDate {
-            cell.contentView.backgroundColor = UIColor(hex:"#FF8C00")
+            cell.contentView.backgroundColor = UIColor(hex:"#F0FFFF")
 
         } else {
-            let (fastType, _) = Cal.getFastingDescription(curDate, FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!)
+            let (fastType, _) = Cal.getFastingDescription(curDate, FastingLevel())
             
             if fastType == .noFast || fastType == .noFastMonastic {
                 var textColor:UIColor
@@ -89,7 +88,12 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
                     textColor =  UIColor.red
                     
                 } else if containerType == .mainApp {
-                    textColor =  UIColor.black
+                    if let color = themeColor {
+                        textColor =  CalendarDelegate.isSharing ? .black : color
+                        
+                    } else {
+                        textColor =  .black
+                    }
                     
                 } else if #available(iOS 10.0, *) {
                     textColor =  UIColor.black
@@ -109,17 +113,27 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
         return cell
     }
     
-    @objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let cellWidth = (collectionView.bounds.width) / 7.0
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth = (collectionView.bounds.width-1) / 7.0
         return CGSize(width: cellWidth, height: cellWidth)
     }
-    
-    func generateLabels(_ view: UIView) {
-        formatter.locale = Locale(identifier: (Translate.language == "en") ? "en" : "zh_CN")
-        cal.locale = Locale(identifier: (Translate.language == "en") ? "en" : "zh_CN")
 
-        let dayLabel = formatter.veryShortWeekdaySymbols as [String]
+    static func generateLabels(_ view: UIView, container: CalendarContainerType, standalone : Bool = false, textColor : UIColor? = nil, fontSize : CGFloat? = nil) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "LLLL yyyy"
+        formatter.locale = Locale(identifier: (Translate.language == "en") ? "en" : "zh_CN")
+        
+        var cal = Calendar.current
+        cal.locale = Locale(identifier: (Translate.language == "en") ? "en" : "zh_CN")
+        
+        var dayLabel = [String]()
+        
+        if standalone {
+            dayLabel = formatter.veryShortStandaloneWeekdaySymbols as [String]
+
+        } else {
+            dayLabel = formatter.veryShortWeekdaySymbols as [String]
+        }
         
         for index in cal.firstWeekday...7 {
             if let label = view.viewWithTag(index-cal.firstWeekday+1) as? UILabel {
@@ -135,16 +149,26 @@ class CalendarGridDelegate: NSObject, UICollectionViewDataSource, UICollectionVi
             }
         }
         
+        if let color = textColor,
+           let size = fontSize {
+            for index in 1...7 {
+                if let label = view.viewWithTag(index) as? UILabel {
+                    label.textColor = CalendarDelegate.isSharing ? .black : color
+                    label.font = UIFont.systemFont(ofSize: size)
+                }
+            }
+        }
+        
         if #available(iOS 10.0, *) {
-        } else if containerType == .todayExtension  {
+            
+        } else if container == .todayExtension  {
             for index in 1...7 {
                 if let label = view.viewWithTag(index) as? UILabel {
                     label.textColor = UIColor.white
                 }
             }
         }
-
+        
     }
-    
 
 }

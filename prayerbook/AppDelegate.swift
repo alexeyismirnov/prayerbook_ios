@@ -31,8 +31,10 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
             let date = openDate {
                 root.selectedIndex = 0
                 vc.currentDate = date
-                vc.reload()
-
+            
+                if vc.isViewLoaded {
+                    vc.reload()
+                }
                 openDate = nil
         }
     }
