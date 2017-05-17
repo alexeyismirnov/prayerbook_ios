@@ -36,7 +36,7 @@ class ExpandedViewController: UIViewController {
     
     let prefs = UserDefaults(suiteName: groupId)!
     
-    var calendarDelegate: CalendarGridDelegate!
+    var calendarDelegate: CalendarDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +51,7 @@ class ExpandedViewController: UIViewController {
         buttonRight.imageView?.tintColor = UIColor.white
         buttonRight.setImage(arrowRight, for: UIControlState())
 
-        calendarDelegate = CalendarGridDelegate()
+        calendarDelegate = CalendarDelegate()
         calendarDelegate.containerType = .todayExtension
         collectionView.delegate = calendarDelegate
         collectionView.dataSource = calendarDelegate
@@ -70,8 +70,8 @@ class ExpandedViewController: UIViewController {
             Translate.language = language
         }
         
-        calendarDelegate.generateLabels(view)
-
+        CalendarDelegate.generateLabels(view, container: .todayExtension)
+        
         refresh()
     }
         

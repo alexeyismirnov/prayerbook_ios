@@ -24,7 +24,6 @@
 		8A2197BE1ECAADD6007CB039 /* ChameleonFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2197BD1ECAADD6007CB039 /* ChameleonFramework.framework */; };
 		8A2CD31A1E654DC20060D524 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3171E654DC20060D524 /* CompactViewController.swift */; };
 		8A2CD31B1E654DC20060D524 /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */; };
-		8A2CD31C1E654DC20060D524 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3191E654DC20060D524 /* MainViewController.swift */; };
 		8A2CD31E1E654DD50060D524 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2CD31D1E654DD50060D524 /* MainInterface.storyboard */; };
 		8A2F46A019E110CF00076AF4 /* prayer_group_0_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469C19E110CF00076AF4 /* prayer_group_0_cn.html */; };
 		8A2F46A119E110CF00076AF4 /* prayer_group_0_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469D19E110CF00076AF4 /* prayer_group_0_en.html */; };
@@ -86,6 +85,14 @@
 		8A638C941ECC520B00424A9E /* CalendarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C8E1ECC520B00424A9E /* CalendarInfo.swift */; };
 		8A638C951ECC520B00424A9E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C8F1ECC520B00424A9E /* CalendarView.swift */; };
 		8A638C961ECC520B00424A9E /* CalendarViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C901ECC520B00424A9E /* CalendarViewTextCell.swift */; };
+		8A638C981ECC55B600424A9E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C971ECC55B600424A9E /* MainViewController.swift */; };
+		8A638C991ECC55CA00424A9E /* CalendarWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8A638C9D1ECC56A000424A9E /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C681ECBFA8400424A9E /* Animation.swift */; };
+		8A638C9E1ECC56A000424A9E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C641ECBF60F00424A9E /* Extensions.swift */; };
+		8A638C9F1ECC56A000424A9E /* ChurchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C691ECBFA8400424A9E /* ChurchCalendar.swift */; };
+		8A638CA01ECC56DC00424A9E /* Db.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C631ECBF60F00424A9E /* Db.swift */; };
+		8A638CA11ECC56DC00424A9E /* CalendarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C8C1ECC520B00424A9E /* CalendarDelegate.swift */; };
+		8A638CA21ECC56DC00424A9E /* CalendarViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C901ECC520B00424A9E /* CalendarViewTextCell.swift */; };
 		8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FA198F20CC0078F39F /* Foundation.framework */; };
 		8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */; };
 		8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FE198F20CC0078F39F /* UIKit.framework */; };
@@ -292,6 +299,13 @@
 			remoteGlobalIDString = CDCBEB4B19C5F6F500862BFD;
 			remoteInfo = "Squeal-iOS";
 		};
+		8A638C9A1ECC55CA00424A9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A74D7EF198F20CC0078F39F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AB7499E1C4C7A3400CD1B32;
+			remoteInfo = CalendarWidget;
+		};
 		8AB4F9471BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
@@ -348,6 +362,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8A638C9C1ECC55CA00424A9E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8A638C991ECC55CA00424A9E /* CalendarWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -369,7 +394,6 @@
 		8A2197BD1ECAADD6007CB039 /* ChameleonFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChameleonFramework.framework; path = "../../Derived3/prayerbook-gahulcbgsvzkmfdoornliopgnepy/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework"; sourceTree = "<group>"; };
 		8A2CD3171E654DC20060D524 /* CompactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
 		8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedViewController.swift; sourceTree = "<group>"; };
-		8A2CD3191E654DC20060D524 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8A2CD31D1E654DD50060D524 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		8A2F469C19E110CF00076AF4 /* prayer_group_0_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_0_cn.html; sourceTree = "<group>"; };
 		8A2F469D19E110CF00076AF4 /* prayer_group_0_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_group_0_en.html; sourceTree = "<group>"; };
@@ -432,6 +456,7 @@
 		8A638C8E1ECC520B00424A9E /* CalendarInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarInfo.swift; sourceTree = "<group>"; };
 		8A638C8F1ECC520B00424A9E /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		8A638C901ECC520B00424A9E /* CalendarViewTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewTextCell.swift; sourceTree = "<group>"; };
+		8A638C971ECC55B600424A9E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8A74D7F7198F20CC0078F39F /* ponomar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ponomar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A74D7FA198F20CC0078F39F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -973,9 +998,9 @@
 			isa = PBXGroup;
 			children = (
 				8A2CD31D1E654DD50060D524 /* MainInterface.storyboard */,
+				8A638C971ECC55B600424A9E /* MainViewController.swift */,
 				8A2CD3171E654DC20060D524 /* CompactViewController.swift */,
 				8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */,
-				8A2CD3191E654DC20060D524 /* MainViewController.swift */,
 				8A0F6F5C1C50C4EC0063DBF1 /* CalendarWidget.entitlements */,
 				8AB749A81C4C7A3500CD1B32 /* Info.plist */,
 			);
@@ -1072,11 +1097,13 @@
 				AC7CA402C5C6E3D32ACF0F87 /* [CP] Copy Pods Resources */,
 				8A00C82C1DBF0A82000893A7 /* Embed Frameworks */,
 				C00E30B932C96A083AA35A73 /* [CP] Embed Pods Frameworks */,
+				8A638C9C1ECC55CA00424A9E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				8A00C82B1DBF0A82000893A7 /* PBXTargetDependency */,
+				8A638C9B1ECC55CA00424A9E /* PBXTargetDependency */,
 			);
 			name = ponomar;
 			productName = prayerbook;
@@ -1541,11 +1568,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A638CA01ECC56DC00424A9E /* Db.swift in Sources */,
+				8A638CA11ECC56DC00424A9E /* CalendarDelegate.swift in Sources */,
+				8A638CA21ECC56DC00424A9E /* CalendarViewTextCell.swift in Sources */,
+				8A638C9D1ECC56A000424A9E /* Animation.swift in Sources */,
+				8A638C9E1ECC56A000424A9E /* Extensions.swift in Sources */,
+				8A638C9F1ECC56A000424A9E /* ChurchCalendar.swift in Sources */,
 				8A2CD31A1E654DC20060D524 /* CompactViewController.swift in Sources */,
-				8A2CD31C1E654DC20060D524 /* MainViewController.swift in Sources */,
 				8A2CD31B1E654DC20060D524 /* ExpandedViewController.swift in Sources */,
 				8AC757C21C550BFD0088D4D0 /* Images.xcassets in Sources */,
 				8A0F6F5A1C50C12D0063DBF1 /* Translate.swift in Sources */,
+				8A638C981ECC55B600424A9E /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1556,6 +1589,11 @@
 			isa = PBXTargetDependency;
 			name = "Squeal-iOS";
 			targetProxy = 8A00C82A1DBF0A82000893A7 /* PBXContainerItemProxy */;
+		};
+		8A638C9B1ECC55CA00424A9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8AB7499E1C4C7A3400CD1B32 /* CalendarWidget */;
+			targetProxy = 8A638C9A1ECC55CA00424A9E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1652,6 +1690,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8A851D3E549C35694A51B97D /* Pods-ponomar.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -1682,6 +1721,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 837BEB4B22499DD2905795D3 /* Pods-ponomar.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;

@@ -11,6 +11,8 @@ import NotificationCenter
 
 class MainViewController : UINavigationController, NCWidgetProviding {
     
+    static var icon15x15 = [FeastType: UIImage]()
+
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -20,13 +22,34 @@ class MainViewController : UINavigationController, NCWidgetProviding {
     }
     
     override func viewDidLoad() {
+        var iconColor : UIColor!
+        let size15 = CGSize(width: 15, height: 15)
+
         super.viewDidLoad()
-        
+
         isNavigationBarHidden = true
 
         if #available(iOSApplicationExtension 10.0, *) {
-            extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+            iconColor = .black
             
+        } else {
+            iconColor = .white
+        }
+        
+        if MainViewController.icon15x15.count == 0 {
+            MainViewController.icon15x15 = [
+                .noSign: UIImage(named: "nosign")!.maskWithColor(iconColor).resize(size15),
+                .sixVerse: UIImage(named: "sixverse")!.maskWithColor(iconColor).resize(size15),
+                .doxology: UIImage(named: "doxology")!.resize(size15),
+                .polyeleos: UIImage(named: "polyeleos")!.resize(size15),
+                .vigil: UIImage(named: "vigil")!.resize(size15),
+                .great: UIImage(named: "great")!.resize(size15)
+            ]
+        }
+
+        if #available(iOSApplicationExtension 10.0, *) {
+            extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+
         } else {
             self.preferredContentSize = CGSize(width: 0.0, height: 350)
 
@@ -34,6 +57,7 @@ class MainViewController : UINavigationController, NCWidgetProviding {
             let viewController = storyboard.instantiateViewController(withIdentifier: "Expanded")
             pushViewController(viewController, animated: false)
         }
+        
     }
     
     @available(iOSApplicationExtension 10.0, *)
@@ -66,21 +90,9 @@ class MainViewController : UINavigationController, NCWidgetProviding {
     static func describe(saints: [(FeastType, String)], font: UIFont!) -> NSAttributedString {
         let myString = NSMutableAttributedString(string: "")
         
-        if let iconName = Cal.feastIcon[saints[0].0] {
-            
-            var iconColor:UIColor
-            
-            if #available(iOSApplicationExtension 10.0, *) {
-                iconColor = (saints[0].0 == .noSign || saints[0].0 == .sixVerse) ? UIColor.black : UIColor.red
-            } else {
-                iconColor = (saints[0].0 == .noSign || saints[0].0 == .sixVerse) ? UIColor.white : UIColor.red
-            }
-            
-            let image = UIImage(named: iconName)!.maskWithColor(iconColor)
-            
+        if let _ = Cal.feastIcon[saints[0].0] {
             let attachment = NSTextAttachment()
-            attachment.image = image.resize(CGSize(width: 15, height: 15))
-            
+            attachment.image = MainViewController.icon15x15[saints[0].0]
             attachment.bounds = CGRect(x: 0.0, y: font.descender/2, width: attachment.image!.size.width, height: attachment.image!.size.height)
             
             myString.append(NSAttributedString(attachment: attachment))
