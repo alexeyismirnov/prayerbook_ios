@@ -7,102 +7,178 @@
 //
 
 import UIKit
+import NAModalSheet
 
-var optionsSavedNotification  = "OPTIONS_SAVED"
+let optionsSavedNotification  = "OPTIONS_SAVED"
 let themeChangedNotification  = "THEME_CHANGED"
 
-class Options: UITableViewController {
-    let prefs = UserDefaults(suiteName: groupId)!
-
-    @IBOutlet weak var laymen_label: UILabel!
-    @IBOutlet weak var monastic_label: UILabel!
-    @IBOutlet weak var laymen_lent: UITableViewCell!
-    @IBOutlet weak var monastic_lent: UITableViewCell!
-    @IBOutlet weak var lang_en: UITableViewCell!
-    @IBOutlet weak var lang_cn: UITableViewCell!
-    @IBOutlet weak var doneButton: UIBarButtonItem!
-    @IBOutlet weak var cancelButton: UIBarButtonItem!
+class Options: UITableViewController, NAModalSheetDelegate {
     
+    let prefs = UserDefaults(suiteName: groupId)!
+    var lastSelected: IndexPath?
+    var modalSheet: NAModalSheet!
+    
+    let labels : [(IndexPath, String)] = [
+        (IndexPath(row:0,section:2), "Laymen fasting"),
+        (IndexPath(row:1,section:2), "Monastic fasting"),
+        (IndexPath(row:0,section:3), "Default"),
+        (IndexPath(row:1,section:3), "Choose color...")
+    ]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = Translate.s("Options")
-        cancelButton.title = Translate.s("Cancel")
-        doneButton.title = Translate.s("Done")
+        UITableViewCell.appearance().backgroundColor =  UIColor.white.withAlphaComponent(0.5)
+
+        view.backgroundColor = UIColor.clear
+        tableView.backgroundView = UIImageView(image: UIImage(background: "church.jpg", inView: view))
         
-        laymen_label.text = Translate.s("Laymen fasting")
-        monastic_label.text = Translate.s("Monastic fasting")
+        navigationController?.makeTransparent()
+        navigationController?.navigationBar.tintColor = UIColor.red
         
-        if Translate.language == "en" {
-            lang_en.accessoryType = .checkmark;
-            lang_en.setSelected(true, animated: true)
-            
-        } else {
-            lang_cn.accessoryType = .checkmark;
-            lang_cn.setSelected(true, animated: true)
+        let languageCell = self.tableView(tableView, cellForRowAt: IndexPath(row: Translate.language == "en" ? 0 : 1, section: 1)) as UITableViewCell
+        languageCell.accessoryType = .checkmark
+
+        let fastingCell = self.tableView(tableView, cellForRowAt: IndexPath(row: prefs.integer(forKey: "fastingLevel"), section: 2)) as UITableViewCell
+        fastingCell.accessoryType = .checkmark
+        
+        for (ind, label) in labels {
+            let cell = self.tableView(tableView, cellForRowAt: ind) as UITableViewCell
+            cell.textLabel?.text = Translate.s(label)
         }
         
-        if prefs.integer(forKey: "fastingLevel") == 0 {
-            laymen_lent.accessoryType = .checkmark
-            laymen_lent.setSelected(true, animated: true)
+        let button = UIBarButtonItem(title: Translate.s("Done"), style: .plain, target: self, action: #selector(done))
+        navigationItem.leftBarButtonItem = button
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        
+        if (section > 0) {
+            headerView.layer.opacity = 0.5
+            headerView.contentView.backgroundColor = UIColor.white
+            headerView.backgroundView?.backgroundColor = UIColor.white
             
         } else {
-            monastic_lent.accessoryType = .checkmark
-            monastic_lent.setSelected(true, animated: true)
+            headerView.contentView.backgroundColor = UIColor.clear
+            headerView.backgroundView?.backgroundColor = UIColor.clear
         }
-        
-     }
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section ==  0 {
-            lang_en.accessoryType = .none
-            lang_en.isSelected = false
+        var cell: UITableViewCell
 
-            lang_cn.accessoryType = .none
-            lang_cn.isSelected = false
+        if indexPath.section == 1 || indexPath.section == 2 {
+            cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: indexPath.section)) as UITableViewCell
+            cell.accessoryType = .none
             
-        } else if indexPath.section ==  1 {
-            laymen_lent.accessoryType = .none
-            laymen_lent.isSelected = false
-
-            monastic_lent.accessoryType = .none
-            monastic_lent.isSelected = false
+            cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: indexPath.section)) as UITableViewCell
+            cell.accessoryType = .none
+            
+            cell = self.tableView(tableView, cellForRowAt: indexPath) as UITableViewCell
+            cell.accessoryType = .checkmark
+            
+        } else if indexPath.section == 3 {
+            if indexPath.row == 0 {
+                Theme.set(.Default)
+                
+                prefs.removeObject(forKey: "theme")
+                prefs.synchronize()
+                
+                NotificationCenter.default.post(name: Notification.Name(rawValue: themeChangedNotification), object: nil)
+                self.dismiss(animated: false, completion: {})
+                
+            } else {
+                var width, height : CGFloat
+                
+                if (UIDevice.current.userInterfaceIdiom == .phone) {
+                    width = 300
+                    height = 300
+                    
+                } else {
+                    width = 500
+                    height = 500
+                }
+                
+                let container = UIViewController.named("Palette") as! Palette
+                container.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
+                container.delegate = self
+                
+                modalSheet = NAModalSheet(viewController: container, presentationStyle: .fadeInCentered)
+                modalSheet.setThemeUsingPrimaryColor(.flatSand, with: .contrast)
+                
+                modalSheet.disableBlurredBackground = true
+                modalSheet.cornerRadiusWhenCentered = 10
+                modalSheet.delegate = self
+                modalSheet.adjustContentSize(CGSize(width: width, height: height), animated: false)
+                
+                modalSheet.present(completion: {})
+            }
+            
         }
-
-        let cell: UITableViewCell! = self.tableView.cellForRow(at: indexPath)
-        cell.accessoryType = .checkmark
-        cell.isSelected = true
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
+        if section == 1 {
             return Translate.s("Language")
-        
-        } else if section == 1 {
+            
+        } else if section == 2 {
             return Translate.s("Fasting type")
+            
+        } else if section == 3 {
+            return Translate.s("Background color")
         
-        } else {
+        } else if section == 4 {
             return Translate.s("(C) 2017 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong. This app contains information from ponomar.net and orthodox.cn")
         }
+        
+        return ""
     }
-    
-    @IBAction func cancel(_ sender: AnyObject) {
-        dismiss(animated: true, completion: nil)
-    }
-    
+
     @IBAction func done(_ sender: AnyObject) {
-        let lang = (lang_en.accessoryType == .checkmark) ? "en" : "cn"
-        let fasting = (laymen_lent.accessoryType == .checkmark) ? 0 : 1
-
+        var cell : UITableViewCell
+        
+        cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 2)) as UITableViewCell
+        let fasting = (cell.accessoryType == .checkmark) ? 0 : 1
+        
+        cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 1)) as UITableViewCell
+        let lang = (cell.accessoryType == .checkmark) ? "en" : "cn"
+        
         Translate.language = lang
-
+        
         prefs.set(lang, forKey: "language")
         prefs.set(fasting, forKey: "fastingLevel")
-
         prefs.synchronize()
         
         NotificationCenter.default.post(name: Notification.Name(rawValue: optionsSavedNotification), object: nil)
         dismiss(animated: true, completion: nil)
     }
+    
+    func doneWithColor(_ color: UIColor) {
+        modalSheet.dismiss(completion: {
+            Theme.set(.Chameleon(color: color))
+            
+            self.prefs.set(color, forKey: "theme")
+            self.prefs.synchronize()
+            
+            NotificationCenter.default.post(name: Notification.Name(rawValue: themeChangedNotification), object: nil)
+            self.dismiss(animated: false, completion: {})
+        })
+    }
+    
+    // MARK: NAModalSheetDelegate
+    
+    func modalSheetTouchedOutsideContent(_ sheet: NAModalSheet!) {
+        sheet.dismiss(completion: {})
+    }
+    
+    func modalSheetShouldAutorotate(_ sheet: NAModalSheet!) -> Bool {
+        return shouldAutorotate
+    }
+    
+    func modalSheetSupportedInterfaceOrientations(_ sheet: NAModalSheet!) -> UInt {
+        return supportedInterfaceOrientations.rawValue
+    }
+
 
 }

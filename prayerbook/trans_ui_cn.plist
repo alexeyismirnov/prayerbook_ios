@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Choose color...</key>
+	<string>选择颜色</string>
+	<key>Default</key>
+	<string>默认值</string>
+	<key>Background color</key>
+	<string>背景颜色</string>
 	<key>Laymen fasting</key>
 	<string>外行斋戒</string>
 	<key>Monastic fasting</key>
