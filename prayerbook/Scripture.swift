@@ -24,9 +24,10 @@ class Scripture: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(Scripture.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
 
-        let backButton = UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(Scripture.closeView))
+        let backButton = UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(closeView))
         navigationItem.leftBarButtonItem = backButton
         
         let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in"), style: .plain, target: self, action: #selector(Scripture.zoom_in))
@@ -37,8 +38,20 @@ class Scripture: UIViewController {
         
         fontSize = prefs.integer(forKey: "fontSize")
 
+        reloadTheme()
+    }
+    
+    func reloadTheme() {
+        if let bgColor = Theme.mainColor {
+            view.backgroundColor =  bgColor
+            
+        } else {
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view))
+        }
+        
         reload()
     }
+
     
     func zoom_in() {
         fontSize += 2
@@ -68,6 +81,7 @@ class Scripture: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         textView.setContentOffset(CGPoint.zero, animated: false)
     }
     
@@ -105,7 +119,7 @@ class Scripture: UIViewController {
     static func decorateLine(_ verse:Int64, _ content:String, _ fontSize:Int) -> NSMutableAttributedString {
         var text : NSMutableAttributedString? = nil
         text = text + ("\(verse) ", UIColor.red)
-        text = text + (content, UIColor.black)
+        text = text + (content, Theme.textColor)
         text = text + "\n"
         
         text!.addAttribute(NSFontAttributeName,
@@ -136,7 +150,8 @@ class Scripture: UIViewController {
                 bookName = NSMutableAttributedString(
                     string: Translate.s(bookTuple[0].0) + " " + pericope[i+1],
                     attributes: [NSParagraphStyleAttributeName: centerStyle,
-                        NSFontAttributeName: UIFont.boldSystemFont(ofSize: CGFloat(fontSize)) ])
+                        NSFontAttributeName: UIFont.boldSystemFont(ofSize: CGFloat(fontSize)),
+                        NSForegroundColorAttributeName: Theme.textColor  ])
                 
             } else {
                 bookName = NSMutableAttributedString(string: Translate.s(bookTuple[0].0))
