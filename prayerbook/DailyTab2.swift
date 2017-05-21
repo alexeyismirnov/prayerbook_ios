@@ -104,16 +104,15 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     }
     
     func hasTypica() -> Bool {
-        return false
-        /*
-         if (currentDate > Cal.d(.beginningOfGreatLent) && currentDate < Cal.d(.sunday2AfterPascha) ||
-         Cal.currentWeekday != .sunday) {
-         return false
+        if Translate.language != "cn" {
+            return false
+        }
+        if (currentDate > Cal.d(.beginningOfGreatLent) && currentDate < Cal.d(.sunday2AfterPascha) || Cal.currentWeekday != .sunday) {
+            return false
          
-         } else {
-         return true
-         }
-         */
+        } else {
+            return true
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -278,7 +277,11 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
                 let currentReading = readings[indexPath.row].components(separatedBy: "#")
                 
                 title = Translate.readings(currentReading[0])
-                subtitle = (currentReading.count > 1) ? Translate.s(currentReading[1].trimmingCharacters(in: CharacterSet.whitespaces)) : ""
+                if Translate.language == "cn" {
+                    subtitle = ""
+                } else {
+                    subtitle = (currentReading.count > 1) ? Translate.s(currentReading[1].trimmingCharacters(in: CharacterSet.whitespaces)) : ""
+                }
                 
             default:
                 title = ""
@@ -309,15 +312,11 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
             
             
         } else if indexPath.section == 3 {
-            let cell = getSimpleCell()
+            let cell: TextDetailsCell = getCell()
+            cell.title.textColor = Theme.textColor
+            cell.title.text = Translate.s("Typica")
+            cell.subtitle.text = ""
             
-            /*
-             let cell: TextDetailsCell = getCell()
-             cell.title.textColor = Theme.textColor
-             cell.title.text = Translate.s("Typica")
-             cell.subtitle.text = ""
-             cell.accessoryType = .disclosureIndicator
-             */
             return cell
             
         } else if indexPath.section == 4 {

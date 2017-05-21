@@ -26,6 +26,7 @@
 		8A26E7771ED15A5700071C66 /* Scripture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26E7751ED15A5700071C66 /* Scripture.swift */; };
 		8A26E7791ED15AEE00071C66 /* FastingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26E7781ED15AEE00071C66 /* FastingViewController.swift */; };
 		8A26E77C1ED15FEC00071C66 /* FastingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A26E77B1ED15FEC00071C66 /* FastingViewController.xib */; };
+		8A26E7891ED19C5300071C66 /* widget.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8A26E7881ED19C5300071C66 /* widget.mp4 */; };
 		8A2CD31A1E654DC20060D524 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3171E654DC20060D524 /* CompactViewController.swift */; };
 		8A2CD31B1E654DC20060D524 /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */; };
 		8A2CD31E1E654DD50060D524 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2CD31D1E654DD50060D524 /* MainInterface.storyboard */; };
@@ -262,7 +263,6 @@
 		8AEB1AAE1B7C261E003DD686 /* saints_12_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AEB1AAC1B7C261E003DD686 /* saints_12_cn.sqlite */; };
 		8AEB1AAF1B7C261E003DD686 /* saints_12_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AEB1AAD1B7C261E003DD686 /* saints_12_cn.txt */; };
 		8AEB5AD51B3410B000CCFC72 /* trans_cal_cn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AEB5AD41B3410B000CCFC72 /* trans_cal_cn.plist */; };
-		8AEB65D81C62E17C00ABD976 /* widget.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8AEB65D71C62E17C00ABD976 /* widget.mp4 */; };
 		8AEC2B0C1B52600900A94FA6 /* trans_library_cn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AEC2B0B1B52600900A94FA6 /* trans_library_cn.plist */; };
 		8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */; };
 		8AF163941B1418880093CC77 /* saints_06_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AF163921B1418880093CC77 /* saints_06_en.sqlite */; };
@@ -398,6 +398,7 @@
 		8A26E7751ED15A5700071C66 /* Scripture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripture.swift; sourceTree = "<group>"; };
 		8A26E7781ED15AEE00071C66 /* FastingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastingViewController.swift; sourceTree = "<group>"; };
 		8A26E77B1ED15FEC00071C66 /* FastingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FastingViewController.xib; sourceTree = "<group>"; };
+		8A26E7881ED19C5300071C66 /* widget.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = widget.mp4; sourceTree = "<group>"; };
 		8A2CD3171E654DC20060D524 /* CompactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
 		8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedViewController.swift; sourceTree = "<group>"; };
 		8A2CD31D1E654DD50060D524 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
@@ -636,7 +637,6 @@
 		8AEB1AAC1B7C261E003DD686 /* saints_12_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_12_cn.sqlite; sourceTree = "<group>"; };
 		8AEB1AAD1B7C261E003DD686 /* saints_12_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_12_cn.txt; sourceTree = "<group>"; };
 		8AEB5AD41B3410B000CCFC72 /* trans_cal_cn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_cal_cn.plist; sourceTree = "<group>"; };
-		8AEB65D71C62E17C00ABD976 /* widget.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = widget.mp4; sourceTree = "<group>"; };
 		8AEC2B0B1B52600900A94FA6 /* trans_library_cn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_library_cn.plist; sourceTree = "<group>"; };
 		8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		8AF163921B1418880093CC77 /* saints_06_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_06_en.sqlite; sourceTree = "<group>"; };
@@ -754,7 +754,7 @@
 				8A74D857199076EF0078F39F /* html */,
 				8A74D844198F624C0078F39F /* images */,
 				8A74D832198F224E0078F39F /* Main.storyboard */,
-				8AEB65D71C62E17C00ABD976 /* widget.mp4 */,
+				8A26E7881ED19C5300071C66 /* widget.mp4 */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
 				8A638C681ECBFA8400424A9E /* Animation.swift */,
 				8A2F46A619E12B4100076AF4 /* AppDelegate.swift */,
@@ -1267,6 +1267,7 @@
 				8A8D4E151B64A349002C614F /* rev_cn.sqlite in Resources */,
 				8A81857F19D2E3F300D4B328 /* prayer_communion_0_cn.html in Resources */,
 				8AC1B115199871DE00A017C7 /* trans_ui_cn.plist in Resources */,
+				8A26E7891ED19C5300071C66 /* widget.mp4 in Resources */,
 				8A3A21171A46C0150052861D /* 2thess_en.sqlite in Resources */,
 				8A181E0F1B1D3C9A00D8C2FB /* saints_01_en.txt in Resources */,
 				8A3A21211A46C0150052861D /* rom_en.sqlite in Resources */,
@@ -1298,7 +1299,6 @@
 				8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */,
 				8A2F46A119E110CF00076AF4 /* prayer_group_0_en.html in Resources */,
 				8A8D4E1B1B64AC8F002C614F /* gen_cn.sqlite in Resources */,
-				8AEB65D81C62E17C00ABD976 /* widget.mp4 in Resources */,
 				8A41936319E6921600D570A9 /* food-egg.pdf in Resources */,
 				8A9A3DE219D3AE2800A7D82A /* prayer_group_2_en.html in Resources */,
 				8A8810EA1A300DE40095C081 /* mark_en.sqlite in Resources */,

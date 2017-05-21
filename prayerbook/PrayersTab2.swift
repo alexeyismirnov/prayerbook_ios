@@ -97,7 +97,7 @@ class PrayersTab2: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerView = view as! UITableViewHeaderFooterView
         headerView.textLabel?.textColor = Theme.textColor
-        headerView.textLabel?.text="qqq"
+        headerView.textLabel?.text=""
         headerView.contentView.backgroundColor = UIColor.clear
         headerView.backgroundView?.backgroundColor = UIColor.clear
     }
