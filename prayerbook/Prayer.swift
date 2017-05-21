@@ -17,6 +17,26 @@ class Prayer: UIViewController {
     var code:String!
     var name:String!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(Prayer.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
+
+        reloadTheme()
+    }
+
+    func reloadTheme() {
+        if let bgColor = Theme.mainColor {
+            view.backgroundColor =  bgColor
+            
+        } else {
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view))
+        }
+        
+        reload()
+    }
+    
     func reload() {
         let filename = String(format: "prayer_%@_%d_%@.html", code, index, Translate.language)
         let bundleName = Bundle.main.path(forResource: filename, ofType: nil)
@@ -25,6 +45,9 @@ class Prayer: UIViewController {
         fontSize = prefs.integer(forKey: "fontSize")
         txt = txt.replacingOccurrences(of: "FONTSIZE", with: "\(fontSize)px")
         
+        let hexColor = Theme.textColor.toHexString()
+        txt = txt.replacingOccurrences(of: "FONTCOLOR", with: "\(hexColor)")
+
         if (code == "typica") {
             let tone = Cal.getTone(Cal.currentDate)
             txt = txt.replacingOccurrences(of: "GLAS", with: Translate.stringFromNumber(tone!))
@@ -55,26 +78,18 @@ class Prayer: UIViewController {
             
         }
         
-        let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in"), style: .plain, target: self, action: #selector(Prayer.zoom_in))
-        let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out"), style: .plain, target: self, action: #selector(Prayer.zoom_out))
+        let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in"), style: .plain, target: self, action: #selector(self.zoom_in))
+        let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out"), style: .plain, target: self, action: #selector(self.zoom_out))
         
         button_zoom_in.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
-        
-        webView.paginationBreakingMode = UIWebPaginationBreakingMode.page
-        webView.paginationMode = UIWebPaginationMode.leftToRight
-        webView.scrollView.isPagingEnabled = true
-        webView.scrollView.bounces = false
-        
-        webView.loadHTMLString(txt, baseURL: nil)
-        title = Translate.s(name)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(Prayer.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
-        reload()
+        webView.loadHTMLString(txt, baseURL: nil)
+        
+        webView.backgroundColor = .clear
+        webView.isOpaque = false
+
+        title = Translate.s(name)
     }
     
     func zoom_in() {

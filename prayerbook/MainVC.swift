@@ -73,12 +73,12 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
             inView.addSubview(toView!)
             
             UIView.animate(withDuration: self.transitionDuration(using: transitionContext),
-                           delay: 0,
-                           usingSpringWithDamping: DampingConstant,
-                           initialSpringVelocity: InitialVelocity,
-                           options: UIViewAnimationOptions(rawValue: 0),
-                           animations: { fromView!.frame = leftRect; toView!.frame = centerRect },
-                           completion: { (value:Bool) in transitionContext.completeTransition(true) } )
+                   delay: 0,
+                   usingSpringWithDamping: DampingConstant,
+                   initialSpringVelocity: InitialVelocity,
+                   options: UIViewAnimationOptions(rawValue: 0),
+                   animations: { fromView!.frame = leftRect; toView!.frame = centerRect },
+                   completion: { (value:Bool) in transitionContext.completeTransition(true) } )
             
             
         } else {
@@ -86,12 +86,12 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
             inView.addSubview(toView!)
             
             UIView.animate(withDuration: transitionDuration(using: transitionContext),
-                           delay: Foundation.TimeInterval(0),
-                           usingSpringWithDamping: DampingConstant,
-                           initialSpringVelocity: -InitialVelocity,
-                           options: UIViewAnimationOptions(rawValue: 0),
-                           animations: { fromView!.frame = rightRect; toView!.frame = centerRect },
-                           completion: { (value:Bool) in transitionContext.completeTransition(true) } )
+                   delay: Foundation.TimeInterval(0),
+                   usingSpringWithDamping: DampingConstant,
+                   initialSpringVelocity: -InitialVelocity,
+                   options: UIViewAnimationOptions(rawValue: 0),
+                   animations: { fromView!.frame = rightRect; toView!.frame = centerRect },
+                   completion: { (value:Bool) in transitionContext.completeTransition(true) } )
             
         }
     }
