@@ -420,7 +420,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         } else {
             switch (indexPath.section, indexPath.row) {
             case (0,0):
-                return 55
+                return 35
                 
             case (1,_), (2,_):
                 return 35
