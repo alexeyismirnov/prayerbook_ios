@@ -39,15 +39,6 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
         return self
     }
 
-    func findIndex<S: Sequence>(_ sequence: S, predicate: (S.Iterator.Element) -> Bool) -> Int? {
-        for (index, element) in sequence.enumerated() {
-            if predicate(element) {
-                return index
-            }
-        }
-        return nil
-    }
-
     func animationEnded(_ transitionCompleted: Bool) {
         
     }

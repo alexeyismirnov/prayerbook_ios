@@ -117,10 +117,10 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
         if ["iPhone 5", "iPhone 5s", "iPhone 5c", "iPhone 4", "iPhone 4s", "iPhone SE"].contains(UIDevice.modelName) {
             YC.config = YC.iPhone5sConfig
         
-        } else if ["iPhone 6", "iPhone 6s", "iPhone 7"].contains(UIDevice.modelName) {
+        } else if ["iPhone 6", "iPhone 6s", "iPhone 7", "iPhone 8"].contains(UIDevice.modelName) {
             YC.config = YC.iPhoneConfig
             
-        } else if ["iPhone 6 Plus", "iPhone 6s Plus", "iPhone 7 Plus"].contains(UIDevice.modelName) {
+        } else if ["iPhone 6 Plus", "iPhone 6s Plus", "iPhone 7 Plus", "iPhone 8 Plus"].contains(UIDevice.modelName) {
             YC.config = YC.iPhonePlusConfig
 
         } else  if (UIDevice.current.userInterfaceIdiom == .phone) {
