@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A00C81D1DBEFE50000893A7 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; };
-		8A00C81E1DBEFE56000893A7 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; };
-		8A00C8281DBF0A82000893A7 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; };
-		8A00C8291DBF0A82000893A7 /* Squeal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		64DBF1D9FA05BFA4C1D30D35 /* Pods_CalendarWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8187A24DCCFEA2A4EFC32F44 /* Pods_CalendarWidget.framework */; };
 		8A06E66F1B187FC300925F63 /* saints_12_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A06E66D1B187FC300925F63 /* saints_12_en.sqlite */; };
 		8A06E6701B187FC300925F63 /* saints_12_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A06E66E1B187FC300925F63 /* saints_12_en.txt */; };
 		8A08D8D81B71D4DD00495BEB /* saints_03_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A08D8D61B71D4DD00495BEB /* saints_03_cn.sqlite */; };
@@ -71,6 +68,7 @@
 		8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */; };
 		8A59F34D1B14371800B15FA1 /* saints_07_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A59F34B1B14371800B15FA1 /* saints_07_en.sqlite */; };
 		8A59F34E1B14371800B15FA1 /* saints_07_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A59F34C1B14371800B15FA1 /* saints_07_en.txt */; };
+		8A60D18D1F8885040023CFAE /* newicon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A60D18C1F8885040023CFAE /* newicon_1024.png */; };
 		8A638C5A1ECBF5AE00424A9E /* bg3@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A638C571ECBF5AE00424A9E /* bg3@2x.jpg */; };
 		8A638C5B1ECBF5AE00424A9E /* church@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A638C581ECBF5AE00424A9E /* church@2x.jpg */; };
 		8A638C5C1ECBF5AE00424A9E /* question.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A638C591ECBF5AE00424A9E /* question.pdf */; };
@@ -290,65 +288,16 @@
 		8AFAA3991B12E90B001699D6 /* saints_05_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AFAA3981B12E90B001699D6 /* saints_05_en.txt */; };
 		8AFB8DEB1B1FDC12006715A3 /* saints_03_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AFB8DE91B1FDC12006715A3 /* saints_03_en.sqlite */; };
 		8AFB8DEC1B1FDC12006715A3 /* saints_03_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AFB8DEA1B1FDC12006715A3 /* saints_03_en.txt */; };
-		E0A9836CDA7708D955E60F0A /* Pods_ponomar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C178967DF3E947D091585D6 /* Pods_ponomar.framework */; };
+		D8747E0B1509E9D5240A9B66 /* Pods_ponomar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A60D18B1F88822B0023CFAE /* Pods_ponomar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8A00C82A1DBF0A82000893A7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CDCBEB4B19C5F6F500862BFD;
-			remoteInfo = "Squeal-iOS";
-		};
 		8A638C9A1ECC55CA00424A9E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8A74D7EF198F20CC0078F39F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8AB7499E1C4C7A3400CD1B32;
 			remoteInfo = CalendarWidget;
-		};
-		8AB4F9471BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CD7247F71996880300151E1E;
-			remoteInfo = "Squeal-OSX";
-		};
-		8AB4F9491BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CD7248021996880300151E1E;
-			remoteInfo = "Squeal-OSXTests";
-		};
-		8AB4F94B1BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CDCBEB4C19C5F6F500862BFD;
-			remoteInfo = "Squeal-iOS";
-		};
-		8AB4F94D1BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CDCBEB5619C5F6F500862BFD;
-			remoteInfo = "Squeal-iOSTests";
-		};
-		8AB4F94F1BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CD3DE27919BCD44B00DED437;
-			remoteInfo = "SquealSpecHelpers-OSX";
-		};
-		8AB4F9511BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CDCBEB7019C5F77900862BFD;
-			remoteInfo = "SquealSpecHelpers-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -359,7 +308,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8A00C8291DBF0A82000893A7 /* Squeal.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +328,7 @@
 /* Begin PBXFileReference section */
 		4C178967DF3E947D091585D6 /* Pods_ponomar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ponomar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8187A24DCCFEA2A4EFC32F44 /* Pods_CalendarWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalendarWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		837BEB4B22499DD2905795D3 /* Pods-ponomar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ponomar.release.xcconfig"; path = "Pods/Target Support Files/Pods-ponomar/Pods-ponomar.release.xcconfig"; sourceTree = "<group>"; };
 		8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8A06E66D1B187FC300925F63 /* saints_12_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_12_en.sqlite; sourceTree = "<group>"; };
@@ -444,6 +393,8 @@
 		8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		8A59F34B1B14371800B15FA1 /* saints_07_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_07_en.sqlite; sourceTree = "<group>"; };
 		8A59F34C1B14371800B15FA1 /* saints_07_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_07_en.txt; sourceTree = "<group>"; };
+		8A60D18B1F88822B0023CFAE /* Pods_ponomar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ponomar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A60D18C1F8885040023CFAE /* newicon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_1024.png; sourceTree = "<group>"; };
 		8A638C571ECBF5AE00424A9E /* bg3@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg3@2x.jpg"; sourceTree = "<group>"; };
 		8A638C581ECBF5AE00424A9E /* church@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "church@2x.jpg"; sourceTree = "<group>"; };
 		8A638C591ECBF5AE00424A9E /* question.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = question.pdf; sourceTree = "<group>"; };
@@ -567,7 +518,6 @@
 		8AB0DCA21C27F00400C6A494 /* ReadingMatthew.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingMatthew.plist; sourceTree = "<group>"; };
 		8AB4E2B21B20168E0015E19B /* saints_04_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_04_en.sqlite; sourceTree = "<group>"; };
 		8AB4E2B31B20168E0015E19B /* saints_04_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_04_en.txt; sourceTree = "<group>"; };
-		8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Squeal.xcodeproj; path = ../Squeal/Squeal.xcodeproj; sourceTree = "<group>"; };
 		8AB62A651C180F4F001ACD2A /* zoom_in.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = zoom_in.pdf; sourceTree = "<group>"; };
 		8AB62A661C180F4F001ACD2A /* zoom_out.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = zoom_out.pdf; sourceTree = "<group>"; };
 		8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalendarWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -664,6 +614,8 @@
 		8AFAA3981B12E90B001699D6 /* saints_05_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_05_en.txt; sourceTree = "<group>"; };
 		8AFB8DE91B1FDC12006715A3 /* saints_03_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_03_en.sqlite; sourceTree = "<group>"; };
 		8AFB8DEA1B1FDC12006715A3 /* saints_03_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_03_en.txt; sourceTree = "<group>"; };
+		C38CBCE20E8FB7F697A383E6 /* Pods-CalendarWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalendarWidget/Pods-CalendarWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		E4427FB252A60BF99A197663 /* Pods-CalendarWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalendarWidget/Pods-CalendarWidget.release.xcconfig"; sourceTree = "<group>"; };
 		FB949D5EE4022DBBF8C2E216 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -673,14 +625,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A2197BE1ECAADD6007CB039 /* ChameleonFramework.framework in Frameworks */,
-				8A00C81D1DBEFE50000893A7 /* Squeal.framework in Frameworks */,
 				8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */,
 				8AF249841AFF4C64000070C0 /* libsqlite3.dylib in Frameworks */,
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
-				8A00C8281DBF0A82000893A7 /* Squeal.framework in Frameworks */,
-				E0A9836CDA7708D955E60F0A /* Pods_ponomar.framework in Frameworks */,
+				D8747E0B1509E9D5240A9B66 /* Pods_ponomar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,8 +638,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A00C81E1DBEFE56000893A7 /* Squeal.framework in Frameworks */,
 				8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */,
+				64DBF1D9FA05BFA4C1D30D35 /* Pods_CalendarWidget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,6 +653,8 @@
 				5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */,
 				8A851D3E549C35694A51B97D /* Pods-ponomar.debug.xcconfig */,
 				837BEB4B22499DD2905795D3 /* Pods-ponomar.release.xcconfig */,
+				C38CBCE20E8FB7F697A383E6 /* Pods-CalendarWidget.debug.xcconfig */,
+				E4427FB252A60BF99A197663 /* Pods-CalendarWidget.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -711,7 +663,6 @@
 			isa = PBXGroup;
 			children = (
 				8A0F6F5B1C50C4BE0063DBF1 /* ponomar.entitlements */,
-				8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */,
 				8A74D800198F20CC0078F39F /* prayerbook */,
 				8AB749A21C4C7A3500CD1B32 /* CalendarWidget */,
 				8A74D7F9198F20CC0078F39F /* Frameworks */,
@@ -732,6 +683,7 @@
 		8A74D7F9198F20CC0078F39F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A60D18B1F88822B0023CFAE /* Pods_ponomar.framework */,
 				8A2197BD1ECAADD6007CB039 /* ChameleonFramework.framework */,
 				8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */,
 				8AF249831AFF4C64000070C0 /* libsqlite3.dylib */,
@@ -741,6 +693,7 @@
 				FB949D5EE4022DBBF8C2E216 /* libPods.a */,
 				8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */,
 				4C178967DF3E947D091585D6 /* Pods_ponomar.framework */,
+				8187A24DCCFEA2A4EFC32F44 /* Pods_CalendarWidget.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -839,6 +792,7 @@
 				8AF37E551B36C7A500101148 /* newicon_152.png */,
 				8A540B671E6C296D00970420 /* newicon_167.png */,
 				8AF37E561B36C7A500101148 /* newicon_180.png */,
+				8A60D18C1F8885040023CFAE /* newicon_1024.png */,
 				8AF37E361B36B1FD00101148 /* launch-hd4.7.png */,
 				8AF37E371B36B1FD00101148 /* launch-hd5.5-landscape.png */,
 				8AF37E381B36B1FD00101148 /* launch-hd5.5.png */,
@@ -987,19 +941,6 @@
 			path = scripture;
 			sourceTree = "<group>";
 		};
-		8AB4F93D1BB9203900B3EE96 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8AB4F9481BB9203A00B3EE96 /* Squeal.framework */,
-				8AB4F94A1BB9203A00B3EE96 /* Squeal-OSXTests.xctest */,
-				8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */,
-				8AB4F94E1BB9203A00B3EE96 /* Squeal-iOSTests.xctest */,
-				8AB4F9501BB9203A00B3EE96 /* SquealSpecHelpers.framework */,
-				8AB4F9521BB9203A00B3EE96 /* SquealSpecHelpers.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		8AB749A21C4C7A3500CD1B32 /* CalendarWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -1108,7 +1049,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				8A00C82B1DBF0A82000893A7 /* PBXTargetDependency */,
 				8A638C9B1ECC55CA00424A9E /* PBXTargetDependency */,
 			);
 			name = ponomar;
@@ -1120,9 +1060,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8AB749B31C4C7A3500CD1B32 /* Build configuration list for PBXNativeTarget "CalendarWidget" */;
 			buildPhases = (
+				79CF8D701927D75E8DA3231B /* [CP] Check Pods Manifest.lock */,
 				8AB7499B1C4C7A3400CD1B32 /* Sources */,
 				8AB7499C1C4C7A3400CD1B32 /* Frameworks */,
 				8AB7499D1C4C7A3400CD1B32 /* Resources */,
+				11F5A15F0D502CF0C384EACB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1180,12 +1122,6 @@
 			mainGroup = 8A74D7EE198F20CC0078F39F;
 			productRefGroup = 8A74D7F8198F20CC0078F39F /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 8AB4F93D1BB9203900B3EE96 /* Products */;
-					ProjectRef = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				8A74D7F6198F20CC0078F39F /* ponomar */,
@@ -1193,51 +1129,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		8AB4F9481BB9203A00B3EE96 /* Squeal.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Squeal.framework;
-			remoteRef = 8AB4F9471BB9203A00B3EE96 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8AB4F94A1BB9203A00B3EE96 /* Squeal-OSXTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Squeal-OSXTests.xctest";
-			remoteRef = 8AB4F9491BB9203A00B3EE96 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Squeal.framework;
-			remoteRef = 8AB4F94B1BB9203A00B3EE96 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8AB4F94E1BB9203A00B3EE96 /* Squeal-iOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Squeal-iOSTests.xctest";
-			remoteRef = 8AB4F94D1BB9203A00B3EE96 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8AB4F9501BB9203A00B3EE96 /* SquealSpecHelpers.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SquealSpecHelpers.framework;
-			remoteRef = 8AB4F94F1BB9203A00B3EE96 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8AB4F9521BB9203A00B3EE96 /* SquealSpecHelpers.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SquealSpecHelpers.framework;
-			remoteRef = 8AB4F9511BB9203A00B3EE96 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8A74D7F5198F20CC0078F39F /* Resources */ = {
@@ -1364,6 +1255,7 @@
 				8A74D84E198F691A0078F39F /* US.png in Resources */,
 				8A8E99AB1B76F8E3006B6377 /* saints_05_cn.sqlite in Resources */,
 				8A3A211A1A46C0150052861D /* col_en.sqlite in Resources */,
+				8A60D18D1F8885040023CFAE /* newicon_1024.png in Resources */,
 				8A8D4E081B64A349002C614F /* 2pet_cn.sqlite in Resources */,
 				8A81858919D2E3F300D4B328 /* prayer_daily_0_cn.html in Resources */,
 				8A8810E91A300DE40095C081 /* luke_en.sqlite in Resources */,
@@ -1485,6 +1377,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		11F5A15F0D502CF0C384EACB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalendarWidget/Pods-CalendarWidget-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79CF8D701927D75E8DA3231B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		AC7CA402C5C6E3D32ACF0F87 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1593,11 +1515,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8A00C82B1DBF0A82000893A7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Squeal-iOS";
-			targetProxy = 8A00C82A1DBF0A82000893A7 /* PBXContainerItemProxy */;
-		};
 		8A638C9B1ECC55CA00424A9E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8AB7499E1C4C7A3400CD1B32 /* CalendarWidget */;
@@ -1712,7 +1629,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1744,7 +1661,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1759,6 +1676,7 @@
 		};
 		8AB749AC1C4C7A3500CD1B32 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C38CBCE20E8FB7F697A383E6 /* Pods-CalendarWidget.debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = CalendarWidget/CalendarWidget.entitlements;
@@ -1770,7 +1688,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rlc.ponomar.CalendarWidget;
@@ -1785,6 +1703,7 @@
 		};
 		8AB749AD1C4C7A3500CD1B32 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4427FB252A60BF99A197663 /* Pods-CalendarWidget.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = CalendarWidget/CalendarWidget.entitlements;
@@ -1796,7 +1715,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rlc.ponomar.CalendarWidget;

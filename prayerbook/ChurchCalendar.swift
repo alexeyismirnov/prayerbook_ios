@@ -408,6 +408,9 @@ struct ChurchCalendar {
             greatLentStart-15.days:                   [.sundayOfProdigalSon],
             greatLentStart-9.days:                    [.saturdayOfDeparted],
             greatLentStart-8.days:                    [.sundayOfDreadJudgement],
+        ]
+        
+        movingFeasts += [
             greatLentStart-2.days:                    [.saturdayOfFathers],
             greatLentStart-1.days:                    [.cheesefareSunday],
             greatLentStart:                           [.beginningOfGreatLent],
@@ -420,15 +423,21 @@ struct ChurchCalendar {
             pascha+7.days:                            [.sunday2AfterPascha],
             pascha+14.days:                           [.sunday3AfterPascha],
             pascha+21.days:                           [.sunday4AfterPascha],
+        ]
+        
+        movingFeasts += [
             pascha+28.days:                           [.sunday5AfterPascha],
             pascha+35.days:                           [.sunday6AfterPascha],
             pascha+42.days:                           [.sunday7AfterPascha],
+        ]
+        
+        movingFeasts += [
             pascha+39.days:                           [.ascension],
             pascha+48.days:                           [.saturdayTrinity],
             pascha+49.days:                           [.pentecost],
             pascha+57.days:                           [.beginningOfApostolesFast],
         ]
-    
+        
         let fixedFeasts : [Date: [NameOfDay]] = [
             Date(1,  1, year):   [.startOfYear],
             Date(6,  1, year):   [.eveOfNativityOfGod],
