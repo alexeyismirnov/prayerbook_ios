@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import swift_toolkit
 
 let NewTestament: [(String, String)] = [
     ("Gospel of St Matthew", "matthew"),

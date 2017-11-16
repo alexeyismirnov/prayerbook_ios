@@ -9,8 +9,9 @@
 import UIKit
 import Squeal
 import NAModalSheet
+import swift_toolkit
 
-class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, NAModalSheetDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource, NAModalSheetDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,8 +25,6 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         .great: UIImage(named: "great")!.resize(size15)
     ]
     
-    var animation = DailyAnimator()
-    var animationInteractive = DailyAnimatorInteractive()
     var appeared = false
     
     var fasting: (FastingType, String) = (.vegetarian, "")
@@ -69,14 +68,27 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     }()
     
     var modalSheet: NAModalSheet!
+    var popup : PopupController!
     
     static var background : UIImage?
     static let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     static func date(_ date: Date) -> UIViewController {
-        let vc = storyboard.instantiateViewController(withIdentifier: "Daily2") as! DailyTab2
+        let vc = UIViewController.named("Daily2") as! DailyTab2
         vc.currentDate = date
         return vc
+    }
+    
+    override func viewControllerCurrent() -> UIViewController {
+        return DailyTab2.date(currentDate)
+    }
+    
+    override func viewControllerForward() -> UIViewController {
+        return DailyTab2.date(currentDate + 1.days)
+    }
+    
+    override func viewControllerBackward() -> UIViewController {
+        return DailyTab2.date(currentDate - 1.days)
     }
     
     override func viewDidLoad() {
@@ -95,13 +107,6 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: NSNotification.Name(rawValue: dateChangedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showYearlyCalendar), name: NSNotification.Name(rawValue:showYearlyNotification), object: nil)
-
-        navigationController?.delegate = self
-        animationInteractive.completionSpeed = 0.999
-        
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan))
-        pan.delegate = self
-        view.addGestureRecognizer(pan)
 
         let prefs = UserDefaults(suiteName: groupId)!
 
@@ -198,23 +203,6 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         headerView.contentView.backgroundColor = UIColor.clear
         headerView.backgroundView?.backgroundColor = UIColor.clear
         headerView.textLabel?.textColor = Theme.secondaryColor
-    }
-    
-    func getCell<T: ConfigurableCell>() -> T {
-        if let newCell  = tableView.dequeueReusableCell(withIdentifier: T.cellId) as? T {
-            newCell.accessoryType = .none
-            newCell.backgroundColor = .clear
-            return newCell
-            
-        } else {
-            return T(style: UITableViewCellStyle.default, reuseIdentifier: T.cellId)
-        }
-    }
-    
-    func getSimpleCell() -> UITableViewCell {
-        let newCell  = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        newCell.accessoryType = .none
-        return newCell
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -482,15 +470,6 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         }
     }
     
-    func calculateHeightForCell(_ cell: UITableViewCell) -> CGFloat {
-        cell.bounds = CGRect(x: 0, y: 0, width: tableView.frame.width, height: cell.bounds.height)
-        cell.setNeedsLayout()
-        cell.layoutIfNeeded()
-        
-        let size = cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
-        return size.height+1.0
-    }
-    
     func reloadTheme() {
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor
@@ -544,91 +523,12 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         navigationItem.rightBarButtonItems = [button_options, button_widget]
     }
     
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        return (animation.direction != .none) ? animation : nil
-    }
-    
-    func navigationController(_ navigationController: UINavigationController,
-                              interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        
-        return (animation.direction != .none) ? animationInteractive : nil
-    }
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if let recognizer = gestureRecognizer as? UIPanGestureRecognizer {
-            let velocity = recognizer.velocity(in: view)
-            return abs(velocity.x) > abs(velocity.y)
-        }
-        
-        return true
-    }
-    
-    func didPan(recognizer: UIPanGestureRecognizer) {
-        switch recognizer.state {
-        case .began:
-            let velocity = recognizer.velocity(in: view)
-            animationInteractive.velocity = velocity
-            
-            if velocity.x < 0 {
-                animation.direction = .positive
-                navigationController?.pushViewController(DailyTab2.date(currentDate + 1.days), animated: true)
-                
-            } else {
-                animation.direction = .negative
-                navigationController?.pushViewController(DailyTab2.date(currentDate - 1.days), animated: true)
-            }
-            
-        case .changed:
-            animationInteractive.handlePan(recognizer: recognizer)
-            
-        case .ended:
-            animationInteractive.handlePan(recognizer: recognizer)
-            
-            if animationInteractive.cancelled {
-                let vc = DailyTab2.date(currentDate)
-                navigationController?.setViewControllers([vc], animated: false)
-                
-            } else {
-                let top = navigationController?.topViewController!
-                navigationController?.setViewControllers([top!], animated: false)
-            }
-            
-        default:
-            break
-        }
-    }
-    
     func showMonthlyCalendar() {
-        var width, height : CGFloat
+        DateViewCell.textColor = nil
+        DateViewCell.textSize = nil
         
-        if (UIDevice.current.userInterfaceIdiom == .phone) {
-            width = 300
-            height = 350
-            
-        } else {
-            width = 500
-            height = 530
-        }
+        popup = CalendarContainer.show(inVC: self.navigationController!, cellReuseIdentifier: "DateViewCell", cellNibName: "DateViewCell")
         
-        let container = UIViewController.named("CalendarContainer") as! UINavigationController
-        container.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
-        container.navigationBar.barTintColor = UIColor(hex: "#FFEBCD")
-        container.navigationBar.tintColor = .blue
-        container.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black]
-
-        modalSheet = NAModalSheet(viewController: container, presentationStyle: .fadeInCentered)
-        
-        modalSheet.disableBlurredBackground = true
-        modalSheet.cornerRadiusWhenCentered = 10
-        modalSheet.delegate = self
-        modalSheet.adjustContentSize(CGSize(width: width, height: height), animated: false)
-        
-        modalSheet.present(completion: {})
     }
     
     func showYearlyCalendar() {
@@ -641,8 +541,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     }
     
     func updateDate(_ notification: NSNotification) {
-        modalSheet.dismiss(completion: {
-        })
+        popup.dismiss()
         
         if let newDate = notification.userInfo?["date"] as? Date {
             currentDate = newDate

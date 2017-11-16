@@ -65,12 +65,10 @@
 		8A0B4CFD1C8C1ECF00747BB4 /* rev_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4CDF1C8C1ECF00747BB4 /* rev_ru.sqlite */; };
 		8A0B4CFE1C8C1ECF00747BB4 /* rom_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4CE01C8C1ECF00747BB4 /* rom_ru.sqlite */; };
 		8A0B4CFF1C8C1ECF00747BB4 /* tit_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4CE11C8C1ECF00747BB4 /* tit_ru.sqlite */; };
-		8A0F6F581C50C0F30063DBF1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */; };
 		8A0F6F591C50C0FF0063DBF1 /* ChurchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */; };
 		8A0F6F5A1C50C12D0063DBF1 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A819E1302700076AF4 /* Translate.swift */; };
 		8A0F6F5D1C50C8820063DBF1 /* CalendarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F31C2027BC006F2505 /* CalendarDelegate.swift */; };
 		8A0F6F5E1C50C8910063DBF1 /* CalendarViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */; };
-		8A11B2A11DB86BD70083CD77 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; };
 		8A1F2C981DD9B0F000F13A3D /* newicon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2C971DD9B0F000F13A3D /* newicon_1024.png */; };
 		8A1F2CA51DD9B5C500F13A3D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CA11DD9B5C500F13A3D /* Default-568h@2x.png */; };
 		8A1F2CA61DD9B5C500F13A3D /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CA21DD9B5C500F13A3D /* Default-667h@2x.png */; };
@@ -94,7 +92,7 @@
 		8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */; };
 		8A41936319E6921600D570A9 /* food-egg.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936119E6921600D570A9 /* food-egg.pdf */; };
 		8A41936419E6921600D570A9 /* food-milk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936219E6921600D570A9 /* food-milk.pdf */; };
-		8A419E2A1C268D01003AA378 /* CalendarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A419E291C268D01003AA378 /* CalendarContainer.swift */; };
+		8A419E2A1C268D01003AA378 /* CalendarContainerOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A419E291C268D01003AA378 /* CalendarContainerOld.swift */; };
 		8A5457501E6FD13500A86B5A /* RTFDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54574F1E6FD13500A86B5A /* RTFDocument.swift */; };
 		8A5457551E6FEACA00A86B5A /* church@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A5457541E6FEACA00A86B5A /* church@2x.jpg */; };
 		8A5457701E70174300A86B5A /* church_history.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54575B1E70174300A86B5A /* church_history.rtf */; };
@@ -122,8 +120,6 @@
 		8A54C42A1EA74CE90083AA2F /* DailyTab2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C4291EA74CE90083AA2F /* DailyTab2.swift */; };
 		8A54C42C1EA760E30083AA2F /* Library2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C42B1EA760E30083AA2F /* Library2.swift */; };
 		8A58D17C1EBB0C46006CA4AC /* share.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A58D17B1EBB0C46006CA4AC /* share.pdf */; };
-		8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */; };
-		8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */; };
 		8A71C9F21E9E2F2A0069E7A4 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A71C9F11E9E2F2A0069E7A4 /* Theme.swift */; };
 		8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FA198F20CC0078F39F /* Foundation.framework */; };
 		8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */; };
@@ -135,6 +131,9 @@
 		8A76870C1EB72A6E000F7533 /* YearlyMonthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */; };
 		8A76870D1EB72A6E000F7533 /* YearlyMonthViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */; };
 		8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A81FB4D1C1ECB7600D28F58 /* Appirater.m */; };
+		8A8D2FB21FBC368500A54147 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */; };
+		8A8D2FB51FBC458C00A54147 /* DateViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */; };
+		8A8D2FB61FBC458C00A54147 /* DateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */; };
 		8A953B371DC736C2001062AF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A953B361DC736C2001062AF /* MainViewController.swift */; };
 		8AADFF521E84C25300CE3D0F /* synaxarion21.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF441E84C25300CE3D0F /* synaxarion21.rtf */; };
 		8AADFF531E84C25300CE3D0F /* synaxarion22.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF451E84C25300CE3D0F /* synaxarion22.rtf */; };
@@ -151,7 +150,6 @@
 		8AADFF5E1E84C25300CE3D0F /* synaxarion33.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF501E84C25300CE3D0F /* synaxarion33.rtf */; };
 		8AADFF5F1E84C25300CE3D0F /* synaxarion34.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF511E84C25300CE3D0F /* synaxarion34.rtf */; };
 		8AADFF6E1E84F28900CE3D0F /* feofan.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF6D1E84F28900CE3D0F /* feofan.sqlite */; };
-		8AAE4D831AC8E332009421AF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAE4D821AC8E332009421AF /* ImageCell.swift */; };
 		8AB018E11C5EED5D00DE96B0 /* Db.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFC27C1A2C8DF800BAACE0 /* Db.swift */; };
 		8AB0DC951C27EFEC00C6A494 /* typica_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC8D1C27EFEC00C6A494 /* typica_1.plist */; };
 		8AB0DC961C27EFEC00C6A494 /* typica_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC8E1C27EFEC00C6A494 /* typica_2.plist */; };
@@ -171,7 +169,6 @@
 		8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */; };
 		8AB749A41C4C7A3500CD1B32 /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB749A31C4C7A3500CD1B32 /* ExpandedViewController.swift */; };
 		8AB749A71C4C7A3500CD1B32 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AB749A51C4C7A3500CD1B32 /* MainInterface.storyboard */; };
-		8AB749AB1C4C7A3500CD1B32 /* CalendarWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8ABAFC461C0B0385008DB93C /* prayer_typica_0_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8ABAFC441C0B0385008DB93C /* prayer_typica_0_cn.html */; };
 		8ABAFC491C0B03A9008DB93C /* prayer_typica_0_ru.html in Resources */ = {isa = PBXBuildFile; fileRef = 8ABAFC481C0B03A9008DB93C /* prayer_typica_0_ru.html */; };
 		8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */; };
@@ -200,8 +197,6 @@
 		8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89319E4CECB00B51294 /* arrow-right.pdf */; };
 		8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89619E4D1DE00B51294 /* calendar.pdf */; };
 		8AC833DA1EC07A69007B4CFD /* widget.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8AC833D91EC07A68007B4CFD /* widget.mp4 */; };
-		8AC966121BE5DB3D00841FEE /* Squeal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8ACEF0FB1A2EDF5100AF98E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */; };
 		8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */; };
 		8AE36B2C1C97B228005CAD8D /* food-nothing.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE36B281C97B228005CAD8D /* food-nothing.pdf */; };
 		8AE36B2D1C97B228005CAD8D /* food-pizza.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE36B291C97B228005CAD8D /* food-pizza.pdf */; };
@@ -216,8 +211,6 @@
 		8AE718D51C560CC30035CDCE /* fat-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE718D41C560CC30035CDCE /* fat-right.pdf */; };
 		8AE74D921B9C103B000DD7D2 /* close2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE74D911B9C103B000DD7D2 /* close2.pdf */; };
 		8AE7CEF61EA4D07300EEA03C /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE7CEF51EA4D07300EEA03C /* CalendarView.swift */; };
-		8AE821F91AC55D8D000460C1 /* RWLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821F81AC55D8D000460C1 /* RWLabel.swift */; };
-		8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821FA1AC560FE000460C1 /* TextCell.swift */; };
 		8AEA68321C8FFA9F009E9FD8 /* trans_ui_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */; };
 		8AEA68391C90028B009E9FD8 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEA68381C90028B009E9FD8 /* Prayer.swift */; };
 		8AEBFAA31C8D16A30056F97B /* Reading_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AEBFAA21C8D16A30056F97B /* Reading_ru.plist */; };
@@ -241,65 +234,6 @@
 		8AF37E5F1B36C7A500101148 /* newicon_180.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E561B36C7A500101148 /* newicon_180.png */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		8AB4F9471BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CD7247F71996880300151E1E;
-			remoteInfo = "Squeal-OSX";
-		};
-		8AB4F9491BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CD7248021996880300151E1E;
-			remoteInfo = "Squeal-OSXTests";
-		};
-		8AB4F94B1BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CDCBEB4C19C5F6F500862BFD;
-			remoteInfo = "Squeal-iOS";
-		};
-		8AB4F94D1BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CDCBEB5619C5F6F500862BFD;
-			remoteInfo = "Squeal-iOSTests";
-		};
-		8AB4F94F1BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CD3DE27919BCD44B00DED437;
-			remoteInfo = "SquealSpecHelpers-OSX";
-		};
-		8AB4F9511BB9203A00B3EE96 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CDCBEB7019C5F77900862BFD;
-			remoteInfo = "SquealSpecHelpers-iOS";
-		};
-		8AB749A91C4C7A3500CD1B32 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A74D7EF198F20CC0078F39F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8AB7499E1C4C7A3400CD1B32;
-			remoteInfo = CalendarWidget;
-		};
-		8AC966131BE5DB3D00841FEE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CDCBEB4B19C5F6F500862BFD;
-			remoteInfo = "Squeal-iOS";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		8AB749B41C4C7A3500CD1B32 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -307,7 +241,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				8AB749AB1C4C7A3500CD1B32 /* CalendarWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,7 +251,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8AC966121BE5DB3D00841FEE /* Squeal.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,7 +348,7 @@
 		8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-cupcake.pdf"; sourceTree = "<group>"; };
 		8A41936119E6921600D570A9 /* food-egg.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-egg.pdf"; sourceTree = "<group>"; };
 		8A41936219E6921600D570A9 /* food-milk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-milk.pdf"; sourceTree = "<group>"; };
-		8A419E291C268D01003AA378 /* CalendarContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarContainer.swift; sourceTree = "<group>"; };
+		8A419E291C268D01003AA378 /* CalendarContainerOld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarContainerOld.swift; sourceTree = "<group>"; };
 		8A54574F1E6FD13500A86B5A /* RTFDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTFDocument.swift; sourceTree = "<group>"; };
 		8A5457541E6FEACA00A86B5A /* church@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "church@2x.jpg"; sourceTree = "<group>"; };
 		8A54575B1E70174300A86B5A /* church_history.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = church_history.rtf; sourceTree = "<group>"; };
@@ -444,8 +376,6 @@
 		8A54C4291EA74CE90083AA2F /* DailyTab2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab2.swift; sourceTree = "<group>"; };
 		8A54C42B1EA760E30083AA2F /* Library2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library2.swift; sourceTree = "<group>"; };
 		8A58D17B1EBB0C46006CA4AC /* share.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = share.pdf; sourceTree = "<group>"; };
-		8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDetailsCell.swift; sourceTree = "<group>"; };
-		8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
 		8A71C9F11E9E2F2A0069E7A4 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		8A74D7F7198F20CC0078F39F /* ponomar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ponomar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A74D7FA198F20CC0078F39F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -462,6 +392,9 @@
 		8A81FB4C1C1ECB7600D28F58 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		8A81FB4D1C1ECB7600D28F58 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		8A81FB4E1C1ECB7600D28F58 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
+		8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = swift_toolkit.framework; path = Carthage/Build/iOS/swift_toolkit.framework; sourceTree = "<group>"; };
+		8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateViewCell.xib; sourceTree = "<group>"; };
+		8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewCell.swift; sourceTree = "<group>"; };
 		8A953B361DC736C2001062AF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8A9A36D81CAD127400D33D5A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8AADFF441E84C25300CE3D0F /* synaxarion21.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion21.rtf; sourceTree = "<group>"; };
@@ -479,7 +412,6 @@
 		8AADFF501E84C25300CE3D0F /* synaxarion33.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion33.rtf; sourceTree = "<group>"; };
 		8AADFF511E84C25300CE3D0F /* synaxarion34.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion34.rtf; sourceTree = "<group>"; };
 		8AADFF6D1E84F28900CE3D0F /* feofan.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = feofan.sqlite; sourceTree = "<group>"; };
-		8AAE4D821AC8E332009421AF /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		8AB0DC8D1C27EFEC00C6A494 /* typica_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_1.plist; sourceTree = "<group>"; };
 		8AB0DC8E1C27EFEC00C6A494 /* typica_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_2.plist; sourceTree = "<group>"; };
 		8AB0DC8F1C27EFEC00C6A494 /* typica_3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_3.plist; sourceTree = "<group>"; };
@@ -493,7 +425,6 @@
 		8AB0DCA01C27F00400C6A494 /* ReadingLent.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingLent.plist; sourceTree = "<group>"; };
 		8AB0DCA11C27F00400C6A494 /* ReadingLuke.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingLuke.plist; sourceTree = "<group>"; };
 		8AB0DCA21C27F00400C6A494 /* ReadingMatthew.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingMatthew.plist; sourceTree = "<group>"; };
-		8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Squeal.xcodeproj; path = ../Squeal/Squeal.xcodeproj; sourceTree = "<group>"; };
 		8AB62A651C180F4F001ACD2A /* zoom_in.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = zoom_in.pdf; sourceTree = "<group>"; };
 		8AB62A661C180F4F001ACD2A /* zoom_out.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = zoom_out.pdf; sourceTree = "<group>"; };
 		8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalendarWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -528,7 +459,6 @@
 		8AC7B89319E4CECB00B51294 /* arrow-right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-right.pdf"; sourceTree = "<group>"; };
 		8AC7B89619E4D1DE00B51294 /* calendar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = calendar.pdf; sourceTree = "<group>"; };
 		8AC833D91EC07A68007B4CFD /* widget.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = widget.mp4; sourceTree = "<group>"; };
-		8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyReading.swift; sourceTree = "<group>"; };
 		8AE36B281C97B228005CAD8D /* food-nothing.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-nothing.pdf"; sourceTree = "<group>"; };
 		8AE36B291C97B228005CAD8D /* food-pizza.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-pizza.pdf"; sourceTree = "<group>"; };
@@ -543,8 +473,6 @@
 		8AE718D41C560CC30035CDCE /* fat-right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-right.pdf"; sourceTree = "<group>"; };
 		8AE74D911B9C103B000DD7D2 /* close2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = close2.pdf; sourceTree = "<group>"; };
 		8AE7CEF51EA4D07300EEA03C /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		8AE821F81AC55D8D000460C1 /* RWLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWLabel.swift; sourceTree = "<group>"; };
-		8AE821FA1AC560FE000460C1 /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_ui_ru.plist; sourceTree = "<group>"; };
 		8AEA68381C90028B009E9FD8 /* Prayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
 		8AEBFAA21C8D16A30056F97B /* Reading_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Reading_ru.plist; sourceTree = "<group>"; };
@@ -580,6 +508,7 @@
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
+				8A8D2FB21FBC368500A54147 /* swift_toolkit.framework in Frameworks */,
 				2E71B668DEB751741778939D /* Pods_ponomar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,7 +517,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A11B2A11DB86BD70083CD77 /* Squeal.framework in Frameworks */,
 				8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,7 +538,6 @@
 		8A74D7EE198F20CC0078F39F = {
 			isa = PBXGroup;
 			children = (
-				8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */,
 				8A0F6F5B1C50C4BE0063DBF1 /* ponomar.entitlements */,
 				8A74D800198F20CC0078F39F /* prayerbook */,
 				8AB749A21C4C7A3500CD1B32 /* CalendarWidget */,
@@ -632,6 +559,7 @@
 		8A74D7F9198F20CC0078F39F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */,
 				8A2197D91ECAD486007CB039 /* ChameleonFramework.framework */,
 				8A1DD3221E9CC82A00A04024 /* NAModalSheet.framework */,
 				8A9A36D81CAD127400D33D5A /* libsqlite3.tbd */,
@@ -658,19 +586,15 @@
 				8A74D832198F224E0078F39F /* Main.storyboard */,
 				8AC833D91EC07A68007B4CFD /* widget.mp4 */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
+				8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */,
+				8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */,
 				8AC2780A1C61D48A00436D51 /* Tutorial.swift */,
 				8A2F46A619E12B4100076AF4 /* AppDelegate.swift */,
 				8A71C9F11E9E2F2A0069E7A4 /* Theme.swift */,
 				8A298C471DD41DFC006A25F9 /* Animation.swift */,
-				8ACEF0FA1A2EDF5100AF98E0 /* Extensions.swift */,
 				8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */,
 				8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */,
 				8A2F46A819E1302700076AF4 /* Translate.swift */,
-				8AE821F81AC55D8D000460C1 /* RWLabel.swift */,
-				8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */,
-				8AE821FA1AC560FE000460C1 /* TextCell.swift */,
-				8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */,
-				8AAE4D821AC8E332009421AF /* ImageCell.swift */,
 				8AEFC27C1A2C8DF800BAACE0 /* Db.swift */,
 				8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */,
 				8A54C4291EA74CE90083AA2F /* DailyTab2.swift */,
@@ -685,7 +609,7 @@
 				8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */,
 				8A24F52E1EB98A1700CE19E7 /* CalendarImageCell.swift */,
 				8AE46EFD1EA9A6F900CAC1CB /* CalendarInfo.swift */,
-				8A419E291C268D01003AA378 /* CalendarContainer.swift */,
+				8A419E291C268D01003AA378 /* CalendarContainerOld.swift */,
 				8AE7CEF51EA4D07300EEA03C /* CalendarView.swift */,
 				8A0132F31C2027BC006F2505 /* CalendarDelegate.swift */,
 				8A0132F51C2029F5006F2505 /* CalendarViewTextCell.swift */,
@@ -866,19 +790,6 @@
 			path = scripture;
 			sourceTree = "<group>";
 		};
-		8AB4F93D1BB9203900B3EE96 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8AB4F9481BB9203A00B3EE96 /* Squeal.framework */,
-				8AB4F94A1BB9203A00B3EE96 /* Squeal-OSXTests.xctest */,
-				8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */,
-				8AB4F94E1BB9203A00B3EE96 /* Squeal-iOSTests.xctest */,
-				8AB4F9501BB9203A00B3EE96 /* SquealSpecHelpers.framework */,
-				8AB4F9521BB9203A00B3EE96 /* SquealSpecHelpers.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		8AB749A21C4C7A3500CD1B32 /* CalendarWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -960,12 +871,11 @@
 				8AC966151BE5DB3D00841FEE /* Embed Frameworks */,
 				8AB749B41C4C7A3500CD1B32 /* Embed App Extensions */,
 				7C98CB98B97156383C636D41 /* [CP] Embed Pods Frameworks */,
+				8A8D2FB71FBC4F4500A54147 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8AC966141BE5DB3D00841FEE /* PBXTargetDependency */,
-				8AB749AA1C4C7A3500CD1B32 /* PBXTargetDependency */,
 			);
 			name = ponomar;
 			productName = prayerbook;
@@ -1004,7 +914,7 @@
 					8A74D7F6198F20CC0078F39F = {
 						DevelopmentTeam = 3NQ697ND22;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1015,7 +925,7 @@
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 3NQ697ND22;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1034,12 +944,6 @@
 			mainGroup = 8A74D7EE198F20CC0078F39F;
 			productRefGroup = 8A74D7F8198F20CC0078F39F /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 8AB4F93D1BB9203900B3EE96 /* Products */;
-					ProjectRef = 8AB4F93C1BB9203900B3EE96 /* Squeal.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				8A74D7F6198F20CC0078F39F /* ponomar */,
@@ -1047,51 +951,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		8AB4F9481BB9203A00B3EE96 /* Squeal.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Squeal.framework;
-			remoteRef = 8AB4F9471BB9203A00B3EE96 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8AB4F94A1BB9203A00B3EE96 /* Squeal-OSXTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Squeal-OSXTests.xctest";
-			remoteRef = 8AB4F9491BB9203A00B3EE96 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8AB4F94C1BB9203A00B3EE96 /* Squeal.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Squeal.framework;
-			remoteRef = 8AB4F94B1BB9203A00B3EE96 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8AB4F94E1BB9203A00B3EE96 /* Squeal-iOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Squeal-iOSTests.xctest";
-			remoteRef = 8AB4F94D1BB9203A00B3EE96 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8AB4F9501BB9203A00B3EE96 /* SquealSpecHelpers.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SquealSpecHelpers.framework;
-			remoteRef = 8AB4F94F1BB9203A00B3EE96 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8AB4F9521BB9203A00B3EE96 /* SquealSpecHelpers.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SquealSpecHelpers.framework;
-			remoteRef = 8AB4F9511BB9203A00B3EE96 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8A74D7F5198F20CC0078F39F /* Resources */ = {
@@ -1218,6 +1077,7 @@
 				8A0B4CFD1C8C1ECF00747BB4 /* rev_ru.sqlite in Resources */,
 				8A1F2CB41DD9C18600F13A3D /* newicon_167.png in Resources */,
 				8A0B4CB71C8C1E8000747BB4 /* saints_09_ru.sqlite in Resources */,
+				8A8D2FB51FBC458C00A54147 /* DateViewCell.xib in Resources */,
 				8A5457701E70174300A86B5A /* church_history.rtf in Resources */,
 				8A0B4CF31C8C1ECF00747BB4 /* isa_ru.sqlite in Resources */,
 				8AC6952719E4011700773FEB /* library.pdf in Resources */,
@@ -1295,14 +1155,35 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ponomar/Pods-ponomar-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/NAModalSheet/NAModalSheet.framework",
+				"${BUILT_PRODUCTS_DIR}/Squeal/Squeal.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NAModalSheet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Squeal.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ponomar/Pods-ponomar-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8A8D2FB71FBC4F4500A54147 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/swift_toolkit.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		AC7CA402C5C6E3D32ACF0F87 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1325,13 +1206,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ponomar-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1350,26 +1234,21 @@
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
 				8AEFC27B1A2C747700BAACE0 /* Scripture.swift in Sources */,
 				8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */,
-				8AAE4D831AC8E332009421AF /* ImageCell.swift in Sources */,
 				8A2F46A919E1302700076AF4 /* Translate.swift in Sources */,
 				8A24F52F1EB98A1700CE19E7 /* CalendarImageCell.swift in Sources */,
 				8A76870C1EB72A6E000F7533 /* YearlyMonthViewCell.swift in Sources */,
-				8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */,
 				8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
-				8AE821F91AC55D8D000460C1 /* RWLabel.swift in Sources */,
 				8A54C42C1EA760E30083AA2F /* Library2.swift in Sources */,
+				8A8D2FB61FBC458C00A54147 /* DateViewCell.swift in Sources */,
 				8AC2780B1C61D48A00436D51 /* Tutorial.swift in Sources */,
-				8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */,
 				8A54C4211EA70C7D0083AA2F /* Palette.swift in Sources */,
-				8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */,
 				8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */,
 				8AEA68391C90028B009E9FD8 /* Prayer.swift in Sources */,
-				8A419E2A1C268D01003AA378 /* CalendarContainer.swift in Sources */,
+				8A419E2A1C268D01003AA378 /* CalendarContainerOld.swift in Sources */,
 				8A2F46AB19E145D200076AF4 /* Options.swift in Sources */,
 				8AE7CEF61EA4D07300EEA03C /* CalendarView.swift in Sources */,
-				8ACEF0FB1A2EDF5100AF98E0 /* Extensions.swift in Sources */,
 				8AE5DEF819E7A80B0069C757 /* ChurchCalendar.swift in Sources */,
 				8A298C481DD41DFC006A25F9 /* Animation.swift in Sources */,
 				8A54C42A1EA74CE90083AA2F /* DailyTab2.swift in Sources */,
@@ -1389,26 +1268,12 @@
 				8A0F6F5A1C50C12D0063DBF1 /* Translate.swift in Sources */,
 				8A0F6F591C50C0FF0063DBF1 /* ChurchCalendar.swift in Sources */,
 				8A953B371DC736C2001062AF /* MainViewController.swift in Sources */,
-				8A0F6F581C50C0F30063DBF1 /* Extensions.swift in Sources */,
 				8A339AD81DC83F7B0026FD10 /* CompactViewController.swift in Sources */,
 				8AB749A41C4C7A3500CD1B32 /* ExpandedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8AB749AA1C4C7A3500CD1B32 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8AB7499E1C4C7A3400CD1B32 /* CalendarWidget */;
-			targetProxy = 8AB749A91C4C7A3500CD1B32 /* PBXContainerItemProxy */;
-		};
-		8AC966141BE5DB3D00841FEE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Squeal-iOS";
-			targetProxy = 8AC966131BE5DB3D00841FEE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8AB749A51C4C7A3500CD1B32 /* MainInterface.storyboard */ = {
@@ -1462,7 +1327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1502,7 +1367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1518,15 +1383,20 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ponomar.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Russian Language Center Limited (3NQ697ND22)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Russian Language Center Limited (3NQ697ND22)";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3NQ697ND22;
 				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1535,8 +1405,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "5f015fd0-95ae-4e2c-abe7-cecf67f21894";
+				PROVISIONING_PROFILE_SPECIFIER = "cal-ru";
 				"SWIFT_INCLUDE_PATHS[arch=*]" = "$(PROJECT_DIR)/../Squeal/modules";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "prayerbook/prayerbook-Bridging-Header.h";
@@ -1555,15 +1425,20 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ponomar.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Russian Language Center Limited (3NQ697ND22)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Russian Language Center Limited (3NQ697ND22)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 3NQ697ND22;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1572,8 +1447,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "5f015fd0-95ae-4e2c-abe7-cecf67f21894";
+				PROVISIONING_PROFILE_SPECIFIER = "cal-ru";
 				"SWIFT_INCLUDE_PATHS[arch=*]" = "$(PROJECT_DIR)/../Squeal/modules";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "prayerbook/prayerbook-Bridging-Header.h";
@@ -1587,21 +1462,22 @@
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = CalendarWidget/CalendarWidget.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Russian Language Center Limited (3NQ697ND22)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Russian Language Center Limited (3NQ697ND22)";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 3NQ697ND22;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru.CalendarWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "791a01b1-76e6-43f3-9e7b-2456e494a6bf";
+				PROVISIONING_PROFILE_SPECIFIER = "cal-ru-widget";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1613,21 +1489,22 @@
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = CalendarWidget/CalendarWidget.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Russian Language Center Limited (3NQ697ND22)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Russian Language Center Limited (3NQ697ND22)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3NQ697ND22;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru.CalendarWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "791a01b1-76e6-43f3-9e7b-2456e494a6bf";
+				PROVISIONING_PROFILE_SPECIFIER = "cal-ru-widget";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
