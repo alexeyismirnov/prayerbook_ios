@@ -106,7 +106,6 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: NSNotification.Name(rawValue: dateChangedNotification), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showYearlyCalendar), name: NSNotification.Name(rawValue:showYearlyNotification), object: nil)
 
         let prefs = UserDefaults(suiteName: groupId)!
 
@@ -228,7 +227,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
                 }
                 
                 if let toneDescription = Cal.getToneDescription(currentDate) {
-                    if descr.characters.count > 0 {
+                    if descr.count > 0 {
                         descr += "; "
                     }
                     descr += toneDescription
@@ -267,7 +266,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
                     
                     let dayString = dayDescription[indexPath.row-2].1
                     let day = NSMutableAttributedString(string: dayString)
-                    day.addAttribute(NSForegroundColorAttributeName, value: Theme.textColor!, range: NSMakeRange(0, dayString.characters.count))
+                    day.addAttribute(NSForegroundColorAttributeName, value: Theme.textColor!, range: NSMakeRange(0, dayString.count))
                     myString.append(day)
                     
                     cell.title.attributedText = myString
@@ -376,7 +375,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
                 
                 let saintString = saints[indexPath.row].1
                 let saint = NSMutableAttributedString(string: saintString)
-                saint.addAttribute(NSForegroundColorAttributeName, value: Theme.textColor!, range: NSMakeRange(0, saintString.characters.count))
+                saint.addAttribute(NSForegroundColorAttributeName, value: Theme.textColor!, range: NSMakeRange(0, saintString.count))
                 myString.append(saint)
                 
                 if appeared {
@@ -527,17 +526,32 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         DateViewCell.textColor = nil
         DateViewCell.textSize = nil
         
-        popup = CalendarContainer.show(inVC: self.navigationController!, cellReuseIdentifier: "DateViewCell", cellNibName: "DateViewCell")
+        let image = UIImage(named: "question")!.withRenderingMode(.alwaysOriginal)
+        let button_info = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showInfo))
+        let button_year = UIBarButtonItem(title: "Год", style: .plain, target: self, action: #selector(showYear))
         
+        button_year.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.black], for: .normal)
+        
+        popup =  CalendarContainer.show(inVC: self.navigationController!,
+                                        cellReuseIdentifier: "DateViewCell",
+                                        cellNibName: "DateViewCell",
+                                        leftButton: button_year,
+                                        rightButton: button_info)
     }
     
-    func showYearlyCalendar() {
-        modalSheet.dismiss(completion: {
+    func showYear() {        
+        popup.dismiss({
             let vc = UIViewController.named("yearly") as! YearlyCalendar
             let nav = UINavigationController(rootViewController: vc)
             
             self.navigationController?.present(nav, animated: true, completion: {})
         })
+        
+    }
+    
+    func showInfo() {
+        print("show info")
+
     }
     
     func updateDate(_ notification: NSNotification) {

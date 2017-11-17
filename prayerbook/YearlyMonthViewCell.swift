@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import swift_toolkit
 
 class YearlyMonthViewCell: UICollectionViewCell {
     static let cellId = "YearlyMonthViewCell"
@@ -24,12 +25,12 @@ class YearlyMonthViewCell: UICollectionViewCell {
 
             monthLabel.text = formatter.string(from: currentDate).capitalizingFirstLetter()
             monthLabel.font = UIFont.systemFont(ofSize: YC.config.titleFontSize)
-            monthLabel.textColor = CalendarDelegate.isSharing ? .black : Theme.textColor
+            monthLabel.textColor = YearlyCalendar.isSharing ? .black : Theme.textColor
 
             calendarDelegate.currentDate = currentDate
             collectionView.reloadData()
             
-            CalendarDelegate.generateLabels(self, container: .mainApp, standalone: true, textColor: Theme.textColor, fontSize: YC.config.fontSize)
+            CalendarContainer.generateLabels(self, standalone: true, textColor: YearlyCalendar.isSharing ? .black : Theme.textColor, fontSize: YC.config.fontSize)
         }
     }
     
@@ -43,19 +44,20 @@ class YearlyMonthViewCell: UICollectionViewCell {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .vertical
-        
-        collectionView.register(CalendarViewTextCell.self, forCellWithReuseIdentifier: CalendarViewTextCell.cellId)
-        
+                
         calendarDelegate = CalendarDelegate()
-        calendarDelegate.containerType = .mainApp
+
+        let cellId = "DateViewCell"
+        collectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
+        calendarDelegate.cellReuseIdentifier = cellId
         
-        calendarDelegate.textSize = YC.config.fontSize
-        calendarDelegate.themeColor = CalendarDelegate.isSharing ? .black : Theme.textColor
+        DateViewCell.textColor = YearlyCalendar.isSharing ? .black : Theme.textColor
+        DateViewCell.textSize = YC.config.fontSize
         
         collectionView.delegate = calendarDelegate
         collectionView.dataSource = calendarDelegate
         
-        collectionView.layer.addBorder(edge: .top, color: CalendarDelegate.isSharing ? .black : Theme.secondaryColor, thickness: 1)
+        collectionView.layer.addBorder(edge: .top, color: YearlyCalendar.isSharing ? .black : Theme.secondaryColor, thickness: 1)
 
     }
 

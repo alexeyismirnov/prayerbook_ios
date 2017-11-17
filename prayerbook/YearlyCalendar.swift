@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import swift_toolkit
 
 struct YearlyCalendarConfig {
     var insets : CGFloat
@@ -68,9 +69,10 @@ class TopAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout
     }
 }
 
-class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var collectionView: UICollectionView!
     
+    static var isSharing = false
     static var config : YearlyCalendarConfig!
 
     static let iPhone5sConfig = YearlyCalendarConfig(insets: 10,
@@ -100,15 +102,24 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
     var year = Cal.currentYear!
     let numCols:CGFloat = 3
     
-    var animation = DailyAnimator()
-    var animationInteractive = DailyAnimatorInteractive()
-    
     static let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
     static func year(_ year: Int) -> UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "yearly") as! YearlyCalendar
         vc.year = year
         return vc
+    }
+    
+    override func viewControllerCurrent() -> UIViewController {
+        return YC.year(year)
+    }
+    
+    override func viewControllerForward() -> UIViewController {
+        return YC.year(year+1)
+    }
+    
+    override func viewControllerBackward() -> UIViewController {
+        return YC.year(year-1)
     }
     
     override func viewDidLoad() {
@@ -139,7 +150,6 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
 
         navigationController?.makeTransparent()
         automaticallyAdjustsScrollViewInsets = false
-
         
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor
@@ -161,13 +171,7 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
         
         collectionView.collectionViewLayout  = layout
         collectionView.reloadData()
-        
-        navigationController?.delegate = self
-        animationInteractive.completionSpeed = 0.999
-        
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan))
-        pan.delegate = self
-        view.addGestureRecognizer(pan)
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -185,27 +189,25 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
         
         } else {
             return 12
-            
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarImageCell", for: indexPath) as! CalendarImageCell
-            let info = (FastingLevel() == .monastic) ? Cal.fastingMonastic[indexPath.row] : Cal.fastingLaymen[indexPath.row]
-
-            cell.imageView.backgroundColor = UIColor(hex: Cal.fastingColor[info.0]!)
-            cell.textLabel.text = Translate.s(info.1)
-            cell.textLabel.font = UIFont.systemFont(ofSize: YC.config.fontSize)
-            cell.textLabel.textColor = CalendarDelegate.isSharing ? .black : Theme.textColor
-            
-            return cell
-            
-        } else {
+        if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: YearlyMonthViewCell.cellId, for: indexPath) as! YearlyMonthViewCell
             cell.currentDate = Date(1, indexPath.row+1, year)
             return cell
             
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarImageCell", for: indexPath) as! CalendarImageCell
+            let info = (FastingLevel() == .monastic) ? Cal.fastingMonastic[indexPath.row] : Cal.fastingLaymen[indexPath.row]
+            
+            cell.imageView.backgroundColor = UIColor(hex: Cal.fastingColor[info.0]!)
+            cell.textLabel.text = Translate.s(info.1)
+            cell.textLabel.font = UIFont.systemFont(ofSize: YC.config.fontSize)
+            cell.textLabel.textColor = YearlyCalendar.isSharing ? .black : Theme.textColor
+            
+            return cell
         }
     }
     
@@ -231,7 +233,7 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
         let label = UILabel(frame: headerView.frame)
         label.textAlignment = .center
         label.text = "Православный календарь на \(year) г."
-        label.textColor = CalendarDelegate.isSharing ? .black : Theme.textColor
+        label.textColor = YearlyCalendar.isSharing ? .black : Theme.textColor
         
         headerView.addSubview(label)
         return headerView
@@ -308,13 +310,13 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
         
         guard let pdfContext = UIGraphicsGetCurrentContext() else { return }
         
-        CalendarDelegate.isSharing = true
+        YearlyCalendar.isSharing = true
         collectionView.reloadData()
         
         collectionView.layer.render(in: pdfContext)
         UIGraphicsEndPDFContext()
         
-        CalendarDelegate.isSharing = false
+        YearlyCalendar.isSharing = false
         collectionView.reloadData()
 
         view.frame = origFrame
@@ -332,65 +334,6 @@ class YearlyCalendar: UIViewController, UICollectionViewDataSource, UICollection
             
             // present the view controller
             self.present(activityViewController, animated: true, completion: nil)
-        }
-    }
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        return (animation.direction != .none) ? animation : nil
-    }
-    
-    func navigationController(_ navigationController: UINavigationController,
-                              interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        
-        return (animation.direction != .none) ? animationInteractive : nil
-    }
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if let recognizer = gestureRecognizer as? UIPanGestureRecognizer {
-            let velocity = recognizer.velocity(in: view)
-            return abs(velocity.x) > abs(velocity.y)
-        }
-        
-        return true
-    }
-    
-    func didPan(recognizer: UIPanGestureRecognizer) {
-        switch recognizer.state {
-        case .began:
-            let velocity = recognizer.velocity(in: view)
-            animationInteractive.velocity = velocity
-            
-            if velocity.x < 0 {
-                animation.direction = .positive
-                navigationController?.pushViewController(YC.year(year+1), animated: true)
-                
-            } else {
-                animation.direction = .negative
-                navigationController?.pushViewController(YC.year(year-1), animated: true)
-            }
-            
-        case .changed:
-            animationInteractive.handlePan(recognizer: recognizer)
-            
-        case .ended:
-            animationInteractive.handlePan(recognizer: recognizer)
-            
-            if animationInteractive.cancelled {
-                let vc = YC.year(year)
-                navigationController?.setViewControllers([vc], animated: false)
-                
-            } else {
-                let top = navigationController?.topViewController!
-                navigationController?.setViewControllers([top!], animated: false)
-            }
-            
-        default:
-            break
         }
     }
 

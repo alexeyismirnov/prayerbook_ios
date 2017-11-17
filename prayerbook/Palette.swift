@@ -20,7 +20,8 @@ class Palette: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     var interitemSpacing: CGFloat!
     var delegate: Options!
     let numberOfItemsPerRow = 5
-    
+    let cellId = "DateViewCell"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +35,9 @@ class Palette: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         }
 
         collectionView.backgroundColor = .lightGray
-        collectionView.register(CalendarViewTextCell.self, forCellWithReuseIdentifier: CalendarViewTextCell.cellId)
+        
+        collectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -53,9 +56,9 @@ class Palette: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarViewTextCell.cellId, for: indexPath) as! CalendarViewTextCell
-
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! DateViewCell
         cell.backgroundColor = colors[indexPath.row]
+        cell.dateLabel.text = ""
         
         return cell
     }
@@ -76,7 +79,7 @@ class Palette: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         let loc = recognizer.location(in: collectionView)
         
         if let path = collectionView.indexPathForItem(at: loc),
-           let cell = collectionView.cellForItem(at: path) as? CalendarViewTextCell,
+           let cell = collectionView.cellForItem(at: path) as? DateViewCell,
            let color = cell.backgroundColor {
                 delegate.doneWithColor(color)            
         }
