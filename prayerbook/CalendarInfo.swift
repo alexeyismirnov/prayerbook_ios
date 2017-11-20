@@ -16,7 +16,7 @@ class CalendarInfo: UITableViewController {
         
         view.backgroundColor = UIColor(hex: "#FFEBCD")
 
-        let backButton = UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(close))
+        let backButton = UIBarButtonItem(image: UIImage(named: "close")!.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = backButton
     }
     

@@ -550,8 +550,11 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     }
     
     func showInfo() {
-        print("show info")
-
+        let responder: UIResponder? = popup.popupView?.next
+        if let container = responder as? UINavigationController {
+            let calendar_info = UIViewController.named("calendar_info")
+            container.pushViewController(calendar_info, animated: true)
+        }
     }
     
     func updateDate(_ notification: NSNotification) {
