@@ -12,10 +12,11 @@ import swift_toolkit
 class DateViewCell: UICollectionViewCell, CellWithDate {
     @IBOutlet weak var dateLabel: UILabel!
     var currentDate : Date?
-    
+    static var selectedDate: Date?
+
     static var textSize : CGFloat?
     static var textColor : UIColor?
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -64,7 +65,11 @@ class DateViewCell: UICollectionViewCell, CellWithDate {
             dateLabel.textColor = .black
         }
         
-        contentView.backgroundColor = UIColor(hex:Cal.fastingColor[fastType]!)
+        if date == DateViewCell.selectedDate {
+            contentView.backgroundColor = UIColor(hex:"#F0FFFF")
+        } else {
+            contentView.backgroundColor = UIColor(hex:Cal.fastingColor[fastType]!)
+        }
 
     }
 

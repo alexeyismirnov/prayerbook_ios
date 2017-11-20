@@ -11,32 +11,31 @@ import UIKit
 class AppDelegate : UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var openDate: Date?
-        
-    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-        
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        var openDate: Date
+
         if url.scheme == "ponomar-ru" {
             openDate = Date(timeIntervalSince1970: Double(url.query!)!)
-        }
-        
-        return true
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        if let root = window?.rootViewController as? MainVC,
-            let controllers = root.viewControllers,
-            let nav = controllers[0] as? UINavigationController,
-            let vc = nav.topViewController as? DailyTab2,
-            let date = openDate {
-                root.selectedIndex = 0
-                vc.currentDate = date
             
+            if let root = window?.rootViewController as? MainVC,
+                let controllers = root.viewControllers,
+                let nav = controllers[0] as? UINavigationController,
+                let vc = nav.topViewController as? DailyTab2{
+                root.selectedIndex = 0
+                vc.currentDate = openDate
+                
                 if vc.isViewLoaded {
                     vc.reload()
                 }
+            }
+            
+            return true
 
-                openDate = nil
+        }  else {
+            return false
         }
+        
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

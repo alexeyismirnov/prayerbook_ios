@@ -8,6 +8,7 @@
 
 import UIKit
 import NotificationCenter
+import swift_toolkit
 
 class ExpandedViewController: UIViewController {
 
@@ -35,7 +36,8 @@ class ExpandedViewController: UIViewController {
     }()
     
     let prefs = UserDefaults(suiteName: groupId)!
-    
+    var textColor : UIColor!
+
     var calendarDelegate: CalendarDelegate!
 
     override func viewDidLoad() {
@@ -52,7 +54,21 @@ class ExpandedViewController: UIViewController {
         buttonRight.setImage(arrowRight, for: UIControlState())
 
         calendarDelegate = CalendarDelegate()
-        calendarDelegate.containerType = .todayExtension
+        
+        let cellId = "DateViewCell"
+        collectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
+        calendarDelegate.cellReuseIdentifier = cellId
+        
+        if #available(iOS 10.0, *) {
+            textColor =  UIColor.black
+            
+        } else {
+            textColor =  UIColor.white
+        }
+        
+        DateViewCell.textColor = textColor
+        DateViewCell.selectedDate = currentDate
+
         collectionView.delegate = calendarDelegate
         collectionView.dataSource = calendarDelegate
         
@@ -60,7 +76,6 @@ class ExpandedViewController: UIViewController {
         recognizer.numberOfTapsRequired = 1
         collectionView.addGestureRecognizer(recognizer)
         
-        calendarDelegate.selectedDate = currentDate
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,7 +85,7 @@ class ExpandedViewController: UIViewController {
             Translate.language = language
         }
         
-        CalendarDelegate.generateLabels(view, container: .todayExtension)
+        CalendarContainer.generateLabels(view, standalone: false, textColor: textColor)
 
         refresh()
     }
@@ -91,7 +106,7 @@ class ExpandedViewController: UIViewController {
                         inView: view,
                         update: {
                             self.currentDate = self.currentDate - 1.months
-                            self.calendarDelegate.selectedDate = Date(1, self.currentDate.month, self.currentDate.year)
+                            DateViewCell.selectedDate = Date(1, self.currentDate.month, self.currentDate.year)
                             self.refresh()
         })
     }
@@ -102,13 +117,13 @@ class ExpandedViewController: UIViewController {
                         inView: view,
                         update: {
                             self.currentDate = self.currentDate + 1.months
-                            self.calendarDelegate.selectedDate = Date(1, self.currentDate.month, self.currentDate.year)
+                            DateViewCell.selectedDate = Date(1, self.currentDate.month, self.currentDate.year)
                             self.refresh()
         })
     }
     
     func showSaints() {
-        let date = calendarDelegate.selectedDate!
+        let date = DateViewCell.selectedDate!
         let saints = Db.saints(date)
         let dayDescription = Cal.getDayDescription(date)
         let feasts = (saints+dayDescription).sorted { $0.0.rawValue > $1.0.rawValue }
@@ -118,23 +133,19 @@ class ExpandedViewController: UIViewController {
     
     func tapOnCell(_ recognizer: UITapGestureRecognizer) {
         let loc = recognizer.location(in: collectionView)
-        var curDate: Date? = nil
         
-        if let
-            path = collectionView.indexPathForItem(at: loc),
-            let cell = collectionView.cellForItem(at: path) as? CalendarViewTextCell,
-            let dayNum = Int(cell.dateLabel.text!) {
-                curDate = Date(dayNum, currentDate.month, currentDate.year)
-                calendarDelegate.selectedDate = curDate
+        if  let path = collectionView.indexPathForItem(at: loc),
+            let cell = collectionView.cellForItem(at: path) as? DateViewCell,
+            let curDate = cell.currentDate {
+                DateViewCell.selectedDate = curDate
                 
                 showSaints()
                 collectionView.reloadData()
-
         }
     }
     
     @IBAction func onTapLabel(_ sender: AnyObject) {
-        let seconds = calendarDelegate.selectedDate!.timeIntervalSince1970
+        let seconds = DateViewCell.selectedDate!.timeIntervalSince1970
         let url = URL(string: "ponomar-ru://open?\(seconds)")!
         extensionContext!.open(url, completionHandler: nil)
     }

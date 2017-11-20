@@ -81,6 +81,10 @@
 		8A24F52F1EB98A1700CE19E7 /* CalendarImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A24F52E1EB98A1700CE19E7 /* CalendarImageCell.swift */; };
 		8A298C481DD41DFC006A25F9 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A298C471DD41DFC006A25F9 /* Animation.swift */; };
 		8A298C4E1DD4203F006A25F9 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A298C471DD41DFC006A25F9 /* Animation.swift */; };
+		8A2AE4891FC2DAFA00B30B53 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */; };
+		8A2AE48B1FC2DF6700B30B53 /* DateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */; };
+		8A2AE48C1FC2DF6700B30B53 /* DateViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */; };
+		8A2AE48D1FC2E19F00B30B53 /* CalendarWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
 		8A2F46A919E1302700076AF4 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A819E1302700076AF4 /* Translate.swift */; };
 		8A2F46AB19E145D200076AF4 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46AA19E145D200076AF4 /* Options.swift */; };
@@ -228,6 +232,16 @@
 		8AF37E5F1B36C7A500101148 /* newicon_180.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E561B36C7A500101148 /* newicon_180.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8A2AE48E1FC2E19F00B30B53 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A74D7EF198F20CC0078F39F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AB7499E1C4C7A3400CD1B32;
+			remoteInfo = CalendarWidget;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		8AB749B41C4C7A3500CD1B32 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -235,6 +249,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				8A2AE48D1FC2E19F00B30B53 /* CalendarWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */,
+				8A2AE4891FC2DAFA00B30B53 /* swift_toolkit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,6 +878,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8A2AE48F1FC2E19F00B30B53 /* PBXTargetDependency */,
 			);
 			name = ponomar;
 			productName = prayerbook;
@@ -875,6 +892,7 @@
 				8AB7499B1C4C7A3400CD1B32 /* Sources */,
 				8AB7499C1C4C7A3400CD1B32 /* Frameworks */,
 				8AB7499D1C4C7A3400CD1B32 /* Resources */,
+				8A2AE48A1FC2DB0D00B30B53 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1157,6 +1175,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ponomar/Pods-ponomar-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8A2AE48A1FC2DB0D00B30B53 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/swift_toolkit.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 		8A8D2FB71FBC4F4500A54147 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1242,6 +1274,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A2AE48B1FC2DF6700B30B53 /* DateViewCell.swift in Sources */,
+				8A2AE48C1FC2DF6700B30B53 /* DateViewCell.xib in Sources */,
 				8A298C4E1DD4203F006A25F9 /* Animation.swift in Sources */,
 				8AB018E11C5EED5D00DE96B0 /* Db.swift in Sources */,
 				8AC757C21C550BFD0088D4D0 /* Images.xcassets in Sources */,
@@ -1254,6 +1288,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8A2AE48F1FC2E19F00B30B53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8AB7499E1C4C7A3400CD1B32 /* CalendarWidget */;
+			targetProxy = 8A2AE48E1FC2E19F00B30B53 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8AB749A51C4C7A3500CD1B32 /* MainInterface.storyboard */ = {
@@ -1359,6 +1401,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1D4D67C7A719042A81FE3D8C /* Pods-ponomar.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -1401,6 +1444,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E01426EC83DA15B72CE617C /* Pods-ponomar.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -1449,6 +1493,10 @@
 				DEVELOPMENT_TEAM = 3NQ697ND22;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1476,6 +1524,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3NQ697ND22;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
