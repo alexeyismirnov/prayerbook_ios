@@ -6,5 +6,9 @@ pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chamel
 pod 'Squeal'
 end
 
+target 'CalendarWidget' do
+pod 'Squeal'
+end
+
 use_frameworks!
 
