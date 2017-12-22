@@ -475,7 +475,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             
         } else {
             if DailyTab2.background == nil {
-                DailyTab2.background = UIImage(background: "bg3.jpg", inView: view)
+                DailyTab2.background = UIImage(background: "bg3.jpg", inView: view, bundle: Bundle(identifier: "com.rlc.swift-toolkit"))
             }
    
             view.backgroundColor = UIColor(patternImage: DailyTab2.background!)

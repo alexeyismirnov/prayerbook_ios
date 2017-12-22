@@ -75,7 +75,7 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
             view.backgroundColor =  bgColor
             
         } else {
-            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view))
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
         }
         
         reload()

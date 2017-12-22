@@ -8,6 +8,7 @@
 
 import UIKit
 import NAModalSheet
+import swift_toolkit
 
 let optionsSavedNotification  = "OPTIONS_SAVED"
 let themeChangedNotification  = "THEME_CHANGED"
@@ -89,7 +90,7 @@ class Options: UITableViewController, NAModalSheetDelegate {
                 container.delegate = self
                 
                 modalSheet = NAModalSheet(viewController: container, presentationStyle: .fadeInCentered)
-                modalSheet.setThemeUsingPrimaryColor(.flatSand, with: .contrast)
+                modalSheet.setThemeUsingPrimaryColor(.flatSand(), with: .contrast)
                 
                 modalSheet.disableBlurredBackground = true
                 modalSheet.cornerRadiusWhenCentered = 10

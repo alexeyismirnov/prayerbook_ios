@@ -155,7 +155,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
             view.backgroundColor =  bgColor
             
         } else {
-            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view))
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view,  bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
         }
         
         collectionView.register(UINib(nibName: "YearlyMonthViewCell", bundle: nil), forCellWithReuseIdentifier: YearlyMonthViewCell.cellId)

@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import Chameleon
+import swift_toolkit
 
 class Palette: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    let colors : [UIColor] = [.flatRed, .flatOrange, .flatYellow, .flatSand, .flatNavyBlue, .flatBlack,
-                              .flatMagenta, .flatTeal, .flatSkyBlue, .flatGreen, .flatMint, .flatWhite,
-                              .flatGray, .flatForestGreen, .flatPurple, .flatBrown, .flatPlum, .flatWatermelon,
-                              .flatLime, .flatPink, .flatMaroon, .flatCoffee, .flatPowderBlue, .flatBlue, .flatSandDark]
+    let colors : [UIColor] = [.flatRed(), .flatOrange(), .flatYellow(), .flatSand(), .flatNavyBlue(), .flatBlack(),
+                              .flatMagenta(), .flatTeal(), .flatSkyBlue(), .flatGreen(), .flatMint(), .flatWhite(),
+                              .flatGray(), .flatForestGreen(), .flatPurple(), .flatBrown(), .flatPlum(), .flatWatermelon(),
+                              .flatLime(), .flatPink(), .flatMaroon(), .flatCoffee(), .flatPowderBlue(), .flatBlue(), .flatSandColorDark()]
     
     var edgeInsets: CGFloat!
     var interitemSpacing: CGFloat!

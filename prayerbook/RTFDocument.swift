@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import swift_toolkit
 
 extension UITextView {
     func increaseFontSize () {
@@ -33,7 +34,7 @@ class RTFDocument: UIViewController {
             view.backgroundColor =  bgColor
             
         } else {
-            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view))
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
         }
         
         let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in"), style: .plain, target: self, action: #selector(self.zoom_in))

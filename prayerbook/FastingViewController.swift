@@ -8,6 +8,7 @@
 
 import UIKit
 import NAModalSheet
+import Chameleon
 
 class FastingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -39,7 +40,7 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
     ]
     
     override func viewDidLoad() {
-        view.backgroundColor =  UIColor.flatSand
+        view.backgroundColor =  UIColor.flatSand()
         fastTitleLabel.text = fastTitle
     }
     
