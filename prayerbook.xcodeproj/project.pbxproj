@@ -114,7 +114,6 @@
 		8A5457821E70174300A86B5A /* synaxarion18.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54576D1E70174300A86B5A /* synaxarion18.rtf */; };
 		8A5457831E70174300A86B5A /* synaxarion19.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54576E1E70174300A86B5A /* synaxarion19.rtf */; };
 		8A5457841E70174300A86B5A /* synaxarion20.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54576F1E70174300A86B5A /* synaxarion20.rtf */; };
-		8A54C4211EA70C7D0083AA2F /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C4201EA70C7D0083AA2F /* Palette.swift */; };
 		8A54C42A1EA74CE90083AA2F /* DailyTab2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C4291EA74CE90083AA2F /* DailyTab2.swift */; };
 		8A54C42C1EA760E30083AA2F /* Library2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C42B1EA760E30083AA2F /* Library2.swift */; };
 		8A58D17C1EBB0C46006CA4AC /* share.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A58D17B1EBB0C46006CA4AC /* share.pdf */; };
@@ -378,7 +377,6 @@
 		8A54576D1E70174300A86B5A /* synaxarion18.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion18.rtf; sourceTree = "<group>"; };
 		8A54576E1E70174300A86B5A /* synaxarion19.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion19.rtf; sourceTree = "<group>"; };
 		8A54576F1E70174300A86B5A /* synaxarion20.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion20.rtf; sourceTree = "<group>"; };
-		8A54C4201EA70C7D0083AA2F /* Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		8A54C4291EA74CE90083AA2F /* DailyTab2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab2.swift; sourceTree = "<group>"; };
 		8A54C42B1EA760E30083AA2F /* Library2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library2.swift; sourceTree = "<group>"; };
 		8A58D17B1EBB0C46006CA4AC /* share.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = share.pdf; sourceTree = "<group>"; };
@@ -616,7 +614,6 @@
 				8A54574F1E6FD13500A86B5A /* RTFDocument.swift */,
 				8AEFC27A1A2C747700BAACE0 /* Scripture.swift */,
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
-				8A54C4201EA70C7D0083AA2F /* Palette.swift */,
 				8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */,
 				8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */,
 				8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */,
@@ -1311,7 +1308,6 @@
 				8A54C42C1EA760E30083AA2F /* Library2.swift in Sources */,
 				8A8D2FB61FBC458C00A54147 /* DateViewCell.swift in Sources */,
 				8AC2780B1C61D48A00436D51 /* Tutorial.swift in Sources */,
-				8A54C4211EA70C7D0083AA2F /* Palette.swift in Sources */,
 				8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */,
 				8AEA68391C90028B009E9FD8 /* Prayer.swift in Sources */,
 				8A2F46AB19E145D200076AF4 /* Options.swift in Sources */,

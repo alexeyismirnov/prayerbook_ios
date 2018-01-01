@@ -11,17 +11,18 @@ import NAModalSheet
 import swift_toolkit
 
 let optionsSavedNotification  = "OPTIONS_SAVED"
-let themeChangedNotification  = "THEME_CHANGED"
 
-class Options: UITableViewController, NAModalSheetDelegate {
+class Options: UITableViewController {
     
     let prefs = UserDefaults(suiteName: groupId)!
     var lastSelected: IndexPath?
-    var modalSheet: NAModalSheet!
-
+    var popup: PopupController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
+
         UITableViewCell.appearance().backgroundColor =  UIColor.white.withAlphaComponent(0.5) 
         
         view.backgroundColor = UIColor.clear
@@ -74,30 +75,20 @@ class Options: UITableViewController, NAModalSheetDelegate {
                 self.dismiss(animated: false, completion: {})
                 
             } else {
-                var width, height : CGFloat
+                let bundle = Bundle(identifier: "com.rlc.swift-toolkit")
+                let container = UIViewController.named("Palette", bundle: bundle) as! Palette
                 
-                if (UIDevice.current.userInterfaceIdiom == .phone) {
-                    width = 300
-                    height = 300
-                    
-                } else {
-                    width = 500
-                    height = 500
-                }
+                popup = PopupController
+                    .create(self.navigationController!)
+                    .customize(
+                        [
+                            .animation(.fadeIn),
+                            .layout(.center),
+                            .backgroundStyle(.blackFilter(alpha: 0.7))
+                        ]
+                )
                 
-                let container = UIViewController.named("Palette") as! Palette
-                container.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
-                container.delegate = self
-                
-                modalSheet = NAModalSheet(viewController: container, presentationStyle: .fadeInCentered)
-                modalSheet.setThemeUsingPrimaryColor(.flatSand(), with: .contrast)
-                
-                modalSheet.disableBlurredBackground = true
-                modalSheet.cornerRadiusWhenCentered = 10
-                modalSheet.delegate = self
-                modalSheet.adjustContentSize(CGSize(width: width, height: height), animated: false)
-                
-                modalSheet.present(completion: {})
+                popup.show(container)
             }
             
         } else if indexPath.section == 3 {
@@ -136,31 +127,15 @@ class Options: UITableViewController, NAModalSheetDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-    func doneWithColor(_ color: UIColor) {
-        modalSheet.dismiss(completion: {
-            Theme.set(.Chameleon(color: color))
-            
+    func updateTheme(_ notification: NSNotification) {
+        guard let color = notification.userInfo?["color"] as? UIColor else { return }
+        
+        popup.dismiss({
             self.prefs.set(color, forKey: "theme")
             self.prefs.synchronize()
             
-            NotificationCenter.default.post(name: Notification.Name(rawValue: themeChangedNotification), object: nil)
             self.dismiss(animated: false, completion: {})
         })
     }
-    
-    // MARK: NAModalSheetDelegate
-    
-    func modalSheetTouchedOutsideContent(_ sheet: NAModalSheet!) {
-        sheet.dismiss(completion: {})
-    }
-    
-    func modalSheetShouldAutorotate(_ sheet: NAModalSheet!) -> Bool {
-        return shouldAutorotate
-    }
-    
-    func modalSheetSupportedInterfaceOrientations(_ sheet: NAModalSheet!) -> UInt {
-        return supportedInterfaceOrientations.rawValue
-    }
-
 
 }
