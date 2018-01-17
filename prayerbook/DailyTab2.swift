@@ -71,7 +71,6 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     var popup : PopupController!
     
     static var background : UIImage?
-    static let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     static func date(_ date: Date) -> UIViewController {
         let vc = UIViewController.named("Daily2") as! DailyTab2

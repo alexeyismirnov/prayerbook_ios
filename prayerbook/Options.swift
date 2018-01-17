@@ -7,15 +7,12 @@
 //
 
 import UIKit
-import NAModalSheet
 import swift_toolkit
 
 let optionsSavedNotification  = "OPTIONS_SAVED"
 
 class Options: UITableViewController {
-    
     let prefs = UserDefaults(suiteName: groupId)!
-    var lastSelected: IndexPath?
     var popup: PopupController!
     
     override func viewDidLoad() {
@@ -50,7 +47,6 @@ class Options: UITableViewController {
         }
     }
 
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             var cell: UITableViewCell
