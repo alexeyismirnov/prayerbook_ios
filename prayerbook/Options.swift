@@ -26,7 +26,7 @@ class Options: UITableViewController {
         UITableViewCell.appearance().backgroundColor =  UIColor.white.withAlphaComponent(0.5) 
         
         view.backgroundColor = UIColor.clear
-        tableView.backgroundView = UIImageView(image: UIImage(background: "church.jpg", inView: view))
+        tableView.backgroundView = UIImageView(image: UIImage(background: "church.jpg", inView: view, bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
         
         navigationController?.makeTransparent()
         navigationController?.navigationBar.tintColor = UIColor.red
