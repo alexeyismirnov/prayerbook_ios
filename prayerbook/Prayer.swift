@@ -17,6 +17,22 @@ class Prayer: UIViewController {
     var code:String!
     var name:String!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+
+        NotificationCenter.default.addObserver(self, selector: #selector(Prayer.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
+        
+        let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(self.zoom_in))
+        let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(self.zoom_out))
+        
+        button_zoom_in.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
+        navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
+        
+        reload()
+    }
+    
     func reload() {
         let filename = String(format: "prayer_%@_%d_%@.html", code, index, Translate.language)
         let bundleName = Bundle.main.path(forResource: filename, ofType: nil)
@@ -31,7 +47,7 @@ class Prayer: UIViewController {
             
             let bundleTypica = Bundle.main.path(forResource: String(format: "typica_%d", tone!), ofType: "plist")
             let fragments = NSArray(contentsOfFile: bundleTypica!) as! [[String:String]]
-
+            
             for (i, fragment) in fragments.enumerated() {
                 txt = txt.replacingOccurrences(
                     of: String(format:"FRAGMENT%d!", i),
@@ -46,20 +62,14 @@ class Prayer: UIViewController {
                 txt = txt.replacingOccurrences(
                     of: String(format:"TITLE%d", (i+1)),
                     with: title.string)
-
+                
                 txt = txt.replacingOccurrences(
                     of: String(format:"READING%d", (i+1)),
                     with: content.string)
-
+                
             }
             
         }
-        
-        let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in"), style: .plain, target: self, action: #selector(self.zoom_in))
-        let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out"), style: .plain, target: self, action: #selector(self.zoom_out))
-        
-        button_zoom_in.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
-        navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
         
         webView.paginationBreakingMode = UIWebPaginationBreakingMode.page
         webView.paginationMode = UIWebPaginationMode.leftToRight
@@ -68,13 +78,6 @@ class Prayer: UIViewController {
         
         webView.loadHTMLString(txt, baseURL: nil)
         title = Translate.s(name)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        NotificationCenter.default.addObserver(self, selector: #selector(Prayer.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
-        reload()
     }
     
     func zoom_in() {

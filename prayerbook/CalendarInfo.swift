@@ -14,9 +14,11 @@ class CalendarInfo: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+
         view.backgroundColor = UIColor(hex: "#FFEBCD")
 
-        let backButton = UIBarButtonItem(image: UIImage(named: "close")!.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(close))
+        let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = backButton
     }
     

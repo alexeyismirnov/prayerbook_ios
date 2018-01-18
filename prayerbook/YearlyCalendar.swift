@@ -142,10 +142,12 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
 
         }
 
-        let backButton = UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(close))
+        let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+
+        let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = backButton
         
-        let shareButton = UIBarButtonItem(image: UIImage(named: "share"), style: .plain, target: self, action: #selector(share))
+        let shareButton = UIBarButtonItem(image: UIImage(named: "share", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(share))
         navigationItem.rightBarButtonItem = shareButton
 
         navigationController?.makeTransparent()

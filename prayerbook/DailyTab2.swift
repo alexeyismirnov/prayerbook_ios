@@ -509,11 +509,13 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     }
     
     func configureNavbar() {
+        let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+
         navigationController?.makeTransparent()
         
-        let button_monthly = UIBarButtonItem(image: UIImage(named: "calendar"), style: .plain, target: self, action: #selector(showMonthlyCalendar))
-        let button_widget = UIBarButtonItem(image: UIImage(named: "question"), style: .plain, target: self, action: #selector(showTutorial))
-        let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .plain, target: self, action: #selector(showOptions))
+        let button_monthly = UIBarButtonItem(image: UIImage(named: "calendar", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showMonthlyCalendar))
+        let button_widget = UIBarButtonItem(image: UIImage(named: "question", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showTutorial))
+        let button_options = UIBarButtonItem(image: UIImage(named: "options", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showOptions))
         
         button_widget.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         
@@ -522,10 +524,12 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     }
     
     func showMonthlyCalendar() {
+        let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+
         DateViewCell.textColor = nil
         DateViewCell.textSize = nil
         
-        let image = UIImage(named: "question")!.withRenderingMode(.alwaysOriginal)
+        let image = UIImage(named: "question", in: toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
         let button_info = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showInfo))
         let button_year = UIBarButtonItem(title: "Год", style: .plain, target: self, action: #selector(showYear))
         
