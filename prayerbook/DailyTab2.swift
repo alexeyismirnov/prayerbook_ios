@@ -10,6 +10,7 @@ import UIKit
 import Squeal
 import NAModalSheet
 import swift_toolkit
+import AVKit
 
 class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource, NAModalSheetDelegate {
     
@@ -571,11 +572,14 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     }
     
     func showTutorial() {
-        let vc = UIViewController.named("Tutorial") as! Tutorial
-        let nav = UINavigationController(rootViewController: vc)
-        vc.delegate = self
+        let videoURL = Bundle.main.url(forResource: "widget", withExtension: "mp4")
         
-        navigationController?.present(nav, animated: true, completion: {})
+        let player = AVPlayer(url: videoURL!)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.present(playerViewController, animated: true) {
+            playerViewController.player!.play()
+        }
     }
     
     func showOptions() {

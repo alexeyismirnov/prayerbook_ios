@@ -18,6 +18,17 @@ class Options: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap1 = UITapGestureRecognizer(target: self, action: #selector(done(tapGestureRecognizer:)))
+        
+        let doneLabel = UILabel()
+        doneLabel.text = "Закрыть"
+        doneLabel.textColor = .red
+        doneLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        doneLabel.isUserInteractionEnabled = true
+        doneLabel.addGestureRecognizer(tap1)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: doneLabel)
+
         NotificationCenter.default.addObserver(self, selector: #selector(updateTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
 
         UITableViewCell.appearance().backgroundColor =  UIColor.white.withAlphaComponent(0.5) 
@@ -112,7 +123,7 @@ class Options: UITableViewController {
         return ""
     }
 
-    @IBAction func done(_ sender: AnyObject) {
+    func done(tapGestureRecognizer: UITapGestureRecognizer) {
         let cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 1)) as UITableViewCell
         let fasting = (cell.accessoryType == .checkmark) ? 0 : 1
         
