@@ -10,13 +10,6 @@ import UIKit
 import NAModalSheet
 import Chameleon
 
-extension String {
-    
-    subscript (i: Int) -> Character {
-        return self[index(startIndex, offsetBy: i)]
-    }
-}
-
 class FastingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var foodTableView: UITableView!
@@ -93,8 +86,7 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell?.backgroundColor = UIColor(white: 1.0, alpha: 0.0)
         
         let foodName = (indexPath.section == 0) ? allowedFood[type]![indexPath.row] : forbiddenFood[type]![indexPath.row]
-
-        let capitalized = "\(foodName[0])".uppercased() + foodName.substring(from: foodName.index(foodName.startIndex, offsetBy: 1))
+        let capitalized = foodName.capitalizingFirstLetter()
         
         cell?.textLabel!.text = Translate.s(capitalized)
         cell?.imageView!.image =  UIImage(named: getImageName(foodName, allowed: indexPath.section == 0))
