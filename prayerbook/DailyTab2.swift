@@ -444,6 +444,9 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             prayer.index = 0
             prayer.name = Translate.s("Typica")
             navigationController?.pushViewController(prayer, animated: true)
+            
+        } else if indexPath.section == 4 {
+            showSaints()
         }
         
         return nil
@@ -515,13 +518,42 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         navigationController?.makeTransparent()
         
         let button_monthly = UIBarButtonItem(image: UIImage(named: "calendar", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showMonthlyCalendar))
+        
+        let button_saint = UIBarButtonItem(image: UIImage(named: "saint"), style: .plain, target: self, action: #selector(showSaints))
+        
         let button_widget = UIBarButtonItem(image: UIImage(named: "question", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showTutorial))
         let button_options = UIBarButtonItem(image: UIImage(named: "options", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showOptions))
         
+        button_saint.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
+
         button_widget.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
         
-        navigationItem.leftBarButtonItems = [button_monthly]
+        navigationItem.leftBarButtonItems = [button_monthly, button_saint]
         navigationItem.rightBarButtonItems = [button_options, button_widget]
+    }
+    
+    func showSaints() {
+        let seconds = currentDate.timeIntervalSince1970
+        let url = URL(string: "saints-ru://open?\(seconds)")!
+        
+        if UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url)
+
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+
+        } else {
+            let urlStr = "https://itunes.apple.com/us/app/apple-store/id1343569925?mt=8"
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
+                
+            } else {
+                UIApplication.shared.openURL(URL(string: urlStr)!)
+            }
+        }
+       
     }
     
     func showMonthlyCalendar() {
