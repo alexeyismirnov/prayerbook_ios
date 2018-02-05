@@ -10,6 +10,12 @@ enum NameOfDay: Int {
     case startOfYear=0, pascha, pentecost, ascension, palmSunday, eveOfNativityOfGod, nativityOfGod, circumcision, eveOfTheophany, theophany, meetingOfLord, annunciation, nativityOfJohn, peterAndPaul, transfiguration, dormition, beheadingOfJohn, nativityOfTheotokos, exaltationOfCross, veilOfTheotokos, entryIntoTemple, stNicholas, sundayOfPublicianAndPharisee, sundayOfProdigalSon, sundayOfDreadJudgement, cheesefareSunday, beginningOfGreatLent, beginningOfDormitionFast, beginningOfNativityFast, beginningOfApostolesFast, sundayOfForefathers, sundayBeforeNativity, sundayAfterExaltation, saturdayAfterExaltation, saturdayBeforeExaltation, sundayBeforeExaltation, saturdayBeforeNativity, saturdayAfterNativity, sundayAfterNativity, saturdayBeforeTheophany, sundayBeforeTheophany, saturdayAfterTheophany, sundayAfterTheophany, sunday2AfterPascha, sunday3AfterPascha, sunday4AfterPascha, sunday5AfterPascha, sunday6AfterPascha, sunday7AfterPascha, lazarusSaturday, newMartyrsConfessorsOfRussia, josephBetrothed, synaxisTheotokos, holyFathersSixCouncils, synaxisMoscowSaints, synaxisNizhnyNovgorodSaints, saturdayOfFathers, synaxisForerunner, saturdayTrinity, saturdayOfDeparted, endOfYear
 }
 
+enum IconCodes: Int {
+    case pascha=100000, palmSunday=100001, ascension=100002, pentecost=100003,
+    theotokosLiveGiving=100100, theotokosDubenskaya=100101, theotokosChelnskaya=100103,
+    theotokosWall=100105, theotokosSevenArrows=100106, firstCouncil=100107
+}
+
 enum FastingLevel: Int {
     case laymen=0, monastic
     
@@ -68,6 +74,7 @@ struct ChurchCalendar {
 
     static var dateFeastDescr = [Date: [(FeastType, String)]]()
     static var synaxarion = [Date: (String, String)]()
+    static var moveableIcons = [Date: [IconCodes]]()
 
     static let codeFeastDescr : [NameOfDay: [(FeastType, String)]] = [
         .pascha:                    [(.great, "PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ")],
@@ -448,6 +455,22 @@ struct ChurchCalendar {
         let pascha = paschaDay(year)
         let greatLentStart = pascha-48.days
 
+        moveableIcons = [Date: [IconCodes]]()
+
+        moveableIcons += [
+            pascha-7.days:      [.palmSunday],
+            pascha:             [.pascha],
+            pascha+39.days:     [.ascension],
+            pascha+49.days:     [.pentecost],
+        ]
+        
+        moveableIcons += [
+            pascha+5.days:      [.theotokosLiveGiving],
+            pascha+24.days:     [.theotokosDubenskaya],
+            pascha+42.days:     [.theotokosChelnskaya, .firstCouncil],
+            pascha+56.days:     [.theotokosWall, .theotokosSevenArrows],
+        ]
+        
         var movingFeasts = [Date: [NameOfDay]]()
 
         movingFeasts += [

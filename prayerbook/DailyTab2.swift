@@ -48,7 +48,8 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     var feofan = [(String,String)]()
     var dayDescription = [(FeastType, String)]()
     var saints = [(FeastType, String)]()
-    
+    var saintIcons = [Saint]()
+
     var currentDate: Date = {
         // this is done to remove time component from date
         return DateComponents(date: Date()).toDate()
@@ -126,13 +127,9 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        feofan = DailyReading.getFeofan(currentDate)
-        
-        if feofan.count == 0 {
-            feofan = DailyReading.getFeofan(currentDate, fuzzy: true)
-        }
-        
         appeared = true
+        reloadAfterAppeared()
+
         tableView.reloadData()
     }
     
@@ -498,18 +495,28 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         readings = DailyReading.getDailyReading(currentDate)
         synaxarion = Cal.synaxarion[currentDate]
         
-        if appeared {
-            feofan = DailyReading.getFeofan(currentDate)
-            
-            if feofan.count == 0 {
-                feofan = DailyReading.getFeofan(currentDate, fuzzy: true)
-            }
-            
+        if (appeared) {
+            reloadAfterAppeared()
+        
         } else {
             feofan = [("Мысли на каждый день", "")]
         }
         
         tableView.reloadData()
+    }
+    
+    func reloadAfterAppeared() {
+        feofan = DailyReading.getFeofan(currentDate)
+        
+        if feofan.count == 0 {
+            feofan = DailyReading.getFeofan(currentDate, fuzzy: true)
+        }
+        
+        saintIcons = SaintIcons.get(currentDate)
+        
+        for icon in saintIcons {
+            print(icon.name)
+        }
     }
     
     func configureNavbar() {
