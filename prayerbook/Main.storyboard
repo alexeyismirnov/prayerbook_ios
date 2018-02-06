@@ -622,6 +622,67 @@
                                             <outlet property="title" destination="VEL-Od-cad" id="IN1-i6-XnD"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SaintIconCell" rowHeight="140" id="o0x-JG-UAz" customClass="SaintIconCell" customModule="ponomar" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="162" width="768" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o0x-JG-UAz" id="2hM-Yu-9Da">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7E4-R6-FG5">
+                                                    <rect key="frame" x="20" y="20" width="728" height="100"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="pLm-gK-WvQ" customClass="CenterViewFlowLayout" customModule="ponomar" customModuleProvider="target">
+                                                        <size key="itemSize" width="110" height="110"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCellId" id="am5-OD-e07" customClass="CollectionViewCell" customModule="ponomar" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="5" width="110" height="110"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lX8-Dc-3Xe">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                            </view>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="lX8-Dc-3Xe" secondAttribute="bottom" id="5qx-ic-Iki"/>
+                                                                <constraint firstAttribute="trailing" secondItem="lX8-Dc-3Xe" secondAttribute="trailing" id="Ml0-v9-3jG"/>
+                                                                <constraint firstItem="lX8-Dc-3Xe" firstAttribute="leading" secondItem="am5-OD-e07" secondAttribute="leading" id="aYG-6B-xlW"/>
+                                                                <constraint firstItem="lX8-Dc-3Xe" firstAttribute="top" secondItem="am5-OD-e07" secondAttribute="top" id="dNc-F9-SrV"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="icon" destination="lX8-Dc-3Xe" id="OUL-uI-3t7"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="o0x-JG-UAz" id="V9F-es-52g"/>
+                                                        <outlet property="delegate" destination="o0x-JG-UAz" id="sY7-Wr-Uap"/>
+                                                    </connections>
+                                                </collectionView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="7E4-R6-FG5" firstAttribute="leading" secondItem="2hM-Yu-9Da" secondAttribute="leading" constant="20" symbolic="YES" id="DG5-h4-fu2"/>
+                                                <constraint firstItem="7E4-R6-FG5" firstAttribute="centerY" secondItem="2hM-Yu-9Da" secondAttribute="centerY" id="NOT-U2-70K"/>
+                                                <constraint firstAttribute="bottom" secondItem="7E4-R6-FG5" secondAttribute="bottom" constant="20" symbolic="YES" id="a8g-xI-bSS"/>
+                                                <constraint firstItem="7E4-R6-FG5" firstAttribute="top" secondItem="2hM-Yu-9Da" secondAttribute="top" constant="20" symbolic="YES" id="aQs-qz-TIa"/>
+                                                <constraint firstAttribute="trailing" secondItem="7E4-R6-FG5" secondAttribute="trailing" constant="20" symbolic="YES" id="zVq-M2-slX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="collectionView" destination="7E4-R6-FG5" id="HKt-oq-99o"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>

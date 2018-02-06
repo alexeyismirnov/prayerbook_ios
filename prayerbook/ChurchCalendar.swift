@@ -13,7 +13,7 @@ enum NameOfDay: Int {
 enum IconCodes: Int {
     case pascha=100000, palmSunday=100001, ascension=100002, pentecost=100003,
     theotokosLiveGiving=100100, theotokosDubenskaya=100101, theotokosChelnskaya=100103,
-    theotokosWall=100105, theotokosSevenArrows=100106, firstCouncil=100107
+    theotokosWall=100105, theotokosSevenArrows=100106
 }
 
 enum FastingLevel: Int {
@@ -467,7 +467,7 @@ struct ChurchCalendar {
         moveableIcons += [
             pascha+5.days:      [.theotokosLiveGiving],
             pascha+24.days:     [.theotokosDubenskaya],
-            pascha+42.days:     [.theotokosChelnskaya, .firstCouncil],
+            pascha+42.days:     [.theotokosChelnskaya],
             pascha+56.days:     [.theotokosWall, .theotokosSevenArrows],
         ]
         

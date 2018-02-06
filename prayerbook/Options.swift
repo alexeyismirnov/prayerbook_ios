@@ -20,7 +20,7 @@ class Options: UITableViewController {
         
         let tap1 = UITapGestureRecognizer(target: self, action: #selector(done(tapGestureRecognizer:)))
         
-        let doneLabel = UILabel()
+        let doneLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 40))
         doneLabel.text = "Закрыть"
         doneLabel.textColor = .red
         doneLabel.font = UIFont.boldSystemFont(ofSize: 18)

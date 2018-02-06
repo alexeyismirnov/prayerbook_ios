@@ -37,7 +37,7 @@ struct SaintIcons {
         let day = date.day
         let month = date.month
         
-        let results = try! db.selectFrom("app_saint", whereExpr:"month=\(month) AND day=\(day)")
+        let results = try! db.selectFrom("app_saint", whereExpr:"month=\(month) AND day=\(day) AND has_icon=1")
         { ["id": $0["id"] , "name": $0["name"], "has_icon": $0["has_icon"]] }
         
         for data in results {

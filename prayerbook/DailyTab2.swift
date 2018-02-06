@@ -110,8 +110,8 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
 
         let prefs = UserDefaults(suiteName: groupId)!
 
-        if prefs.object(forKey: "welcome21") == nil {
-            prefs.set(true, forKey: "welcome21")
+        if prefs.object(forKey: "welcome30") == nil {
+            prefs.set(true, forKey: "welcome30")
             prefs.synchronize()
             
             _ = UIAlertController(title: "Православный календарь",
@@ -147,7 +147,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -159,12 +159,15 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             return 1
             
         case 2:
-            return readings.count + feofan.count + (synaxarion != nil ? 1:0)
+            return 1
             
         case 3:
-            return hasTypica() ? 1 : 0
+            return readings.count + feofan.count + (synaxarion != nil ? 1:0)
             
         case 4:
+            return hasTypica() ? 1 : 0
+            
+        case 5:
             return saints.count
             
         default:
@@ -176,17 +179,20 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         switch section {
         case 0:
             return ""
-            
+
         case 1:
-            return (FastingLevel() == .monastic) ? Translate.s("Monastic fasting") : Translate.s("Laymen fasting")
+            return ""
             
         case 2:
-            return readings.count > 0 ? Translate.s("Gospel of the day") : nil
+            return (FastingLevel() == .monastic) ? Translate.s("Monastic fasting") : Translate.s("Laymen fasting")
             
         case 3:
-            return hasTypica() ? Translate.s("Prayers") : nil
+            return readings.count > 0 ? Translate.s("Gospel of the day") : nil
             
         case 4:
+            return hasTypica() ? Translate.s("Prayers") : nil
+            
+        case 5:
             return Translate.s("Memory of saints")
             
         default:
@@ -273,6 +279,17 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             }
             
         } else if indexPath.section == 1 {
+            if appeared {
+                let cell: SaintIconCell  = getCell()
+                cell.saints = saintIcons
+                return cell
+
+            } else {
+                return getSimpleCell()
+                
+            }
+           
+        } else if indexPath.section == 2 {
             let cell: ImageCell  = getCell()
             cell.title.text = fasting.1
             cell.title.textColor =  Theme.textColor
@@ -281,7 +298,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             
             return cell
             
-        } else if indexPath.section == 2 {
+        } else if indexPath.section == 3 {
             
             var title : String!
             var subtitle : String!
@@ -332,7 +349,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             }
             
             
-        } else if indexPath.section == 3 {
+        } else if indexPath.section == 4 {
             let cell = getSimpleCell()
             
             /*
@@ -344,7 +361,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
              */
             return cell
             
-        } else if indexPath.section == 4 {
+        } else if indexPath.section == 5 {
             
             if saints[indexPath.row].0 == .none {
                 if appeared {
@@ -395,7 +412,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if indexPath.section == 2 {
+        if indexPath.section == 3 {
             var vc : UIViewController!
             
             switch indexPath.row {
@@ -421,7 +438,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             
             navigationController?.pushViewController(vc, animated: true)
             
-        } else if FastingLevel() == .laymen && indexPath.section == 1 && indexPath.row == 0 {
+        } else if FastingLevel() == .laymen && indexPath.section == 2 && indexPath.row == 0 {
             let fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
             modalSheet = NAModalSheet(viewController: fastingInfo, presentationStyle: .fadeInCentered)!
             
@@ -435,14 +452,14 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             
             modalSheet.present(completion: {})
             
-        } else if indexPath.section == 3 {
+        } else if indexPath.section == 4 {
             let prayer = UIViewController.named("Prayer") as! Prayer
             prayer.code = "typica"
             prayer.index = 0
             prayer.name = Translate.s("Typica")
             navigationController?.pushViewController(prayer, animated: true)
             
-        } else if indexPath.section == 4 {
+        } else if indexPath.section == 5 {
             showSaints()
         }
         
@@ -450,17 +467,24 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         if (appeared) {
-            let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
-            return calculateHeightForCell(cell)
+            if indexPath.section == 1 {
+                return SaintIconCell.itemSize().height + 40 // some margin
+                
+            } else {
+                let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
+                return calculateHeightForCell(cell)
+            }
             
         } else {
             switch (indexPath.section, indexPath.row) {
             case (0,0):
                 return 55
                 
-            case (1,_), (2,_):
+            case (1,_):
+                return 0
+                
+            case (2,_), (3,_):
                 return 35
                 
             default:
@@ -513,10 +537,6 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         }
         
         saintIcons = SaintIcons.get(currentDate)
-        
-        for icon in saintIcons {
-            print(icon.name)
-        }
     }
     
     func configureNavbar() {
@@ -532,8 +552,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         let button_options = UIBarButtonItem(image: UIImage(named: "options", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showOptions))
         
         button_saint.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
-
-        button_widget.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
+        button_widget.imageInsets = UIEdgeInsetsMake(0,-20,0,0)
         
         navigationItem.leftBarButtonItems = [button_monthly, button_saint]
         navigationItem.rightBarButtonItems = [button_options, button_widget]
