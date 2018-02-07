@@ -42,7 +42,7 @@ class RTFDocument: UIViewController {
 , style: .plain, target: self, action: #selector(self.zoom_in))
         let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(self.zoom_out))
         
-        button_zoom_in.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
+        button_zoom_in.imageInsets = UIEdgeInsetsMake(0,-20,0,0)
         navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
 
         title = docTitle

@@ -42,11 +42,15 @@ class SaintIconCell : ConfigurableCell, UICollectionViewDataSource, UICollection
     
     static func itemSize() -> CGSize {
         if (UIDevice.current.userInterfaceIdiom == .phone) {
-            if ["iPhone 6 Plus", "iPhone 6s Plus", "iPhone 7 Plus", "iPhone 8 Plus", "iPhone X"].contains(UIDevice.modelName) {
+            if ["iPhone 6 Plus", "iPhone 6s Plus", "iPhone 7 Plus", "iPhone 8 Plus"].contains(UIDevice.modelName) {
                 return CGSize(width: 120, height: 120)
                 
+            } else  if ["iPhone 4s", "iPhone 5", "iPhone 5s", "iPhone SE"].contains(UIDevice.modelName) {
+                return CGSize(width: 90, height: 90)
+            
             } else {
                 return CGSize(width: 110, height: 110)
+
             }
         } else {
             return CGSize(width: 180, height: 180)

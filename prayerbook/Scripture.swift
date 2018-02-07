@@ -36,7 +36,7 @@ class Scripture: UIViewController {
         let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(Scripture.zoom_in))
         let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(Scripture.zoom_out))
 
-        button_zoom_in.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
+        button_zoom_in.imageInsets = UIEdgeInsetsMake(0,-20,0,0)
         navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
         
         fontSize = prefs.integer(forKey: "fontSize")

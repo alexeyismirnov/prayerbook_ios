@@ -114,10 +114,21 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             prefs.set(true, forKey: "welcome30")
             prefs.synchronize()
             
-            _ = UIAlertController(title: "Православный календарь",
-                                  message: "В новой версии приложения - календарь на день, месяц и весь год.",
-                                  view: self,
-                                  handler: { _ in })
+            let url = URL(string: "saints-ru://open?12345")!
+            
+            if !UIApplication.shared.canOpenURL(url) {
+                let alert = UIAlertController(title: "Православный календарь", message: "Предлагаем установить новое приложение - \"Жития святых на каждый день\". " +
+                    "Приложение открывается при нажатии кнопки в панели навигации (сверху). Установить?"
+                    , preferredStyle: .alert)
+                
+                let yesAction = UIAlertAction(title: "Да", style: .default, handler: { _ in self.showSaints()} );
+                let noAction = UIAlertAction(title: "Нет", style: .default, handler: { _ in  });
+                
+                alert.addAction(yesAction)
+                alert.addAction(noAction)
+                
+                present(alert, animated: true, completion: {})
+            }
             
         }
         
@@ -630,7 +641,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     }
     
     func showTutorial() {
-        let videoURL = Bundle.main.url(forResource: "widget", withExtension: "mp4")
+        let videoURL = Bundle.main.url(forResource: "demo", withExtension: "mp4")
         
         let player = AVPlayer(url: videoURL!)
         let playerViewController = AVPlayerViewController()

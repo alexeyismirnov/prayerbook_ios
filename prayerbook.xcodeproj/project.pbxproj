@@ -78,6 +78,8 @@
 		8A1F2CB11DD9B80600F13A3D /* landscape2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CAF1DD9B80600F13A3D /* landscape2.png */; };
 		8A1F2CB21DD9B80600F13A3D /* landscape3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CB01DD9B80600F13A3D /* landscape3.png */; };
 		8A1F2CB41DD9C18600F13A3D /* newicon_167.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CB31DD9C18600F13A3D /* newicon_167.png */; };
+		8A1F8286202AA7EC0010C02F /* iPhoneX-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F8285202AA7EC0010C02F /* iPhoneX-Portrait.png */; };
+		8A1F8288202AD76C0010C02F /* demo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F8287202AD76C0010C02F /* demo.mp4 */; };
 		8A24885E1EB0948A006877D8 /* YearlyCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */; };
 		8A24F52F1EB98A1700CE19E7 /* CalendarImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A24F52E1EB98A1700CE19E7 /* CalendarImageCell.swift */; };
 		8A298C481DD41DFC006A25F9 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A298C471DD41DFC006A25F9 /* Animation.swift */; };
@@ -192,7 +194,6 @@
 		8AC757C21C550BFD0088D4D0 /* Images.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D815198F20CC0078F39F /* Images.xcassets */; };
 		8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89219E4CECB00B51294 /* arrow-left.pdf */; };
 		8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89319E4CECB00B51294 /* arrow-right.pdf */; };
-		8AC833DA1EC07A69007B4CFD /* widget.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8AC833D91EC07A68007B4CFD /* widget.mp4 */; };
 		8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */; };
 		8AE36B2C1C97B228005CAD8D /* food-nothing.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE36B281C97B228005CAD8D /* food-nothing.pdf */; };
 		8AE36B2D1C97B228005CAD8D /* food-pizza.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE36B291C97B228005CAD8D /* food-pizza.pdf */; };
@@ -341,6 +342,8 @@
 		8A1F2CAF1DD9B80600F13A3D /* landscape2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landscape2.png; sourceTree = "<group>"; };
 		8A1F2CB01DD9B80600F13A3D /* landscape3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landscape3.png; sourceTree = "<group>"; };
 		8A1F2CB31DD9C18600F13A3D /* newicon_167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_167.png; sourceTree = "<group>"; };
+		8A1F8285202AA7EC0010C02F /* iPhoneX-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhoneX-Portrait.png"; sourceTree = "<group>"; };
+		8A1F8287202AD76C0010C02F /* demo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo.mp4; sourceTree = "<group>"; };
 		8A2197D91ECAD486007CB039 /* ChameleonFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChameleonFramework.framework; path = "../../Derived3/prayerbook-ewzsuaxwoacyigdcqavmiszgcxqo/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework"; sourceTree = "<group>"; };
 		8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearlyCalendar.swift; sourceTree = "<group>"; };
 		8A24F52E1EB98A1700CE19E7 /* CalendarImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarImageCell.swift; sourceTree = "<group>"; };
@@ -460,7 +463,6 @@
 		8AC6952319E4011700773FEB /* library.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = library.pdf; sourceTree = "<group>"; };
 		8AC7B89219E4CECB00B51294 /* arrow-left.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-left.pdf"; sourceTree = "<group>"; };
 		8AC7B89319E4CECB00B51294 /* arrow-right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-right.pdf"; sourceTree = "<group>"; };
-		8AC833D91EC07A68007B4CFD /* widget.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = widget.mp4; sourceTree = "<group>"; };
 		8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyReading.swift; sourceTree = "<group>"; };
 		8AE36B281C97B228005CAD8D /* food-nothing.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-nothing.pdf"; sourceTree = "<group>"; };
 		8AE36B291C97B228005CAD8D /* food-pizza.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-pizza.pdf"; sourceTree = "<group>"; };
@@ -590,10 +592,10 @@
 				8AFEE0591C210FB0004A68DC /* readings */,
 				8ADFF51E1B0F1D02001AE6A9 /* saints */,
 				8AAC691A1A2C4D5D00CC5CA1 /* scripture */,
-				8A74D857199076EF0078F39F /* html */,
 				8A74D844198F624C0078F39F /* images */,
 				8A74D832198F224E0078F39F /* Main.storyboard */,
-				8AC833D91EC07A68007B4CFD /* widget.mp4 */,
+				8A74D857199076EF0078F39F /* html */,
+				8A1F8287202AD76C0010C02F /* demo.mp4 */,
 				8A54E3DA202857E900245C31 /* icons.sqlite */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
 				8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */,
@@ -647,6 +649,7 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8A1F8285202AA7EC0010C02F /* iPhoneX-Portrait.png */,
 				8A61BBA4202438CE003AA1BF /* saint.pdf */,
 				8A1F2CB31DD9C18600F13A3D /* newicon_167.png */,
 				8A1F2CAF1DD9B80600F13A3D /* landscape2.png */,
@@ -1000,6 +1003,7 @@
 				8A0B4CF91C8C1ECF00747BB4 /* matthew_ru.sqlite in Resources */,
 				8A5457831E70174300A86B5A /* synaxarion19.rtf in Resources */,
 				8A5457811E70174300A86B5A /* synaxarion17.rtf in Resources */,
+				8A1F8288202AD76C0010C02F /* demo.mp4 in Resources */,
 				8A54577F1E70174300A86B5A /* synaxarion15.rtf in Resources */,
 				8A0B4CB11C8C1E8000747BB4 /* saints_06_ru.sqlite in Resources */,
 				8A0B4CE31C8C1ECF00747BB4 /* 1john_ru.sqlite in Resources */,
@@ -1107,7 +1111,6 @@
 				8AADFF581E84C25300CE3D0F /* synaxarion27.rtf in Resources */,
 				8A0B4CA81C8C1E8000747BB4 /* saints_01_ru.txt in Resources */,
 				8AC6951719E3FBC200773FEB /* food-cheese.pdf in Resources */,
-				8AC833DA1EC07A69007B4CFD /* widget.mp4 in Resources */,
 				8A5457821E70174300A86B5A /* synaxarion18.rtf in Resources */,
 				8AE718D51C560CC30035CDCE /* fat-right.pdf in Resources */,
 				8A0B4CEC1C8C1ECF00747BB4 /* 3john_ru.sqlite in Resources */,
@@ -1130,6 +1133,7 @@
 				8AE36B2F1C97B228005CAD8D /* food-xerography.pdf in Resources */,
 				8AB0DCA81C27F00400C6A494 /* ReadingMatthew.plist in Resources */,
 				8A0B4CA71C8C1E8000747BB4 /* saints_01_ru.sqlite in Resources */,
+				8A1F8286202AA7EC0010C02F /* iPhoneX-Portrait.png in Resources */,
 				8A0B4CF51C8C1ECF00747BB4 /* john_ru.sqlite in Resources */,
 				8A0B4CFA1C8C1ECF00747BB4 /* phil_ru.sqlite in Resources */,
 			);
