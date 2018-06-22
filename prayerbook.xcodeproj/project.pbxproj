@@ -868,7 +868,6 @@
 				8A74D7F3198F20CC0078F39F /* Sources */,
 				8A74D7F4198F20CC0078F39F /* Frameworks */,
 				8A74D7F5198F20CC0078F39F /* Resources */,
-				AC7CA402C5C6E3D32ACF0F87 /* [CP] Copy Pods Resources */,
 				8AC966151BE5DB3D00841FEE /* Embed Frameworks */,
 				8AB749B41C4C7A3500CD1B32 /* Embed App Extensions */,
 				7C98CB98B97156383C636D41 /* [CP] Embed Pods Frameworks */,
@@ -894,7 +893,6 @@
 				8AB7499D1C4C7A3400CD1B32 /* Resources */,
 				8A2AE48A1FC2DB0D00B30B53 /* ShellScript */,
 				8A392ECF1FC431290051C6E6 /* ShellScript */,
-				49E775174313CEDF2DE46B48 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1150,21 +1148,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		49E775174313CEDF2DE46B48 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalendarWidget/Pods-CalendarWidget-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7C98CB98B97156383C636D41 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1243,21 +1226,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AC7CA402C5C6E3D32ACF0F87 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ponomar/Pods-ponomar-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D38BA3FCE733F88380D63661 /* [CP] Check Pods Manifest.lock */ = {
