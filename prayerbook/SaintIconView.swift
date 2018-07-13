@@ -75,7 +75,7 @@ class SaintIconCell : ConfigurableCell, UICollectionViewDataSource, UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionReuseIdentifier, for: indexPath) as! CollectionViewCell
         
         guard let resourcePath = Bundle.main.resourcePath else { return cell }
-        let iconPath = resourcePath + "/icons/icon_\(saints[indexPath.row].id).jpg"
+        let iconPath = resourcePath + "/icons/\(saints[indexPath.row].id).jpg"
         
         try! cell.icon!.image = UIImage(data: Data(contentsOf: URL(fileURLWithPath: iconPath)))
         cell.icon!.contentMode = .scaleAspectFit
