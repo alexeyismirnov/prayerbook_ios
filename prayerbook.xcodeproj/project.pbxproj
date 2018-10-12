@@ -170,6 +170,8 @@
 		8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */; };
 		8AB749A41C4C7A3500CD1B32 /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB749A31C4C7A3500CD1B32 /* ExpandedViewController.swift */; };
 		8AB749A71C4C7A3500CD1B32 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AB749A51C4C7A3500CD1B32 /* MainInterface.storyboard */; };
+		8AB90801216EF7580030F989 /* ChaptersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB907FF216EF7580030F989 /* ChaptersCell.swift */; };
+		8AB90802216EF7580030F989 /* ChaptersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB90800216EF7580030F989 /* ChaptersCell.xib */; };
 		8ABAFC461C0B0385008DB93C /* prayer_typica_0_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8ABAFC441C0B0385008DB93C /* prayer_typica_0_cn.html */; };
 		8ABAFC491C0B03A9008DB93C /* prayer_typica_0_ru.html in Resources */ = {isa = PBXBuildFile; fileRef = 8ABAFC481C0B03A9008DB93C /* prayer_typica_0_ru.html */; };
 		8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */; };
@@ -439,6 +441,8 @@
 		8AB749A31C4C7A3500CD1B32 /* ExpandedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedViewController.swift; sourceTree = "<group>"; };
 		8AB749A61C4C7A3500CD1B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		8AB749A81C4C7A3500CD1B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AB907FF216EF7580030F989 /* ChaptersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersCell.swift; sourceTree = "<group>"; };
+		8AB90800216EF7580030F989 /* ChaptersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChaptersCell.xib; sourceTree = "<group>"; };
 		8ABAFC441C0B0385008DB93C /* prayer_typica_0_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_typica_0_cn.html; sourceTree = "<group>"; };
 		8ABAFC481C0B03A9008DB93C /* prayer_typica_0_ru.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_typica_0_ru.html; sourceTree = "<group>"; };
 		8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastingViewController.swift; sourceTree = "<group>"; };
@@ -609,6 +613,8 @@
 				8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */,
 				8A54C4291EA74CE90083AA2F /* DailyTab2.swift */,
 				8A54C42B1EA760E30083AA2F /* Library2.swift */,
+				8AB907FF216EF7580030F989 /* ChaptersCell.swift */,
+				8AB90800216EF7580030F989 /* ChaptersCell.xib */,
 				8A54E3DC2028637E00245C31 /* SaintIcons.swift */,
 				8A1B2576202956840038C0C4 /* SaintIconView.swift */,
 				8A1B257820295C9D0038C0C4 /* CenterViewFlowLayout.swift */,
@@ -1002,6 +1008,7 @@
 				8A5457831E70174300A86B5A /* synaxarion19.rtf in Resources */,
 				8A5457811E70174300A86B5A /* synaxarion17.rtf in Resources */,
 				8A1F8288202AD76C0010C02F /* demo.mp4 in Resources */,
+				8AB90802216EF7580030F989 /* ChaptersCell.xib in Resources */,
 				8A54577F1E70174300A86B5A /* synaxarion15.rtf in Resources */,
 				8A0B4CB11C8C1E8000747BB4 /* saints_06_ru.sqlite in Resources */,
 				8A0B4CE31C8C1ECF00747BB4 /* 1john_ru.sqlite in Resources */,
@@ -1256,6 +1263,7 @@
 				8AE46EFE1EA9A6F900CAC1CB /* CalendarInfo.swift in Sources */,
 				8A24885E1EB0948A006877D8 /* YearlyCalendar.swift in Sources */,
 				8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */,
+				8AB90801216EF7580030F989 /* ChaptersCell.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
 				8AEFC27B1A2C747700BAACE0 /* Scripture.swift in Sources */,
 				8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */,
@@ -1429,7 +1437,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1472,7 +1480,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

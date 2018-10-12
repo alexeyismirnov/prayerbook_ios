@@ -47,8 +47,8 @@ let OldTestament: [(String, String)] = [
 
 
 class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var code:String = "Library"
     var index:Int = 0
+    var expanded = [Bool]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -59,10 +59,14 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.contentInset = UIEdgeInsets(top: -30, left: 0, bottom: 0, right: 0)
+        tableView.register(UINib(nibName: "ChaptersCell", bundle: nil), forCellReuseIdentifier: "ChaptersCell")
+        
+        expanded = [Bool](repeating: false, count: NewTestament.count)
         
         automaticallyAdjustsScrollViewInsets = false
-
         navigationController?.makeTransparent()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showChapter), name: NSNotification.Name(rawValue: chapterSelectedNotification), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
@@ -83,29 +87,32 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func reload() {
         tableView.reloadData()
-        
-        if (code == "Library") {
-            title = Translate.s("Library")
+        title = Translate.s("Library")
+    }
+    
+    func showChapter(_ notification: NSNotification) {
+        if let book = notification.userInfo?["book"] as? Int,
+           let chapter = notification.userInfo?["chapter"] as? Int {
             
-        } else {
-            title = Translate.s(NewTestament[index].0)
+            let vc = UIViewController.named("Scripture") as! Scripture
+            let code = NewTestament[book].1
+            
+            vc.code = .chapter(code, chapter+1)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     
     // MARK: Table view data source
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {        
-        if (code == "Library") {
-            let vc = UIViewController.named("Library2") as! Library2
-            vc.index = (indexPath as NSIndexPath).row
-            vc.code = NewTestament[(indexPath as NSIndexPath).row].1
-            navigationController?.pushViewController(vc, animated: true)
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let index = indexPath.row / 2
+        
+        if (indexPath.row % 2 == 0) {
+            expanded[index] = !expanded[index]
             
-        } else {
-            let vc = UIViewController.named("Scripture") as! Scripture
-            vc.code = .chapter(code, (indexPath as NSIndexPath).row+1)
-            navigationController?.pushViewController(vc, animated: true)
-        }
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        } 
         
         return nil
     }
@@ -122,33 +129,64 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (code == "Library") ? NewTestament.count : Db.numberOfChapters(code)
+        return NewTestament.count * 2
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return (code == "Library") ? Translate.s("New Testament") : nil
+        return Translate.s("New Testament")
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "TextCell"
-        
-        var newCell  = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TextCell
-        if newCell == nil {
-            newCell = TextCell(style: UITableViewCellStyle.default, reuseIdentifier: TextCell.cellId)
+        let index = indexPath.row / 2;
+
+        if indexPath.row % 2 == 0 {
+            let cellIdentifier = "TextCell"
+            
+            var newCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TextCell
+            if newCell == nil {
+                newCell = TextCell(style: UITableViewCellStyle.default, reuseIdentifier: TextCell.cellId)
+            }
+            
+            newCell?.backgroundColor = .clear
+            newCell!.title.textColor =  Theme.textColor
+            newCell!.title.text = Translate.s(NewTestament[index].0)
+            
+            return newCell!
+            
+        } else {
+            let cellIdentifier = "ChaptersCell"
+            let code = NewTestament[index].1
+            
+            let newCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ChaptersCell
+
+            newCell?.backgroundColor = .clear
+            newCell?.book = index
+            newCell?.numChapters = Db.numberOfChapters(code)
+            newCell!.collectionView.reloadData()
+            
+            return newCell!
         }
         
-        newCell?.backgroundColor = .clear
-        newCell!.title.textColor =  Theme.textColor
-        newCell!.title.text = (code == "Library") ?
-            Translate.s(NewTestament[(indexPath as NSIndexPath).row].0) :
-            String(format: Translate.s("Chapter %@"), Translate.stringFromNumber((indexPath as NSIndexPath).row+1))
-        
-        return newCell!
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
-        return calculateHeightForCell(cell)
+        if (indexPath.row % 2 == 0) {
+            let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
+            return calculateHeightForCell(cell)
+            
+        } else if (expanded[indexPath.row/2]) {
+            let cell  = self.tableView(tableView, cellForRowAt: indexPath) as? ChaptersCell
+
+            cell!.bounds = CGRect(x: 0, y: 0, width: tableView.frame.width, height: cell!.bounds.height)
+            cell!.setNeedsLayout()
+            cell!.layoutIfNeeded()
+            
+            let layout = cell!.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+            return layout.collectionViewContentSize.height
+            
+        } else {
+            return 0.0
+        }
     }
     
     func calculateHeightForCell(_ cell: UITableViewCell) -> CGFloat {

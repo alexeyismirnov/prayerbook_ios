@@ -30,6 +30,7 @@ class DateViewCell: UICollectionViewCell, CellWithDate {
 
         dateLabel.numberOfLines = 1
         dateLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
+        dateLabel.textColor = Theme.textColor
         dateLabel.adjustsFontSizeToFitWidth = true
         dateLabel.clipsToBounds = true
         dateLabel.textAlignment = .center
