@@ -47,6 +47,17 @@ struct SaintIcons {
             saints.append(saint)
         }
         
+        let links = try! db.selectFrom("app_saint JOIN link_saint",
+                                       columns: ["link_saint.name AS name", "app_saint.id AS id", "app_saint.has_icon AS has_icon"],
+                                       whereExpr: "link_saint.month=\(month) AND link_saint.day=\(day) AND app_saint.id = link_saint.id") { ["id": $0["id"],  "name": $0["name"], "has_icon": $0["has_icon"] ]}
+        
+        for data in links {
+            let id = Int(exactly: data["id"] as! Int64) ?? 0
+            let has_icon = data["has_icon"] as! Int64 == 0 ? false : true
+            let saint = Saint(id: id, name: data["name"] as! String, has_icon: has_icon)
+            saints.append(saint)
+        }
+        
         return saints
     }
     
