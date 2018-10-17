@@ -99,6 +99,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
                                                 titleFontSize: 20,
                                                 fontSize: 14)
 
+    var appeared = false
     var year = Cal.currentYear!
     let numCols:CGFloat = 3
     
@@ -181,6 +182,13 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         collectionView.contentInset.top = 0
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        appeared = true
+        collectionView.reloadData()
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -197,6 +205,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: YearlyMonthViewCell.cellId, for: indexPath) as! YearlyMonthViewCell
+            cell.appeared = appeared
             cell.currentDate = Date(1, indexPath.row+1, year)
             return cell
             

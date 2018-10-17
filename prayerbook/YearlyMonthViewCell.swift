@@ -14,8 +14,10 @@ class YearlyMonthViewCell: UICollectionViewCell {
 
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     var calendarDelegate: CalendarDelegate!
+    var appeared = false
 
     var currentDate : Date! {
         didSet {
@@ -27,6 +29,14 @@ class YearlyMonthViewCell: UICollectionViewCell {
             monthLabel.font = UIFont.systemFont(ofSize: YC.config.titleFontSize)
             monthLabel.textColor = YearlyCalendar.isSharing ? .black : Theme.textColor
 
+            if appeared {
+                indicator.stopAnimating()
+                
+                collectionView.delegate = calendarDelegate
+                collectionView.dataSource = calendarDelegate
+            
+            }
+            
             calendarDelegate.currentDate = currentDate
             collectionView.reloadData()
             
@@ -38,6 +48,9 @@ class YearlyMonthViewCell: UICollectionViewCell {
         super.awakeFromNib()
 
         collectionView.backgroundColor = .clear
+        indicator.hidesWhenStopped = true
+        indicator.color = Theme.textColor
+        indicator.startAnimating()
 
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionInset = UIEdgeInsetsMake(10, 0, 0, 0)
@@ -54,11 +67,9 @@ class YearlyMonthViewCell: UICollectionViewCell {
         DateViewCell.textColor = YearlyCalendar.isSharing ? .black : Theme.textColor
         DateViewCell.textSize = YC.config.fontSize
         
-        collectionView.delegate = calendarDelegate
-        collectionView.dataSource = calendarDelegate
-        
         collectionView.layer.addBorder(edge: .top, color: YearlyCalendar.isSharing ? .black : Theme.secondaryColor, thickness: 1)
 
     }
+    
 
 }

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -81,6 +79,9 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="QGj-qY-Jz7">
+                        <rect key="frame" x="158.5" y="209" width="20" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
             </view>
             <constraints>
@@ -91,10 +92,12 @@
                 <constraint firstItem="T0F-1H-rJT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DBh-35-Wxp"/>
                 <constraint firstItem="HSN-qf-nhc" firstAttribute="top" secondItem="Gwb-lh-rAs" secondAttribute="bottom" constant="8" symbolic="YES" id="Dbw-yn-goj"/>
                 <constraint firstItem="PjJ-8b-Pqd" firstAttribute="top" secondItem="Gwb-lh-rAs" secondAttribute="bottom" constant="8" symbolic="YES" id="FQP-RW-zKp"/>
+                <constraint firstItem="QGj-qY-Jz7" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Fzd-vk-weG"/>
                 <constraint firstItem="Gwb-lh-rAs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="GeT-9S-9iX"/>
                 <constraint firstItem="XKJ-no-bcY" firstAttribute="top" secondItem="Gwb-lh-rAs" secondAttribute="bottom" constant="8" symbolic="YES" id="HKJ-tK-lqw"/>
                 <constraint firstAttribute="trailing" secondItem="nyS-0H-MbQ" secondAttribute="centerX" multiplier="14:9" id="LnD-aU-uoG"/>
                 <constraint firstAttribute="trailing" secondItem="XKJ-no-bcY" secondAttribute="centerX" multiplier="14:13" id="OGI-cb-SWx"/>
+                <constraint firstItem="QGj-qY-Jz7" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="URT-Wi-zsL"/>
                 <constraint firstAttribute="trailing" secondItem="Gwb-lh-rAs" secondAttribute="trailing" constant="5" id="ZgZ-9E-f17"/>
                 <constraint firstItem="ujO-dm-9bQ" firstAttribute="top" secondItem="Gwb-lh-rAs" secondAttribute="bottom" constant="8" symbolic="YES" id="dmK-H9-tAb"/>
                 <constraint firstItem="Gwb-lh-rAs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="eBf-Ox-09f"/>
@@ -108,6 +111,7 @@
             <size key="customSize" width="337" height="438"/>
             <connections>
                 <outlet property="collectionView" destination="T0F-1H-rJT" id="cQR-3N-SDs"/>
+                <outlet property="indicator" destination="QGj-qY-Jz7" id="vW0-0p-M1V"/>
                 <outlet property="monthLabel" destination="Gwb-lh-rAs" id="mn9-qa-z1K"/>
             </connections>
             <point key="canvasLocation" x="177.5" y="260"/>
