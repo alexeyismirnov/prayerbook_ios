@@ -99,9 +99,22 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
                                                 titleFontSize: 20,
                                                 fontSize: 14)
 
+    enum ViewType {
+        case list, grid
+    }
+    
+    static var viewType = ViewType.grid
+    
     var appeared = false
     var year = Cal.currentYear!
     let numCols:CGFloat = 3
+    
+    var headerLabel : UILabel!
+    var textView : UITextView!
+    var textViewSize : CGSize!
+    var feasts : NSMutableAttributedString? = nil
+    
+    var shareButton, listButton, gridButton :UIBarButtonItem!
     
     static let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
@@ -140,26 +153,12 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
 
         } else {
             YC.config = YC.iPadConfig
-
         }
 
-        let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+        createFeastList()
+        createHeaderViews()
 
-        let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(close))
-        navigationItem.leftBarButtonItem = backButton
-        
-        let shareButton = UIBarButtonItem(image: UIImage(named: "share", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(share))
-        navigationItem.rightBarButtonItem = shareButton
-
-        navigationController?.makeTransparent()
-        automaticallyAdjustsScrollViewInsets = false
-        
-        if let bgColor = Theme.mainColor {
-            view.backgroundColor =  bgColor
-            
-        } else {
-            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view,  bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
-        }
+        setupNavbar()
         
         collectionView.register(UINib(nibName: "YearlyMonthViewCell", bundle: nil), forCellWithReuseIdentifier: YearlyMonthViewCell.cellId)
 
@@ -177,6 +176,63 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     
     }
     
+    func createFeastList() {
+        let fontSize = 20
+
+        feasts = feasts + ("this is a very very long line of feasts hello world hello world\n ", UIColor.red)
+        feasts = feasts + ("this is a very very long line of feasts hello world hello world\n ", Theme.textColor)
+        feasts = feasts + ("this is a very very long line of feasts hello world hello world\n ", Theme.textColor)
+        feasts = feasts + ("qq4\n ", Theme.textColor)
+        feasts = feasts + ("qq5\n ", Theme.textColor)
+
+        feasts!.addAttribute(NSFontAttributeName,
+                           value: UIFont.systemFont(ofSize: CGFloat(fontSize)),
+                           range: NSMakeRange(0, feasts!.length))
+        
+       
+    }
+    
+    func createHeaderViews() {
+        textView =  UITextView(frame: .zero)
+        textView.backgroundColor = .clear
+        
+        textView.attributedText = feasts
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        
+        textViewSize = textView.sizeThatFits(CGSize(width: view.frame.width, height: CGFloat.greatestFiniteMagnitude))
+        textView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: textViewSize)
+        
+        headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
+        headerLabel.textAlignment = .center
+        headerLabel.text = "Православный календарь на \(year) г."
+        headerLabel.textColor = YearlyCalendar.isSharing ? .black : Theme.textColor
+    }
+    
+    func setupNavbar() {
+        let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+        
+        let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(close))
+        navigationItem.leftBarButtonItem = backButton
+        
+        shareButton = UIBarButtonItem(image: UIImage(named: "share", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(share))
+        
+        listButton = UIBarButtonItem(image: UIImage(named: "list", in: nil, compatibleWith: nil), style: .plain, target: self, action: #selector(switchView))
+        
+        gridButton = UIBarButtonItem(image: UIImage(named: "grid", in: nil, compatibleWith: nil), style: .plain, target: self, action: #selector(switchView))
+        
+        navigationItem.rightBarButtonItems = [shareButton, listButton]
+        
+        navigationController?.makeTransparent()
+        automaticallyAdjustsScrollViewInsets = false
+        
+        if let bgColor = Theme.mainColor {
+            view.backgroundColor =  bgColor
+            
+        } else {
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view,  bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.contentInset.top = 0
@@ -188,18 +244,21 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         appeared = true
         collectionView.reloadData()
     }
-    
+   
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return YC.viewType == .grid ? 2 : 1
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 1 {
+        if section == 0 {
+            return YC.viewType == .grid ? 12 : 0
+            
+        } else if section == 1 {
             return (FastingLevel() == .monastic) ? Cal.fastingMonastic.count : Cal.fastingLaymen.count
         
-        } else {
-            return 12
         }
+        
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -241,18 +300,23 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath as IndexPath)
         
-        let label = UILabel(frame: headerView.frame)
-        label.textAlignment = .center
-        label.text = "Православный календарь на \(year) г."
-        label.textColor = YearlyCalendar.isSharing ? .black : Theme.textColor
+        headerLabel.removeFromSuperview()
+        textView.removeFromSuperview()
         
-        headerView.addSubview(label)
+        if YC.viewType == .grid {
+            headerView.addSubview(headerLabel)
+            
+        } else {
+            headerView.addSubview(textView)
+        }
+        
         return headerView
     }
+    
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
-            return CGSize(width: 0, height: 50)
+            return YC.viewType == .grid ? CGSize(width: 0, height: 50) : textViewSize
         } else {
             return CGSize(width: 0, height: 0)
         }
@@ -260,6 +324,19 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     
     func close() {
         dismiss(animated: true, completion: { })
+    }
+    
+    func switchView() {
+        if (YC.viewType == .grid) {
+            YC.viewType = .list
+            navigationItem.rightBarButtonItems = [shareButton, gridButton]
+
+        } else {
+            YC.viewType = .grid
+            navigationItem.rightBarButtonItems = [shareButton, listButton]
+        }
+        
+        collectionView.reloadData()
     }
     
     func convertPDFPageToImage() -> UIImage {
@@ -301,6 +378,60 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     }
     
     func share() {
+        if YC.viewType == .grid {
+            shareGrid()
+        } else {
+            shareList()
+        }
+    }
+    
+    // https://www.hackingwithswift.com/example-code/uikit/how-to-render-an-nsattributedstring-to-a-pdf
+    
+    func shareList() {
+        let printFormatter = UISimpleTextPrintFormatter(attributedText: textView.attributedText)
+        
+        let renderer = UIPrintPageRenderer()
+        renderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
+        
+        let pageSize = CGSize(width: 595.2, height: 841.8)
+        let pageMargins = UIEdgeInsets(top: 72, left: 72, bottom: 72, right: 72)
+        let printableRect = CGRect(x: pageMargins.left, y: pageMargins.top, width: pageSize.width - pageMargins.left - pageMargins.right, height: pageSize.height - pageMargins.top - pageMargins.bottom)
+        let paperRect = CGRect(x: 0, y: 0, width: pageSize.width, height: pageSize.height)
+
+        
+        renderer.setValue(NSValue(cgRect: paperRect), forKey: "paperRect")
+        renderer.setValue(NSValue(cgRect: printableRect), forKey: "printableRect")
+        
+        let pdfData = NSMutableData()
+        
+        UIGraphicsBeginPDFContextToData(pdfData, paperRect, nil)
+        renderer.prepare(forDrawingPages: NSMakeRange(0, renderer.numberOfPages))
+        
+        let bounds = UIGraphicsGetPDFContextBounds()
+        
+        for i in 0  ..< renderer.numberOfPages {
+            UIGraphicsBeginPDFPage()
+            
+            renderer.drawPage(at: i, in: bounds)
+        }
+        
+        UIGraphicsEndPDFContext()
+        
+        if let documentDirectories = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
+            let documentsFileName = documentDirectories + "/" + "calendar.pdf"
+            debugPrint(documentsFileName)
+            
+            do {
+                try pdfData.write(to: URL(fileURLWithPath: documentsFileName))
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+
+    }
+    
+    
+    func shareGrid() {
         let pdfData = NSMutableData()
         
         let newSize = CGSize(width: collectionView.contentSize.width,
