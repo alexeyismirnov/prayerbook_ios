@@ -76,53 +76,52 @@ struct ChurchCalendar {
     static var synaxarion = [Date: (String, String)]()
     static var moveableIcons = [Date: [IconCodes]]()
 
-    static let codeFeastDescr : [NameOfDay: [(FeastType, String)]] = [
-        .pascha:                    [(.great, "PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ")],
-        .pentecost:                 [(.great, "Pentecost. Sunday of the Holy Trinity. Descent of the Holy Spirit on the Apostles")],
-        .ascension:                 [(.great, "Ascension of our Lord, God, and Saviour Jesus Christ")],
-        .palmSunday:                [(.great, "Palm Sunday. Entrance of our Lord into Jerusalem")],
-        .eveOfNativityOfGod:        [(.noSign, "Eve of the Nativity of Christ")],
-        .nativityOfGod:             [(.great, "The Nativity of our Lord God and Savior Jesus Christ")],
-        .circumcision:              [(.great, "Circumcision of our Lord")],
-        .eveOfTheophany:            [(.noSign, "Eve of Theophany")],
-        .theophany:                 [(.great, "Holy Theophany: the Baptism of Our Lord, God, and Saviour Jesus Christ")],
-        .meetingOfLord:             [(.great, "The Meeting of our Lord, God, and Saviour Jesus Christ in the Temple")],
-        .annunciation:              [(.great, "The Annunciation of our Most Holy Lady, Theotokos and Ever-Virgin Mary")],
-        .nativityOfJohn:            [(.great, "Nativity of the Holy Glorious Prophet, Forerunner, and Baptist of the Lord, John")],
-        .peterAndPaul:              [(.great, "The Holy Glorious and All-Praised Leaders of the Apostles, Peter and Paul")],
-        .transfiguration:           [(.great, "The Holy Transfiguration of Our Lord God and Saviour Jesus Christ")],
-        .dormition:                 [(.great, "The Dormition (Repose) of our Most Holy Lady Theotokos and Ever-Virgin Mary")],
-        .beheadingOfJohn:           [(.great, "The Beheading of the Holy Glorious Prophet, Forerunner and Baptist of the Lord, John")],
-        .nativityOfTheotokos:       [(.great, "Nativity of Our Most Holy Lady Theotokos and Ever-Virgin Mary")],
-        .exaltationOfCross:         [(.great, "The Universal Exaltation of the Precious and Life-Giving Cross")],
-        .veilOfTheotokos:           [(.great, "Protection of Our Most Holy Lady Theotokos and Ever-Virgin Mary")],
-        .entryIntoTemple:           [(.great, "Entry into the Temple of our Most Holy Lady Theotokos and Ever-Virgin Mary")],
-        .beginningOfGreatLent:      [(.none, "Beginning of Great Lent")],
-        .beginningOfDormitionFast:  [(.none, "Beginning of Dormition fast")],
-        .beginningOfNativityFast:   [(.none, "Beginning of Nativity fast")],
-        .beginningOfApostolesFast:  [(.none, "Beginning of Apostoles' fast")],
-        .sundayOfForefathers:       [(.none, "Sunday of the Holy Forefathers")],
-        .sundayAfterExaltation:     [(.none, "Sunday after the Exaltation")],
-        .saturdayAfterExaltation:   [(.none, "Saturday after the Exaltation")],
-        .saturdayBeforeExaltation:  [(.none, "Saturday before the Exaltation")],
-        .sundayBeforeExaltation:    [(.none, "Sunday before the Exaltation")],
-        .saturdayBeforeNativity:    [(.none, "Saturday before the Nativity of Christ")],
-        .sundayBeforeNativity:      [(.none, "Sunday before the Nativity of Christ, of the Fathers")],
-        .saturdayAfterNativity:     [(.none, "Saturday after the Nativity of Christ")],
-        .sundayAfterNativity:       [(.none, "Sunday after Nativity")],
-        .josephBetrothed:           [(.noSign, "Saints Joseph the Betrothed, David the King, and James the Brother of the Lord")],
-        .saturdayBeforeTheophany:   [(.none, "Saturday before Theophany")],
-        .sundayBeforeTheophany:     [(.none, "Sunday before Theophany")],
-        .saturdayAfterTheophany:    [(.none, "Saturday after Theophany")],
-        .sundayAfterTheophany:      [(.none, "Sunday after Theophany")],
-        .newMartyrsConfessorsOfRussia: [(.vigil, "Holy New Martyrs and Confessors of Russia")],
-        .holyFathersSixCouncils:    [(.none, "Commemoration of the Holy Fathers of the First Six Councils")],
-        .synaxisMoscowSaints:       [(.none, "Synaxis of all saints of Moscow")],
-        .synaxisNizhnyNovgorodSaints:       [(.none, "Synaxis of all saints of Nizhny Novgorod")],
-        .saturdayOfFathers:         [(.noSign, "Commemoration of all the saints, who showed forth in asceticism")],
-        .saturdayTrinity:           [(.none, "Trinity Saturday; Commemoration of the Departed")],
-        .saturdayOfDeparted:        [(.none, "The Saturday of the Dead")]
-
+    static let codeFeastDescr : [NameOfDay: (FeastType, String)] = [
+        .pascha:                    (.great, "PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ"),
+        .pentecost:                 (.great, "Pentecost. Sunday of the Holy Trinity. Descent of the Holy Spirit on the Apostles"),
+        .ascension:                 (.great, "Ascension of our Lord, God, and Saviour Jesus Christ"),
+        .palmSunday:                (.great, "Palm Sunday. Entrance of our Lord into Jerusalem"),
+        .eveOfNativityOfGod:        (.noSign, "Eve of the Nativity of Christ"),
+        .nativityOfGod:             (.great, "The Nativity of our Lord God and Savior Jesus Christ"),
+        .circumcision:              (.great, "Circumcision of our Lord"),
+        .eveOfTheophany:            (.noSign, "Eve of Theophany"),
+        .theophany:                 (.great, "Holy Theophany: the Baptism of Our Lord, God, and Saviour Jesus Christ"),
+        .meetingOfLord:             (.great, "The Meeting of our Lord, God, and Saviour Jesus Christ in the Temple"),
+        .annunciation:              (.great, "The Annunciation of our Most Holy Lady, Theotokos and Ever-Virgin Mary"),
+        .nativityOfJohn:            (.great, "Nativity of the Holy Glorious Prophet, Forerunner, and Baptist of the Lord, John"),
+        .peterAndPaul:              (.great, "The Holy Glorious and All-Praised Leaders of the Apostles, Peter and Paul"),
+        .transfiguration:           (.great, "The Holy Transfiguration of Our Lord God and Saviour Jesus Christ"),
+        .dormition:                 (.great, "The Dormition (Repose) of our Most Holy Lady Theotokos and Ever-Virgin Mary"),
+        .beheadingOfJohn:           (.great, "The Beheading of the Holy Glorious Prophet, Forerunner and Baptist of the Lord, John"),
+        .nativityOfTheotokos:       (.great, "Nativity of Our Most Holy Lady Theotokos and Ever-Virgin Mary"),
+        .exaltationOfCross:         (.great, "The Universal Exaltation of the Precious and Life-Giving Cross"),
+        .veilOfTheotokos:           (.great, "Protection of Our Most Holy Lady Theotokos and Ever-Virgin Mary"),
+        .entryIntoTemple:           (.great, "Entry into the Temple of our Most Holy Lady Theotokos and Ever-Virgin Mary"),
+        .beginningOfGreatLent:      (.none, "Beginning of Great Lent"),
+        .beginningOfDormitionFast:  (.none, "Beginning of Dormition fast"),
+        .beginningOfNativityFast:   (.none, "Beginning of Nativity fast"),
+        .beginningOfApostolesFast:  (.none, "Beginning of Apostoles' fast"),
+        .sundayOfForefathers:       (.none, "Sunday of the Holy Forefathers"),
+        .sundayAfterExaltation:     (.none, "Sunday after the Exaltation"),
+        .saturdayAfterExaltation:   (.none, "Saturday after the Exaltation"),
+        .saturdayBeforeExaltation:  (.none, "Saturday before the Exaltation"),
+        .sundayBeforeExaltation:    (.none, "Sunday before the Exaltation"),
+        .saturdayBeforeNativity:    (.none, "Saturday before the Nativity of Christ"),
+        .sundayBeforeNativity:      (.none, "Sunday before the Nativity of Christ, of the Fathers"),
+        .saturdayAfterNativity:     (.none, "Saturday after the Nativity of Christ"),
+        .sundayAfterNativity:       (.none, "Sunday after Nativity"),
+        .josephBetrothed:           (.noSign, "Saints Joseph the Betrothed, David the King, and James the Brother of the Lord"),
+        .saturdayBeforeTheophany:   (.none, "Saturday before Theophany"),
+        .sundayBeforeTheophany:     (.none, "Sunday before Theophany"),
+        .saturdayAfterTheophany:    (.none, "Saturday after Theophany"),
+        .sundayAfterTheophany:      (.none, "Sunday after Theophany"),
+        .newMartyrsConfessorsOfRussia: (.vigil, "Holy New Martyrs and Confessors of Russia"),
+        .holyFathersSixCouncils:    (.none, "Commemoration of the Holy Fathers of the First Six Councils"),
+        .synaxisMoscowSaints:       (.none, "Synaxis of all saints of Moscow"),
+        .synaxisNizhnyNovgorodSaints:       (.none, "Synaxis of all saints of Nizhny Novgorod"),
+        .saturdayOfFathers:         (.noSign, "Commemoration of all the saints, who showed forth in asceticism"),
+        .saturdayTrinity:           (.none, "Trinity Saturday; Commemoration of the Departed"),
+        .saturdayOfDeparted:        (.none, "The Saturday of the Dead")
     ]
 
     static let feastIcon : [FeastType: String] = [
@@ -646,10 +645,8 @@ struct ChurchCalendar {
 
         if let codes = feastDates[date] {
             for code in codes {
-                if let feasts = codeFeastDescr[code] {
-                    for feast in feasts {
-                        result.append((feast.0, Translate.s(feast.1)))
-                    }
+                if let feast = codeFeastDescr[code] {
+                    result.append((feast.0, Translate.s(feast.1)))
                 }
             }
         }

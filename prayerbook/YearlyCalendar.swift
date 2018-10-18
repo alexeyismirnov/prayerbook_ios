@@ -17,58 +17,6 @@ struct YearlyCalendarConfig {
     var fontSize : CGFloat
 }
 
-class TopAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout
-{
-    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]?
-    {
-        if let attrs = super.layoutAttributesForElements(in: rect)
-        {
-            var baseline: CGFloat = -2
-            var sameLineElements = [UICollectionViewLayoutAttributes]()
-            for element in attrs
-            {
-                if element.representedElementCategory == .cell
-                {
-                    let frame = element.frame
-                    let centerY = frame.midY
-                    if abs(centerY - baseline) > 1
-                    {
-                        baseline = centerY
-                        TopAlignedCollectionViewFlowLayout.alignToTopForSameLineElements(sameLineElements: sameLineElements)
-                        sameLineElements.removeAll()
-                    }
-                    sameLineElements.append(element)
-                }
-            }
-            TopAlignedCollectionViewFlowLayout.alignToTopForSameLineElements(sameLineElements: sameLineElements) // align one more time for the last line
-            return attrs
-        }
-        return nil
-    }
-    
-    private class func alignToTopForSameLineElements(sameLineElements: [UICollectionViewLayoutAttributes])
-    {
-        if sameLineElements.count < 1
-        {
-            return
-        }
-        let sorted = sameLineElements.sorted { (obj1: UICollectionViewLayoutAttributes, obj2: UICollectionViewLayoutAttributes) -> Bool in
-            
-            let height1 = obj1.frame.size.height
-            let height2 = obj2.frame.size.height
-            let delta = height1 - height2
-            return delta <= 0
-        }
-        if let tallest = sorted.last
-        {
-            for obj in sameLineElements
-            {
-                obj.frame = obj.frame.offsetBy(dx: 0, dy: tallest.frame.origin.y - obj.frame.origin.y)
-            }
-        }
-    }
-}
-
 class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -99,6 +47,15 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
                                                 titleFontSize: 20,
                                                 fontSize: 14)
 
+    var formatter: DateFormatter = {
+        var formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateFormat = "cccc, d MMMM"
+        formatter.locale = Locale(identifier: "ru")
+        
+        return formatter
+    }()
+    
     enum ViewType {
         case list, grid
     }
@@ -176,25 +133,71 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     
     }
     
-    func createFeastList() {
-        let fontSize = 20
-
-        feasts = feasts + ("this is a very very long line of feasts hello world hello world\n ", UIColor.red)
-        feasts = feasts + ("this is a very very long line of feasts hello world hello world\n ", Theme.textColor)
-        feasts = feasts + ("this is a very very long line of feasts hello world hello world\n ", Theme.textColor)
-        feasts = feasts + ("qq4\n ", Theme.textColor)
-        feasts = feasts + ("qq5\n ", Theme.textColor)
-
-        feasts!.addAttribute(NSFontAttributeName,
-                           value: UIFont.systemFont(ofSize: CGFloat(fontSize)),
-                           range: NSMakeRange(0, feasts!.length))
+    func makeTitle(title: String, fontSize: CGFloat = 18.0) -> NSMutableAttributedString {
+        let centerStyle = NSMutableParagraphStyle()
+        centerStyle.alignment = .center
         
-       
+        let attributes: [String : Any] = [NSParagraphStyleAttributeName: centerStyle,
+                                          NSFontAttributeName: UIFont.boldSystemFont(ofSize: fontSize),
+                                          NSForegroundColorAttributeName: Theme.textColor
+                                          ]
+
+        var title = NSMutableAttributedString(
+            string: title,
+            attributes:attributes)
+        
+        return title
+    }
+    
+    func makeFeastStr(code: NameOfDay, color: UIColor = UIColor.black) -> NSMutableAttributedString  {
+        let fontSize = 16
+        let dateStr = formatter.string(from: Cal.d(code)).capitalizingFirstLetter()
+        let feastStr = Translate.s(Cal.codeFeastDescr[code]!.1)
+        
+        var cal : NSMutableAttributedString? = nil
+        cal = cal + ("\(dateStr) - \(feastStr)\n\n", color)
+
+        cal!.addAttribute(NSFontAttributeName,
+                           value: UIFont.systemFont(ofSize: CGFloat(fontSize)),
+                           range: NSMakeRange(0, cal!.length))
+        
+        return cal!
+    }
+    
+    func createFeastList() {
+        Cal.setDate(Date(1, 1, year))
+
+        let title1 = makeTitle(title: "Посты и праздники в \(year) г.\n\n", fontSize: 20.0)
+        let cal1 = makeFeastStr(code: .pascha, color: UIColor.red)
+        
+        feasts = title1 + cal1 + "\n"
+        
+        feasts = feasts + makeTitle(title: "Двунадесятые переходящие праздники\n") + "\n"
+
+        for code: NameOfDay in [.palmSunday, .ascension, .pentecost] {
+            feasts = feasts + makeFeastStr(code: code)
+        }
+        
+        feasts = feasts + "\n" + makeTitle(title: "Двунадесятые непереходящие праздники\n") + "\n"
+
+        for code: NameOfDay in [.nativityOfGod, .theophany, .meetingOfLord, .annunciation, .transfiguration, .dormition,
+                                .nativityOfTheotokos, .exaltationOfCross, .entryIntoTemple ] {
+            feasts = feasts + makeFeastStr(code: code)
+        }
+        
+        feasts = feasts + "\n" + makeTitle(title: "Великие праздники\n") + "\n"
+
+        for code: NameOfDay in [.circumcision, .nativityOfJohn, .peterAndPaul, .beheadingOfJohn, .veilOfTheotokos] {
+            feasts = feasts + makeFeastStr(code: code)
+        }
     }
     
     func createHeaderViews() {
         textView =  UITextView(frame: .zero)
         textView.backgroundColor = .clear
+        textView.isScrollEnabled = true
+        textView.isPagingEnabled = false
+        textView.bounces = false
         
         textView.attributedText = feasts
         textView.translatesAutoresizingMaskIntoConstraints = false
