@@ -193,6 +193,8 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     }
     
     func createHeaderViews() {
+        let margin = CGFloat(10.0)
+        
         textView =  UITextView(frame: .zero)
         textView.backgroundColor = .clear
         textView.isScrollEnabled = true
@@ -202,8 +204,8 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         textView.attributedText = feasts
         textView.translatesAutoresizingMaskIntoConstraints = false
         
-        textViewSize = textView.sizeThatFits(CGSize(width: view.frame.width, height: CGFloat.greatestFiniteMagnitude))
-        textView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: textViewSize)
+        textViewSize = textView.sizeThatFits(CGSize(width: view.frame.width-2*margin, height: CGFloat.greatestFiniteMagnitude))
+        textView.frame = CGRect(origin: CGPoint(x: margin, y: 0), size: textViewSize)
         
         headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         headerLabel.textAlignment = .center
@@ -223,7 +225,12 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         
         gridButton = UIBarButtonItem(image: UIImage(named: "grid", in: nil, compatibleWith: nil), style: .plain, target: self, action: #selector(switchView))
         
-        navigationItem.rightBarButtonItems = [shareButton, listButton]
+        if (YC.viewType == .grid) {
+            navigationItem.rightBarButtonItems = [shareButton, listButton]
+
+        } else {
+            navigationItem.rightBarButtonItems = [shareButton, gridButton]
+        }
         
         navigationController?.makeTransparent()
         automaticallyAdjustsScrollViewInsets = false
