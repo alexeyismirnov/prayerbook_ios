@@ -47,10 +47,19 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
                                                 titleFontSize: 20,
                                                 fontSize: 14)
 
-    var formatter: DateFormatter = {
+    var formatter1: DateFormatter = {
         var formatter = DateFormatter()
         formatter.timeStyle = .none
         formatter.dateFormat = "cccc, d MMMM"
+        formatter.locale = Locale(identifier: "ru")
+        
+        return formatter
+    }()
+    
+    var formatter2: DateFormatter = {
+        var formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateFormat = "d MMMM"
         formatter.locale = Locale(identifier: "ru")
         
         return formatter
@@ -70,7 +79,9 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     var textView : UITextView!
     var textViewSize : CGSize!
     var feasts : NSMutableAttributedString? = nil
-    
+    var textFontSize = CGFloat(16)
+    var textFontColor = Theme.textColor!
+
     var shareButton, listButton, gridButton :UIBarButtonItem!
     
     static let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -139,27 +150,36 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         
         let attributes: [String : Any] = [NSParagraphStyleAttributeName: centerStyle,
                                           NSFontAttributeName: UIFont.boldSystemFont(ofSize: fontSize),
-                                          NSForegroundColorAttributeName: Theme.textColor
+                                          NSForegroundColorAttributeName: textFontColor
                                           ]
-
-        var title = NSMutableAttributedString(
-            string: title,
-            attributes:attributes)
         
-        return title
+        return NSMutableAttributedString(string: title, attributes:attributes)
     }
     
-    func makeFeastStr(code: NameOfDay, color: UIColor = UIColor.black) -> NSMutableAttributedString  {
-        let fontSize = 16
-        let dateStr = formatter.string(from: Cal.d(code)).capitalizingFirstLetter()
+    func makeFeastStr(code: NameOfDay, color: UIColor? = nil) -> NSMutableAttributedString  {
+        let dateStr = formatter1.string(from: Cal.d(code)).capitalizingFirstLetter()
         let feastStr = Translate.s(Cal.codeFeastDescr[code]!.1)
         
         var cal : NSMutableAttributedString? = nil
-        cal = cal + ("\(dateStr) - \(feastStr)\n\n", color)
+        cal = cal + ("\(dateStr) — \(feastStr)\n\n", color ?? textFontColor)
 
         cal!.addAttribute(NSFontAttributeName,
-                           value: UIFont.systemFont(ofSize: CGFloat(fontSize)),
+                           value: UIFont.systemFont(ofSize: CGFloat(textFontSize)),
                            range: NSMakeRange(0, cal!.length))
+        
+        return cal!
+    }
+    
+    func makeLentStr(fromDate: Date, toDate: Date, descr : String) -> NSMutableAttributedString  {
+        let d1 = formatter2.string(from: fromDate)
+        let d2 = formatter2.string(from: toDate)
+
+        var cal : NSMutableAttributedString? = nil
+        cal = cal + ("С \(d1) по \(d2) — \(descr)\n\n", textFontColor)
+        
+        cal!.addAttribute(NSFontAttributeName,
+                          value: UIFont.systemFont(ofSize: CGFloat(textFontSize)),
+                          range: NSMakeRange(0, cal!.length))
         
         return cal!
     }
@@ -172,20 +192,66 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         
         feasts = title1 + cal1 + "\n"
         
+        feasts = feasts + makeTitle(title: "Многодневные посты\n") + "\n"
+
+        feasts = feasts + makeLentStr(fromDate: Cal.d(.beginningOfGreatLent),
+                                      toDate: Cal.d(.beginningOfGreatLent) + 47.days,
+                                      descr: "Великий пост")
+        
+        feasts = feasts + makeLentStr(fromDate: Cal.d(.beginningOfApostolesFast),
+                                      toDate: Cal.d(.peterAndPaul) - 1.days,
+                                      descr: "Петров пост")
+        
+        feasts = feasts + makeLentStr(fromDate: Cal.d(.beginningOfDormitionFast),
+                                      toDate: Cal.d(.dormition) - 1.days,
+                                      descr: "Успенский пост")
+        
+        feasts = feasts + makeLentStr(fromDate: Cal.d(.beginningOfNativityFast),
+                                      toDate: Cal.d(.nativityOfGod) - 1.days,
+                                      descr: "Рождественский пост")
+        
+        feasts = feasts + makeTitle(title: "Однодневные посты\n") + "\n"
+
+        feasts = feasts + makeFeastStr(code: .eveOfTheophany)
+        feasts = feasts + makeFeastStr(code: .beheadingOfJohn)
+        feasts = feasts + makeFeastStr(code: .exaltationOfCross)
+        
+        feasts = feasts + makeTitle(title: "Сплошные седмицы\n") + "\n"
+
+        feasts = feasts + makeLentStr(fromDate: Cal.d(.nativityOfGod),
+                                      toDate: Cal.d(.eveOfTheophany) - 1.days,
+                                      descr: "Святки")
+        
+        feasts = feasts + makeLentStr(fromDate: Cal.d(.sundayOfPublicianAndPharisee)+1.days,
+                                      toDate: Cal.d(.sundayOfProdigalSon),
+                                      descr: "Мытаря и фарисея")
+        
+        feasts = feasts + makeLentStr(fromDate: Cal.d(.sundayOfDreadJudgement)+1.days,
+                                      toDate: Cal.d(.beginningOfGreatLent)-1.days,
+                                      descr: "Масленица")
+        
+        feasts = feasts + makeLentStr(fromDate: Cal.d(.pascha)+1.days,
+                                      toDate: Cal.d(.pascha)+7.days,
+                                      descr: "Пасхальная (Светлая)")
+        
+        feasts = feasts + makeLentStr(fromDate: Cal.d(.pentecost)+1.days,
+                                      toDate: Cal.d(.pentecost)+7.days,
+                                      descr: "Троицкая")
+
         feasts = feasts + makeTitle(title: "Двунадесятые переходящие праздники\n") + "\n"
 
         for code: NameOfDay in [.palmSunday, .ascension, .pentecost] {
             feasts = feasts + makeFeastStr(code: code)
         }
         
-        feasts = feasts + "\n" + makeTitle(title: "Двунадесятые непереходящие праздники\n") + "\n"
+        feasts = feasts +  makeTitle(title: "Двунадесятые непереходящие праздники\n") + "\n"
 
         for code: NameOfDay in [.nativityOfGod, .theophany, .meetingOfLord, .annunciation, .transfiguration, .dormition,
                                 .nativityOfTheotokos, .exaltationOfCross, .entryIntoTemple ] {
             feasts = feasts + makeFeastStr(code: code)
         }
         
-        feasts = feasts + "\n" + makeTitle(title: "Великие праздники\n") + "\n"
+        feasts = feasts +  makeTitle(title: "Великие праздники\n") + "\n"
 
         for code: NameOfDay in [.circumcision, .nativityOfJohn, .peterAndPaul, .beheadingOfJohn, .veilOfTheotokos] {
             feasts = feasts + makeFeastStr(code: code)
@@ -200,6 +266,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         textView.isScrollEnabled = true
         textView.isPagingEnabled = false
         textView.bounces = false
+        textView.isEditable = false
         
         textView.attributedText = feasts
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -398,13 +465,22 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     // https://www.hackingwithswift.com/example-code/uikit/how-to-render-an-nsattributedstring-to-a-pdf
     
     func shareList() {
-        let printFormatter = UISimpleTextPrintFormatter(attributedText: textView.attributedText)
+        
+        textFontColor = UIColor.black
+        textFontSize = CGFloat(14)
+        
+        createFeastList()
+        
+        textFontColor = Theme.textColor
+        textFontSize = CGFloat(16)
+
+        let printFormatter = UISimpleTextPrintFormatter(attributedText: feasts!)
         
         let renderer = UIPrintPageRenderer()
         renderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
         
         let pageSize = CGSize(width: 595.2, height: 841.8)
-        let pageMargins = UIEdgeInsets(top: 72, left: 72, bottom: 72, right: 72)
+        let pageMargins = UIEdgeInsets(top: 36, left: 36, bottom: 36, right: 36)
         let printableRect = CGRect(x: pageMargins.left, y: pageMargins.top, width: pageSize.width - pageMargins.left - pageMargins.right, height: pageSize.height - pageMargins.top - pageMargins.bottom)
         let paperRect = CGRect(x: 0, y: 0, width: pageSize.width, height: pageSize.height)
 
@@ -433,6 +509,11 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
             
             do {
                 try pdfData.write(to: URL(fileURLWithPath: documentsFileName))
+                
+                let activityViewController = UIActivityViewController(activityItems: [URL(fileURLWithPath: documentsFileName)], applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+                self.present(activityViewController, animated: true, completion: nil)
+                
             } catch {
                 print(error.localizedDescription)
             }
