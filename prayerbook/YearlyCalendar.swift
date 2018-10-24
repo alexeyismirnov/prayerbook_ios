@@ -69,7 +69,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         case list, grid
     }
     
-    static var viewType = ViewType.grid
+    static var viewType = ViewType.list
     
     var appeared = false
     var year = Cal.currentYear!

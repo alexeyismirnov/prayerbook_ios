@@ -92,6 +92,7 @@
 		8A2F46A919E1302700076AF4 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A819E1302700076AF4 /* Translate.swift */; };
 		8A2F46AB19E145D200076AF4 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46AA19E145D200076AF4 /* Options.swift */; };
 		8A339AD81DC83F7B0026FD10 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A339AD71DC83F7B0026FD10 /* CompactViewController.swift */; };
+		8A35561621805A150046E751 /* CalendarSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A35561521805A150046E751 /* CalendarSelector.swift */; };
 		8A392ED01FC431D90051C6E6 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */; };
 		8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */; };
 		8A41936319E6921600D570A9 /* food-egg.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936119E6921600D570A9 /* food-egg.pdf */; };
@@ -358,6 +359,7 @@
 		8A339AD71DC83F7B0026FD10 /* CompactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
 		8A339ADE1DC87B730026FD10 /* fat-down.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-down.pdf"; sourceTree = "<group>"; };
 		8A339ADF1DC87B730026FD10 /* fat-up.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-up.pdf"; sourceTree = "<group>"; };
+		8A35561521805A150046E751 /* CalendarSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSelector.swift; sourceTree = "<group>"; };
 		8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-cupcake.pdf"; sourceTree = "<group>"; };
 		8A41936119E6921600D570A9 /* food-egg.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-egg.pdf"; sourceTree = "<group>"; };
 		8A41936219E6921600D570A9 /* food-milk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-milk.pdf"; sourceTree = "<group>"; };
@@ -624,6 +626,7 @@
 				8A54574F1E6FD13500A86B5A /* RTFDocument.swift */,
 				8AEFC27A1A2C747700BAACE0 /* Scripture.swift */,
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
+				8A35561521805A150046E751 /* CalendarSelector.swift */,
 				8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */,
 				8A6684FB2178834700C19C04 /* TopAlignedCollection.swift */,
 				8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */,
@@ -1289,6 +1292,7 @@
 				8A54C42A1EA74CE90083AA2F /* DailyTab2.swift in Sources */,
 				8A5457501E6FD13500A86B5A /* RTFDocument.swift in Sources */,
 				8A1B257920295C9D0038C0C4 /* CenterViewFlowLayout.swift in Sources */,
+				8A35561621805A150046E751 /* CalendarSelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

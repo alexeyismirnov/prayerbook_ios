@@ -555,7 +555,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
 
         navigationController?.makeTransparent()
         
-        let button_monthly = UIBarButtonItem(image: UIImage(named: "calendar", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showMonthlyCalendar))
+        let button_monthly = UIBarButtonItem(image: UIImage(named: "calendar", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(calendarSelector))
         
         let button_saint = UIBarButtonItem(image: UIImage(named: "saint"), style: .plain, target: self, action: #selector(showSaints))
         
@@ -593,26 +593,42 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
        
     }
     
-    func showMonthlyCalendar() {
-        let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+    func calendarSelector() {
+        let container = UIViewController.named("CalendarSelector", bundle: nil) as! CalendarSelector
+        container.delegate = self
 
-        DateViewCell.textColor = nil
-        DateViewCell.textSize = nil
+        popup = PopupController
+            .create(self.navigationController!)
+            .customize(
+                [
+                    .animation(.fadeIn),
+                    .layout(.center),
+                    .backgroundStyle(.blackFilter(alpha: 0.7))
+                ]
+        )
         
-        let image = UIImage(named: "question", in: toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
-        let button_info = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showInfo))
-        let button_year = UIBarButtonItem(title: "Год", style: .plain, target: self, action: #selector(showYear))
-        
-        button_year.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.black], for: .normal)
-        
-        popup =  CalendarContainer.show(inVC: self.navigationController!,
-                                        cellReuseIdentifier: "DateViewCell",
-                                        cellNibName: "DateViewCell",
-                                        leftButton: button_year,
-                                        rightButton: button_info)
+        popup.show(container)
     }
     
-    func showYear() {        
+    func showMonthlyCalendar() {
+        popup.dismiss({
+            let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+            
+            DateViewCell.textColor = nil
+            DateViewCell.textSize = nil
+            
+            let image = UIImage(named: "question", in: toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
+            let button_info = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.showInfo))
+            
+            self.popup =  CalendarContainer.show(inVC: self.navigationController!,
+                                                 cellReuseIdentifier: "DateViewCell",
+                                                 cellNibName: "DateViewCell",
+                                                 leftButton: nil,
+                                                 rightButton: button_info)
+        })
+    }
+    
+    func showYearlyCalendar() {
         popup.dismiss({
             let vc = UIViewController.named("yearly") as! YearlyCalendar
             let nav = UINavigationController(rootViewController: vc)

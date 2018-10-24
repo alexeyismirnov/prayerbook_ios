@@ -489,6 +489,77 @@
             </objects>
             <point key="canvasLocation" x="965.625" y="-1132.03125"/>
         </scene>
+        <!--Calendar Selector-->
+        <scene sceneID="4kB-Xf-1Ku">
+            <objects>
+                <tableViewController storyboardIdentifier="CalendarSelector" id="vah-Cq-r4t" customClass="CalendarSelector" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Jpy-4J-2ci">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection headerTitle="Календарь" id="wUC-Id-Qdy">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="aKb-Ip-raG">
+                                        <rect key="frame" x="0.0" y="55.5" width="300" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aKb-Ip-raG" id="uM8-Pc-3Kw">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="На месяц" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sut-HR-ep4">
+                                                    <rect key="frame" x="20" y="15" width="260" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="sut-HR-ep4" secondAttribute="trailing" constant="20" symbolic="YES" id="8qu-qM-jZL"/>
+                                                <constraint firstItem="sut-HR-ep4" firstAttribute="centerY" secondItem="uM8-Pc-3Kw" secondAttribute="centerY" id="VqJ-ga-SFi"/>
+                                                <constraint firstItem="sut-HR-ep4" firstAttribute="leading" secondItem="uM8-Pc-3Kw" secondAttribute="leading" constant="20" symbolic="YES" id="i0u-vd-FM2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="kIi-tg-SvX">
+                                        <rect key="frame" x="0.0" y="105.5" width="300" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kIi-tg-SvX" id="gFg-a1-OAc">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="На год" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCP-wB-AdS">
+                                                    <rect key="frame" x="20" y="14.5" width="260" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xCP-wB-AdS" firstAttribute="leading" secondItem="gFg-a1-OAc" secondAttribute="leading" constant="20" symbolic="YES" id="NED-0Q-hFf"/>
+                                                <constraint firstAttribute="trailing" secondItem="xCP-wB-AdS" secondAttribute="trailing" constant="20" symbolic="YES" id="bdY-ap-bFA"/>
+                                                <constraint firstItem="xCP-wB-AdS" firstAttribute="centerY" secondItem="gFg-a1-OAc" secondAttribute="centerY" id="tQF-AL-Zo1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="vah-Cq-r4t" id="ucF-SE-KBC"/>
+                            <outlet property="delegate" destination="vah-Cq-r4t" id="Ugh-5G-Sas"/>
+                        </connections>
+                    </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="200"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pxd-yo-pQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1891" y="-1148"/>
+        </scene>
         <!--Document-->
         <scene sceneID="fsq-t0-AgO">
             <objects>
