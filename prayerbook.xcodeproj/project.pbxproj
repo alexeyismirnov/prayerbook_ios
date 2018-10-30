@@ -154,6 +154,7 @@
 		8AADFF5E1E84C25300CE3D0F /* synaxarion33.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF501E84C25300CE3D0F /* synaxarion33.rtf */; };
 		8AADFF5F1E84C25300CE3D0F /* synaxarion34.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF511E84C25300CE3D0F /* synaxarion34.rtf */; };
 		8AADFF6E1E84F28900CE3D0F /* feofan.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF6D1E84F28900CE3D0F /* feofan.sqlite */; };
+		8AB004D521884F97005D8A77 /* FeastNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB004D421884F97005D8A77 /* FeastNotifications.swift */; };
 		8AB018E11C5EED5D00DE96B0 /* Db.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFC27C1A2C8DF800BAACE0 /* Db.swift */; };
 		8AB0DC951C27EFEC00C6A494 /* typica_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC8D1C27EFEC00C6A494 /* typica_1.plist */; };
 		8AB0DC961C27EFEC00C6A494 /* typica_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC8E1C27EFEC00C6A494 /* typica_2.plist */; };
@@ -426,6 +427,7 @@
 		8AADFF501E84C25300CE3D0F /* synaxarion33.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion33.rtf; sourceTree = "<group>"; };
 		8AADFF511E84C25300CE3D0F /* synaxarion34.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion34.rtf; sourceTree = "<group>"; };
 		8AADFF6D1E84F28900CE3D0F /* feofan.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = feofan.sqlite; sourceTree = "<group>"; };
+		8AB004D421884F97005D8A77 /* FeastNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeastNotifications.swift; sourceTree = "<group>"; };
 		8AB0DC8D1C27EFEC00C6A494 /* typica_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_1.plist; sourceTree = "<group>"; };
 		8AB0DC8E1C27EFEC00C6A494 /* typica_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_2.plist; sourceTree = "<group>"; };
 		8AB0DC8F1C27EFEC00C6A494 /* typica_3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_3.plist; sourceTree = "<group>"; };
@@ -626,6 +628,7 @@
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
 				8A35561521805A150046E751 /* CalendarSelector.swift */,
 				8A1964502186AC5700CDDCB5 /* FeastList.swift */,
+				8AB004D421884F97005D8A77 /* FeastNotifications.swift */,
 				8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */,
 				8A6684FB2178834700C19C04 /* TopAlignedCollection.swift */,
 				8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */,
@@ -1277,6 +1280,7 @@
 				8A1964512186AC5700CDDCB5 /* FeastList.swift in Sources */,
 				8A1B2577202956840038C0C4 /* SaintIconView.swift in Sources */,
 				8A24F52F1EB98A1700CE19E7 /* CalendarImageCell.swift in Sources */,
+				8AB004D521884F97005D8A77 /* FeastNotifications.swift in Sources */,
 				8A76870C1EB72A6E000F7533 /* YearlyMonthViewCell.swift in Sources */,
 				8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
