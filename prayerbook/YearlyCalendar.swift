@@ -46,24 +46,6 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
                                                 lineSpacing: 5,
                                                 titleFontSize: 20,
                                                 fontSize: 14)
-
-    var formatter1: DateFormatter = {
-        var formatter = DateFormatter()
-        formatter.timeStyle = .none
-        formatter.dateFormat = "cccc, d MMMM"
-        formatter.locale = Locale(identifier: "ru")
-        
-        return formatter
-    }()
-    
-    var formatter2: DateFormatter = {
-        var formatter = DateFormatter()
-        formatter.timeStyle = .none
-        formatter.dateFormat = "d MMMM"
-        formatter.locale = Locale(identifier: "ru")
-        
-        return formatter
-    }()
     
     enum ViewType {
         case list, grid
@@ -79,9 +61,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     var textView : UITextView!
     var textViewSize : CGSize!
     var feasts : NSMutableAttributedString? = nil
-    var textFontSize = CGFloat(16)
-    var textFontColor = Theme.textColor!
-
+    
     var shareButton, listButton, gridButton :UIBarButtonItem!
     
     static let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -141,121 +121,31 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         
         collectionView.collectionViewLayout  = layout
         collectionView.reloadData()
-    
     }
     
-    func makeTitle(title: String, fontSize: CGFloat = 18.0) -> NSMutableAttributedString {
-        let centerStyle = NSMutableParagraphStyle()
-        centerStyle.alignment = .center
+    func addFeasts(_ title: String, _ data : [Date: NSMutableAttributedString]) {
+        feasts = feasts + FeastList.makeTitle(title: title) + "\n"
         
-        let attributes: [String : Any] = [NSParagraphStyleAttributeName: centerStyle,
-                                          NSFontAttributeName: UIFont.boldSystemFont(ofSize: fontSize),
-                                          NSForegroundColorAttributeName: textFontColor
-                                          ]
-        
-        return NSMutableAttributedString(string: title, attributes:attributes)
+        for feast in data.sorted(by: { $0.0 < $1.0 }) {
+            feasts = feasts + feast.1
+        }
     }
     
-    func makeFeastStr(code: NameOfDay, color: UIColor? = nil) -> NSMutableAttributedString  {
-        let dateStr = formatter1.string(from: Cal.d(code)).capitalizingFirstLetter()
-        let feastStr = Translate.s(Cal.codeFeastDescr[code]!.1)
-        
-        var cal : NSMutableAttributedString? = nil
-        cal = cal + ("\(dateStr) — \(feastStr)\n\n", color ?? textFontColor)
+    func createFeastList(sharing: Bool = false) {
+        FeastList.sharing = sharing
+        FeastList.setDate(Date(1, 1, year))
 
-        cal!.addAttribute(NSFontAttributeName,
-                           value: UIFont.systemFont(ofSize: CGFloat(textFontSize)),
-                           range: NSMakeRange(0, cal!.length))
-        
-        return cal!
-    }
-    
-    func makeLentStr(fromDate: Date, toDate: Date, descr : String) -> NSMutableAttributedString  {
-        let d1 = formatter2.string(from: fromDate)
-        let d2 = formatter2.string(from: toDate)
-
-        var cal : NSMutableAttributedString? = nil
-        cal = cal + ("С \(d1) по \(d2) — \(descr)\n\n", textFontColor)
-        
-        cal!.addAttribute(NSFontAttributeName,
-                          value: UIFont.systemFont(ofSize: CGFloat(textFontSize)),
-                          range: NSMakeRange(0, cal!.length))
-        
-        return cal!
-    }
-    
-    func createFeastList() {
-        Cal.setDate(Date(1, 1, year))
-
-        let title1 = makeTitle(title: "Посты и праздники в \(year) г.\n\n", fontSize: 20.0)
-        let cal1 = makeFeastStr(code: .pascha, color: UIColor.red)
+        let title1 = FeastList.makeTitle(title: "Посты и праздники в \(year) г.\n\n", fontSize: 20.0)
+        let cal1 = FeastList.makeFeastStr(code: .pascha, color: UIColor.red)
         
         feasts = title1 + cal1 + "\n"
         
-        feasts = feasts + makeTitle(title: "Многодневные посты\n") + "\n"
-
-        feasts = feasts + makeLentStr(fromDate: Cal.d(.beginningOfGreatLent),
-                                      toDate: Cal.d(.beginningOfGreatLent) + 47.days,
-                                      descr: "Великий пост")
-        
-        feasts = feasts + makeLentStr(fromDate: Cal.d(.beginningOfApostolesFast),
-                                      toDate: Cal.d(.peterAndPaul) - 1.days,
-                                      descr: "Петров пост")
-        
-        feasts = feasts + makeLentStr(fromDate: Cal.d(.beginningOfDormitionFast),
-                                      toDate: Cal.d(.dormition) - 1.days,
-                                      descr: "Успенский пост")
-        
-        feasts = feasts + makeLentStr(fromDate: Cal.d(.beginningOfNativityFast),
-                                      toDate: Cal.d(.nativityOfGod) - 1.days,
-                                      descr: "Рождественский пост")
-        
-        feasts = feasts + makeTitle(title: "Однодневные посты\n") + "\n"
-
-        feasts = feasts + makeFeastStr(code: .eveOfTheophany)
-        feasts = feasts + makeFeastStr(code: .beheadingOfJohn)
-        feasts = feasts + makeFeastStr(code: .exaltationOfCross)
-        
-        feasts = feasts + makeTitle(title: "Сплошные седмицы\n") + "\n"
-
-        feasts = feasts + makeLentStr(fromDate: Cal.d(.nativityOfGod),
-                                      toDate: Cal.d(.eveOfTheophany) - 1.days,
-                                      descr: "Святки")
-        
-        feasts = feasts + makeLentStr(fromDate: Cal.d(.sundayOfPublicianAndPharisee)+1.days,
-                                      toDate: Cal.d(.sundayOfProdigalSon),
-                                      descr: "Мытаря и фарисея")
-        
-        feasts = feasts + makeLentStr(fromDate: Cal.d(.sundayOfDreadJudgement)+1.days,
-                                      toDate: Cal.d(.beginningOfGreatLent)-1.days,
-                                      descr: "Масленица")
-        
-        feasts = feasts + makeLentStr(fromDate: Cal.d(.pascha)+1.days,
-                                      toDate: Cal.d(.pascha)+7.days,
-                                      descr: "Пасхальная (Светлая)")
-        
-        feasts = feasts + makeLentStr(fromDate: Cal.d(.pentecost)+1.days,
-                                      toDate: Cal.d(.pentecost)+7.days,
-                                      descr: "Троицкая")
-
-        feasts = feasts + makeTitle(title: "Двунадесятые переходящие праздники\n") + "\n"
-
-        for code: NameOfDay in [.palmSunday, .ascension, .pentecost] {
-            feasts = feasts + makeFeastStr(code: code)
-        }
-        
-        feasts = feasts +  makeTitle(title: "Двунадесятые непереходящие праздники\n") + "\n"
-
-        for code: NameOfDay in [.nativityOfGod, .theophany, .meetingOfLord, .annunciation, .transfiguration, .dormition,
-                                .nativityOfTheotokos, .exaltationOfCross, .entryIntoTemple ] {
-            feasts = feasts + makeFeastStr(code: code)
-        }
-        
-        feasts = feasts +  makeTitle(title: "Великие праздники\n") + "\n"
-
-        for code: NameOfDay in [.circumcision, .nativityOfJohn, .peterAndPaul, .beheadingOfJohn, .veilOfTheotokos] {
-            feasts = feasts + makeFeastStr(code: code)
-        }
+        addFeasts("Многодневные посты\n", FeastList.longFasts)
+        addFeasts("Однодневные посты\n", FeastList.shortFasts)
+        addFeasts("Сплошные седмицы\n", FeastList.fastFreeWeeks)
+        addFeasts("Двунадесятые переходящие праздники\n", FeastList.movableFeasts)
+        addFeasts("Двунадесятые непереходящие праздники\n", FeastList.nonMovableFeasts)
+        addFeasts("Великие праздники\n", FeastList.greatFeasts)
     }
     
     func createHeaderViews() {
@@ -458,22 +348,15 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         if YC.viewType == .grid {
             shareGrid()
         } else {
+            createFeastList(sharing: true)
             shareList()
+            createFeastList(sharing: false)
+
         }
     }
     
     // https://www.hackingwithswift.com/example-code/uikit/how-to-render-an-nsattributedstring-to-a-pdf
-    
     func shareList() {
-        
-        textFontColor = UIColor.black
-        textFontSize = CGFloat(14)
-        
-        createFeastList()
-        
-        textFontColor = Theme.textColor
-        textFontSize = CGFloat(16)
-
         let printFormatter = UISimpleTextPrintFormatter(attributedText: feasts!)
         
         let renderer = UIPrintPageRenderer()

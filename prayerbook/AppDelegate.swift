@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import UserNotifications
+
 import swift_toolkit
 
 class AppDelegate : UIResponder, UIApplicationDelegate {
@@ -52,7 +54,6 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         
         // the first time app is launched
         if prefs.object(forKey: "fontSize") == nil {
-
             prefs.set("ru", forKey: "language")
 
             if (UIDevice.current.userInterfaceIdiom == .phone) {
@@ -69,6 +70,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         }
         
         setupFiles()
+        setupNotifications()
 
         Translate.files = ["trans_ui", "trans_cal", "trans_library"]
         
@@ -97,6 +99,52 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         copyFile("trans_ui_ru", "plist")
         copyFile("trans_cal_ru", "plist")
         copyFile("trans_library_ru", "plist")
+    }
+    
+    func setupNotifications() {
+        let center = UNUserNotificationCenter.current()
+
+        let options: UNAuthorizationOptions = [.alert, .sound];
+
+        center.requestAuthorization(options: options) {
+            (granted, error) in
+            if granted {
+                
+                center.removeAllPendingNotificationRequests()
+                
+                var components = DateComponents()
+                components.hour = 8
+                components.minute = 30
+                components.weekday = DayOfWeek.monday.rawValue
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+                
+                let content = UNMutableNotificationContent()
+                content.title = "28.11 - Начало Рождественского поста"
+                content.body = ""
+                content.sound = UNNotificationSound.default()
+                
+                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                
+                center.add(request) {(error) in
+                    if let error = error {
+                        print("Uh oh! We had an error: \(error)")
+                    }
+                }
+                
+                center.getPendingNotificationRequests { (notifications) in
+                    print("Count: \(notifications.count)")
+                    for item in notifications {
+                        let trigger = item.trigger as! UNCalendarNotificationTrigger
+                        
+                        print(trigger.nextTriggerDate())
+                        print(item.content)
+                    }
+                }
+                
+            }
+        }
+
     }
     
     func copyFile(_ filename: String, _ ext: String)  {
