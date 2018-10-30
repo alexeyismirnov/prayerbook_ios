@@ -54,7 +54,7 @@ struct FeastNotifications {
                 for (date, descr) in FeastList.fastFreeWeeks {
                     addNotification(date-1.days,  "Сплошная седмица, поста нет", descr.string)
                 }
-                
+                 
                 for (date, descr) in FeastList.movableFeasts {
                     addNotification(date-1.days, descr.string)
                 }
