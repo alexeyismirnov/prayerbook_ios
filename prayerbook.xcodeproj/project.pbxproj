@@ -134,6 +134,7 @@
 		8A74D838198F2AF70078F39F /* prayers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D837198F2AF70078F39F /* prayers.plist */; };
 		8A76870C1EB72A6E000F7533 /* YearlyMonthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */; };
 		8A76870D1EB72A6E000F7533 /* YearlyMonthViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */; };
+		8A7A14E02189AFA600BF1A51 /* tropari.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A7A14DF2189AFA600BF1A51 /* tropari.sqlite */; };
 		8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A81FB4D1C1ECB7600D28F58 /* Appirater.m */; };
 		8A8753F41FC429C400C857DE /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8753F51FC429C400C857DE /* Squeal.framework */; };
 		8A8D2FB51FBC458C00A54147 /* DateViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */; };
@@ -403,6 +404,7 @@
 		8A74D837198F2AF70078F39F /* prayers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prayers.plist; sourceTree = "<group>"; };
 		8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearlyMonthViewCell.swift; sourceTree = "<group>"; };
 		8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearlyMonthViewCell.xib; sourceTree = "<group>"; };
+		8A7A14DF2189AFA600BF1A51 /* tropari.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = tropari.sqlite; sourceTree = "<group>"; };
 		8A81FB4C1C1ECB7600D28F58 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		8A81FB4D1C1ECB7600D28F58 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		8A81FB4E1C1ECB7600D28F58 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
@@ -606,6 +608,7 @@
 				8A74D857199076EF0078F39F /* html */,
 				8A1F8287202AD76C0010C02F /* demo.mp4 */,
 				8A54E3DA202857E900245C31 /* icons.sqlite */,
+				8A7A14DF2189AFA600BF1A51 /* tropari.sqlite */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
 				8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */,
 				8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */,
@@ -976,6 +979,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AF37E5A1B36C7A500101148 /* newicon_76.png in Resources */,
+				8A7A14E02189AFA600BF1A51 /* tropari.sqlite in Resources */,
 				8A0B4CB01C8C1E8000747BB4 /* saints_05_ru.txt in Resources */,
 				8A54577D1E70174300A86B5A /* synaxarion13.rtf in Resources */,
 				8A0B4CBD1C8C1E8000747BB4 /* saints_12_ru.sqlite in Resources */,

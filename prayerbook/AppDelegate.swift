@@ -68,12 +68,13 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         }
         
         setupFiles()
-        FeastNotifications.setupNotifications()
 
         Translate.files = ["trans_ui", "trans_cal", "trans_library"]
         
         let language = prefs.object(forKey: "language") as! String
         Translate.language = language
+        
+        FeastNotifications.setupNotifications()
         
         Appirater.setAppId("1095609748")
         Appirater.setDaysUntilPrompt(5)

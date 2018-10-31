@@ -627,15 +627,15 @@ struct ChurchCalendar {
 
     }
 
-    static func isGreatFeast(_ date: Date) -> Bool {
+    static func getGreatFeast(_ date: Date) -> NameOfDay? {
         if let feastCodes = feastDates[date] {
             for code in feastCodes {
                 if greatFeastCodes.contains(code) {
-                    return true
+                    return code
                 }
             }
         }
-        return false
+        return nil
     }
     
     static func getDayDescription(_ date: Date) -> [(FeastType, String)] {

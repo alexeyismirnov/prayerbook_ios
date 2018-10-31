@@ -49,6 +49,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     var dayDescription = [(FeastType, String)]()
     var saints = [(FeastType, String)]()
     var saintIcons = [Saint]()
+    var greatFeast : NameOfDay?
 
     var currentDate: Date = {
         // this is done to remove time component from date
@@ -173,7 +174,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             return 1
             
         case 3:
-            return readings.count + feofan.count + (synaxarion != nil ? 1:0)
+            return readings.count + feofan.count + (synaxarion != nil ? 1:0) + (greatFeast != nil ? 1:0)
             
         case 4:
             return hasTypica() ? 1 : 0
@@ -327,8 +328,12 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
                 subtitle =  feofan.count == 1 ? "" : feofan[ind].0
                 
             default:
-                if let synaxarion = synaxarion {
-                    title = synaxarion.0
+                if synaxarion != nil && indexPath.row == readings.count + feofan.count {
+                    title = synaxarion!.0
+                    subtitle = ""
+                    
+                } else if greatFeast != nil {
+                    title = "Тропарь и кондак праздника"
                     subtitle = ""
                     
                 } else {
@@ -520,8 +525,8 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     }
     
     func reload() {
-        formatter.locale = Translate.locale as Locale!
-        formatterOldStyle.locale = Translate.locale as Locale!
+        formatter.locale = Translate.locale as Locale
+        formatterOldStyle.locale = Translate.locale as Locale
         
         dayDescription = Cal.getDayDescription(currentDate)
         fasting = Cal.getFastingDescription(currentDate, FastingLevel())
@@ -529,6 +534,13 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         saints=Db.saints(self.currentDate)
         readings = DailyReading.getDailyReading(currentDate)
         synaxarion = Cal.synaxarion[currentDate]
+        greatFeast = Cal.getGreatFeast(currentDate)
+        
+        /*
+        if let _ = greatFeast {
+            print(Db.troparionExists(greatFeast!))
+        }
+        */
         
         if (appeared) {
             reloadAfterAppeared()

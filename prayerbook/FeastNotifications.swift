@@ -48,7 +48,7 @@ struct FeastNotifications {
                 }
                 
                 for (date, descr) in FeastList.shortFasts {
-                    addNotification(date-1.days, descr.string , "День постный")
+                    addNotification(date-1.days,  "День постный", descr.string)
                 }
                 
                 for (date, descr) in FeastList.fastFreeWeeks {
@@ -56,14 +56,14 @@ struct FeastNotifications {
                 }
                  
                 for (date, descr) in FeastList.movableFeasts {
-                    addNotification(date-1.days, descr.string)
+                    addNotification(date-1.days, "", descr.string)
                 }
                 
                 for (date, descr) in FeastList.nonMovableFeasts {
                     if (date == Cal.d(.exaltationOfCross)) {
                         print("cross")
                     } else {
-                        addNotification(date-1.days, descr.string)
+                        addNotification(date-1.days, "", descr.string)
                     }
                 }
                 
@@ -71,7 +71,7 @@ struct FeastNotifications {
                     if (date == Cal.d(.beheadingOfJohn)) {
                         print("beheading")
                     } else {
-                        addNotification(date-1.days, descr.string)
+                        addNotification(date-1.days, "", descr.string)
                     }
                 }
                 

@@ -46,7 +46,7 @@ class DateViewCell: UICollectionViewCell, CellWithDate {
         dateLabel.text = String(format: "%d", date.day)
 
         if let textSize = DateViewCell.textSize {
-            if Cal.isGreatFeast(date) {
+            if let _ = Cal.getGreatFeast(date) {
                 dateLabel.font = UIFont.boldSystemFont(ofSize: textSize)
             } else {
                 dateLabel.font = UIFont.systemFont(ofSize: textSize)
@@ -55,7 +55,7 @@ class DateViewCell: UICollectionViewCell, CellWithDate {
         
         let (fastType, _) = Cal.getFastingDescription(date, FastingLevel())
         
-        if Cal.isGreatFeast(date) {
+        if let _ = Cal.getGreatFeast(date) {
             dateLabel.textColor = .red
 
         } else if DateViewCell.textColor != nil &&
