@@ -75,6 +75,7 @@ struct FeastNotifications {
                     }
                 }
                 
+                /*
                 center.getPendingNotificationRequests { (notifications) in
                     print("Count: \(notifications.count)")
                     for item in notifications {
@@ -84,7 +85,7 @@ struct FeastNotifications {
                         print(item.content)
                     }
                 }
-                
+                */
                 
             }
         }

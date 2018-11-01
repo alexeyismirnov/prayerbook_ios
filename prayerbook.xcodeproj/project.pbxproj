@@ -96,6 +96,7 @@
 		8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */; };
 		8A41936319E6921600D570A9 /* food-egg.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936119E6921600D570A9 /* food-egg.pdf */; };
 		8A41936419E6921600D570A9 /* food-milk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936219E6921600D570A9 /* food-milk.pdf */; };
+		8A4C28C8218AE68A00C276C3 /* TroparionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C28C7218AE68A00C276C3 /* TroparionView.swift */; };
 		8A5457501E6FD13500A86B5A /* RTFDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54574F1E6FD13500A86B5A /* RTFDocument.swift */; };
 		8A5457701E70174300A86B5A /* church_history.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54575B1E70174300A86B5A /* church_history.rtf */; };
 		8A5457711E70174300A86B5A /* synaxarion1.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54575C1E70174300A86B5A /* synaxarion1.rtf */; };
@@ -364,6 +365,7 @@
 		8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-cupcake.pdf"; sourceTree = "<group>"; };
 		8A41936119E6921600D570A9 /* food-egg.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-egg.pdf"; sourceTree = "<group>"; };
 		8A41936219E6921600D570A9 /* food-milk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-milk.pdf"; sourceTree = "<group>"; };
+		8A4C28C7218AE68A00C276C3 /* TroparionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroparionView.swift; sourceTree = "<group>"; };
 		8A54574F1E6FD13500A86B5A /* RTFDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTFDocument.swift; sourceTree = "<group>"; };
 		8A54575B1E70174300A86B5A /* church_history.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = church_history.rtf; sourceTree = "<group>"; };
 		8A54575C1E70174300A86B5A /* synaxarion1.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion1.rtf; sourceTree = "<group>"; };
@@ -628,6 +630,7 @@
 				8AEA68381C90028B009E9FD8 /* Prayer.swift */,
 				8A54574F1E6FD13500A86B5A /* RTFDocument.swift */,
 				8AEFC27A1A2C747700BAACE0 /* Scripture.swift */,
+				8A4C28C7218AE68A00C276C3 /* TroparionView.swift */,
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
 				8A35561521805A150046E751 /* CalendarSelector.swift */,
 				8A1964502186AC5700CDDCB5 /* FeastList.swift */,
@@ -1300,6 +1303,7 @@
 				8A5457501E6FD13500A86B5A /* RTFDocument.swift in Sources */,
 				8A1B257920295C9D0038C0C4 /* CenterViewFlowLayout.swift in Sources */,
 				8A35561621805A150046E751 /* CalendarSelector.swift in Sources */,
+				8A4C28C8218AE68A00C276C3 /* TroparionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
