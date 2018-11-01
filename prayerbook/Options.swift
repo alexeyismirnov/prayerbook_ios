@@ -9,7 +9,9 @@
 import UIKit
 import swift_toolkit
 
-let optionsSavedNotification  = "OPTIONS_SAVED"
+extension Notification.Name {
+    public static let optionsSavedNotification = Notification.Name("OPTIONS_SAVED")
+}
 
 class Options: UITableViewController {
     let prefs = UserDefaults(suiteName: groupId)!
@@ -130,7 +132,7 @@ class Options: UITableViewController {
         prefs.set(fasting, forKey: "fastingLevel")
         prefs.synchronize()
 
-        NotificationCenter.default.post(name: Notification.Name(rawValue: optionsSavedNotification), object: nil)
+        NotificationCenter.default.post(name: .optionsSavedNotification, object: nil)
         dismiss(animated: true, completion: nil)
     }
     

@@ -44,7 +44,7 @@ var groupId = "group.rlc.ponomar-ru"
             return str
         }
         
-        if let trans_str = dict[str] as String!  {
+        if let trans_str = dict[str]  {
             return trans_str
         } else {
             return str

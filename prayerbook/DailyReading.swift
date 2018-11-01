@@ -186,7 +186,7 @@ struct DailyReading {
             
         case Cal.d(.sundayOfPublicianAndPharisee) ..< Cal.d(.pascha):
             let reading = GospelOfLent(date)
-            return reading.characters.count > 0 ? reading : nil
+            return reading.count > 0 ? reading : nil
             
         case Cal.d(.pascha) ... Cal.d(.pentecost):
             return GospelOfJohn(date)
@@ -436,7 +436,7 @@ struct DailyReading {
                     feofan.append((pericope,f))
                     
                 } else if fuzzy {
-                    let p = str.characters.split { $0 == " " }.map { String($0) }
+                    let p = str.split { $0 == " " }.map { String($0) }
                     
                     for i in stride(from: 0, to: p.count-1, by: 2) {
                         

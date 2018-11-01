@@ -253,7 +253,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         
         if indexPath.section == 1 {
             let info = (FastingLevel() == .monastic) ? Cal.fastingMonastic[indexPath.row] : Cal.fastingLaymen[indexPath.row]
-            let str = NSAttributedString(string: Translate.s(info.1), attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: CGFloat(YC.config.fontSize))]))
+            let str = NSAttributedString(string: Translate.s(info.1), attributes: [.font: UIFont.systemFont(ofSize: YC.config.fontSize)])
 
             let rect = str.boundingRect(with:  CGSize(width:cellWidth-35,height:999), options: .usesLineFragmentOrigin, context: nil)
 
@@ -456,14 +456,3 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
 }
 
 typealias YC = YearlyCalendar
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
-	guard let input = input else { return nil }
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
-	return input.rawValue
-}

@@ -82,20 +82,20 @@ class CompactViewController: UIViewController {
 
         var descr = formatter.string(from: currentDate).capitalizingFirstLetter()
         
-        let s1 = NSAttributedString(string: descr, attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): fontBold]))
+        let s1 = NSAttributedString(string: descr, attributes: [.font: fontBold])
         result.append(s1)
 
         if let weekDescription = Cal.getWeekDescription(currentDate) {
             descr = weekDescription
             
-            let s2 = NSAttributedString(string: descr, attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): fontRegular]))
+            let s2 = NSAttributedString(string: descr, attributes: [.font: fontRegular])
             result.append(s2)
         }
         
         if let toneDescription = Cal.getToneDescription(currentDate) {
             descr = "; " + toneDescription
             
-            let s3 = NSAttributedString(string: descr, attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): fontRegular]))
+            let s3 = NSAttributedString(string: descr, attributes: [.font: fontRegular])
             result.append(s3)
         }
         
@@ -104,7 +104,7 @@ class CompactViewController: UIViewController {
         
         descr = ". " + fasting.1
 
-        let s4 = NSAttributedString(string: descr, attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): fontItalic]))
+        let s4 = NSAttributedString(string: descr, attributes: [.font: fontItalic])
         result.append(s4)
         
         let saints = Db.saints(currentDate)
@@ -145,15 +145,4 @@ class CompactViewController: UIViewController {
     }
 
     
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
-	guard let input = input else { return nil }
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
-	return input.rawValue
 }

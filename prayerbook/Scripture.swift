@@ -15,7 +15,6 @@ enum ScriptureDisplay {
 }
 
 class Scripture: UIViewController {
-
     var fontSize: Int = 0
     var code: ScriptureDisplay = .chapter("", 0)
     let prefs = UserDefaults(suiteName: groupId)!
@@ -26,8 +25,8 @@ class Scripture: UIViewController {
         super.viewDidLoad()
         
         let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
-
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .optionsSavedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
 
         let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(closeView))
@@ -135,7 +134,7 @@ class Scripture: UIViewController {
     static func getPericope(_ str: String, decorated: Bool, fontSize: Int = 0) -> [(NSMutableAttributedString, NSMutableAttributedString)] {
         var result = [(NSMutableAttributedString, NSMutableAttributedString)]()
         
-        var pericope = str.characters.split { $0 == " " }.map { String($0) }
+        var pericope = str.split { $0 == " " }.map { String($0) }
         
         for i in stride(from: 0, to: pericope.count-1, by: 2) {
             var chapter: Int = 0
@@ -152,9 +151,10 @@ class Scripture: UIViewController {
             if decorated {
                 bookName = NSMutableAttributedString(
                     string: Translate.s(bookTuple[0].0) + " " + pericope[i+1],
-                    attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): centerStyle,
-                        convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.boldSystemFont(ofSize: CGFloat(fontSize)),
-                        convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): Theme.textColor  ]))
+                    attributes: [
+                        .paragraphStyle: centerStyle,
+                                 .font: UIFont.boldSystemFont(ofSize: CGFloat(fontSize)),
+                                 .foregroundColor: Theme.textColor  ])
                 
             } else {
                 bookName = NSMutableAttributedString(string: Translate.s(bookTuple[0].0))
@@ -235,13 +235,3 @@ class Scripture: UIViewController {
 
 }
 
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
-	guard let input = input else { return nil }
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
-	return input.rawValue
-}

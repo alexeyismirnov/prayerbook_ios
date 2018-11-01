@@ -22,7 +22,7 @@ class Prayer: UIViewController {
         
         let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
 
-        NotificationCenter.default.addObserver(self, selector: #selector(Prayer.reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(Prayer.reload), name: .optionsSavedNotification, object: nil)
         
         let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(self.zoom_in))
         let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(self.zoom_out))

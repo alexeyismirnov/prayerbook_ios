@@ -51,7 +51,10 @@ class RTFDocument: UIViewController {
            let rtfPath = Bundle.main.url(forResource: filename, withExtension: "rtf") {
             
             do {
-                content = try NSMutableAttributedString(fileURL: rtfPath, options: [convertFromNSAttributedStringDocumentAttributeKey(NSAttributedString.DocumentAttributeKey.documentType):convertFromNSAttributedStringDocumentType(NSAttributedString.DocumentType.rtf)], documentAttributes: nil)
+                let opts : [NSAttributedString.DocumentReadingOptionKey : Any] =
+                    [.documentType : NSAttributedString.DocumentType.rtf]
+                
+                content = try NSMutableAttributedString(fileURL: rtfPath, options: opts, documentAttributes: nil)
 
             } catch let error {
                 print("We got an error \(error)")
@@ -86,15 +89,4 @@ class RTFDocument: UIViewController {
         updateFontSize(fontSize-2)
     }
     
-}
-
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromNSAttributedStringDocumentAttributeKey(_ input: NSAttributedString.DocumentAttributeKey) -> String {
-	return input.rawValue
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromNSAttributedStringDocumentType(_ input: NSAttributedString.DocumentType) -> String {
-	return input.rawValue
 }

@@ -48,13 +48,10 @@ struct FeastList {
     static func makeTitle(title: String, fontSize: CGFloat = 18.0) -> NSMutableAttributedString {
         let centerStyle = NSMutableParagraphStyle()
         centerStyle.alignment = .center
-        
-        let attributes: [String : Any] = [convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): centerStyle,
-                                          convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.boldSystemFont(ofSize: fontSize),
-                                          convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): textFontColor
-        ]
-        
-        return NSMutableAttributedString(string: title, attributes:convertToOptionalNSAttributedStringKeyDictionary(attributes))
+
+        return NSMutableAttributedString(string: title, attributes:[.paragraphStyle: centerStyle,
+                                                                    .font: UIFont.boldSystemFont(ofSize: fontSize),
+                                                                    .foregroundColor: textFontColor])
     }
 
     static func makeFeastStr(code: NameOfDay, color: UIColor? = nil) -> NSMutableAttributedString  {
@@ -142,15 +139,4 @@ struct FeastList {
     }
     
     
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
-	return input.rawValue
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
-	guard let input = input else { return nil }
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }
