@@ -42,7 +42,7 @@ class RTFDocument: UIViewController {
 , style: .plain, target: self, action: #selector(self.zoom_in))
         let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(self.zoom_out))
         
-        button_zoom_in.imageInsets = UIEdgeInsetsMake(0,-20,0,0)
+        button_zoom_in.imageInsets = UIEdgeInsets.init(top: 0,left: -20,bottom: 0,right: 0)
         navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
 
         title = docTitle
@@ -51,14 +51,14 @@ class RTFDocument: UIViewController {
            let rtfPath = Bundle.main.url(forResource: filename, withExtension: "rtf") {
             
             do {
-                content = try NSMutableAttributedString(fileURL: rtfPath, options: [NSDocumentTypeDocumentAttribute:NSRTFTextDocumentType], documentAttributes: nil)
+                content = try NSMutableAttributedString(fileURL: rtfPath, options: [convertFromNSAttributedStringDocumentAttributeKey(NSAttributedString.DocumentAttributeKey.documentType):convertFromNSAttributedStringDocumentType(NSAttributedString.DocumentType.rtf)], documentAttributes: nil)
 
             } catch let error {
                 print("We got an error \(error)")
             }
         }
         
-        content!.addAttribute(NSForegroundColorAttributeName, value: Theme.textColor ,
+        content!.addAttribute(NSAttributedString.Key.foregroundColor, value: Theme.textColor ,
                            range: NSMakeRange(0, content!.length))
 
         textView.attributedText = content
@@ -78,13 +78,23 @@ class RTFDocument: UIViewController {
         textView.font =  UIFont(name: (textView.font?.fontName)!, size: CGFloat(fontSize))!
     }
     
-    func zoom_in() {
+    @objc func zoom_in() {
         updateFontSize(fontSize+2)
     }
     
-    func zoom_out() {
+    @objc func zoom_out() {
         updateFontSize(fontSize-2)
     }
     
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringDocumentAttributeKey(_ input: NSAttributedString.DocumentAttributeKey) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringDocumentType(_ input: NSAttributedString.DocumentType) -> String {
+	return input.rawValue
+}

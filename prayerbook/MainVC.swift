@@ -25,7 +25,7 @@ class MainVC: UITabBarControllerAnimated {
         reload()
     }
     
-    func reload() {
+    @objc func reload() {
         if let controllers = viewControllers  {
             (controllers[0] as! UINavigationController).title = Translate.s("Daily")
             (controllers[1] as! UINavigationController).title = Translate.s("Library")

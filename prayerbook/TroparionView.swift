@@ -25,7 +25,7 @@ class TroparionView: UIViewController {
         let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(Scripture.zoom_in))
         let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(Scripture.zoom_out))
         
-        button_zoom_in.imageInsets = UIEdgeInsetsMake(0,-20,0,0)
+        button_zoom_in.imageInsets = UIEdgeInsets.init(top: 0,left: -20,bottom: 0,right: 0)
         navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
         
         fontSize = prefs.integer(forKey: "fontSize")
@@ -66,7 +66,7 @@ class TroparionView: UIViewController {
         reload()
     }
     
-    func closeView() {
+    @objc func closeView() {
         let _ = navigationController?.popViewController(animated: true)
     }
     

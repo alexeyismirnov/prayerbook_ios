@@ -23,7 +23,7 @@ struct FeastNotifications {
         let content = UNMutableNotificationContent()
         content.title = descr
         content.body = body
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         

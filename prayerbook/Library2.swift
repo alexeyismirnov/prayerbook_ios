@@ -74,7 +74,7 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
         reloadTheme()
     }
     
-    func reloadTheme() {
+    @objc func reloadTheme() {
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor
             
@@ -85,12 +85,12 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
         reload()
     }
     
-    func reload() {
+    @objc func reload() {
         tableView.reloadData()
         title = Translate.s("Library")
     }
     
-    func showChapter(_ notification: NSNotification) {
+    @objc func showChapter(_ notification: NSNotification) {
         if let book = notification.userInfo?["book"] as? Int,
            let chapter = notification.userInfo?["chapter"] as? Int {
             
@@ -144,7 +144,7 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             var newCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TextCell
             if newCell == nil {
-                newCell = TextCell(style: UITableViewCellStyle.default, reuseIdentifier: TextCell.cellId)
+                newCell = TextCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: TextCell.cellId)
             }
             
             newCell?.backgroundColor = .clear
@@ -194,7 +194,7 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         
-        let size = cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        let size = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         return max(size.height+1.0, 40)
     }
     

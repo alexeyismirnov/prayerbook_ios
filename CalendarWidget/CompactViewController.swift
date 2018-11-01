@@ -40,11 +40,11 @@ class CompactViewController: UIViewController {
         super.viewDidLoad()
         
         let image1 = UIImage(named: "fat-up")!.withRenderingMode(.alwaysTemplate)
-        buttonUp.setImage(image1, for: UIControlState())
+        buttonUp.setImage(image1, for: UIControl.State())
         buttonUp.imageView?.tintColor = UIColor.darkGray
 
         let image2 = UIImage(named: "fat-down")!.withRenderingMode(.alwaysTemplate)
-        buttonDown.setImage(image2, for: UIControlState())
+        buttonDown.setImage(image2, for: UIControl.State())
         buttonDown.imageView?.tintColor = UIColor.darkGray
 
         Translate.files = ["trans_ui", "trans_cal", "trans_library"]
@@ -82,20 +82,20 @@ class CompactViewController: UIViewController {
 
         var descr = formatter.string(from: currentDate).capitalizingFirstLetter()
         
-        let s1 = NSAttributedString(string: descr, attributes: [NSFontAttributeName: fontBold])
+        let s1 = NSAttributedString(string: descr, attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): fontBold]))
         result.append(s1)
 
         if let weekDescription = Cal.getWeekDescription(currentDate) {
             descr = weekDescription
             
-            let s2 = NSAttributedString(string: descr, attributes: [NSFontAttributeName: fontRegular])
+            let s2 = NSAttributedString(string: descr, attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): fontRegular]))
             result.append(s2)
         }
         
         if let toneDescription = Cal.getToneDescription(currentDate) {
             descr = "; " + toneDescription
             
-            let s3 = NSAttributedString(string: descr, attributes: [NSFontAttributeName: fontRegular])
+            let s3 = NSAttributedString(string: descr, attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): fontRegular]))
             result.append(s3)
         }
         
@@ -104,7 +104,7 @@ class CompactViewController: UIViewController {
         
         descr = ". " + fasting.1
 
-        let s4 = NSAttributedString(string: descr, attributes: [NSFontAttributeName: fontItalic])
+        let s4 = NSAttributedString(string: descr, attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): fontItalic]))
         result.append(s4)
         
         let saints = Db.saints(currentDate)
@@ -145,4 +145,15 @@ class CompactViewController: UIViewController {
     }
 
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

@@ -123,7 +123,7 @@ class Options: UITableViewController {
         return ""
     }
 
-    func done(tapGestureRecognizer: UITapGestureRecognizer) {
+    @objc func done(tapGestureRecognizer: UITapGestureRecognizer) {
         let cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 1)) as UITableViewCell
         let fasting = (cell.accessoryType == .checkmark) ? 0 : 1
         
@@ -134,7 +134,7 @@ class Options: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    func updateTheme(_ notification: NSNotification) {
+    @objc func updateTheme(_ notification: NSNotification) {
         guard let color = notification.userInfo?["color"] as? UIColor else { return }
         
         popup.dismiss({

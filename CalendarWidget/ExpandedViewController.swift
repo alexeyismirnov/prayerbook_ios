@@ -47,11 +47,11 @@ class ExpandedViewController: UIViewController {
 
         let arrowLeft = UIImage(named: "fat-left")?.withRenderingMode(.alwaysTemplate)
         buttonLeft.imageView?.tintColor = UIColor.white
-        buttonLeft.setImage(arrowLeft, for: UIControlState())
+        buttonLeft.setImage(arrowLeft, for: UIControl.State())
         
         let arrowRight = UIImage(named: "fat-right")?.withRenderingMode(.alwaysTemplate)
         buttonRight.imageView?.tintColor = UIColor.white
-        buttonRight.setImage(arrowRight, for: UIControlState())
+        buttonRight.setImage(arrowRight, for: UIControl.State())
 
         calendarDelegate = CalendarDelegate()
         
@@ -131,7 +131,7 @@ class ExpandedViewController: UIViewController {
         saintsLabel.attributedText = MainViewController.describe(saints: feasts, font: saintsLabel.font)
     }
     
-    func tapOnCell(_ recognizer: UITapGestureRecognizer) {
+    @objc func tapOnCell(_ recognizer: UITapGestureRecognizer) {
         let loc = recognizer.location(in: collectionView)
         
         if  let path = collectionView.indexPathForItem(at: loc),

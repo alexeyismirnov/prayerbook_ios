@@ -115,7 +115,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         collectionView.backgroundColor = .clear
         
         let layout =  TopAlignedCollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsetsMake(YC.config.insets, YC.config.insets, YC.config.insets, YC.config.insets)
+        layout.sectionInset = UIEdgeInsets.init(top: YC.config.insets, left: YC.config.insets, bottom: YC.config.insets, right: YC.config.insets)
         layout.minimumInteritemSpacing = YC.config.interitemSpacing
         layout.minimumLineSpacing = YC.config.lineSpacing
         
@@ -253,7 +253,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         
         if indexPath.section == 1 {
             let info = (FastingLevel() == .monastic) ? Cal.fastingMonastic[indexPath.row] : Cal.fastingLaymen[indexPath.row]
-            let str = NSAttributedString(string: Translate.s(info.1), attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: CGFloat(YC.config.fontSize))])
+            let str = NSAttributedString(string: Translate.s(info.1), attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.systemFont(ofSize: CGFloat(YC.config.fontSize))]))
 
             let rect = str.boundingRect(with:  CGSize(width:cellWidth-35,height:999), options: .usesLineFragmentOrigin, context: nil)
 
@@ -289,11 +289,11 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         }
     }
     
-    func close() {
+    @objc func close() {
         dismiss(animated: true, completion: { })
     }
     
-    func switchView() {
+    @objc func switchView() {
         if (YC.viewType == .grid) {
             YC.viewType = .list
             navigationItem.rightBarButtonItems = [shareButton, gridButton]
@@ -336,7 +336,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         let pdfImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        if let data = UIImageJPEGRepresentation(pdfImage, 0.9) {
+        if let data = pdfImage.jpegData(compressionQuality: 0.9) {
             let filename = documentsURL.appendingPathComponent("calendar.jpg")
             try? data.write(to: filename)
         }
@@ -344,7 +344,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         return pdfImage
     }
     
-    func share() {
+    @objc func share() {
         if YC.viewType == .grid {
             shareGrid()
         } else {
@@ -456,3 +456,14 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
 }
 
 typealias YC = YearlyCalendar
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}

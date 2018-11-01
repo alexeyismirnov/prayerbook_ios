@@ -53,7 +53,7 @@ class YearlyMonthViewCell: UICollectionViewCell {
         indicator.startAnimating()
 
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionInset = UIEdgeInsetsMake(10, 0, 0, 0)
+        layout.sectionInset = UIEdgeInsets.init(top: 10, left: 0, bottom: 0, right: 0)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .vertical

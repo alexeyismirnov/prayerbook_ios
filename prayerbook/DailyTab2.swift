@@ -281,7 +281,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
                     
                     let dayString = dayDescription[indexPath.row-2].1
                     let day = NSMutableAttributedString(string: dayString)
-                    day.addAttribute(NSForegroundColorAttributeName, value: Theme.textColor!, range: NSMakeRange(0, dayString.count))
+                    day.addAttribute(NSAttributedString.Key.foregroundColor, value: Theme.textColor!, range: NSMakeRange(0, dayString.count))
                     myString.append(day)
                     
                     cell.title.attributedText = myString
@@ -405,7 +405,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
                 
                 let saintString = saints[indexPath.row].1
                 let saint = NSMutableAttributedString(string: saintString)
-                saint.addAttribute(NSForegroundColorAttributeName, value: Theme.textColor!, range: NSMakeRange(0, saintString.count))
+                saint.addAttribute(NSAttributedString.Key.foregroundColor, value: Theme.textColor!, range: NSMakeRange(0, saintString.count))
                 myString.append(saint)
                 
                 if appeared {
@@ -509,7 +509,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         }
     }
     
-    func reloadTheme() {
+    @objc func reloadTheme() {
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor
             
@@ -524,7 +524,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         reload()
     }
     
-    func reload() {
+    @objc func reload() {
         formatter.locale = Translate.locale as Locale
         formatterOldStyle.locale = Translate.locale as Locale
         
@@ -574,14 +574,14 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         let button_widget = UIBarButtonItem(image: UIImage(named: "question", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showTutorial))
         let button_options = UIBarButtonItem(image: UIImage(named: "options", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showOptions))
         
-        button_saint.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
-        button_widget.imageInsets = UIEdgeInsetsMake(0,-20,0,0)
+        button_saint.imageInsets = UIEdgeInsets.init(top: 0,left: 0,bottom: 0,right: -20)
+        button_widget.imageInsets = UIEdgeInsets.init(top: 0,left: -20,bottom: 0,right: 0)
         
         navigationItem.leftBarButtonItems = [button_monthly, button_saint]
         navigationItem.rightBarButtonItems = [button_options, button_widget]
     }
     
-    func showSaints() {
+    @objc func showSaints() {
         let seconds = currentDate.timeIntervalSince1970
         let url = URL(string: "saints-ru://open?\(seconds)")!
         
@@ -596,7 +596,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         } else {
             let urlStr = "https://itunes.apple.com/us/app/apple-store/id1343569925?mt=8"
             if #available(iOS 10.0, *) {
-                UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(URL(string: urlStr)!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
                 
             } else {
                 UIApplication.shared.openURL(URL(string: urlStr)!)
@@ -605,7 +605,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
        
     }
     
-    func calendarSelector() {
+    @objc func calendarSelector() {
         let container = UIViewController.named("CalendarSelector", bundle: nil) as! CalendarSelector
         container.delegate = self
 
@@ -650,7 +650,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         
     }
     
-    func showInfo() {
+    @objc func showInfo() {
         let responder: UIResponder? = popup.popupView?.next
         if let container = responder as? UINavigationController {
             let calendar_info = UIViewController.named("calendar_info")
@@ -658,7 +658,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         }
     }
     
-    func updateDate(_ notification: NSNotification) {
+    @objc func updateDate(_ notification: NSNotification) {
         popup.dismiss()
         
         if let newDate = notification.userInfo?["date"] as? Date {
@@ -668,7 +668,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         }
     }
     
-    func showTutorial() {
+    @objc func showTutorial() {
         let videoURL = Bundle.main.url(forResource: "demo", withExtension: "mp4")
         
         let player = AVPlayer(url: videoURL!)
@@ -679,7 +679,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         }
     }
     
-    func showOptions() {
+    @objc func showOptions() {
         let vc = UIViewController.named("Options") as! Options
         let nav = UINavigationController(rootViewController: vc)
         navigationController?.present(nav, animated: true, completion: {})
@@ -699,4 +699,9 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         return supportedInterfaceOrientations.rawValue
     }
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
