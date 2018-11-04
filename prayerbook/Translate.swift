@@ -39,7 +39,7 @@ var groupId = "group.rlc.ponomar-ru"
         }
     }
     
-    static func s(_ str : String) -> String {
+    @objc static func s(_ str : String) -> String {
         if language == defaultLanguage {
             return str
         }

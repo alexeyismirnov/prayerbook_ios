@@ -106,16 +106,8 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         configureNavbar()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-        let bundle = Bundle(for: TextCell.self)
-        tableView.register(UINib(nibName: "TextCell", bundle: bundle), forCellReuseIdentifier: "qqq")
+        tableView.register(UINib(nibName: "TextCell", bundle: toolkit), forCellReuseIdentifier: "TextCell")
 
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "qqq") as? TextCell
-        
-        //TextCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "TextCell")
-        
-        print(cell)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .optionsSavedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: NSNotification.Name(rawValue: dateChangedNotification), object: nil)
