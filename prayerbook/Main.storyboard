@@ -175,45 +175,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="35" id="JCI-kn-Ztz" customClass="ImageCell" customModule="swift_toolkit">
-                                <rect key="frame" x="0.0" y="28" width="768" height="35"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JCI-kn-Ztz" id="WhY-um-cXO">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="34.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" misplaced="YES" placeholderIntrinsicWidth="702" placeholderIntrinsicHeight="21" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="702" translatesAutoresizingMaskIntoConstraints="NO" id="Qjx-ex-OUJ" customClass="RWLabel" customModule="swift_toolkit">
-                                            <rect key="frame" x="45" y="7" width="713" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ciN-aQ-lvy">
-                                            <rect key="frame" x="10" y="5" width="25" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="35" id="lHi-jY-vcP"/>
-                                                <constraint firstAttribute="width" constant="35" id="oHh-bd-E1N"/>
-                                            </constraints>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="centerY" secondItem="ciN-aQ-lvy" secondAttribute="centerY" id="0KA-VT-o0T"/>
-                                        <constraint firstItem="Qjx-ex-OUJ" firstAttribute="leading" secondItem="ciN-aQ-lvy" secondAttribute="trailing" priority="999" constant="10" id="COI-LW-DTC"/>
-                                        <constraint firstItem="ciN-aQ-lvy" firstAttribute="leading" secondItem="WhY-um-cXO" secondAttribute="leading" priority="999" constant="20" symbolic="YES" id="Hj5-lR-ZK7"/>
-                                        <constraint firstAttribute="centerY" secondItem="Qjx-ex-OUJ" secondAttribute="centerY" priority="999" id="S89-8f-o1d"/>
-                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Qjx-ex-OUJ" secondAttribute="bottom" priority="999" id="YE0-5A-mRH"/>
-                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ciN-aQ-lvy" secondAttribute="bottom" priority="998" id="Yjb-GU-pk6"/>
-                                        <constraint firstAttribute="trailing" secondItem="Qjx-ex-OUJ" secondAttribute="trailing" priority="999" constant="10" id="lao-f8-xhy"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="icon" destination="ciN-aQ-lvy" id="8Yd-C6-GLx"/>
-                                    <outlet property="title" destination="Qjx-ex-OUJ" id="FDr-z7-7M1"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="cda-x5-6Df" id="Vch-gU-WrO"/>
                             <outlet property="delegate" destination="cda-x5-6Df" id="Kdy-bX-iLF"/>
@@ -463,6 +424,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="sut-HR-ep4" secondAttribute="trailing" constant="20" symbolic="YES" id="8qu-qM-jZL"/>
                                                 <constraint firstItem="sut-HR-ep4" firstAttribute="centerY" secondItem="uM8-Pc-3Kw" secondAttribute="centerY" id="VqJ-ga-SFi"/>
@@ -485,6 +447,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="xCP-wB-AdS" firstAttribute="leading" secondItem="gFg-a1-OAc" secondAttribute="leading" constant="20" symbolic="YES" id="NED-0Q-hFf"/>
                                                 <constraint firstAttribute="trailing" secondItem="xCP-wB-AdS" secondAttribute="trailing" constant="20" symbolic="YES" id="bdY-ap-bFA"/>
@@ -560,84 +523,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="35" id="cYh-eS-uHX" customClass="ImageCell" customModule="swift_toolkit">
-                                        <rect key="frame" x="0.0" y="28" width="768" height="35"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cYh-eS-uHX" id="7VN-6F-mfV">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="35"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" misplaced="YES" placeholderIntrinsicWidth="702" placeholderIntrinsicHeight="21" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="702" translatesAutoresizingMaskIntoConstraints="NO" id="eS6-zV-Tln" customClass="RWLabel" customModule="swift_toolkit">
-                                                    <rect key="frame" x="45" y="7" width="713" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tQI-gQ-GK3">
-                                                    <rect key="frame" x="10" y="5" width="25" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="35" id="4BD-oj-ouQ"/>
-                                                        <constraint firstAttribute="height" constant="35" id="eQ7-W5-rdS"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tQI-gQ-GK3" secondAttribute="bottom" priority="998" id="3bu-zd-BpJ"/>
-                                                <constraint firstItem="eS6-zV-Tln" firstAttribute="leading" secondItem="tQI-gQ-GK3" secondAttribute="trailing" priority="999" constant="10" id="Azu-cR-1Xg"/>
-                                                <constraint firstItem="tQI-gQ-GK3" firstAttribute="leading" secondItem="7VN-6F-mfV" secondAttribute="leading" priority="999" constant="20" symbolic="YES" id="L3c-QD-7q1"/>
-                                                <constraint firstAttribute="trailing" secondItem="eS6-zV-Tln" secondAttribute="trailing" priority="999" constant="10" id="Rcm-Dq-JCg"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="eS6-zV-Tln" secondAttribute="bottom" priority="999" id="b0e-1o-DuE"/>
-                                                <constraint firstAttribute="centerY" secondItem="eS6-zV-Tln" secondAttribute="centerY" priority="999" id="bxq-yR-IMF"/>
-                                                <constraint firstAttribute="centerY" secondItem="tQI-gQ-GK3" secondAttribute="centerY" id="qJa-0L-dHw"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="icon" destination="tQI-gQ-GK3" id="YwZ-FL-KBd"/>
-                                            <outlet property="title" destination="eS6-zV-Tln" id="Tno-sY-yKN"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextDetailsCell" rowHeight="55" id="Xt6-1v-HEu" customClass="TextDetailsCell" customModule="swift_toolkit">
-                                        <rect key="frame" x="0.0" y="63" width="768" height="55"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xt6-1v-HEu" id="NIP-Xr-roi">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="55"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Subtitle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="mrd-13-QoZ" customClass="RWLabel" customModule="swift_toolkit">
-                                                    <rect key="frame" x="20" y="29" width="738" height="21"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="VEL-Od-cad" customClass="RWLabel" customModule="swift_toolkit">
-                                                    <rect key="frame" x="20" y="5" width="738" height="24"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="mrd-13-QoZ" secondAttribute="trailing" priority="999" constant="10" id="2xV-J5-M8d"/>
-                                                <constraint firstItem="VEL-Od-cad" firstAttribute="leading" secondItem="NIP-Xr-roi" secondAttribute="leading" priority="999" constant="20" symbolic="YES" id="4wp-VF-ATy"/>
-                                                <constraint firstItem="mrd-13-QoZ" firstAttribute="leading" secondItem="NIP-Xr-roi" secondAttribute="leading" priority="999" constant="20" symbolic="YES" id="HpJ-Q6-o74"/>
-                                                <constraint firstItem="VEL-Od-cad" firstAttribute="top" secondItem="NIP-Xr-roi" secondAttribute="top" priority="999" constant="5" id="XBo-wF-fYr"/>
-                                                <constraint firstItem="mrd-13-QoZ" firstAttribute="top" secondItem="VEL-Od-cad" secondAttribute="bottom" priority="999" id="fIp-lU-Gxp"/>
-                                                <constraint firstAttribute="bottom" secondItem="mrd-13-QoZ" secondAttribute="bottom" priority="999" constant="5" id="fTq-dg-ji7"/>
-                                                <constraint firstAttribute="trailing" secondItem="VEL-Od-cad" secondAttribute="trailing" priority="999" constant="10" id="jzr-it-xTU"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="subtitle" destination="mrd-13-QoZ" id="Vt7-8m-qkj"/>
-                                            <outlet property="title" destination="VEL-Od-cad" id="IN1-i6-XnD"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SaintIconCell" rowHeight="140" id="o0x-JG-UAz" customClass="SaintIconCell" customModule="ponomar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="118" width="768" height="140"/>
+                                        <rect key="frame" x="0.0" y="28" width="768" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o0x-JG-UAz" id="2hM-Yu-9Da">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="140"/>

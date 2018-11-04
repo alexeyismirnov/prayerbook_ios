@@ -15,10 +15,12 @@ class CalendarInfo: UITableViewController {
         super.viewDidLoad()
         
         let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+        tableView.register(UINib(nibName: "ImageCell", bundle: toolkit), forCellReuseIdentifier: "ImageCell")
 
         view.backgroundColor = UIColor(hex: "#FFEBCD")
 
         let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(close))
+        
         navigationItem.leftBarButtonItem = backButton
     }
     
