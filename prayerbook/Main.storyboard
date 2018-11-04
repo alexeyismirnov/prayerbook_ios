@@ -336,58 +336,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="904"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="44" id="Cy9-iI-bZI" customClass="TextCell" customModule="swift_toolkit">
-                                        <rect key="frame" x="0.0" y="55.5" width="768" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cy9-iI-bZI" id="jgE-8A-mbb">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="748" placeholderIntrinsicHeight="33" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="dAN-kB-DLt" customClass="RWLabel" customModule="swift_toolkit">
-                                                    <rect key="frame" x="10" y="0.0" width="748" height="39"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstItem="dAN-kB-DLt" firstAttribute="top" secondItem="jgE-8A-mbb" secondAttribute="top" priority="999" id="UnN-xu-I5A"/>
-                                                <constraint firstAttribute="trailing" secondItem="dAN-kB-DLt" secondAttribute="trailing" priority="999" constant="10" id="lpB-Ue-tFk"/>
-                                                <constraint firstItem="dAN-kB-DLt" firstAttribute="leading" secondItem="jgE-8A-mbb" secondAttribute="leading" priority="999" constant="10" id="sQT-om-58q"/>
-                                                <constraint firstAttribute="bottom" secondItem="dAN-kB-DLt" secondAttribute="bottom" priority="999" constant="5" id="w8X-XG-Ecu"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="title" destination="dAN-kB-DLt" id="kjT-Th-vuA"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChaptersCell" rowHeight="67" id="hYr-6q-jWw" customClass="ChaptersCell" customModule="ponomar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="99.5" width="768" height="67"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hYr-6q-jWw" id="CxU-wb-kae">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="67"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGz-1C-d0r">
-                                                    <rect key="frame" x="0.0" y="0.0" width="768" height="67"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="GGz-1C-d0r" secondAttribute="trailing" id="GyZ-qk-HM2"/>
-                                                <constraint firstItem="GGz-1C-d0r" firstAttribute="leading" secondItem="CxU-wb-kae" secondAttribute="leading" id="TDq-h0-zTA"/>
-                                                <constraint firstItem="GGz-1C-d0r" firstAttribute="top" secondItem="CxU-wb-kae" secondAttribute="top" id="Ucm-Sf-tzo"/>
-                                                <constraint firstAttribute="bottom" secondItem="GGz-1C-d0r" secondAttribute="bottom" id="yzx-hi-Uaf"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -612,34 +560,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="44" id="oOh-cq-Yes" customClass="TextCell" customModule="swift_toolkit">
-                                        <rect key="frame" x="0.0" y="28" width="768" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oOh-cq-Yes" id="CcX-M7-psp">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" placeholderIntrinsicWidth="748" placeholderIntrinsicHeight="33" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="748" translatesAutoresizingMaskIntoConstraints="NO" id="7YG-db-fP9" customClass="RWLabel" customModule="swift_toolkit">
-                                                    <rect key="frame" x="20" y="0.0" width="728" height="39"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="7YG-db-fP9" secondAttribute="bottom" priority="999" constant="5" id="RUu-ys-oPd"/>
-                                                <constraint firstAttribute="trailing" secondItem="7YG-db-fP9" secondAttribute="trailing" priority="999" constant="20" symbolic="YES" id="Yx7-bN-btn"/>
-                                                <constraint firstItem="7YG-db-fP9" firstAttribute="top" secondItem="CcX-M7-psp" secondAttribute="top" priority="999" id="dgu-CB-TL9"/>
-                                                <constraint firstItem="7YG-db-fP9" firstAttribute="leading" secondItem="CcX-M7-psp" secondAttribute="leading" priority="999" constant="20" symbolic="YES" id="vdX-yG-Lg6"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="title" destination="7YG-db-fP9" id="nKO-9Z-1Mb"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="35" id="cYh-eS-uHX" customClass="ImageCell" customModule="swift_toolkit">
-                                        <rect key="frame" x="0.0" y="72" width="768" height="35"/>
+                                        <rect key="frame" x="0.0" y="28" width="768" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cYh-eS-uHX" id="7VN-6F-mfV">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="35"/>
@@ -676,7 +598,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextDetailsCell" rowHeight="55" id="Xt6-1v-HEu" customClass="TextDetailsCell" customModule="swift_toolkit">
-                                        <rect key="frame" x="0.0" y="107" width="768" height="55"/>
+                                        <rect key="frame" x="0.0" y="63" width="768" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xt6-1v-HEu" id="NIP-Xr-roi">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="55"/>
@@ -715,7 +637,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SaintIconCell" rowHeight="140" id="o0x-JG-UAz" customClass="SaintIconCell" customModule="ponomar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="162" width="768" height="140"/>
+                                        <rect key="frame" x="0.0" y="118" width="768" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o0x-JG-UAz" id="2hM-Yu-9Da">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="140"/>

@@ -50,6 +50,8 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var index:Int = 0
     var expanded = [Bool]()
     
+    let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -59,8 +61,10 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.contentInset = UIEdgeInsets(top: -30, left: 0, bottom: 0, right: 0)
-        tableView.register(UINib(nibName: "ChaptersCell", bundle: nil), forCellReuseIdentifier: "ChaptersCell")
         
+        tableView.register(UINib(nibName: "ChaptersCell", bundle: nil), forCellReuseIdentifier: "ChaptersCell")
+        tableView.register(UINib(nibName: "TextCell", bundle: toolkit), forCellReuseIdentifier: "TextCell")
+
         expanded = [Bool](repeating: false, count: NewTestament.count)
         
         automaticallyAdjustsScrollViewInsets = false
@@ -79,7 +83,7 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
             view.backgroundColor =  bgColor
             
         } else {
-            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: toolkit))
         }
         
         reload()

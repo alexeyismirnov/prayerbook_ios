@@ -16,6 +16,8 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
+    let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+
     static let size15 = CGSize(width: 15, height: 15)
     static let icon15x15 : [FeastType: UIImage] = [
         .noSign: UIImage(named: "nosign")!.resize(size15),
@@ -104,6 +106,15 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         configureNavbar()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        let bundle = Bundle(for: TextCell.self)
+        tableView.register(UINib(nibName: "TextCell", bundle: bundle), forCellReuseIdentifier: "qqq")
+
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "qqq") as? TextCell
+        
+        //TextCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "TextCell")
+        
+        print(cell)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .optionsSavedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
@@ -515,7 +526,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             
         } else {
             if DailyTab2.background == nil {
-                DailyTab2.background = UIImage(background: "bg3.jpg", inView: view, bundle: Bundle(identifier: "com.rlc.swift-toolkit"))
+                DailyTab2.background = UIImage(background: "bg3.jpg", inView: view, bundle: toolkit)
             }
    
             view.backgroundColor = UIColor(patternImage: DailyTab2.background!)
@@ -563,8 +574,6 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     }
     
     func configureNavbar() {
-        let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
-
         navigationController?.makeTransparent()
         
         let button_monthly = UIBarButtonItem(image: UIImage(named: "calendar", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(calendarSelector))
@@ -624,12 +633,10 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     
     func showMonthlyCalendar() {
         popup.dismiss({
-            let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
-            
             DateViewCell.textColor = nil
             DateViewCell.textSize = nil
             
-            let image = UIImage(named: "question", in: toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
+            let image = UIImage(named: "question", in: self.toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
             let button_info = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.showInfo))
             
             self.popup =  CalendarContainer.show(inVC: self.navigationController!,
