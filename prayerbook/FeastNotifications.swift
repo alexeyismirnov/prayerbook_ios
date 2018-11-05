@@ -61,7 +61,7 @@ struct FeastNotifications {
                 
                 for (date, descr) in FeastList.nonMovableFeasts {
                     if (date == Cal.d(.exaltationOfCross)) {
-                        print("cross")
+                        // print("cross")
                     } else {
                         addNotification(date-1.days, "", descr.string)
                     }
@@ -69,7 +69,7 @@ struct FeastNotifications {
                 
                 for (date, descr) in FeastList.greatFeasts {
                     if (date == Cal.d(.beheadingOfJohn)) {
-                        print("beheading")
+                        // print("beheading")
                     } else {
                         addNotification(date-1.days, "", descr.string)
                     }

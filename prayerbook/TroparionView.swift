@@ -7,72 +7,111 @@
 //
 
 import UIKit
+import Squeal
+
 import swift_toolkit
 
-class TroparionView: UIViewController {
-    var fontSize: Int = 0
+struct Troparion {
+    var title : String
+    var content : String
+    var url : String?
+    
+    init(title : String, content : String, url : String? = nil) {
+        self.title = title
+        self.content = content
+        self.url = url
+    }
+}
+
+class TroparionView:  UITableViewController, ResizableTableViewCells {
+    let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     let prefs = UserDefaults(suiteName: groupId)!
-    var textView : UITextView!
+
+    var greatFeast : NameOfDay!
+    var troparion = [Troparion]()
+    var fontSize  = 0
+    
+    func getTroparion()  {
+        let path = Bundle.main.path(forResource: "tropari", ofType: "sqlite")!
+        let db = try! Database(path:path)
+        
+        let results = try! db.selectFrom("tropari", whereExpr:"code=\(greatFeast.rawValue)", orderBy: "id") { ["title": $0["title"], "content": $0["content"], "url": $0["url"]]}
+        
+        for line in results {
+            let title = line["title"] as! String
+            let content =  line["content"] as! String
+            let url = line["url"] as? String
+            
+            troparion.append(Troparion(title: title, content: content, url: url))
+        }
+        
+        tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: "TextCell", bundle: toolkit), forCellReuseIdentifier: "TextCell")
 
-        let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(closeView))
-        navigationItem.leftBarButtonItem = backButton
-        
-        let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(Scripture.zoom_in))
-        let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(Scripture.zoom_out))
-        
-        button_zoom_in.imageInsets = UIEdgeInsets.init(top: 0,left: -20,bottom: 0,right: 0)
-        navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
-        
         fontSize = prefs.integer(forKey: "fontSize")
-        
-        textView =  UITextView(frame: .zero)
-        textView.backgroundColor = .clear
-        textView.isScrollEnabled = true
-        textView.isPagingEnabled = false
-        textView.bounces = false
-        textView.isEditable = false
-        
-        view.addSubview(textView)
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            textView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-            textView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 10),
-            textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 10),
-        ])
 
-        reload()
+        getTroparion()
+        reloadTheme()
     }
     
-    func zoom_in() {
-        fontSize += 2
-        prefs.set(fontSize, forKey: "fontSize")
-        prefs.synchronize()
+    @objc func reloadTheme() {
+        if let bgColor = Theme.mainColor {
+            view.backgroundColor =  bgColor
+            
+        } else {
+            view.backgroundColor = UIColor.clear
+            tableView.backgroundView  = UIImageView(image: UIImage(background: "bg3.jpg", inView: view, bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
+        }
         
-        reload()
     }
     
-    func zoom_out() {
-        fontSize -= 2
-        prefs.set(fontSize, forKey: "fontSize")
-        prefs.synchronize()
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return troparion.count
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: TextCell = getCell()
+        let t = troparion[indexPath.section]
         
-        reload()
+        if indexPath.row == 0 {
+            cell.title.font = UIFont.boldSystemFont(ofSize: CGFloat(fontSize))
+            cell.title.text = t.title
+
+        } else {
+            cell.title.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
+            cell.title.text = t.content
+
+        }
+        
+        return cell
     }
     
-    @objc func closeView() {
-        let _ = navigationController?.popViewController(animated: true)
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
+        return calculateHeightForCell(cell)
     }
-    
-    func reload() {
-    }
-    
-    
 }
 
+/*
+ 
+ view.addSubview(textView)
+ textView.translatesAutoresizingMaskIntoConstraints = false
+ 
+ NSLayoutConstraint.activate([
+ textView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+ textView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 10),
+ textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+ textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 10),
+ ])
+ 
+ */

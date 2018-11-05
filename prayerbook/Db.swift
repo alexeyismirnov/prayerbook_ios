@@ -86,16 +86,6 @@ struct Db {
         return 0
     }
     
-    static func troparionExists(_ code: NameOfDay) -> Bool {
-        let path = Bundle.main.path(forResource: "tropari", ofType: "sqlite")!
-        let db = try! Database(path:path)
-        
-        let results = try! db.prepareStatement("SELECT id FROM tropari WHERE code=\(code.rawValue)")
-
-        return try! results.next()
-        
-    }
-    
     static func feofan(_ id: String) -> String? {
         let path = Bundle.main.path(forResource: "feofan", ofType: "sqlite")!
         let db = try! Database(path:path)

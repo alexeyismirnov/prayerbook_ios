@@ -225,7 +225,6 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
@@ -316,7 +315,6 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             return cell
             
         } else if indexPath.section == 3 {
-            
             var title : String!
             var subtitle : String!
             
@@ -449,11 +447,15 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
                 (vc as! RTFDocument).content = NSMutableAttributedString(string: feofan[ind].1)
                 
             default:
-                let synaxarion = Cal.synaxarion[currentDate]!
-                
-                vc = UIViewController.named("RTFDocument")
-                (vc as! RTFDocument).docTitle = synaxarion.0
-                (vc as! RTFDocument).docFilename = synaxarion.1
+                if synaxarion != nil && indexPath.row == readings.count + feofan.count {
+                    vc = UIViewController.named("RTFDocument")
+                    (vc as! RTFDocument).docTitle = synaxarion!.0
+                    (vc as! RTFDocument).docFilename = synaxarion!.1
+                    
+                } else if greatFeast != nil {
+                    vc = UIViewController.named("TroparionView")
+                    (vc as! TroparionView).greatFeast = greatFeast!
+                }
                 
             }
             
@@ -540,12 +542,6 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         readings = DailyReading.getDailyReading(currentDate)
         synaxarion = Cal.synaxarion[currentDate]
         greatFeast = Cal.getGreatFeast(currentDate)
-        
-        /*
-        if let _ = greatFeast {
-            print(Db.troparionExists(greatFeast!))
-        }
-        */
         
         if (appeared) {
             reloadAfterAppeared()

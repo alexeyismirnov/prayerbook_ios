@@ -45,6 +45,12 @@ class Options: UITableViewController {
         cell.accessoryType = .checkmark
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        UITableViewCell.appearance().backgroundColor =  UIColor.white.withAlphaComponent(0)
+
+        super.viewDidDisappear(animated)
+    }
+    
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerView = view as! UITableViewHeaderFooterView
         
