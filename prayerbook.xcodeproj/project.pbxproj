@@ -64,6 +64,11 @@
 		8A0B4CFF1C8C1ECF00747BB4 /* tit_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4CE11C8C1ECF00747BB4 /* tit_ru.sqlite */; };
 		8A0F6F591C50C0FF0063DBF1 /* ChurchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */; };
 		8A0F6F5A1C50C12D0063DBF1 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A819E1302700076AF4 /* Translate.swift */; };
+		8A13C8FA2191322700D0CE7E /* 019-Tropar-Glas-4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C8F92191322700D0CE7E /* 019-Tropar-Glas-4.mp3 */; };
+		8A13C8FD219172E500D0CE7E /* AudioPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13C8FB219172E500D0CE7E /* AudioPlayerCell.swift */; };
+		8A13C8FE219172E500D0CE7E /* AudioPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C8FC219172E500D0CE7E /* AudioPlayerCell.xib */; };
+		8A13C90121917AB700D0CE7E /* pause.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C8FF21917AB700D0CE7E /* pause.pdf */; };
+		8A13C90221917AB700D0CE7E /* play.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C90021917AB700D0CE7E /* play.pdf */; };
 		8A1964512186AC5700CDDCB5 /* FeastList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1964502186AC5700CDDCB5 /* FeastList.swift */; };
 		8A1B2575202955A60038C0C4 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 8A1B2574202955A60038C0C4 /* icons */; };
 		8A1B2577202956840038C0C4 /* SaintIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B2576202956840038C0C4 /* SaintIconView.swift */; };
@@ -333,6 +338,13 @@
 		8A0B4CE11C8C1ECF00747BB4 /* tit_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = tit_ru.sqlite; sourceTree = "<group>"; };
 		8A0F6F5B1C50C4BE0063DBF1 /* ponomar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ponomar.entitlements; sourceTree = "<group>"; };
 		8A0F6F5C1C50C4EC0063DBF1 /* CalendarWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CalendarWidget.entitlements; sourceTree = "<group>"; };
+		8A13C8F92191322700D0CE7E /* 019-Tropar-Glas-4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "019-Tropar-Glas-4.mp3"; sourceTree = "<group>"; };
+		8A13C8FB219172E500D0CE7E /* AudioPlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerCell.swift; sourceTree = "<group>"; };
+		8A13C8FC219172E500D0CE7E /* AudioPlayerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioPlayerCell.xib; sourceTree = "<group>"; };
+		8A13C8FF21917AB700D0CE7E /* pause.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = pause.pdf; sourceTree = "<group>"; };
+		8A13C90021917AB700D0CE7E /* play.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = play.pdf; sourceTree = "<group>"; };
+		8A13C903219190F500D0CE7E /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		8A13C905219190FF00D0CE7E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8A1964502186AC5700CDDCB5 /* FeastList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeastList.swift; sourceTree = "<group>"; };
 		8A1B2574202955A60038C0C4 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icons; sourceTree = "<group>"; };
 		8A1B2576202956840038C0C4 /* SaintIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintIconView.swift; sourceTree = "<group>"; };
@@ -579,6 +591,8 @@
 		8A74D7F9198F20CC0078F39F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A13C905219190FF00D0CE7E /* AVFoundation.framework */,
+				8A13C903219190F500D0CE7E /* AVKit.framework */,
 				8AC675431FED09CA00A9000C /* Chameleon.framework */,
 				8A8753F51FC429C400C857DE /* Squeal.framework */,
 				8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */,
@@ -611,6 +625,7 @@
 				8A1F8287202AD76C0010C02F /* demo.mp4 */,
 				8A54E3DA202857E900245C31 /* icons.sqlite */,
 				8A7A14DF2189AFA600BF1A51 /* tropari.sqlite */,
+				8A13C8F92191322700D0CE7E /* 019-Tropar-Glas-4.mp3 */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
 				8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */,
 				8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */,
@@ -630,6 +645,8 @@
 				8AEA68381C90028B009E9FD8 /* Prayer.swift */,
 				8A54574F1E6FD13500A86B5A /* RTFDocument.swift */,
 				8AEFC27A1A2C747700BAACE0 /* Scripture.swift */,
+				8A13C8FB219172E500D0CE7E /* AudioPlayerCell.swift */,
+				8A13C8FC219172E500D0CE7E /* AudioPlayerCell.xib */,
 				8A4C28C7218AE68A00C276C3 /* TroparionView.swift */,
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
 				8A35561521805A150046E751 /* CalendarSelector.swift */,
@@ -669,6 +686,8 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8A13C8FF21917AB700D0CE7E /* pause.pdf */,
+				8A13C90021917AB700D0CE7E /* play.pdf */,
 				8A1F8285202AA7EC0010C02F /* iPhoneX-Portrait.png */,
 				8A61BBA4202438CE003AA1BF /* saint.pdf */,
 				8A1F2CB31DD9C18600F13A3D /* newicon_167.png */,
@@ -943,6 +962,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 						};
 					};
 					8AB7499E1C4C7A3400CD1B32 = {
@@ -1117,6 +1139,7 @@
 				8AC6951819E3FBC200773FEB /* food-cupcake.pdf in Resources */,
 				8AB0DC951C27EFEC00C6A494 /* typica_1.plist in Resources */,
 				8AC6951D19E3FBC200773FEB /* food-no-meat.pdf in Resources */,
+				8A13C90221917AB700D0CE7E /* play.pdf in Resources */,
 				8AE529E41C8E63710082FF65 /* trans_library_ru.plist in Resources */,
 				8AC6951C19E3FBC200773FEB /* food-no-fish.pdf in Resources */,
 				8AADFF6E1E84F28900CE3D0F /* feofan.sqlite in Resources */,
@@ -1138,7 +1161,9 @@
 				8A1F2CA61DD9B5C500F13A3D /* Default-667h@2x.png in Resources */,
 				8AB0DCA71C27F00400C6A494 /* ReadingLuke.plist in Resources */,
 				8A5457781E70174300A86B5A /* synaxarion8.rtf in Resources */,
+				8A13C90121917AB700D0CE7E /* pause.pdf in Resources */,
 				8A0B4CFC1C8C1ECF00747BB4 /* prov_ru.sqlite in Resources */,
+				8A13C8FE219172E500D0CE7E /* AudioPlayerCell.xib in Resources */,
 				8A0B4CE21C8C1ECF00747BB4 /* 1cor_ru.sqlite in Resources */,
 				8AB0DCA41C27F00400C6A494 /* ReadingApostle.plist in Resources */,
 				8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */,
@@ -1148,6 +1173,7 @@
 				8AF2497A1AFF308B000070C0 /* great.pdf in Resources */,
 				8A1F2CB21DD9B80600F13A3D /* landscape3.png in Resources */,
 				8A0B4CED1C8C1ECF00747BB4 /* acts_ru.sqlite in Resources */,
+				8A13C8FA2191322700D0CE7E /* 019-Tropar-Glas-4.mp3 in Resources */,
 				8AEA68321C8FFA9F009E9FD8 /* trans_ui_ru.plist in Resources */,
 				8A5457801E70174300A86B5A /* synaxarion16.rtf in Resources */,
 				8AE36B2F1C97B228005CAD8D /* food-xerography.pdf in Resources */,
@@ -1280,6 +1306,7 @@
 				8A6684FC2178834700C19C04 /* TopAlignedCollection.swift in Sources */,
 				8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */,
 				8AB90801216EF7580030F989 /* ChaptersCell.swift in Sources */,
+				8A13C8FD219172E500D0CE7E /* AudioPlayerCell.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
 				8AEFC27B1A2C747700BAACE0 /* Scripture.swift in Sources */,
 				8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */,

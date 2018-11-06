@@ -282,24 +282,37 @@
             <point key="canvasLocation" x="200" y="254.29687499999997"/>
         </scene>
         <!--Troparion View-->
-        <scene sceneID="IPA-mQ-32l">
+        <scene sceneID="3rg-WY-yQS">
             <objects>
-                <tableViewController storyboardIdentifier="TroparionView" id="DCh-Zo-RLk" customClass="TroparionView" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wgx-v0-f9Y">
+                <viewController storyboardIdentifier="TroparionView" id="tJ1-Se-VnY" customClass="TroparionView" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GkU-Jw-gZC"/>
+                        <viewControllerLayoutGuide type="bottom" id="FNa-0G-SWt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cfb-64-vYE">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JTD-gD-WMq">
+                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <connections>
-                            <outlet property="dataSource" destination="DCh-Zo-RLk" id="V1i-cq-Fhd"/>
-                            <outlet property="delegate" destination="DCh-Zo-RLk" id="x05-UR-odi"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mj4-Gt-2UB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="JTD-gD-WMq" firstAttribute="leading" secondItem="Cfb-64-vYE" secondAttribute="leading" id="3DS-y6-qs2"/>
+                            <constraint firstItem="JTD-gD-WMq" firstAttribute="top" secondItem="GkU-Jw-gZC" secondAttribute="bottom" id="bOd-ng-w1t"/>
+                            <constraint firstAttribute="trailing" secondItem="JTD-gD-WMq" secondAttribute="trailing" id="cvO-cg-4pR"/>
+                            <constraint firstItem="FNa-0G-SWt" firstAttribute="top" secondItem="JTD-gD-WMq" secondAttribute="bottom" id="u9F-yw-LUL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="JTD-gD-WMq" id="8qt-SN-yby"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HmL-Di-NhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="986" y="252"/>
+            <point key="canvasLocation" x="1690" y="253"/>
         </scene>
         <!--Library2-->
         <scene sceneID="ZIP-z4-SQb">

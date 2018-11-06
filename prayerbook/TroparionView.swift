@@ -23,7 +23,10 @@ struct Troparion {
     }
 }
 
-class TroparionView:  UITableViewController, ResizableTableViewCells {
+class TroparionView:  UIViewController, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     let prefs = UserDefaults(suiteName: groupId)!
 
@@ -44,20 +47,25 @@ class TroparionView:  UITableViewController, ResizableTableViewCells {
             
             troparion.append(Troparion(title: title, content: content, url: url))
         }
-        
+
         tableView.reloadData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        automaticallyAdjustsScrollViewInsets = false
+
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.register(UINib(nibName: "AudioPlayerCell", bundle: nil), forCellReuseIdentifier: "AudioPlayerCell")
         tableView.register(UINib(nibName: "TextCell", bundle: toolkit), forCellReuseIdentifier: "TextCell")
 
         fontSize = prefs.integer(forKey: "fontSize")
+        reloadTheme()
 
         getTroparion()
-        reloadTheme()
     }
     
     @objc func reloadTheme() {
@@ -65,53 +73,50 @@ class TroparionView:  UITableViewController, ResizableTableViewCells {
             view.backgroundColor =  bgColor
             
         } else {
-            view.backgroundColor = UIColor.clear
-            tableView.backgroundView  = UIImageView(image: UIImage(background: "bg3.jpg", inView: view, bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
         }
         
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return troparion.count
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return troparion[section].url == nil ? 2 : 3
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: TextCell = getCell()
+        cell.title.textColor = Theme.textColor
+        
         let t = troparion[indexPath.section]
         
         if indexPath.row == 0 {
             cell.title.font = UIFont.boldSystemFont(ofSize: CGFloat(fontSize))
             cell.title.text = t.title
 
+        } else if indexPath.row == 1 && t.url != nil {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AudioPlayerCell") as! AudioPlayerCell
+            cell.filename = "019-Tropar-Glas-4"
+            return cell
+
         } else {
             cell.title.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
             cell.title.text = t.content
-
         }
         
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
-        return calculateHeightForCell(cell)
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 1 && troparion[indexPath.section].url != nil {
+            return 50
+            
+        } else {
+            let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
+            return calculateHeightForCell(cell)
+        }
+        
     }
 }
-
-/*
- 
- view.addSubview(textView)
- textView.translatesAutoresizingMaskIntoConstraints = false
- 
- NSLayoutConstraint.activate([
- textView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
- textView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 10),
- textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
- textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 10),
- ])
- 
- */
