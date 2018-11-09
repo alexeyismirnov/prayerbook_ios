@@ -7,21 +7,7 @@
 //
 
 import UIKit
-import Squeal
-
 import swift_toolkit
-
-struct Troparion {
-    var title : String
-    var content : String
-    var url : String?
-    
-    init(title : String, content : String, url : String? = nil) {
-        self.title = title
-        self.content = content
-        self.url = url
-    }
-}
 
 class TroparionView:  UIViewController, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource {
     
@@ -33,23 +19,6 @@ class TroparionView:  UIViewController, ResizableTableViewCells, UITableViewDele
     var greatFeast : NameOfDay!
     var troparion = [Troparion]()
     var fontSize  = 0
-    
-    func getTroparion()  {
-        let path = Bundle.main.path(forResource: "tropari", ofType: "sqlite")!
-        let db = try! Database(path:path)
-        
-        let results = try! db.selectFrom("tropari", whereExpr:"code=\(greatFeast.rawValue)", orderBy: "id") { ["title": $0["title"], "content": $0["content"], "url": $0["url"]]}
-        
-        for line in results {
-            let title = line["title"] as! String
-            let content =  line["content"] as! String
-            let url = line["url"] as? String
-            
-            troparion.append(Troparion(title: title, content: content, url: url))
-        }
-
-        tableView.reloadData()
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +34,8 @@ class TroparionView:  UIViewController, ResizableTableViewCells, UITableViewDele
         fontSize = prefs.integer(forKey: "fontSize")
         reloadTheme()
 
-        getTroparion()
+        troparion = TroparionModel.getTroparion(greatFeast)
+        tableView.reloadData()
     }
     
     @objc func reloadTheme() {

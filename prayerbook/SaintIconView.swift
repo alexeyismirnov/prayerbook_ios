@@ -77,8 +77,10 @@ class SaintIconCell : ConfigurableCell, UICollectionViewDataSource, UICollection
         guard let resourcePath = Bundle.main.resourcePath else { return cell }
         let iconPath = resourcePath + "/icons/\(saints[indexPath.row].id).jpg"
         
-        try! cell.icon!.image = UIImage(data: Data(contentsOf: URL(fileURLWithPath: iconPath)))
-        cell.icon!.contentMode = .scaleAspectFit
+        if saints[indexPath.row].has_icon {
+            try! cell.icon!.image = UIImage(data: Data(contentsOf: URL(fileURLWithPath: iconPath)))
+            cell.icon!.contentMode = .scaleAspectFit
+        }
         
         return cell
     }

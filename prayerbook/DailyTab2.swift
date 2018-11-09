@@ -560,7 +560,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             feofan = DailyReading.getFeofan(currentDate, fuzzy: true)
         }
         
-        saintIcons = SaintIcons.get(currentDate)
+        saintIcons = SaintIconModel.get(currentDate)
     }
     
     func configureNavbar() {

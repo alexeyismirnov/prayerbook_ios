@@ -27,7 +27,7 @@ struct Saint {
 }
 
 
-struct SaintIcons {
+struct SaintIconModel {
 
     static let db = try! Database(path:Bundle.main.path(forResource: "icons", ofType: "sqlite")!)
 
@@ -49,7 +49,7 @@ struct SaintIcons {
         
         let links = try! db.selectFrom("app_saint JOIN link_saint",
                                        columns: ["link_saint.name AS name", "app_saint.id AS id", "app_saint.has_icon AS has_icon"],
-                                       whereExpr: "link_saint.month=\(month) AND link_saint.day=\(day) AND app_saint.id = link_saint.id") { ["id": $0["id"],  "name": $0["name"], "has_icon": $0["has_icon"] ]}
+                                       whereExpr: "link_saint.month=\(month) AND link_saint.day=\(day) AND app_saint.id = link_saint.id AND app_saint.has_icon=1") { ["id": $0["id"],  "name": $0["name"], "has_icon": $0["has_icon"] ]}
         
         for data in links {
             let id = Int(exactly: data["id"] as! Int64) ?? 0
