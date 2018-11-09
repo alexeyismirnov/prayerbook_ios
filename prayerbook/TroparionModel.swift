@@ -22,10 +22,12 @@ struct Troparion {
 }
 
 struct TroparionModel {
-    static let path = Bundle.main.path(forResource: "tropari", ofType: "sqlite")!
-    static let db = try! Database(path:path)
+    static let documentDirectory:URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let path = documentDirectory.path + "/tropari/tropari/tropari.sqlite"
 
     static func getTroparion(_ code : NameOfDay) -> [Troparion]  {
+        let db = try! Database(path:path)
+        
         var troparion = [Troparion]()
 
         let results = try! db.selectFrom("tropari", whereExpr:"code=\(code.rawValue)", orderBy: "id") { ["title": $0["title"], "content": $0["content"], "url": $0["url"]]}
@@ -39,6 +41,10 @@ struct TroparionModel {
         }
         
         return troparion
+    }
+    
+    static func troparionAvailable() -> Bool {
+        return FileManager.default.fileExists(atPath: path)
     }
     
 }

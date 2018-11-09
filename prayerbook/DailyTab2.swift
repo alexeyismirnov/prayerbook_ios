@@ -10,7 +10,6 @@ import UIKit
 import Squeal
 import NAModalSheet
 import swift_toolkit
-import AVKit
 
 class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource, NAModalSheetDelegate {
     
@@ -453,8 +452,29 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
                     (vc as! RTFDocument).docFilename = synaxarion!.1
                     
                 } else if greatFeast != nil {
-                    vc = UIViewController.named("TroparionView")
-                    (vc as! TroparionView).greatFeast = greatFeast!
+                    if TroparionModel.troparionAvailable() {
+                        vc = UIViewController.named("TroparionView")
+                        (vc as! TroparionView).greatFeast = greatFeast!
+                        
+                    } else {
+                        let container = UIViewController.named("DownloadView") as! DownloadView
+                        container.delegate = self
+                        
+                        popup = PopupController
+                            .create(self.navigationController!)
+                            .customize(
+                                [
+                                    .dismissWhenTaps(false),
+                                    .animation(.fadeIn),
+                                    .layout(.center),
+                                    .backgroundStyle(.blackFilter(alpha: 0.7))
+                                ]
+                        )
+                        
+                        popup.show(container)
+                        
+                        return nil
+                    }
                 }
                 
             }
@@ -570,14 +590,13 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         
         let button_saint = UIBarButtonItem(image: UIImage(named: "saint"), style: .plain, target: self, action: #selector(showSaints))
         
-        let button_widget = UIBarButtonItem(image: UIImage(named: "question", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showTutorial))
         let button_options = UIBarButtonItem(image: UIImage(named: "options", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showOptions))
         
         button_saint.imageInsets = UIEdgeInsets.init(top: 0,left: 0,bottom: 0,right: -20)
-        button_widget.imageInsets = UIEdgeInsets.init(top: 0,left: -20,bottom: 0,right: 0)
+        // button_widget.imageInsets = UIEdgeInsets.init(top: 0,left: -20,bottom: 0,right: 0)
         
         navigationItem.leftBarButtonItems = [button_monthly, button_saint]
-        navigationItem.rightBarButtonItems = [button_options, button_widget]
+        navigationItem.rightBarButtonItems = [button_options]
     }
     
     @objc func showSaints() {
@@ -662,17 +681,6 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             currentDate = newDate
             reload()
             tableView.setContentOffset(CGPoint.zero, animated: false)
-        }
-    }
-    
-    @objc func showTutorial() {
-        let videoURL = Bundle.main.url(forResource: "demo", withExtension: "mp4")
-        
-        let player = AVPlayer(url: videoURL!)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        self.present(playerViewController, animated: true) {
-            playerViewController.player!.play()
         }
     }
     

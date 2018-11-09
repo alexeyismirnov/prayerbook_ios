@@ -68,7 +68,7 @@ class TroparionView:  UIViewController, ResizableTableViewCells, UITableViewDele
 
         } else if indexPath.row == 1 && t.url != nil {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AudioPlayerCell") as! AudioPlayerCell
-            cell.filename = "019-Tropar-Glas-4"
+            cell.filename = t.url
             return cell
 
         } else {

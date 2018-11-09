@@ -22,10 +22,11 @@ class AudioPlayerCell: UITableViewCell, AVAudioPlayerDelegate {
     let pauseImage = UIImage(named: "pause")?.withRenderingMode(.alwaysTemplate)
     
     var durationString = ""
+    let documentDirectory:URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 
     var filename : String!  {
         didSet {
-            guard let url = Bundle.main.url(forResource: filename, withExtension: "mp3") else { return }
+            let url = documentDirectory.appendingPathComponent("/tropari/tropari/\(filename!).mp3")
 
             do {
                 playPauseButton.setImage(playImage, for: .normal)

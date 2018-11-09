@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="G5G-CB-Hhd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="G5G-CB-Hhd">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -677,6 +677,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAy-KJ-Byq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1189.0625" y="197.4609375"/>
+        </scene>
+        <!--Download View-->
+        <scene sceneID="TO2-mF-fAU">
+            <objects>
+                <viewController storyboardIdentifier="DownloadView" id="T4R-8W-RUs" customClass="DownloadView" customModule="ponomar" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vD8-CQ-c3J"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dwu-GU-SeB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1QX-Jt-Ya3">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузка..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amf-Lo-hoO">
+                                <rect key="frame" x="20" y="40" width="260" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Fl9-AD-Zk7">
+                                <rect key="frame" x="20" y="84" width="260" height="2"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8d4-32-LiH">
+                                <rect key="frame" x="100" y="144" width="100" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="PBh-Gq-DbB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Отмена">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="T4R-8W-RUs" eventType="touchUpInside" id="H8l-26-YaR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Dwu-GU-SeB" firstAttribute="top" secondItem="8d4-32-LiH" secondAttribute="bottom" constant="20" id="4eM-ML-WVH"/>
+                            <constraint firstItem="Fl9-AD-Zk7" firstAttribute="top" secondItem="Amf-Lo-hoO" secondAttribute="bottom" constant="20" id="FgK-c2-HhO"/>
+                            <constraint firstAttribute="trailing" secondItem="Fl9-AD-Zk7" secondAttribute="trailing" constant="20" symbolic="YES" id="KSJ-u6-be0"/>
+                            <constraint firstItem="Amf-Lo-hoO" firstAttribute="top" secondItem="vD8-CQ-c3J" secondAttribute="bottom" constant="20" id="Psb-bd-VKy"/>
+                            <constraint firstItem="Fl9-AD-Zk7" firstAttribute="leading" secondItem="1QX-Jt-Ya3" secondAttribute="leading" constant="20" symbolic="YES" id="V0k-Ks-dug"/>
+                            <constraint firstAttribute="trailing" secondItem="Amf-Lo-hoO" secondAttribute="trailing" constant="20" symbolic="YES" id="e6e-IF-elQ"/>
+                            <constraint firstItem="8d4-32-LiH" firstAttribute="centerX" secondItem="1QX-Jt-Ya3" secondAttribute="centerX" id="hXP-oA-3iw"/>
+                            <constraint firstItem="Amf-Lo-hoO" firstAttribute="leading" secondItem="1QX-Jt-Ya3" secondAttribute="leading" constant="20" symbolic="YES" id="u44-tx-bz2"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="200"/>
+                    <connections>
+                        <outlet property="button" destination="8d4-32-LiH" id="ZYK-oK-t1a"/>
+                        <outlet property="progressBar" destination="Fl9-AD-Zk7" id="IvN-xc-jDt"/>
+                        <outlet property="titleLabel" destination="Amf-Lo-hoO" id="Ml4-LX-CGm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p81-6g-ac8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1574" y="-1148"/>
         </scene>
     </scenes>
     <resources>

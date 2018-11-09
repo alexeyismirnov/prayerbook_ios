@@ -1,3 +1,4 @@
 github "alexeyismirnov/swift-toolkit"  
-
+github "marmelroy/Zip"
+github "ashleymills/Reachability.swift"
 

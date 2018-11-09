@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2E71B668DEB751741778939D /* Pods_ponomar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4B2AD66CF860E617AF86DF /* Pods_ponomar.framework */; };
 		8A01E42221956295005BE65F /* TroparionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A01E42121956295005BE65F /* TroparionModel.swift */; };
+		8A01E42621957BD8005BE65F /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A01E42421957BD8005BE65F /* DownloadManager.swift */; };
+		8A01E42821957F59005BE65F /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A01E42721957F59005BE65F /* Reachability.framework */; };
+		8A01E42A21957F60005BE65F /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A01E42921957F60005BE65F /* Zip.framework */; };
 		8A0B4CA71C8C1E8000747BB4 /* saints_01_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C8F1C8C1E8000747BB4 /* saints_01_ru.sqlite */; };
 		8A0B4CA81C8C1E8000747BB4 /* saints_01_ru.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C901C8C1E8000747BB4 /* saints_01_ru.txt */; };
 		8A0B4CA91C8C1E8000747BB4 /* saints_02_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C911C8C1E8000747BB4 /* saints_02_ru.sqlite */; };
@@ -65,7 +68,6 @@
 		8A0B4CFF1C8C1ECF00747BB4 /* tit_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4CE11C8C1ECF00747BB4 /* tit_ru.sqlite */; };
 		8A0F6F591C50C0FF0063DBF1 /* ChurchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */; };
 		8A0F6F5A1C50C12D0063DBF1 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A819E1302700076AF4 /* Translate.swift */; };
-		8A13C8FA2191322700D0CE7E /* 019-Tropar-Glas-4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C8F92191322700D0CE7E /* 019-Tropar-Glas-4.mp3 */; };
 		8A13C8FD219172E500D0CE7E /* AudioPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13C8FB219172E500D0CE7E /* AudioPlayerCell.swift */; };
 		8A13C8FE219172E500D0CE7E /* AudioPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C8FC219172E500D0CE7E /* AudioPlayerCell.xib */; };
 		8A13C90121917AB700D0CE7E /* pause.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C8FF21917AB700D0CE7E /* pause.pdf */; };
@@ -86,7 +88,6 @@
 		8A1F2CB21DD9B80600F13A3D /* landscape3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CB01DD9B80600F13A3D /* landscape3.png */; };
 		8A1F2CB41DD9C18600F13A3D /* newicon_167.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CB31DD9C18600F13A3D /* newicon_167.png */; };
 		8A1F8286202AA7EC0010C02F /* iPhoneX-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F8285202AA7EC0010C02F /* iPhoneX-Portrait.png */; };
-		8A1F8288202AD76C0010C02F /* demo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F8287202AD76C0010C02F /* demo.mp4 */; };
 		8A24885E1EB0948A006877D8 /* YearlyCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */; };
 		8A24F52F1EB98A1700CE19E7 /* CalendarImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A24F52E1EB98A1700CE19E7 /* CalendarImageCell.swift */; };
 		8A2AE4891FC2DAFA00B30B53 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */; };
@@ -129,6 +130,7 @@
 		8A54C42C1EA760E30083AA2F /* Library2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C42B1EA760E30083AA2F /* Library2.swift */; };
 		8A54E3DB202857E900245C31 /* icons.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A54E3DA202857E900245C31 /* icons.sqlite */; };
 		8A54E3DD2028637E00245C31 /* SaintIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54E3DC2028637E00245C31 /* SaintIconModel.swift */; };
+		8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DE92E21958DF60006E046 /* DownloadView.swift */; };
 		8A61BBA5202438CF003AA1BF /* saint.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A61BBA4202438CE003AA1BF /* saint.pdf */; };
 		8A61BBAD20246903003AA1BF /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC675431FED09CA00A9000C /* Chameleon.framework */; };
 		8A6684FC2178834700C19C04 /* TopAlignedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6684FB2178834700C19C04 /* TopAlignedCollection.swift */; };
@@ -140,7 +142,6 @@
 		8A74D833198F224E0078F39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D832198F224E0078F39F /* Main.storyboard */; };
 		8A76870C1EB72A6E000F7533 /* YearlyMonthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */; };
 		8A76870D1EB72A6E000F7533 /* YearlyMonthViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */; };
-		8A7A14E02189AFA600BF1A51 /* tropari.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A7A14DF2189AFA600BF1A51 /* tropari.sqlite */; };
 		8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A81FB4D1C1ECB7600D28F58 /* Appirater.m */; };
 		8A8753F41FC429C400C857DE /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8753F51FC429C400C857DE /* Squeal.framework */; };
 		8A8D2FB51FBC458C00A54147 /* DateViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */; };
@@ -283,6 +284,9 @@
 		6E01426EC83DA15B72CE617C /* Pods-ponomar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ponomar.release.xcconfig"; path = "Pods/Target Support Files/Pods-ponomar/Pods-ponomar.release.xcconfig"; sourceTree = "<group>"; };
 		8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8A01E42121956295005BE65F /* TroparionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroparionModel.swift; sourceTree = "<group>"; };
+		8A01E42421957BD8005BE65F /* DownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		8A01E42721957F59005BE65F /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
+		8A01E42921957F60005BE65F /* Zip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Zip.framework; path = Carthage/Build/iOS/Zip.framework; sourceTree = "<group>"; };
 		8A0B4C8F1C8C1E8000747BB4 /* saints_01_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_01_ru.sqlite; sourceTree = "<group>"; };
 		8A0B4C901C8C1E8000747BB4 /* saints_01_ru.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_01_ru.txt; sourceTree = "<group>"; };
 		8A0B4C911C8C1E8000747BB4 /* saints_02_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_02_ru.sqlite; sourceTree = "<group>"; };
@@ -339,7 +343,6 @@
 		8A0B4CE11C8C1ECF00747BB4 /* tit_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = tit_ru.sqlite; sourceTree = "<group>"; };
 		8A0F6F5B1C50C4BE0063DBF1 /* ponomar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ponomar.entitlements; sourceTree = "<group>"; };
 		8A0F6F5C1C50C4EC0063DBF1 /* CalendarWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CalendarWidget.entitlements; sourceTree = "<group>"; };
-		8A13C8F92191322700D0CE7E /* 019-Tropar-Glas-4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "019-Tropar-Glas-4.mp3"; sourceTree = "<group>"; };
 		8A13C8FB219172E500D0CE7E /* AudioPlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerCell.swift; sourceTree = "<group>"; };
 		8A13C8FC219172E500D0CE7E /* AudioPlayerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioPlayerCell.xib; sourceTree = "<group>"; };
 		8A13C8FF21917AB700D0CE7E /* pause.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = pause.pdf; sourceTree = "<group>"; };
@@ -363,7 +366,6 @@
 		8A1F2CB01DD9B80600F13A3D /* landscape3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = landscape3.png; sourceTree = "<group>"; };
 		8A1F2CB31DD9C18600F13A3D /* newicon_167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_167.png; sourceTree = "<group>"; };
 		8A1F8285202AA7EC0010C02F /* iPhoneX-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhoneX-Portrait.png"; sourceTree = "<group>"; };
-		8A1F8287202AD76C0010C02F /* demo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo.mp4; sourceTree = "<group>"; };
 		8A2197D91ECAD486007CB039 /* ChameleonFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChameleonFramework.framework; path = "../../Derived3/prayerbook-ewzsuaxwoacyigdcqavmiszgcxqo/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework"; sourceTree = "<group>"; };
 		8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearlyCalendar.swift; sourceTree = "<group>"; };
 		8A24F52E1EB98A1700CE19E7 /* CalendarImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarImageCell.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 		8A54C42B1EA760E30083AA2F /* Library2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library2.swift; sourceTree = "<group>"; };
 		8A54E3DA202857E900245C31 /* icons.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.sqlite; sourceTree = "<group>"; };
 		8A54E3DC2028637E00245C31 /* SaintIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintIconModel.swift; sourceTree = "<group>"; };
+		8A5DE92E21958DF60006E046 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		8A61BBA4202438CE003AA1BF /* saint.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = saint.pdf; sourceTree = "<group>"; };
 		8A6684FB2178834700C19C04 /* TopAlignedCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlignedCollection.swift; sourceTree = "<group>"; };
 		8A74D7F7198F20CC0078F39F /* ponomar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ponomar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -418,7 +421,6 @@
 		8A74D832198F224E0078F39F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearlyMonthViewCell.swift; sourceTree = "<group>"; };
 		8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearlyMonthViewCell.xib; sourceTree = "<group>"; };
-		8A7A14DF2189AFA600BF1A51 /* tropari.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = tropari.sqlite; sourceTree = "<group>"; };
 		8A81FB4C1C1ECB7600D28F58 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		8A81FB4D1C1ECB7600D28F58 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		8A81FB4E1C1ECB7600D28F58 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
@@ -531,6 +533,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A61BBAD20246903003AA1BF /* Chameleon.framework in Frameworks */,
+				8A01E42A21957F60005BE65F /* Zip.framework in Frameworks */,
+				8A01E42821957F59005BE65F /* Reachability.framework in Frameworks */,
 				8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */,
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
@@ -591,6 +595,8 @@
 		8A74D7F9198F20CC0078F39F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A01E42921957F60005BE65F /* Zip.framework */,
+				8A01E42721957F59005BE65F /* Reachability.framework */,
 				8A13C905219190FF00D0CE7E /* AVFoundation.framework */,
 				8A13C903219190F500D0CE7E /* AVKit.framework */,
 				8AC675431FED09CA00A9000C /* Chameleon.framework */,
@@ -622,10 +628,7 @@
 				8A74D844198F624C0078F39F /* images */,
 				8A74D832198F224E0078F39F /* Main.storyboard */,
 				8A74D857199076EF0078F39F /* html */,
-				8A1F8287202AD76C0010C02F /* demo.mp4 */,
 				8A54E3DA202857E900245C31 /* icons.sqlite */,
-				8A7A14DF2189AFA600BF1A51 /* tropari.sqlite */,
-				8A13C8F92191322700D0CE7E /* 019-Tropar-Glas-4.mp3 */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
 				8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */,
 				8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */,
@@ -647,6 +650,8 @@
 				8AEFC27A1A2C747700BAACE0 /* Scripture.swift */,
 				8A13C8FB219172E500D0CE7E /* AudioPlayerCell.swift */,
 				8A13C8FC219172E500D0CE7E /* AudioPlayerCell.xib */,
+				8A01E42421957BD8005BE65F /* DownloadManager.swift */,
+				8A5DE92E21958DF60006E046 /* DownloadView.swift */,
 				8A01E42121956295005BE65F /* TroparionModel.swift */,
 				8A4C28C7218AE68A00C276C3 /* TroparionView.swift */,
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
@@ -1004,7 +1009,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AF37E5A1B36C7A500101148 /* newicon_76.png in Resources */,
-				8A7A14E02189AFA600BF1A51 /* tropari.sqlite in Resources */,
 				8A0B4CB01C8C1E8000747BB4 /* saints_05_ru.txt in Resources */,
 				8A54577D1E70174300A86B5A /* synaxarion13.rtf in Resources */,
 				8A0B4CBD1C8C1E8000747BB4 /* saints_12_ru.sqlite in Resources */,
@@ -1044,7 +1048,6 @@
 				8A0B4CF91C8C1ECF00747BB4 /* matthew_ru.sqlite in Resources */,
 				8A5457831E70174300A86B5A /* synaxarion19.rtf in Resources */,
 				8A5457811E70174300A86B5A /* synaxarion17.rtf in Resources */,
-				8A1F8288202AD76C0010C02F /* demo.mp4 in Resources */,
 				8AB90802216EF7580030F989 /* ChaptersCell.xib in Resources */,
 				8A54577F1E70174300A86B5A /* synaxarion15.rtf in Resources */,
 				8A0B4CB11C8C1E8000747BB4 /* saints_06_ru.sqlite in Resources */,
@@ -1172,7 +1175,6 @@
 				8AF2497A1AFF308B000070C0 /* great.pdf in Resources */,
 				8A1F2CB21DD9B80600F13A3D /* landscape3.png in Resources */,
 				8A0B4CED1C8C1ECF00747BB4 /* acts_ru.sqlite in Resources */,
-				8A13C8FA2191322700D0CE7E /* 019-Tropar-Glas-4.mp3 in Resources */,
 				8AEA68321C8FFA9F009E9FD8 /* trans_ui_ru.plist in Resources */,
 				8A5457801E70174300A86B5A /* synaxarion16.rtf in Resources */,
 				8AE36B2F1C97B228005CAD8D /* food-xerography.pdf in Resources */,
@@ -1250,6 +1252,8 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/swift_toolkit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Chameleon.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Reachability.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Zip.framework",
 			);
 			outputPaths = (
 			);
@@ -1300,11 +1304,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A01E42621957BD8005BE65F /* DownloadManager.swift in Sources */,
 				8AE46EFE1EA9A6F900CAC1CB /* CalendarInfo.swift in Sources */,
 				8A24885E1EB0948A006877D8 /* YearlyCalendar.swift in Sources */,
 				8A6684FC2178834700C19C04 /* TopAlignedCollection.swift in Sources */,
 				8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */,
 				8AB90801216EF7580030F989 /* ChaptersCell.swift in Sources */,
+				8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */,
 				8A13C8FD219172E500D0CE7E /* AudioPlayerCell.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
 				8AEFC27B1A2C747700BAACE0 /* Scripture.swift in Sources */,
