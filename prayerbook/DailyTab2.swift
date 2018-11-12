@@ -115,25 +115,22 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
 
         let prefs = UserDefaults(suiteName: groupId)!
 
-        if prefs.object(forKey: "welcome30") == nil {
-            prefs.set(true, forKey: "welcome30")
+        if prefs.object(forKey: "welcome35") == nil {
+            prefs.set(true, forKey: "welcome35")
             prefs.synchronize()
             
-            let url = URL(string: "saints-ru://open?12345")!
+            let alert = UIAlertController(title: "Православный календарь", message: """
+В новой версии программы можно скачать тропари и кондаки двунадесятых и великих праздников (с аудио). Скачать?
+"""
+                , preferredStyle: .alert)
             
-            if !UIApplication.shared.canOpenURL(url) {
-                let alert = UIAlertController(title: "Православный календарь", message: "Предлагаем установить новое приложение - \"Жития святых на каждый день\". " +
-                    "Приложение открывается при нажатии кнопки в панели навигации (сверху). Установить?"
-                    , preferredStyle: .alert)
-                
-                let yesAction = UIAlertAction(title: "Да", style: .default, handler: { _ in self.showSaints()} );
-                let noAction = UIAlertAction(title: "Нет", style: .default, handler: { _ in  });
-                
-                alert.addAction(yesAction)
-                alert.addAction(noAction)
-                
-                present(alert, animated: true, completion: {})
-            }
+            let yesAction = UIAlertAction(title: "Да", style: .default, handler: { _ in self.downloadTroparion()} );
+            let noAction = UIAlertAction(title: "Нет", style: .default, handler: { _ in  });
+            
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+            
+            present(alert, animated: true, completion: {})
             
         }
         
@@ -457,22 +454,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
                         (vc as! TroparionView).greatFeast = greatFeast!
                         
                     } else {
-                        let container = UIViewController.named("DownloadView") as! DownloadView
-                        container.delegate = self
-                        
-                        popup = PopupController
-                            .create(self.navigationController!)
-                            .customize(
-                                [
-                                    .dismissWhenTaps(false),
-                                    .animation(.fadeIn),
-                                    .layout(.center),
-                                    .backgroundStyle(.blackFilter(alpha: 0.7))
-                                ]
-                        )
-                        
-                        popup.show(container)
-                        
+                        downloadTroparion()
                         return nil
                     }
                 }
@@ -688,6 +670,24 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         let vc = UIViewController.named("Options") as! Options
         let nav = UINavigationController(rootViewController: vc)
         navigationController?.present(nav, animated: true, completion: {})
+    }
+    
+    func downloadTroparion() {
+        let container = UIViewController.named("DownloadView") as! DownloadView
+        container.delegate = self
+        
+        popup = PopupController
+            .create(self.navigationController!)
+            .customize(
+                [
+                    .dismissWhenTaps(false),
+                    .animation(.fadeIn),
+                    .layout(.center),
+                    .backgroundStyle(.blackFilter(alpha: 0.7))
+                ]
+        )
+        
+        popup.show(container)
     }
     
     // MARK: NAModalSheetDelegate

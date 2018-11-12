@@ -7,7 +7,7 @@ enum FeastType: Int {
 }
 
 enum NameOfDay: Int {
-    case startOfYear=0, pascha, pentecost, ascension, palmSunday, eveOfNativityOfGod, nativityOfGod, circumcision, eveOfTheophany, theophany, meetingOfLord, annunciation, nativityOfJohn, peterAndPaul, transfiguration, dormition, beheadingOfJohn, nativityOfTheotokos, exaltationOfCross, veilOfTheotokos, entryIntoTemple, stNicholas, sundayOfPublicianAndPharisee, sundayOfProdigalSon, sundayOfDreadJudgement, cheesefareSunday, beginningOfGreatLent, beginningOfDormitionFast, beginningOfNativityFast, beginningOfApostolesFast, sundayOfForefathers, sundayBeforeNativity, sundayAfterExaltation, saturdayAfterExaltation, saturdayBeforeExaltation, sundayBeforeExaltation, saturdayBeforeNativity, saturdayAfterNativity, sundayAfterNativity, saturdayBeforeTheophany, sundayBeforeTheophany, saturdayAfterTheophany, sundayAfterTheophany, sunday2AfterPascha, sunday3AfterPascha, sunday4AfterPascha, sunday5AfterPascha, sunday6AfterPascha, sunday7AfterPascha, lazarusSaturday, newMartyrsConfessorsOfRussia, josephBetrothed, synaxisTheotokos, holyFathersSixCouncils, synaxisMoscowSaints, synaxisNizhnyNovgorodSaints, saturdayOfFathers, synaxisForerunner, saturdayTrinity, saturdayOfDeparted, endOfYear
+    case startOfYear=0, pascha, pentecost, ascension, palmSunday, eveOfNativityOfGod, nativityOfGod, circumcision, eveOfTheophany, theophany, meetingOfLord, annunciation, nativityOfJohn, peterAndPaul, transfiguration, dormition, beheadingOfJohn, nativityOfTheotokos, exaltationOfCross, veilOfTheotokos, entryIntoTemple, stNicholas, sundayOfPublicianAndPharisee, sundayOfProdigalSon, sundayOfDreadJudgement, cheesefareSunday, beginningOfGreatLent, beginningOfDormitionFast, beginningOfNativityFast, beginningOfApostolesFast, sundayOfForefathers, sundayBeforeNativity, sundayAfterExaltation, saturdayAfterExaltation, saturdayBeforeExaltation, sundayBeforeExaltation, saturdayBeforeNativity, saturdayAfterNativity, sundayAfterNativity, saturdayBeforeTheophany, sundayBeforeTheophany, saturdayAfterTheophany, sundayAfterTheophany, sunday2AfterPascha, sunday3AfterPascha, sunday4AfterPascha, sunday5AfterPascha, sunday6AfterPascha, sunday7AfterPascha, lazarusSaturday, newMartyrsConfessorsOfRussia, demetriusSaturday, radonitsa, killedInAction, josephBetrothed, synaxisTheotokos, holyFathersSixCouncils, synaxisMoscowSaints, synaxisNizhnyNovgorodSaints, saturdayOfFathers, synaxisForerunner, saturdayTrinity, saturdayOfDeparted, endOfYear
 }
 
 enum IconCodes: Int {
@@ -121,7 +121,10 @@ struct ChurchCalendar {
         .synaxisNizhnyNovgorodSaints:       (.none, "Synaxis of all saints of Nizhny Novgorod"),
         .saturdayOfFathers:         (.noSign, "Commemoration of all the saints, who showed forth in asceticism"),
         .saturdayTrinity:           (.none, "Trinity Saturday; Commemoration of the Departed"),
-        .saturdayOfDeparted:        (.none, "The Saturday of the Dead")
+        .saturdayOfDeparted:        (.none, "The Saturday of the Dead"),
+        .demetriusSaturday:         (.none, "Demetrius Saturday: Commemoration of the Departed"),
+        .radonitsa:                 (.none, "Radonitsa (Day of Rejoycing)"),
+        .killedInAction:            (.none, "Commemoration of Fallen Soldiers")
     ]
 
     static let feastIcon : [FeastType: String] = [
@@ -263,7 +266,6 @@ struct ChurchCalendar {
         
         miscFeasts += [
             pascha+5.days:          [(.none,   "Feast of the Life-Giving Spring of the Mother of God")],
-            pascha+9.days:          [(.none,   "Radonitsa (Day of Rejoycing)")],
             pascha+14.days:         [(.noSign, "St Joseph of Arimathea, and Nicodemus"),
                                      (.noSign, "Right-believing Tamara, Queen of Georgia († 1213)")],
             pascha+21.days:         [(.noSign, "Holy Martyr Abraham the Bulgar, Wonderworker of Vladimir († 1229)"),
@@ -357,13 +359,6 @@ struct ChurchCalendar {
         
         dateFeastDescr += miscFeasts
         dateFeastDescr += beforeAfterFeasts
-        
-        let demetrius = Date(8, 11, year)
-        let demetriusWeekday = DateComponents(date: demetrius).weekday!
-        
-        dateFeastDescr += [
-            demetrius - demetriusWeekday.days: [(.none, "Demetrius Saturday: Commemoration of the Departed")]
-        ]
         
         // Sources: 
         // http://azbyka.ru/days/p-tablica-dnej-predprazdnstv-poprazdnstv-i-otdanij-dvunadesjatyh-nepodvizhnyh-i-podvizhnyh-gospodskih-prazdnikov
@@ -461,9 +456,6 @@ struct ChurchCalendar {
             pascha:             [.pascha],
             pascha+39.days:     [.ascension],
             pascha+49.days:     [.pentecost],
-        ]
-        
-        moveableIcons += [
             pascha+5.days:      [.theotokosLiveGiving],
             pascha+24.days:     [.theotokosDubenskaya],
             pascha+42.days:     [.theotokosChelnskaya],
@@ -478,30 +470,19 @@ struct ChurchCalendar {
             greatLentStart-15.days:                   [.sundayOfProdigalSon],
             greatLentStart-9.days:                    [.saturdayOfDeparted],
             greatLentStart-8.days:                    [.sundayOfDreadJudgement],
-        ]
-
-        movingFeasts += [
             greatLentStart-2.days:                    [.saturdayOfFathers],
             greatLentStart-1.days:                    [.cheesefareSunday],
             greatLentStart:                           [.beginningOfGreatLent],
             pascha-8.days:                            [.lazarusSaturday],
             pascha-7.days:                            [.palmSunday],
-        ]
-        
-        movingFeasts += [
             pascha:                                   [.pascha],
             pascha+7.days:                            [.sunday2AfterPascha],
+            pascha+9.days:                            [.radonitsa],
             pascha+14.days:                           [.sunday3AfterPascha],
             pascha+21.days:                           [.sunday4AfterPascha],
-        ]
-        
-        movingFeasts += [
             pascha+28.days:                           [.sunday5AfterPascha],
             pascha+35.days:                           [.sunday6AfterPascha],
             pascha+42.days:                           [.sunday7AfterPascha],
-        ]
-        
-        movingFeasts += [
             pascha+39.days:                           [.ascension],
             pascha+48.days:                           [.saturdayTrinity],
             pascha+49.days:                           [.pentecost],
@@ -519,6 +500,8 @@ struct ChurchCalendar {
             Date(20, 1, year):   [.synaxisForerunner],
             Date(15, 2, year):   [.meetingOfLord],
             Date(7,  4, year):   [.annunciation],
+            Date(9,  5, year):   [.killedInAction],
+
             Date(7,  7, year):   [.nativityOfJohn],
             Date(12, 7, year):   [.peterAndPaul],
             Date(14, 8, year):   [.beginningOfDormitionFast],
@@ -597,6 +580,11 @@ struct ChurchCalendar {
         feastDates += [theophany - theophanyWeekday.days: [.saturdayBeforeTheophany]]
         feastDates += [theophany + (8-theophanyWeekday).days: [.sundayAfterTheophany]]
         feastDates += [theophany + theophanySatOffset.days: [.saturdayAfterTheophany]]
+        
+        let demetrius = Date(8, 11, year)
+        let demetriusWeekday = DateComponents(date: demetrius).weekday!
+        
+        feastDates += [demetrius - demetriusWeekday.days: [.demetriusSaturday]]
         
         let newMartyrs = Date(7,2,year)
         let newMartyrsWeekday = DayOfWeek(rawValue: DateComponents(date:newMartyrs).weekday!)!

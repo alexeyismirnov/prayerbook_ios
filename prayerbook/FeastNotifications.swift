@@ -75,6 +75,10 @@ struct FeastNotifications {
                     }
                 }
                 
+                for (date, descr) in FeastList.remembrance {
+                    addNotification(date-1.days,  "Поминовение усопших", descr.string)
+                }
+                
                 /*
                 center.getPendingNotificationRequests { (notifications) in
                     print("Count: \(notifications.count)")

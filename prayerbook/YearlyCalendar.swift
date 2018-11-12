@@ -146,6 +146,11 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         addFeasts("Двунадесятые переходящие праздники\n", FeastList.movableFeasts)
         addFeasts("Двунадесятые непереходящие праздники\n", FeastList.nonMovableFeasts)
         addFeasts("Великие праздники\n", FeastList.greatFeasts)
+        
+        addFeasts("Дни особого поминовения усопших\n", FeastList.remembrance)
+        
+        feasts = feasts + FeastList.makeStr("Суббота 2-й, 3-й и 4-й седмицы Великого поста\n\n")
+
     }
     
     func createHeaderViews() {

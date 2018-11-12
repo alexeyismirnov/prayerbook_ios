@@ -29,7 +29,7 @@ struct FeastList {
     }()
     
     static var sharing: Bool {
-        set { textFontSize = newValue ? CGFloat(14) : CGFloat(16)
+        set { textFontSize = newValue ? CGFloat(12) : CGFloat(16)
             textFontColor = newValue ? UIColor.black :Theme.textColor
         }
         get { return false }
@@ -44,6 +44,7 @@ struct FeastList {
     static var movableFeasts : [Date: NSMutableAttributedString]!
     static var nonMovableFeasts : [Date: NSMutableAttributedString]!
     static var greatFeasts : [Date: NSMutableAttributedString]!
+    static var remembrance : [Date: NSMutableAttributedString]!
 
     static func makeTitle(title: String, fontSize: CGFloat = 18.0) -> NSMutableAttributedString {
         let centerStyle = NSMutableParagraphStyle()
@@ -54,6 +55,18 @@ struct FeastList {
                                                                     .foregroundColor: textFontColor])
     }
 
+    static func makeStr(_ str: String) -> NSMutableAttributedString  {
+      
+        var cal : NSMutableAttributedString? = nil
+        cal = cal + (str, textFontColor)
+        
+        cal!.addAttribute(NSAttributedString.Key.font,
+                          value: UIFont.systemFont(ofSize: textFontSize),
+                          range: NSMakeRange(0, cal!.length))
+        
+        return cal!
+    }
+    
     static func makeFeastStr(code: NameOfDay, color: UIColor? = nil) -> NSMutableAttributedString  {
         let dateStr = formatter1.string(from: Cal.d(code)).capitalizingFirstLetter()
         let feastStr = Translate.s(Cal.codeFeastDescr[code]!.1)
@@ -136,6 +149,14 @@ struct FeastList {
 
         greatFeasts = Dictionary(uniqueKeysWithValues:
             [.circumcision, .nativityOfJohn, .peterAndPaul, .beheadingOfJohn, .veilOfTheotokos].map{ (Cal.d($0), makeFeastStr(code: $0)) })
+        
+        remembrance = [Cal.d(.newMartyrsConfessorsOfRussia): makeFeastStr(code: .newMartyrsConfessorsOfRussia),
+                       Cal.d(.saturdayOfDeparted): makeFeastStr(code: .saturdayOfDeparted),
+                       Cal.d(.radonitsa): makeFeastStr(code: .radonitsa),
+                       Cal.d(.killedInAction): makeFeastStr(code: .killedInAction),
+                       Cal.d(.saturdayTrinity): makeFeastStr(code: .saturdayTrinity),
+                       Cal.d(.demetriusSaturday):makeFeastStr(code: .demetriusSaturday)
+        ]
     }
     
     
