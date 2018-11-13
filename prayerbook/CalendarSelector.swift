@@ -16,7 +16,6 @@ class CalendarSelector: UITableViewController, PopupContentViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(hex: "#FFEBCD")
-
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

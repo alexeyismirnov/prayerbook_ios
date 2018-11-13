@@ -54,8 +54,7 @@ class DownloadView: UIViewController, PopupContentViewController {
         }
         
         titleLabel.textColor = Theme.textColor
-        button.titleLabel?.textColor = Theme.textColor
-        
+                
         button.layer.borderColor = Theme.secondaryColor.cgColor
         button.layer.borderWidth = 1.0
         button.layer.cornerRadius = 10

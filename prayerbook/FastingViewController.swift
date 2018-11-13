@@ -7,22 +7,17 @@
 //
 
 import UIKit
-import NAModalSheet
-import Chameleon
+import swift_toolkit
 
-class FastingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    @IBOutlet weak var foodTableView: UITableView!
-    @IBOutlet weak var fastTitleLabel: UILabel!
-    
-    var fastTitle: String = ""
-    var modalSheet: NAModalSheet!
+class FastingViewController: UITableViewController, PopupContentViewController, ResizableTableViewCells {
     var type: FastingType = .vegetarian {
         didSet {
-            self.foodTableView?.reloadData()
+            self.tableView.reloadData()
         }
     }
     
+    var delegate: DailyTab2!
+
     var allowedFood: [FastingType: [String]] = [
         .noFast:        ["meat", "fish", "milk", "egg", "cupcake"],
         .vegetarian:    ["vegetables", "bread", "nuts"],
@@ -40,58 +35,57 @@ class FastingViewController: UIViewController, UITableViewDelegate, UITableViewD
     ]
     
     override func viewDidLoad() {
-        view.backgroundColor =  UIColor.flatSand()
-        fastTitleLabel.text = fastTitle
+        view.backgroundColor = UIColor(hex: "#FFEBCD")
+        
+        let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+        tableView.register(UINib(nibName: "ImageCell", bundle: toolkit), forCellReuseIdentifier: "ImageCell")
     }
     
     fileprivate func getImageName(_ foodName: String, allowed: Bool) -> String {
         return allowed ? "food-\(foodName)" : "food-no-\(foodName)"
     }
     
-    @IBAction func clicked(_ sender: AnyObject) {
-        modalSheet.dismiss(completion: {})
-    }
-    
-    // MARK: UITableViewDataSource
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return (section == 0) ? Translate.s("Allowed") : Translate.s("Prohibited")
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (section == 0) ? allowedFood[type]!.count : forbiddenFood[type]!.count
     }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerView = view as! UITableViewHeaderFooterView
         headerView.contentView.backgroundColor = UIColor.clear
         headerView.backgroundView?.backgroundColor = UIColor.clear
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "FastingCell") 
-        
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "FastingCell")
-        }
-        
-        cell?.backgroundColor = UIColor(white: 1.0, alpha: 0.0)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: ImageCell = getCell()
         
         let foodName = (indexPath.section == 0) ? allowedFood[type]![indexPath.row] : forbiddenFood[type]![indexPath.row]
         let capitalized = foodName.capitalizingFirstLetter()
         
-        cell?.textLabel!.text = Translate.s(capitalized)
-        cell?.imageView!.image =  UIImage(named: getImageName(foodName, allowed: indexPath.section == 0))
+        cell.title.text = Translate.s(capitalized)
+        cell.icon.image =  UIImage(named: getImageName(foodName, allowed: indexPath.section == 0))
         
-        return cell!
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        delegate.popup.dismiss()
+        return nil
+    }
+    
+    func sizeForPopup(_ popupController: PopupController, size: CGSize, showingKeyboard: Bool) -> CGSize {
+        return CGSize(width: 250, height: 300)
     }
     
 }

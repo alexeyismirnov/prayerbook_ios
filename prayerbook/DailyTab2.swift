@@ -8,10 +8,9 @@
 
 import UIKit
 import Squeal
-import NAModalSheet
 import swift_toolkit
 
-class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource, NAModalSheetDelegate {
+class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -71,7 +70,6 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         return formatter
     }()
     
-    var modalSheet: NAModalSheet!
     var popup : PopupController!
     
     static var background : UIImage?
@@ -464,18 +462,22 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             navigationController?.pushViewController(vc, animated: true)
             
         } else if FastingLevel() == .laymen && indexPath.section == 2 && indexPath.row == 0 {
-            let fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
-            modalSheet = NAModalSheet(viewController: fastingInfo, presentationStyle: .fadeInCentered)!
             
-            modalSheet.disableBlurredBackground = true
-            modalSheet.cornerRadiusWhenCentered = 10
-            modalSheet.delegate = self
+            let container = UIViewController.named("FastingView", bundle: nil) as! FastingViewController
+            container.delegate = self
+            container.type =  fasting.0
+
+            popup = PopupController
+                .create(navigationController!)
+                .customize(
+                    [
+                        .animation(.fadeIn),
+                        .layout(.center),
+                        .backgroundStyle(.blackFilter(alpha: 0.7))
+                    ]
+            )
             
-            fastingInfo.modalSheet = modalSheet
-            fastingInfo.type =  fasting.0
-            fastingInfo.fastTitle = fasting.1
-            
-            modalSheet.present(completion: {})
+            popup.show(container)
             
         } else if indexPath.section == 4 {
             let prayer = UIViewController.named("Prayer") as! Prayer
@@ -596,7 +598,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         } else {
             let urlStr = "https://itunes.apple.com/us/app/apple-store/id1343569925?mt=8"
             if #available(iOS 10.0, *) {
-                UIApplication.shared.open(URL(string: urlStr)!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+                UIApplication.shared.open(URL(string: urlStr)!, options: [:], completionHandler: nil)
                 
             } else {
                 UIApplication.shared.openURL(URL(string: urlStr)!)
@@ -690,23 +692,4 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         popup.show(container)
     }
     
-    // MARK: NAModalSheetDelegate
-    
-    func modalSheetTouchedOutsideContent(_ sheet: NAModalSheet!) {
-        sheet.dismiss(completion: {})
-    }
-    
-    func modalSheetShouldAutorotate(_ sheet: NAModalSheet!) -> Bool {
-        return shouldAutorotate
-    }
-    
-    func modalSheetSupportedInterfaceOrientations(_ sheet: NAModalSheet!) -> UInt {
-        return supportedInterfaceOrientations.rawValue
-    }
-    
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
