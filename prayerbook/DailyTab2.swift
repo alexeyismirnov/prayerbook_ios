@@ -576,11 +576,14 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         
         let button_options = UIBarButtonItem(image: UIImage(named: "options", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showOptions))
         
+        let button_review = UIBarButtonItem(image: UIImage(named: "review", in: nil, compatibleWith: nil), style: .plain, target: self, action: #selector(writeReview))
+
+        
         button_saint.imageInsets = UIEdgeInsets.init(top: 0,left: 0,bottom: 0,right: -20)
-        // button_widget.imageInsets = UIEdgeInsets.init(top: 0,left: -20,bottom: 0,right: 0)
+        button_review.imageInsets = UIEdgeInsets.init(top: 0,left: -20,bottom: 0,right: 0)
         
         navigationItem.leftBarButtonItems = [button_monthly, button_saint]
-        navigationItem.rightBarButtonItems = [button_options]
+        navigationItem.rightBarButtonItems = [button_options, button_review]
     }
     
     @objc func showSaints() {
@@ -672,6 +675,25 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
         let vc = UIViewController.named("Options") as! Options
         let nav = UINavigationController(rootViewController: vc)
         navigationController?.present(nav, animated: true, completion: {})
+    }
+    
+    @objc func writeReview() {
+        let app_id = 1095609748
+        var link:String
+        
+        if #available(iOS 11.0, *) {
+            link = "itms-apps://itunes.apple.com/xy/app/foo/id\(app_id)?action=write-review"
+        } else {
+            link = "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=\(app_id)&action=write-review"
+        }
+        
+        guard let url = URL(string: link) else { return }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
     
     func downloadTroparion() {

@@ -130,6 +130,7 @@
 		8A54E3DB202857E900245C31 /* icons.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A54E3DA202857E900245C31 /* icons.sqlite */; };
 		8A54E3DD2028637E00245C31 /* SaintIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54E3DC2028637E00245C31 /* SaintIconModel.swift */; };
 		8A560789219AC51C006E52F2 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A560788219AC51C006E52F2 /* Squeal.framework */; };
+		8A56078B219AD3A8006E52F2 /* review.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A56078A219AD3A8006E52F2 /* review.pdf */; };
 		8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DE92E21958DF60006E046 /* DownloadView.swift */; };
 		8A61BBA5202438CF003AA1BF /* saint.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A61BBA4202438CE003AA1BF /* saint.pdf */; };
 		8A61BBAD20246903003AA1BF /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC675431FED09CA00A9000C /* Chameleon.framework */; };
@@ -399,6 +400,7 @@
 		8A54E3DA202857E900245C31 /* icons.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.sqlite; sourceTree = "<group>"; };
 		8A54E3DC2028637E00245C31 /* SaintIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintIconModel.swift; sourceTree = "<group>"; };
 		8A560788219AC51C006E52F2 /* Squeal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Squeal.framework; path = Carthage/Build/iOS/Squeal.framework; sourceTree = "<group>"; };
+		8A56078A219AD3A8006E52F2 /* review.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = review.pdf; sourceTree = "<group>"; };
 		8A5DE92E21958DF60006E046 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		8A61BBA4202438CE003AA1BF /* saint.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = saint.pdf; sourceTree = "<group>"; };
 		8A6684FB2178834700C19C04 /* TopAlignedCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlignedCollection.swift; sourceTree = "<group>"; };
@@ -662,6 +664,7 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8A56078A219AD3A8006E52F2 /* review.pdf */,
 				8A13C8FF21917AB700D0CE7E /* pause.pdf */,
 				8A13C90021917AB700D0CE7E /* play.pdf */,
 				8A1F8285202AA7EC0010C02F /* iPhoneX-Portrait.png */,
@@ -1120,6 +1123,7 @@
 				8AF37E5B1B36C7A500101148 /* newicon_80.png in Resources */,
 				8AC6951F19E3FBC200773FEB /* food-nuts.pdf in Resources */,
 				8AC6952519E4011700773FEB /* daily.pdf in Resources */,
+				8A56078B219AD3A8006E52F2 /* review.pdf in Resources */,
 				8AADFF581E84C25300CE3D0F /* synaxarion27.rtf in Resources */,
 				8A0B4CA81C8C1E8000747BB4 /* saints_01_ru.txt in Resources */,
 				8AC6951719E3FBC200773FEB /* food-cheese.pdf in Resources */,
