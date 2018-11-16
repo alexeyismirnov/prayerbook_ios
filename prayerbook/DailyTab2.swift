@@ -443,7 +443,6 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             default:
                 if synaxarion != nil && indexPath.row == readings.count + feofan.count {
                     vc = UIViewController.named("RTFDocument")
-                    (vc as! RTFDocument).docTitle = synaxarion!.0
                     (vc as! RTFDocument).docFilename = synaxarion!.1
                     
                 } else if greatFeast != nil {
@@ -570,17 +569,13 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     func configureNavbar() {
         navigationController?.makeTransparent()
         
-        let button_monthly = UIBarButtonItem(image: UIImage(named: "calendar", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(calendarSelector))
+        let button_monthly = CustomBarButton(image: UIImage(named: "calendar", in: toolkit, compatibleWith: nil)!, target: self, btnHandler: #selector(calendarSelector))
         
-        let button_saint = UIBarButtonItem(image: UIImage(named: "saint"), style: .plain, target: self, action: #selector(showSaints))
+        let button_saint = CustomBarButton(image: UIImage(named: "saint")!, target: self, btnHandler: #selector(showSaints))
         
-        let button_options = UIBarButtonItem(image: UIImage(named: "options", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showOptions))
+        let button_options = CustomBarButton(image: UIImage(named: "options", in: toolkit, compatibleWith: nil)!, target: self, btnHandler: #selector(showOptions))
         
-        let button_review = UIBarButtonItem(image: UIImage(named: "review", in: nil, compatibleWith: nil), style: .plain, target: self, action: #selector(writeReview))
-
-        
-        button_saint.imageInsets = UIEdgeInsets.init(top: 0,left: 0,bottom: 0,right: -20)
-        button_review.imageInsets = UIEdgeInsets.init(top: 0,left: -20,bottom: 0,right: 0)
+        let button_review = CustomBarButton(image: UIImage(named: "review", in: nil, compatibleWith: nil)!, target: self, btnHandler: #selector(writeReview))
         
         navigationItem.leftBarButtonItems = [button_monthly, button_saint]
         navigationItem.rightBarButtonItems = [button_options, button_review]

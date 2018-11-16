@@ -21,7 +21,6 @@ class RTFDocument: UIViewController {
     let prefs = UserDefaults(suiteName: groupId)!
     var fontSize: Int = 0
 
-    var docTitle : String!
     var docFilename : String?
     var content : NSMutableAttributedString!
     
@@ -38,14 +37,11 @@ class RTFDocument: UIViewController {
             view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: toolkit))
         }
 
-        let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in", in: toolkit, compatibleWith: nil)
-, style: .plain, target: self, action: #selector(self.zoom_in))
-        let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(self.zoom_out))
+        let button_zoom_in = CustomBarButton(image: UIImage(named: "zoom_in", in: toolkit, compatibleWith: nil)!
+, target: self, btnHandler: #selector(self.zoom_in))
+        let button_zoom_out = CustomBarButton(image: UIImage(named: "zoom_out", in: toolkit, compatibleWith: nil)!, target: self, btnHandler: #selector(self.zoom_out))
         
-        button_zoom_in.imageInsets = UIEdgeInsets.init(top: 0,left: -20,bottom: 0,right: 0)
         navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
-
-        title = docTitle
         
         if let filename = docFilename,
            let rtfPath = Bundle.main.url(forResource: filename, withExtension: "rtf") {

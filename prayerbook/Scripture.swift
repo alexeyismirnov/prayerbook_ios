@@ -18,6 +18,12 @@ class Scripture: UIViewController {
     var fontSize: Int = 0
     var code: ScriptureDisplay = .chapter("", 0)
     let prefs = UserDefaults(suiteName: groupId)!
+    
+    static var centerStyle : NSMutableParagraphStyle {
+        let centerStyle = NSMutableParagraphStyle()
+        centerStyle.alignment = .center
+        return centerStyle
+    }
 
     @IBOutlet weak var textView: UITextView!
     
@@ -32,10 +38,9 @@ class Scripture: UIViewController {
         let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(closeView))
         navigationItem.leftBarButtonItem = backButton
         
-        let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(Scripture.zoom_in))
-        let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(Scripture.zoom_out))
+        let button_zoom_in = CustomBarButton(image: UIImage(named: "zoom_in", in: toolkit, compatibleWith: nil)!, target: self, btnHandler: #selector(Scripture.zoom_in))
+        let button_zoom_out = CustomBarButton(image: UIImage(named: "zoom_out", in: toolkit, compatibleWith: nil)!, target: self, btnHandler: #selector(Scripture.zoom_out))
 
-        button_zoom_in.imageInsets = UIEdgeInsets.init(top: 0,left: -20,bottom: 0,right: 0)
         navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
         
         fontSize = prefs.integer(forKey: "fontSize")
@@ -102,9 +107,16 @@ class Scripture: UIViewController {
     }
     
     func showChapter(_ name: String, _ chapter: Int) {
-        title = String(format: Translate.s("Chapter %@"), Translate.stringFromNumber(chapter))
-
         var text : NSMutableAttributedString? = nil
+        
+        let title = NSMutableAttributedString(
+            string: String(format: Translate.s("Chapter %@"), Translate.stringFromNumber(chapter)),
+            attributes: [
+                .paragraphStyle: Scripture.centerStyle,
+                .font: UIFont.boldSystemFont(ofSize: CGFloat(fontSize)),
+                .foregroundColor: Theme.textColor  ])
+        
+        text = text + title + "\n\n"
 
         for line in Db.book(name, whereExpr: "chapter=\(chapter)") {
             let row  = Scripture.decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
@@ -141,9 +153,6 @@ class Scripture: UIViewController {
             
             let fileName = pericope[i].lowercased()
             let bookTuple = (NewTestament+OldTestament).filter { $0.1 == fileName }
-            
-            let centerStyle = NSMutableParagraphStyle()
-            centerStyle.alignment = .center
             
             var bookName:NSMutableAttributedString
             var text : NSMutableAttributedString? = nil

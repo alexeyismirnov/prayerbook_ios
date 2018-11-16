@@ -33,8 +33,6 @@ class Options: UITableViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(updateTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
 
-        UITableViewCell.appearance().backgroundColor =  UIColor.white.withAlphaComponent(0.5) 
-        
         view.backgroundColor = UIColor.clear
         tableView.backgroundView = UIImageView(image: UIImage(background: "church.jpg", inView: view, bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
         
@@ -45,6 +43,12 @@ class Options: UITableViewController {
         cell.accessoryType = .checkmark
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UITableViewCell.appearance().backgroundColor =  UIColor.white.withAlphaComponent(0.5)
+        tableView.reloadData()
+    }
+
     override func viewDidDisappear(_ animated: Bool) {
         UITableViewCell.appearance().backgroundColor =  UIColor.white.withAlphaComponent(0)
 
@@ -108,7 +112,6 @@ class Options: UITableViewController {
             
         } else if indexPath.section == 3 {
             let vc = UIViewController.named("RTFDocument") as! RTFDocument
-            vc.docTitle = "История храма"
             vc.docFilename = "church_history"
             
             self.navigationController?.pushViewController(vc, animated: true)

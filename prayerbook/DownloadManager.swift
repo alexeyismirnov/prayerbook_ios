@@ -36,12 +36,16 @@ class DownloadManager : NSObject, URLSessionDownloadDelegate, URLSessionDataDele
     }
     
     static func startTransfer(_ path: String, completionHandler: @escaping (URL) -> Void) {
+        // crashes sometimes
+        
+        /*
         let reachability = Reachability()!
         if reachability.connection == .none {
             delegate.showInfo(title: "Ошибка", message: "Невозможно подключиться к Интернету")
             
             return
         }
+ */
         
         if let _ = DownloadManager.fileTransferInfo(path) {
             return

@@ -76,14 +76,6 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         
         FeastNotifications.setupNotifications()
         
-        Appirater.setAppId("1095609748")
-        Appirater.setDaysUntilPrompt(5)
-        Appirater.setUsesUntilPrompt(5)
-        Appirater.setSignificantEventsUntilPrompt(-1)
-        Appirater.setTimeBeforeReminding(2)
-        Appirater.setDebug(false)
-        Appirater.appLaunched(true)
-        
         return true
     }
     
@@ -113,10 +105,6 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         } catch let error as NSError  {            
             print(error.description)
         }
-    }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        Appirater.appEnteredForeground(true)
     }
     
 }
