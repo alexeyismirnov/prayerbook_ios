@@ -38,61 +38,26 @@ struct FeastList {
     static var textFontSize : CGFloat!
     static var textFontColor : UIColor!
     
-    static var longFasts : [Date: NSMutableAttributedString]!
-    static var shortFasts : [Date: NSMutableAttributedString]!
-    static var fastFreeWeeks : [Date: NSMutableAttributedString]!
-    static var movableFeasts : [Date: NSMutableAttributedString]!
-    static var nonMovableFeasts : [Date: NSMutableAttributedString]!
-    static var greatFeasts : [Date: NSMutableAttributedString]!
-    static var remembrance : [Date: NSMutableAttributedString]!
-
-    static func makeTitle(title: String, fontSize: CGFloat = 18.0) -> NSMutableAttributedString {
-        let centerStyle = NSMutableParagraphStyle()
-        centerStyle.alignment = .center
-
-        return NSMutableAttributedString(string: title, attributes:[.paragraphStyle: centerStyle,
-                                                                    .font: UIFont.boldSystemFont(ofSize: fontSize),
-                                                                    .foregroundColor: textFontColor])
-    }
-
-    static func makeStr(_ str: String) -> NSMutableAttributedString  {
-      
-        var cal : NSMutableAttributedString? = nil
-        cal = cal + (str, textFontColor)
-        
-        cal!.addAttribute(NSAttributedString.Key.font,
-                          value: UIFont.systemFont(ofSize: textFontSize),
-                          range: NSMakeRange(0, cal!.length))
-        
-        return cal!
-    }
+    static var longFasts : [Date: NSAttributedString]!
+    static var shortFasts : [Date: NSAttributedString]!
+    static var fastFreeWeeks : [Date: NSAttributedString]!
+    static var movableFeasts : [Date: NSAttributedString]!
+    static var nonMovableFeasts : [Date: NSAttributedString]!
+    static var greatFeasts : [Date: NSAttributedString]!
+    static var remembrance : [Date: NSAttributedString]!
     
-    static func makeFeastStr(code: NameOfDay, color: UIColor? = nil) -> NSMutableAttributedString  {
+    static func makeFeastStr(code: NameOfDay, color: UIColor? = nil) -> NSAttributedString  {
         let dateStr = formatter1.string(from: Cal.d(code)).capitalizingFirstLetter()
         let feastStr = Translate.s(Cal.codeFeastDescr[code]!.1)
         
-        var cal : NSMutableAttributedString? = nil
-        cal = cal + ("\(dateStr) — \(feastStr)\n\n", color ?? textFontColor)
-        
-        cal!.addAttribute(NSAttributedString.Key.font,
-                          value: UIFont.systemFont(ofSize: textFontSize),
-                          range: NSMakeRange(0, cal!.length))
-        
-        return cal!
+        return "\(dateStr) — \(feastStr)\n\n".colored(with: color ?? textFontColor).systemFont(ofSize: textFontSize)
     }
     
-    static func makeLentStr(fromDate: Date, toDate: Date, descr : String) -> NSMutableAttributedString  {
+    static func makeLentStr(fromDate: Date, toDate: Date, descr : String) -> NSAttributedString  {
         let d1 = formatter2.string(from: fromDate)
         let d2 = formatter2.string(from: toDate)
         
-        var cal : NSMutableAttributedString? = nil
-        cal = cal + ("С \(d1) по \(d2) — \(descr)\n\n", textFontColor)
-        
-        cal!.addAttribute(NSAttributedString.Key.font,
-                          value: UIFont.systemFont(ofSize: textFontSize),
-                          range: NSMakeRange(0, cal!.length))
-        
-        return cal!
+        return "С \(d1) по \(d2) — \(descr)\n\n".colored(with: textFontColor).systemFont(ofSize: textFontSize)
     }
     
     static func setDate(_ date: Date) {
@@ -161,3 +126,5 @@ struct FeastList {
     
     
 }
+
+typealias FL = FeastList

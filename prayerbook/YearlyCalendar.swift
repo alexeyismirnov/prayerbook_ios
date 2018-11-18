@@ -60,7 +60,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     var headerLabel : UILabel!
     var textView : UITextView!
     var textViewSize : CGSize!
-    var feasts : NSMutableAttributedString? = nil
+    var feasts : NSAttributedString!
     
     var shareButton, listButton, gridButton :UIBarButtonItem!
     
@@ -123,8 +123,8 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         collectionView.reloadData()
     }
     
-    func addFeasts(_ title: String, _ data : [Date: NSMutableAttributedString]) {
-        feasts = feasts + FeastList.makeTitle(title: title) + "\n"
+    func addFeasts(_ title: String, _ data : [Date: NSAttributedString]) {
+        feasts += title.colored(with: FL.textFontColor).boldFont(ofSize: 18.0).centered + "\n"
         
         for feast in data.sorted(by: { $0.0 < $1.0 }) {
             feasts = feasts + feast.1
@@ -132,24 +132,23 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     }
     
     func createFeastList(sharing: Bool = false) {
-        FeastList.sharing = sharing
-        FeastList.setDate(Date(1, 1, year))
+        FL.sharing = sharing
+        FL.setDate(Date(1, 1, year))
 
-        let title1 = FeastList.makeTitle(title: "Посты и праздники в \(year) г.\n\n", fontSize: 20.0)
-        let cal1 = FeastList.makeFeastStr(code: .pascha, color: UIColor.red)
+        feasts = "Посты и праздники в \(year) г.\n\n".colored(with: FL.textFontColor).boldFont(ofSize: 20.0).centered +
+            FL.makeFeastStr(code: .pascha, color: UIColor.red) +
+            "\n"
         
-        feasts = title1 + cal1 + "\n"
+        addFeasts("Многодневные посты\n", FL.longFasts)
+        addFeasts("Однодневные посты\n", FL.shortFasts)
+        addFeasts("Сплошные седмицы\n", FL.fastFreeWeeks)
+        addFeasts("Двунадесятые переходящие праздники\n", FL.movableFeasts)
+        addFeasts("Двунадесятые непереходящие праздники\n", FL.nonMovableFeasts)
+        addFeasts("Великие праздники\n", FL.greatFeasts)
         
-        addFeasts("Многодневные посты\n", FeastList.longFasts)
-        addFeasts("Однодневные посты\n", FeastList.shortFasts)
-        addFeasts("Сплошные седмицы\n", FeastList.fastFreeWeeks)
-        addFeasts("Двунадесятые переходящие праздники\n", FeastList.movableFeasts)
-        addFeasts("Двунадесятые непереходящие праздники\n", FeastList.nonMovableFeasts)
-        addFeasts("Великие праздники\n", FeastList.greatFeasts)
+        addFeasts("Дни особого поминовения усопших\n", FL.remembrance)
         
-        addFeasts("Дни особого поминовения усопших\n", FeastList.remembrance)
-        
-        feasts = feasts + FeastList.makeStr("Суббота 2-й, 3-й и 4-й седмицы Великого поста\n\n")
+        feasts = feasts + "Суббота 2-й, 3-й и 4-й седмицы Великого поста\n\n".colored(with: FL.textFontColor).systemFont(ofSize: FL.textFontSize)
 
     }
     
@@ -419,9 +418,6 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         let newFrame = CGRect(origin: CGPoint(x:0,y:0), size: newSize)
         let origFrame = view.frame
         let origCollectionFrame = collectionView.frame
-
-        print(origFrame)
-        print(newFrame)
 
         view.frame = newFrame
         collectionView.frame = newFrame
