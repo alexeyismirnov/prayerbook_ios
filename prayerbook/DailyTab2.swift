@@ -278,8 +278,8 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
                     myString.append(NSAttributedString(attachment: attachment))
                     
                     let dayString = dayDescription[indexPath.row-2].1
-                    let day = NSMutableAttributedString(string: dayString)
-                    day.addAttribute(NSAttributedString.Key.foregroundColor, value: Theme.textColor!, range: NSMakeRange(0, dayString.count))
+                    let day = dayString.colored(with: Theme.textColor)
+
                     myString.append(day)
                     
                     cell.title.attributedText = myString
@@ -401,8 +401,8 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
                 myString.append(attachmentString)
                 
                 let saintString = saints[indexPath.row].1
-                let saint = NSMutableAttributedString(string: saintString)
-                saint.addAttribute(NSAttributedString.Key.foregroundColor, value: Theme.textColor!, range: NSMakeRange(0, saintString.count))
+                let saint = saintString.colored(with: Theme.textColor)
+
                 myString.append(saint)
                 
                 if appeared {

@@ -15,15 +15,9 @@ enum ScriptureDisplay {
 }
 
 class Scripture: UIViewController {
-    var fontSize: Int = 0
+    var fontSize: CGFloat!
     var code: ScriptureDisplay = .chapter("", 0)
     let prefs = UserDefaults(suiteName: groupId)!
-    
-    static var centerStyle : NSMutableParagraphStyle {
-        let centerStyle = NSMutableParagraphStyle()
-        centerStyle.alignment = .center
-        return centerStyle
-    }
 
     @IBOutlet weak var textView: UITextView!
     
@@ -43,7 +37,7 @@ class Scripture: UIViewController {
 
         navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
         
-        fontSize = prefs.integer(forKey: "fontSize")
+        fontSize = CGFloat(prefs.integer(forKey: "fontSize"))
 
         reloadTheme()
     }
@@ -62,7 +56,7 @@ class Scripture: UIViewController {
     
     @objc func zoom_in() {
         fontSize += 2
-        prefs.set(fontSize, forKey: "fontSize")
+        prefs.set(Int(fontSize), forKey: "fontSize")
         prefs.synchronize()
         
         reload()
@@ -70,7 +64,7 @@ class Scripture: UIViewController {
     
     @objc func zoom_out() {
         fontSize -= 2
-        prefs.set(fontSize, forKey: "fontSize")
+        prefs.set(Int(fontSize), forKey: "fontSize")
         prefs.synchronize()
 
         reload()
@@ -95,28 +89,24 @@ class Scripture: UIViewController {
     func showPericope(_ str: String)  {
         title = ""
         
-        var text : NSMutableAttributedString? = nil
         let pericope = Scripture.getPericope(str.trimmingCharacters(in: CharacterSet.whitespaces), decorated: true, fontSize: fontSize)
         
+        var text = NSAttributedString()
+
         for (title, content) in pericope {
-            text = text + title + "\n\n"
-            text = text + content + "\n"
+            text +=  title + "\n\n" + content + "\n"
         }
         
         textView.attributedText =  text
     }
     
     func showChapter(_ name: String, _ chapter: Int) {
-        var text : NSMutableAttributedString? = nil
+        var text = NSAttributedString()
         
-        let title = NSMutableAttributedString(
-            string: String(format: Translate.s("Chapter %@"), Translate.stringFromNumber(chapter)),
-            attributes: [
-                .paragraphStyle: Scripture.centerStyle,
-                .font: UIFont.boldSystemFont(ofSize: CGFloat(fontSize)),
-                .foregroundColor: Theme.textColor  ])
+        let title = String(format: Translate.s("Chapter %@"), Translate.stringFromNumber(chapter))
+            .colored(with: Theme.textColor).boldFont(ofSize: fontSize).centered
         
-        text = text + title + "\n\n"
+        text += title + "\n\n"
 
         for line in Db.book(name, whereExpr: "chapter=\(chapter)") {
             let row  = Scripture.decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
@@ -130,21 +120,15 @@ class Scripture: UIViewController {
         let _ = navigationController?.popViewController(animated: true)
     }
     
-    static func decorateLine(_ verse:Int64, _ content:String, _ fontSize:Int) -> NSMutableAttributedString {
-        var text : NSMutableAttributedString? = nil
-        text = text + ("\(verse) ", UIColor.red)
-        text = text + (content, Theme.textColor)
-        text = text + "\n"
+    static func decorateLine(_ verse:Int64, _ content:String, _ fontSize:CGFloat) -> NSAttributedString {
+        var text = NSAttributedString()
+        text += "\(verse) ".colored(with: UIColor.red) + content.colored(with: Theme.textColor) + "\n"
         
-        text!.addAttribute(NSAttributedString.Key.font,
-            value: UIFont.systemFont(ofSize: CGFloat(fontSize)),
-            range: NSMakeRange(0, text!.length))
-        
-        return text!
+        return text.systemFont(ofSize: fontSize)
     }
     
-    static func getPericope(_ str: String, decorated: Bool, fontSize: Int = 0) -> [(NSMutableAttributedString, NSMutableAttributedString)] {
-        var result = [(NSMutableAttributedString, NSMutableAttributedString)]()
+    static func getPericope(_ str: String, decorated: Bool, fontSize: CGFloat = 14.0) -> [(NSAttributedString, NSAttributedString)] {
+        var result = [(NSAttributedString, NSAttributedString)]()
         
         var pericope = str.split { $0 == " " }.map { String($0) }
         
@@ -154,19 +138,14 @@ class Scripture: UIViewController {
             let fileName = pericope[i].lowercased()
             let bookTuple = (NewTestament+OldTestament).filter { $0.1 == fileName }
             
-            var bookName:NSMutableAttributedString
-            var text : NSMutableAttributedString? = nil
+            var bookName = NSAttributedString()
+            var text = NSAttributedString()
             
             if decorated {
-                bookName = NSMutableAttributedString(
-                    string: Translate.s(bookTuple[0].0) + " " + pericope[i+1],
-                    attributes: [
-                        .paragraphStyle: centerStyle,
-                                 .font: UIFont.boldSystemFont(ofSize: CGFloat(fontSize)),
-                                 .foregroundColor: Theme.textColor  ])
+                bookName = (Translate.s(bookTuple[0].0) + " " + pericope[i+1]).colored(with: Theme.textColor).boldFont(ofSize: fontSize).centered
                 
             } else {
-                bookName = NSMutableAttributedString(string: Translate.s(bookTuple[0].0))
+                bookName = NSAttributedString(string: Translate.s(bookTuple[0].0))
             }
             
             let arr2 = pericope[i+1].components(separatedBy: ",")
@@ -190,52 +169,52 @@ class Scripture: UIViewController {
                 if range.count == 1 {
                     for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse=\(range[0].1)") {
                         if decorated {
-                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize )
+                            text += decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize )
                         } else {
-                            text = text + (line["text"] as! String) + " "
+                            text += (line["text"] as! String) + " "
                         }
                     }
                     
                 } else if range[0].0 != range[1].0 {
                     for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1)") {
                         if decorated {
-                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
+                            text += decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
                         } else {
-                            text = text + (line["text"] as! String) + " "
+                            text += (line["text"] as! String) + " "
                         }
                     }
                     
                     for chap in range[0].0+1 ..< range[1].0 {
                         for line in Db.book(fileName, whereExpr: "chapter=\(chap)") {
                             if decorated {
-                                text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
+                                text += decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
                             } else {
-                                text = text + (line["text"] as! String) + " "
+                                text += (line["text"] as! String) + " "
                             }
                         }
                     }
                     
                     for line in Db.book(fileName, whereExpr: "chapter=\(range[1].0) AND verse<=\(range[1].1)") {
                         if decorated {
-                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
+                            text += decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
                         } else {
-                            text = text + (line["text"] as! String) + " "
+                            text += (line["text"] as! String) + " "
                         }
                     }
                     
                 } else {
                     for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1) AND verse<=\(range[1].1)") {
                         if decorated {
-                            text = text + decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
+                            text += decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
                         } else {
-                            text = text + (line["text"] as! String) + " "
+                            text += (line["text"] as! String) + " "
                         }
                     }
                 }
             }
             
-            text = text + "\n"
-            result += [(bookName, text!)]
+            text += "\n"
+            result += [(bookName, text)]
         }
         
         return result
