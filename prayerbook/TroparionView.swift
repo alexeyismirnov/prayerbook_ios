@@ -9,6 +9,10 @@
 import UIKit
 import swift_toolkit
 
+extension Notification.Name {
+    public static let stopPlaybackNotification = Notification.Name("STOP_PLAYBACK")
+}
+
 class TroparionView:  UIViewController, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
@@ -36,6 +40,10 @@ class TroparionView:  UIViewController, ResizableTableViewCells, UITableViewDele
 
         troparion = TroparionModel.getTroparion(greatFeast)
         tableView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.post(name: .stopPlaybackNotification, object: nil)
     }
     
     @objc func reloadTheme() {

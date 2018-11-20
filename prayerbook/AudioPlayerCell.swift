@@ -67,8 +67,14 @@ class AudioPlayerCell: UITableViewCell, AVAudioPlayerDelegate {
 
         } catch { }
         
-    }
+        NotificationCenter.default.addObserver(self, selector: #selector(stopPlayback), name: .stopPlaybackNotification, object: nil)
 
+    }
+    
+    @objc func stopPlayback() {
+        player.stop()
+    }
+    
     @IBAction func buttonPressed(_ sender: Any) {
         if player.isPlaying {
             updater.invalidate()
