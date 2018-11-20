@@ -29,7 +29,7 @@ struct DailyReading {
         .circumcision:              "John 10:1-9 Col 2:8-12 Luke 2:20-21,40-52",
         .theophany:                 "Mark 1:9-11 Tit 2:11-14,3:4-7 Matthew 3:13-17",
         .meetingOfLord:             "Luke 2:25-32 Heb 7:7-17 Luke 2:22-40",
-        .annunciation:              "Luke 1:39-49,56 Heb 2:11-18 Luke 1:24-38",
+        .annunciation:              "Luke 1:39-49,56 Heb 2:11-18 Luke 1:24-38 # Theotokos",
         .nativityOfJohn:            "Luke 1:24-25,57-68,76,80 Rom 13:12-14:4 Luke 1:5-25,57-68,76,80",
         .peterAndPaul:              "1Cor 4:9-16 Mark 3:13-19",
         .transfiguration:           "Luke 9:28-36 2Pet 1:10-19 Matthew 17:1-9",
@@ -258,6 +258,11 @@ struct DailyReading {
             if let feast = lentFeasts[date] {
                 readings.append(feast)
             }
+            
+            if date == Cal.d(.annunciation) {
+                readings.append(specialReadings[.annunciation]!)
+            }
+            
             return readings
         }
         
