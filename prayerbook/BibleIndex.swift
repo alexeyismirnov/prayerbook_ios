@@ -45,8 +45,7 @@ let OldTestament: [(String, String)] = [
     ("The Book of Prophet Isaiah", "isa")
 ]
 
-
-class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BibleIndex: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var index:Int = 0
     var expanded = [Bool]()
     

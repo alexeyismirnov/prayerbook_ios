@@ -11,6 +11,7 @@
 		8A01E42621957BD8005BE65F /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A01E42421957BD8005BE65F /* DownloadManager.swift */; };
 		8A01E42821957F59005BE65F /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A01E42721957F59005BE65F /* Reachability.framework */; };
 		8A01E42A21957F60005BE65F /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A01E42921957F60005BE65F /* Zip.framework */; };
+		8A0689F9221FF8A600F1E711 /* LibraryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0689F8221FF8A600F1E711 /* LibraryTab.swift */; };
 		8A0B4CA71C8C1E8000747BB4 /* saints_01_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C8F1C8C1E8000747BB4 /* saints_01_ru.sqlite */; };
 		8A0B4CA81C8C1E8000747BB4 /* saints_01_ru.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C901C8C1E8000747BB4 /* saints_01_ru.txt */; };
 		8A0B4CA91C8C1E8000747BB4 /* saints_02_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C911C8C1E8000747BB4 /* saints_02_ru.sqlite */; };
@@ -125,8 +126,8 @@
 		8A5457821E70174300A86B5A /* synaxarion18.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54576D1E70174300A86B5A /* synaxarion18.rtf */; };
 		8A5457831E70174300A86B5A /* synaxarion19.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54576E1E70174300A86B5A /* synaxarion19.rtf */; };
 		8A5457841E70174300A86B5A /* synaxarion20.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54576F1E70174300A86B5A /* synaxarion20.rtf */; };
-		8A54C42A1EA74CE90083AA2F /* DailyTab2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C4291EA74CE90083AA2F /* DailyTab2.swift */; };
-		8A54C42C1EA760E30083AA2F /* Library2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C42B1EA760E30083AA2F /* Library2.swift */; };
+		8A54C42A1EA74CE90083AA2F /* DailyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C4291EA74CE90083AA2F /* DailyTab.swift */; };
+		8A54C42C1EA760E30083AA2F /* BibleIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C42B1EA760E30083AA2F /* BibleIndex.swift */; };
 		8A54E3DB202857E900245C31 /* icons.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A54E3DA202857E900245C31 /* icons.sqlite */; };
 		8A54E3DD2028637E00245C31 /* SaintIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54E3DC2028637E00245C31 /* SaintIconModel.swift */; };
 		8A560789219AC51C006E52F2 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A560788219AC51C006E52F2 /* Squeal.framework */; };
@@ -278,6 +279,7 @@
 		8A01E42421957BD8005BE65F /* DownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		8A01E42721957F59005BE65F /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		8A01E42921957F60005BE65F /* Zip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Zip.framework; path = Carthage/Build/iOS/Zip.framework; sourceTree = "<group>"; };
+		8A0689F8221FF8A600F1E711 /* LibraryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTab.swift; sourceTree = "<group>"; };
 		8A0B4C8F1C8C1E8000747BB4 /* saints_01_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_01_ru.sqlite; sourceTree = "<group>"; };
 		8A0B4C901C8C1E8000747BB4 /* saints_01_ru.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_01_ru.txt; sourceTree = "<group>"; };
 		8A0B4C911C8C1E8000747BB4 /* saints_02_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_02_ru.sqlite; sourceTree = "<group>"; };
@@ -394,8 +396,8 @@
 		8A54576D1E70174300A86B5A /* synaxarion18.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion18.rtf; sourceTree = "<group>"; };
 		8A54576E1E70174300A86B5A /* synaxarion19.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion19.rtf; sourceTree = "<group>"; };
 		8A54576F1E70174300A86B5A /* synaxarion20.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion20.rtf; sourceTree = "<group>"; };
-		8A54C4291EA74CE90083AA2F /* DailyTab2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab2.swift; sourceTree = "<group>"; };
-		8A54C42B1EA760E30083AA2F /* Library2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library2.swift; sourceTree = "<group>"; };
+		8A54C4291EA74CE90083AA2F /* DailyTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab.swift; sourceTree = "<group>"; };
+		8A54C42B1EA760E30083AA2F /* BibleIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleIndex.swift; sourceTree = "<group>"; };
 		8A54E3DA202857E900245C31 /* icons.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.sqlite; sourceTree = "<group>"; };
 		8A54E3DC2028637E00245C31 /* SaintIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintIconModel.swift; sourceTree = "<group>"; };
 		8A560788219AC51C006E52F2 /* Squeal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Squeal.framework; path = Carthage/Build/iOS/Squeal.framework; sourceTree = "<group>"; };
@@ -608,8 +610,9 @@
 				8A2F46A819E1302700076AF4 /* Translate.swift */,
 				8AEFC27C1A2C8DF800BAACE0 /* Db.swift */,
 				8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */,
-				8A54C4291EA74CE90083AA2F /* DailyTab2.swift */,
-				8A54C42B1EA760E30083AA2F /* Library2.swift */,
+				8A54C4291EA74CE90083AA2F /* DailyTab.swift */,
+				8A0689F8221FF8A600F1E711 /* LibraryTab.swift */,
+				8A54C42B1EA760E30083AA2F /* BibleIndex.swift */,
 				8AB907FF216EF7580030F989 /* ChaptersCell.swift */,
 				8AB90800216EF7580030F989 /* ChaptersCell.xib */,
 				8A54E3DC2028637E00245C31 /* SaintIconModel.swift */,
@@ -1228,19 +1231,20 @@
 				8A1B2577202956840038C0C4 /* SaintIconView.swift in Sources */,
 				8A24F52F1EB98A1700CE19E7 /* CalendarImageCell.swift in Sources */,
 				8AB004D521884F97005D8A77 /* FeastNotifications.swift in Sources */,
+				8A0689F9221FF8A600F1E711 /* LibraryTab.swift in Sources */,
 				8A76870C1EB72A6E000F7533 /* YearlyMonthViewCell.swift in Sources */,
 				8A01E42221956295005BE65F /* TroparionModel.swift in Sources */,
 				8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
-				8A54C42C1EA760E30083AA2F /* Library2.swift in Sources */,
+				8A54C42C1EA760E30083AA2F /* BibleIndex.swift in Sources */,
 				8A8D2FB61FBC458C00A54147 /* DateViewCell.swift in Sources */,
 				8A54E3DD2028637E00245C31 /* SaintIconModel.swift in Sources */,
 				8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */,
 				8AEA68391C90028B009E9FD8 /* Prayer.swift in Sources */,
 				8A2F46AB19E145D200076AF4 /* Options.swift in Sources */,
 				8AE5DEF819E7A80B0069C757 /* ChurchCalendar.swift in Sources */,
-				8A54C42A1EA74CE90083AA2F /* DailyTab2.swift in Sources */,
+				8A54C42A1EA74CE90083AA2F /* DailyTab.swift in Sources */,
 				8A5457501E6FD13500A86B5A /* RTFDocument.swift in Sources */,
 				8A1B257920295C9D0038C0C4 /* CenterViewFlowLayout.swift in Sources */,
 				8A35561621805A150046E751 /* CalendarSelector.swift in Sources */,

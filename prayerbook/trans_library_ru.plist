@@ -73,6 +73,7 @@
         <string>Глава %@</string>
         <key>New Testament</key>
         <string>Новый Завет</string>
-
+        <key>Old Testament</key>
+        <string>Ветхий Завет</string>
     </dict>
 </plist>

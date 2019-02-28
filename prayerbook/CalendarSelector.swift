@@ -10,7 +10,7 @@ import UIKit
 import swift_toolkit
 
 class CalendarSelector: UITableViewController, PopupContentViewController {
-    weak var delegate : DailyTab2!
+    weak var delegate : DailyTab!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -17,7 +17,7 @@ class DownloadView: UIViewController, PopupContentViewController {
     @IBOutlet weak var button: UIButton!
     
     let url = "https://filedn.com/lUdNcEH0czFSe8uSnCeo29F/prayerbook/tropari.zip"
-    var delegate: DailyTab2!
+    var delegate: DailyTab!
     
     override func viewDidLoad() {
         super.viewDidLoad()

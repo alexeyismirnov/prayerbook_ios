@@ -22,7 +22,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
             if let root = window?.rootViewController as? MainVC,
                 let controllers = root.viewControllers,
                 let nav = controllers[0] as? UINavigationController,
-                let vc = nav.topViewController as? DailyTab2{
+                let vc = nav.topViewController as? DailyTab{
                 root.selectedIndex = 0
                 vc.currentDate = openDate
                 

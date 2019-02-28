@@ -16,7 +16,7 @@ class FastingViewController: UITableViewController, PopupContentViewController, 
         }
     }
     
-    var delegate: DailyTab2!
+    var delegate: DailyTab!
 
     var allowedFood: [FastingType: [String]] = [
         .noFast:        ["meat", "fish", "milk", "egg", "cupcake"],

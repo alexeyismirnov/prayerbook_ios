@@ -10,7 +10,7 @@ import UIKit
 import Squeal
 import swift_toolkit
 
-class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource {
+class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -75,21 +75,21 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
     static var background : UIImage?
 
     static func date(_ date: Date) -> UIViewController {
-        let vc = UIViewController.named("Daily2") as! DailyTab2
+        let vc = UIViewController.named("Daily") as! DailyTab
         vc.currentDate = date
         return vc
     }
     
     override func viewControllerCurrent() -> UIViewController {
-        return DailyTab2.date(currentDate)
+        return DailyTab.date(currentDate)
     }
     
     override func viewControllerForward() -> UIViewController {
-        return DailyTab2.date(currentDate + 1.days)
+        return DailyTab.date(currentDate + 1.days)
     }
     
     override func viewControllerBackward() -> UIViewController {
-        return DailyTab2.date(currentDate - 1.days)
+        return DailyTab.date(currentDate - 1.days)
     }
     
     override func viewDidLoad() {
@@ -272,7 +272,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
                     let cell: TextCell = getCell()
                     
                     let attachment = NSTextAttachment()
-                    attachment.image = DailyTab2.icon15x15[feast]
+                    attachment.image = DailyTab.icon15x15[feast]
                     
                     let myString = NSMutableAttributedString(string: "")
                     myString.append(NSAttributedString(attachment: attachment))
@@ -394,7 +394,7 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
                 
             } else {
                 let attachment = NSTextAttachment()
-                attachment.image = DailyTab2.icon15x15[saints[indexPath.row].0]
+                attachment.image = DailyTab.icon15x15[saints[indexPath.row].0]
                 let attachmentString = NSAttributedString(attachment: attachment)
                 
                 let myString = NSMutableAttributedString(string: "")
@@ -524,11 +524,11 @@ class DailyTab2: UIViewControllerAnimated, ResizableTableViewCells, UITableViewD
             view.backgroundColor =  bgColor
             
         } else {
-            if DailyTab2.background == nil {
-                DailyTab2.background = UIImage(background: "bg3.jpg", inView: view, bundle: toolkit)
+            if DailyTab.background == nil {
+                DailyTab.background = UIImage(background: "bg3.jpg", inView: view, bundle: toolkit)
             }
    
-            view.backgroundColor = UIColor(patternImage: DailyTab2.background!)
+            view.backgroundColor = UIColor(patternImage: DailyTab.background!)
         }
         
         reload()
