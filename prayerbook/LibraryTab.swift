@@ -74,6 +74,7 @@ class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let bible = UIViewController.named("Bible") as! BibleIndex
+        bible.type = (indexPath.row == 0) ? .Old : .New
         navigationController?.pushViewController(bible, animated: true)
 
         return nil

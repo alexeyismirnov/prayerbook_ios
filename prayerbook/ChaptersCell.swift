@@ -13,7 +13,7 @@ public let chapterSelectedNotification = "CHAPTER_SELECTED"
 class ChaptersCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     var numChapters: Int!
-    var book : Int!
+    var book : String!
     let cellId = "DateViewCell"
     
     required override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?)
@@ -35,14 +35,13 @@ class ChaptersCell: UITableViewCell, UICollectionViewDataSource, UICollectionVie
         let recognizer = UITapGestureRecognizer(target: self, action:#selector(chapterSelected(_:)))
         recognizer.numberOfTapsRequired = 1
         collectionView.addGestureRecognizer(recognizer)
-        
     }
     
     @objc func chapterSelected(_ recognizer: UITapGestureRecognizer) {
         let loc = recognizer.location(in: collectionView)
         
         if  let path = collectionView.indexPathForItem(at: loc) {
-            let userInfo = ["book": book, "chapter": path.row]
+            let userInfo = ["book": book, "chapter": path.row] as [String : Any]
             NotificationCenter.default.post(name: Notification.Name(rawValue: chapterSelectedNotification), object: nil, userInfo: userInfo as [AnyHashable : Any])
         }
     }

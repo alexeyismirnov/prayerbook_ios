@@ -9,52 +9,80 @@
 import UIKit
 import swift_toolkit
 
-let NewTestament: [(String, String)] = [
-    ("Gospel of St Matthew", "matthew"),
-    ("Gospel of St Mark", "mark"),
-    ("Gospel of St Luke", "luke"),
-    ("Gospel of St John", "john"),
-    ("Acts of the Apostles", "acts"),
-    ("Epistle of St Paul to Romans", "rom"),
-    ("1st Epistle of St Paul to Corinthians", "1cor"),
-    ("2nd Epistle of St Paul to Corinthians", "2cor"),
-    ("Epistle of St Paul to Galatians", "gal"),
-    ("Epistle of St Paul to Ephesians", "ephes"),
-    ("Epistle of St Paul to Philippians", "phil"),
-    ("Epistle of St Paul to Colossians", "col"),
-    ("1st Epistle of St Paul Thessalonians", "1thess"),
-    ("2nd Epistle of St Paul Thessalonians", "2thess"),
-    ("1st Epistle of St Paul to Timothy", "1tim"),
-    ("2nd Epistle of St Paul to Timothy", "2tim"),
-    ("Epistle of St Paul to Titus", "tit"),
-    ("Epistle of St Paul to Philemon", "philem"),
-    ("Epistle of St Paul to Hebrews", "heb"),
-    ("General Epistle of James", "james"),
-    ("1st Epistle General of Peter", "1pet"),
-    ("2nd General Epistle of Peter", "2pet"),
-    ("1st Epistle General of John", "1john"),
-    ("2nd Epistle General of John", "2john"),
-    ("3rd Epistle General of John", "3john"),
-    ("General Epistle of Jude", "jude"),
-    ("Revelation of St John the Devine", "rev")
+enum Testament: Int {
+    case New, Old
+}
+
+let NewTestamentSections = ["Евангелия и Деяния", "Соборные Послания", "Послания св. Апостола Павла", "Откровение св. Ап. Иоанна Богослова"]
+let OldTestamentSections = ["Пятикнижие Моисея", "Книги исторические", "Книги учительные", "Книги пророческие"]
+
+let NewTestament: [[(String, String)]] = [
+    [
+        ("Gospel of St Matthew", "matthew"),
+        ("Gospel of St Mark", "mark"),
+        ("Gospel of St Luke", "luke"),
+        ("Gospel of St John", "john"),
+        ("Acts of the Apostles", "acts"),
+        ],
+    [
+        ("General Epistle of James", "james"),
+        ("1st Epistle General of Peter", "1pet"),
+        ("2nd General Epistle of Peter", "2pet"),
+        ("1st Epistle General of John", "1john"),
+        ("2nd Epistle General of John", "2john"),
+        ("3rd Epistle General of John", "3john"),
+        ("General Epistle of Jude", "jude"),
+        ],
+    [
+        ("Epistle of St Paul to Romans", "rom"),
+        ("1st Epistle of St Paul to Corinthians", "1cor"),
+        ("2nd Epistle of St Paul to Corinthians", "2cor"),
+        ("Epistle of St Paul to Galatians", "gal"),
+        ("Epistle of St Paul to Ephesians", "ephes"),
+        ("Epistle of St Paul to Philippians", "phil"),
+        ("Epistle of St Paul to Colossians", "col"),
+        ("1st Epistle of St Paul Thessalonians", "1thess"),
+        ("2nd Epistle of St Paul Thessalonians", "2thess"),
+        ("1st Epistle of St Paul to Timothy", "1tim"),
+        ("2nd Epistle of St Paul to Timothy", "2tim"),
+        ("Epistle of St Paul to Titus", "tit"),
+        ("Epistle of St Paul to Philemon", "philem"),
+        ("Epistle of St Paul to Hebrews", "heb"),
+        ],
+    [
+        ("Revelation of St John the Devine", "rev")
+    ]
 ]
 
-let OldTestament: [(String, String)] = [
+let OldTestament: [[(String, String)]] = [
+    [
     ("Genesis", "gen"),
     ("The Proverbs", "prov"),
     ("The Book of Prophet Isaiah", "isa")
+    ]
 ]
 
 class BibleIndex: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var index:Int = 0
-    var expanded = [Bool]()
-    
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+    var expanded = Set<Int>()
+    var type : Testament!
     
+    var sections = [String]()
+    var books = [[(String, String)]]()
+
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (type == .New) {
+            sections = NewTestamentSections
+            books = NewTestament
+            
+        } else {
+            sections = OldTestamentSections
+            books = OldTestament
+        }
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -63,8 +91,6 @@ class BibleIndex: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableView.register(UINib(nibName: "ChaptersCell", bundle: nil), forCellReuseIdentifier: "ChaptersCell")
         tableView.register(UINib(nibName: "TextCell", bundle: toolkit), forCellReuseIdentifier: "TextCell")
-
-        expanded = [Bool](repeating: false, count: NewTestament.count)
         
         automaticallyAdjustsScrollViewInsets = false
         navigationController?.makeTransparent()
@@ -90,17 +116,16 @@ class BibleIndex: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @objc func reload() {
         tableView.reloadData()
-        title = Translate.s("Library")
+        title = (type == .New) ? Translate.s("New Testament") : Translate.s("Old Testament")
     }
     
     @objc func showChapter(_ notification: NSNotification) {
-        if let book = notification.userInfo?["book"] as? Int,
+        if let book = notification.userInfo?["book"] as? String,
            let chapter = notification.userInfo?["chapter"] as? Int {
             
             let vc = UIViewController.named("Scripture") as! Scripture
-            let code = NewTestament[book].1
             
-            vc.code = .chapter(code, chapter+1)
+            vc.code = .chapter(book, chapter+1)
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -108,10 +133,14 @@ class BibleIndex: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // MARK: Table view data source
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        let index = indexPath.row / 2
+        let index = indexPath.section*100 + indexPath.row / 2
         
         if (indexPath.row % 2 == 0) {
-            expanded[index] = !expanded[index]
+            if expanded.contains(index)  {
+                expanded.remove(index)
+            } else {
+                expanded.insert(index)
+            }
             
             tableView.beginUpdates()
             tableView.endUpdates()
@@ -121,7 +150,7 @@ class BibleIndex: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sections.count
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -132,15 +161,16 @@ class BibleIndex: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return NewTestament.count * 2
+        return books[section].count * 2
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Translate.s("New Testament")
+        return sections[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row / 2;
+        let section = indexPath.section
 
         if indexPath.row % 2 == 0 {
             let cellIdentifier = "TextCell"
@@ -152,24 +182,23 @@ class BibleIndex: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             newCell?.backgroundColor = .clear
             newCell!.title.textColor =  Theme.textColor
-            newCell!.title.text = Translate.s(NewTestament[index].0)
+            newCell!.title.text = Translate.s(books[section][index].0)
             
             return newCell!
             
         } else {
             let cellIdentifier = "ChaptersCell"
-            let code = NewTestament[index].1
+            let code = books[section][index].1
             
             let newCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ChaptersCell
 
             newCell?.backgroundColor = .clear
-            newCell?.book = index
+            newCell?.book = code
             newCell?.numChapters = Db.numberOfChapters(code)
             newCell!.collectionView.reloadData()
             
             return newCell!
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -177,7 +206,7 @@ class BibleIndex: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
             return calculateHeightForCell(cell)
             
-        } else if (expanded[indexPath.row/2]) {
+        } else if (expanded.contains(indexPath.section*100 + indexPath.row/2)) {
             let cell  = self.tableView(tableView, cellForRowAt: indexPath) as? ChaptersCell
 
             cell!.bounds = CGRect(x: 0, y: 0, width: tableView.frame.width, height: cell!.bounds.height)
@@ -200,7 +229,6 @@ class BibleIndex: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let size = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         return max(size.height+1.0, 40)
     }
-    
     
 }
 
