@@ -1,79 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   trans_library_ru.plist
-   prayerbook
-
-   Created by Alexey Smirnov on 3/8/16.
-   Copyright (c) 2016 Alexey Smirnov. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-        <key>Genesis</key>
-        <string>Бытие</string>
-        <key>The Proverbs</key>
-        <string>Притчи</string>
-        <key>The Book of Prophet Isaiah</key>
-        <string>Книга пророка Исаии</string>
-        <key>Gospel of St Matthew</key>
-        <string>Евангелие от Матфея</string>
-        <key>Gospel of St Mark</key>
-        <string>Евангелие от Марка</string>
-        <key>Gospel of St Luke</key>
-        <string>Евангелие от Луки</string>
-        <key>Gospel of St John</key>
-        <string>Евангелие от Иоанна</string>
-        <key>Acts of the Apostles</key>
-        <string>Деяния святых апостолов</string>
-        <key>Epistle of St Paul to Romans</key>
-        <string>Послание к Римлянам</string>
-        <key>1st Epistle of St Paul to Corinthians</key>
-        <string>1-е послание к Коринфянам</string>
-        <key>2nd Epistle of St Paul to Corinthians</key>
-        <string>2-е послание к Коринфянам</string>
-        <key>Epistle of St Paul to Galatians</key>
-        <string>Послание к Галатам</string>
-        <key>Epistle of St Paul to Ephesians</key>
-        <string>Послание к Ефесянам</string>
-        <key>Epistle of St Paul to Philippians</key>
-        <string>Послание к Филиппийцам</string>
-        <key>Epistle of St Paul to Colossians</key>
-        <string>Послание к Колоссянам</string>
-        <key>1st Epistle of St Paul Thessalonians</key>
-        <string>1-е послание к Фессалоникийцам</string>
-        <key>2nd Epistle of St Paul Thessalonians</key>
-        <string>2-е послание к Фессалоникийцам</string>
-        <key>1st Epistle of St Paul to Timothy</key>
-        <string>1-е послание к Тимофею</string>
-        <key>2nd Epistle of St Paul to Timothy</key>
-        <string>2-е послание к Тимофею</string>
-        <key>Epistle of St Paul to Titus</key>
-        <string>Послание к Титу</string>
-        <key>Epistle of St Paul to Philemon</key>
-        <string>Послание к Филимону</string>
-        <key>Epistle of St Paul to Hebrews</key>
-        <string>Послание к Евреям</string>
-        <key>General Epistle of James</key>
-        <string>Послание Иакова</string>
-        <key>1st Epistle General of Peter</key>
-        <string>1-е послание Петра</string>
-        <key>2nd General Epistle of Peter</key>
-        <string>2-е послание Петра</string>
-        <key>1st Epistle General of John</key>
-        <string>1-е послание Иоанна</string>
-        <key>2nd Epistle General of John</key>
-        <string>2-е послание Иоанна</string>
-        <key>3rd Epistle General of John</key>
-        <string>3-е послание Иоанна</string>
-        <key>General Epistle of Jude</key>
-        <string>Послание Иуды</string>
-        <key>Revelation of St John the Devine</key>
-        <string>Откровение Иоанна Богослова</string>
-        <key>Chapter %@</key>
-        <string>Глава %@</string>
-        <key>New Testament</key>
-        <string>Новый Завет</string>
-        <key>Old Testament</key>
-        <string>Ветхий Завет</string>
-    </dict>
+<dict>
+	<key>Genesis</key>
+	<string>Книга Бытия</string>
+    
+    <key>Exodus</key>
+    <string>Книга Исход</string>
+    
+    <key>Leviticus</key>
+    <string>Книга Левит</string>
+    
+    <key>Numbers</key>
+    <string>Книга Чисел</string>
+    
+    <key>Deuteronomy</key>
+    <string>Второзаконие</string>
+    
+    <key>Joshua</key>
+    <string>Книга Иисуса Навина</string>
+    
+    <key>Judges</key>
+    <string>Книга Судей Израилевых</string>
+    
+    <key>Ruth</key>
+    <string>Книга Руфь</string>
+    
+    <key>1 Samuel</key>
+    <string>Первая книга Царств</string>
+    
+    <key>2 Samuel</key>
+    <string>Вторая книга Царств</string>
+    
+    <key>1 Kings</key>
+    <string>Третья книга Царств</string>
+    
+    <key>2 Kings</key>
+    <string>Четвёртая книга Царств</string>
+    
+    <key>1 Chronicles</key>
+    <string>1-я Паралипоменон</string>
+    
+    <key>2 Chronicles</key>
+    <string>2-я Паралипоменон</string>
+    
+    <key>Ezra</key>
+    <string>Книга Ездры</string>
+    
+    <key>Nehemiah</key>
+    <string>Книга Неемии</string>
+    
+    <key>Esther</key>
+    <string>Книга Есфирь</string>
+    
+    <key>Job</key>
+    <string>Книга Иова</string>
+    
+    <key>Psalms</key>
+    <string>Псалтирь</string>
+    
+    <key>Proverbs</key>
+    <string>Книга притчей Соломоновых</string>
+    
+    <key>Ecclesiastes</key>
+    <string>Книга Екклесиаста</string>
+    
+    <key>Song of Solomon</key>
+    <string>Песнь песней Соломона</string>
+    
+    <key>Isaiah</key>
+    <string>Книга пророка Исаии</string>
+    
+    <key>Jeremiah</key>
+    <string>Книга пророка Иеремии</string>
+    
+    <key>Lamentations</key>
+    <string>Плач Иеремии</string>
+    
+    <key>Ezekiel</key>
+    <string>Книга пророка Иезекииля</string>
+    
+    <key>Daniel</key>
+    <string>Книга пророка Даниила</string>
+    
+    <key>Hosea</key>
+    <string>Книга пророка Осии</string>
+    
+    <key>Joel</key>
+    <string>Книга пророка Иоиля</string>
+    
+    <key>Amos</key>
+    <string>Книга пророка Амоса</string>
+    
+    <key>Obadiah</key>
+    <string>Книга пророка Авдия</string>
+    
+    <key>Jonah</key>
+    <string>Книга пророка Ионы</string>
+    
+    <key>Micah</key>
+    <string>Книга пророка Михея</string>
+    
+    <key>Nahum</key>
+    <string>Книга пророка Наума</string>
+    
+    <key>Habakkuk</key>
+    <string>Книга пророка Аввакума</string>
+    
+    <key>Zephaniah</key>
+    <string>Книга пророка Софонии</string>
+    
+    <key>Haggai</key>
+    <string>Книга пророка Аггея</string>
+    
+    <key>Zechariah</key>
+    <string>Книга пророка Захарии</string>
+    
+    <key>Malachi</key>
+    <string>Книга пророка Малахии</string>
+    
+	<key>Gospel of St Matthew</key>
+	<string>Евангелие от Матфея</string>
+	<key>Gospel of St Mark</key>
+	<string>Евангелие от Марка</string>
+	<key>Gospel of St Luke</key>
+	<string>Евангелие от Луки</string>
+	<key>Gospel of St John</key>
+	<string>Евангелие от Иоанна</string>
+	<key>Acts of the Apostles</key>
+	<string>Деяния святых апостолов</string>
+	<key>Epistle of St Paul to Romans</key>
+	<string>Послание к Римлянам</string>
+	<key>1st Epistle of St Paul to Corinthians</key>
+	<string>1-е послание к Коринфянам</string>
+	<key>2nd Epistle of St Paul to Corinthians</key>
+	<string>2-е послание к Коринфянам</string>
+	<key>Epistle of St Paul to Galatians</key>
+	<string>Послание к Галатам</string>
+	<key>Epistle of St Paul to Ephesians</key>
+	<string>Послание к Ефесянам</string>
+	<key>Epistle of St Paul to Philippians</key>
+	<string>Послание к Филиппийцам</string>
+	<key>Epistle of St Paul to Colossians</key>
+	<string>Послание к Колоссянам</string>
+	<key>1st Epistle of St Paul Thessalonians</key>
+	<string>1-е послание к Фессалоникийцам</string>
+	<key>2nd Epistle of St Paul Thessalonians</key>
+	<string>2-е послание к Фессалоникийцам</string>
+	<key>1st Epistle of St Paul to Timothy</key>
+	<string>1-е послание к Тимофею</string>
+	<key>2nd Epistle of St Paul to Timothy</key>
+	<string>2-е послание к Тимофею</string>
+	<key>Epistle of St Paul to Titus</key>
+	<string>Послание к Титу</string>
+	<key>Epistle of St Paul to Philemon</key>
+	<string>Послание к Филимону</string>
+	<key>Epistle of St Paul to Hebrews</key>
+	<string>Послание к Евреям</string>
+	<key>General Epistle of James</key>
+	<string>Послание Иакова</string>
+	<key>1st Epistle General of Peter</key>
+	<string>1-е послание Петра</string>
+	<key>2nd General Epistle of Peter</key>
+	<string>2-е послание Петра</string>
+	<key>1st Epistle General of John</key>
+	<string>1-е послание Иоанна</string>
+	<key>2nd Epistle General of John</key>
+	<string>2-е послание Иоанна</string>
+	<key>3rd Epistle General of John</key>
+	<string>3-е послание Иоанна</string>
+	<key>General Epistle of Jude</key>
+	<string>Послание Иуды</string>
+	<key>Revelation of St John the Devine</key>
+	<string>Откровение Иоанна Богослова</string>
+	<key>Chapter %@</key>
+	<string>Глава %@</string>
+	<key>New Testament</key>
+	<string>Новый Завет</string>
+	<key>Old Testament</key>
+	<string>Ветхий Завет</string>
+</dict>
 </plist>

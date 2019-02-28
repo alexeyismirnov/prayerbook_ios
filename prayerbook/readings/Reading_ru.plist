@@ -62,5 +62,9 @@
 	<string>Прит.</string>
 	<key>Isa</key>
 	<string>Ис.</string>
+	<key>Joel</key>
+	<string>Иоил</string>
+	<key>Zech</key>
+	<string>Зах</string>
 </dict>
 </plist>

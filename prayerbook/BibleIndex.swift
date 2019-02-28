@@ -56,10 +56,53 @@ let NewTestament: [[(String, String)]] = [
 
 let OldTestament: [[(String, String)]] = [
     [
-    ("Genesis", "gen"),
-    ("The Proverbs", "prov"),
-    ("The Book of Prophet Isaiah", "isa")
-    ]
+        ("Genesis", "gen"),
+        ("Exodus", "ex"),
+        ("Leviticus","lev"),
+        ("Numbers","num"),
+        ("Deuteronomy","deut"),
+        ],
+    [
+        ("Joshua","josh"),
+        ("Judges","judg"),
+        ("Ruth","ruth"),
+        ("1 Samuel","1sam"),
+        ("2 Samuel","2sam"),
+        ("1 Kings","1kings"),
+        ("2 Kings","2kings"),
+        ("1 Chronicles","1chron"),
+        ("2 Chronicles","2chron"),
+        ("Ezra","ezra"),
+        ("Nehemiah","neh"),
+        ("Esther","esther"),
+        ],
+    [
+        ("Job","job"),
+        ("Psalms","ps"),
+        ("Proverbs","prov"),
+        ("Ecclesiastes","eccles"),
+        ("Song of Solomon","song"),
+        ],
+    
+    [
+        ("Isaiah","isa"),
+        ("Jeremiah","jer"),
+        ("Lamentations","lam"),
+        ("Ezekiel","ezek"),
+        ("Daniel","dan"),
+        ("Hosea","hos"),
+        ("Joel","joel"),
+        ("Amos","amos"),
+        ("Obadiah","obad"),
+        ("Jonah","jon"),
+        ("Micah","mic"),
+        ("Nahum","nahum"),
+        ("Habakkuk","hab"),
+        ("Zephaniah","zeph"),
+        ("Haggai","hag"),
+        ("Zechariah","zech"),
+        ("Malachi","mal"),
+        ]
 ]
 
 class BibleIndex: UIViewController, UITableViewDelegate, UITableViewDataSource {
