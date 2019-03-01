@@ -6,8 +6,8 @@ import sqlite3 as lite
 import urllib2
 from bs4 import BeautifulSoup
 
-book = 23
-num_chapters = 66
+book = 39
+num_chapters = 4
 
 with lite.connect("./%s.sqlite" % book) as con:
     cur = con.cursor()
