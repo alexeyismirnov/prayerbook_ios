@@ -103,7 +103,8 @@ class Scripture: UIViewController {
     func showChapter(_ name: String, _ chapter: Int) {
         var text = NSAttributedString()
         
-        let title = String(format: Translate.s("Chapter %@"), Translate.stringFromNumber(chapter))
+        let header = (name == "ps") ? "Кафизма %@" : Translate.s("Chapter %@")
+        let title = String(format: header, Translate.stringFromNumber(chapter))
             .colored(with: Theme.textColor).boldFont(ofSize: fontSize).centered
         
         text += title + "\n\n"

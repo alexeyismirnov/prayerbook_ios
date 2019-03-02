@@ -220,6 +220,7 @@
 		8AC10A49222A694F00540B22 /* hos_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A08222A694F00540B22 /* hos_ru.sqlite */; };
 		8AC10A4A222A694F00540B22 /* judg_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A09222A694F00540B22 /* judg_ru.sqlite */; };
 		8AC10A4B222A694F00540B22 /* zech_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A0A222A694F00540B22 /* zech_ru.sqlite */; };
+		8AC10A4F222A976D00540B22 /* ps_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A4E222A976D00540B22 /* ps_ru.sqlite */; };
 		8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */; };
 		8AC278071C61986000436D51 /* widget.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC278061C61986000436D51 /* widget.pdf */; };
 		8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */; };
@@ -530,6 +531,7 @@
 		8AC10A08222A694F00540B22 /* hos_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = hos_ru.sqlite; sourceTree = "<group>"; };
 		8AC10A09222A694F00540B22 /* judg_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = judg_ru.sqlite; sourceTree = "<group>"; };
 		8AC10A0A222A694F00540B22 /* zech_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = zech_ru.sqlite; sourceTree = "<group>"; };
+		8AC10A4E222A976D00540B22 /* ps_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ps_ru.sqlite; sourceTree = "<group>"; };
 		8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastingViewController.swift; sourceTree = "<group>"; };
 		8AC278061C61986000436D51 /* widget.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = widget.pdf; sourceTree = "<group>"; };
 		8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -841,6 +843,7 @@
 		8AAC691A1A2C4D5D00CC5CA1 /* scripture */ = {
 			isa = PBXGroup;
 			children = (
+				8AC10A4E222A976D00540B22 /* ps_ru.sqlite */,
 				8AC109D3222A694500540B22 /* 1chron_ru.sqlite */,
 				8AC109E5222A694800540B22 /* 1cor_ru.sqlite */,
 				8AC109DD222A694600540B22 /* 1john_ru.sqlite */,
@@ -1103,6 +1106,7 @@
 				8A0B4CAC1C8C1E8000747BB4 /* saints_03_ru.txt in Resources */,
 				8A5457731E70174300A86B5A /* synaxarion3.rtf in Resources */,
 				8AADFF5D1E84C25300CE3D0F /* synaxarion32.rtf in Resources */,
+				8AC10A4F222A976D00540B22 /* ps_ru.sqlite in Resources */,
 				8A0B4CBA1C8C1E8000747BB4 /* saints_10_ru.txt in Resources */,
 				8ABAFC461C0B0385008DB93C /* prayer_typica_0_cn.html in Resources */,
 				8A0B4CAF1C8C1E8000747BB4 /* saints_05_ru.sqlite in Resources */,

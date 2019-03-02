@@ -78,7 +78,7 @@ let OldTestament: [[(String, String)]] = [
         ],
     [
         ("Job","job"),
-        ("Psalms","job"),
+        ("Psalms","ps"),
         ("Proverbs","prov"),
         ("Ecclesiastes","eccles"),
         ("Song of Solomon","song"),
