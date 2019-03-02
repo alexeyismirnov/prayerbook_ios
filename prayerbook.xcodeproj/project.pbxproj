@@ -38,71 +38,6 @@
 		8A0B4CBE1C8C1E8000747BB4 /* saints_12_ru.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4CA61C8C1E8000747BB4 /* saints_12_ru.txt */; };
 		8A0F6F591C50C0FF0063DBF1 /* ChurchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5DEF719E7A80B0069C757 /* ChurchCalendar.swift */; };
 		8A0F6F5A1C50C12D0063DBF1 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A819E1302700076AF4 /* Translate.swift */; };
-		8A10CFF4222942390099639B /* song_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFB32229422F0099639B /* song_ru.sqlite */; };
-		8A10CFF5222942390099639B /* 1john_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFB42229422F0099639B /* 1john_ru.sqlite */; };
-		8A10CFF6222942390099639B /* mal_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFB5222942300099639B /* mal_ru.sqlite */; };
-		8A10CFF7222942390099639B /* tit_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFB6222942300099639B /* tit_ru.sqlite */; };
-		8A10CFF8222942390099639B /* philem_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFB7222942300099639B /* philem_ru.sqlite */; };
-		8A10CFF9222942390099639B /* nahum_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFB8222942300099639B /* nahum_ru.sqlite */; };
-		8A10CFFA222942390099639B /* mark_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFB9222942300099639B /* mark_ru.sqlite */; };
-		8A10CFFB222942390099639B /* 1kings_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFBA222942300099639B /* 1kings_ru.sqlite */; };
-		8A10CFFC222942390099639B /* phil_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFBB222942300099639B /* phil_ru.sqlite */; };
-		8A10CFFD222942390099639B /* 1thess_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFBC222942310099639B /* 1thess_ru.sqlite */; };
-		8A10CFFE222942390099639B /* prov_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFBD222942310099639B /* prov_ru.sqlite */; };
-		8A10CFFF222942390099639B /* jude_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFBE222942310099639B /* jude_ru.sqlite */; };
-		8A10D000222942390099639B /* isa_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFBF222942310099639B /* isa_ru.sqlite */; };
-		8A10D001222942390099639B /* lev_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFC0222942320099639B /* lev_ru.sqlite */; };
-		8A10D002222942390099639B /* gal_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFC1222942320099639B /* gal_ru.sqlite */; };
-		8A10D003222942390099639B /* hag_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFC2222942320099639B /* hag_ru.sqlite */; };
-		8A10D004222942390099639B /* acts_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFC3222942320099639B /* acts_ru.sqlite */; };
-		8A10D005222942390099639B /* ezra_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFC4222942320099639B /* ezra_ru.sqlite */; };
-		8A10D006222942390099639B /* 2cor_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFC5222942320099639B /* 2cor_ru.sqlite */; };
-		8A10D007222942390099639B /* obad_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFC6222942330099639B /* obad_ru.sqlite */; };
-		8A10D008222942390099639B /* joel_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFC7222942330099639B /* joel_ru.sqlite */; };
-		8A10D009222942390099639B /* jer_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFC8222942330099639B /* jer_ru.sqlite */; };
-		8A10D00A222942390099639B /* 2john_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFC9222942330099639B /* 2john_ru.sqlite */; };
-		8A10D00B222942390099639B /* zech_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFCA222942330099639B /* zech_ru.sqlite */; };
-		8A10D00C222942390099639B /* jon_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFCB222942330099639B /* jon_ru.sqlite */; };
-		8A10D00D222942390099639B /* 1sam_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFCC222942330099639B /* 1sam_ru.sqlite */; };
-		8A10D00E222942390099639B /* matthew_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFCD222942340099639B /* matthew_ru.sqlite */; };
-		8A10D00F222942390099639B /* 1pet_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFCE222942340099639B /* 1pet_ru.sqlite */; };
-		8A10D010222942390099639B /* num_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFCF222942340099639B /* num_ru.sqlite */; };
-		8A10D011222942390099639B /* job_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFD0222942340099639B /* job_ru.sqlite */; };
-		8A10D012222942390099639B /* 1chron_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFD1222942340099639B /* 1chron_ru.sqlite */; };
-		8A10D013222942390099639B /* lam_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFD2222942340099639B /* lam_ru.sqlite */; };
-		8A10D014222942390099639B /* gen_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFD3222942340099639B /* gen_ru.sqlite */; };
-		8A10D015222942390099639B /* ephes_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFD4222942350099639B /* ephes_ru.sqlite */; };
-		8A10D016222942390099639B /* col_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFD5222942350099639B /* col_ru.sqlite */; };
-		8A10D017222942390099639B /* amos_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFD6222942350099639B /* amos_ru.sqlite */; };
-		8A10D018222942390099639B /* neh_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFD7222942350099639B /* neh_ru.sqlite */; };
-		8A10D019222942390099639B /* mic_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFD8222942350099639B /* mic_ru.sqlite */; };
-		8A10D01A222942390099639B /* ruth_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFD9222942350099639B /* ruth_ru.sqlite */; };
-		8A10D01B222942390099639B /* deut_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFDA222942350099639B /* deut_ru.sqlite */; };
-		8A10D01C222942390099639B /* 1tim_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFDB222942350099639B /* 1tim_ru.sqlite */; };
-		8A10D01D222942390099639B /* ezek_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFDC222942360099639B /* ezek_ru.sqlite */; };
-		8A10D01E222942390099639B /* 3john_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFDD222942360099639B /* 3john_ru.sqlite */; };
-		8A10D01F222942390099639B /* 2sam_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFDE222942360099639B /* 2sam_ru.sqlite */; };
-		8A10D020222942390099639B /* josh_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFDF222942360099639B /* josh_ru.sqlite */; };
-		8A10D021222942390099639B /* hab_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFE0222942360099639B /* hab_ru.sqlite */; };
-		8A10D022222942390099639B /* dan_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFE1222942360099639B /* dan_ru.sqlite */; };
-		8A10D023222942390099639B /* 2thess_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFE2222942370099639B /* 2thess_ru.sqlite */; };
-		8A10D024222942390099639B /* 2kings_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFE3222942370099639B /* 2kings_ru.sqlite */; };
-		8A10D025222942390099639B /* eccles_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFE4222942370099639B /* eccles_ru.sqlite */; };
-		8A10D026222942390099639B /* john_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFE5222942370099639B /* john_ru.sqlite */; };
-		8A10D027222942390099639B /* rom_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFE6222942370099639B /* rom_ru.sqlite */; };
-		8A10D028222942390099639B /* 2chron_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFE7222942370099639B /* 2chron_ru.sqlite */; };
-		8A10D029222942390099639B /* luke_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFE8222942370099639B /* luke_ru.sqlite */; };
-		8A10D02A222942390099639B /* zeph_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFE9222942380099639B /* zeph_ru.sqlite */; };
-		8A10D02B222942390099639B /* heb_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFEA222942380099639B /* heb_ru.sqlite */; };
-		8A10D02C222942390099639B /* hos_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFEB222942380099639B /* hos_ru.sqlite */; };
-		8A10D02D222942390099639B /* judg_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFEC222942380099639B /* judg_ru.sqlite */; };
-		8A10D02E222942390099639B /* esther_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFED222942380099639B /* esther_ru.sqlite */; };
-		8A10D02F222942390099639B /* james_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFEE222942380099639B /* james_ru.sqlite */; };
-		8A10D030222942390099639B /* ex_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFEF222942380099639B /* ex_ru.sqlite */; };
-		8A10D031222942390099639B /* 2pet_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFF0222942390099639B /* 2pet_ru.sqlite */; };
-		8A10D032222942390099639B /* 2tim_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFF1222942390099639B /* 2tim_ru.sqlite */; };
-		8A10D033222942390099639B /* 1cor_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFF2222942390099639B /* 1cor_ru.sqlite */; };
-		8A10D034222942390099639B /* rev_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A10CFF3222942390099639B /* rev_ru.sqlite */; };
 		8A13C8FD219172E500D0CE7E /* AudioPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13C8FB219172E500D0CE7E /* AudioPlayerCell.swift */; };
 		8A13C8FE219172E500D0CE7E /* AudioPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C8FC219172E500D0CE7E /* AudioPlayerCell.xib */; };
 		8A13C90121917AB700D0CE7E /* pause.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C8FF21917AB700D0CE7E /* pause.pdf */; };
@@ -220,6 +155,71 @@
 		8AB90802216EF7580030F989 /* ChaptersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB90800216EF7580030F989 /* ChaptersCell.xib */; };
 		8ABAFC461C0B0385008DB93C /* prayer_typica_0_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8ABAFC441C0B0385008DB93C /* prayer_typica_0_cn.html */; };
 		8ABAFC491C0B03A9008DB93C /* prayer_typica_0_ru.html in Resources */ = {isa = PBXBuildFile; fileRef = 8ABAFC481C0B03A9008DB93C /* prayer_typica_0_ru.html */; };
+		8AC10A0B222A694F00540B22 /* num_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109CA222A694300540B22 /* num_ru.sqlite */; };
+		8AC10A0C222A694F00540B22 /* ephes_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109CB222A694300540B22 /* ephes_ru.sqlite */; };
+		8AC10A0D222A694F00540B22 /* john_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109CC222A694300540B22 /* john_ru.sqlite */; };
+		8AC10A0E222A694F00540B22 /* 2cor_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109CD222A694400540B22 /* 2cor_ru.sqlite */; };
+		8AC10A0F222A694F00540B22 /* matthew_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109CE222A694400540B22 /* matthew_ru.sqlite */; };
+		8AC10A10222A694F00540B22 /* lev_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109CF222A694400540B22 /* lev_ru.sqlite */; };
+		8AC10A11222A694F00540B22 /* 2john_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109D0222A694400540B22 /* 2john_ru.sqlite */; };
+		8AC10A12222A694F00540B22 /* mark_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109D1222A694400540B22 /* mark_ru.sqlite */; };
+		8AC10A13222A694F00540B22 /* esther_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109D2222A694400540B22 /* esther_ru.sqlite */; };
+		8AC10A14222A694F00540B22 /* 1chron_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109D3222A694500540B22 /* 1chron_ru.sqlite */; };
+		8AC10A15222A694F00540B22 /* rom_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109D4222A694500540B22 /* rom_ru.sqlite */; };
+		8AC10A16222A694F00540B22 /* hab_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109D5222A694500540B22 /* hab_ru.sqlite */; };
+		8AC10A17222A694F00540B22 /* jon_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109D6222A694500540B22 /* jon_ru.sqlite */; };
+		8AC10A18222A694F00540B22 /* hag_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109D7222A694500540B22 /* hag_ru.sqlite */; };
+		8AC10A19222A694F00540B22 /* rev_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109D8222A694500540B22 /* rev_ru.sqlite */; };
+		8AC10A1A222A694F00540B22 /* ezek_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109D9222A694600540B22 /* ezek_ru.sqlite */; };
+		8AC10A1B222A694F00540B22 /* philem_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109DA222A694600540B22 /* philem_ru.sqlite */; };
+		8AC10A1C222A694F00540B22 /* col_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109DB222A694600540B22 /* col_ru.sqlite */; };
+		8AC10A1D222A694F00540B22 /* josh_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109DC222A694600540B22 /* josh_ru.sqlite */; };
+		8AC10A1E222A694F00540B22 /* 1john_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109DD222A694600540B22 /* 1john_ru.sqlite */; };
+		8AC10A1F222A694F00540B22 /* phil_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109DE222A694700540B22 /* phil_ru.sqlite */; };
+		8AC10A20222A694F00540B22 /* 3john_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109DF222A694700540B22 /* 3john_ru.sqlite */; };
+		8AC10A21222A694F00540B22 /* joel_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109E0222A694700540B22 /* joel_ru.sqlite */; };
+		8AC10A22222A694F00540B22 /* dan_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109E1222A694700540B22 /* dan_ru.sqlite */; };
+		8AC10A23222A694F00540B22 /* heb_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109E2222A694700540B22 /* heb_ru.sqlite */; };
+		8AC10A24222A694F00540B22 /* 1sam_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109E3222A694800540B22 /* 1sam_ru.sqlite */; };
+		8AC10A25222A694F00540B22 /* lam_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109E4222A694800540B22 /* lam_ru.sqlite */; };
+		8AC10A26222A694F00540B22 /* 1cor_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109E5222A694800540B22 /* 1cor_ru.sqlite */; };
+		8AC10A27222A694F00540B22 /* tit_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109E6222A694800540B22 /* tit_ru.sqlite */; };
+		8AC10A28222A694F00540B22 /* deut_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109E7222A694800540B22 /* deut_ru.sqlite */; };
+		8AC10A29222A694F00540B22 /* eccles_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109E8222A694900540B22 /* eccles_ru.sqlite */; };
+		8AC10A2A222A694F00540B22 /* 2tim_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109E9222A694900540B22 /* 2tim_ru.sqlite */; };
+		8AC10A2B222A694F00540B22 /* 1pet_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109EA222A694900540B22 /* 1pet_ru.sqlite */; };
+		8AC10A2C222A694F00540B22 /* jer_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109EB222A694900540B22 /* jer_ru.sqlite */; };
+		8AC10A2D222A694F00540B22 /* mal_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109EC222A694900540B22 /* mal_ru.sqlite */; };
+		8AC10A2E222A694F00540B22 /* ruth_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109ED222A694A00540B22 /* ruth_ru.sqlite */; };
+		8AC10A2F222A694F00540B22 /* 2chron_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109EE222A694A00540B22 /* 2chron_ru.sqlite */; };
+		8AC10A30222A694F00540B22 /* ex_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109EF222A694A00540B22 /* ex_ru.sqlite */; };
+		8AC10A31222A694F00540B22 /* mic_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109F0222A694A00540B22 /* mic_ru.sqlite */; };
+		8AC10A32222A694F00540B22 /* neh_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109F1222A694A00540B22 /* neh_ru.sqlite */; };
+		8AC10A33222A694F00540B22 /* 1tim_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109F2222A694B00540B22 /* 1tim_ru.sqlite */; };
+		8AC10A34222A694F00540B22 /* james_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109F3222A694B00540B22 /* james_ru.sqlite */; };
+		8AC10A35222A694F00540B22 /* ezra_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109F4222A694B00540B22 /* ezra_ru.sqlite */; };
+		8AC10A36222A694F00540B22 /* gal_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109F5222A694B00540B22 /* gal_ru.sqlite */; };
+		8AC10A37222A694F00540B22 /* obad_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109F6222A694B00540B22 /* obad_ru.sqlite */; };
+		8AC10A38222A694F00540B22 /* prov_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109F7222A694C00540B22 /* prov_ru.sqlite */; };
+		8AC10A39222A694F00540B22 /* 1kings_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109F8222A694C00540B22 /* 1kings_ru.sqlite */; };
+		8AC10A3A222A694F00540B22 /* isa_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109F9222A694C00540B22 /* isa_ru.sqlite */; };
+		8AC10A3B222A694F00540B22 /* 2sam_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109FA222A694C00540B22 /* 2sam_ru.sqlite */; };
+		8AC10A3C222A694F00540B22 /* 2kings_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109FB222A694C00540B22 /* 2kings_ru.sqlite */; };
+		8AC10A3D222A694F00540B22 /* gen_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109FC222A694D00540B22 /* gen_ru.sqlite */; };
+		8AC10A3E222A694F00540B22 /* luke_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109FD222A694D00540B22 /* luke_ru.sqlite */; };
+		8AC10A3F222A694F00540B22 /* 2pet_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109FE222A694D00540B22 /* 2pet_ru.sqlite */; };
+		8AC10A40222A694F00540B22 /* jude_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109FF222A694D00540B22 /* jude_ru.sqlite */; };
+		8AC10A41222A694F00540B22 /* acts_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A00222A694D00540B22 /* acts_ru.sqlite */; };
+		8AC10A42222A694F00540B22 /* amos_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A01222A694D00540B22 /* amos_ru.sqlite */; };
+		8AC10A43222A694F00540B22 /* nahum_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A02222A694E00540B22 /* nahum_ru.sqlite */; };
+		8AC10A44222A694F00540B22 /* song_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A03222A694E00540B22 /* song_ru.sqlite */; };
+		8AC10A45222A694F00540B22 /* zeph_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A04222A694E00540B22 /* zeph_ru.sqlite */; };
+		8AC10A46222A694F00540B22 /* 1thess_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A05222A694E00540B22 /* 1thess_ru.sqlite */; };
+		8AC10A47222A694F00540B22 /* 2thess_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A06222A694E00540B22 /* 2thess_ru.sqlite */; };
+		8AC10A48222A694F00540B22 /* job_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A07222A694E00540B22 /* job_ru.sqlite */; };
+		8AC10A49222A694F00540B22 /* hos_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A08222A694F00540B22 /* hos_ru.sqlite */; };
+		8AC10A4A222A694F00540B22 /* judg_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A09222A694F00540B22 /* judg_ru.sqlite */; };
+		8AC10A4B222A694F00540B22 /* zech_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A0A222A694F00540B22 /* zech_ru.sqlite */; };
 		8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */; };
 		8AC278071C61986000436D51 /* widget.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC278061C61986000436D51 /* widget.pdf */; };
 		8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */; };
@@ -341,71 +341,6 @@
 		8A0B4CA61C8C1E8000747BB4 /* saints_12_ru.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_12_ru.txt; sourceTree = "<group>"; };
 		8A0F6F5B1C50C4BE0063DBF1 /* ponomar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ponomar.entitlements; sourceTree = "<group>"; };
 		8A0F6F5C1C50C4EC0063DBF1 /* CalendarWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CalendarWidget.entitlements; sourceTree = "<group>"; };
-		8A10CFB32229422F0099639B /* song_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = song_ru.sqlite; path = ../../../../Desktop/scripture/song_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFB42229422F0099639B /* 1john_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1john_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFB5222942300099639B /* mal_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mal_ru.sqlite; path = ../../../../Desktop/scripture/mal_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFB6222942300099639B /* tit_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = tit_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFB7222942300099639B /* philem_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = philem_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFB8222942300099639B /* nahum_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = nahum_ru.sqlite; path = ../../../../Desktop/scripture/nahum_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFB9222942300099639B /* mark_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mark_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFBA222942300099639B /* 1kings_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = 1kings_ru.sqlite; path = ../../../../Desktop/scripture/1kings_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFBB222942300099639B /* phil_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = phil_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFBC222942310099639B /* 1thess_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1thess_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFBD222942310099639B /* prov_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = prov_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFBE222942310099639B /* jude_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = jude_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFBF222942310099639B /* isa_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = isa_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFC0222942320099639B /* lev_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = lev_ru.sqlite; path = ../../../../Desktop/scripture/lev_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFC1222942320099639B /* gal_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = gal_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFC2222942320099639B /* hag_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = hag_ru.sqlite; path = ../../../../Desktop/scripture/hag_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFC3222942320099639B /* acts_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = acts_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFC4222942320099639B /* ezra_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = ezra_ru.sqlite; path = ../../../../Desktop/scripture/ezra_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFC5222942320099639B /* 2cor_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2cor_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFC6222942330099639B /* obad_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = obad_ru.sqlite; path = ../../../../Desktop/scripture/obad_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFC7222942330099639B /* joel_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = joel_ru.sqlite; path = ../../../../Desktop/scripture/joel_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFC8222942330099639B /* jer_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = jer_ru.sqlite; path = ../../../../Desktop/scripture/jer_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFC9222942330099639B /* 2john_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2john_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFCA222942330099639B /* zech_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = zech_ru.sqlite; path = ../../../../Desktop/scripture/zech_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFCB222942330099639B /* jon_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = jon_ru.sqlite; path = ../../../../Desktop/scripture/jon_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFCC222942330099639B /* 1sam_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = 1sam_ru.sqlite; path = ../../../../Desktop/scripture/1sam_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFCD222942340099639B /* matthew_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = matthew_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFCE222942340099639B /* 1pet_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1pet_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFCF222942340099639B /* num_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = num_ru.sqlite; path = ../../../../Desktop/scripture/num_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFD0222942340099639B /* job_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = job_ru.sqlite; path = ../../../../Desktop/scripture/job_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFD1222942340099639B /* 1chron_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = 1chron_ru.sqlite; path = ../../../../Desktop/scripture/1chron_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFD2222942340099639B /* lam_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = lam_ru.sqlite; path = ../../../../Desktop/scripture/lam_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFD3222942340099639B /* gen_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = gen_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFD4222942350099639B /* ephes_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ephes_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFD5222942350099639B /* col_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = col_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFD6222942350099639B /* amos_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = amos_ru.sqlite; path = ../../../../Desktop/scripture/amos_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFD7222942350099639B /* neh_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = neh_ru.sqlite; path = ../../../../Desktop/scripture/neh_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFD8222942350099639B /* mic_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mic_ru.sqlite; path = ../../../../Desktop/scripture/mic_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFD9222942350099639B /* ruth_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = ruth_ru.sqlite; path = ../../../../Desktop/scripture/ruth_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFDA222942350099639B /* deut_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = deut_ru.sqlite; path = ../../../../Desktop/scripture/deut_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFDB222942350099639B /* 1tim_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1tim_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFDC222942360099639B /* ezek_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = ezek_ru.sqlite; path = ../../../../Desktop/scripture/ezek_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFDD222942360099639B /* 3john_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3john_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFDE222942360099639B /* 2sam_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = 2sam_ru.sqlite; path = ../../../../Desktop/scripture/2sam_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFDF222942360099639B /* josh_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = josh_ru.sqlite; path = ../../../../Desktop/scripture/josh_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFE0222942360099639B /* hab_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = hab_ru.sqlite; path = ../../../../Desktop/scripture/hab_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFE1222942360099639B /* dan_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = dan_ru.sqlite; path = ../../../../Desktop/scripture/dan_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFE2222942370099639B /* 2thess_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2thess_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFE3222942370099639B /* 2kings_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = 2kings_ru.sqlite; path = ../../../../Desktop/scripture/2kings_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFE4222942370099639B /* eccles_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = eccles_ru.sqlite; path = ../../../../Desktop/scripture/eccles_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFE5222942370099639B /* john_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = john_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFE6222942370099639B /* rom_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = rom_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFE7222942370099639B /* 2chron_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = 2chron_ru.sqlite; path = ../../../../Desktop/scripture/2chron_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFE8222942370099639B /* luke_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = luke_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFE9222942380099639B /* zeph_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = zeph_ru.sqlite; path = ../../../../Desktop/scripture/zeph_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFEA222942380099639B /* heb_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = heb_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFEB222942380099639B /* hos_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = hos_ru.sqlite; path = ../../../../Desktop/scripture/hos_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFEC222942380099639B /* judg_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = judg_ru.sqlite; path = ../../../../Desktop/scripture/judg_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFED222942380099639B /* esther_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = esther_ru.sqlite; path = ../../../../Desktop/scripture/esther_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFEE222942380099639B /* james_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = james_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFEF222942380099639B /* ex_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = ex_ru.sqlite; path = ../../../../Desktop/scripture/ex_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFF0222942390099639B /* 2pet_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2pet_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFF1222942390099639B /* 2tim_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2tim_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFF2222942390099639B /* 1cor_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1cor_ru.sqlite; sourceTree = "<group>"; };
-		8A10CFF3222942390099639B /* rev_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = rev_ru.sqlite; sourceTree = "<group>"; };
 		8A13C8FB219172E500D0CE7E /* AudioPlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerCell.swift; sourceTree = "<group>"; };
 		8A13C8FC219172E500D0CE7E /* AudioPlayerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioPlayerCell.xib; sourceTree = "<group>"; };
 		8A13C8FF21917AB700D0CE7E /* pause.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = pause.pdf; sourceTree = "<group>"; };
@@ -530,6 +465,71 @@
 		8AB90800216EF7580030F989 /* ChaptersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChaptersCell.xib; sourceTree = "<group>"; };
 		8ABAFC441C0B0385008DB93C /* prayer_typica_0_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_typica_0_cn.html; sourceTree = "<group>"; };
 		8ABAFC481C0B03A9008DB93C /* prayer_typica_0_ru.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_typica_0_ru.html; sourceTree = "<group>"; };
+		8AC109CA222A694300540B22 /* num_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = num_ru.sqlite; sourceTree = "<group>"; };
+		8AC109CB222A694300540B22 /* ephes_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ephes_ru.sqlite; sourceTree = "<group>"; };
+		8AC109CC222A694300540B22 /* john_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = john_ru.sqlite; sourceTree = "<group>"; };
+		8AC109CD222A694400540B22 /* 2cor_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2cor_ru.sqlite; sourceTree = "<group>"; };
+		8AC109CE222A694400540B22 /* matthew_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = matthew_ru.sqlite; sourceTree = "<group>"; };
+		8AC109CF222A694400540B22 /* lev_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = lev_ru.sqlite; sourceTree = "<group>"; };
+		8AC109D0222A694400540B22 /* 2john_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2john_ru.sqlite; sourceTree = "<group>"; };
+		8AC109D1222A694400540B22 /* mark_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mark_ru.sqlite; sourceTree = "<group>"; };
+		8AC109D2222A694400540B22 /* esther_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = esther_ru.sqlite; sourceTree = "<group>"; };
+		8AC109D3222A694500540B22 /* 1chron_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1chron_ru.sqlite; sourceTree = "<group>"; };
+		8AC109D4222A694500540B22 /* rom_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = rom_ru.sqlite; sourceTree = "<group>"; };
+		8AC109D5222A694500540B22 /* hab_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = hab_ru.sqlite; sourceTree = "<group>"; };
+		8AC109D6222A694500540B22 /* jon_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = jon_ru.sqlite; sourceTree = "<group>"; };
+		8AC109D7222A694500540B22 /* hag_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = hag_ru.sqlite; sourceTree = "<group>"; };
+		8AC109D8222A694500540B22 /* rev_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = rev_ru.sqlite; sourceTree = "<group>"; };
+		8AC109D9222A694600540B22 /* ezek_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ezek_ru.sqlite; sourceTree = "<group>"; };
+		8AC109DA222A694600540B22 /* philem_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = philem_ru.sqlite; sourceTree = "<group>"; };
+		8AC109DB222A694600540B22 /* col_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = col_ru.sqlite; sourceTree = "<group>"; };
+		8AC109DC222A694600540B22 /* josh_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = josh_ru.sqlite; sourceTree = "<group>"; };
+		8AC109DD222A694600540B22 /* 1john_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1john_ru.sqlite; sourceTree = "<group>"; };
+		8AC109DE222A694700540B22 /* phil_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = phil_ru.sqlite; sourceTree = "<group>"; };
+		8AC109DF222A694700540B22 /* 3john_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3john_ru.sqlite; sourceTree = "<group>"; };
+		8AC109E0222A694700540B22 /* joel_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = joel_ru.sqlite; sourceTree = "<group>"; };
+		8AC109E1222A694700540B22 /* dan_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = dan_ru.sqlite; sourceTree = "<group>"; };
+		8AC109E2222A694700540B22 /* heb_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = heb_ru.sqlite; sourceTree = "<group>"; };
+		8AC109E3222A694800540B22 /* 1sam_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1sam_ru.sqlite; sourceTree = "<group>"; };
+		8AC109E4222A694800540B22 /* lam_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = lam_ru.sqlite; sourceTree = "<group>"; };
+		8AC109E5222A694800540B22 /* 1cor_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1cor_ru.sqlite; sourceTree = "<group>"; };
+		8AC109E6222A694800540B22 /* tit_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = tit_ru.sqlite; sourceTree = "<group>"; };
+		8AC109E7222A694800540B22 /* deut_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = deut_ru.sqlite; sourceTree = "<group>"; };
+		8AC109E8222A694900540B22 /* eccles_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = eccles_ru.sqlite; sourceTree = "<group>"; };
+		8AC109E9222A694900540B22 /* 2tim_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2tim_ru.sqlite; sourceTree = "<group>"; };
+		8AC109EA222A694900540B22 /* 1pet_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1pet_ru.sqlite; sourceTree = "<group>"; };
+		8AC109EB222A694900540B22 /* jer_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = jer_ru.sqlite; sourceTree = "<group>"; };
+		8AC109EC222A694900540B22 /* mal_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mal_ru.sqlite; sourceTree = "<group>"; };
+		8AC109ED222A694A00540B22 /* ruth_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ruth_ru.sqlite; sourceTree = "<group>"; };
+		8AC109EE222A694A00540B22 /* 2chron_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2chron_ru.sqlite; sourceTree = "<group>"; };
+		8AC109EF222A694A00540B22 /* ex_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ex_ru.sqlite; sourceTree = "<group>"; };
+		8AC109F0222A694A00540B22 /* mic_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mic_ru.sqlite; sourceTree = "<group>"; };
+		8AC109F1222A694A00540B22 /* neh_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = neh_ru.sqlite; sourceTree = "<group>"; };
+		8AC109F2222A694B00540B22 /* 1tim_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1tim_ru.sqlite; sourceTree = "<group>"; };
+		8AC109F3222A694B00540B22 /* james_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = james_ru.sqlite; sourceTree = "<group>"; };
+		8AC109F4222A694B00540B22 /* ezra_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ezra_ru.sqlite; sourceTree = "<group>"; };
+		8AC109F5222A694B00540B22 /* gal_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = gal_ru.sqlite; sourceTree = "<group>"; };
+		8AC109F6222A694B00540B22 /* obad_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = obad_ru.sqlite; sourceTree = "<group>"; };
+		8AC109F7222A694C00540B22 /* prov_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = prov_ru.sqlite; sourceTree = "<group>"; };
+		8AC109F8222A694C00540B22 /* 1kings_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1kings_ru.sqlite; sourceTree = "<group>"; };
+		8AC109F9222A694C00540B22 /* isa_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = isa_ru.sqlite; sourceTree = "<group>"; };
+		8AC109FA222A694C00540B22 /* 2sam_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2sam_ru.sqlite; sourceTree = "<group>"; };
+		8AC109FB222A694C00540B22 /* 2kings_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2kings_ru.sqlite; sourceTree = "<group>"; };
+		8AC109FC222A694D00540B22 /* gen_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = gen_ru.sqlite; sourceTree = "<group>"; };
+		8AC109FD222A694D00540B22 /* luke_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = luke_ru.sqlite; sourceTree = "<group>"; };
+		8AC109FE222A694D00540B22 /* 2pet_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2pet_ru.sqlite; sourceTree = "<group>"; };
+		8AC109FF222A694D00540B22 /* jude_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = jude_ru.sqlite; sourceTree = "<group>"; };
+		8AC10A00222A694D00540B22 /* acts_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = acts_ru.sqlite; sourceTree = "<group>"; };
+		8AC10A01222A694D00540B22 /* amos_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = amos_ru.sqlite; sourceTree = "<group>"; };
+		8AC10A02222A694E00540B22 /* nahum_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = nahum_ru.sqlite; sourceTree = "<group>"; };
+		8AC10A03222A694E00540B22 /* song_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = song_ru.sqlite; sourceTree = "<group>"; };
+		8AC10A04222A694E00540B22 /* zeph_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = zeph_ru.sqlite; sourceTree = "<group>"; };
+		8AC10A05222A694E00540B22 /* 1thess_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1thess_ru.sqlite; sourceTree = "<group>"; };
+		8AC10A06222A694E00540B22 /* 2thess_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2thess_ru.sqlite; sourceTree = "<group>"; };
+		8AC10A07222A694E00540B22 /* job_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = job_ru.sqlite; sourceTree = "<group>"; };
+		8AC10A08222A694F00540B22 /* hos_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = hos_ru.sqlite; sourceTree = "<group>"; };
+		8AC10A09222A694F00540B22 /* judg_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = judg_ru.sqlite; sourceTree = "<group>"; };
+		8AC10A0A222A694F00540B22 /* zech_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = zech_ru.sqlite; sourceTree = "<group>"; };
 		8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastingViewController.swift; sourceTree = "<group>"; };
 		8AC278061C61986000436D51 /* widget.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = widget.pdf; sourceTree = "<group>"; };
 		8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -841,71 +841,71 @@
 		8AAC691A1A2C4D5D00CC5CA1 /* scripture */ = {
 			isa = PBXGroup;
 			children = (
-				8A10CFD1222942340099639B /* 1chron_ru.sqlite */,
-				8A10CFF2222942390099639B /* 1cor_ru.sqlite */,
-				8A10CFB42229422F0099639B /* 1john_ru.sqlite */,
-				8A10CFBA222942300099639B /* 1kings_ru.sqlite */,
-				8A10CFCE222942340099639B /* 1pet_ru.sqlite */,
-				8A10CFCC222942330099639B /* 1sam_ru.sqlite */,
-				8A10CFBC222942310099639B /* 1thess_ru.sqlite */,
-				8A10CFDB222942350099639B /* 1tim_ru.sqlite */,
-				8A10CFE7222942370099639B /* 2chron_ru.sqlite */,
-				8A10CFC5222942320099639B /* 2cor_ru.sqlite */,
-				8A10CFC9222942330099639B /* 2john_ru.sqlite */,
-				8A10CFE3222942370099639B /* 2kings_ru.sqlite */,
-				8A10CFF0222942390099639B /* 2pet_ru.sqlite */,
-				8A10CFDE222942360099639B /* 2sam_ru.sqlite */,
-				8A10CFE2222942370099639B /* 2thess_ru.sqlite */,
-				8A10CFF1222942390099639B /* 2tim_ru.sqlite */,
-				8A10CFDD222942360099639B /* 3john_ru.sqlite */,
-				8A10CFC3222942320099639B /* acts_ru.sqlite */,
-				8A10CFD6222942350099639B /* amos_ru.sqlite */,
-				8A10CFD5222942350099639B /* col_ru.sqlite */,
-				8A10CFE1222942360099639B /* dan_ru.sqlite */,
-				8A10CFDA222942350099639B /* deut_ru.sqlite */,
-				8A10CFE4222942370099639B /* eccles_ru.sqlite */,
-				8A10CFD4222942350099639B /* ephes_ru.sqlite */,
-				8A10CFED222942380099639B /* esther_ru.sqlite */,
-				8A10CFEF222942380099639B /* ex_ru.sqlite */,
-				8A10CFDC222942360099639B /* ezek_ru.sqlite */,
-				8A10CFC4222942320099639B /* ezra_ru.sqlite */,
-				8A10CFC1222942320099639B /* gal_ru.sqlite */,
-				8A10CFD3222942340099639B /* gen_ru.sqlite */,
-				8A10CFE0222942360099639B /* hab_ru.sqlite */,
-				8A10CFC2222942320099639B /* hag_ru.sqlite */,
-				8A10CFEA222942380099639B /* heb_ru.sqlite */,
-				8A10CFEB222942380099639B /* hos_ru.sqlite */,
-				8A10CFBF222942310099639B /* isa_ru.sqlite */,
-				8A10CFEE222942380099639B /* james_ru.sqlite */,
-				8A10CFC8222942330099639B /* jer_ru.sqlite */,
-				8A10CFD0222942340099639B /* job_ru.sqlite */,
-				8A10CFC7222942330099639B /* joel_ru.sqlite */,
-				8A10CFE5222942370099639B /* john_ru.sqlite */,
-				8A10CFCB222942330099639B /* jon_ru.sqlite */,
-				8A10CFDF222942360099639B /* josh_ru.sqlite */,
-				8A10CFBE222942310099639B /* jude_ru.sqlite */,
-				8A10CFEC222942380099639B /* judg_ru.sqlite */,
-				8A10CFD2222942340099639B /* lam_ru.sqlite */,
-				8A10CFC0222942320099639B /* lev_ru.sqlite */,
-				8A10CFE8222942370099639B /* luke_ru.sqlite */,
-				8A10CFB5222942300099639B /* mal_ru.sqlite */,
-				8A10CFB9222942300099639B /* mark_ru.sqlite */,
-				8A10CFCD222942340099639B /* matthew_ru.sqlite */,
-				8A10CFD8222942350099639B /* mic_ru.sqlite */,
-				8A10CFB8222942300099639B /* nahum_ru.sqlite */,
-				8A10CFD7222942350099639B /* neh_ru.sqlite */,
-				8A10CFCF222942340099639B /* num_ru.sqlite */,
-				8A10CFC6222942330099639B /* obad_ru.sqlite */,
-				8A10CFBB222942300099639B /* phil_ru.sqlite */,
-				8A10CFB7222942300099639B /* philem_ru.sqlite */,
-				8A10CFBD222942310099639B /* prov_ru.sqlite */,
-				8A10CFF3222942390099639B /* rev_ru.sqlite */,
-				8A10CFE6222942370099639B /* rom_ru.sqlite */,
-				8A10CFD9222942350099639B /* ruth_ru.sqlite */,
-				8A10CFB32229422F0099639B /* song_ru.sqlite */,
-				8A10CFB6222942300099639B /* tit_ru.sqlite */,
-				8A10CFCA222942330099639B /* zech_ru.sqlite */,
-				8A10CFE9222942380099639B /* zeph_ru.sqlite */,
+				8AC109D3222A694500540B22 /* 1chron_ru.sqlite */,
+				8AC109E5222A694800540B22 /* 1cor_ru.sqlite */,
+				8AC109DD222A694600540B22 /* 1john_ru.sqlite */,
+				8AC109F8222A694C00540B22 /* 1kings_ru.sqlite */,
+				8AC109EA222A694900540B22 /* 1pet_ru.sqlite */,
+				8AC109E3222A694800540B22 /* 1sam_ru.sqlite */,
+				8AC10A05222A694E00540B22 /* 1thess_ru.sqlite */,
+				8AC109F2222A694B00540B22 /* 1tim_ru.sqlite */,
+				8AC109EE222A694A00540B22 /* 2chron_ru.sqlite */,
+				8AC109CD222A694400540B22 /* 2cor_ru.sqlite */,
+				8AC109D0222A694400540B22 /* 2john_ru.sqlite */,
+				8AC109FB222A694C00540B22 /* 2kings_ru.sqlite */,
+				8AC109FE222A694D00540B22 /* 2pet_ru.sqlite */,
+				8AC109FA222A694C00540B22 /* 2sam_ru.sqlite */,
+				8AC10A06222A694E00540B22 /* 2thess_ru.sqlite */,
+				8AC109E9222A694900540B22 /* 2tim_ru.sqlite */,
+				8AC109DF222A694700540B22 /* 3john_ru.sqlite */,
+				8AC10A00222A694D00540B22 /* acts_ru.sqlite */,
+				8AC10A01222A694D00540B22 /* amos_ru.sqlite */,
+				8AC109DB222A694600540B22 /* col_ru.sqlite */,
+				8AC109E1222A694700540B22 /* dan_ru.sqlite */,
+				8AC109E7222A694800540B22 /* deut_ru.sqlite */,
+				8AC109E8222A694900540B22 /* eccles_ru.sqlite */,
+				8AC109CB222A694300540B22 /* ephes_ru.sqlite */,
+				8AC109D2222A694400540B22 /* esther_ru.sqlite */,
+				8AC109EF222A694A00540B22 /* ex_ru.sqlite */,
+				8AC109D9222A694600540B22 /* ezek_ru.sqlite */,
+				8AC109F4222A694B00540B22 /* ezra_ru.sqlite */,
+				8AC109F5222A694B00540B22 /* gal_ru.sqlite */,
+				8AC109FC222A694D00540B22 /* gen_ru.sqlite */,
+				8AC109D5222A694500540B22 /* hab_ru.sqlite */,
+				8AC109D7222A694500540B22 /* hag_ru.sqlite */,
+				8AC109E2222A694700540B22 /* heb_ru.sqlite */,
+				8AC10A08222A694F00540B22 /* hos_ru.sqlite */,
+				8AC109F9222A694C00540B22 /* isa_ru.sqlite */,
+				8AC109F3222A694B00540B22 /* james_ru.sqlite */,
+				8AC109EB222A694900540B22 /* jer_ru.sqlite */,
+				8AC10A07222A694E00540B22 /* job_ru.sqlite */,
+				8AC109E0222A694700540B22 /* joel_ru.sqlite */,
+				8AC109CC222A694300540B22 /* john_ru.sqlite */,
+				8AC109D6222A694500540B22 /* jon_ru.sqlite */,
+				8AC109DC222A694600540B22 /* josh_ru.sqlite */,
+				8AC109FF222A694D00540B22 /* jude_ru.sqlite */,
+				8AC10A09222A694F00540B22 /* judg_ru.sqlite */,
+				8AC109E4222A694800540B22 /* lam_ru.sqlite */,
+				8AC109CF222A694400540B22 /* lev_ru.sqlite */,
+				8AC109FD222A694D00540B22 /* luke_ru.sqlite */,
+				8AC109EC222A694900540B22 /* mal_ru.sqlite */,
+				8AC109D1222A694400540B22 /* mark_ru.sqlite */,
+				8AC109CE222A694400540B22 /* matthew_ru.sqlite */,
+				8AC109F0222A694A00540B22 /* mic_ru.sqlite */,
+				8AC10A02222A694E00540B22 /* nahum_ru.sqlite */,
+				8AC109F1222A694A00540B22 /* neh_ru.sqlite */,
+				8AC109CA222A694300540B22 /* num_ru.sqlite */,
+				8AC109F6222A694B00540B22 /* obad_ru.sqlite */,
+				8AC109DE222A694700540B22 /* phil_ru.sqlite */,
+				8AC109DA222A694600540B22 /* philem_ru.sqlite */,
+				8AC109F7222A694C00540B22 /* prov_ru.sqlite */,
+				8AC109D8222A694500540B22 /* rev_ru.sqlite */,
+				8AC109D4222A694500540B22 /* rom_ru.sqlite */,
+				8AC109ED222A694A00540B22 /* ruth_ru.sqlite */,
+				8AC10A03222A694E00540B22 /* song_ru.sqlite */,
+				8AC109E6222A694800540B22 /* tit_ru.sqlite */,
+				8AC10A0A222A694F00540B22 /* zech_ru.sqlite */,
+				8AC10A04222A694E00540B22 /* zeph_ru.sqlite */,
 			);
 			path = scripture;
 			sourceTree = "<group>";
@@ -1080,64 +1080,67 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A10D032222942390099639B /* 2tim_ru.sqlite in Resources */,
 				8AF37E5A1B36C7A500101148 /* newicon_76.png in Resources */,
 				8A0B4CB01C8C1E8000747BB4 /* saints_05_ru.txt in Resources */,
 				8A54577D1E70174300A86B5A /* synaxarion13.rtf in Resources */,
 				8A0B4CBD1C8C1E8000747BB4 /* saints_12_ru.sqlite in Resources */,
-				8A10D000222942390099639B /* isa_ru.sqlite in Resources */,
-				8A10D02E222942390099639B /* esther_ru.sqlite in Resources */,
 				8A1F2CAC1DD9B6C400F13A3D /* Default-Portrait@2x.png in Resources */,
-				8A10D022222942390099639B /* dan_ru.sqlite in Resources */,
 				8A74D833198F224E0078F39F /* Main.storyboard in Resources */,
+				8AC10A46222A694F00540B22 /* 1thess_ru.sqlite in Resources */,
+				8AC10A3E222A694F00540B22 /* luke_ru.sqlite in Resources */,
+				8AC10A45222A694F00540B22 /* zeph_ru.sqlite in Resources */,
 				8A54577E1E70174300A86B5A /* synaxarion14.rtf in Resources */,
-				8A10CFF7222942390099639B /* tit_ru.sqlite in Resources */,
-				8A10D01D222942390099639B /* ezek_ru.sqlite in Resources */,
 				8A1F2CAB1DD9B6C400F13A3D /* Default-Portrait.png in Resources */,
 				8AC6951619E3FBC200773FEB /* food-bread.pdf in Resources */,
 				8A61BBA5202438CF003AA1BF /* saint.pdf in Resources */,
+				8AC10A49222A694F00540B22 /* hos_ru.sqlite in Resources */,
 				8AF37E591B36C7A500101148 /* newicon_58.png in Resources */,
 				8A5457711E70174300A86B5A /* synaxarion1.rtf in Resources */,
 				8AB0DC971C27EFEC00C6A494 /* typica_3.plist in Resources */,
-				8A10D015222942390099639B /* ephes_ru.sqlite in Resources */,
 				8A41936419E6921600D570A9 /* food-milk.pdf in Resources */,
 				8AADFF5F1E84C25300CE3D0F /* synaxarion34.rtf in Resources */,
+				8AC10A43222A694F00540B22 /* nahum_ru.sqlite in Resources */,
 				8A0B4CAC1C8C1E8000747BB4 /* saints_03_ru.txt in Resources */,
-				8A10D013222942390099639B /* lam_ru.sqlite in Resources */,
 				8A5457731E70174300A86B5A /* synaxarion3.rtf in Resources */,
-				8A10D020222942390099639B /* josh_ru.sqlite in Resources */,
 				8AADFF5D1E84C25300CE3D0F /* synaxarion32.rtf in Resources */,
 				8A0B4CBA1C8C1E8000747BB4 /* saints_10_ru.txt in Resources */,
 				8ABAFC461C0B0385008DB93C /* prayer_typica_0_cn.html in Resources */,
-				8A10D00C222942390099639B /* jon_ru.sqlite in Resources */,
 				8A0B4CAF1C8C1E8000747BB4 /* saints_05_ru.sqlite in Resources */,
 				8AADFF5B1E84C25300CE3D0F /* synaxarion30.rtf in Resources */,
+				8AC10A42222A694F00540B22 /* amos_ru.sqlite in Resources */,
+				8AC10A41222A694F00540B22 /* acts_ru.sqlite in Resources */,
 				8AADFF591E84C25300CE3D0F /* synaxarion28.rtf in Resources */,
 				8A5457791E70174300A86B5A /* synaxarion9.rtf in Resources */,
 				8AC6951B19E3FBC200773FEB /* food-no-egg.pdf in Resources */,
-				8A10CFFD222942390099639B /* 1thess_ru.sqlite in Resources */,
+				8AC10A3D222A694F00540B22 /* gen_ru.sqlite in Resources */,
+				8AC10A0C222A694F00540B22 /* ephes_ru.sqlite in Resources */,
+				8AC10A47222A694F00540B22 /* 2thess_ru.sqlite in Resources */,
+				8AC10A0B222A694F00540B22 /* num_ru.sqlite in Resources */,
+				8AC10A13222A694F00540B22 /* esther_ru.sqlite in Resources */,
 				8A0B4CB61C8C1E8000747BB4 /* saints_08_ru.txt in Resources */,
+				8AC10A25222A694F00540B22 /* lam_ru.sqlite in Resources */,
 				8AADFF5A1E84C25300CE3D0F /* synaxarion29.rtf in Resources */,
 				8A5457841E70174300A86B5A /* synaxarion20.rtf in Resources */,
 				8A54E3DB202857E900245C31 /* icons.sqlite in Resources */,
 				8A0B4CAD1C8C1E8000747BB4 /* saints_04_ru.sqlite in Resources */,
 				8A5457831E70174300A86B5A /* synaxarion19.rtf in Resources */,
-				8A10D028222942390099639B /* 2chron_ru.sqlite in Resources */,
-				8A10D009222942390099639B /* jer_ru.sqlite in Resources */,
+				8AC10A44222A694F00540B22 /* song_ru.sqlite in Resources */,
 				8A5457811E70174300A86B5A /* synaxarion17.rtf in Resources */,
 				8AB90802216EF7580030F989 /* ChaptersCell.xib in Resources */,
+				8AC10A12222A694F00540B22 /* mark_ru.sqlite in Resources */,
 				8A54577F1E70174300A86B5A /* synaxarion15.rtf in Resources */,
 				8A0B4CB11C8C1E8000747BB4 /* saints_06_ru.sqlite in Resources */,
-				8A10CFF4222942390099639B /* song_ru.sqlite in Resources */,
 				8A1F2C981DD9B0F000F13A3D /* newicon_1024.png in Resources */,
-				8A10D017222942390099639B /* amos_ru.sqlite in Resources */,
-				8A10D024222942390099639B /* 2kings_ru.sqlite in Resources */,
-				8A10CFF9222942390099639B /* nahum_ru.sqlite in Resources */,
 				8A1F2CA51DD9B5C500F13A3D /* Default-568h@2x.png in Resources */,
+				8AC10A1A222A694F00540B22 /* ezek_ru.sqlite in Resources */,
 				8A1F2CB11DD9B80600F13A3D /* landscape2.png in Resources */,
 				8A5457741E70174300A86B5A /* synaxarion4.rtf in Resources */,
 				8AF2497D1AFF308B000070C0 /* sixverse.pdf in Resources */,
+				8AC10A22222A694F00540B22 /* dan_ru.sqlite in Resources */,
+				8AC10A3B222A694F00540B22 /* 2sam_ru.sqlite in Resources */,
+				8AC10A17222A694F00540B22 /* jon_ru.sqlite in Resources */,
 				8AF249791AFF308B000070C0 /* doxology.pdf in Resources */,
+				8AC10A2C222A694F00540B22 /* jer_ru.sqlite in Resources */,
 				8AF2496D1AFF27E0000070C0 /* vigil.pdf in Resources */,
 				8A54577C1E70174300A86B5A /* synaxarion12.rtf in Resources */,
 				8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */,
@@ -1148,148 +1151,145 @@
 				8AE36B2D1C97B228005CAD8D /* food-pizza.pdf in Resources */,
 				8AB0DCA51C27F00400C6A494 /* ReadingJohn.plist in Resources */,
 				8AF2497B1AFF308B000070C0 /* nosign.pdf in Resources */,
-				8A10D008222942390099639B /* joel_ru.sqlite in Resources */,
+				8AC10A31222A694F00540B22 /* mic_ru.sqlite in Resources */,
 				8A54577B1E70174300A86B5A /* synaxarion11.rtf in Resources */,
 				8AC6951A19E3FBC200773FEB /* food-meat.pdf in Resources */,
 				8AB0DC961C27EFEC00C6A494 /* typica_2.plist in Resources */,
 				8AADFF521E84C25300CE3D0F /* synaxarion21.rtf in Resources */,
 				8AC6951919E3FBC200773FEB /* food-fish.pdf in Resources */,
+				8AC10A32222A694F00540B22 /* neh_ru.sqlite in Resources */,
+				8AC10A1C222A694F00540B22 /* col_ru.sqlite in Resources */,
 				8A0B4CB51C8C1E8000747BB4 /* saints_08_ru.sqlite in Resources */,
-				8A10CFFF222942390099639B /* jude_ru.sqlite in Resources */,
 				8AADFF541E84C25300CE3D0F /* synaxarion23.rtf in Resources */,
+				8AC10A34222A694F00540B22 /* james_ru.sqlite in Resources */,
 				8AE718CE1C560C420035CDCE /* fat-left.pdf in Resources */,
+				8AC10A19222A694F00540B22 /* rev_ru.sqlite in Resources */,
 				8A1F2CAE1DD9B77200F13A3D /* landscape1.png in Resources */,
-				8A10D011222942390099639B /* job_ru.sqlite in Resources */,
 				8AF37E5C1B36C7A500101148 /* newicon_87.png in Resources */,
 				8ABAFC491C0B03A9008DB93C /* prayer_typica_0_ru.html in Resources */,
-				8A10D026222942390099639B /* john_ru.sqlite in Resources */,
 				8AE529EB1C8E68FD0082FF65 /* trans_cal_ru.plist in Resources */,
+				8AC10A3A222A694F00540B22 /* isa_ru.sqlite in Resources */,
 				8A0B4CBE1C8C1E8000747BB4 /* saints_12_ru.txt in Resources */,
 				8AADFF551E84C25300CE3D0F /* synaxarion24.rtf in Resources */,
-				8A10D002222942390099639B /* gal_ru.sqlite in Resources */,
 				8A0B4CB81C8C1E8000747BB4 /* saints_09_ru.txt in Resources */,
 				8AADFF5C1E84C25300CE3D0F /* synaxarion31.rtf in Resources */,
 				8A0B4CBB1C8C1E8000747BB4 /* saints_11_ru.sqlite in Resources */,
 				8AE36B2E1C97B228005CAD8D /* food-without-oil.pdf in Resources */,
-				8A10D001222942390099639B /* lev_ru.sqlite in Resources */,
 				8AADFF561E84C25300CE3D0F /* synaxarion25.rtf in Resources */,
 				8A74D816198F20CC0078F39F /* Images.xcassets in Resources */,
 				8A0B4CB21C8C1E8000747BB4 /* saints_06_ru.txt in Resources */,
-				8A10D01C222942390099639B /* 1tim_ru.sqlite in Resources */,
+				8AC10A35222A694F00540B22 /* ezra_ru.sqlite in Resources */,
+				8AC10A1D222A694F00540B22 /* josh_ru.sqlite in Resources */,
+				8AC10A14222A694F00540B22 /* 1chron_ru.sqlite in Resources */,
+				8AC10A33222A694F00540B22 /* 1tim_ru.sqlite in Resources */,
+				8AC10A2D222A694F00540B22 /* mal_ru.sqlite in Resources */,
+				8AC10A0E222A694F00540B22 /* 2cor_ru.sqlite in Resources */,
+				8AC10A1F222A694F00540B22 /* phil_ru.sqlite in Resources */,
+				8AC10A38222A694F00540B22 /* prov_ru.sqlite in Resources */,
 				8AC6951E19E3FBC200773FEB /* food-no-milk.pdf in Resources */,
 				8AC278071C61986000436D51 /* widget.pdf in Resources */,
-				8A10D005222942390099639B /* ezra_ru.sqlite in Resources */,
-				8A10D02D222942390099639B /* judg_ru.sqlite in Resources */,
-				8A10D02C222942390099639B /* hos_ru.sqlite in Resources */,
 				8AB0DCA61C27F00400C6A494 /* ReadingLent.plist in Resources */,
-				8A10D030222942390099639B /* ex_ru.sqlite in Resources */,
-				8A10CFFE222942390099639B /* prov_ru.sqlite in Resources */,
-				8A10CFFB222942390099639B /* 1kings_ru.sqlite in Resources */,
 				8AADFF571E84C25300CE3D0F /* synaxarion26.rtf in Resources */,
 				8AEBFAA31C8D16A30056F97B /* Reading_ru.plist in Resources */,
-				8A10D021222942390099639B /* hab_ru.sqlite in Resources */,
+				8AC10A39222A694F00540B22 /* 1kings_ru.sqlite in Resources */,
 				8A0B4CAB1C8C1E8000747BB4 /* saints_03_ru.sqlite in Resources */,
 				8A54577A1E70174300A86B5A /* synaxarion10.rtf in Resources */,
-				8A10D010222942390099639B /* num_ru.sqlite in Resources */,
-				8A10D027222942390099639B /* rom_ru.sqlite in Resources */,
 				8A0B4CBC1C8C1E8000747BB4 /* saints_11_ru.txt in Resources */,
 				8A0B4CAA1C8C1E8000747BB4 /* saints_02_ru.txt in Resources */,
-				8A10D034222942390099639B /* rev_ru.sqlite in Resources */,
 				8A0B4CB91C8C1E8000747BB4 /* saints_10_ru.sqlite in Resources */,
 				8AF37E581B36C7A500101148 /* newicon_40.png in Resources */,
+				8AC10A16222A694F00540B22 /* hab_ru.sqlite in Resources */,
+				8AC10A1B222A694F00540B22 /* philem_ru.sqlite in Resources */,
 				8AADFF5E1E84C25300CE3D0F /* synaxarion33.rtf in Resources */,
+				8AC10A20222A694F00540B22 /* 3john_ru.sqlite in Resources */,
 				8A5457761E70174300A86B5A /* synaxarion6.rtf in Resources */,
-				8A10D02B222942390099639B /* heb_ru.sqlite in Resources */,
+				8AC10A10222A694F00540B22 /* lev_ru.sqlite in Resources */,
 				8AB0DC981C27EFEC00C6A494 /* typica_4.plist in Resources */,
 				8AC6952419E4011700773FEB /* communion.pdf in Resources */,
 				8AB0DC991C27EFEC00C6A494 /* typica_5.plist in Resources */,
 				8AF37E571B36C7A500101148 /* newicon_29.png in Resources */,
+				8AC10A4A222A694F00540B22 /* judg_ru.sqlite in Resources */,
 				8AC6952619E4011700773FEB /* group.pdf in Resources */,
+				8AC10A27222A694F00540B22 /* tit_ru.sqlite in Resources */,
 				8AB0DC9C1C27EFEC00C6A494 /* typica_8.plist in Resources */,
 				8AB0DC9A1C27EFEC00C6A494 /* typica_6.plist in Resources */,
 				8AF37E5F1B36C7A500101148 /* newicon_180.png in Resources */,
+				8AC10A0D222A694F00540B22 /* john_ru.sqlite in Resources */,
 				8A1F2CA81DD9B5C500F13A3D /* Default@2x.png in Resources */,
 				8AF2497C1AFF308B000070C0 /* polyeleos.pdf in Resources */,
+				8AC10A0F222A694F00540B22 /* matthew_ru.sqlite in Resources */,
 				8AC6950B19E3EDED00773FEB /* food-vegetables.pdf in Resources */,
+				8AC10A11222A694F00540B22 /* 2john_ru.sqlite in Resources */,
 				8A1F2CB41DD9C18600F13A3D /* newicon_167.png in Resources */,
 				8A0B4CB71C8C1E8000747BB4 /* saints_09_ru.sqlite in Resources */,
-				8A10D01E222942390099639B /* 3john_ru.sqlite in Resources */,
-				8A10D025222942390099639B /* eccles_ru.sqlite in Resources */,
+				8AC10A23222A694F00540B22 /* heb_ru.sqlite in Resources */,
 				8A8D2FB51FBC458C00A54147 /* DateViewCell.xib in Resources */,
 				8A5457701E70174300A86B5A /* church_history.rtf in Resources */,
 				8AC6952719E4011700773FEB /* library.pdf in Resources */,
+				8AC10A28222A694F00540B22 /* deut_ru.sqlite in Resources */,
+				8AC10A2A222A694F00540B22 /* 2tim_ru.sqlite in Resources */,
+				8AC10A3C222A694F00540B22 /* 2kings_ru.sqlite in Resources */,
 				8A5457721E70174300A86B5A /* synaxarion2.rtf in Resources */,
 				8AF37E5D1B36C7A500101148 /* newicon_120.png in Resources */,
-				8A10CFF8222942390099639B /* philem_ru.sqlite in Resources */,
 				8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */,
-				8A10CFF6222942390099639B /* mal_ru.sqlite in Resources */,
-				8A10D00F222942390099639B /* 1pet_ru.sqlite in Resources */,
 				8A76870D1EB72A6E000F7533 /* YearlyMonthViewCell.xib in Resources */,
 				8A0B4CB41C8C1E8000747BB4 /* saints_07_ru.txt in Resources */,
 				8AF37E5E1B36C7A500101148 /* newicon_152.png in Resources */,
 				8AC6951819E3FBC200773FEB /* food-cupcake.pdf in Resources */,
-				8A10D016222942390099639B /* col_ru.sqlite in Resources */,
 				8AB0DC951C27EFEC00C6A494 /* typica_1.plist in Resources */,
 				8AC6951D19E3FBC200773FEB /* food-no-meat.pdf in Resources */,
-				8A10D012222942390099639B /* 1chron_ru.sqlite in Resources */,
+				8AC10A40222A694F00540B22 /* jude_ru.sqlite in Resources */,
 				8A13C90221917AB700D0CE7E /* play.pdf in Resources */,
 				8AE529E41C8E63710082FF65 /* trans_library_ru.plist in Resources */,
-				8A10D02F222942390099639B /* james_ru.sqlite in Resources */,
 				8AC6951C19E3FBC200773FEB /* food-no-fish.pdf in Resources */,
+				8AC10A1E222A694F00540B22 /* 1john_ru.sqlite in Resources */,
 				8AADFF6E1E84F28900CE3D0F /* feofan.sqlite in Resources */,
-				8A10D019222942390099639B /* mic_ru.sqlite in Resources */,
+				8AC10A2F222A694F00540B22 /* 2chron_ru.sqlite in Resources */,
+				8AC10A21222A694F00540B22 /* joel_ru.sqlite in Resources */,
 				8AE36B2C1C97B228005CAD8D /* food-nothing.pdf in Resources */,
+				8AC10A26222A694F00540B22 /* 1cor_ru.sqlite in Resources */,
 				8A1B2575202955A60038C0C4 /* icons in Resources */,
 				8A1F2CA71DD9B5C500F13A3D /* Default-736@2x.png in Resources */,
-				8A10D007222942390099639B /* obad_ru.sqlite in Resources */,
 				8AB0DC9B1C27EFEC00C6A494 /* typica_7.plist in Resources */,
 				8A5457771E70174300A86B5A /* synaxarion7.rtf in Resources */,
-				8A10D004222942390099639B /* acts_ru.sqlite in Resources */,
 				8AF37E5B1B36C7A500101148 /* newicon_80.png in Resources */,
+				8AC10A30222A694F00540B22 /* ex_ru.sqlite in Resources */,
 				8AC6951F19E3FBC200773FEB /* food-nuts.pdf in Resources */,
 				8AC6952519E4011700773FEB /* daily.pdf in Resources */,
-				8A10D01B222942390099639B /* deut_ru.sqlite in Resources */,
-				8A10CFFA222942390099639B /* mark_ru.sqlite in Resources */,
+				8AC10A2E222A694F00540B22 /* ruth_ru.sqlite in Resources */,
+				8AC10A29222A694F00540B22 /* eccles_ru.sqlite in Resources */,
+				8AC10A24222A694F00540B22 /* 1sam_ru.sqlite in Resources */,
+				8AC10A2B222A694F00540B22 /* 1pet_ru.sqlite in Resources */,
+				8AC10A4B222A694F00540B22 /* zech_ru.sqlite in Resources */,
 				8A56078B219AD3A8006E52F2 /* review.pdf in Resources */,
+				8AC10A15222A694F00540B22 /* rom_ru.sqlite in Resources */,
 				8AADFF581E84C25300CE3D0F /* synaxarion27.rtf in Resources */,
+				8AC10A36222A694F00540B22 /* gal_ru.sqlite in Resources */,
 				8A0B4CA81C8C1E8000747BB4 /* saints_01_ru.txt in Resources */,
 				8AC6951719E3FBC200773FEB /* food-cheese.pdf in Resources */,
-				8A10D00D222942390099639B /* 1sam_ru.sqlite in Resources */,
 				8A5457821E70174300A86B5A /* synaxarion18.rtf in Resources */,
-				8A10D006222942390099639B /* 2cor_ru.sqlite in Resources */,
-				8A10D014222942390099639B /* gen_ru.sqlite in Resources */,
-				8A10D031222942390099639B /* 2pet_ru.sqlite in Resources */,
+				8AC10A37222A694F00540B22 /* obad_ru.sqlite in Resources */,
 				8AE718D51C560CC30035CDCE /* fat-right.pdf in Resources */,
-				8A10D02A222942390099639B /* zeph_ru.sqlite in Resources */,
 				8A1F2CA61DD9B5C500F13A3D /* Default-667h@2x.png in Resources */,
 				8AB0DCA71C27F00400C6A494 /* ReadingLuke.plist in Resources */,
 				8A5457781E70174300A86B5A /* synaxarion8.rtf in Resources */,
 				8A13C90121917AB700D0CE7E /* pause.pdf in Resources */,
-				8A10D00B222942390099639B /* zech_ru.sqlite in Resources */,
 				8A13C8FE219172E500D0CE7E /* AudioPlayerCell.xib in Resources */,
 				8AB0DCA41C27F00400C6A494 /* ReadingApostle.plist in Resources */,
-				8A10CFFC222942390099639B /* phil_ru.sqlite in Resources */,
+				8AC10A3F222A694F00540B22 /* 2pet_ru.sqlite in Resources */,
 				8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */,
-				8A10D033222942390099639B /* 1cor_ru.sqlite in Resources */,
-				8A10D029222942390099639B /* luke_ru.sqlite in Resources */,
 				8A0B4CB31C8C1E8000747BB4 /* saints_07_ru.sqlite in Resources */,
+				8AC10A48222A694F00540B22 /* job_ru.sqlite in Resources */,
+				8AC10A18222A694F00540B22 /* hag_ru.sqlite in Resources */,
 				8AADFF531E84C25300CE3D0F /* synaxarion22.rtf in Resources */,
 				8AF2497A1AFF308B000070C0 /* great.pdf in Resources */,
-				8A10D00E222942390099639B /* matthew_ru.sqlite in Resources */,
-				8A10D003222942390099639B /* hag_ru.sqlite in Resources */,
-				8A10D018222942390099639B /* neh_ru.sqlite in Resources */,
 				8A1F2CB21DD9B80600F13A3D /* landscape3.png in Resources */,
 				8AEA68321C8FFA9F009E9FD8 /* trans_ui_ru.plist in Resources */,
 				8A5457801E70174300A86B5A /* synaxarion16.rtf in Resources */,
-				8A10D023222942390099639B /* 2thess_ru.sqlite in Resources */,
 				8AE36B2F1C97B228005CAD8D /* food-xerography.pdf in Resources */,
 				8AB0DCA81C27F00400C6A494 /* ReadingMatthew.plist in Resources */,
 				8A0B4CA71C8C1E8000747BB4 /* saints_01_ru.sqlite in Resources */,
-				8A10D01F222942390099639B /* 2sam_ru.sqlite in Resources */,
-				8A10CFF5222942390099639B /* 1john_ru.sqlite in Resources */,
-				8A10D00A222942390099639B /* 2john_ru.sqlite in Resources */,
 				8A1F8286202AA7EC0010C02F /* iPhoneX-Portrait.png in Resources */,
-				8A10D01A222942390099639B /* ruth_ru.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
