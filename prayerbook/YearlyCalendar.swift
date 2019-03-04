@@ -169,7 +169,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         textView.backgroundColor = .clear
         textView.isScrollEnabled = true
         textView.isPagingEnabled = false
-        textView.bounces = false
+        textView.bounces = true
         textView.isEditable = false
         
         view.addSubview(textView)
@@ -222,6 +222,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         gridButton = UIBarButtonItem(image: UIImage(named: "grid", in: nil, compatibleWith: nil), style: .plain, target: self, action: #selector(switchView))
         
         navigationController?.makeTransparent()
+        automaticallyAdjustsScrollViewInsets = false
         
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor
