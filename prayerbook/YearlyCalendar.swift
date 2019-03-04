@@ -61,6 +61,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     var textView : UITextView!
     var textViewSize : CGSize!
     var feasts : NSAttributedString!
+    var con : [NSLayoutConstraint]!
     
     var shareButton, listButton, gridButton :UIBarButtonItem!
     
@@ -104,24 +105,11 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
             YC.config = YC.iPadConfig
         }
 
-        createFeastList()
-        createHeaderViews()
-
         setupNavbar()
-        
-        collectionView.register(UINib(nibName: "YearlyMonthViewCell", bundle: nil), forCellWithReuseIdentifier: YearlyMonthViewCell.cellId)
 
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.backgroundColor = .clear
-        
-        let layout =  TopAlignedCollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets.init(top: YC.config.insets, left: YC.config.insets, bottom: YC.config.insets, right: YC.config.insets)
-        layout.minimumInteritemSpacing = YC.config.interitemSpacing
-        layout.minimumLineSpacing = YC.config.lineSpacing
-        
-        collectionView.collectionViewLayout  = layout
-        collectionView.reloadData()
+        setupGrid()
+        setupList()
+        setupView()
     }
     
     func addFeasts(_ title: String, _ data : [Date: NSAttributedString]) {
@@ -136,9 +124,10 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         FL.sharing = sharing
         FL.setDate(Date(1, 1, year))
 
-        feasts = "Посты и праздники в \(year) г.\n\n".colored(with: FL.textFontColor).boldFont(ofSize: 20.0).centered +
+        feasts = "Посты и праздники в \(year) г.\n\n".colored(with: FL.textFontColor) .boldFont(ofSize: 20.0).centered
+            +
             FL.makeFeastStr(code: .pascha, color: UIColor.red) +
-            "\n"
+        "\n"
         
         addFeasts("Многодневные посты\n", FL.longFasts)
         addFeasts("Однодневные посты\n", FL.shortFasts)
@@ -150,12 +139,32 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         addFeasts("Дни особого поминовения усопших\n", FL.remembrance)
         
         feasts = feasts + "Суббота 2-й, 3-й и 4-й седмицы Великого поста\n\n".colored(with: FL.textFontColor).systemFont(ofSize: FL.textFontSize)
-
     }
     
-    func createHeaderViews() {
-        let margin = CGFloat(10.0)
+    func setupGrid() {
+        headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
+        headerLabel.textAlignment = .center
+        headerLabel.text = "Православный календарь на \(year) г."
+        headerLabel.textColor = YearlyCalendar.isSharing ? .black : Theme.textColor
         
+        collectionView.register(UINib(nibName: "YearlyMonthViewCell", bundle: nil), forCellWithReuseIdentifier: YearlyMonthViewCell.cellId)
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.backgroundColor = .clear
+        
+        let layout =  TopAlignedCollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets.init(top: YC.config.insets, left: YC.config.insets, bottom: YC.config.insets, right: YC.config.insets)
+        layout.minimumInteritemSpacing = YC.config.interitemSpacing
+        layout.minimumLineSpacing = YC.config.lineSpacing
+        
+        collectionView.collectionViewLayout  = layout
+        collectionView.reloadData()
+    }
+    
+    func setupList() {
+        createFeastList()
+
         textView =  UITextView(frame: .zero)
         textView.backgroundColor = .clear
         textView.isScrollEnabled = true
@@ -163,16 +172,41 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         textView.bounces = false
         textView.isEditable = false
         
-        textView.attributedText = feasts
+        view.addSubview(textView)
+        
         textView.translatesAutoresizingMaskIntoConstraints = false
         
-        textViewSize = textView.sizeThatFits(CGSize(width: view.frame.width-2*margin, height: CGFloat.greatestFiniteMagnitude))
-        textView.frame = CGRect(origin: CGPoint(x: margin, y: 0), size: textViewSize)
+        if #available(iOS 11.0, *) {
+            let guide = self.view.safeAreaLayoutGuide
+            con = [
+                textView.topAnchor.constraint(equalTo: guide.topAnchor),
+                textView.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
+                textView.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 10),
+                textView.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -10)
+            ]
+        } else {
+            con = [
+                textView.topAnchor.constraint(equalTo: view.topAnchor, constant: navigationController!.navigationBar.frame.height + UIApplication.shared.statusBarFrame.height),
+                textView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+                textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
+            ]
+        }
+    }
+    
+    func setupView() {
+        if (YC.viewType == .list) {
+            navigationItem.rightBarButtonItems = [shareButton, gridButton]
+            textView.attributedText = feasts
+            NSLayoutConstraint.activate(con)
+            
+        } else {
+            navigationItem.rightBarButtonItems = [shareButton, listButton]
+            textView.attributedText = NSAttributedString(string: "")
+            NSLayoutConstraint.deactivate(con)
+        }
         
-        headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        headerLabel.textAlignment = .center
-        headerLabel.text = "Православный календарь на \(year) г."
-        headerLabel.textColor = YearlyCalendar.isSharing ? .black : Theme.textColor
+        collectionView.reloadData()
     }
     
     func setupNavbar() {
@@ -187,15 +221,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         
         gridButton = UIBarButtonItem(image: UIImage(named: "grid", in: nil, compatibleWith: nil), style: .plain, target: self, action: #selector(switchView))
         
-        if (YC.viewType == .grid) {
-            navigationItem.rightBarButtonItems = [shareButton, listButton]
-
-        } else {
-            navigationItem.rightBarButtonItems = [shareButton, gridButton]
-        }
-        
         navigationController?.makeTransparent()
-        automaticallyAdjustsScrollViewInsets = false
         
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor
@@ -203,11 +229,6 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         } else {
             view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view,  bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        collectionView.contentInset.top = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -218,16 +239,15 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     }
    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return YC.viewType == .grid ? 2 : 1
+        return YC.viewType == .grid ? 2 : 0
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return YC.viewType == .grid ? 12 : 0
+            return 12
             
         } else if section == 1 {
             return (FastingLevel() == .monastic) ? Cal.fastingMonastic.count : Cal.fastingLaymen.count
-        
         }
         
         return 0
@@ -273,22 +293,15 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath as IndexPath)
         
         headerLabel.removeFromSuperview()
-        textView.removeFromSuperview()
-        
-        if YC.viewType == .grid {
-            headerView.addSubview(headerLabel)
-            
-        } else {
-            headerView.addSubview(textView)
-        }
+        headerView.addSubview(headerLabel)
         
         return headerView
     }
     
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        if section == 0 {
-            return YC.viewType == .grid ? CGSize(width: 0, height: 50) : textViewSize
+        if section == 0  {
+            return CGSize(width: 0, height: 50)
         } else {
             return CGSize(width: 0, height: 0)
         }
@@ -299,16 +312,8 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     }
     
     @objc func switchView() {
-        if (YC.viewType == .grid) {
-            YC.viewType = .list
-            navigationItem.rightBarButtonItems = [shareButton, gridButton]
-
-        } else {
-            YC.viewType = .grid
-            navigationItem.rightBarButtonItems = [shareButton, listButton]
-        }
-        
-        collectionView.reloadData()
+        YC.viewType = (YC.viewType == .grid) ? .list : .grid
+        setupView()
     }
     
     func convertPDFPageToImage() -> UIImage {
