@@ -97,7 +97,7 @@
 		8A5457831E70174300A86B5A /* synaxarion19.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54576E1E70174300A86B5A /* synaxarion19.rtf */; };
 		8A5457841E70174300A86B5A /* synaxarion20.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54576F1E70174300A86B5A /* synaxarion20.rtf */; };
 		8A54C42A1EA74CE90083AA2F /* DailyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C4291EA74CE90083AA2F /* DailyTab.swift */; };
-		8A54C42C1EA760E30083AA2F /* BibleIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C42B1EA760E30083AA2F /* BibleIndex.swift */; };
+		8A54C42C1EA760E30083AA2F /* BookTOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C42B1EA760E30083AA2F /* BookTOC.swift */; };
 		8A54E3DB202857E900245C31 /* icons.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A54E3DA202857E900245C31 /* icons.sqlite */; };
 		8A54E3DD2028637E00245C31 /* SaintIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54E3DC2028637E00245C31 /* SaintIconModel.swift */; };
 		8A560789219AC51C006E52F2 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A560788219AC51C006E52F2 /* Squeal.framework */; };
@@ -118,6 +118,7 @@
 		8A8D2FB51FBC458C00A54147 /* DateViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */; };
 		8A8D2FB61FBC458C00A54147 /* DateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */; };
 		8A953B371DC736C2001062AF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A953B361DC736C2001062AF /* MainViewController.swift */; };
+		8A96719C2230C1900086CBA6 /* BibleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A96719B2230C1900086CBA6 /* BibleModel.swift */; };
 		8AADFF521E84C25300CE3D0F /* synaxarion21.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF441E84C25300CE3D0F /* synaxarion21.rtf */; };
 		8AADFF531E84C25300CE3D0F /* synaxarion22.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF451E84C25300CE3D0F /* synaxarion22.rtf */; };
 		8AADFF541E84C25300CE3D0F /* synaxarion23.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF461E84C25300CE3D0F /* synaxarion23.rtf */; };
@@ -403,7 +404,7 @@
 		8A54576E1E70174300A86B5A /* synaxarion19.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion19.rtf; sourceTree = "<group>"; };
 		8A54576F1E70174300A86B5A /* synaxarion20.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion20.rtf; sourceTree = "<group>"; };
 		8A54C4291EA74CE90083AA2F /* DailyTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab.swift; sourceTree = "<group>"; };
-		8A54C42B1EA760E30083AA2F /* BibleIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleIndex.swift; sourceTree = "<group>"; };
+		8A54C42B1EA760E30083AA2F /* BookTOC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTOC.swift; sourceTree = "<group>"; };
 		8A54E3DA202857E900245C31 /* icons.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.sqlite; sourceTree = "<group>"; };
 		8A54E3DC2028637E00245C31 /* SaintIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintIconModel.swift; sourceTree = "<group>"; };
 		8A560788219AC51C006E52F2 /* Squeal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Squeal.framework; path = Carthage/Build/iOS/Squeal.framework; sourceTree = "<group>"; };
@@ -427,6 +428,7 @@
 		8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateViewCell.xib; sourceTree = "<group>"; };
 		8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewCell.swift; sourceTree = "<group>"; };
 		8A953B361DC736C2001062AF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8A96719B2230C1900086CBA6 /* BibleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleModel.swift; sourceTree = "<group>"; };
 		8A9A36D81CAD127400D33D5A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8AADFF441E84C25300CE3D0F /* synaxarion21.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion21.rtf; sourceTree = "<group>"; };
 		8AADFF451E84C25300CE3D0F /* synaxarion22.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion22.rtf; sourceTree = "<group>"; };
@@ -684,7 +686,8 @@
 				8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */,
 				8A54C4291EA74CE90083AA2F /* DailyTab.swift */,
 				8A0689F8221FF8A600F1E711 /* LibraryTab.swift */,
-				8A54C42B1EA760E30083AA2F /* BibleIndex.swift */,
+				8A54C42B1EA760E30083AA2F /* BookTOC.swift */,
+				8A96719B2230C1900086CBA6 /* BibleModel.swift */,
 				8AB907FF216EF7580030F989 /* ChaptersCell.swift */,
 				8AB90800216EF7580030F989 /* ChaptersCell.xib */,
 				8A1B2576202956840038C0C4 /* SaintIconView.swift */,
@@ -1378,10 +1381,11 @@
 				8A0689F9221FF8A600F1E711 /* LibraryTab.swift in Sources */,
 				8A76870C1EB72A6E000F7533 /* YearlyMonthViewCell.swift in Sources */,
 				8A01E42221956295005BE65F /* TroparionModel.swift in Sources */,
+				8A96719C2230C1900086CBA6 /* BibleModel.swift in Sources */,
 				8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
-				8A54C42C1EA760E30083AA2F /* BibleIndex.swift in Sources */,
+				8A54C42C1EA760E30083AA2F /* BookTOC.swift in Sources */,
 				8A8D2FB61FBC458C00A54147 /* DateViewCell.swift in Sources */,
 				8A54E3DD2028637E00245C31 /* SaintIconModel.swift in Sources */,
 				8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */,

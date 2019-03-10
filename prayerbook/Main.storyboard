@@ -314,10 +314,10 @@
             </objects>
             <point key="canvasLocation" x="1636" y="254"/>
         </scene>
-        <!--Bible Index-->
+        <!--BookTOC-->
         <scene sceneID="ZIP-z4-SQb">
             <objects>
-                <viewController storyboardIdentifier="Bible" automaticallyAdjustsScrollViewInsets="NO" id="z2q-jG-b8G" customClass="BibleIndex" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookTOC" automaticallyAdjustsScrollViewInsets="NO" id="z2q-jG-b8G" customClass="BookTOC" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vBB-tq-4Ca"/>
                         <viewControllerLayoutGuide type="bottom" id="MIx-55-dgB"/>

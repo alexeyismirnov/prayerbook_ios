@@ -73,8 +73,9 @@ class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        let bible = UIViewController.named("Bible") as! BibleIndex
-        bible.type = (indexPath.row == 0) ? .Old : .New
+        let bible = UIViewController.named("BookTOC") as! BookTOC
+        bible.model = (indexPath.row == 0) ? OldTestamentModel.shared : NewTestamentModel.shared
+        bible.expandable = true
         navigationController?.pushViewController(bible, animated: true)
 
         return nil

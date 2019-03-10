@@ -137,7 +137,7 @@ class Scripture: UIViewController {
             var chapter: Int = 0
             
             let fileName = pericope[i].lowercased()
-            let bookTuple = (NewTestament+OldTestament).flatMap { $0.filter { $0.1 == fileName } }
+            let bookTuple = (NewTestamentModel.data+OldTestamentModel.data).flatMap { $0.filter { $0.1 == fileName } }
             
             var bookName = NSAttributedString()
             var text = NSAttributedString()
