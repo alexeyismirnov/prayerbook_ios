@@ -1,5 +1,5 @@
 github "alexeyismirnov/swift-toolkit"  
 github "marmelroy/Zip"
 github "ashleymills/Reachability.swift"
-github "nerdyc/Squeal"
+github "nerdyc/Squeal" "master"
 
