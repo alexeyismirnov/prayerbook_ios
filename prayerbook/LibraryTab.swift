@@ -11,7 +11,9 @@ import swift_toolkit
 
 class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, ResizableTableViewCells  {
 
-    let bookTitles = ["Old Testament", "New Testament"]
+    let books : [(String, BookModel)] = [("Old Testament", OldTestamentModel.shared),
+                                         ("New Testament", NewTestamentModel.shared),
+                                         ("Божественная Литургия свт. Иоанна Златоуста", LiturgyModel.shared)]
     
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     
@@ -53,7 +55,7 @@ class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return books.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
@@ -61,7 +63,7 @@ class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         cell.backgroundColor = .clear
         cell.title.textColor =  Theme.textColor
-        cell.title.text = Translate.s(bookTitles[indexPath.row])
+        cell.title.text = Translate.s(books[indexPath.row].0)
         cell.subtitle.text = ""
         
         return cell
@@ -73,13 +75,11 @@ class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        let bible = UIViewController.named("BookTOC") as! BookTOC
-        bible.model = (indexPath.row == 0) ? OldTestamentModel.shared : NewTestamentModel.shared
-        bible.expandable = true
-        navigationController?.pushViewController(bible, animated: true)
+        let toc = UIViewController.named("BookTOC") as! BookTOC
+        toc.model = books[indexPath.row].1
+        navigationController?.pushViewController(toc, animated: true)
 
         return nil
     }
-    
     
 }

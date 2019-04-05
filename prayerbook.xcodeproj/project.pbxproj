@@ -117,6 +117,9 @@
 		8A8753F41FC429C400C857DE /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8753F51FC429C400C857DE /* Squeal.framework */; };
 		8A8D2FB51FBC458C00A54147 /* DateViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */; };
 		8A8D2FB61FBC458C00A54147 /* DateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */; };
+		8A916D8522575870003FEF70 /* WebDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A916D8422575870003FEF70 /* WebDocument.swift */; };
+		8A916D8722575EA7003FEF70 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A916D8622575EA7003FEF70 /* WebKit.framework */; };
+		8A916D8922576C34003FEF70 /* LiturgyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A916D8822576C34003FEF70 /* LiturgyModel.swift */; };
 		8A953B371DC736C2001062AF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A953B361DC736C2001062AF /* MainViewController.swift */; };
 		8A96719C2230C1900086CBA6 /* BibleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A96719B2230C1900086CBA6 /* BibleModel.swift */; };
 		8AADFF521E84C25300CE3D0F /* synaxarion21.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF441E84C25300CE3D0F /* synaxarion21.rtf */; };
@@ -427,6 +430,9 @@
 		8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = swift_toolkit.framework; path = Carthage/Build/iOS/swift_toolkit.framework; sourceTree = "<group>"; };
 		8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateViewCell.xib; sourceTree = "<group>"; };
 		8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewCell.swift; sourceTree = "<group>"; };
+		8A916D8422575870003FEF70 /* WebDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebDocument.swift; sourceTree = "<group>"; };
+		8A916D8622575EA7003FEF70 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		8A916D8822576C34003FEF70 /* LiturgyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiturgyModel.swift; sourceTree = "<group>"; };
 		8A953B361DC736C2001062AF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8A96719B2230C1900086CBA6 /* BibleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleModel.swift; sourceTree = "<group>"; };
 		8A9A36D81CAD127400D33D5A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -595,6 +601,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A916D8722575EA7003FEF70 /* WebKit.framework in Frameworks */,
 				8A61BBAD20246903003AA1BF /* Chameleon.framework in Frameworks */,
 				8A560789219AC51C006E52F2 /* Squeal.framework in Frameworks */,
 				8A01E42A21957F60005BE65F /* Zip.framework in Frameworks */,
@@ -643,6 +650,7 @@
 		8A74D7F9198F20CC0078F39F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A916D8622575EA7003FEF70 /* WebKit.framework */,
 				8A560788219AC51C006E52F2 /* Squeal.framework */,
 				8A01E42921957F60005BE65F /* Zip.framework */,
 				8A01E42721957F59005BE65F /* Reachability.framework */,
@@ -688,6 +696,7 @@
 				8A0689F8221FF8A600F1E711 /* LibraryTab.swift */,
 				8A54C42B1EA760E30083AA2F /* BookTOC.swift */,
 				8A96719B2230C1900086CBA6 /* BibleModel.swift */,
+				8A916D8822576C34003FEF70 /* LiturgyModel.swift */,
 				8AB907FF216EF7580030F989 /* ChaptersCell.swift */,
 				8AB90800216EF7580030F989 /* ChaptersCell.xib */,
 				8A1B2576202956840038C0C4 /* SaintIconView.swift */,
@@ -696,6 +705,7 @@
 				8AEA68381C90028B009E9FD8 /* Prayer.swift */,
 				8A54574F1E6FD13500A86B5A /* RTFDocument.swift */,
 				8AEFC27A1A2C747700BAACE0 /* Scripture.swift */,
+				8A916D8422575870003FEF70 /* WebDocument.swift */,
 				8A13C8FB219172E500D0CE7E /* AudioPlayerCell.swift */,
 				8A13C8FC219172E500D0CE7E /* AudioPlayerCell.xib */,
 				8A01E42421957BD8005BE65F /* DownloadManager.swift */,
@@ -1068,6 +1078,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				Base,
 			);
 			mainGroup = 8A74D7EE198F20CC0078F39F;
@@ -1366,6 +1377,7 @@
 				8A01E42621957BD8005BE65F /* DownloadManager.swift in Sources */,
 				8AE46EFE1EA9A6F900CAC1CB /* CalendarInfo.swift in Sources */,
 				8A24885E1EB0948A006877D8 /* YearlyCalendar.swift in Sources */,
+				8A916D8522575870003FEF70 /* WebDocument.swift in Sources */,
 				8A6684FC2178834700C19C04 /* TopAlignedCollection.swift in Sources */,
 				8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */,
 				8AB90801216EF7580030F989 /* ChaptersCell.swift in Sources */,
@@ -1384,6 +1396,7 @@
 				8A96719C2230C1900086CBA6 /* BibleModel.swift in Sources */,
 				8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
+				8A916D8922576C34003FEF70 /* LiturgyModel.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
 				8A54C42C1EA760E30083AA2F /* BookTOC.swift in Sources */,
 				8A8D2FB61FBC458C00A54147 /* DateViewCell.swift in Sources */,

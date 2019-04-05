@@ -4,40 +4,7 @@ from rtfw import *
 from bs4 import BeautifulSoup
 import re
 import urllib2
-
-def MakeExample1():
-    doc = Document()
-    ss = doc.StyleSheet
-    section = Section()
-    doc.Sections.append(section)
-
-    #    text can be added directly to the section
-    #    a paragraph object is create as needed
-    section.append('Example 1')
-
-    #    blank paragraphs are just empty strings
-    section.append('')
-
-    tps = TextPropertySet(colour=ss.Colours.Red)
-
-    p = Paragraph()
-    p.append(
-        'It is also possible to provide overrides for element of a style. ',
-        'For example I can change just the font ',
-        TEXT('italic', italic=True), ' or ',
-        TEXT('typeface', font=ss.Fonts.Impact), '.')
-
-    p.append('This next word should be in ', Text('RED', tps))
-    section.append(p)
-
-    return doc
-
-def OpenFile(name):
-    return open('%s.rtf' % name, 'w')
-
-# DR = Renderer()
-# doc1 = MakeExample1()
-# DR.Write(doc1, OpenFile('1'))
+import sqlite3 as lite
 
 page = urllib2.urlopen("https://azbyka.ru/library/bozhestvennaja-liturgija.shtml").read()
 soup = BeautifulSoup(page, "html.parser")
@@ -45,37 +12,46 @@ soup = BeautifulSoup(page, "html.parser")
 for br in soup.find_all("br"):
     br.replace_with("\n")
 
-num = 1
-while True:
-    h = soup.find("td", {"id": "header%d" % num})
-    if h == None:
-        break
+with lite.connect("liturgy.sqlite") as con:
+    cur = con.cursor()
+    cur.execute("DROP TABLE IF EXISTS content")
+    cur.execute("CREATE TABLE content(section INT,row INT, author TEXT, text TEXT)")
 
-    [s.extract() for s in h.findAll("span", {"class": "arrow"})]
+    section = 1
+    while True:
+        h = soup.find("td", {"id": "header%d" % section})
+        if h == None:
+            break
 
-    print "\n" + h.getText().strip() + "\n"
+        [s.extract() for s in h.findAll("span", {"class": "arrow"})]
 
-    for row in soup.findAll("tr", {"id": "header%d" % num}):
-        data = row.find_all("td")
+        print "\"%s\"," % h.getText().strip()
 
-        if len(data) < 2:
-            continue
+        num = 1
+        for row in soup.findAll("tr", {"id": "header%d" % section}):
+            data = row.find_all("td")
 
-        author = data[0]
-        content = data[1]
+            if len(data) < 2:
+                continue
 
-        print author.getText().strip()
+            content = data[1]
 
-        [s.extract() for s in content.findAll("p", {"class": "mistery"})]
-        [s.extract() for s in content.findAll("span", {"class": "arrow"})]
+#            if len(data) == 3:
+#                comment = data[2]
+#                if comment.has_key("rowspan"):
+#                    print(comment["rowspan"])
+#                    print comment.getText()
 
-        txt = re.sub(' +', ' ', content.getText()).strip()
-        txt = re.sub(r'^\s*$\n', '', txt, flags=re.MULTILINE)
-        txt = re.sub(r'^ +', '', txt, flags=re.MULTILINE)
+            author = data[0].getText().strip()
 
-        print txt
+            [s.extract() for s in content.findAll("p", {"class": "mistery"})]
+            [s.extract() for s in content.findAll("span", {"class": "arrow"})]
 
-    num += 1
+            txt = re.sub(' +', ' ', content.getText()).strip()
+            txt = re.sub(r'^\s*$\n', '', txt, flags=re.MULTILINE)
+            txt = re.sub(r'^ +', '', txt, flags=re.MULTILINE)
 
+            cur.execute("INSERT INTO content VALUES(%d, %d, \"%s\", \"%s\")" % (section, num, author, txt))
+            num += 1
 
-# for table in soup.find_all("table", {"class": "table"}):
+        section += 1

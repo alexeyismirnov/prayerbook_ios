@@ -86,6 +86,7 @@ class OldTestamentModel : BookModel {
         return vc
     }
     
+    func isExpandable() -> Bool { return true; }
 }
 
 class NewTestamentModel : BookModel {
@@ -153,5 +154,6 @@ class NewTestamentModel : BookModel {
         return vc
     }
     
+    func isExpandable() -> Bool { return true; }
 }
 

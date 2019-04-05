@@ -9,12 +9,6 @@
 import UIKit
 import swift_toolkit
 
-extension UITextView {
-    func increaseFontSize () {
-        self.font =  UIFont(name: (self.font?.fontName)!, size: (self.font?.pointSize)!+1)!
-    }
-}
-
 class RTFDocument: UIViewController {
 
     @IBOutlet weak var textView: UITextView!

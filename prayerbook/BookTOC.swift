@@ -13,6 +13,8 @@ protocol BookModel {
     func getTitle() -> String
     func getSections() -> [String]
     func getItems(_ section : Int) -> [String]
+    
+    func isExpandable() -> Bool
     func getNumChapters(_ index : IndexPath) -> Int
     
     func getVC(index : IndexPath, chapter : Int) -> UIViewController
@@ -29,13 +31,15 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        expandable = model.isExpandable()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.contentInset = UIEdgeInsets(top: -30, left: 0, bottom: 0, right: 0)
         
         tableView.register(UINib(nibName: "ChaptersCell", bundle: nil), forCellReuseIdentifier: "ChaptersCell")
-        tableView.register(UINib(nibName: "TextCell", bundle: toolkit), forCellReuseIdentifier: "TextCell")
+        tableView.register(UINib(nibName: "TextCell", bundle: toolkit), forCellReuseIdentifier: TextCell.cellId)
         
         automaticallyAdjustsScrollViewInsets = false
         navigationController?.makeTransparent()
@@ -137,8 +141,12 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
             
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: TextCell.cellId) as! TextCell
-            return cell
+            let newCell = tableView.dequeueReusableCell(withIdentifier: TextCell.cellId) as! TextCell
+            newCell.backgroundColor = .clear
+            newCell.title.textColor =  Theme.textColor
+            newCell.title.text = Translate.s(model.getItems(section)[indexPath.row])
+            
+            return newCell
         }
 
     }
