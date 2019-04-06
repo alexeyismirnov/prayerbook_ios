@@ -5,12 +5,18 @@ from bs4 import BeautifulSoup
 import re
 import urllib2
 import sqlite3 as lite
+import unidecode
+import unicodedata
+
+def remove_accents(input_str):
+    nfkd_form = unicodedata.normalize('NFKD', input_str)
+    return u"".join([c for c in nfkd_form if not unicodedata.combining(c)])
 
 page = urllib2.urlopen("https://azbyka.ru/library/bozhestvennaja-liturgija.shtml").read()
 soup = BeautifulSoup(page, "html.parser")
 
-for br in soup.find_all("br"):
-    br.replace_with("\n")
+#for br in soup.find_all("br"):
+#    br.replace_with("\n")
 
 with lite.connect("liturgy.sqlite") as con:
     cur = con.cursor()
@@ -25,7 +31,9 @@ with lite.connect("liturgy.sqlite") as con:
 
         [s.extract() for s in h.findAll("span", {"class": "arrow"})]
 
-        print "\"%s\"," % h.getText().strip()
+        title = remove_accents(h.getText().strip())
+
+        print "\"%s\"," % title
 
         num = 1
         for row in soup.findAll("tr", {"id": "header%d" % section}):

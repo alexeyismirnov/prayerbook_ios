@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A008FF62258A7B100A9636B /* liturgy.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A008FF52258A7B100A9636B /* liturgy.sqlite */; };
 		8A01E42221956295005BE65F /* TroparionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A01E42121956295005BE65F /* TroparionModel.swift */; };
 		8A01E42621957BD8005BE65F /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A01E42421957BD8005BE65F /* DownloadManager.swift */; };
 		8A01E42821957F59005BE65F /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A01E42721957F59005BE65F /* Reachability.framework */; };
@@ -315,6 +316,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8A008FF52258A7B100A9636B /* liturgy.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = liturgy.sqlite; sourceTree = "<group>"; };
 		8A01E42121956295005BE65F /* TroparionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroparionModel.swift; sourceTree = "<group>"; };
 		8A01E42421957BD8005BE65F /* DownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		8A01E42721957F59005BE65F /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
@@ -627,6 +629,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A008FF22258A71400A9636B /* books */ = {
+			isa = PBXGroup;
+			children = (
+				8A008FF52258A7B100A9636B /* liturgy.sqlite */,
+			);
+			path = books;
+			sourceTree = "<group>";
+		};
 		8A74D7EE198F20CC0078F39F = {
 			isa = PBXGroup;
 			children = (
@@ -675,6 +685,7 @@
 		8A74D800198F20CC0078F39F /* prayerbook */ = {
 			isa = PBXGroup;
 			children = (
+				8A008FF22258A71400A9636B /* books */,
 				8A1B2574202955A60038C0C4 /* icons */,
 				8AFEE0591C210FB0004A68DC /* readings */,
 				8ADFF51E1B0F1D02001AE6A9 /* saints */,
@@ -1147,6 +1158,7 @@
 				8AB90802216EF7580030F989 /* ChaptersCell.xib in Resources */,
 				8AC10A12222A694F00540B22 /* mark_ru.sqlite in Resources */,
 				8A54577F1E70174300A86B5A /* synaxarion15.rtf in Resources */,
+				8A008FF62258A7B100A9636B /* liturgy.sqlite in Resources */,
 				8A0B4CB11C8C1E8000747BB4 /* saints_06_ru.sqlite in Resources */,
 				8A1F2C981DD9B0F000F13A3D /* newicon_1024.png in Resources */,
 				8A1F2CA51DD9B5C500F13A3D /* Default-568h@2x.png in Resources */,

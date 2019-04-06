@@ -12,12 +12,13 @@ import swift_toolkit
 import WebKit
 
 class WebDocument: UIViewController {
+    var content: String!
+    
     let prefs = UserDefaults(suiteName: groupId)!
     var fontSize: Int = 0
     var webView: WKWebView!
 
     var con : [NSLayoutConstraint]!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,14 +55,10 @@ class WebDocument: UIViewController {
         
         navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
         
-        let content = "<html><body><p><font size=30>" + randomString(length: 2000) + "</font></p></body></html>"
-        webView.loadHTMLString(content, baseURL: nil)
+        let header = "<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'></header>"
+        let head = "<head><style type='text/css'>body {font-size: 20px}</style></head>"
         
-    }
-    
-    func randomString(length: Int) -> String {
-        let letters = "abcdefijk "
-        return String((0..<length).map{ _ in letters.randomElement()! })
+        webView.loadHTMLString(header + "<html>" + head + "<body>" + content + "</body></html>", baseURL: nil)
     }
     
     @objc func zoom_in() {

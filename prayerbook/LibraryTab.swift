@@ -13,7 +13,7 @@ class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 
     let books : [(String, BookModel)] = [("Old Testament", OldTestamentModel.shared),
                                          ("New Testament", NewTestamentModel.shared),
-                                         ("Божественная Литургия свт. Иоанна Златоуста", LiturgyModel.shared)]
+                                         ("Божественная Литургия свт. Иоанна Златоуста с комментариями", LiturgyModel.shared)]
     
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     
