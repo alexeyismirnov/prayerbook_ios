@@ -87,6 +87,8 @@ class OldTestamentModel : BookModel {
     }
     
     func isExpandable() -> Bool { return true; }
+    
+    func getComment(commentId: Int) -> String? { return nil }
 }
 
 class NewTestamentModel : BookModel {
@@ -155,5 +157,6 @@ class NewTestamentModel : BookModel {
     }
     
     func isExpandable() -> Bool { return true; }
+    func getComment(commentId: Int) -> String? { return nil }
 }
 

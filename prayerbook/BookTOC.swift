@@ -16,6 +16,7 @@ protocol BookModel {
     
     func isExpandable() -> Bool
     func getNumChapters(_ index : IndexPath) -> Int
+    func getComment(commentId: Int) -> String?
     
     func getVC(index : IndexPath, chapter : Int) -> UIViewController
 }

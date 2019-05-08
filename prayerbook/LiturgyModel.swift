@@ -58,6 +58,12 @@ class LiturgyModel : BookModel {
          "Многолетие"]]
     
     static let shared = LiturgyModel()
+    var db : Database!
+    
+    init() {
+        let path = Bundle.main.path(forResource: "liturgy", ofType: "sqlite")!
+        db = try! Database(path:path)
+    }
     
     func getTitle() -> String {
         return "Божественная Литургия"
@@ -81,17 +87,25 @@ class LiturgyModel : BookModel {
     
     func getData(_ index: IndexPath) -> String {
         var res = ""
+        var comments = [Int: Int]()
         let section = (index.section == 0) ? index.row+1 : LiturgyModel.data[0].count + index.row+1
-        
-        let path = Bundle.main.path(forResource: "liturgy", ofType: "sqlite")!
-        let db = try! Database(path:path)
 
-        let saintsDB = try! db.selectFrom("content", whereExpr:"section=\(section)", orderBy: "row")
-            { ["author": $0["author"], "text": $0["text"]] }
+        let liturgyDB = try! db.selectFrom("content", whereExpr:"section=\(section)", orderBy: "row")
+        { ["author": $0["author"], "text": $0["text"], "row": $0["row"]] }
         
-        for line in saintsDB {
+        let commentsDB = try! db.selectFrom("comments", whereExpr:"section=\(section)", orderBy: "row")
+        { [ "id": $0["id"], "row": $0["row"]] }
+        
+        for line in commentsDB {
+            let id = line["id"] as! Int64
+            let row = line["row"] as! Int64
+            comments[Int(row)] = Int(id)
+        }
+        
+        for line in liturgyDB {
             var author = line["author"] as! String
             var text = line["text"] as! String
+            let row = Int(line["row"] as! Int64)
             
             text = text.replacingOccurrences(of: "\n", with: "<br/>")
             
@@ -99,7 +113,13 @@ class LiturgyModel : BookModel {
                 author = "<font color=\"red\">\(author)</font>"
             }
             
-            res += "<i>\(author)</i> \(text)<br><br>"
+            res += "<i>\(author)</i> \(text)"
+            if comments[row] != nil {
+                let id = Int(comments[row]!)
+                res += "&nbsp;&nbsp;<a href=\"comment://\(id)\"><img class=\"icon\"/></a>"
+            }
+            
+            res += "<br><br>"
         }
         
         let title = "<p align=\"center\"><b>" + LiturgyModel.data[index.section][index.row] + "</b></p>"
@@ -107,9 +127,21 @@ class LiturgyModel : BookModel {
         return title + res
     }
     
+    func getComment(commentId: Int) -> String? {
+        let commentsDB = try! db.selectFrom("comments", whereExpr:"id=\(commentId)") { [ "text": $0["text"]] }
+        
+        if let result = commentsDB.first {
+            return result["text"] as! String
+            
+        } else {
+            return nil
+        }
+    }
+
     func getVC(index: IndexPath, chapter: Int) -> UIViewController {
         let vc = WebDocument()
         vc.content = getData(index)
+        vc.model = self
         
         return vc
     }
