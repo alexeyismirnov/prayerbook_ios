@@ -68,8 +68,26 @@ with lite.connect("liturgy.sqlite") as con:
 
             author = data[0].getText().strip()
 
+            mist = content.find("span", {"class": "mist"})
+            mistery = content.find("p", {"class": "mistery"})
+
+            if mist != None and mistery != None:
+                mist_head = mistery.find("span", {"class": "mist_head"})
+                if mist_head != None:
+                    mist_head_text = strip_all(mist_head.getText())
+                    mistery.find("span", {"class": "mist_head"}).replaceWith("%s\n" % (mist_head_text))
+
+                [s.extract() for s in mist.findAll("span", {"class": "arrow"})]
+                mist_text = strip_all(mist.getText())
+
+                content.find("span", {"class": "mist"}).replaceWith("%s comment_%d" % (mist_text, comment_id))
+
+                cur.execute("INSERT INTO comments VALUES(%d, %d, %d, \"%s\")" %
+                        (comment_id, 0, 0, strip_all(mistery.getText())))
+
+                comment_id += 1
+
             [s.extract() for s in content.findAll("p", {"class": "mistery"})]
-            [s.extract() for s in content.findAll("span", {"class": "arrow"})]
 
             txt = strip_all(content.getText())
 

@@ -109,6 +109,17 @@ class LiturgyModel : BookModel {
             
             text = text.replacingOccurrences(of: "\n", with: "<br/>")
             
+            let pattern = "comment_(\\d+)"
+            let regex = try! NSRegularExpression(pattern: pattern)
+            
+            if regex.matches(in: text, range: NSRange(text.startIndex..., in: text)).count > 0 {
+                let text2 = NSMutableString(string: text)
+
+                 regex.replaceMatches(in: text2, options: .reportProgress, range: NSRange(location: 0,length: text2.length), withTemplate: "&nbsp;&nbsp;<a href=\"comment://$1\"><img class=\"icon\"/></a>&nbsp;&nbsp;")
+                
+                text = String(text2)
+            }
+            
             if author == "Иере́й:" {
                 author = "<font color=\"red\">\(author)</font>"
             }
