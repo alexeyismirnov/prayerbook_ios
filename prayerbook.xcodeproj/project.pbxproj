@@ -68,6 +68,7 @@
 		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
 		8A2F46A919E1302700076AF4 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A819E1302700076AF4 /* Translate.swift */; };
 		8A2F46AB19E145D200076AF4 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46AA19E145D200076AF4 /* Options.swift */; };
+		8A31632222842C1800418306 /* fontsize.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A31632122842C1800418306 /* fontsize.pdf */; };
 		8A339AD81DC83F7B0026FD10 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A339AD71DC83F7B0026FD10 /* CompactViewController.swift */; };
 		8A35561621805A150046E751 /* CalendarSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A35561521805A150046E751 /* CalendarSelector.swift */; };
 		8A392ED01FC431D90051C6E6 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */; };
@@ -378,6 +379,7 @@
 		8A2F46A819E1302700076AF4 /* Translate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
 		8A2F46AA19E145D200076AF4 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Bridging-Header.h"; sourceTree = "<group>"; };
+		8A31632122842C1800418306 /* fontsize.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fontsize.pdf; sourceTree = "<group>"; };
 		8A339AD71DC83F7B0026FD10 /* CompactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
 		8A339ADE1DC87B730026FD10 /* fat-down.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-down.pdf"; sourceTree = "<group>"; };
 		8A339ADF1DC87B730026FD10 /* fat-up.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-up.pdf"; sourceTree = "<group>"; };
@@ -756,6 +758,7 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8A31632122842C1800418306 /* fontsize.pdf */,
 				8A56078A219AD3A8006E52F2 /* review.pdf */,
 				8A13C8FF21917AB700D0CE7E /* pause.pdf */,
 				8A13C90021917AB700D0CE7E /* play.pdf */,
@@ -1286,6 +1289,7 @@
 				8AC10A30222A694F00540B22 /* ex_ru.sqlite in Resources */,
 				8AC6951F19E3FBC200773FEB /* food-nuts.pdf in Resources */,
 				8AC6952519E4011700773FEB /* daily.pdf in Resources */,
+				8A31632222842C1800418306 /* fontsize.pdf in Resources */,
 				8AC10A2E222A694F00540B22 /* ruth_ru.sqlite in Resources */,
 				8AC10A29222A694F00540B22 /* eccles_ru.sqlite in Resources */,
 				8AC10A24222A694F00540B22 /* 1sam_ru.sqlite in Resources */,

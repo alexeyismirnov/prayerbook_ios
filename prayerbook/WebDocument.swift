@@ -26,8 +26,8 @@ class LabelViewController : UIViewController, PopupContentViewController {
         label.text = text
         
         label.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
-        label.backgroundColor = UIColor.clear
-        label.textColor = UIColor.black
+        label.backgroundColor = .clear
+        label.textColor = .black
         label.isScrollEnabled = true
         label.isEditable = false
         label.showsVerticalScrollIndicator = true
@@ -47,12 +47,65 @@ class LabelViewController : UIViewController, PopupContentViewController {
     
     func sizeForPopup(_ popupController: PopupController, size: CGSize, showingKeyboard: Bool) -> CGSize {
         if (UIDevice.current.userInterfaceIdiom == .phone) {
-            return CGSize(width: 250, height: 300)
+            return CGSize(width: 250, height: 350)
             
         } else {
             return CGSize(width: 500, height: 550)
         }
         
+    }
+}
+
+class FontSizeViewController : UIViewController, PopupContentViewController {
+    var text : String!
+    var fontSize: Int!
+    var delegate: WebDocument!
+    
+    var con : [NSLayoutConstraint]!
+    
+    override func loadView() {
+        view = UIView()
+        view.backgroundColor = UIColor(hex: "#FFEBCD")
+        
+        let label = UILabel()
+        label.text = "Размер шрифта"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .clear
+        label.textColor = .black
+                
+        let slider = UISlider()
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.thumbTintColor = .gray
+        slider.minimumValue = 12
+        slider.maximumValue = 30
+        slider.setValue(Float(fontSize), animated: false)
+        
+        slider.addTarget(self, action: #selector(self.sliderVlaue(_:)), for: .valueChanged)
+        
+        view.addSubview(label)
+        view.addSubview(slider)
+        
+        con = [
+            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            label.bottomAnchor.constraint(equalTo: slider.topAnchor, constant: -10),
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            
+            slider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            slider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            slider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
+            slider.heightAnchor.constraint(equalToConstant: 100.0)
+        ]
+        
+        NSLayoutConstraint.activate(con)
+    }
+    
+    @objc func sliderVlaue(_ sender: UISlider) {
+        delegate.updateFontSize(Int(sender.value))
+    }
+    
+    func sizeForPopup(_ popupController: PopupController, size: CGSize, showingKeyboard: Bool) -> CGSize {
+        return CGSize(width: 250, height: 150)
     }
 }
 
@@ -112,23 +165,39 @@ class WebDocument: UIViewController, WKNavigationDelegate {
             view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: toolkit))
         }
         
-        let button_zoom_in = CustomBarButton(image: UIImage(named: "zoom_in", in: toolkit, compatibleWith: nil)!
-            , target: self, btnHandler: #selector(self.zoom_in))
-        let button_zoom_out = CustomBarButton(image: UIImage(named: "zoom_out", in: toolkit, compatibleWith: nil)!, target: self, btnHandler: #selector(self.zoom_out))
+        let button_fontsize = CustomBarButton(image: UIImage(named: "fontsize", in: nil, compatibleWith: nil)!
+            , target: self, btnHandler: #selector(self.showFontSizeDialog))
+      
+        navigationItem.rightBarButtonItems = [button_fontsize]
         
-        navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
-        
+        reload()
+    }
+    
+    func reload() {
         let color = Theme.textColor.toHexString()
         
         let style = """
-            <style type='text/css'>
-                body {font-size: 20px; color: \(color); }
-                \(bookIcon)
-            </style>
+        <style type='text/css'>
+        body {font-size: \(fontSize)px; color: \(color); }
+        \(bookIcon)
+        </style>
         """
         
-        // content = "<p>hello <a href=\"comment://123\"><img class=\"icon\"/></a></p>"
         webView.loadHTMLString(header + "<html><head>" + style + "</head><body>" + content + "</body></html>", baseURL: Bundle.main.bundleURL)
+    }
+    
+    func showPopup(_ vc: UIViewController) {
+        popup = PopupController
+            .create(self.navigationController!)
+            .customize(
+                [
+                    .animation(.fadeIn),
+                    .layout(.center),
+                    .backgroundStyle(.blackFilter(alpha: 0.5))
+                ]
+        )
+        
+        popup.show(vc)
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -142,17 +211,7 @@ class WebDocument: UIViewController, WKNavigationDelegate {
             labelVC.text = text
             labelVC.fontSize = fontSize
             
-            popup = PopupController
-                .create(self.navigationController!)
-                .customize(
-                    [
-                        .animation(.fadeIn),
-                        .layout(.center),
-                        .backgroundStyle(.blackFilter(alpha: 0.7))
-                    ]
-            )
-            
-            popup.show(labelVC)
+            showPopup(labelVC)
             
             decisionHandler(.cancel)
 
@@ -161,10 +220,21 @@ class WebDocument: UIViewController, WKNavigationDelegate {
         }
     }
     
-    @objc func zoom_in() {
+    @objc func showFontSizeDialog() {
+        let vc = FontSizeViewController()
+        vc.fontSize = fontSize
+        vc.delegate = self
+        
+        showPopup(vc)
     }
-    
-    @objc func zoom_out() {
+   
+    func updateFontSize(_ newFontSize: Int) {
+        fontSize = newFontSize
+        
+        prefs.set(fontSize, forKey: "fontSize")
+        prefs.synchronize()
+        
+        reload()
     }
     
 }
