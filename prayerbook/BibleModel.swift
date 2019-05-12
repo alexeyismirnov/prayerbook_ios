@@ -9,6 +9,8 @@
 import UIKit
 
 class OldTestamentModel : BookModel {
+    var code: String = "OldTestament"
+    
     static let data: [[(String, String)]] = [
         [
             ("Genesis", "gen"),
@@ -89,9 +91,13 @@ class OldTestamentModel : BookModel {
     func isExpandable() -> Bool { return true; }
     
     func getComment(commentId: Int) -> String? { return nil }
+    
+    func getBookmarkName(_ bookmark: String) -> String { return "" }
 }
 
 class NewTestamentModel : BookModel {
+    var code: String = "NewTestament"
+
     static let data: [[(String, String)]] = [
         [
             ("Gospel of St Matthew", "matthew"),
@@ -158,5 +164,8 @@ class NewTestamentModel : BookModel {
     
     func isExpandable() -> Bool { return true; }
     func getComment(commentId: Int) -> String? { return nil }
+    
+    func getBookmarkName(_ bookmark: String) -> String { return "" }
+
 }
 

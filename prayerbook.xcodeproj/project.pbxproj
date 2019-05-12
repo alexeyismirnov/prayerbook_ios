@@ -245,6 +245,9 @@
 		8AC6952519E4011700773FEB /* daily.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952119E4011700773FEB /* daily.pdf */; };
 		8AC6952619E4011700773FEB /* group.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952219E4011700773FEB /* group.pdf */; };
 		8AC6952719E4011700773FEB /* library.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952319E4011700773FEB /* library.pdf */; };
+		8AC7203922880E04006862E4 /* remove_bookmark.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7203722880E04006862E4 /* remove_bookmark.pdf */; };
+		8AC7203A22880E04006862E4 /* add_bookmark.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7203822880E04006862E4 /* add_bookmark.pdf */; };
+		8AC7203C22881A4A006862E4 /* BookmarksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC7203B22881A4A006862E4 /* BookmarksModel.swift */; };
 		8AC757C21C550BFD0088D4D0 /* Images.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D815198F20CC0078F39F /* Images.xcassets */; };
 		8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89219E4CECB00B51294 /* arrow-left.pdf */; };
 		8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89319E4CECB00B51294 /* arrow-right.pdf */; };
@@ -563,6 +566,9 @@
 		8AC6952119E4011700773FEB /* daily.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = daily.pdf; sourceTree = "<group>"; };
 		8AC6952219E4011700773FEB /* group.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = group.pdf; sourceTree = "<group>"; };
 		8AC6952319E4011700773FEB /* library.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = library.pdf; sourceTree = "<group>"; };
+		8AC7203722880E04006862E4 /* remove_bookmark.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = remove_bookmark.pdf; sourceTree = "<group>"; };
+		8AC7203822880E04006862E4 /* add_bookmark.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = add_bookmark.pdf; sourceTree = "<group>"; };
+		8AC7203B22881A4A006862E4 /* BookmarksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksModel.swift; sourceTree = "<group>"; };
 		8AC7B89219E4CECB00B51294 /* arrow-left.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-left.pdf"; sourceTree = "<group>"; };
 		8AC7B89319E4CECB00B51294 /* arrow-right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-right.pdf"; sourceTree = "<group>"; };
 		8ACEF0FC1A2EE40800AF98E0 /* DailyReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyReading.swift; sourceTree = "<group>"; };
@@ -708,6 +714,7 @@
 				8A54C4291EA74CE90083AA2F /* DailyTab.swift */,
 				8A0689F8221FF8A600F1E711 /* LibraryTab.swift */,
 				8A54C42B1EA760E30083AA2F /* BookTOC.swift */,
+				8AC7203B22881A4A006862E4 /* BookmarksModel.swift */,
 				8A96719B2230C1900086CBA6 /* BibleModel.swift */,
 				8A916D8822576C34003FEF70 /* LiturgyModel.swift */,
 				8AB907FF216EF7580030F989 /* ChaptersCell.swift */,
@@ -758,6 +765,8 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8AC7203822880E04006862E4 /* add_bookmark.pdf */,
+				8AC7203722880E04006862E4 /* remove_bookmark.pdf */,
 				8A31632122842C1800418306 /* fontsize.pdf */,
 				8A56078A219AD3A8006E52F2 /* review.pdf */,
 				8A13C8FF21917AB700D0CE7E /* pause.pdf */,
@@ -1314,11 +1323,13 @@
 				8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */,
 				8A0B4CB31C8C1E8000747BB4 /* saints_07_ru.sqlite in Resources */,
 				8AC10A48222A694F00540B22 /* job_ru.sqlite in Resources */,
+				8AC7203A22880E04006862E4 /* add_bookmark.pdf in Resources */,
 				8AC10A18222A694F00540B22 /* hag_ru.sqlite in Resources */,
 				8AADFF531E84C25300CE3D0F /* synaxarion22.rtf in Resources */,
 				8AF2497A1AFF308B000070C0 /* great.pdf in Resources */,
 				8A1F2CB21DD9B80600F13A3D /* landscape3.png in Resources */,
 				8AEA68321C8FFA9F009E9FD8 /* trans_ui_ru.plist in Resources */,
+				8AC7203922880E04006862E4 /* remove_bookmark.pdf in Resources */,
 				8A5457801E70174300A86B5A /* synaxarion16.rtf in Resources */,
 				8AE36B2F1C97B228005CAD8D /* food-xerography.pdf in Resources */,
 				8AB0DCA81C27F00400C6A494 /* ReadingMatthew.plist in Resources */,
@@ -1402,6 +1413,7 @@
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
 				8AEFC27B1A2C747700BAACE0 /* Scripture.swift in Sources */,
 				8A2F46A919E1302700076AF4 /* Translate.swift in Sources */,
+				8AC7203C22881A4A006862E4 /* BookmarksModel.swift in Sources */,
 				8A1964512186AC5700CDDCB5 /* FeastList.swift in Sources */,
 				8A1B2577202956840038C0C4 /* SaintIconView.swift in Sources */,
 				8A24F52F1EB98A1700CE19E7 /* CalendarImageCell.swift in Sources */,

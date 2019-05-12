@@ -10,6 +10,8 @@ import UIKit
 import Squeal
 
 class LiturgyModel : BookModel {
+    var code: String = "Liturgy"
+
     static let data: [[String]] = [
         ["Начинательные возгласы диакона и священника",
          "Великая ектения",
@@ -153,10 +155,17 @@ class LiturgyModel : BookModel {
         let vc = WebDocument()
         vc.content = getData(index)
         vc.model = self
+        vc.bookmark = "Liturgy_\(index.section)_\(index.row)"
         
         return vc
     }
     
+    func getBookmarkName(_ bookmark: String) -> String {
+        let comp = bookmark.components(separatedBy: "_")
+        guard comp[0] == "Liturgy" else { return "" }
+        
+        return "Божественная Литургия - " + LiturgyModel.data[Int(comp[1])!][Int(comp[2])!]
+    }
 
 }
 

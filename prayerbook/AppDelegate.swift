@@ -59,13 +59,17 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
             } else {
                 prefs.set(20, forKey: "fontSize")
             }
-            
-            prefs.synchronize()
         }
         
         if prefs.object(forKey: "fastingLevel") == nil {
             FastingLevel.monastic.save()
         }
+        
+        if prefs.object(forKey: "bookmarks") == nil {
+            prefs.set([String](), forKey: "bookmarks")
+        }
+        
+        prefs.synchronize()
         
         setupFiles()
 

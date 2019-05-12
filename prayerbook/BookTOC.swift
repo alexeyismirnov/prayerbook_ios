@@ -10,6 +10,7 @@ import UIKit
 import swift_toolkit
 
 protocol BookModel {
+    var code : String { get }
     func getTitle() -> String
     func getSections() -> [String]
     func getItems(_ section : Int) -> [String]
@@ -19,10 +20,13 @@ protocol BookModel {
     func getComment(commentId: Int) -> String?
     
     func getVC(index : IndexPath, chapter : Int) -> UIViewController
+    func getBookmarkName(_ bookmark : String) -> String
 }
 
 class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+    let prefs = UserDefaults(suiteName: groupId)!
+
     var expanded = Set<IndexPath>()
     var model : BookModel!
     var expandable : Bool!
@@ -51,6 +55,13 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .optionsSavedNotification, object: nil)
         
         reloadTheme()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if model.code == "Bookmarks" {
+            tableView.reloadData()
+        }
     }
     
     @objc func reloadTheme() {
@@ -102,7 +113,17 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return model.getSections().count
+        let numSections = model.getSections().count
+        
+        if (numSections == 0) {
+            let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+            messageLabel.text = "Нет закладок"
+            messageLabel.textColor =  Theme.textColor
+            messageLabel.textAlignment = .center
+            tableView.backgroundView = messageLabel
+        }
+        
+        return numSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -184,6 +205,25 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         headerView.textLabel?.textColor = Theme.textColor
         headerView.contentView.backgroundColor = UIColor.clear
         headerView.backgroundView?.backgroundColor = UIColor.clear
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return model.code == "Bookmarks"
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            var bookmarks = prefs.stringArray(forKey: "bookmarks")!
+            bookmarks.remove(at: indexPath.row)
+            prefs.set(bookmarks, forKey: "bookmarks")
+            prefs.synchronize()
+            
+            tableView.reloadData()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Удалить"
     }
     
     func calculateHeightForCell(_ cell: UITableViewCell) -> CGFloat {

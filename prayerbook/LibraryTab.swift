@@ -9,12 +9,12 @@
 import UIKit
 import swift_toolkit
 
-class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, ResizableTableViewCells  {
+let books : [(String, BookModel)] = [("Закладки...", BookmarksModel.shared),
+                                     ("Old Testament", OldTestamentModel.shared),
+                                     ("New Testament", NewTestamentModel.shared),
+                                     ("Божественная Литургия свт. Иоанна Златоуста с комментариями", LiturgyModel.shared)]
 
-    let books : [(String, BookModel)] = [("Old Testament", OldTestamentModel.shared),
-                                         ("New Testament", NewTestamentModel.shared),
-                                         ("Божественная Литургия свт. Иоанна Златоуста с комментариями", LiturgyModel.shared)]
-    
+class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, ResizableTableViewCells  {    
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     
     @IBOutlet weak var tableView: UITableView!
