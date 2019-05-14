@@ -167,5 +167,24 @@ class LiturgyModel : BookModel {
         return "Божественная Литургия - " + LiturgyModel.data[Int(comp[1])!][Int(comp[2])!]
     }
 
+    func getNextSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? {
+        if (index.section == 1 && index.row == LiturgyModel.data[1].count-1) {
+            return nil
+        } else if (index.section == 0 && index.row == LiturgyModel.data[0].count-1) {
+            return (IndexPath(row: 0, section: 1), 0)
+        } else {
+            return (IndexPath(row: index.row+1, section: index.section), 0)
+        }
+    }
+    
+    func getPrevSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? {
+        if (index.section == 0 && index.row == 0) {
+            return nil
+        } else if (index.section == 1 && index.row == 0) {
+            return (IndexPath(row: LiturgyModel.data[0].count-1, section: 0), 0)
+        } else {
+            return (IndexPath(row: index.row-1, section: index.section), 0)
+        }
+    }
 }
 

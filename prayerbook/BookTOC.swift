@@ -28,6 +28,9 @@ protocol BookModel {
     func getContent(index : IndexPath, chapter : Int) -> Any?
     func getBookmark(index : IndexPath, chapter : Int) -> String
     
+    func getNextSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)?
+    func getPrevSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)?
+
     func getBookmarkName(_ bookmark : String) -> String
 }
 

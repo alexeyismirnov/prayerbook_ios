@@ -129,22 +129,23 @@ class WebDocument: UIViewController, WKNavigationDelegate {
     
     let prefs = UserDefaults(suiteName: groupId)!
     var fontSize: Int = 0
+    var styleCSS : String!
     
-    var webView: WKWebView!
+    var webView, webView2: WKWebView!
     var popup : PopupController!
 
-    var con : [NSLayoutConstraint]!
+    var con, con2 : [NSLayoutConstraint]!
+    
     var button_fontsize, button_add_bookmark, button_remove_bookmark : CustomBarButton!
+    var button_close, button_next, button_prev : CustomBarButton!
     
     init(model: BookModel, index: IndexPath, chapter: Int) {
         self.model = model
         self.index = index
         self.chapter = chapter
-        
         self.bookmark = model.getBookmark(index: index, chapter: chapter)
 
         super.init(nibName: nil, bundle: nil)
-
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -156,21 +157,9 @@ class WebDocument: UIViewController, WKNavigationDelegate {
         
         automaticallyAdjustsScrollViewInsets = false
 
-        webView = WKWebView()
-        webView.isOpaque = false
-        webView.backgroundColor = .clear
-        webView.navigationDelegate = self
+        webView = createWebView()
         
-        view.addSubview(webView)
-        webView.translatesAutoresizingMaskIntoConstraints = false
-        
-        con = [
-            webView.topAnchor.constraint(equalTo: view.topAnchor, constant: navigationController!.navigationBar.frame.height + UIApplication.shared.statusBarFrame.height),
-            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -tabBarController!.tabBar.frame.size.height),
-            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
-        ]
-        
+        con = generateConstraints(webView: webView, leading: 10, trailing: -10)
         NSLayoutConstraint.activate(con)
         
         let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
@@ -182,6 +171,14 @@ class WebDocument: UIViewController, WKNavigationDelegate {
         } else {
             view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: toolkit))
         }
+        
+        button_close = CustomBarButton(image: UIImage(named: "close", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(close))
+        
+        button_next = CustomBarButton(image: UIImage(named: "arrow-right", in: nil, compatibleWith: nil), style: .plain, target: self, action: #selector(showNext))
+        
+        button_prev = CustomBarButton(image: UIImage(named: "arrow-left", in: nil, compatibleWith: nil), style: .plain, target: self, action: #selector(showPrev))
+        
+        navigationItem.leftBarButtonItems = [button_close, button_prev, button_next]
         
         button_fontsize = CustomBarButton(image: UIImage(named: "fontsize", in: nil, compatibleWith: nil)!
             , target: self, btnHandler: #selector(self.showFontSizeDialog))
@@ -200,14 +197,14 @@ class WebDocument: UIViewController, WKNavigationDelegate {
         let color = Theme.textColor.toHexString()
         let content = model.getContent(index: index, chapter: chapter) as! String
         
-        let style = """
+        styleCSS = """
         <style type='text/css'>
         body {font-size: \(fontSize)px; color: \(color); }
         \(bookIcon)
         </style>
         """
         
-        webView.loadHTMLString(header + "<html><head>" + style + "</head><body>" + content + "</body></html>", baseURL: Bundle.main.bundleURL)
+        webView.loadHTMLString(header + "<html><head>" + styleCSS + "</head><body>" + content + "</body></html>", baseURL: Bundle.main.bundleURL)
     }
     
     func showPopup(_ vc: UIViewController) {
@@ -285,6 +282,112 @@ class WebDocument: UIViewController, WKNavigationDelegate {
         
         navigationItem.rightBarButtonItems = bookmarks.contains(bookmark)  ? [button_fontsize, button_remove_bookmark]:
             [button_fontsize, button_add_bookmark]
+    }
+    
+    @objc func close() {
+        let _ = navigationController?.popViewController(animated: true)
+    }
+    
+    func generateConstraints(webView : WKWebView, leading: CGFloat, trailing : CGFloat) -> [NSLayoutConstraint] {
+        return [
+            webView.topAnchor.constraint(equalTo: view.topAnchor, constant: navigationController!.navigationBar.frame.height + UIApplication.shared.statusBarFrame.height),
+            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -tabBarController!.tabBar.frame.size.height),
+            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leading),
+            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: trailing)
+        ]
+    }
+    
+    func createWebView() -> WKWebView {
+        var webView = WKWebView()
+        
+        webView.isOpaque = false
+        webView.backgroundColor = .clear
+        webView.navigationDelegate = self
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(webView)
+        
+        return webView
+    }
+    
+    @objc func showNext() {
+        if let (nextIndex, _) = model.getNextSection(index: index, chapter: chapter) {
+            let width = view.frame.width;
+            let content2 = model.getContent(index: nextIndex, chapter: chapter) as! String
+            
+            webView2 = createWebView()
+            
+            webView2.loadHTMLString(header + "<html><head>" + styleCSS + "</head><body>" + content2 + "</body></html>", baseURL: Bundle.main.bundleURL)
+            
+            con2 = generateConstraints(webView: webView2, leading: 10+width, trailing: -10 + width)
+            NSLayoutConstraint.activate(con2)
+            
+            view.layoutIfNeeded()
+            
+            NSLayoutConstraint.deactivate(con2)
+            con2 = generateConstraints(webView: webView2, leading: 10, trailing: -10)
+            NSLayoutConstraint.activate(con2)
+            
+            NSLayoutConstraint.deactivate(con)
+            con = generateConstraints(webView: webView, leading: 10 - width, trailing: -10 - width)
+            NSLayoutConstraint.activate(con)
+            
+            UIView.animate(withDuration: 0.5,
+                           animations: { self.view.layoutIfNeeded() },
+                           completion: { _ in
+                            NSLayoutConstraint.deactivate(self.con)
+                            self.webView.removeFromSuperview()
+                            
+                            self.webView = self.webView2
+                            self.con = self.con2
+                            
+                            self.index = nextIndex
+                            self.bookmark = self.model.getBookmark(index: self.index, chapter: 0)
+                            
+                            self.showBookmarkButton()
+                }
+            )
+        }
+    }
+    
+    @objc func showPrev() {
+        if let (prevIndex, _) = model.getPrevSection(index: index, chapter: chapter) {
+            let width = view.frame.width;
+            let content2 = model.getContent(index: prevIndex, chapter: chapter) as! String
+            
+            webView2 = createWebView()
+            
+            webView2.loadHTMLString(header + "<html><head>" + styleCSS + "</head><body>" + content2 + "</body></html>", baseURL: Bundle.main.bundleURL)
+            
+            con2 = generateConstraints(webView: webView2, leading: 10-width, trailing: -10 - width)
+            NSLayoutConstraint.activate(con2)
+            
+            view.layoutIfNeeded()
+            
+            NSLayoutConstraint.deactivate(con2)
+            con2 = generateConstraints(webView: webView2, leading: 10, trailing: -10)
+            NSLayoutConstraint.activate(con2)
+            
+            NSLayoutConstraint.deactivate(con)
+            con = generateConstraints(webView: webView, leading: 10 + width, trailing: -10 + width)
+            NSLayoutConstraint.activate(con)
+            
+            UIView.animate(withDuration: 0.5,
+                           animations: { self.view.layoutIfNeeded() },
+                           completion: { _ in
+                            NSLayoutConstraint.deactivate(self.con)
+                            self.webView.removeFromSuperview()
+                            
+                            self.webView = self.webView2
+                            self.con = self.con2
+                            
+                            self.index = prevIndex
+                            self.bookmark = self.model.getBookmark(index: self.index, chapter: 0)
+                            
+                            self.showBookmarkButton()
+                }
+            )
+        }
     }
     
 }

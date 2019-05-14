@@ -72,5 +72,9 @@ class BookmarksModel : BookModel {
     
     func getBookmarkName(_ bookmark: String) -> String { return "" }
     
+    func getNextSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? { return nil }
+    
+    func getPrevSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? { return nil }
+    
 }
 

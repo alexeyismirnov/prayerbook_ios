@@ -104,6 +104,10 @@ class OldTestamentModel : BookModel {
     func getBookmark(index: IndexPath, chapter: Int) -> String {
         return ""
     }
+    
+    func getNextSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? { return nil }
+    
+    func getPrevSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? { return nil }
 }
 
 class NewTestamentModel : BookModel {
@@ -188,5 +192,9 @@ class NewTestamentModel : BookModel {
     func getBookmark(index: IndexPath, chapter: Int) -> String {
         return ""
     }
+    
+    func getNextSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? { return nil }
+    
+    func getPrevSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? { return nil }
 }
 
