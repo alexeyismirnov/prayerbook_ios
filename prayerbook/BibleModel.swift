@@ -9,8 +9,9 @@
 import UIKit
 
 class OldTestamentModel : BookModel {
-    var code: String = "OldTestament"
-    
+    var code : String = "OldTestament"
+    var mode: BookType = .text
+
     static let data: [[(String, String)]] = [
         [
             ("Genesis", "gen"),
@@ -80,6 +81,7 @@ class OldTestamentModel : BookModel {
         return Db.numberOfChapters(OldTestamentModel.data[index.section][index.row].1)
     }
     
+    /*
     func getVC(index: IndexPath, chapter: Int) -> UIViewController {
         let code =  OldTestamentModel.data[index.section][index.row].1
         let vc = UIViewController.named("Scripture") as! Scripture
@@ -87,16 +89,26 @@ class OldTestamentModel : BookModel {
         
         return vc
     }
+    */
     
     func isExpandable() -> Bool { return true; }
     
     func getComment(commentId: Int) -> String? { return nil }
     
     func getBookmarkName(_ bookmark: String) -> String { return "" }
+    
+    func getContent(index: IndexPath, chapter: Int) -> Any? {
+        return nil
+    }
+    
+    func getBookmark(index: IndexPath, chapter: Int) -> String {
+        return ""
+    }
 }
 
 class NewTestamentModel : BookModel {
     var code: String = "NewTestament"
+    var mode: BookType = .text
 
     static let data: [[(String, String)]] = [
         [
@@ -154,6 +166,7 @@ class NewTestamentModel : BookModel {
         return Db.numberOfChapters(NewTestamentModel.data[index.section][index.row].1)
     }
     
+    /*
     func getVC(index: IndexPath, chapter: Int) -> UIViewController {
         let code =  NewTestamentModel.data[index.section][index.row].1
         let vc = UIViewController.named("Scripture") as! Scripture
@@ -161,11 +174,19 @@ class NewTestamentModel : BookModel {
         
         return vc
     }
+    */
     
     func isExpandable() -> Bool { return true; }
     func getComment(commentId: Int) -> String? { return nil }
     
     func getBookmarkName(_ bookmark: String) -> String { return "" }
-
+        
+    func getContent(index: IndexPath, chapter: Int) -> Any? {
+        return nil
+    }
+    
+    func getBookmark(index: IndexPath, chapter: Int) -> String {
+        return ""
+    }
 }
 

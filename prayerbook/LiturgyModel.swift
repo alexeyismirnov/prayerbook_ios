@@ -11,6 +11,7 @@ import Squeal
 
 class LiturgyModel : BookModel {
     var code: String = "Liturgy"
+    var mode: BookType = .html
 
     static let data: [[String]] = [
         ["Начинательные возгласы диакона и священника",
@@ -144,20 +145,19 @@ class LiturgyModel : BookModel {
         let commentsDB = try! db.selectFrom("comments", whereExpr:"id=\(commentId)") { [ "text": $0["text"]] }
         
         if let result = commentsDB.first {
-            return result["text"] as! String
+            return result["text"] as? String
             
         } else {
             return nil
         }
     }
-
-    func getVC(index: IndexPath, chapter: Int) -> UIViewController {
-        let vc = WebDocument()
-        vc.content = getData(index)
-        vc.model = self
-        vc.bookmark = "Liturgy_\(index.section)_\(index.row)"
-        
-        return vc
+    
+    func getContent(index: IndexPath, chapter: Int) -> Any? {
+        return getData(index)
+    }
+    
+    func getBookmark(index: IndexPath, chapter: Int) -> String {
+        return "Liturgy_\(index.section)_\(index.row)"
     }
     
     func getBookmarkName(_ bookmark: String) -> String {

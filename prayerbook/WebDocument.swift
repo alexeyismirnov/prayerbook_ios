@@ -122,10 +122,10 @@ class WebDocument: UIViewController, WKNavigationDelegate {
             }
         """
     
-    var content: String!
-    
-    var model : BookModel?
-    var bookmark: String?
+    var model : BookModel
+    var index : IndexPath
+    var chapter: Int
+    var bookmark: String
     
     let prefs = UserDefaults(suiteName: groupId)!
     var fontSize: Int = 0
@@ -135,6 +135,21 @@ class WebDocument: UIViewController, WKNavigationDelegate {
 
     var con : [NSLayoutConstraint]!
     var button_fontsize, button_add_bookmark, button_remove_bookmark : CustomBarButton!
+    
+    init(model: BookModel, index: IndexPath, chapter: Int) {
+        self.model = model
+        self.index = index
+        self.chapter = chapter
+        
+        self.bookmark = model.getBookmark(index: index, chapter: chapter)
+
+        super.init(nibName: nil, bundle: nil)
+
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -177,20 +192,13 @@ class WebDocument: UIViewController, WKNavigationDelegate {
         button_remove_bookmark = CustomBarButton(image: UIImage(named: "remove_bookmark", in: nil, compatibleWith: nil)!
             , target: self, btnHandler: #selector(self.removeBookmark))
         
-        if let bookmark = bookmark {
-            let bookmarks = prefs.stringArray(forKey: "bookmarks")!
-            navigationItem.rightBarButtonItems = bookmarks.contains(bookmark)  ? [button_fontsize, button_remove_bookmark]:
-                [button_fontsize, button_add_bookmark]
-
-        } else {
-            navigationItem.rightBarButtonItems = [button_fontsize]
-        }
-      
         reload()
+        showBookmarkButton()
     }
     
     func reload() {
         let color = Theme.textColor.toHexString()
+        let content = model.getContent(index: index, chapter: chapter) as! String
         
         let style = """
         <style type='text/css'>
@@ -217,7 +225,7 @@ class WebDocument: UIViewController, WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        guard let url = navigationAction.request.url, let model = model
+        guard let url = navigationAction.request.url
             else { decisionHandler(.allow); return }
         
         if url.scheme == "comment"  {
@@ -256,7 +264,7 @@ class WebDocument: UIViewController, WKNavigationDelegate {
     
     @objc func addBookmark() {
         var bookmarks = prefs.stringArray(forKey: "bookmarks")!
-        bookmarks.append(bookmark!)
+        bookmarks.append(bookmark)
         prefs.set(bookmarks, forKey: "bookmarks")
         prefs.synchronize()
         
@@ -265,11 +273,18 @@ class WebDocument: UIViewController, WKNavigationDelegate {
     
     @objc func removeBookmark() {
         var bookmarks = prefs.stringArray(forKey: "bookmarks")!
-        bookmarks.removeAll(where: { $0 == bookmark! })
+        bookmarks.removeAll(where: { $0 == bookmark })
         prefs.set(bookmarks, forKey: "bookmarks")
         prefs.synchronize()
         
         navigationItem.rightBarButtonItems = [button_fontsize, button_add_bookmark]
+    }
+    
+    func showBookmarkButton() {
+        let bookmarks = prefs.stringArray(forKey: "bookmarks")!
+        
+        navigationItem.rightBarButtonItems = bookmarks.contains(bookmark)  ? [button_fontsize, button_remove_bookmark]:
+            [button_fontsize, button_add_bookmark]
     }
     
 }

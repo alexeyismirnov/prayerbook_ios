@@ -8,8 +8,21 @@
 
 import UIKit
 
+struct BookPosition {
+    init(model: BookModel, index: IndexPath, chapter: Int) {
+        self.model = model
+        self.index = index
+        self.chapter = chapter
+    }
+    
+    var model : BookModel
+    var index : IndexPath
+    var chapter : Int
+}
+
 class BookmarksModel : BookModel {
-    var code: String = "Bookmarks"
+    var code = "Bookmarks"
+    var mode: BookType = .text
     
     let prefs = UserDefaults(suiteName: groupId)!
     static let shared = BookmarksModel()
@@ -42,18 +55,20 @@ class BookmarksModel : BookModel {
     
     func getComment(commentId: Int) -> String? { return nil }
     
-    func getVC(index: IndexPath, chapter: Int) -> UIViewController {
+    func resolveBookmarkAt(row: Int) -> BookPosition {
         let bookmarks = prefs.stringArray(forKey: "bookmarks")!
-        let b = bookmarks[index.row]
-        let comp = b.components(separatedBy: "_")
-
-        let model = books.filter() { $0.1.code == comp[0] }.first!.1
+        let comp = bookmarks[row].components(separatedBy: "_")
         
+        let model = books.filter() { $0.1.code == comp[0] }.first!.1
         let index = IndexPath(row: Int(comp[2])!, section: Int(comp[1])!)
         let chapter : Int = (comp.count == 4) ? Int(comp[3])! : 0
-
-        return model.getVC(index: index, chapter: chapter)
+        
+        return BookPosition(model: model, index: index, chapter: chapter)
     }
+    
+    func getContent(index: IndexPath, chapter: Int) -> Any? { return nil }
+        
+    func getBookmark(index: IndexPath, chapter: Int) -> String { return "" }
     
     func getBookmarkName(_ bookmark: String) -> String { return "" }
     

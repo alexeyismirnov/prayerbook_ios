@@ -9,8 +9,14 @@
 import UIKit
 import swift_toolkit
 
+enum BookType {
+    case text, html
+}
+
 protocol BookModel {
     var code : String { get }
+    var mode : BookType { get }
+    
     func getTitle() -> String
     func getSections() -> [String]
     func getItems(_ section : Int) -> [String]
@@ -19,7 +25,9 @@ protocol BookModel {
     func getNumChapters(_ index : IndexPath) -> Int
     func getComment(commentId: Int) -> String?
     
-    func getVC(index : IndexPath, chapter : Int) -> UIViewController
+    func getContent(index : IndexPath, chapter : Int) -> Any?
+    func getBookmark(index : IndexPath, chapter : Int) -> String
+    
     func getBookmarkName(_ bookmark : String) -> String
 }
 
@@ -80,11 +88,28 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         title = model.getTitle()
     }
     
+    func openBook(_ _index: IndexPath, _ _chapter: Int) {
+        var model: BookModel! = self.model
+        var index = _index
+        var chapter = _chapter
+        
+        if model.code == "Bookmarks" {
+            let pos = (model as! BookmarksModel).resolveBookmarkAt(row: index.row)
+            model = pos.model
+            index = pos.index
+            chapter = pos.chapter
+        }
+        
+        if model.mode == .html {
+            let vc = WebDocument(model: model, index: index, chapter: chapter)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     @objc func showChapter(_ notification: NSNotification) {
         if let index = notification.userInfo?["index"] as? IndexPath,
            let chapter = notification.userInfo?["chapter"] as? Int {
-            let vc = model.getVC(index: index, chapter: chapter)
-            navigationController?.pushViewController(vc, animated: true)
+            openBook(index, chapter)
         }
     }
     
@@ -105,8 +130,7 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
             
         } else {
-            let vc = model.getVC(index: indexPath, chapter: -1)
-            navigationController?.pushViewController(vc, animated: true)
+            openBook(indexPath, -1)
         }
         
         return nil
