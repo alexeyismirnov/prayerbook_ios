@@ -185,40 +185,6 @@
             </objects>
             <point key="canvasLocation" x="2348.4375" y="-452.34374999999994"/>
         </scene>
-        <!--Title-->
-        <scene sceneID="xiR-6X-NLn">
-            <objects>
-                <viewController storyboardIdentifier="Prayer" automaticallyAdjustsScrollViewInsets="NO" id="W4B-va-jdc" customClass="Prayer" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="j3E-wc-9mf"/>
-                        <viewControllerLayoutGuide type="bottom" id="DOY-Dk-Zuv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kQ3-4q-rJN">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" misplaced="YES" paginationMode="leftToRight" translatesAutoresizingMaskIntoConstraints="NO" id="2CG-ri-jez">
-                                <rect key="frame" x="57" y="99" width="669" height="876"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.91372549020000005" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="2CG-ri-jez" firstAttribute="top" secondItem="j3E-wc-9mf" secondAttribute="bottom" constant="8" symbolic="YES" id="4RF-ZQ-z1d"/>
-                            <constraint firstAttribute="trailing" secondItem="2CG-ri-jez" secondAttribute="trailing" constant="20" symbolic="YES" id="NVm-2d-UUQ"/>
-                            <constraint firstItem="DOY-Dk-Zuv" firstAttribute="top" secondItem="2CG-ri-jez" secondAttribute="bottom" constant="8" symbolic="YES" id="yEw-Xu-mX3"/>
-                            <constraint firstItem="2CG-ri-jez" firstAttribute="leading" secondItem="kQ3-4q-rJN" secondAttribute="leading" constant="20" symbolic="YES" id="zcv-Vv-iN0"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Title" id="w5G-tA-2nV"/>
-                    <connections>
-                        <outlet property="webView" destination="2CG-ri-jez" id="SnQ-oc-IZ2"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BJ4-TD-1Et" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="965.625" y="-445.31249999999994"/>
-        </scene>
         <!--MainVC-->
         <scene sceneID="Zs1-97-Vp3">
             <objects>

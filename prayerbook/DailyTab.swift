@@ -144,21 +144,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         tableView.reloadData()
     }
     
-    func hasTypica() -> Bool {
-        return false
-        /*
-         if (currentDate > Cal.d(.beginningOfGreatLent) && currentDate < Cal.d(.sunday2AfterPascha) ||
-         Cal.currentWeekday != .sunday) {
-         return false
-         
-         } else {
-         return true
-         }
-         */
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -176,9 +163,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             return readings.count + feofan.count + (synaxarion != nil ? 1:0) + (greatFeast != nil ? 1:0)
             
         case 4:
-            return hasTypica() ? 1 : 0
-            
-        case 5:
             return saints.count
             
         default:
@@ -201,9 +185,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             return readings.count > 0 ? Translate.s("Gospel of the day") : nil
             
         case 4:
-            return hasTypica() ? Translate.s("Prayers") : nil
-            
-        case 5:
             return Translate.s("Memory of saints")
             
         default:
@@ -361,21 +342,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
                 return cell
             }
             
-            
         } else if indexPath.section == 4 {
-            let cell = getSimpleCell()
-            
-            /*
-             let cell: TextDetailsCell = getCell()
-             cell.title.textColor = Theme.textColor
-             cell.title.text = Translate.s("Typica")
-             cell.subtitle.text = ""
-             cell.accessoryType = .disclosureIndicator
-             */
-            return cell
-            
-        } else if indexPath.section == 5 {
-            
             if saints[indexPath.row].0 == .none {
                 if appeared {
                     let cell: TextCell = getCell()
@@ -479,13 +446,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             popup.show(container)
             
         } else if indexPath.section == 4 {
-            let prayer = UIViewController.named("Prayer") as! Prayer
-            prayer.code = "typica"
-            prayer.index = 0
-            prayer.name = Translate.s("Typica")
-            navigationController?.pushViewController(prayer, animated: true)
-            
-        } else if indexPath.section == 5 {
             showSaints()
         }
         
