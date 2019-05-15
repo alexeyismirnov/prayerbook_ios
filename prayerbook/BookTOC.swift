@@ -104,7 +104,7 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         if model.mode == .html {
-            let vc = WebDocument(model: model, index: index, chapter: chapter)
+            let vc = BookPageHTML(model: model, index: index, chapter: chapter)
             navigationController?.pushViewController(vc, animated: true)
         }
     }
