@@ -72,9 +72,15 @@ class BookPageHTML: BookPage, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
+        
         reloadTheme()
         createNavigationButtons()
         showBookmarkButton()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     @objc override func reloadTheme() {

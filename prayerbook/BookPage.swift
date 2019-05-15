@@ -224,8 +224,8 @@ class BookPage: UIViewController {
     
     func generateConstraints(forView : UIView, leading: CGFloat, trailing : CGFloat) -> [NSLayoutConstraint] {
         return [
-            forView.topAnchor.constraint(equalTo: view.topAnchor, constant: navigationController!.navigationBar.frame.height + UIApplication.shared.statusBarFrame.height),
-            forView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -tabBarController!.tabBar.frame.size.height),
+            forView.topAnchor.constraint(equalTo: view.topAnchor, constant: navigationController?.navigationBar.frame.height ?? 0.0 + UIApplication.shared.statusBarFrame.height),
+            forView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(tabBarController?.tabBar.frame.size.height ?? 0.0)),
             forView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leading),
             forView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: trailing)
         ]
