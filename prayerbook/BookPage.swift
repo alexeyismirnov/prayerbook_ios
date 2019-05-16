@@ -121,9 +121,9 @@ class BookPage: UIViewController {
     }
     
     @objc func showNext() {
-        if let (nextIndex, _) = model.getNextSection(index: index, chapter: chapter) {
+        if let (nextIndex, nextChapter) = model.getNextSection(index: index, chapter: chapter) {
             let width = view.frame.width;
-            contentView2 = createContentView(index: nextIndex, chapter: chapter)
+            contentView2 = createContentView(index: nextIndex, chapter: nextChapter)
             
             con2 = generateConstraints(forView: contentView2, leading: 10+width, trailing: -10 + width)
             NSLayoutConstraint.activate(con2)
@@ -148,7 +148,8 @@ class BookPage: UIViewController {
                             self.con = self.con2
                             
                             self.index = nextIndex
-                            self.bookmark = self.model.getBookmark(index: self.index, chapter: 0)
+                            self.chapter = nextChapter
+                            self.bookmark = self.model.getBookmark(index: self.index, chapter: self.chapter)
                             
                             self.showBookmarkButton()
             }
@@ -157,10 +158,10 @@ class BookPage: UIViewController {
     }
     
     @objc func showPrev() {
-        if let (prevIndex, _) = model.getPrevSection(index: index, chapter: chapter) {
+        if let (prevIndex, prevChapter) = model.getPrevSection(index: index, chapter: chapter) {
             let width = view.frame.width;
             
-            contentView2 = createContentView(index: prevIndex, chapter: chapter)
+            contentView2 = createContentView(index: prevIndex, chapter: prevChapter)
             
             con2 = generateConstraints(forView: contentView2, leading: 10-width, trailing: -10 - width)
             NSLayoutConstraint.activate(con2)
@@ -185,7 +186,8 @@ class BookPage: UIViewController {
                             self.con = self.con2
                             
                             self.index = prevIndex
-                            self.bookmark = self.model.getBookmark(index: self.index, chapter: 0)
+                            self.chapter = prevChapter
+                            self.bookmark = self.model.getBookmark(index: self.index, chapter: self.chapter)
                             
                             self.showBookmarkButton()
             }
@@ -224,7 +226,7 @@ class BookPage: UIViewController {
     
     func generateConstraints(forView : UIView, leading: CGFloat, trailing : CGFloat) -> [NSLayoutConstraint] {
         return [
-            forView.topAnchor.constraint(equalTo: view.topAnchor, constant: navigationController?.navigationBar.frame.height ?? 0.0 + UIApplication.shared.statusBarFrame.height),
+            forView.topAnchor.constraint(equalTo: view.topAnchor, constant: (navigationController?.navigationBar.frame.height ?? 0.0) + UIApplication.shared.statusBarFrame.height),
             forView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(tabBarController?.tabBar.frame.size.height ?? 0.0)),
             forView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leading),
             forView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: trailing)

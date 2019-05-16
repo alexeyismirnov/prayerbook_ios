@@ -112,7 +112,7 @@ class BookPageHTML: BookPage, WKNavigationDelegate {
         contentView1 = createContentView(index: index, chapter: chapter)
 
         con = generateConstraints(forView: contentView1, leading: 10, trailing: -10)
-        NSLayoutConstraint.activate(con)        
+        NSLayoutConstraint.activate(con)
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {

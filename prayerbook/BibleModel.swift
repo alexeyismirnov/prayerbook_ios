@@ -7,6 +7,37 @@
 //
 
 import UIKit
+import swift_toolkit
+
+struct BibleModel {
+    static func decorateLine(_ verse:Int64, _ content:String, _ fontSize:CGFloat) -> NSAttributedString {
+        var text = NSAttributedString()
+        text += "\(verse) ".colored(with: UIColor.red) + content.colored(with: Theme.textColor) + "\n"
+        
+        return text.systemFont(ofSize: fontSize)
+    }
+    
+    static func getChapter(_ name: String, _ chapter: Int) -> NSAttributedString {
+        var text = NSAttributedString()
+        
+        let prefs = UserDefaults(suiteName: groupId)!
+        let fontSize = prefs.integer(forKey: "fontSize")
+        
+        let header = (name == "ps") ? "Кафизма %@" : Translate.s("Chapter %@")
+        let title = String(format: header, Translate.stringFromNumber(chapter))
+            .colored(with: Theme.textColor).boldFont(ofSize: CGFloat(fontSize)).centered
+        
+        text += title + "\n\n"
+        
+        for line in Db.book(name, whereExpr: "chapter=\(chapter)") {
+            let row  = decorateLine(line["verse"] as! Int64, line["text"] as! String, CGFloat(fontSize))
+            text = text + row
+        }
+        
+        return text
+    }
+    
+}
 
 class OldTestamentModel : BookModel {
     var code : String = "OldTestament"
@@ -81,33 +112,53 @@ class OldTestamentModel : BookModel {
         return Db.numberOfChapters(OldTestamentModel.data[index.section][index.row].1)
     }
     
-    /*
-    func getVC(index: IndexPath, chapter: Int) -> UIViewController {
-        let code =  OldTestamentModel.data[index.section][index.row].1
-        let vc = UIViewController.named("Scripture") as! Scripture
-        vc.code = .chapter(code, chapter+1)
-        
-        return vc
-    }
-    */
-    
     func isExpandable() -> Bool { return true; }
     
     func getComment(commentId: Int) -> String? { return nil }
     
-    func getBookmarkName(_ bookmark: String) -> String { return "" }
+    func getBookmarkName(_ bookmark: String) -> String {
+        let comp = bookmark.components(separatedBy: "_")
+        guard comp[0] == "OldTestament" else { return "" }
+        
+        let section = Int(comp[1])!
+        let row = Int(comp[2])!
+        let chapter = Int(comp[3])!
+        
+        var chapterTitle = "глава"
+        
+        if (OldTestamentModel.data[section][row].1 == "ps") {
+            chapterTitle = "кафизма"
+        }
+        
+        return "Ветхий Завет - " + Translate.s(OldTestamentModel.data[section][row].0) + ", \(chapterTitle) \(chapter+1)"
+    }
     
     func getContent(index: IndexPath, chapter: Int) -> Any? {
-        return nil
+        let code =  OldTestamentModel.data[index.section][index.row].1
+        return BibleModel.getChapter(code, chapter+1)
     }
     
     func getBookmark(index: IndexPath, chapter: Int) -> String {
-        return ""
+        return "OldTestament_\(index.section)_\(index.row)_\(chapter)"
     }
     
-    func getNextSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? { return nil }
+    func getNextSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? {
+        let numChapters = Db.numberOfChapters(OldTestamentModel.data[index.section][index.row].1)
+        if chapter < numChapters-1 {
+            return (index, chapter+1)
+        } else {
+            return nil
+        }
+        
+    }
     
-    func getPrevSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? { return nil }
+    func getPrevSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? {
+        if chapter > 0 {
+            return (index, chapter-1)
+        } else {
+            return nil
+        }
+    }
 }
 
 class NewTestamentModel : BookModel {
@@ -170,31 +221,45 @@ class NewTestamentModel : BookModel {
         return Db.numberOfChapters(NewTestamentModel.data[index.section][index.row].1)
     }
     
-    /*
-    func getVC(index: IndexPath, chapter: Int) -> UIViewController {
-        let code =  NewTestamentModel.data[index.section][index.row].1
-        let vc = UIViewController.named("Scripture") as! Scripture
-        vc.code = .chapter(code, chapter+1)
-        
-        return vc
-    }
-    */
-    
     func isExpandable() -> Bool { return true; }
     func getComment(commentId: Int) -> String? { return nil }
     
-    func getBookmarkName(_ bookmark: String) -> String { return "" }
+    func getBookmarkName(_ bookmark: String) -> String {
+        let comp = bookmark.components(separatedBy: "_")
+        guard comp[0] == "NewTestament" else { return "" }
+        
+        let section = Int(comp[1])!
+        let row = Int(comp[2])!
+        let chapter = Int(comp[3])!
+        
+        return "Новый Завет - " + Translate.s(NewTestamentModel.data[section][row].0) + ", глава \(chapter+1)"
+    }
         
     func getContent(index: IndexPath, chapter: Int) -> Any? {
-        return nil
+        let code =  NewTestamentModel.data[index.section][index.row].1
+        return BibleModel.getChapter(code, chapter+1)
     }
     
     func getBookmark(index: IndexPath, chapter: Int) -> String {
-        return ""
+        return "NewTestament_\(index.section)_\(index.row)_\(chapter)"
     }
     
-    func getNextSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? { return nil }
+    func getNextSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? {
+        let numChapters = Db.numberOfChapters(NewTestamentModel.data[index.section][index.row].1)
+        if chapter < numChapters-1 {
+            return (index, chapter+1)
+        } else {
+            return nil
+        }
+        
+    }
     
-    func getPrevSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? { return nil }
+    func getPrevSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? {
+        if chapter > 0 {
+            return (index, chapter-1)
+        } else {
+            return nil
+        }
+    }
 }
 

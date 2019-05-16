@@ -95,6 +95,7 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         var model: BookModel! = self.model
         var index = _index
         var chapter = _chapter
+        var vc : UIViewController!
         
         if model.code == "Bookmarks" {
             let pos = (model as! BookmarksModel).resolveBookmarkAt(row: index.row)
@@ -104,9 +105,12 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         if model.mode == .html {
-            let vc = BookPageHTML(model: model, index: index, chapter: chapter)
-            navigationController?.pushViewController(vc, animated: true)
+            vc = BookPageHTML(model: model, index: index, chapter: chapter)
+        } else {
+            vc = BookPageText(model: model, index: index, chapter: chapter)
         }
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func showChapter(_ notification: NSNotification) {
