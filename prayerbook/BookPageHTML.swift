@@ -24,7 +24,7 @@ class LabelViewController : UIViewController, PopupContentViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = text
         
-        label.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
+        label.font = UIFont(name: "TimesNewRomanPSMT", size: CGFloat(fontSize))!
         label.backgroundColor = .clear
         label.textColor = .black
         label.isScrollEnabled = true
