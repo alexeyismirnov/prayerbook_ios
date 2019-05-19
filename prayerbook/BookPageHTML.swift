@@ -109,7 +109,7 @@ class BookPageHTML: BookPage, WKNavigationDelegate {
             NSLayoutConstraint.deactivate(con)
         }
         
-        contentView1 = createContentView(index: index, chapter: chapter)
+        contentView1 = createContentView(pos)
 
         con = generateConstraints(forView: contentView1, leading: 10, trailing: -10)
         NSLayoutConstraint.activate(con)
@@ -136,7 +136,7 @@ class BookPageHTML: BookPage, WKNavigationDelegate {
         }
     }
     
-    override func createContentView(index: IndexPath, chapter: Int) -> UIView {
+    override func createContentView(_ pos: BookPosition) -> UIView {
         let webView = WKWebView()
         
         webView.isOpaque = false
@@ -146,7 +146,7 @@ class BookPageHTML: BookPage, WKNavigationDelegate {
         
         view.addSubview(webView)
         
-        let content = model.getContent(index: index, chapter: chapter) as! String
+        let content = model.getContent(at: pos) as! String
         webView.loadHTMLString(header + "<html><head>" + styleCSS + "</head><body>" + content + "</body></html>", baseURL: Bundle.main.bundleURL)
         
         return webView

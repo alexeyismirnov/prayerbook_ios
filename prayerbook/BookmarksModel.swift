@@ -8,18 +8,6 @@
 
 import UIKit
 
-struct BookPosition {
-    init(model: BookModel, index: IndexPath, chapter: Int) {
-        self.model = model
-        self.index = index
-        self.chapter = chapter
-    }
-    
-    var model : BookModel
-    var index : IndexPath
-    var chapter : Int
-}
-
 class BookmarksModel : BookModel {
     var code = "Bookmarks"
     var mode: BookType = .text
@@ -66,15 +54,15 @@ class BookmarksModel : BookModel {
         return BookPosition(model: model, index: index, chapter: chapter)
     }
     
-    func getContent(index: IndexPath, chapter: Int) -> Any? { return nil }
+    func getContent(at pos: BookPosition) -> Any? { return nil }
         
-    func getBookmark(index: IndexPath, chapter: Int) -> String { return "" }
+    func getBookmark(at pos: BookPosition) -> String { return "" }
     
     func getBookmarkName(_ bookmark: String) -> String { return "" }
     
-    func getNextSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? { return nil }
+    func getNextSection(at pos: BookPosition) -> BookPosition? { return nil }
     
-    func getPrevSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? { return nil }
+    func getPrevSection(at pos: BookPosition) -> BookPosition? { return nil }
     
 }
 

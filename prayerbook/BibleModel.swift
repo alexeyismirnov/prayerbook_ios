@@ -37,6 +37,99 @@ struct BibleModel {
         return text
     }
     
+    static func getPericope(_ str: String, decorated: Bool, fontSize: CGFloat = 14.0) -> [(NSAttributedString, NSAttributedString)] {
+        var result = [(NSAttributedString, NSAttributedString)]()
+        
+        var pericope = str.split { $0 == " " }.map { String($0) }
+        
+        for i in stride(from: 0, to: pericope.count-1, by: 2) {
+            var chapter: Int = 0
+            
+            let fileName = pericope[i].lowercased()
+            let bookTuple = (NewTestamentModel.data+OldTestamentModel.data).flatMap { $0.filter { $0.1 == fileName } }
+            
+            var bookName = NSAttributedString()
+            var text = NSAttributedString()
+            
+            if decorated {
+                bookName = (Translate.s(bookTuple[0].0) + " " + pericope[i+1]).colored(with: Theme.textColor).boldFont(ofSize: fontSize).centered
+                
+            } else {
+                bookName = NSAttributedString(string: Translate.s(bookTuple[0].0))
+            }
+            
+            let arr2 = pericope[i+1].components(separatedBy: ",")
+            
+            for segment in arr2 {
+                var range: [(Int, Int)]  = []
+                
+                let arr3 = segment.components(separatedBy: "-")
+                for offset in arr3 {
+                    var arr4 = offset.components(separatedBy: ":")
+                    
+                    if arr4.count == 1 {
+                        range += [ (chapter, Int(arr4[0])!) ]
+                        
+                    } else {
+                        chapter = Int(arr4[0])!
+                        range += [ (chapter, Int(arr4[1])!) ]
+                    }
+                }
+                
+                if range.count == 1 {
+                    for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse=\(range[0].1)") {
+                        if decorated {
+                            text += decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize )
+                        } else {
+                            text += (line["text"] as! String) + " "
+                        }
+                    }
+                    
+                } else if range[0].0 != range[1].0 {
+                    for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1)") {
+                        if decorated {
+                            text += decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
+                        } else {
+                            text += (line["text"] as! String) + " "
+                        }
+                    }
+                    
+                    for chap in range[0].0+1 ..< range[1].0 {
+                        for line in Db.book(fileName, whereExpr: "chapter=\(chap)") {
+                            if decorated {
+                                text += decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
+                            } else {
+                                text += (line["text"] as! String) + " "
+                            }
+                        }
+                    }
+                    
+                    for line in Db.book(fileName, whereExpr: "chapter=\(range[1].0) AND verse<=\(range[1].1)") {
+                        if decorated {
+                            text += decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
+                        } else {
+                            text += (line["text"] as! String) + " "
+                        }
+                    }
+                    
+                } else {
+                    for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1) AND verse<=\(range[1].1)") {
+                        if decorated {
+                            text += decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
+                        } else {
+                            text += (line["text"] as! String) + " "
+                        }
+                    }
+                }
+            }
+            
+            text += "\n"
+            result += [(bookName, text)]
+        }
+        
+        return result
+    }
+    
 }
 
 class OldTestamentModel : BookModel {
@@ -133,28 +226,34 @@ class OldTestamentModel : BookModel {
         return "Ветхий Завет - " + Translate.s(OldTestamentModel.data[section][row].0) + ", \(chapterTitle) \(chapter+1)"
     }
     
-    func getContent(index: IndexPath, chapter: Int) -> Any? {
+    func getContent(at pos: BookPosition) -> Any? {
+        guard let index = pos.index, let chapter = pos.chapter else { return nil }
         let code =  OldTestamentModel.data[index.section][index.row].1
         return BibleModel.getChapter(code, chapter+1)
     }
     
-    func getBookmark(index: IndexPath, chapter: Int) -> String {
+    func getBookmark(at pos: BookPosition) -> String {
+        guard let index = pos.index, let chapter = pos.chapter else { return "" }
         return "OldTestament_\(index.section)_\(index.row)_\(chapter)"
     }
     
-    func getNextSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? {
+    func getNextSection(at pos: BookPosition) -> BookPosition? {
+        guard let index = pos.index, let chapter = pos.chapter else { return nil }
+
         let numChapters = Db.numberOfChapters(OldTestamentModel.data[index.section][index.row].1)
         if chapter < numChapters-1 {
-            return (index, chapter+1)
+            return BookPosition(index: index, chapter: chapter+1)
         } else {
             return nil
         }
         
     }
     
-    func getPrevSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? {
+    func getPrevSection(at pos: BookPosition) -> BookPosition? {
+        guard let index = pos.index, let chapter = pos.chapter else { return nil }
+
         if chapter > 0 {
-            return (index, chapter-1)
+            return BookPosition(index: index, chapter: chapter-1)
         } else {
             return nil
         }
@@ -235,28 +334,35 @@ class NewTestamentModel : BookModel {
         return "Новый Завет - " + Translate.s(NewTestamentModel.data[section][row].0) + ", глава \(chapter+1)"
     }
         
-    func getContent(index: IndexPath, chapter: Int) -> Any? {
+    func getContent(at pos: BookPosition) -> Any? {
+        guard let index = pos.index, let chapter = pos.chapter else { return nil }
+
         let code =  NewTestamentModel.data[index.section][index.row].1
         return BibleModel.getChapter(code, chapter+1)
     }
     
-    func getBookmark(index: IndexPath, chapter: Int) -> String {
+    func getBookmark(at pos: BookPosition) -> String {
+        guard let index = pos.index, let chapter = pos.chapter else { return "" }
         return "NewTestament_\(index.section)_\(index.row)_\(chapter)"
     }
     
-    func getNextSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? {
+    func getNextSection(at pos: BookPosition) -> BookPosition? {
+        guard let index = pos.index, let chapter = pos.chapter else { return nil }
+
         let numChapters = Db.numberOfChapters(NewTestamentModel.data[index.section][index.row].1)
         if chapter < numChapters-1 {
-            return (index, chapter+1)
+            return BookPosition(index: index, chapter: chapter+1)
         } else {
             return nil
         }
         
     }
     
-    func getPrevSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? {
+    func getPrevSection(at pos: BookPosition) -> BookPosition? {
+        guard let index = pos.index, let chapter = pos.chapter else { return nil }
+
         if chapter > 0 {
-            return (index, chapter-1)
+            return BookPosition(index: index, chapter: chapter-1)
         } else {
             return nil
         }

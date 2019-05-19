@@ -9,31 +9,6 @@
 import UIKit
 import swift_toolkit
 
-enum BookType {
-    case text, html
-}
-
-protocol BookModel {
-    var code : String { get }
-    var mode : BookType { get }
-    
-    func getTitle() -> String
-    func getSections() -> [String]
-    func getItems(_ section : Int) -> [String]
-    
-    func isExpandable() -> Bool
-    func getNumChapters(_ index : IndexPath) -> Int
-    func getComment(commentId: Int) -> String?
-    
-    func getContent(index : IndexPath, chapter : Int) -> Any?
-    func getBookmark(index : IndexPath, chapter : Int) -> String
-    
-    func getNextSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)?
-    func getPrevSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)?
-
-    func getBookmarkName(_ bookmark : String) -> String
-}
-
 class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     let prefs = UserDefaults(suiteName: groupId)!
@@ -91,23 +66,21 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         title = model.getTitle()
     }
     
-    func openBook(_ _index: IndexPath, _ _chapter: Int) {
-        var model: BookModel! = self.model
-        var index = _index
-        var chapter = _chapter
+    func openBook(_ index: IndexPath, _ chapter: Int) {
         var vc : UIViewController!
+        var pos : BookPosition!
         
         if model.code == "Bookmarks" {
-            let pos = (model as! BookmarksModel).resolveBookmarkAt(row: index.row)
-            model = pos.model
-            index = pos.index
-            chapter = pos.chapter
+            pos = (model as! BookmarksModel).resolveBookmarkAt(row: index.row)
+           
+        } else {
+            pos = BookPosition(model: model, index: index, chapter: chapter)
         }
         
         if model.mode == .html {
-            vc = BookPageHTML(model: model, index: index, chapter: chapter)
+            vc = BookPageHTML(pos)
         } else {
-            vc = BookPageText(model: model, index: index, chapter: chapter)
+            vc = BookPageText(pos)
         }
         
         navigationController?.pushViewController(vc, animated: true)

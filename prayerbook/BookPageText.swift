@@ -49,13 +49,13 @@ class BookPageText: BookPage {
             NSLayoutConstraint.deactivate(con)
         }
         
-        contentView1 = createContentView(index: index, chapter: chapter)
+        contentView1 = createContentView(pos)
         
         con = generateConstraints(forView: contentView1, leading: 10, trailing: -10)
         NSLayoutConstraint.activate(con)
     }
     
-    override func createContentView(index: IndexPath, chapter: Int) -> UIView {
+    override func createContentView(_ pos: BookPosition) -> UIView {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -66,7 +66,7 @@ class BookPageText: BookPage {
         textView.isEditable = false
         textView.showsVerticalScrollIndicator = true
         
-        textView.attributedText = model.getContent(index: index, chapter: chapter) as! NSAttributedString
+        textView.attributedText = model.getContent(at: pos) as! NSAttributedString
         
         view.addSubview(textView)
         textView.scrollRangeToVisible(NSRange(location:0, length:0))

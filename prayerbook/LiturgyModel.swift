@@ -152,11 +152,13 @@ class LiturgyModel : BookModel {
         }
     }
     
-    func getContent(index: IndexPath, chapter: Int) -> Any? {
+    func getContent(at pos: BookPosition) -> Any? {
+        guard let index = pos.index else { return nil }
         return getData(index)
     }
     
-    func getBookmark(index: IndexPath, chapter: Int) -> String {
+    func getBookmark(at pos: BookPosition) -> String {
+        guard let index = pos.index else { return "" }
         return "Liturgy_\(index.section)_\(index.row)"
     }
     
@@ -167,23 +169,27 @@ class LiturgyModel : BookModel {
         return "Божественная Литургия - " + LiturgyModel.data[Int(comp[1])!][Int(comp[2])!]
     }
 
-    func getNextSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? {
+    func getNextSection(at pos: BookPosition) -> BookPosition? {
+        guard let index = pos.index else { return nil }
+
         if (index.section == 1 && index.row == LiturgyModel.data[1].count-1) {
             return nil
         } else if (index.section == 0 && index.row == LiturgyModel.data[0].count-1) {
-            return (IndexPath(row: 0, section: 1), 0)
+            return BookPosition(index: IndexPath(row: 0, section: 1), chapter: 0)
         } else {
-            return (IndexPath(row: index.row+1, section: index.section), 0)
+            return BookPosition(index: IndexPath(row: index.row+1, section: index.section), chapter: 0)
         }
     }
     
-    func getPrevSection(index: IndexPath, chapter: Int) -> (IndexPath, Int)? {
+    func getPrevSection(at pos: BookPosition) -> BookPosition? {
+        guard let index = pos.index else { return nil }
+
         if (index.section == 0 && index.row == 0) {
             return nil
         } else if (index.section == 1 && index.row == 0) {
-            return (IndexPath(row: LiturgyModel.data[0].count-1, section: 0), 0)
+            return BookPosition(index: IndexPath(row: LiturgyModel.data[0].count-1, section: 0), chapter: 0)
         } else {
-            return (IndexPath(row: index.row-1, section: index.section), 0)
+            return BookPosition(index: IndexPath(row: index.row-1, section: index.section), chapter: 0)
         }
     }
 }

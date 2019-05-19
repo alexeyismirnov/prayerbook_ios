@@ -126,6 +126,8 @@
 		8A916D8922576C34003FEF70 /* LiturgyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A916D8822576C34003FEF70 /* LiturgyModel.swift */; };
 		8A953B371DC736C2001062AF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A953B361DC736C2001062AF /* MainViewController.swift */; };
 		8A96719C2230C1900086CBA6 /* BibleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A96719B2230C1900086CBA6 /* BibleModel.swift */; };
+		8A9FE9482291569000319DCE /* PericopeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FE9472291569000319DCE /* PericopeModel.swift */; };
+		8A9FE94A22915CA500319DCE /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FE94922915CA500319DCE /* BookModel.swift */; };
 		8AADFF521E84C25300CE3D0F /* synaxarion21.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF441E84C25300CE3D0F /* synaxarion21.rtf */; };
 		8AADFF531E84C25300CE3D0F /* synaxarion22.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF451E84C25300CE3D0F /* synaxarion22.rtf */; };
 		8AADFF541E84C25300CE3D0F /* synaxarion23.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF461E84C25300CE3D0F /* synaxarion23.rtf */; };
@@ -436,6 +438,8 @@
 		8A953B361DC736C2001062AF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8A96719B2230C1900086CBA6 /* BibleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleModel.swift; sourceTree = "<group>"; };
 		8A9A36D81CAD127400D33D5A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		8A9FE9472291569000319DCE /* PericopeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PericopeModel.swift; sourceTree = "<group>"; };
+		8A9FE94922915CA500319DCE /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		8AADFF441E84C25300CE3D0F /* synaxarion21.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion21.rtf; sourceTree = "<group>"; };
 		8AADFF451E84C25300CE3D0F /* synaxarion22.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion22.rtf; sourceTree = "<group>"; };
 		8AADFF461E84C25300CE3D0F /* synaxarion23.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion23.rtf; sourceTree = "<group>"; };
@@ -675,14 +679,14 @@
 		8A74D800198F20CC0078F39F /* prayerbook */ = {
 			isa = PBXGroup;
 			children = (
+				8AAC691A1A2C4D5D00CC5CA1 /* bible */,
 				8A008FF22258A71400A9636B /* books */,
+				8A74D857199076EF0078F39F /* synaxarion */,
 				8A1B2574202955A60038C0C4 /* icons */,
 				8AFEE0591C210FB0004A68DC /* readings */,
 				8ADFF51E1B0F1D02001AE6A9 /* saints */,
-				8AAC691A1A2C4D5D00CC5CA1 /* scripture */,
 				8A74D844198F624C0078F39F /* images */,
 				8A74D832198F224E0078F39F /* Main.storyboard */,
-				8A74D857199076EF0078F39F /* html */,
 				8A54E3DA202857E900245C31 /* icons.sqlite */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
 				8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */,
@@ -696,11 +700,13 @@
 				8A54C4291EA74CE90083AA2F /* DailyTab.swift */,
 				8A0689F8221FF8A600F1E711 /* LibraryTab.swift */,
 				8A54C42B1EA760E30083AA2F /* BookTOC.swift */,
+				8A9FE94922915CA500319DCE /* BookModel.swift */,
 				8A16CB2A228BC35A004147B6 /* BookPage.swift */,
 				8A916D8422575870003FEF70 /* BookPageHTML.swift */,
 				8A1AD227228D62C30043F487 /* BookPageText.swift */,
 				8AC7203B22881A4A006862E4 /* BookmarksModel.swift */,
 				8A96719B2230C1900086CBA6 /* BibleModel.swift */,
+				8A9FE9472291569000319DCE /* PericopeModel.swift */,
 				8A916D8822576C34003FEF70 /* LiturgyModel.swift */,
 				8AB907FF216EF7580030F989 /* ChaptersCell.swift */,
 				8AB90800216EF7580030F989 /* ChaptersCell.xib */,
@@ -815,7 +821,7 @@
 			path = images;
 			sourceTree = "<group>";
 		};
-		8A74D857199076EF0078F39F /* html */ = {
+		8A74D857199076EF0078F39F /* synaxarion */ = {
 			isa = PBXGroup;
 			children = (
 				8A54575B1E70174300A86B5A /* church_history.rtf */,
@@ -854,10 +860,10 @@
 				8AADFF501E84C25300CE3D0F /* synaxarion33.rtf */,
 				8AADFF511E84C25300CE3D0F /* synaxarion34.rtf */,
 			);
-			path = html;
+			path = synaxarion;
 			sourceTree = "<group>";
 		};
-		8AAC691A1A2C4D5D00CC5CA1 /* scripture */ = {
+		8AAC691A1A2C4D5D00CC5CA1 /* bible */ = {
 			isa = PBXGroup;
 			children = (
 				8AC10A4E222A976D00540B22 /* ps_ru.sqlite */,
@@ -927,7 +933,7 @@
 				8AC10A0A222A694F00540B22 /* zech_ru.sqlite */,
 				8AC10A04222A694E00540B22 /* zeph_ru.sqlite */,
 			);
-			path = scripture;
+			path = bible;
 			sourceTree = "<group>";
 		};
 		8AB749A21C4C7A3500CD1B32 /* CalendarWidget */ = {
@@ -1367,6 +1373,7 @@
 				8A01E42621957BD8005BE65F /* DownloadManager.swift in Sources */,
 				8AE46EFE1EA9A6F900CAC1CB /* CalendarInfo.swift in Sources */,
 				8A24885E1EB0948A006877D8 /* YearlyCalendar.swift in Sources */,
+				8A9FE9482291569000319DCE /* PericopeModel.swift in Sources */,
 				8A916D8522575870003FEF70 /* BookPageHTML.swift in Sources */,
 				8A6684FC2178834700C19C04 /* TopAlignedCollection.swift in Sources */,
 				8ACEF0FD1A2EE40800AF98E0 /* DailyReading.swift in Sources */,
@@ -1393,6 +1400,7 @@
 				8A54C42C1EA760E30083AA2F /* BookTOC.swift in Sources */,
 				8A8D2FB61FBC458C00A54147 /* DateViewCell.swift in Sources */,
 				8A54E3DD2028637E00245C31 /* SaintIconModel.swift in Sources */,
+				8A9FE94A22915CA500319DCE /* BookModel.swift in Sources */,
 				8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */,
 				8A2F46AB19E145D200076AF4 /* Options.swift in Sources */,
 				8A16CB2B228BC35A004147B6 /* BookPage.swift in Sources */,
