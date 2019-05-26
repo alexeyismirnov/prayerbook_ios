@@ -13,6 +13,9 @@ class LiturgyModel : BookModel {
     var code: String = "Liturgy"
     var mode: BookType = .html
 
+    var isExpandable = false
+    var hasNavigation = true
+    
     static let data: [[String]] = [
         ["Начинательные возгласы диакона и священника",
          "Великая ектения",
@@ -79,11 +82,7 @@ class LiturgyModel : BookModel {
     func getItems(_ section: Int) -> [String] {
         return LiturgyModel.data[section]
     }
-    
-    func isExpandable() -> Bool {
-        return false;
-    }
-    
+
     func getNumChapters(_ index: IndexPath) -> Int {
         return 0;
     }

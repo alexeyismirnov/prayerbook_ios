@@ -22,7 +22,7 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        expandable = model.isExpandable()
+        expandable = model.isExpandable
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -72,12 +72,12 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         if model.code == "Bookmarks" {
             pos = (model as! BookmarksModel).resolveBookmarkAt(row: index.row)
-           
+            
         } else {
             pos = BookPosition(model: model, index: index, chapter: chapter)
         }
         
-        if model.mode == .html {
+        if pos.model!.mode == .html {
             vc = BookPageHTML(pos)
         } else {
             vc = BookPageText(pos)

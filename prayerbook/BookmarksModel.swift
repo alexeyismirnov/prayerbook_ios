@@ -12,6 +12,9 @@ class BookmarksModel : BookModel {
     var code = "Bookmarks"
     var mode: BookType = .text
     
+    var isExpandable = false
+    var hasNavigation = false
+    
     let prefs = UserDefaults(suiteName: groupId)!
     static let shared = BookmarksModel()
 
@@ -36,9 +39,7 @@ class BookmarksModel : BookModel {
 
         return arr
     }
-    
-    func isExpandable() -> Bool { return false }
-    
+
     func getNumChapters(_ index: IndexPath) -> Int { return 0 }
     
     func getComment(commentId: Int) -> String? { return nil }

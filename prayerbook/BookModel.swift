@@ -19,13 +19,14 @@ struct BookPosition {
         self.chapter = chapter
     }
     
+    init(model: BookModel, location: String) {
+        self.model = model
+        self.location = location
+    }
+    
     init(index: IndexPath, chapter: Int) {
         self.index = index
         self.chapter = chapter
-    }
-    
-    init(location: String) {
-        self.location = location
     }
     
     var model : BookModel?
@@ -38,11 +39,13 @@ protocol BookModel {
     var code : String { get }
     var mode : BookType { get }
     
+    var isExpandable : Bool { get }
+    var hasNavigation : Bool { get }
+    
     func getTitle() -> String
     func getSections() -> [String]
     func getItems(_ section : Int) -> [String]
     
-    func isExpandable() -> Bool
     func getNumChapters(_ index : IndexPath) -> Int
     func getComment(commentId: Int) -> String?
     

@@ -11,7 +11,8 @@ import swift_toolkit
 
 class FontSizeViewController : UIViewController, PopupContentViewController {
     let prefs = UserDefaults(suiteName: groupId)!
-
+    var delegate: BookPage!
+    
     var text : String!
     var fontSize: Int!
     var con : [NSLayoutConstraint]!
@@ -35,19 +36,33 @@ class FontSizeViewController : UIViewController, PopupContentViewController {
         
         slider.addTarget(self, action: #selector(self.sliderVlaue(_:)), for: .valueChanged)
         
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("OK", for: .normal)
+        button.setTitleColor(Theme.textColor, for: .normal)
+        button.layer.borderColor = Theme.secondaryColor.cgColor
+        button.layer.borderWidth = 1.0
+        button.layer.cornerRadius = 10
+        
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        
         view.addSubview(label)
         view.addSubview(slider)
+        view.addSubview(button)
         
         con = [
             label.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-            label.bottomAnchor.constraint(equalTo: slider.topAnchor, constant: -10),
+            label.bottomAnchor.constraint(equalTo: slider.topAnchor, constant: -20),
             label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             
             slider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             slider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            slider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
-            slider.heightAnchor.constraint(equalToConstant: 100.0)
+            
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.widthAnchor.constraint(equalToConstant: 100.0),
+            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+
         ]
         
         NSLayoutConstraint.activate(con)
@@ -58,14 +73,18 @@ class FontSizeViewController : UIViewController, PopupContentViewController {
         prefs.synchronize()
     }
     
+    @objc func buttonAction(sender: UIButton!) {
+        delegate.popup.dismiss()
+    }
+    
     func sizeForPopup(_ popupController: PopupController, size: CGSize, showingKeyboard: Bool) -> CGSize {
-        return CGSize(width: 250, height: 150)
+        return CGSize(width: 250, height: 170)
     }
 }
 
 class BookPage: UIViewController {
     let prefs = UserDefaults(suiteName: groupId)!
-    var fontSize: Int = 0
+    var fontSize : Int
     
     var model : BookModel
     var pos : BookPosition
@@ -91,6 +110,8 @@ class BookPage: UIViewController {
         self.pos = pos
         self.bookmark = model.getBookmark(at: pos)
         
+        fontSize = prefs.integer(forKey: "fontSize")
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -109,7 +130,12 @@ class BookPage: UIViewController {
         
         button_prev = CustomBarButton(image: UIImage(named: "arrow-left", in: nil, compatibleWith: nil), style: .plain, target: self, action: #selector(showPrev))
         
-        navigationItem.leftBarButtonItems = [button_close, button_prev, button_next]
+        if model.hasNavigation {
+            navigationItem.leftBarButtonItems = [button_close, button_prev, button_next]
+
+        } else {
+            navigationItem.leftBarButtonItem = button_close
+        }
         
         button_fontsize = CustomBarButton(image: UIImage(named: "fontsize", in: nil, compatibleWith: nil)!
             , target: self, btnHandler: #selector(self.showFontSizeDialog))
@@ -213,10 +239,16 @@ class BookPage: UIViewController {
     }
     
     func showBookmarkButton() {
-        let bookmarks = prefs.stringArray(forKey: "bookmarks")!
-        
-        navigationItem.rightBarButtonItems = bookmarks.contains(bookmark)  ? [button_fontsize, button_remove_bookmark]:
-            [button_fontsize, button_add_bookmark]
+        if model.hasNavigation {
+            let bookmarks = prefs.stringArray(forKey: "bookmarks")!
+            
+            navigationItem.rightBarButtonItems = bookmarks.contains(bookmark)  ? [button_fontsize, button_remove_bookmark]:
+                [button_fontsize, button_add_bookmark]
+            
+        } else {
+            navigationItem.rightBarButtonItem = button_fontsize
+        }
+      
     }
     
     @objc func close() {
@@ -249,6 +281,7 @@ class BookPage: UIViewController {
     @objc func showFontSizeDialog() {
         let vc = FontSizeViewController()
         vc.fontSize = fontSize
+        vc.delegate = self
         
         showPopup(vc, reload: true)
     }
