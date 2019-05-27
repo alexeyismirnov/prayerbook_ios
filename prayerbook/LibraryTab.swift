@@ -9,10 +9,11 @@
 import UIKit
 import swift_toolkit
 
-let books : [(String, BookModel)] = [("Закладки...", BookmarksModel.shared),
-                                     ("Old Testament", OldTestamentModel.shared),
-                                     ("New Testament", NewTestamentModel.shared),
-                                     ("Божественная Литургия свт. Иоанна Златоуста с комментариями", LiturgyModel.shared)]
+let books : [BookModel] = [BookmarksModel.shared,
+                           OldTestamentModel.shared,
+                           NewTestamentModel.shared,
+                           LiturgyModel.shared,
+                           SynaxarionModel.shared]
 
 class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, ResizableTableViewCells  {    
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
@@ -63,7 +64,7 @@ class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         cell.backgroundColor = .clear
         cell.title.textColor =  Theme.textColor
-        cell.title.text = Translate.s(books[indexPath.row].0)
+        cell.title.text = books[indexPath.row].getTitle()
         cell.subtitle.text = ""
         
         return cell
@@ -76,7 +77,7 @@ class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let toc = UIViewController.named("BookTOC") as! BookTOC
-        toc.model = books[indexPath.row].1
+        toc.model = books[indexPath.row]
         navigationController?.pushViewController(toc, animated: true)
 
         return nil

@@ -153,6 +153,7 @@
 		8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */; };
 		8AB749A41C4C7A3500CD1B32 /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB749A31C4C7A3500CD1B32 /* ExpandedViewController.swift */; };
 		8AB749A71C4C7A3500CD1B32 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AB749A51C4C7A3500CD1B32 /* MainInterface.storyboard */; };
+		8AB8674B229B8FAD00D6EFA7 /* SynaxarionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8674A229B8FAD00D6EFA7 /* SynaxarionModel.swift */; };
 		8AB90801216EF7580030F989 /* ChaptersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB907FF216EF7580030F989 /* ChaptersCell.swift */; };
 		8AB90802216EF7580030F989 /* ChaptersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB90800216EF7580030F989 /* ChaptersCell.xib */; };
 		8AC10A0B222A694F00540B22 /* num_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109CA222A694300540B22 /* num_ru.sqlite */; };
@@ -465,6 +466,7 @@
 		8AB749A31C4C7A3500CD1B32 /* ExpandedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedViewController.swift; sourceTree = "<group>"; };
 		8AB749A61C4C7A3500CD1B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		8AB749A81C4C7A3500CD1B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AB8674A229B8FAD00D6EFA7 /* SynaxarionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynaxarionModel.swift; sourceTree = "<group>"; };
 		8AB907FF216EF7580030F989 /* ChaptersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersCell.swift; sourceTree = "<group>"; };
 		8AB90800216EF7580030F989 /* ChaptersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChaptersCell.xib; sourceTree = "<group>"; };
 		8AC109CA222A694300540B22 /* num_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = num_ru.sqlite; sourceTree = "<group>"; };
@@ -706,6 +708,7 @@
 				8A96719B2230C1900086CBA6 /* BibleModel.swift */,
 				8A9FE9472291569000319DCE /* PericopeModel.swift */,
 				8A916D8822576C34003FEF70 /* LiturgyModel.swift */,
+				8AB8674A229B8FAD00D6EFA7 /* SynaxarionModel.swift */,
 				8AB907FF216EF7580030F989 /* ChaptersCell.swift */,
 				8AB90800216EF7580030F989 /* ChaptersCell.xib */,
 				8A1B2576202956840038C0C4 /* SaintIconView.swift */,
@@ -1380,6 +1383,7 @@
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
 				8A2F46A919E1302700076AF4 /* Translate.swift in Sources */,
 				8AC7203C22881A4A006862E4 /* BookmarksModel.swift in Sources */,
+				8AB8674B229B8FAD00D6EFA7 /* SynaxarionModel.swift in Sources */,
 				8A1964512186AC5700CDDCB5 /* FeastList.swift in Sources */,
 				8A1AD228228D62C40043F487 /* BookPageText.swift in Sources */,
 				8A1B2577202956840038C0C4 /* SaintIconView.swift in Sources */,

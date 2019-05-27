@@ -18,7 +18,7 @@ class BookmarksModel : BookModel {
     let prefs = UserDefaults(suiteName: groupId)!
     static let shared = BookmarksModel()
 
-    func getTitle() -> String { return "Закладки" }
+    func getTitle() -> String { return "Закладки..." }
     
     func getSections() -> [String] {
         let bookmarks = prefs.stringArray(forKey: "bookmarks")!
@@ -32,7 +32,7 @@ class BookmarksModel : BookModel {
         
         for b in bookmarks {
             let comp = b.components(separatedBy: "_")
-            let model = books.filter() { $0.1.code == comp[0] }.first!.1
+            let model = books.filter() { $0.code == comp[0] }.first!
             
             arr.append(model.getBookmarkName(b))
         }
@@ -48,7 +48,7 @@ class BookmarksModel : BookModel {
         let bookmarks = prefs.stringArray(forKey: "bookmarks")!
         let comp = bookmarks[row].components(separatedBy: "_")
         
-        let model = books.filter() { $0.1.code == comp[0] }.first!.1
+        let model = books.filter() { $0.code == comp[0] }.first!
         let index = IndexPath(row: Int(comp[2])!, section: Int(comp[1])!)
         let chapter : Int = (comp.count == 4) ? Int(comp[3])! : 0
         

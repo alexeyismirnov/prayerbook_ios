@@ -72,7 +72,7 @@ class LiturgyModel : BookModel {
     }
     
     func getTitle() -> String {
-        return "Божественная Литургия"
+        return "Божественная Литургия свт. Иоанна Златоуста с комментариями"
     }
     
     func getSections() -> [String] {

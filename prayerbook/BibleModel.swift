@@ -100,7 +100,7 @@ class OldTestamentModel : BookModel {
     static let shared = OldTestamentModel()
 
     func getTitle() -> String {
-        return Translate.s("Old Testament")
+        return "Ветхий Завет"
     }
     
     func getSections() -> [String] {
@@ -216,7 +216,7 @@ class NewTestamentModel : BookModel {
     static let shared = NewTestamentModel()
     
     func getTitle() -> String {
-        return Translate.s("New Testament")
+        return "Новый Завет"
     }
     
     func getSections() -> [String] {

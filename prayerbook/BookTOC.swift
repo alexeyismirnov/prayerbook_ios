@@ -38,7 +38,6 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         NotificationCenter.default.addObserver(self, selector: #selector(showChapter), name: NSNotification.Name(rawValue: chapterSelectedNotification), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .optionsSavedNotification, object: nil)
         
         reloadTheme()
     }
@@ -58,12 +57,7 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: toolkit))
         }
         
-        reload()
-    }
-    
-    @objc func reload() {
         tableView.reloadData()
-        title = model.getTitle()
     }
     
     func openBook(_ index: IndexPath, _ chapter: Int) {

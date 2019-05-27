@@ -61,7 +61,7 @@ class BookPageText: BookPage {
         
         textView.font = UIFont(name: "TimesNewRomanPSMT", size: CGFloat(fontSize))!
         textView.backgroundColor = .clear
-        textView.textColor = .black
+        textView.textColor = Theme.textColor
         textView.isScrollEnabled = true
         textView.isEditable = false
         textView.showsVerticalScrollIndicator = true
