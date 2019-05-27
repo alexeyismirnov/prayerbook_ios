@@ -41,6 +41,7 @@ struct BibleModel {
 
 class OldTestamentModel : BookModel {
     var code : String = "OldTestament"
+    var title = "Ветхий Завет"
     var mode: BookType = .text
 
     var isExpandable = true
@@ -99,10 +100,6 @@ class OldTestamentModel : BookModel {
     
     static let shared = OldTestamentModel()
 
-    func getTitle() -> String {
-        return "Ветхий Завет"
-    }
-    
     func getSections() -> [String] {
         return ["Пятикнижие Моисея", "Книги исторические", "Книги учительные", "Книги пророческие"]
     }
@@ -170,6 +167,8 @@ class OldTestamentModel : BookModel {
 
 class NewTestamentModel : BookModel {
     var code: String = "NewTestament"
+    var title = "Новый Завет"
+
     var mode: BookType = .text
 
     var isExpandable = true
@@ -214,10 +213,6 @@ class NewTestamentModel : BookModel {
     ]
     
     static let shared = NewTestamentModel()
-    
-    func getTitle() -> String {
-        return "Новый Завет"
-    }
     
     func getSections() -> [String] {
         return ["Евангелия и Деяния", "Соборные Послания", "Послания св. Апостола Павла", "Откровение св. Ап. Иоанна Богослова"]

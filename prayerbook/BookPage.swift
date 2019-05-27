@@ -39,8 +39,9 @@ class FontSizeViewController : UIViewController, PopupContentViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("OK", for: .normal)
-        button.setTitleColor(Theme.textColor, for: .normal)
-        button.layer.borderColor = Theme.secondaryColor.cgColor
+        button.setTitleColor(.darkGray, for: .normal)
+        button.backgroundColor = .clear
+        button.layer.borderColor = UIColor.darkGray.cgColor
         button.layer.borderWidth = 1.0
         button.layer.cornerRadius = 10
         
@@ -130,13 +131,6 @@ class BookPage: UIViewController {
         
         button_prev = CustomBarButton(image: UIImage(named: "arrow-left", in: nil, compatibleWith: nil), style: .plain, target: self, action: #selector(showPrev))
         
-        if model.hasNavigation {
-            navigationItem.leftBarButtonItems = [button_close, button_prev, button_next]
-
-        } else {
-            navigationItem.leftBarButtonItem = button_close
-        }
-        
         button_fontsize = CustomBarButton(image: UIImage(named: "fontsize", in: nil, compatibleWith: nil)!
             , target: self, btnHandler: #selector(self.showFontSizeDialog))
         
@@ -177,7 +171,7 @@ class BookPage: UIViewController {
                             self.pos = nextPos
                             self.bookmark = self.model.getBookmark(at: self.pos)
                             
-                            self.showBookmarkButton()
+                            self.updateNavigationButtons()
             }
             )
         }
@@ -214,7 +208,7 @@ class BookPage: UIViewController {
                             
                             self.bookmark = self.model.getBookmark(at: self.pos)
                             
-                            self.showBookmarkButton()
+                            self.updateNavigationButtons()
             }
             )
         }
@@ -238,15 +232,29 @@ class BookPage: UIViewController {
         navigationItem.rightBarButtonItems = [button_fontsize, button_add_bookmark]
     }
     
-    func showBookmarkButton() {
+    func updateNavigationButtons() {
         if model.hasNavigation {
             let bookmarks = prefs.stringArray(forKey: "bookmarks")!
             
             navigationItem.rightBarButtonItems = bookmarks.contains(bookmark)  ? [button_fontsize, button_remove_bookmark]:
                 [button_fontsize, button_add_bookmark]
             
+            var nav_buttons = [CustomBarButton]()
+            
+            if let _ = model.getPrevSection(at: pos) {
+                nav_buttons.append(button_prev)
+            }
+            
+            if let _ = model.getNextSection(at: pos) {
+                nav_buttons.append(button_next)
+            }
+            
+            nav_buttons.insert(button_close, at: 0)
+            navigationItem.leftBarButtonItems = nav_buttons
+
         } else {
             navigationItem.rightBarButtonItem = button_fontsize
+            navigationItem.leftBarButtonItem = button_close
         }
       
     }

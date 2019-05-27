@@ -11,6 +11,7 @@ import swift_toolkit
 
 class PericopeModel : BookModel {
     var code : String = "Pericope"
+    var title = ""
     var mode: BookType = .text
     
     var isExpandable = false
@@ -112,10 +113,6 @@ class PericopeModel : BookModel {
     }
     
     static let shared = PericopeModel()
-
-    func getTitle() -> String {
-        return ""
-    }
     
     func getSections() -> [String] {
         return []

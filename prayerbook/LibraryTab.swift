@@ -64,7 +64,7 @@ class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         cell.backgroundColor = .clear
         cell.title.textColor =  Theme.textColor
-        cell.title.text = books[indexPath.row].getTitle()
+        cell.title.text = books[indexPath.row].title
         cell.subtitle.text = ""
         
         return cell

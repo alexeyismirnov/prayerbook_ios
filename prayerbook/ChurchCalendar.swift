@@ -73,7 +73,6 @@ struct ChurchCalendar {
     static var dCache = [DateCache:Date]()
 
     static var dateFeastDescr = [Date: [(FeastType, String)]]()
-    static var synaxarion = [Date: (String, String)]()
     static var moveableIcons = [Date: [IconCodes]]()
 
     static let codeFeastDescr : [NameOfDay: (FeastType, String)] = [
@@ -190,7 +189,6 @@ struct ChurchCalendar {
         if dCache[DateCache(.pascha, currentYear)] == nil {
             generateFeastDates(currentYear)
             generateFeastDescription(currentYear)
-            generateSynaxarion(currentYear)
         }
     }
 
@@ -200,48 +198,6 @@ struct ChurchCalendar {
         let b = (2*(year%4) + 4*(year%7) + 6*a + 6) % 7
 
         return  ((a+b > 10) ? Date(a+b-9, 4, year) : Date(22+a+b, 3, year)) + 13.days
-    }
-    
-    static func generateSynaxarion(_ year: Int) {
-        let pascha = paschaDay(year)
-        let greatLentStart = pascha-48.days
-
-        synaxarion += [
-            greatLentStart-22.days: ("Синаксарь в неделю о мытаре и фарисее", "synaxarion1"),
-            greatLentStart-15.days: ("Синаксарь в неделю о блудном сыне", "synaxarion2"),
-            greatLentStart-9.days:  ("Синаксарь в субботу мясопустную", "synaxarion3"),
-            greatLentStart-8.days:  ("Синаксарь в неделю мясопустную, о Страшном Суде", "synaxarion4"),
-            greatLentStart-2.days:  ("Синаксарь в субботу Сырной седмицы", "synaxarion5"),
-            greatLentStart-1.days:  ("Синаксарь в неделю сыропустную", "synaxarion6"),
-            greatLentStart+5.days:  ("Синаксарь в субботу первой седмицы Великого поста", "synaxarion7"),
-            greatLentStart+6.days:  ("Синаксарь в неделю первую Великого поста", "synaxarion8"),
-            greatLentStart+13.days: ("Синаксарь в неделю вторую Великого поста", "synaxarion9"),
-            greatLentStart+20.days: ("Синаксарь в неделю третью Великого поста", "synaxarion10"),
-            greatLentStart+27.days: ("Синаксарь в неделю четвертую Великого поста", "synaxarion11"),
-            greatLentStart+31.days: ("Синаксарь в четверток пятой седмицы Великого поста", "synaxarion12"),
-            greatLentStart+33.days: ("Синаксарь в субботу пятой седмицы Великого поста", "synaxarion13"),
-            d(.palmSunday)-1.days:  ("Синаксарь в Лазареву субботу", "synaxarion14"),
-            d(.palmSunday):         ("Синаксарь в Неделю ваий", "synaxarion15"),
-            d(.palmSunday)+1.days:  ("Синаксарь во Святой Великий Понедельник", "synaxarion16"),
-            d(.palmSunday)+2.days:  ("Синаксарь во Святой Великий Вторник", "synaxarion17"),
-            d(.palmSunday)+3.days:  ("Синаксарь во Святую Великую Среду", "synaxarion18"),
-            d(.palmSunday)+4.days:  ("Синаксарь во Святой Великий Четверг", "synaxarion19"),
-            d(.palmSunday)+5.days:  ("Синаксарь во Святую Великую Пятницу", "synaxarion20"),
-            d(.palmSunday)+6.days:  ("Синаксарь во Святую Великую Субботу", "synaxarion21"),
-            pascha:                 ("Синаксарь во Святую и Великую неделю Пасхи", "synaxarion22"),
-            pascha+5.days:          ("Синаксарь на Пресвятую Госпожу Владычицу Богородицу, Живоприемный Источник", "synaxarion23"),
-            pascha+7.days:          ("Синаксарь в неделю Фомину", "synaxarion24"),
-            pascha+14.days:         ("Синаксарь в неделю третью по Пасце, святых жен мироносиц", "synaxarion25"),
-            pascha+21.days:         ("Синаксарь в неделю четвертую по Пасце, о разслабленом", "synaxarion26"),
-            pascha+24.days:         ("Синаксарь в среду разслабленного, на преполовение Пятидесятницы", "synaxarion27"),
-            pascha+28.days:         ("Синаксарь в неделю пятую по Пасце, о самаряныне", "synaxarion28"),
-            pascha+35.days:         ("Синаксарь в неделю шестую по Пасце, о слепом", "synaxarion29"),
-            pascha+42.days:         ("Синаксарь в неделю святых 318 богоносных отец, иже в Никеи", "synaxarion30"),
-            pascha+39.days:         ("Синаксарь на Вознесение Господа Бога и Спаса нашего Иисуса Христа", "synaxarion31"),
-            pascha+49.days:         ("Синаксарь в неделю святыя Пентикостии", "synaxarion32"),
-            pascha+50.days:         ("Синаксарь в понедельник по Пятидесятнице, сиесть Святаго Духа", "synaxarion33"),
-            pascha+56.days:         ("Синаксарь в неделю Всех Святых", "synaxarion34"),
-        ]
     }
     
     static func generateFeastDescription(_ year: Int) {

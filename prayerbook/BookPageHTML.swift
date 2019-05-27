@@ -76,7 +76,7 @@ class BookPageHTML: BookPage, WKNavigationDelegate {
         
         reloadTheme()
         createNavigationButtons()
-        showBookmarkButton()
+        updateNavigationButtons()
     }
     
     deinit {

@@ -18,7 +18,7 @@ class BookPageText: BookPage {
         
         reloadTheme()
         createNavigationButtons()
-        showBookmarkButton()
+        updateNavigationButtons()
     }
     
     override func viewDidAppear(_ animated: Bool) {

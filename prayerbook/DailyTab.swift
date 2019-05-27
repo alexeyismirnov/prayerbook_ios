@@ -410,8 +410,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
                 
             default:
                 if synaxarion != nil && indexPath.row == readings.count + feofan.count {
-                    vc = UIViewController.named("RTFDocument")
-                    (vc as! RTFDocument).docFilename = synaxarion!.1
+                    let pos = BookPosition(model: SynaxarionModel.shared, location: synaxarion!.1)
+                    vc = BookPageText(pos)
                     
                 } else if greatFeast != nil {
                     if TroparionModel.troparionAvailable() {
@@ -504,7 +504,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         
         saints=Db.saints(self.currentDate)
         readings = DailyReading.getDailyReading(currentDate)
-        synaxarion = Cal.synaxarion[currentDate]
+        synaxarion = SynaxarionModel.shared.getSynaxarion(for: currentDate)
         greatFeast = Cal.getGreatFeast(currentDate)
         
         if (appeared) {

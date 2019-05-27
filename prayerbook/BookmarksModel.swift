@@ -10,15 +10,15 @@ import UIKit
 
 class BookmarksModel : BookModel {
     var code = "Bookmarks"
+    var title = "Закладки..."
     var mode: BookType = .text
-    
+
     var isExpandable = false
     var hasNavigation = false
     
     let prefs = UserDefaults(suiteName: groupId)!
     static let shared = BookmarksModel()
 
-    func getTitle() -> String { return "Закладки..." }
     
     func getSections() -> [String] {
         let bookmarks = prefs.stringArray(forKey: "bookmarks")!

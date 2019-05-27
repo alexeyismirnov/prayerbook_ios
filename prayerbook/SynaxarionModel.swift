@@ -11,10 +11,15 @@ import swift_toolkit
 
 class SynaxarionModel : BookModel {
     var code: String = "Synaxarion"
+    var title = "Синаксари Постной и Цветной Триоди"
     var mode: BookType = .text
     
     var isExpandable = false
-    var hasNavigation = false
+    var hasNavigation = true
+    
+    var currentYear : Int = 0
+    
+    var dates = [Date]()
     
     static let shared = SynaxarionModel()
     
@@ -54,10 +59,6 @@ class SynaxarionModel : BookModel {
         ("Синаксарь в понедельник по Пятидесятнице, сиесть Святаго Духа", "synaxarion33"),
         ("Синаксарь в неделю Всех Святых", "synaxarion34"),
     ]
-
-    func getTitle() -> String {
-        return "Синаксари Постной и Цветной Триоди"
-    }
     
     func getSections() -> [String] {
         return [""]
@@ -76,45 +77,96 @@ class SynaxarionModel : BookModel {
     }
     
     func getContent(at pos: BookPosition) -> Any? {
-        if let filename = pos.location {
+        let prefs = UserDefaults(suiteName: groupId)!
+        let fontSize = CGFloat(prefs.integer(forKey: "fontSize"))
+        let filename = pos.location ?? SynaxarionModel.data[pos.index!.row].1
+        
+        if let rtfPath = Bundle.main.url(forResource: filename, withExtension: "rtf") {
+            do {
+                let opts : [NSAttributedString.DocumentReadingOptionKey : Any] =
+                    [.documentType : NSAttributedString.DocumentType.rtf]
+                
+                let content = try NSAttributedString(url: rtfPath, options:opts, documentAttributes: nil)
+                let title = (SynaxarionModel.data.filter { $0.1 == filename }).first!.0
+                
+                return
+                    title.colored(with: Theme.textColor).boldFont(ofSize: CGFloat(fontSize)).centered +
+                    "\n\n" +
+                    content.colored(with: Theme.textColor).font(font: UIFont(name: "TimesNewRomanPSMT", size: CGFloat(fontSize))!)
+                
+            } catch _ { }
+        }
+        
+        return nil
+    }
+    
+    func getSynaxarion(for date: Date) -> (String,String)? {
+        let year = DateComponents(date: date).year!
+
+        if year != currentYear {
+            currentYear = year
+            
+            let pascha = Cal.d(.pascha)
+            let greatLentStart = pascha-48.days
+            let palmSunday = Cal.d(.palmSunday)
+            
+            dates = [
+                greatLentStart-22.days,greatLentStart-15.days,greatLentStart-9.days,greatLentStart-8.days,
+                greatLentStart-2.days,greatLentStart-1.days,greatLentStart+5.days,greatLentStart+6.days,
+                greatLentStart+13.days,greatLentStart+20.days,greatLentStart+27.days,greatLentStart+31.days,
+                greatLentStart+33.days,palmSunday-1.days,palmSunday,palmSunday+1.days,
+                palmSunday+2.days,palmSunday+3.days,palmSunday+4.days,palmSunday+5.days,
+                palmSunday+6.days,pascha, pascha+5.days,pascha+7.days,pascha+14.days,
+                pascha+21.days, pascha+24.days,pascha+28.days,pascha+35.days,
+                pascha+42.days,pascha+39.days,pascha+49.days, pascha+50.days, pascha+56.days,
+            ]
+        }
+        
+        if let index = dates.firstIndex(of: date) {
+            return SynaxarionModel.data[index]
+            
+        } else {
             return nil
-            
-        } else if let index = pos.index {
-            let filename = SynaxarionModel.data[index.row].1
-            let prefs = UserDefaults(suiteName: groupId)!
-            let fontSize = CGFloat(prefs.integer(forKey: "fontSize"))
-            
-            if let rtfPath = Bundle.main.url(forResource: filename, withExtension: "rtf") {
-                do {
-                    let opts : [NSAttributedString.DocumentReadingOptionKey : Any] =
-                        [.documentType : NSAttributedString.DocumentType.rtf]
-                    
-                    let content = try NSAttributedString(url: rtfPath, options:opts, documentAttributes: nil)
-                    return content.font(font: UIFont(name: "TimesNewRomanPSMT", size: CGFloat(fontSize))!)
-                    
-                } catch let error {
-                    print("We got an error \(error)")
-                }
+        }
+    }
+    
+    func getNextSection(at pos: BookPosition) -> BookPosition? {
+        if let index = pos.index {
+            if index.row < SynaxarionModel.data.count - 1 {
+                return BookPosition(index: IndexPath(row: index.row+1, section: 0), chapter: 0)
             }
-            
         }
         return nil
     }
     
-    func getBookmark(at pos: BookPosition) -> String {
-        return ""
-    }
-    
-    func getNextSection(at pos: BookPosition) -> BookPosition? {
-        return nil
-    }
-    
     func getPrevSection(at pos: BookPosition) -> BookPosition? {
+        if let index = pos.index {
+            if index.row > 0 {
+                return BookPosition(index: IndexPath(row: index.row-1, section: 0), chapter: 0)
+            }
+        }
+        
         return nil
+    }
+    
+    func getBookmark(at pos: BookPosition) -> String {
+        if let index = pos.index {
+            return "Synaxarion_\(index.section)_\(index.row)"
+            
+        } else if let filename = pos.location,
+            let index = SynaxarionModel.data.firstIndex(where: { $0.1 == filename } ) {
+            return "Synaxarion_0_\(index)"
+        }
+        
+        return ""
     }
     
     func getBookmarkName(_ bookmark: String) -> String {
-        return ""
+        let comp = bookmark.components(separatedBy: "_")
+        guard comp[0] == "Synaxarion" else { return "" }
+        
+        let row = Int(comp[2])!
+        return SynaxarionModel.data[row].0
     }
 
 }

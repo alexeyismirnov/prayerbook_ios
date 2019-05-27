@@ -11,6 +11,7 @@ import Squeal
 
 class LiturgyModel : BookModel {
     var code: String = "Liturgy"
+    var title = "Божественная Литургия свт. Иоанна Златоуста с комментариями"
     var mode: BookType = .html
 
     var isExpandable = false
@@ -69,10 +70,6 @@ class LiturgyModel : BookModel {
     init() {
         let path = Bundle.main.path(forResource: "liturgy", ofType: "sqlite")!
         db = try! Database(path:path)
-    }
-    
-    func getTitle() -> String {
-        return "Божественная Литургия свт. Иоанна Златоуста с комментариями"
     }
     
     func getSections() -> [String] {

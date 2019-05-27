@@ -38,11 +38,11 @@ struct BookPosition {
 protocol BookModel {
     var code : String { get }
     var mode : BookType { get }
+    var title: String { get }
     
     var isExpandable : Bool { get }
     var hasNavigation : Bool { get }
     
-    func getTitle() -> String
     func getSections() -> [String]
     func getItems(_ section : Int) -> [String]
     
