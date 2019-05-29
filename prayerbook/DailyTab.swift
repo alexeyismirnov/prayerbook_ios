@@ -404,9 +404,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
                 
             case readings.count ..< readings.count + feofan.count:
                 let ind = indexPath.row - readings.count
-                
-                vc = UIViewController.named("RTFDocument")
-                (vc as! RTFDocument).content = NSMutableAttributedString(string: feofan[ind].1)
+                let pos = BookPosition(model: FeofanModel.shared, location: feofan[ind].1)
+                vc = BookPageText(pos)
                 
             default:
                 if synaxarion != nil && indexPath.row == readings.count + feofan.count {
@@ -518,12 +517,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     }
     
     func reloadAfterAppeared() {
-        feofan = DailyReading.getFeofan(currentDate)
-        
-        if feofan.count == 0 {
-            feofan = DailyReading.getFeofan(currentDate, fuzzy: true)
-        }
-        
+        feofan = FeofanModel.getFeofan(for: currentDate)
         saintIcons = SaintIconModel.get(currentDate)
     }
     

@@ -83,6 +83,11 @@ class Options: UITableViewController {
             cell = self.tableView(tableView, cellForRowAt: indexPath) as UITableViewCell
             cell.accessoryType = .checkmark
             
+            let fasting = indexPath.row
+            
+            prefs.set(fasting, forKey: "fastingLevel")
+            prefs.synchronize()
+            
         } else if indexPath.section == 2 {
             if indexPath.row == 0 {
                 Theme.set(.Default)
@@ -110,12 +115,6 @@ class Options: UITableViewController {
                 popup.show(container)
             }
             
-        } else if indexPath.section == 3 {
-            let vc = UIViewController.named("RTFDocument") as! RTFDocument
-            vc.docFilename = "church_history"
-            
-            self.navigationController?.pushViewController(vc, animated: true)
-
         }
     }
     
@@ -135,12 +134,6 @@ class Options: UITableViewController {
     }
 
     @objc func done(tapGestureRecognizer: UITapGestureRecognizer) {
-        let cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 1)) as UITableViewCell
-        let fasting = (cell.accessoryType == .checkmark) ? 0 : 1
-        
-        prefs.set(fasting, forKey: "fastingLevel")
-        prefs.synchronize()
-
         NotificationCenter.default.post(name: .optionsSavedNotification, object: nil)
         dismiss(animated: true, completion: nil)
     }

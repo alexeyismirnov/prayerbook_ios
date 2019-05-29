@@ -99,7 +99,7 @@ struct Db {
         return nil
     }
     
-    static func feofanFuzzy(_ id: String) -> String? {
+    static func feofanGospel(_ id: String) -> String? {
         let path = Bundle.main.path(forResource: "feofan", ofType: "sqlite")!
         let db = try! Database(path:path)
 

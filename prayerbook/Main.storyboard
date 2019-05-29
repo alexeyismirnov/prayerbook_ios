@@ -131,30 +131,7 @@
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Copyright" id="h7n-gG-AkT">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="VCw-XU-ZHg">
-                                        <rect key="frame" x="0.0" y="401" width="768" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VCw-XU-ZHg" id="rMB-Gt-zOZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="История храма" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBh-iR-qqU">
-                                                    <rect key="frame" x="30" y="9" width="358" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="ZBh-iR-qqU" firstAttribute="leading" secondItem="rMB-Gt-zOZ" secondAttribute="leading" constant="20" symbolic="YES" id="TLc-sp-M1w"/>
-                                                <constraint firstAttribute="trailing" secondItem="ZBh-iR-qqU" secondAttribute="trailing" constant="20" symbolic="YES" id="saa-bc-dYh"/>
-                                                <constraint firstItem="ZBh-iR-qqU" firstAttribute="centerY" secondItem="rMB-Gt-zOZ" secondAttribute="centerY" id="zGJ-Vq-LPI"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                </cells>
+                                <cells/>
                             </tableViewSection>
                         </sections>
                         <connections>
@@ -165,7 +142,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSl-pD-wjo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1635.9375" y="-445.31249999999994"/>
+            <point key="canvasLocation" x="187" y="-443"/>
         </scene>
         <!--Calendar Info-->
         <scene sceneID="lju-3l-Zvj">
@@ -183,7 +160,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGD-wS-aEy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2348.4375" y="-452.34374999999994"/>
+            <point key="canvasLocation" x="899" y="-450"/>
         </scene>
         <!--MainVC-->
         <scene sceneID="Zs1-97-Vp3">
@@ -235,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HmL-Di-NhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1636" y="254"/>
+            <point key="canvasLocation" x="857" y="254"/>
         </scene>
         <!--BookTOC-->
         <scene sceneID="ZIP-z4-SQb">
@@ -270,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P3b-mC-S1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966" y="254"/>
+            <point key="canvasLocation" x="187" y="254"/>
         </scene>
         <!--Library Tab-->
         <scene sceneID="d5g-l8-dj5">
@@ -481,41 +458,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Pn-aU-EsK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2357" y="-1091"/>
-        </scene>
-        <!--Document-->
-        <scene sceneID="fsq-t0-AgO">
-            <objects>
-                <viewController storyboardIdentifier="RTFDocument" automaticallyAdjustsScrollViewInsets="NO" id="Eq6-Uh-p2k" customClass="RTFDocument" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xl9-Fh-oD2"/>
-                        <viewControllerLayoutGuide type="bottom" id="UjR-wx-yeu"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="g18-va-s0m">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXg-8T-noL">
-                                <rect key="frame" x="57" y="65" width="653" height="898"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <attributedString key="attributedText"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="dXg-8T-noL" secondAttribute="trailing" constant="20" symbolic="YES" id="WfD-G2-ZKE"/>
-                            <constraint firstItem="dXg-8T-noL" firstAttribute="top" secondItem="xl9-Fh-oD2" secondAttribute="bottom" constant="8" symbolic="YES" id="X7N-AJ-H3T"/>
-                            <constraint firstItem="UjR-wx-yeu" firstAttribute="top" secondItem="dXg-8T-noL" secondAttribute="bottom" constant="8" symbolic="YES" id="iHt-0A-SAz"/>
-                            <constraint firstItem="dXg-8T-noL" firstAttribute="leading" secondItem="g18-va-s0m" secondAttribute="leading" constant="20" symbolic="YES" id="n1B-Sr-7ZF"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="textView" destination="dXg-8T-noL" id="lSN-6X-MB1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wf8-K4-Oho" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="192.1875" y="-445.31249999999994"/>
         </scene>
         <!--Daily Tab-->
         <scene sceneID="RIK-uU-vIX">
