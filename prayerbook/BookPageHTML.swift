@@ -46,7 +46,15 @@ class LabelViewController : UIViewController, PopupContentViewController {
     
     func sizeForPopup(_ popupController: PopupController, size: CGSize, showingKeyboard: Bool) -> CGSize {
         if (UIDevice.current.userInterfaceIdiom == .phone) {
-            return CGSize(width: 250, height: 350)
+            if UIDevice.modelName.contains("Plus") {
+                return CGSize(width: 300, height: 400)
+            
+            } else if UIDevice.modelName.contains("iPhone11") || UIDevice.modelName.contains("iPhone X") {
+                return CGSize(width: 250, height: 450)
+           
+            } else {
+                return CGSize(width: 250, height: 350)
+            }
             
         } else {
             return CGSize(width: 500, height: 550)
