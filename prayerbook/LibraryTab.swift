@@ -12,6 +12,7 @@ import swift_toolkit
 let books : [BookModel] = [BookmarksModel.shared,
                            OldTestamentModel.shared,
                            NewTestamentModel.shared,
+                           VespersModel.shared,
                            LiturgyModel.shared,
                            SynaxarionModel.shared]
 

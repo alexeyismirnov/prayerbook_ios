@@ -122,7 +122,7 @@
 		8A8D2FB61FBC458C00A54147 /* DateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */; };
 		8A916D8522575870003FEF70 /* BookPageHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A916D8422575870003FEF70 /* BookPageHTML.swift */; };
 		8A916D8722575EA7003FEF70 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A916D8622575EA7003FEF70 /* WebKit.framework */; };
-		8A916D8922576C34003FEF70 /* LiturgyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A916D8822576C34003FEF70 /* LiturgyModel.swift */; };
+		8A916D8922576C34003FEF70 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A916D8822576C34003FEF70 /* ServiceModel.swift */; };
 		8A953B371DC736C2001062AF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A953B361DC736C2001062AF /* MainViewController.swift */; };
 		8A96719C2230C1900086CBA6 /* BibleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A96719B2230C1900086CBA6 /* BibleModel.swift */; };
 		8A9FE9482291569000319DCE /* PericopeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FE9472291569000319DCE /* PericopeModel.swift */; };
@@ -276,6 +276,7 @@
 		8AF37E5D1B36C7A500101148 /* newicon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E541B36C7A500101148 /* newicon_120.png */; };
 		8AF37E5E1B36C7A500101148 /* newicon_152.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E551B36C7A500101148 /* newicon_152.png */; };
 		8AF37E5F1B36C7A500101148 /* newicon_180.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E561B36C7A500101148 /* newicon_180.png */; };
+		8AF8EE63229FBA580097356B /* vespers.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8EE62229FBA580097356B /* vespers.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -433,7 +434,7 @@
 		8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewCell.swift; sourceTree = "<group>"; };
 		8A916D8422575870003FEF70 /* BookPageHTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPageHTML.swift; sourceTree = "<group>"; };
 		8A916D8622575EA7003FEF70 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		8A916D8822576C34003FEF70 /* LiturgyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiturgyModel.swift; sourceTree = "<group>"; };
+		8A916D8822576C34003FEF70 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		8A953B361DC736C2001062AF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8A96719B2230C1900086CBA6 /* BibleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleModel.swift; sourceTree = "<group>"; };
 		8A9A36D81CAD127400D33D5A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -590,6 +591,7 @@
 		8AF37E541B36C7A500101148 /* newicon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_120.png; sourceTree = "<group>"; };
 		8AF37E551B36C7A500101148 /* newicon_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_152.png; sourceTree = "<group>"; };
 		8AF37E561B36C7A500101148 /* newicon_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_180.png; sourceTree = "<group>"; };
+		8AF8EE62229FBA580097356B /* vespers.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = vespers.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -626,6 +628,7 @@
 		8A008FF22258A71400A9636B /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8AF8EE62229FBA580097356B /* vespers.sqlite */,
 				8A008FF52258A7B100A9636B /* liturgy.sqlite */,
 			);
 			path = books;
@@ -707,7 +710,7 @@
 				8AC7203B22881A4A006862E4 /* BookmarksModel.swift */,
 				8A96719B2230C1900086CBA6 /* BibleModel.swift */,
 				8A9FE9472291569000319DCE /* PericopeModel.swift */,
-				8A916D8822576C34003FEF70 /* LiturgyModel.swift */,
+				8A916D8822576C34003FEF70 /* ServiceModel.swift */,
 				8AB8674A229B8FAD00D6EFA7 /* SynaxarionModel.swift */,
 				8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */,
 				8AB907FF216EF7580030F989 /* ChaptersCell.swift */,
@@ -1151,6 +1154,7 @@
 				8A0B4CB11C8C1E8000747BB4 /* saints_06_ru.sqlite in Resources */,
 				8A1F2C981DD9B0F000F13A3D /* newicon_1024.png in Resources */,
 				8A1F2CA51DD9B5C500F13A3D /* Default-568h@2x.png in Resources */,
+				8AF8EE63229FBA580097356B /* vespers.sqlite in Resources */,
 				8AC10A1A222A694F00540B22 /* ezek_ru.sqlite in Resources */,
 				8A1F2CB11DD9B80600F13A3D /* landscape2.png in Resources */,
 				8A5457741E70174300A86B5A /* synaxarion4.rtf in Resources */,
@@ -1396,7 +1400,7 @@
 				8A96719C2230C1900086CBA6 /* BibleModel.swift in Sources */,
 				8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
-				8A916D8922576C34003FEF70 /* LiturgyModel.swift in Sources */,
+				8A916D8922576C34003FEF70 /* ServiceModel.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
 				8A54C42C1EA760E30083AA2F /* BookTOC.swift in Sources */,
 				8A8D2FB61FBC458C00A54147 /* DateViewCell.swift in Sources */,
