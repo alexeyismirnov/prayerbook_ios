@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0aG-U6-dgi">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Ov0-Xw-aQB">
+            <objects>
+                <viewController id="0aG-U6-dgi" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tSw-cf-RXV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="QTK-Tr-Ks7">
+                                <rect key="frame" x="82" y="243" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="lTq-fa-gQc"/>
+                                    <constraint firstAttribute="width" constant="250" id="tds-OA-6Vd"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QTK-Tr-Ks7" firstAttribute="centerY" secondItem="tSw-cf-RXV" secondAttribute="centerY" id="2OW-ZQ-ARq"/>
+                            <constraint firstItem="QTK-Tr-Ks7" firstAttribute="centerX" secondItem="tSw-cf-RXV" secondAttribute="centerX" id="mbW-Bu-YEO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZCn-dx-Zvt"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="isI-nQ-4r1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="54.619565217391312"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="launch_icon.png" width="101.55371856689453" height="101.55371856689453"/>
+    </resources>
+</document>

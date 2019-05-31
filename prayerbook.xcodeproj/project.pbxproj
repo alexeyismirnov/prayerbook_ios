@@ -111,6 +111,8 @@
 		8A6684FC2178834700C19C04 /* TopAlignedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6684FB2178834700C19C04 /* TopAlignedCollection.swift */; };
 		8A6F7E9322A108E7006FD639 /* ZvezdinskyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9222A108E7006FD639 /* ZvezdinskyModel.swift */; };
 		8A6F7E9522A12094006FD639 /* zvezdinsky.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9422A12094006FD639 /* zvezdinsky.sqlite */; };
+		8A6F7E9722A137D2006FD639 /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */; };
+		8A6F7E9922A13A85006FD639 /* launch_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9822A13A85006FD639 /* launch_icon.png */; };
 		8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FA198F20CC0078F39F /* Foundation.framework */; };
 		8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */; };
 		8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FE198F20CC0078F39F /* UIKit.framework */; };
@@ -421,6 +423,8 @@
 		8A6684FB2178834700C19C04 /* TopAlignedCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlignedCollection.swift; sourceTree = "<group>"; };
 		8A6F7E9222A108E7006FD639 /* ZvezdinskyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZvezdinskyModel.swift; sourceTree = "<group>"; };
 		8A6F7E9422A12094006FD639 /* zvezdinsky.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = zvezdinsky.sqlite; sourceTree = "<group>"; };
+		8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
+		8A6F7E9822A13A85006FD639 /* launch_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_icon.png; sourceTree = "<group>"; };
 		8A74D7F7198F20CC0078F39F /* ponomar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ponomar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A74D7FA198F20CC0078F39F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -695,6 +699,7 @@
 				8ADFF51E1B0F1D02001AE6A9 /* saints */,
 				8A74D844198F624C0078F39F /* images */,
 				8A74D832198F224E0078F39F /* Main.storyboard */,
+				8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */,
 				8A54E3DA202857E900245C31 /* icons.sqlite */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
 				8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */,
@@ -763,6 +768,7 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8A6F7E9822A13A85006FD639 /* launch_icon.png */,
 				8AC7203822880E04006862E4 /* add_bookmark.pdf */,
 				8AC7203722880E04006862E4 /* remove_bookmark.pdf */,
 				8A31632122842C1800418306 /* fontsize.pdf */,
@@ -1229,6 +1235,7 @@
 				8AC10A16222A694F00540B22 /* hab_ru.sqlite in Resources */,
 				8AC10A1B222A694F00540B22 /* philem_ru.sqlite in Resources */,
 				8AADFF5E1E84C25300CE3D0F /* synaxarion33.rtf in Resources */,
+				8A6F7E9722A137D2006FD639 /* Launchscreen.storyboard in Resources */,
 				8AC10A20222A694F00540B22 /* 3john_ru.sqlite in Resources */,
 				8A5457761E70174300A86B5A /* synaxarion6.rtf in Resources */,
 				8AC10A10222A694F00540B22 /* lev_ru.sqlite in Resources */,
@@ -1255,6 +1262,7 @@
 				8AC10A3C222A694F00540B22 /* 2kings_ru.sqlite in Resources */,
 				8A5457721E70174300A86B5A /* synaxarion2.rtf in Resources */,
 				8AF37E5D1B36C7A500101148 /* newicon_120.png in Resources */,
+				8A6F7E9922A13A85006FD639 /* launch_icon.png in Resources */,
 				8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */,
 				8A76870D1EB72A6E000F7533 /* YearlyMonthViewCell.xib in Resources */,
 				8A0B4CB41C8C1E8000747BB4 /* saints_07_ru.txt in Resources */,
@@ -1503,7 +1511,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.2;
@@ -1544,7 +1552,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
@@ -1558,7 +1566,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ponomar.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Russian Language Center Limited (3NQ697ND22)";
@@ -1601,7 +1608,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ponomar.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Russian Language Center Limited (3NQ697ND22)";
@@ -1655,7 +1661,7 @@
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru.CalendarWidget";
@@ -1687,7 +1693,7 @@
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru.CalendarWidget";
