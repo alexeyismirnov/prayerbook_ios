@@ -23,7 +23,7 @@ class SynaxarionModel : BookModel {
     
     static let shared = SynaxarionModel()
     
-    static let data : [(String,String)]  = [
+    let data : [(String,String)]  = [
         ("Синаксарь в неделю о мытаре и фарисее", "synaxarion1"),
         ("Синаксарь в неделю о блудном сыне", "synaxarion2"),
         ("Синаксарь в субботу мясопустную", "synaxarion3"),
@@ -65,7 +65,7 @@ class SynaxarionModel : BookModel {
     }
     
     func getItems(_ section: Int) -> [String] {
-        return SynaxarionModel.data.map { return $0.0 }
+        return data.map { return $0.0 }
     }
     
     func getNumChapters(_ index: IndexPath) -> Int {
@@ -79,7 +79,7 @@ class SynaxarionModel : BookModel {
     func getContent(at pos: BookPosition) -> Any? {
         let prefs = UserDefaults(suiteName: groupId)!
         let fontSize = CGFloat(prefs.integer(forKey: "fontSize"))
-        let filename = pos.location ?? SynaxarionModel.data[pos.index!.row].1
+        let filename = pos.location ?? data[pos.index!.row].1
         
         if let rtfPath = Bundle.main.url(forResource: filename, withExtension: "rtf") {
             do {
@@ -87,7 +87,7 @@ class SynaxarionModel : BookModel {
                     [.documentType : NSAttributedString.DocumentType.rtf]
                 
                 let content = try NSAttributedString(url: rtfPath, options:opts, documentAttributes: nil)
-                let title = (SynaxarionModel.data.filter { $0.1 == filename }).first!.0
+                let title = (data.filter { $0.1 == filename }).first!.0
                 
                 return
                     title.colored(with: Theme.textColor).boldFont(ofSize: CGFloat(fontSize)).centered +
@@ -123,7 +123,7 @@ class SynaxarionModel : BookModel {
         }
         
         if let index = dates.firstIndex(of: date) {
-            return SynaxarionModel.data[index]
+            return data[index]
             
         } else {
             return nil
@@ -132,7 +132,7 @@ class SynaxarionModel : BookModel {
     
     func getNextSection(at pos: BookPosition) -> BookPosition? {
         if let index = pos.index {
-            if index.row < SynaxarionModel.data.count - 1 {
+            if index.row < data.count - 1 {
                 return BookPosition(index: IndexPath(row: index.row+1, section: 0), chapter: 0)
             }
         }
@@ -151,11 +151,11 @@ class SynaxarionModel : BookModel {
     
     func getBookmark(at pos: BookPosition) -> String {
         if let index = pos.index {
-            return "Synaxarion_\(index.section)_\(index.row)"
+            return "\(code)_\(index.section)_\(index.row)"
             
         } else if let filename = pos.location,
-            let index = SynaxarionModel.data.firstIndex(where: { $0.1 == filename } ) {
-            return "Synaxarion_0_\(index)"
+            let index = data.firstIndex(where: { $0.1 == filename } ) {
+            return "\(code)_0_\(index)"
         }
         
         return ""
@@ -163,10 +163,10 @@ class SynaxarionModel : BookModel {
     
     func getBookmarkName(_ bookmark: String) -> String {
         let comp = bookmark.components(separatedBy: "_")
-        guard comp[0] == "Synaxarion" else { return "" }
+        guard comp[0] == code else { return "" }
         
         let row = Int(comp[2])!
-        return SynaxarionModel.data[row].0
+        return data[row].0
     }
 
 }

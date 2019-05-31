@@ -113,23 +113,22 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
 
         let prefs = UserDefaults(suiteName: groupId)!
 
-        if prefs.object(forKey: "welcome35") == nil {
-            prefs.set(true, forKey: "welcome35")
+        if prefs.object(forKey: "welcome40") == nil {
+            prefs.set(true, forKey: "welcome40")
             prefs.synchronize()
             
-            let alert = UIAlertController(title: "Православный календарь", message: """
-В новой версии программы можно скачать тропари и кондаки двунадесятых и великих праздников (с аудио). Скачать?
+            let alert = UIAlertController(title: "Православный календарь 4.0", message: """
+В "Библиотеку" добавлены книги: Всенощное бдение и Божественная Литургия с комментариями, "Хлеб небесный" и другие.
 """
                 , preferredStyle: .alert)
             
-            let yesAction = UIAlertAction(title: "Да", style: .default, handler: { _ in self.downloadTroparion()} );
-            let noAction = UIAlertAction(title: "Нет", style: .default, handler: { _ in  });
+            // let yesAction = UIAlertAction(title: "Да", style: .default, handler: { _ in self.downloadTroparion()} );
+            let noAction = UIAlertAction(title: "OK", style: .default, handler: { _ in  });
             
-            alert.addAction(yesAction)
+            // alert.addAction(yesAction)
             alert.addAction(noAction)
             
             present(alert, animated: true, completion: {})
-            
         }
         
         reloadTheme()

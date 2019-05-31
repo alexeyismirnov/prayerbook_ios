@@ -55,9 +55,9 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
             prefs.set("ru", forKey: "language")
 
             if (UIDevice.current.userInterfaceIdiom == .phone) {
-                prefs.set(18, forKey: "fontSize")
-            } else {
                 prefs.set(20, forKey: "fontSize")
+            } else {
+                prefs.set(22, forKey: "fontSize")
             }
         }
         
