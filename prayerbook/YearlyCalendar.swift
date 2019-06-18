@@ -92,7 +92,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
             YC.config = YC.iPhone5sConfig
         
         } else if ["iPhone 6", "iPhone 6s", "iPhone 7", "iPhone 8",
-                   "iPhone X", "iPhone11,8", "iPhone11,4", "iPhone11,2"].contains(UIDevice.modelName) {
+                   "iPhone X"].contains(UIDevice.modelName) {
             YC.config = YC.iPhoneConfig
             
         } else if ["iPhone 6 Plus", "iPhone 6s Plus", "iPhone 7 Plus", "iPhone 8 Plus"].contains(UIDevice.modelName) {

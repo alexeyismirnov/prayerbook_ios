@@ -49,7 +49,7 @@ class LabelViewController : UIViewController, PopupContentViewController {
             if UIDevice.modelName.contains("Plus") {
                 return CGSize(width: 300, height: 400)
             
-            } else if UIDevice.modelName.contains("iPhone11") || UIDevice.modelName.contains("iPhone X") {
+            } else if UIDevice.modelName.contains("iPhone X") {
                 return CGSize(width: 250, height: 450)
            
             } else {

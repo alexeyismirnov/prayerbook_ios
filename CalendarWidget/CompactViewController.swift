@@ -71,7 +71,7 @@ class CompactViewController: UIViewController {
         var fontSize : CGFloat
 
         if ["iPhone 5", "iPhone 5s", "iPhone 5c", "iPhone 6", "iPhone 6s", "iPhone 7", "iPhone 8",
-            "iPhone SE", "iPhone X", "iPhone11,2"].contains(UIDevice.modelName) {
+            "iPhone SE", "iPhone X"].contains(UIDevice.modelName) {
             fontSize = 15
         } else {
             fontSize = 18
