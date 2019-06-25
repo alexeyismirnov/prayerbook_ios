@@ -31,15 +31,15 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     var fasting: (FastingType, String) = (.vegetarian, "")
     
     var foodIcon: [FastingType: String] = [
-        .noFast:        "meat",
+        .noFast:        "burger",
         .vegetarian:    "vegetables",
         .fishAllowed:   "fish",
         .fastFree:      "cupcake",
         .cheesefare:    "cheese",
         .noFood:        "nothing",
-        .xerophagy:     "xerography",
+        .xerophagy:     "fruits",
         .withoutOil:    "without-oil",
-        .noFastMonastic:"pizza"
+        .noFastMonastic:"mexican"
     ]
     
     var readings = [String]()
@@ -582,13 +582,17 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             DateViewCell.textSize = nil
             DateViewCell.selectedDate = self.currentDate
             
-            let image = UIImage(named: "question", in: self.toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
-            let button_info = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.showInfo))
-            
+            let image_info = UIImage(named: "help", in: nil, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
+            let button_info = UIBarButtonItem(image: image_info, style: .plain, target: self, action: #selector(self.showInfo))
+
+            let image_today = UIImage(named: "today", in: nil, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
+            let button_today = UIBarButtonItem(image: image_today, style: .plain, target: self, action: #selector(self.showToday))
+
             self.popup =  CalendarContainer.show(inVC: self.navigationController!,
+                                                 initialDate: self.currentDate,
                                                  cellReuseIdentifier: "DateViewCell",
                                                  cellNibName: "DateViewCell",
-                                                 leftButton: nil,
+                                                 leftButton: button_today,
                                                  rightButton: button_info)
         })
     }
@@ -603,6 +607,14 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             self.navigationController?.present(nav, animated: true, completion: {})
         })
         
+    }
+    
+    @objc func showToday() {
+        popup.dismiss({
+            self.currentDate = DateComponents(date: Date()).toDate()
+            self.reload()
+            self.tableView.setContentOffset(CGPoint.zero, animated: false)
+        })
     }
     
     @objc func showInfo() {

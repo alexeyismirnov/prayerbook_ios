@@ -17,6 +17,7 @@
 		8A070A8A22C1FC9A00CFFDE8 /* food-burger.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A070A8622C1FC9A00CFFDE8 /* food-burger.pdf */; };
 		8A070A8B22C1FC9A00CFFDE8 /* food-fruits.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A070A8722C1FC9A00CFFDE8 /* food-fruits.pdf */; };
 		8A070A8C22C1FC9A00CFFDE8 /* today.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A070A8822C1FC9A00CFFDE8 /* today.pdf */; };
+		8A070A8E22C20DAF00CFFDE8 /* help.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A070A8D22C20DAF00CFFDE8 /* help.pdf */; };
 		8A0B4CA71C8C1E8000747BB4 /* saints_01_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C8F1C8C1E8000747BB4 /* saints_01_ru.sqlite */; };
 		8A0B4CA81C8C1E8000747BB4 /* saints_01_ru.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C901C8C1E8000747BB4 /* saints_01_ru.txt */; };
 		8A0B4CA91C8C1E8000747BB4 /* saints_02_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C911C8C1E8000747BB4 /* saints_02_ru.sqlite */; };
@@ -332,6 +333,7 @@
 		8A070A8622C1FC9A00CFFDE8 /* food-burger.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-burger.pdf"; sourceTree = "<group>"; };
 		8A070A8722C1FC9A00CFFDE8 /* food-fruits.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-fruits.pdf"; sourceTree = "<group>"; };
 		8A070A8822C1FC9A00CFFDE8 /* today.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = today.pdf; sourceTree = "<group>"; };
+		8A070A8D22C20DAF00CFFDE8 /* help.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = help.pdf; sourceTree = "<group>"; };
 		8A0B4C8F1C8C1E8000747BB4 /* saints_01_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_01_ru.sqlite; sourceTree = "<group>"; };
 		8A0B4C901C8C1E8000747BB4 /* saints_01_ru.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_01_ru.txt; sourceTree = "<group>"; };
 		8A0B4C911C8C1E8000747BB4 /* saints_02_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_02_ru.sqlite; sourceTree = "<group>"; };
@@ -776,6 +778,7 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8A070A8D22C20DAF00CFFDE8 /* help.pdf */,
 				8A070A8622C1FC9A00CFFDE8 /* food-burger.pdf */,
 				8A070A8722C1FC9A00CFFDE8 /* food-fruits.pdf */,
 				8A070A8522C1FC9A00CFFDE8 /* food-mexican.pdf */,
@@ -1197,6 +1200,7 @@
 				8A41936319E6921600D570A9 /* food-egg.pdf in Resources */,
 				8A0B4CAE1C8C1E8000747BB4 /* saints_04_ru.txt in Resources */,
 				8A0B4CA91C8C1E8000747BB4 /* saints_02_ru.sqlite in Resources */,
+				8A070A8E22C20DAF00CFFDE8 /* help.pdf in Resources */,
 				8A5457751E70174300A86B5A /* synaxarion5.rtf in Resources */,
 				8AE36B2D1C97B228005CAD8D /* food-pizza.pdf in Resources */,
 				8AB0DCA51C27F00400C6A494 /* ReadingJohn.plist in Resources */,
