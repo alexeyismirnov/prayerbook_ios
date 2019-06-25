@@ -13,6 +13,10 @@
 		8A01E42821957F59005BE65F /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A01E42721957F59005BE65F /* Reachability.framework */; };
 		8A01E42A21957F60005BE65F /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A01E42921957F60005BE65F /* Zip.framework */; };
 		8A0689F9221FF8A600F1E711 /* LibraryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0689F8221FF8A600F1E711 /* LibraryTab.swift */; };
+		8A070A8922C1FC9A00CFFDE8 /* food-mexican.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A070A8522C1FC9A00CFFDE8 /* food-mexican.pdf */; };
+		8A070A8A22C1FC9A00CFFDE8 /* food-burger.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A070A8622C1FC9A00CFFDE8 /* food-burger.pdf */; };
+		8A070A8B22C1FC9A00CFFDE8 /* food-fruits.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A070A8722C1FC9A00CFFDE8 /* food-fruits.pdf */; };
+		8A070A8C22C1FC9A00CFFDE8 /* today.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A070A8822C1FC9A00CFFDE8 /* today.pdf */; };
 		8A0B4CA71C8C1E8000747BB4 /* saints_01_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C8F1C8C1E8000747BB4 /* saints_01_ru.sqlite */; };
 		8A0B4CA81C8C1E8000747BB4 /* saints_01_ru.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C901C8C1E8000747BB4 /* saints_01_ru.txt */; };
 		8A0B4CA91C8C1E8000747BB4 /* saints_02_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4C911C8C1E8000747BB4 /* saints_02_ru.sqlite */; };
@@ -324,6 +328,10 @@
 		8A01E42721957F59005BE65F /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/iOS/Reachability.framework; sourceTree = "<group>"; };
 		8A01E42921957F60005BE65F /* Zip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Zip.framework; path = Carthage/Build/iOS/Zip.framework; sourceTree = "<group>"; };
 		8A0689F8221FF8A600F1E711 /* LibraryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTab.swift; sourceTree = "<group>"; };
+		8A070A8522C1FC9A00CFFDE8 /* food-mexican.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-mexican.pdf"; sourceTree = "<group>"; };
+		8A070A8622C1FC9A00CFFDE8 /* food-burger.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-burger.pdf"; sourceTree = "<group>"; };
+		8A070A8722C1FC9A00CFFDE8 /* food-fruits.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-fruits.pdf"; sourceTree = "<group>"; };
+		8A070A8822C1FC9A00CFFDE8 /* today.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = today.pdf; sourceTree = "<group>"; };
 		8A0B4C8F1C8C1E8000747BB4 /* saints_01_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_01_ru.sqlite; sourceTree = "<group>"; };
 		8A0B4C901C8C1E8000747BB4 /* saints_01_ru.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_01_ru.txt; sourceTree = "<group>"; };
 		8A0B4C911C8C1E8000747BB4 /* saints_02_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_02_ru.sqlite; sourceTree = "<group>"; };
@@ -768,6 +776,10 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8A070A8622C1FC9A00CFFDE8 /* food-burger.pdf */,
+				8A070A8722C1FC9A00CFFDE8 /* food-fruits.pdf */,
+				8A070A8522C1FC9A00CFFDE8 /* food-mexican.pdf */,
+				8A070A8822C1FC9A00CFFDE8 /* today.pdf */,
 				8A6F7E9822A13A85006FD639 /* launch_icon.png */,
 				8AC7203822880E04006862E4 /* add_bookmark.pdf */,
 				8AC7203722880E04006862E4 /* remove_bookmark.pdf */,
@@ -1147,6 +1159,7 @@
 				8A5457791E70174300A86B5A /* synaxarion9.rtf in Resources */,
 				8AC6951B19E3FBC200773FEB /* food-no-egg.pdf in Resources */,
 				8AC10A3D222A694F00540B22 /* gen_ru.sqlite in Resources */,
+				8A070A8A22C1FC9A00CFFDE8 /* food-burger.pdf in Resources */,
 				8AC10A0C222A694F00540B22 /* ephes_ru.sqlite in Resources */,
 				8AC10A47222A694F00540B22 /* 2thess_ru.sqlite in Resources */,
 				8AC10A0B222A694F00540B22 /* num_ru.sqlite in Resources */,
@@ -1174,6 +1187,7 @@
 				8AF2497D1AFF308B000070C0 /* sixverse.pdf in Resources */,
 				8AC10A22222A694F00540B22 /* dan_ru.sqlite in Resources */,
 				8AC10A3B222A694F00540B22 /* 2sam_ru.sqlite in Resources */,
+				8A070A8922C1FC9A00CFFDE8 /* food-mexican.pdf in Resources */,
 				8AC10A17222A694F00540B22 /* jon_ru.sqlite in Resources */,
 				8AF249791AFF308B000070C0 /* doxology.pdf in Resources */,
 				8AC10A2C222A694F00540B22 /* jer_ru.sqlite in Resources */,
@@ -1213,6 +1227,7 @@
 				8A74D816198F20CC0078F39F /* Images.xcassets in Resources */,
 				8A0B4CB21C8C1E8000747BB4 /* saints_06_ru.txt in Resources */,
 				8AC10A35222A694F00540B22 /* ezra_ru.sqlite in Resources */,
+				8A070A8B22C1FC9A00CFFDE8 /* food-fruits.pdf in Resources */,
 				8AC10A1D222A694F00540B22 /* josh_ru.sqlite in Resources */,
 				8AC10A14222A694F00540B22 /* 1chron_ru.sqlite in Resources */,
 				8AC10A33222A694F00540B22 /* 1tim_ru.sqlite in Resources */,
@@ -1233,6 +1248,7 @@
 				8A0B4CB91C8C1E8000747BB4 /* saints_10_ru.sqlite in Resources */,
 				8AF37E581B36C7A500101148 /* newicon_40.png in Resources */,
 				8AC10A16222A694F00540B22 /* hab_ru.sqlite in Resources */,
+				8A070A8C22C1FC9A00CFFDE8 /* today.pdf in Resources */,
 				8AC10A1B222A694F00540B22 /* philem_ru.sqlite in Resources */,
 				8AADFF5E1E84C25300CE3D0F /* synaxarion33.rtf in Resources */,
 				8A6F7E9722A137D2006FD639 /* Launchscreen.storyboard in Resources */,

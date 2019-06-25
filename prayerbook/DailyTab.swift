@@ -580,6 +580,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         popup.dismiss({
             DateViewCell.textColor = nil
             DateViewCell.textSize = nil
+            DateViewCell.selectedDate = self.currentDate
             
             let image = UIImage(named: "question", in: self.toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
             let button_info = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(self.showInfo))
@@ -594,6 +595,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     
     func showYearlyCalendar() {
         popup.dismiss({
+            DateViewCell.selectedDate = nil
+
             let vc = UIViewController.named("yearly") as! YearlyCalendar
             let nav = UINavigationController(rootViewController: vc)
             
