@@ -32,21 +32,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
 
     var appeared = false
     
-    var fasting: (FastingType, String) = (.vegetarian, "")
-    var fastingDescription: String?
-    
-    var foodIcon: [FastingType: String] = [
-        .noFast:        "burger",
-        .vegetarian:    "vegetables",
-        .fishAllowed:   "fish",
-        .fastFree:      "cupcake",
-        .cheesefare:    "cheese",
-        .noFood:        "nothing",
-        .xerophagy:     "fruits",
-        .withoutOil:    "without-oil",
-        .noFastMonastic:"mexican"
-    ]
-    
+    var fasting: FastingModel!
     var readings = [String]()
     var synaxarion : (String,String)?
     
@@ -283,19 +269,18 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         } else if indexPath.section == 2 {
             let cell: ImageCell  = getCell()
             
-            
-            if let _ = fastingDescription {
+            if let _ = fasting.comments {
                 let attachment = NSTextAttachment()
                 attachment.image = DailyTab.bookIcon
                 
-                cell.title.attributedText = NSAttributedString(string: fasting.1) + "\u{2000}" + NSAttributedString(attachment: attachment)
+                cell.title.attributedText = NSAttributedString(string: fasting.descr) + "\u{2000}" + NSAttributedString(attachment: attachment)
                 
             } else {
-                cell.title.attributedText = NSAttributedString(string: fasting.1)
+                cell.title.attributedText = NSAttributedString(string: fasting.descr)
             }
 
             cell.title.textColor =  Theme.textColor
-            cell.icon.image = UIImage(named: "food-\(foodIcon[fasting.0]!)")
+            cell.icon.image = UIImage(named: "food-\(fasting.icon)")
             cell.accessoryType =  .none
             
             return cell
@@ -439,11 +424,11 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             navigationController?.pushViewController(vc, animated: true)
             
         } else if indexPath.section == 2 && indexPath.row == 0 {
-            if var descr = fastingDescription {
-                descr = descr.replacingOccurrences(of: "\\n", with: "\n")
+            if var comments = fasting.comments {
+                comments = comments.replacingOccurrences(of: "\\n", with: "\n")
 
                 let labelVC = LabelViewController()
-                labelVC.text = descr
+                labelVC.text = comments
                 labelVC.fontSize = prefs.integer(forKey: "fontSize")
                 
                 showPopup(labelVC)
@@ -503,12 +488,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         formatterOldStyle.locale = Translate.locale as Locale
         
         dayDescription = Cal.getDayDescription(currentDate)
-        fasting = Cal.getFastingDescription(currentDate, FastingLevel())
-        
-        if let path = Bundle.main.path(forResource: "fasting", ofType: "plist") ,
-            let dict = NSDictionary(contentsOfFile: path) as? Dictionary<String, AnyObject> {
-            fastingDescription = dict[fasting.1] as? String
-        }
+        fasting = FastingModel.fasting(forDate: currentDate)
         
         saints=Db.saints(self.currentDate)
         readings = DailyReading.getDailyReading(currentDate)

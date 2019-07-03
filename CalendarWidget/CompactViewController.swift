@@ -27,8 +27,7 @@ class CompactViewController: UIViewController {
         return DateComponents(date: Date()).toDate()
     }()
     
-    var fasting: (FastingType, String) = (.vegetarian, "")
-    var fastingLevel: FastingLevel = .monastic
+    var fasting: FastingModel!
 
     let prefs = UserDefaults(suiteName: groupId)!
 
@@ -100,10 +99,8 @@ class CompactViewController: UIViewController {
             result.append(s3)
         }
         
-        fastingLevel = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!
-        fasting = Cal.getFastingDescription(currentDate, fastingLevel)
-        
-        descr = ". " + fasting.1
+        fasting = FastingModel.fasting(forDate: currentDate)
+        descr = ". " + fasting.descr
 
         let s4 = NSAttributedString(string: descr, attributes: [.font: fontItalic])
         result.append(s4)

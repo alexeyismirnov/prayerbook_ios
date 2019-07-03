@@ -10,7 +10,8 @@ import UIKit
 import swift_toolkit
 
 class CalendarInfo: UITableViewController {
-    
+    let fastingTypes : [FastingModel] = (FastingLevel() == .monastic) ? FastingModel.monasticTypes : FastingModel.laymenTypes
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,15 +30,15 @@ class CalendarInfo: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (FastingLevel() == .monastic) ? Cal.fastingMonastic.count : Cal.fastingLaymen.count
+        return fastingTypes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell  = tableView.dequeueReusableCell(withIdentifier: "ImageCell") as! ImageCell
-        let info = (FastingLevel() == .monastic) ? Cal.fastingMonastic[indexPath.row] : Cal.fastingLaymen[indexPath.row]
+        let fasting = fastingTypes[indexPath.row]
         
-        cell.title.text = Translate.s(info.1)
-        cell.icon.backgroundColor = UIColor(hex: Cal.fastingColor[info.0]!)
+        cell.title.text = fasting.descr
+        cell.icon.backgroundColor = fasting.color
         cell.backgroundColor = .clear
         
         return cell

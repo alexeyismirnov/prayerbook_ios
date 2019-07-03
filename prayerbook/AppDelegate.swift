@@ -62,7 +62,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         }
         
         if prefs.object(forKey: "fastingLevel") == nil {
-            FastingLevel.monastic.save()
+            FastingLevel.laymen.save()
         }
         
         if prefs.object(forKey: "bookmarks") == nil {

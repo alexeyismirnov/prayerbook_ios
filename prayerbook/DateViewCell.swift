@@ -56,20 +56,20 @@ class DateViewCell: UICollectionViewCell, CellWithDate {
             dateLabel.font = UIFont.systemFont(ofSize: fontSize)
         }
         
-        let (fastType, _) = Cal.getFastingDescription(date, FastingLevel())
+        let fasting = FastingModel.fasting(forDate: date)
         
         if let _ = Cal.getGreatFeast(date) {
             dateLabel.textColor = .red
 
         } else if DateViewCell.textColor != nil &&
-            (fastType == .noFast || fastType == .noFastMonastic) {
+            (fasting.type == .noFast || fasting.type == .noFastMonastic) {
             dateLabel.textColor =  DateViewCell.textColor
             
         } else {
             dateLabel.textColor = .black
         }
         
-        contentView.backgroundColor = UIColor(hex:Cal.fastingColor[fastType]!)
+        contentView.backgroundColor = fasting.color
         
         labelHeight.constant = contentView.frame.height
         labelWidth.constant = contentView.frame.width

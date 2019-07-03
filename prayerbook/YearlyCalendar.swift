@@ -63,6 +63,8 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     var feasts : NSAttributedString!
     var con : [NSLayoutConstraint]!
     
+    let fastingTypes : [FastingModel] = (FastingLevel() == .monastic) ? FastingModel.monasticTypes : FastingModel.laymenTypes
+    
     var shareButton, listButton, gridButton :UIBarButtonItem!
     
     static let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -248,7 +250,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
             return 12
             
         } else if section == 1 {
-            return (FastingLevel() == .monastic) ? Cal.fastingMonastic.count : Cal.fastingLaymen.count
+            return fastingTypes.count
         }
         
         return 0
@@ -263,10 +265,10 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
             
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarImageCell", for: indexPath) as! CalendarImageCell
-            let info = (FastingLevel() == .monastic) ? Cal.fastingMonastic[indexPath.row] : Cal.fastingLaymen[indexPath.row]
+            let fasting = fastingTypes[indexPath.row]
             
-            cell.imageView.backgroundColor = UIColor(hex: Cal.fastingColor[info.0]!)
-            cell.textLabel.text = Translate.s(info.1)
+            cell.imageView.backgroundColor = fasting.color
+            cell.textLabel.text = fasting.descr
             cell.textLabel.font = UIFont.systemFont(ofSize: YC.config.fontSize)
             cell.textLabel.textColor = YearlyCalendar.isSharing ? .black : Theme.textColor
             
@@ -278,8 +280,8 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
         let cellWidth = (collectionView.bounds.width - YC.config.insets*2.0 - (numCols-1) * YC.config.interitemSpacing) / numCols
         
         if indexPath.section == 1 {
-            let info = (FastingLevel() == .monastic) ? Cal.fastingMonastic[indexPath.row] : Cal.fastingLaymen[indexPath.row]
-            let str = NSAttributedString(string: Translate.s(info.1), attributes: [.font: UIFont.systemFont(ofSize: YC.config.fontSize)])
+            let fasting = fastingTypes[indexPath.row]
+            let str = NSAttributedString(string: fasting.descr, attributes: [.font: UIFont.systemFont(ofSize: YC.config.fontSize)])
 
             let rect = str.boundingRect(with:  CGSize(width:cellWidth-35,height:999), options: .usesLineFragmentOrigin, context: nil)
 
