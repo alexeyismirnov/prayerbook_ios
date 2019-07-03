@@ -49,6 +49,7 @@
 		8A13C90121917AB700D0CE7E /* pause.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C8FF21917AB700D0CE7E /* pause.pdf */; };
 		8A13C90221917AB700D0CE7E /* play.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C90021917AB700D0CE7E /* play.pdf */; };
 		8A16CB2B228BC35A004147B6 /* BookPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A16CB2A228BC35A004147B6 /* BookPage.swift */; };
+		8A18FB7F22CC4EC9006B3F29 /* fasting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A18FB7E22CC4EC9006B3F29 /* fasting.plist */; };
 		8A1964512186AC5700CDDCB5 /* FeastList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1964502186AC5700CDDCB5 /* FeastList.swift */; };
 		8A1AD228228D62C40043F487 /* BookPageText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1AD227228D62C30043F487 /* BookPageText.swift */; };
 		8A1B2575202955A60038C0C4 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 8A1B2574202955A60038C0C4 /* icons */; };
@@ -126,6 +127,7 @@
 		8A74D833198F224E0078F39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D832198F224E0078F39F /* Main.storyboard */; };
 		8A76870C1EB72A6E000F7533 /* YearlyMonthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */; };
 		8A76870D1EB72A6E000F7533 /* YearlyMonthViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */; };
+		8A7DF2FD22CB5FA90071FCB4 /* book.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A7DF2FC22CB5FA90071FCB4 /* book.pdf */; };
 		8A8753F41FC429C400C857DE /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8753F51FC429C400C857DE /* Squeal.framework */; };
 		8A8D2FB51FBC458C00A54147 /* DateViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */; };
 		8A8D2FB61FBC458C00A54147 /* DateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */; };
@@ -230,7 +232,6 @@
 		8AC10A4A222A694F00540B22 /* judg_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A09222A694F00540B22 /* judg_ru.sqlite */; };
 		8AC10A4B222A694F00540B22 /* zech_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A0A222A694F00540B22 /* zech_ru.sqlite */; };
 		8AC10A4F222A976D00540B22 /* ps_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A4E222A976D00540B22 /* ps_ru.sqlite */; };
-		8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */; };
 		8AC278071C61986000436D51 /* widget.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC278061C61986000436D51 /* widget.pdf */; };
 		8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */; };
 		8AC6950B19E3EDED00773FEB /* food-vegetables.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950A19E3EDED00773FEB /* food-vegetables.pdf */; };
@@ -367,6 +368,7 @@
 		8A13C903219190F500D0CE7E /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		8A13C905219190FF00D0CE7E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8A16CB2A228BC35A004147B6 /* BookPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPage.swift; sourceTree = "<group>"; };
+		8A18FB7E22CC4EC9006B3F29 /* fasting.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = fasting.plist; sourceTree = "<group>"; };
 		8A1964502186AC5700CDDCB5 /* FeastList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeastList.swift; sourceTree = "<group>"; };
 		8A1AD227228D62C30043F487 /* BookPageText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPageText.swift; sourceTree = "<group>"; };
 		8A1B2574202955A60038C0C4 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icons; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 		8A74D832198F224E0078F39F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearlyMonthViewCell.swift; sourceTree = "<group>"; };
 		8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearlyMonthViewCell.xib; sourceTree = "<group>"; };
+		8A7DF2FC22CB5FA90071FCB4 /* book.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = book.pdf; sourceTree = "<group>"; };
 		8A8753F51FC429C400C857DE /* Squeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Squeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = swift_toolkit.framework; path = Carthage/Build/iOS/swift_toolkit.framework; sourceTree = "<group>"; };
 		8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateViewCell.xib; sourceTree = "<group>"; };
@@ -553,7 +556,6 @@
 		8AC10A09222A694F00540B22 /* judg_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = judg_ru.sqlite; sourceTree = "<group>"; };
 		8AC10A0A222A694F00540B22 /* zech_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = zech_ru.sqlite; sourceTree = "<group>"; };
 		8AC10A4E222A976D00540B22 /* ps_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ps_ru.sqlite; sourceTree = "<group>"; };
-		8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastingViewController.swift; sourceTree = "<group>"; };
 		8AC278061C61986000436D51 /* widget.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = widget.pdf; sourceTree = "<group>"; };
 		8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		8AC675431FED09CA00A9000C /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
@@ -755,11 +757,11 @@
 				8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */,
 				8A24F52E1EB98A1700CE19E7 /* CalendarImageCell.swift */,
 				8AE46EFD1EA9A6F900CAC1CB /* CalendarInfo.swift */,
-				8AC205FE19E63ED8006FC8EA /* FastingViewController.swift */,
 				8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */,
 				8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */,
 				8AE529EA1C8E68FD0082FF65 /* trans_cal_ru.plist */,
 				8AE529E31C8E63710082FF65 /* trans_library_ru.plist */,
+				8A18FB7E22CC4EC9006B3F29 /* fasting.plist */,
 				8A74D801198F20CC0078F39F /* Supporting Files */,
 			);
 			path = prayerbook;
@@ -778,6 +780,7 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8A7DF2FC22CB5FA90071FCB4 /* book.pdf */,
 				8A070A8D22C20DAF00CFFDE8 /* help.pdf */,
 				8A070A8622C1FC9A00CFFDE8 /* food-burger.pdf */,
 				8A070A8722C1FC9A00CFFDE8 /* food-fruits.pdf */,
@@ -1163,6 +1166,7 @@
 				8AC6951B19E3FBC200773FEB /* food-no-egg.pdf in Resources */,
 				8AC10A3D222A694F00540B22 /* gen_ru.sqlite in Resources */,
 				8A070A8A22C1FC9A00CFFDE8 /* food-burger.pdf in Resources */,
+				8A7DF2FD22CB5FA90071FCB4 /* book.pdf in Resources */,
 				8AC10A0C222A694F00540B22 /* ephes_ru.sqlite in Resources */,
 				8AC10A47222A694F00540B22 /* 2thess_ru.sqlite in Resources */,
 				8AC10A0B222A694F00540B22 /* num_ru.sqlite in Resources */,
@@ -1235,6 +1239,7 @@
 				8AC10A1D222A694F00540B22 /* josh_ru.sqlite in Resources */,
 				8AC10A14222A694F00540B22 /* 1chron_ru.sqlite in Resources */,
 				8AC10A33222A694F00540B22 /* 1tim_ru.sqlite in Resources */,
+				8A18FB7F22CC4EC9006B3F29 /* fasting.plist in Resources */,
 				8AC10A2D222A694F00540B22 /* mal_ru.sqlite in Resources */,
 				8AC10A0E222A694F00540B22 /* 2cor_ru.sqlite in Resources */,
 				8AC10A1F222A694F00540B22 /* phil_ru.sqlite in Resources */,
@@ -1434,7 +1439,6 @@
 				8A76870C1EB72A6E000F7533 /* YearlyMonthViewCell.swift in Sources */,
 				8A01E42221956295005BE65F /* TroparionModel.swift in Sources */,
 				8A96719C2230C1900086CBA6 /* BibleModel.swift in Sources */,
-				8AC2060019E63ED8006FC8EA /* FastingViewController.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A916D8922576C34003FEF70 /* ServiceModel.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,

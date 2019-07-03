@@ -75,7 +75,7 @@ class FontSizeViewController : UIViewController, PopupContentViewController {
     }
     
     @objc func buttonAction(sender: UIButton!) {
-        delegate.popup.dismiss()
+        UIViewController.popup.dismiss()
     }
     
     func sizeForPopup(_ popupController: PopupController, size: CGSize, showingKeyboard: Bool) -> CGSize {
@@ -98,8 +98,6 @@ class BookPage: UIViewController {
     var contentView1, contentView2: UIView!
     var con, con2 : [NSLayoutConstraint]!
     
-    var popup : PopupController!
-
     func createContentView(_ pos: BookPosition) -> UIView { preconditionFailure("This method must be overridden") }
 
     func reloadTheme() { preconditionFailure("This method must be overridden") }
@@ -272,26 +270,12 @@ class BookPage: UIViewController {
         ]
     }
     
-    func showPopup(_ vc: UIViewController, reload: Bool = false) {
-        popup = PopupController
-            .create(self.navigationController!)
-            .customize(
-                [
-                    .animation(.fadeIn),
-                    .layout(.center),
-                    .backgroundStyle(.blackFilter(alpha: 0.5))
-                ]
-            ).didCloseHandler { _ in if reload { self.reloadTheme() } }
-        
-        popup.show(vc)
-    }
-    
     @objc func showFontSizeDialog() {
         let vc = FontSizeViewController()
         vc.fontSize = fontSize
         vc.delegate = self
         
-        showPopup(vc, reload: true)
+        showPopup(vc, onClose: { _ in  self.reloadTheme() })
     }
 
 }

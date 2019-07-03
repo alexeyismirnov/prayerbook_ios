@@ -15,7 +15,6 @@ extension Notification.Name {
 
 class Options: UITableViewController {
     let prefs = UserDefaults(suiteName: groupId)!
-    var popup: PopupController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,17 +101,7 @@ class Options: UITableViewController {
                 let bundle = Bundle(identifier: "com.rlc.swift-toolkit")
                 let container = UIViewController.named("Palette", bundle: bundle) as! Palette
                 
-                popup = PopupController
-                    .create(self.navigationController!)
-                    .customize(
-                        [
-                            .animation(.fadeIn),
-                            .layout(.center),
-                            .backgroundStyle(.blackFilter(alpha: 0.7))
-                        ]
-                )
-                
-                popup.show(container)
+                showPopup(container)
             }
             
         }
@@ -141,7 +130,7 @@ class Options: UITableViewController {
     @objc func updateTheme(_ notification: NSNotification) {
         guard let color = notification.userInfo?["color"] as? UIColor else { return }
         
-        popup.dismiss({
+        UIViewController.popup.dismiss({
             self.prefs.set(color, forKey: "theme")
             self.prefs.synchronize()
             

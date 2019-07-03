@@ -26,9 +26,14 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         .great: UIImage(named: "great")!.resize(size15)
     ]
     
+    static let bookIcon = UIImage(named: "book")!.maskWithColor(.red).resize(CGSize(width: 20, height: 20))
+    
+    let prefs = UserDefaults(suiteName: groupId)!
+
     var appeared = false
     
     var fasting: (FastingType, String) = (.vegetarian, "")
+    var fastingDescription: String?
     
     var foodIcon: [FastingType: String] = [
         .noFast:        "burger",
@@ -70,8 +75,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         return formatter
     }()
     
-    var popup : PopupController!
-    
     static var background : UIImage?
 
     static func date(_ date: Date) -> UIViewController {
@@ -110,8 +113,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .optionsSavedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: NSNotification.Name(rawValue: dateChangedNotification), object: nil)
-
-        let prefs = UserDefaults(suiteName: groupId)!
 
         if prefs.object(forKey: "welcome40") == nil {
             prefs.set(true, forKey: "welcome40")
@@ -281,7 +282,18 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
            
         } else if indexPath.section == 2 {
             let cell: ImageCell  = getCell()
-            cell.title.text = fasting.1
+            
+            
+            if let _ = fastingDescription {
+                let attachment = NSTextAttachment()
+                attachment.image = DailyTab.bookIcon
+                
+                cell.title.attributedText = NSAttributedString(string: fasting.1) + "\u{2000}" + NSAttributedString(attachment: attachment)
+                
+            } else {
+                cell.title.attributedText = NSAttributedString(string: fasting.1)
+            }
+
             cell.title.textColor =  Theme.textColor
             cell.icon.image = UIImage(named: "food-\(foodIcon[fasting.0]!)")
             cell.accessoryType =  .none
@@ -426,23 +438,16 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             
             navigationController?.pushViewController(vc, animated: true)
             
-        } else if FastingLevel() == .laymen && indexPath.section == 2 && indexPath.row == 0 {
-            
-            let container = UIViewController.named("FastingView", bundle: nil) as! FastingViewController
-            container.delegate = self
-            container.type =  fasting.0
+        } else if indexPath.section == 2 && indexPath.row == 0 {
+            if var descr = fastingDescription {
+                descr = descr.replacingOccurrences(of: "\\n", with: "\n")
 
-            popup = PopupController
-                .create(navigationController!)
-                .customize(
-                    [
-                        .animation(.fadeIn),
-                        .layout(.center),
-                        .backgroundStyle(.blackFilter(alpha: 0.7))
-                    ]
-            )
-            
-            popup.show(container)
+                let labelVC = LabelViewController()
+                labelVC.text = descr
+                labelVC.fontSize = prefs.integer(forKey: "fontSize")
+                
+                showPopup(labelVC)
+            }
             
         } else if indexPath.section == 4 {
             showSaints()
@@ -499,6 +504,11 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         
         dayDescription = Cal.getDayDescription(currentDate)
         fasting = Cal.getFastingDescription(currentDate, FastingLevel())
+        
+        if let path = Bundle.main.path(forResource: "fasting", ofType: "plist") ,
+            let dict = NSDictionary(contentsOfFile: path) as? Dictionary<String, AnyObject> {
+            fastingDescription = dict[fasting.1] as? String
+        }
         
         saints=Db.saints(self.currentDate)
         readings = DailyReading.getDailyReading(currentDate)
@@ -563,21 +573,11 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         let container = UIViewController.named("CalendarSelector", bundle: nil) as! CalendarSelector
         container.delegate = self
 
-        popup = PopupController
-            .create(self.navigationController!)
-            .customize(
-                [
-                    .animation(.fadeIn),
-                    .layout(.center),
-                    .backgroundStyle(.blackFilter(alpha: 0.7))
-                ]
-        )
-        
-        popup.show(container)
+        showPopup(container)
     }
     
     func showMonthlyCalendar() {
-        popup.dismiss({
+        UIViewController.popup.dismiss({
             DateViewCell.textColor = nil
             DateViewCell.textSize = nil
             DateViewCell.selectedDate = self.currentDate
@@ -588,7 +588,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             let image_today = UIImage(named: "today", in: nil, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
             let button_today = UIBarButtonItem(image: image_today, style: .plain, target: self, action: #selector(self.showToday))
 
-            self.popup =  CalendarContainer.show(inVC: self.navigationController!,
+            UIViewController.popup =  CalendarContainer.show(inVC: self.navigationController!,
                                                  initialDate: self.currentDate,
                                                  cellReuseIdentifier: "DateViewCell",
                                                  cellNibName: "DateViewCell",
@@ -598,7 +598,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     }
     
     func showYearlyCalendar() {
-        popup.dismiss({
+        UIViewController.popup.dismiss({
             DateViewCell.selectedDate = nil
 
             let vc = UIViewController.named("yearly") as! YearlyCalendar
@@ -610,7 +610,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     }
     
     @objc func showToday() {
-        popup.dismiss({
+        UIViewController.popup.dismiss({
             self.currentDate = DateComponents(date: Date()).toDate()
             self.reload()
             self.tableView.setContentOffset(CGPoint.zero, animated: false)
@@ -618,7 +618,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     }
     
     @objc func showInfo() {
-        let responder: UIResponder? = popup.popupView?.next
+        let responder: UIResponder? = UIViewController.popup.popupView?.next
         if let container = responder as? UINavigationController {
             let calendar_info = UIViewController.named("calendar_info")
             container.pushViewController(calendar_info, animated: true)
@@ -626,7 +626,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     }
     
     @objc func updateDate(_ notification: NSNotification) {
-        popup.dismiss()
+        UIViewController.popup.dismiss()
         
         if let newDate = notification.userInfo?["date"] as? Date {
             currentDate = newDate
@@ -661,21 +661,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     }
     
     func downloadTroparion() {
-        let container = UIViewController.named("DownloadView") as! DownloadView
-        container.delegate = self
-        
-        popup = PopupController
-            .create(self.navigationController!)
-            .customize(
-                [
-                    .dismissWhenTaps(false),
-                    .animation(.fadeIn),
-                    .layout(.center),
-                    .backgroundStyle(.blackFilter(alpha: 0.7))
-                ]
-        )
-        
-        popup.show(container)
+        let container = UIViewController.named("DownloadView") as! DownloadView        
+        showPopup(container)
     }
     
 }

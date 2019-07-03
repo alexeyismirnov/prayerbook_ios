@@ -17,7 +17,6 @@ class DownloadView: UIViewController, PopupContentViewController {
     @IBOutlet weak var button: UIButton!
     
     let url = "https://filedn.com/lUdNcEH0czFSe8uSnCeo29F/prayerbook/tropari.zip"
-    var delegate: DailyTab!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +63,7 @@ class DownloadView: UIViewController, PopupContentViewController {
     
     @IBAction func cancel(_ sender: Any) {
         DownloadManager.cancelTransfer(url)
-        delegate.popup.dismiss()
+        UIViewController.popup.dismiss()
     }
     
     func showInfo(title: String, message: String) {
@@ -72,7 +71,7 @@ class DownloadView: UIViewController, PopupContentViewController {
             let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
             
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
-                self.delegate.popup.dismiss()
+                UIViewController.popup.dismiss()
             }))
             
             self.present(alert, animated: true, completion: nil)

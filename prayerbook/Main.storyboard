@@ -439,26 +439,6 @@
             </objects>
             <point key="canvasLocation" x="1891" y="-1148"/>
         </scene>
-        <!--Fasting View Controller-->
-        <scene sceneID="Z9H-kn-NwP">
-            <objects>
-                <tableViewController storyboardIdentifier="FastingView" id="Dq6-Mw-9c9" customClass="FastingViewController" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EDH-JB-xVN">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <connections>
-                            <outlet property="dataSource" destination="Dq6-Mw-9c9" id="Vw1-Ic-wUX"/>
-                            <outlet property="delegate" destination="Dq6-Mw-9c9" id="Kvb-UE-Khl"/>
-                        </connections>
-                    </tableView>
-                    <size key="freeformSize" width="300" height="300"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Pn-aU-EsK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2357" y="-1091"/>
-        </scene>
         <!--Daily Tab-->
         <scene sceneID="RIK-uU-vIX">
             <objects>
