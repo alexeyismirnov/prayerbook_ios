@@ -130,6 +130,7 @@
 		8A76870C1EB72A6E000F7533 /* YearlyMonthViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */; };
 		8A76870D1EB72A6E000F7533 /* YearlyMonthViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */; };
 		8A7DF2FD22CB5FA90071FCB4 /* book.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A7DF2FC22CB5FA90071FCB4 /* book.pdf */; };
+		8A80085622CDADF40008DFBA /* food-pancake.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A80085522CDADF40008DFBA /* food-pancake.pdf */; };
 		8A8753F41FC429C400C857DE /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8753F51FC429C400C857DE /* Squeal.framework */; };
 		8A8D2FB51FBC458C00A54147 /* DateViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */; };
 		8A8D2FB61FBC458C00A54147 /* DateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8D2FB41FBC458B00A54147 /* DateViewCell.swift */; };
@@ -452,6 +453,7 @@
 		8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearlyMonthViewCell.swift; sourceTree = "<group>"; };
 		8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YearlyMonthViewCell.xib; sourceTree = "<group>"; };
 		8A7DF2FC22CB5FA90071FCB4 /* book.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = book.pdf; sourceTree = "<group>"; };
+		8A80085522CDADF40008DFBA /* food-pancake.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-pancake.pdf"; sourceTree = "<group>"; };
 		8A8753F51FC429C400C857DE /* Squeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Squeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = swift_toolkit.framework; path = Carthage/Build/iOS/swift_toolkit.framework; sourceTree = "<group>"; };
 		8A8D2FB31FBC458B00A54147 /* DateViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateViewCell.xib; sourceTree = "<group>"; };
@@ -784,6 +786,7 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8A80085522CDADF40008DFBA /* food-pancake.pdf */,
 				8A7DF2FC22CB5FA90071FCB4 /* book.pdf */,
 				8A070A8D22C20DAF00CFFDE8 /* help.pdf */,
 				8A070A8622C1FC9A00CFFDE8 /* food-burger.pdf */,
@@ -1169,6 +1172,7 @@
 				8A5457791E70174300A86B5A /* synaxarion9.rtf in Resources */,
 				8AC6951B19E3FBC200773FEB /* food-no-egg.pdf in Resources */,
 				8AC10A3D222A694F00540B22 /* gen_ru.sqlite in Resources */,
+				8A80085622CDADF40008DFBA /* food-pancake.pdf in Resources */,
 				8A070A8A22C1FC9A00CFFDE8 /* food-burger.pdf in Resources */,
 				8A7DF2FD22CB5FA90071FCB4 /* book.pdf in Resources */,
 				8AC10A0C222A694F00540B22 /* ephes_ru.sqlite in Resources */,

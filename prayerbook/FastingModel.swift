@@ -67,7 +67,7 @@ struct FastingModel {
         .vegetarian:    "vegetables",
         .fishAllowed:   "fish",
         .fastFree:      "cupcake",
-        .cheesefare:    "cheese",
+        .cheesefare:    "pancake",
         .noFood:        "nothing",
         .xerophagy:     "fruits",
         .withoutOil:    "without-oil",
