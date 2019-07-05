@@ -131,7 +131,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -146,9 +146,12 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             return 1
             
         case 3:
-            return readings.count + feofan.count + (synaxarion != nil ? 1:0) + (greatFeast != nil ? 1:0)
-            
+            return readings.count + feofan.count + (synaxarion != nil ? 1:0)
+          
         case 4:
+            return (greatFeast != nil ? 1:0) + 1
+            
+        case 5:
             return saints.count
             
         default:
@@ -168,9 +171,12 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             return (FastingLevel() == .monastic) ? Translate.s("Monastic fasting") : Translate.s("Laymen fasting")
             
         case 3:
-            return readings.count > 0 ? Translate.s("Gospel of the day") : nil
-            
+            return Translate.s("Gospel of the day")
+           
         case 4:
+            return "Тропари и кондаки"
+            
+        case 5:
             return Translate.s("Memory of saints")
             
         default:
@@ -178,28 +184,14 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         }
     }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let headerView = view as! UITableViewHeaderFooterView
-        headerView.contentView.backgroundColor = UIColor.clear
-        headerView.backgroundView?.backgroundColor = UIColor.clear
-        headerView.textLabel?.textColor = Theme.secondaryColor
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
-                let cell: TextDetailsCell = getCell()
-                cell.title.text = formatter.string(from: currentDate).capitalizingFirstLetter()
-                cell.subtitle.text = formatterOldStyle.string(from: currentDate-13.days)
-                
-                cell.title.textColor = Theme.textColor
-                cell.subtitle.textColor = Theme.secondaryColor
-                
-                return cell
+                return getTextDetailsCell(title: formatter.string(from: currentDate).capitalizingFirstLetter(),
+                                          subtitle: formatterOldStyle.string(from: currentDate-13.days))
                 
             case 1:
-                let cell: TextCell = getCell()
                 var descr = ""
                 
                 if let weekDescription = Cal.getWeekDescription(currentDate) {
@@ -213,19 +205,13 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
                     descr += toneDescription
                 }
                 
-                cell.title.textColor =  Theme.textColor
-                cell.title.text = descr
-                
-                return cell
+                return getTextCell(descr)
                 
             default:
                 let feast:FeastType = dayDescription[indexPath.row-2].0
                 
                 if feast == .none {
-                    let cell: TextCell  = getCell()
-                    cell.title.textColor = Theme.textColor
-                    cell.title.text = dayDescription[indexPath.row-2].1
-                    return cell
+                    return getTextCell(dayDescription[indexPath.row-2].1)
                     
                 } else if feast == .great {
                     let cell: ImageCell = getCell()
@@ -262,7 +248,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
                 return cell
 
             } else {
-                return getSimpleCell()
+                return getSimpleCell("")
                 
             }
            
@@ -306,10 +292,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
                     title = synaxarion!.0
                     subtitle = ""
                     
-                } else if greatFeast != nil {
-                    title = "Тропарь и кондак праздника"
-                    subtitle = ""
-                    
                 } else {
                     title = ""
                     subtitle=""
@@ -317,42 +299,44 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             }
             
             if appeared {
-                let cell: TextDetailsCell = getCell()
-                cell.accessoryType = .none
-                
-                cell.title.textColor = Theme.textColor
-                cell.title.text = title
-                cell.subtitle.text = subtitle
-                cell.subtitle.textColor = Theme.secondaryColor
-                
-                return cell
+                return getTextDetailsCell(title: title, subtitle: subtitle)
                 
             } else {
-                let cell = getSimpleCell()
-                cell.backgroundColor = UIColor.clear
-                cell.textLabel?.textColor = Theme.textColor
-                cell.accessoryType = .none
-                cell.textLabel?.text = title
+                let cell = getSimpleCell(title)
                 cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
                 
                 return cell
             }
             
         } else if indexPath.section == 4 {
+            var title : String!
+            var subtitle : String!
+            
+            if greatFeast != nil && indexPath.row == 0 {
+                title = "Тропарь и кондак праздника"
+                subtitle = ""
+                
+            } else {
+                title = "Тропари святым"
+                subtitle = ""
+            }
+            
+            if appeared {
+                return getTextDetailsCell(title: title, subtitle: subtitle)
+                
+            } else {
+                let cell = getSimpleCell(title)
+                cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+                return cell
+            }
+            
+        } else if indexPath.section == 5 {
             if saints[indexPath.row].0 == .none {
                 if appeared {
-                    let cell: TextCell = getCell()
-                    cell.title.textColor =  Theme.textColor
-                    cell.title.text = saints[indexPath.row].1
-                    return cell
+                    return getTextCell(saints[indexPath.row].1)
                     
                 } else {
-                    let cell = getSimpleCell()
-                    cell.backgroundColor = UIColor.clear
-                    cell.textLabel?.text = saints[indexPath.row].1
-                    cell.textLabel?.textColor = Theme.textColor
-                    
-                    return cell
+                    return getSimpleCell(saints[indexPath.row].1)
                 }
                 
             } else {
@@ -374,7 +358,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
                     return cell
                     
                 } else {
-                    let cell = getSimpleCell()
+                    let cell = getSimpleCell("")
                     cell.backgroundColor = UIColor.clear
                     cell.textLabel?.attributedText = myString
                     return cell
@@ -383,14 +367,14 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             }
         }
         
-        let cell = getSimpleCell()
+        let cell = getSimpleCell("")
         return cell
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        var vc : UIViewController!
+
         if indexPath.section == 3 {
-            var vc : UIViewController!
-            
             switch indexPath.row {
             case 0 ..< readings.count:
                 let currentReading = readings[indexPath.row].components(separatedBy: "#").first!
@@ -407,18 +391,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
                 if synaxarion != nil && indexPath.row == readings.count + feofan.count {
                     let pos = BookPosition(model: SynaxarionModel.shared, location: synaxarion!.1)
                     vc = BookPageText(pos)
-                    
-                } else if greatFeast != nil {
-                    if TroparionModel.troparionAvailable() {
-                        vc = UIViewController.named("TroparionView")
-                        (vc as! TroparionView).greatFeast = greatFeast!
-                        
-                    } else {
-                        downloadTroparion()
-                        return nil
-                    }
                 }
-                
             }
             
             navigationController?.pushViewController(vc, animated: true)
@@ -435,6 +408,22 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             }
             
         } else if indexPath.section == 4 {
+            if greatFeast != nil && indexPath.row == 0 {
+                if TroparionModel.troparionAvailable() {
+                    vc = UIViewController.named("TroparionView")
+                    (vc as! TroparionView).greatFeast = greatFeast!
+                    
+                } else {
+                    downloadTroparion()
+                    return nil
+                }
+            } else {
+                
+            }
+            
+            navigationController?.pushViewController(vc, animated: true)
+            
+        } else if indexPath.section == 5 {
             showSaints()
         }
         
@@ -459,13 +448,20 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             case (1,_):
                 return 0
                 
-            case (2,_), (3,_):
+            case (2,_), (3,_), (4,_):
                 return 35
                 
             default:
                 return 27
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        headerView.contentView.backgroundColor = UIColor.clear
+        headerView.backgroundView?.backgroundColor = UIColor.clear
+        headerView.textLabel?.textColor = Theme.secondaryColor
     }
     
     @objc func reloadTheme() {
