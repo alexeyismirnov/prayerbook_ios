@@ -2,49 +2,86 @@
 //  TroparionModel.swift
 //  ponomar
 //
-//  Created by Alexey Smirnov on 11/9/18.
-//  Copyright © 2018 Alexey Smirnov. All rights reserved.
+//  Created by Alexey Smirnov on 7/7/19.
+//  Copyright © 2019 Alexey Smirnov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Squeal
+import swift_toolkit
 
-struct Troparion {
-    var title : String
-    var content : String
-    var url : String?
+class TroparionModel : BookModel {
+    var code = "Troparion"
     
-    init(title : String, content : String, url : String? = nil) {
-        self.title = title
-        self.content = content
-        self.url = url
+    var mode:BookType = .text
+    
+    var title = ""
+    
+    var isExpandable = false
+    
+    var hasNavigation = false
+    
+    static let shared = TroparionModel()
+    
+    func getSections() -> [String] {
+        return []
     }
-}
-
-struct TroparionModel {
-    static let documentDirectory:URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let path = documentDirectory.path + "/tropari/tropari/tropari.sqlite"
-
-    static func getTroparion(_ code : NameOfDay) -> [Troparion]  {
+    
+    func getItems(_ section: Int) -> [String] {
+        return []
+    }
+    
+    func getNumChapters(_ index: IndexPath) -> Int {
+        return 0
+    }
+    
+    func getComment(commentId: Int) -> String? {
+        return nil
+    }
+    
+    func getContent(at pos: BookPosition) -> Any? {
+        guard let index = pos.index else { return nil }
+        
+        let path = Bundle.main.path(forResource: "troparion", ofType: "sqlite")!
         let db = try! Database(path:path)
         
-        var troparion = [Troparion]()
-
-        let results = try! db.selectFrom("tropari", whereExpr:"code=\(code.rawValue)", orderBy: "id") { ["title": $0["title"], "content": $0["content"], "url": $0["url"]]}
+        var text = NSAttributedString()
         
+        let prefs = UserDefaults(suiteName: groupId)!
+        let fontSize = prefs.integer(forKey: "fontSize")
+        
+        let day = index.row
+        let month = index.section
+        
+        let results = try! db.selectFrom("tropari", whereExpr:"month=\(month) AND day=\(day)") { ["title": $0["title"] , "glas": $0["glas"], "content": $0["content"] ] }
+
         for line in results {
             let title = line["title"] as! String
-            let content =  line["content"] as! String
-            let url = line["url"] as? String
+            let glas = line["glas"] as! String
+            let content = line["content"] as! String
             
-            troparion.append(Troparion(title: title, content: content, url: url))
+            text += (title + ", " + glas).colored(with: Theme.textColor).boldFont(ofSize: CGFloat(fontSize)).centered + "\n\n"
+            text += content.colored(with: Theme.textColor).systemFont(ofSize: CGFloat(fontSize)) + "\n\n"
         }
         
-        return troparion
+        return text
     }
     
-    static func troparionAvailable() -> Bool {
-        return FileManager.default.fileExists(atPath: path)
+    func getBookmark(at pos: BookPosition) -> String {
+        return ""
+    }
+    
+    func getNextSection(at pos: BookPosition) -> BookPosition? {
+        return nil
+    }
+    
+    func getPrevSection(at pos: BookPosition) -> BookPosition? {
+        return nil
+    }
+    
+    func getBookmarkName(_ bookmark: String) -> String {
+        return ""
     }
     
 }
+

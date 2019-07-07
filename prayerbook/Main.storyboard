@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="G5G-CB-Hhd">
-    <device id="ipad9_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -181,10 +177,10 @@
             </objects>
             <point key="canvasLocation" x="-1905.46875" y="-135.9375"/>
         </scene>
-        <!--Troparion View-->
+        <!--Troparion Feast View-->
         <scene sceneID="3rg-WY-yQS">
             <objects>
-                <viewController storyboardIdentifier="TroparionView" id="tJ1-Se-VnY" customClass="TroparionView" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TroparionView" id="tJ1-Se-VnY" customClass="TroparionFeastView" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GkU-Jw-gZC"/>
                         <viewControllerLayoutGuide type="bottom" id="FNa-0G-SWt"/>
@@ -258,7 +254,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1wK-Nd-sqA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lZm-Hm-3US">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="954"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="n44-Mr-6vz">
@@ -448,7 +444,7 @@
                         <viewControllerLayoutGuide type="bottom" id="9Io-Wu-SYo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v3t-Kb-Qnp">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="954"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zgb-I3-x6V">

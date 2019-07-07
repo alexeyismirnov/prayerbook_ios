@@ -47,7 +47,7 @@ struct Db {
     }
     
     static func saintsData(_ date: Date) -> [(FeastType, String)] {
-        let dc = DateComponents(date: date as Date)
+        let dc = DateComponents(date: date)
         let filename = String(format: "saints_%02d_%@.sqlite", dc.month!, Translate.language)
         
         let dst = groupURL.appendingPathComponent(filename)

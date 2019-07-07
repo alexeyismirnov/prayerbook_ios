@@ -409,16 +409,19 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             
         } else if indexPath.section == 4 {
             if greatFeast != nil && indexPath.row == 0 {
-                if TroparionModel.troparionAvailable() {
+                if TroparionFeastModel.troparionAvailable() {
                     vc = UIViewController.named("TroparionView")
-                    (vc as! TroparionView).greatFeast = greatFeast!
+                    (vc as! TroparionFeastView).greatFeast = greatFeast!
                     
                 } else {
                     downloadTroparion()
                     return nil
                 }
             } else {
-                
+                let dc = DateComponents(date: currentDate)
+
+                let pos = BookPosition(model: TroparionModel.shared, index: IndexPath(row: dc.day!, section: dc.month!), chapter: 0)
+                vc = BookPageText(pos)
             }
             
             navigationController?.pushViewController(vc, animated: true)

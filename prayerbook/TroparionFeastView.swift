@@ -13,7 +13,7 @@ extension Notification.Name {
     public static let stopPlaybackNotification = Notification.Name("STOP_PLAYBACK")
 }
 
-class TroparionView:  UIViewController, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource {
+class TroparionFeastView:  UIViewController, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -38,7 +38,7 @@ class TroparionView:  UIViewController, ResizableTableViewCells, UITableViewDele
         fontSize = prefs.integer(forKey: "fontSize")
         reloadTheme()
 
-        troparion = TroparionModel.getTroparion(greatFeast)
+        troparion = TroparionFeastModel.getTroparion(greatFeast)
         tableView.reloadData()
     }
     
