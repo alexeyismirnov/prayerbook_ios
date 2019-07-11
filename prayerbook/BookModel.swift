@@ -24,6 +24,11 @@ struct BookPosition {
         self.location = location
     }
     
+    init(model: BookModel, data: Any) {
+        self.model = model
+        self.data = data
+    }
+    
     init(index: IndexPath, chapter: Int) {
         self.index = index
         self.chapter = chapter
@@ -33,6 +38,7 @@ struct BookPosition {
     var index : IndexPath?
     var chapter : Int?
     var location: String?
+    var data: Any?
 }
 
 protocol BookModel {

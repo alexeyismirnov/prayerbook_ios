@@ -39,28 +39,46 @@ class TroparionModel : BookModel {
         return nil
     }
     
-    func getContent(at pos: BookPosition) -> Any? {
-        guard let index = pos.index else { return nil }
-        
+    static func getTroparion(for date: Date) -> [(String, String)] {
+        var troparion = [(String,String)]()
+        let dc = DateComponents(date: date)
+
         let path = Bundle.main.path(forResource: "troparion", ofType: "sqlite")!
         let db = try! Database(path:path)
         
+        let day = dc.day!
+        let month = dc.month!
+        
+        let results = try! db.selectFrom("tropari", whereExpr:"month=\(month) AND day=\(day)") { ["title": $0["title"] , "glas": $0["glas"], "content": $0["content"] ] }
+        
+        for line in results {
+            var title = line["title"] as! String
+            let glas = line["glas"] as! String
+            let content = line["content"] as! String
+            
+            if glas.count > 0 {
+                title = title + ", " + glas
+            }
+            
+            troparion.append((title,content))
+        }
+        
+        return troparion
+    }
+    
+    func getContent(at pos: BookPosition) -> Any? {
+        guard let data : [(String,String)] = pos.data as? [(String, String)]  else { return nil }
+      
         var text = NSAttributedString()
         
         let prefs = UserDefaults(suiteName: groupId)!
         let fontSize = prefs.integer(forKey: "fontSize")
         
-        let day = index.row
-        let month = index.section
-        
-        let results = try! db.selectFrom("tropari", whereExpr:"month=\(month) AND day=\(day)") { ["title": $0["title"] , "glas": $0["glas"], "content": $0["content"] ] }
-
-        for line in results {
-            let title = line["title"] as! String
-            let glas = line["glas"] as! String
-            let content = line["content"] as! String
+        for line in data {
+            let title = line.0
+            let content = line.1
             
-            text += (title + ", " + glas).colored(with: Theme.textColor).boldFont(ofSize: CGFloat(fontSize)).centered + "\n\n"
+            text += title.colored(with: Theme.textColor).boldFont(ofSize: CGFloat(fontSize)).centered + "\n\n"
             text += content.colored(with: Theme.textColor).systemFont(ofSize: CGFloat(fontSize)) + "\n\n"
         }
         

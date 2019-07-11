@@ -24,16 +24,13 @@ def get_troparion(cur, date):
         trop_glas = trop.find("div", {"class": "trop_glas" })
         trop_text = trop.find("div", {"class": "trop_text" })
 
+        glas = trop_glas.getText() if trop_glas != None else ""
+
         cur.execute("INSERT INTO tropari VALUES(%d, %d, \"%s\",  \"%s\",  \"%s\")" %
-            (newdate.day, newdate.month, trop_title.getText(), trop_glas.getText(), trop_text.getText()))
+            (newdate.day, newdate.month, trop_title.getText(), glas, trop_text.getText()))
 
-        #print trop_title.getText()
-        #print trop_glas.getText()
-        #print trop_text.getText()
-
-
-start_date = date(2019, 6, 15)
-end_date = date(2019, 6, 16)
+start_date = date(2019, 3, 1)
+end_date = date(2019, 4, 1)
 
 with lite.connect("./troparion.sqlite") as con:
     cur = con.cursor()

@@ -37,6 +37,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     var synaxarion : (String,String)?
     
     var feofan = [(String,String)]()
+    var troparion = [(String,String)]()
+
     var dayDescription = [(FeastType, String)]()
     var saints = [(FeastType, String)]()
     var saintIcons = [Saint]()
@@ -149,7 +151,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             return readings.count + feofan.count + (synaxarion != nil ? 1:0)
           
         case 4:
-            return (greatFeast != nil ? 1:0) + 1
+            return (greatFeast != nil ? 1:0) + (troparion.count > 0 ? 1:0)
             
         case 5:
             return saints.count
@@ -418,9 +420,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
                     return nil
                 }
             } else {
-                let dc = DateComponents(date: currentDate)
-
-                let pos = BookPosition(model: TroparionModel.shared, index: IndexPath(row: dc.day!, section: dc.month!), chapter: 0)
+                let pos = BookPosition(model: TroparionModel.shared, data: troparion)
                 vc = BookPageText(pos)
             }
             
@@ -506,6 +506,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     
     func reloadAfterAppeared() {
         feofan = FeofanModel.getFeofan(for: currentDate)
+        troparion = TroparionModel.getTroparion(for: currentDate)
         saintIcons = SaintIconModel.get(currentDate)
     }
     
