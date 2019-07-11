@@ -65,6 +65,8 @@ struct SaintIconModel {
         var saints = [Saint]()
         let year = date.year
 
+        Cal.setDate(date)
+
         if let codes = Cal.moveableIcons[date] {
             for code in codes {
                 let results = try! db.selectFrom("app_saint", whereExpr:"id=\(code.rawValue)")
@@ -78,17 +80,13 @@ struct SaintIconModel {
             }
         }
         
-        let isLeapYear = (year % 400) == 0 || ((year%4 == 0) && (year%100 != 0))
-        let leapStart = Date(29, 2, year)
-        let leapEnd = Date(13, 3, year)
-        
-        if isLeapYear {
+        if Cal.isLeapYear {
             switch date {
-            case leapStart ..< leapEnd:
+            case Cal.leapStart ..< Cal.leapEnd:
                 saints += addSaints(date: date+1.days)
                 break
                 
-            case leapEnd:
+            case Cal.leapEnd:
                 saints += addSaints(date: Date(29, 2, year))
                 break
                 
@@ -98,7 +96,7 @@ struct SaintIconModel {
         } else {
             saints += addSaints(date: date)
             
-            if date == leapEnd {
+            if date == Cal.leapEnd {
                 saints += addSaints(date: Date(29, 2, 2000))
             }
         }

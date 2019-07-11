@@ -39,10 +39,11 @@ class TroparionModel : BookModel {
         return nil
     }
     
-    static func getTroparion(for date: Date) -> [(String, String)] {
+    static func troparionData(_ date: Date) -> [(String, String)] {
         var troparion = [(String,String)]()
-        let dc = DateComponents(date: date)
 
+        let dc = DateComponents(date: date)
+        
         let path = Bundle.main.path(forResource: "troparion", ofType: "sqlite")!
         let db = try! Database(path:path)
         
@@ -61,6 +62,35 @@ class TroparionModel : BookModel {
             }
             
             troparion.append((title,content))
+        }
+        
+        return troparion
+    }
+    
+    static func getTroparion(for date: Date) -> [(String, String)] {
+        var troparion = [(String,String)]()
+        
+        Cal.setDate(date)
+        
+        if (Cal.isLeapYear) {
+            switch date {
+            case Cal.leapStart ..< Cal.leapEnd:
+                troparion = troparionData(date+1.days)
+                break
+                
+            case Cal.leapEnd:
+                troparion = troparionData(Date(29, 2, Cal.currentYear))
+                break
+                
+            default:
+                troparion = troparionData(date)
+            }
+            
+        } else {
+            troparion = troparionData(date)
+            if (date == Cal.leapEnd) {
+                troparion += troparionData(Date(29, 2, 2000))
+            }
         }
         
         return troparion

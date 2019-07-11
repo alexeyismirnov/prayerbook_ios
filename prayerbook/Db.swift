@@ -17,18 +17,14 @@ struct Db {
         var saints = [(FeastType, String)]()
 
         Cal.setDate(date)
-        let isLeapYear = (Cal.currentYear % 400) == 0 || ((Cal.currentYear%4 == 0) && (Cal.currentYear%100 != 0))
         
-        if (isLeapYear) {
-            let leapStart = Date(29, 2, Cal.currentYear)
-            let leapEnd = Date(13, 3, Cal.currentYear)
-            
+        if (Cal.isLeapYear) {
             switch date {
-            case leapStart ..< leapEnd:
+            case Cal.leapStart ..< Cal.leapEnd:
                 saints = Db.saintsData(date+1.days)
                 break
                 
-            case leapEnd:
+            case Cal.leapEnd:
                 saints = Db.saintsData(Date(29, 2, Cal.currentYear))
                 break
                 
@@ -38,7 +34,7 @@ struct Db {
             
         } else {
             saints = Db.saintsData(date)
-            if (date == Date(13, 3, Cal.currentYear)) {
+            if (date == Cal.leapEnd) {
                 saints += Db.saintsData(Date(29, 2, 2000))
             }
         }

@@ -49,6 +49,19 @@ struct ChurchCalendar {
     static var currentDate: Date!
     static var currentYear: Int!
     static var currentWeekday: DayOfWeek = .monday
+    
+    static var isLeapYear: Bool {
+        get { return (currentYear % 400) == 0 || ((currentYear%4 == 0) && (currentYear%100 != 0)) }
+    }
+    
+    static var leapStart: Date {
+        get { return Date(29, 2, currentYear) }
+    }
+    
+    static var leapEnd: Date {
+        get { return Date(13, 3, currentYear) }
+    }
+    
     static var feastDates = [Date: [NameOfDay]]()
     static var dCache = [DateCache:Date]()
 
