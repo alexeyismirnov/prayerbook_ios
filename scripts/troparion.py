@@ -29,8 +29,8 @@ def get_troparion(cur, date):
         cur.execute("INSERT INTO tropari VALUES(%d, %d, \"%s\",  \"%s\",  \"%s\")" %
             (newdate.day, newdate.month, trop_title.getText(), glas, trop_text.getText()))
 
-start_date = date(2019, 3, 1)
-end_date = date(2019, 4, 1)
+start_date = date(2019, 12, 1)
+end_date = date(2020, 1, 1)
 
 with lite.connect("./troparion.sqlite") as con:
     cur = con.cursor()
