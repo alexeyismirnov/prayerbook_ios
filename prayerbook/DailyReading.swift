@@ -31,7 +31,7 @@ struct DailyReading {
         .meetingOfLord:             "Luke 2:25-32 Heb 7:7-17 Luke 2:22-40",
         .annunciation:              "Luke 1:39-49,56 Heb 2:11-18 Luke 1:24-38 # Theotokos",
         .nativityOfJohn:            "Luke 1:24-25,57-68,76,80 Rom 13:12-14:4 Luke 1:5-25,57-68,76,80",
-        .peterAndPaul:              "1Cor 4:9-16 Mark 3:13-19",
+        .peterAndPaul:              "John 21:15-25 2Cor 11:21-12:9 Matthew 16:13-19",
         .transfiguration:           "Luke 9:28-36 2Pet 1:10-19 Matthew 17:1-9",
         .dormition:                 "Luke 1:39-49,56 Phil 2:5-11 Luke 10:38-42,11:27-28",
         .beheadingOfJohn:           "Matthew 14:1-13 Acts 13:25-32 Mark 6:14-30",
