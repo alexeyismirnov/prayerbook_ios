@@ -102,6 +102,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: NSNotification.Name(rawValue: dateChangedNotification), object: nil)
 
+        /*
         if prefs.object(forKey: "welcome40") == nil {
             prefs.set(true, forKey: "welcome40")
             prefs.synchronize()
@@ -119,6 +120,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             
             present(alert, animated: true, completion: {})
         }
+        */
         
         reloadTheme()
     }

@@ -74,7 +74,9 @@ struct FastingModel {
         .withOil:       "vegetables",
     ]
     
-    static let fastingComments = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "fasting", ofType: "plist")!)
+    static let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
+
+    static let fastingComments = NSDictionary(contentsOfFile: groupURL.appendingPathComponent("fasting.plist").path)
         as! Dictionary<String, AnyObject>
     
     static let monasticTypes : [FastingModel] = [
