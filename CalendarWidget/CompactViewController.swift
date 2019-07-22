@@ -52,7 +52,7 @@ class CompactViewController: UIViewController {
             Translate.language = language
         }
         
-        formatter.locale = Translate.locale as Locale!
+        formatter.locale = Translate.locale as Locale?
         
         let recognizer = UITapGestureRecognizer(target: self, action:#selector(self.onTapLabel(_:)))
         recognizer.numberOfTapsRequired = 1
