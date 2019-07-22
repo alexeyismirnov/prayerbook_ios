@@ -24,7 +24,7 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
         reload()
     }
 
-    func reload() {
+    @objc func reload() {
         if let controllers = viewControllers  {
             (controllers[0] as! UINavigationController).title = Translate.s("Daily")
             (controllers[1] as! UINavigationController).title = Translate.s("Eucharist")
@@ -76,7 +76,7 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
                    delay: 0,
                    usingSpringWithDamping: DampingConstant,
                    initialSpringVelocity: InitialVelocity,
-                   options: UIViewAnimationOptions(rawValue: 0),
+                   options: UIView.AnimationOptions(rawValue: 0),
                    animations: { fromView!.frame = leftRect; toView!.frame = centerRect },
                    completion: { (value:Bool) in transitionContext.completeTransition(true) } )
             
@@ -89,7 +89,7 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
                    delay: Foundation.TimeInterval(0),
                    usingSpringWithDamping: DampingConstant,
                    initialSpringVelocity: -InitialVelocity,
-                   options: UIViewAnimationOptions(rawValue: 0),
+                   options: UIView.AnimationOptions(rawValue: 0),
                    animations: { fromView!.frame = rightRect; toView!.frame = centerRect },
                    completion: { (value:Bool) in transitionContext.completeTransition(true) } )
             

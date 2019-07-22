@@ -26,7 +26,7 @@ class Prayer: UIViewController {
         reloadTheme()
     }
 
-    func reloadTheme() {
+    @objc func reloadTheme() {
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor
             
@@ -37,7 +37,7 @@ class Prayer: UIViewController {
         reload()
     }
     
-    func reload() {
+    @objc func reload() {
         let filename = String(format: "prayer_%@_%d_%@.html", code, index, Translate.language)
         let bundleName = Bundle.main.path(forResource: filename, ofType: nil)
         var txt:String! = try? String(contentsOfFile: bundleName!, encoding: String.Encoding.utf8)
@@ -81,7 +81,7 @@ class Prayer: UIViewController {
         let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in"), style: .plain, target: self, action: #selector(self.zoom_in))
         let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out"), style: .plain, target: self, action: #selector(self.zoom_out))
         
-        button_zoom_in.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
+        button_zoom_in.imageInsets = UIEdgeInsets.init(top: 0,left: 0,bottom: 0,right: -20)
         navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
 
         webView.loadHTMLString(txt, baseURL: nil)
@@ -92,7 +92,7 @@ class Prayer: UIViewController {
         title = Translate.s(name)
     }
     
-    func zoom_in() {
+    @objc func zoom_in() {
         fontSize += 2
         prefs.set(fontSize, forKey: "fontSize")
         prefs.synchronize()
@@ -100,7 +100,7 @@ class Prayer: UIViewController {
         reload()
     }
     
-    func zoom_out() {
+    @objc func zoom_out() {
         fontSize -= 2
         prefs.set(fontSize, forKey: "fontSize")
         prefs.synchronize()

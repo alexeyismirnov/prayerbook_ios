@@ -173,11 +173,11 @@ func + (arg1: NSMutableAttributedString?, arg2: (String?, UIColor)) -> NSMutable
     if let rightArg = arg2.0 {
         if let leftArg = arg1 {
             let result = NSMutableAttributedString(attributedString: leftArg)
-            result.append(NSMutableAttributedString(string: rightArg, attributes: [NSForegroundColorAttributeName: arg2.1]))
+            result.append(NSMutableAttributedString(string: rightArg, attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): arg2.1])))
             return result
             
         } else {
-            return NSMutableAttributedString(string: rightArg, attributes: [NSForegroundColorAttributeName: arg2.1])
+            return NSMutableAttributedString(string: rightArg, attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): arg2.1]))
         }
         
     } else {
@@ -323,9 +323,9 @@ extension String {
 }
 
 extension UIFont {
-    func withTraits(_ traits:UIFontDescriptorSymbolicTraits...) -> UIFont {
+    func withTraits(_ traits:UIFontDescriptor.SymbolicTraits...) -> UIFont {
         let descriptor = self.fontDescriptor
-            .withSymbolicTraits(UIFontDescriptorSymbolicTraits(traits))
+            .withSymbolicTraits(UIFontDescriptor.SymbolicTraits(traits))
         return UIFont(descriptor: descriptor!, size: 0)
     }
     
@@ -483,4 +483,15 @@ extension CALayer {
         
         self.addSublayer(border)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

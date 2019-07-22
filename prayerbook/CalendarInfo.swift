@@ -19,7 +19,7 @@ class CalendarInfo: UITableViewController {
         navigationItem.leftBarButtonItem = backButton
     }
     
-    func close() {
+    @objc func close() {
         navigationController?.popViewController(animated: true)
     }
     

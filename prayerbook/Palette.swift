@@ -39,7 +39,7 @@ class Palette: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         collectionView.delegate = self
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionInset = UIEdgeInsetsMake(edgeInsets, edgeInsets, edgeInsets, edgeInsets)
+        layout.sectionInset = UIEdgeInsets.init(top: edgeInsets, left: edgeInsets, bottom: edgeInsets, right: edgeInsets)
         layout.minimumInteritemSpacing = interitemSpacing
         layout.minimumLineSpacing = interitemSpacing
 
@@ -72,7 +72,7 @@ class Palette: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         return CGSize(width: size, height: size)
     }
     
-    func chooseColor(_ recognizer: UITapGestureRecognizer) {
+    @objc func chooseColor(_ recognizer: UITapGestureRecognizer) {
         let loc = recognizer.location(in: collectionView)
         
         if let path = collectionView.indexPathForItem(at: loc),

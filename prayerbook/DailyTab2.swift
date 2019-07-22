@@ -177,7 +177,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
             return newCell
             
         } else {
-            return T(style: UITableViewCellStyle.default, reuseIdentifier: T.cellId)
+            return T(style: UITableViewCell.CellStyle.default, reuseIdentifier: T.cellId)
         }
     }
     
@@ -249,7 +249,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
                     
                     let dayString = dayDescription[indexPath.row-2].1
                     let day = NSMutableAttributedString(string: dayString)
-                    day.addAttribute(NSForegroundColorAttributeName, value: Theme.textColor!, range: NSMakeRange(0, dayString.characters.count))
+                    day.addAttribute(NSAttributedString.Key.foregroundColor, value: Theme.textColor!, range: NSMakeRange(0, dayString.characters.count))
                     myString.append(day)
                     
                     cell.title.attributedText = myString
@@ -347,7 +347,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
                 
                 let saintString = saints[indexPath.row].1
                 let saint = NSMutableAttributedString(string: saintString)
-                saint.addAttribute(NSForegroundColorAttributeName, value: Theme.textColor!, range: NSMakeRange(0, saintString.characters.count))
+                saint.addAttribute(NSAttributedString.Key.foregroundColor, value: Theme.textColor!, range: NSMakeRange(0, saintString.characters.count))
                 myString.append(saint)
                 
                 if appeared {
@@ -436,11 +436,11 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         
-        let size = cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        let size = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         return size.height+1.0
     }
     
-    func reloadTheme() {
+    @objc func reloadTheme() {
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor
             
@@ -455,7 +455,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         reload()
     }
     
-    func reload() {
+    @objc func reload() {
         formatter.locale = Translate.locale as Locale!
         
         dayDescription = Cal.getDayDescription(currentDate)
@@ -474,13 +474,13 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         let button_widget = UIBarButtonItem(image: UIImage(named: "question"), style: .plain, target: self, action: #selector(showTutorial))
         let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .plain, target: self, action: #selector(showOptions))
         
-        button_widget.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
+        button_widget.imageInsets = UIEdgeInsets.init(top: 0,left: 0,bottom: 0,right: -20)
         
         navigationItem.leftBarButtonItems = [button_monthly]
         navigationItem.rightBarButtonItems = [button_options, button_widget]
     }
     
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         return (animation.direction != .none) ? animation : nil
     }
@@ -504,7 +504,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         return true
     }
     
-    func didPan(recognizer: UIPanGestureRecognizer) {
+    @objc func didPan(recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
             let velocity = recognizer.velocity(in: view)
@@ -539,7 +539,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         }
     }
     
-    func showMonthlyCalendar() {
+    @objc func showMonthlyCalendar() {
         var width, height : CGFloat
         
         if (UIDevice.current.userInterfaceIdiom == .phone) {
@@ -555,7 +555,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         container.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
         container.navigationBar.barTintColor = UIColor(hex: "#FFEBCD")
         container.navigationBar.tintColor = .blue
-        container.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.black]
+        container.navigationBar.titleTextAttributes = convertToOptionalNSAttributedStringKeyDictionary([NSAttributedString.Key.foregroundColor.rawValue : UIColor.black])
 
         modalSheet = NAModalSheet(viewController: container, presentationStyle: .fadeInCentered)
         
@@ -567,7 +567,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         modalSheet.present(completion: {})
     }
         
-    func updateDate(_ notification: NSNotification) {
+    @objc func updateDate(_ notification: NSNotification) {
         modalSheet.dismiss(completion: {
         })
         
@@ -578,7 +578,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         }
     }
     
-    func showTutorial() {
+    @objc func showTutorial() {
         let vc = UIViewController.named("Tutorial") as! Tutorial
         let nav = UINavigationController(rootViewController: vc)
         vc.delegate = self
@@ -586,7 +586,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         navigationController?.present(nav, animated: true, completion: {})
     }
     
-    func showOptions() {
+    @objc func showOptions() {
         let vc = UIViewController.named("Options") as! Options
         let nav = UINavigationController(rootViewController: vc)
         navigationController?.present(nav, animated: true, completion: {})
@@ -606,4 +606,10 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         return supportedInterfaceOrientations.rawValue
     }
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

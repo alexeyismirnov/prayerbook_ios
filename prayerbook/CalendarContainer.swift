@@ -45,7 +45,7 @@ class CalendarContainer: UIViewController, UICollectionViewDataSource, UICollect
         collectionView.delegate = self
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        layout.sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         
@@ -64,7 +64,7 @@ class CalendarContainer: UIViewController, UICollectionViewDataSource, UICollect
 
     }
     
-    func showInfo() {
+    @objc func showInfo() {
         let vc = UIViewController.named("calendar_info")
         navigationController?.pushViewController(vc, animated: true)
     }

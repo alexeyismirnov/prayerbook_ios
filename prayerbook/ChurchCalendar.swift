@@ -157,11 +157,11 @@ struct ChurchCalendar {
             return;
         }
         
-        var res = feastDates.filter({ (date, codes) in
-            return codes.contains(code) && DateComponents(date:date).year == year
-        })
+        var res = feastDates.compactMap() { (date, codes) in
+            return codes.contains(code) && DateComponents(date:date).year == year ? date : nil
+        }
         
-        dCache[DateCache(code, year)] = res[0].0
+        dCache[DateCache(code, year)] = res[0]
     }
     
     static func d(_ code: NameOfDay) -> Date {

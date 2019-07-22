@@ -33,7 +33,7 @@ class PrayersTab2: UIViewController, UITableViewDelegate, UITableViewDataSource 
         reloadTheme()
     }
 
-    func reloadTheme() {
+    @objc func reloadTheme() {
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor
             
@@ -44,7 +44,7 @@ class PrayersTab2: UIViewController, UITableViewDelegate, UITableViewDataSource 
         reload()
     }
 
-    func reload() {
+    @objc func reload() {
         let bundle = Bundle.main.path(forResource: "prayers", ofType: "plist")
         let table = NSDictionary(contentsOfFile: bundle!) as! [String:[String]]
         
@@ -107,7 +107,7 @@ class PrayersTab2: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         var newCell  = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TextCell
         if newCell == nil {
-            newCell = TextCell(style: UITableViewCellStyle.default, reuseIdentifier: TextCell.cellId)
+            newCell = TextCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: TextCell.cellId)
         }
         
         newCell!.backgroundColor = .clear
@@ -126,7 +126,7 @@ class PrayersTab2: UIViewController, UITableViewDelegate, UITableViewDataSource 
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         
-        let size = cell.contentView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        let size = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         return max(size.height+1.0, 40)
     }
     

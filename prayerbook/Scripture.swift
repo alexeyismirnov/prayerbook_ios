@@ -33,7 +33,7 @@ class Scripture: UIViewController {
         let button_zoom_in = UIBarButtonItem(image: UIImage(named: "zoom_in"), style: .plain, target: self, action: #selector(Scripture.zoom_in))
         let button_zoom_out = UIBarButtonItem(image: UIImage(named: "zoom_out"), style: .plain, target: self, action: #selector(Scripture.zoom_out))
 
-        button_zoom_in.imageInsets = UIEdgeInsetsMake(0,0,0,-20)
+        button_zoom_in.imageInsets = UIEdgeInsets.init(top: 0,left: 0,bottom: 0,right: -20)
         navigationItem.rightBarButtonItems = [button_zoom_out, button_zoom_in]
         
         fontSize = prefs.integer(forKey: "fontSize")
@@ -41,7 +41,7 @@ class Scripture: UIViewController {
         reloadTheme()
     }
     
-    func reloadTheme() {
+    @objc func reloadTheme() {
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor
             
@@ -53,7 +53,7 @@ class Scripture: UIViewController {
     }
 
     
-    func zoom_in() {
+    @objc func zoom_in() {
         fontSize += 2
         prefs.set(fontSize, forKey: "fontSize")
         prefs.synchronize()
@@ -61,7 +61,7 @@ class Scripture: UIViewController {
         reload()
     }
     
-    func zoom_out() {
+    @objc func zoom_out() {
         fontSize -= 2
         prefs.set(fontSize, forKey: "fontSize")
         prefs.synchronize()
@@ -69,7 +69,7 @@ class Scripture: UIViewController {
         reload()
     }
     
-    func reload() {
+    @objc func reload() {
         switch code {
         case let ScriptureDisplay.chapter(name, chapter):
             showChapter(name, chapter)
@@ -112,7 +112,7 @@ class Scripture: UIViewController {
         textView.attributedText =  text
     }
     
-    func closeView() {
+    @objc func closeView() {
         let _ = navigationController?.popViewController(animated: true)
     }
     
@@ -122,7 +122,7 @@ class Scripture: UIViewController {
         text = text + (content, Theme.textColor)
         text = text + "\n"
         
-        text!.addAttribute(NSFontAttributeName,
+        text!.addAttribute(NSAttributedString.Key.font,
             value: UIFont.systemFont(ofSize: CGFloat(fontSize)),
             range: NSMakeRange(0, text!.length))
         
@@ -149,9 +149,9 @@ class Scripture: UIViewController {
             if decorated {
                 bookName = NSMutableAttributedString(
                     string: Translate.s(bookTuple[0].0) + " " + pericope[i+1],
-                    attributes: [NSParagraphStyleAttributeName: centerStyle,
-                        NSFontAttributeName: UIFont.boldSystemFont(ofSize: CGFloat(fontSize)),
-                        NSForegroundColorAttributeName: Theme.textColor  ])
+                    attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): centerStyle,
+                        convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.boldSystemFont(ofSize: CGFloat(fontSize)),
+                        convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): Theme.textColor  ]))
                 
             } else {
                 bookName = NSMutableAttributedString(string: Translate.s(bookTuple[0].0))
@@ -230,4 +230,15 @@ class Scripture: UIViewController {
     }
 
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }
