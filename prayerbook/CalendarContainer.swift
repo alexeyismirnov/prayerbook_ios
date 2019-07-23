@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ChameleonFramework
+import Chameleon
 
 let showYearlyNotification = "SHOW_YEARLY"
 

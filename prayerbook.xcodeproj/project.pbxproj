@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		64DBF1D9FA05BFA4C1D30D35 /* Pods_CalendarWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8187A24DCCFEA2A4EFC32F44 /* Pods_CalendarWidget.framework */; };
 		8A06E66F1B187FC300925F63 /* saints_12_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A06E66D1B187FC300925F63 /* saints_12_en.sqlite */; };
 		8A06E6701B187FC300925F63 /* saints_12_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A06E66E1B187FC300925F63 /* saints_12_en.txt */; };
 		8A08D8D81B71D4DD00495BEB /* saints_03_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A08D8D61B71D4DD00495BEB /* saints_03_cn.sqlite */; };
@@ -18,7 +17,6 @@
 		8A181E0E1B1D3C9A00D8C2FB /* saints_01_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0C1B1D3C9A00D8C2FB /* saints_01_en.sqlite */; };
 		8A181E0F1B1D3C9A00D8C2FB /* saints_01_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0D1B1D3C9A00D8C2FB /* saints_01_en.txt */; };
 		8A2197B71ECAADB8007CB039 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2197B61ECAADB8007CB039 /* Theme.swift */; };
-		8A2197BE1ECAADD6007CB039 /* ChameleonFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2197BD1ECAADD6007CB039 /* ChameleonFramework.framework */; };
 		8A26E7761ED15A5700071C66 /* DailyReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26E7741ED15A5700071C66 /* DailyReading.swift */; };
 		8A26E7771ED15A5700071C66 /* Scripture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26E7751ED15A5700071C66 /* Scripture.swift */; };
 		8A26E7891ED19C5300071C66 /* widget.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8A26E7881ED19C5300071C66 /* widget.mp4 */; };
@@ -61,6 +59,11 @@
 		8A4EA0EB1E63F4BA00E63399 /* food-pizza.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A4EA0E51E63F4BA00E63399 /* food-pizza.pdf */; };
 		8A4EA0EC1E63F4BA00E63399 /* food-without-oil.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A4EA0E61E63F4BA00E63399 /* food-without-oil.pdf */; };
 		8A4EA0ED1E63F4BA00E63399 /* food-xerography.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A4EA0E71E63F4BA00E63399 /* food-xerography.pdf */; };
+		8A4F2E6D22E6E7F70087A3F0 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4F2E6C22E6E7F70087A3F0 /* Chameleon.framework */; };
+		8A4F2E6F22E6E7FB0087A3F0 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4F2E6E22E6E7FB0087A3F0 /* Squeal.framework */; };
+		8A4F2E7122E6E7FF0087A3F0 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4F2E7022E6E7FF0087A3F0 /* swift_toolkit.framework */; };
+		8A4F2E7222E6E8070087A3F0 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4F2E7022E6E7FF0087A3F0 /* swift_toolkit.framework */; };
+		8A4F2E7322E6E82D0087A3F0 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4F2E6E22E6E7FB0087A3F0 /* Squeal.framework */; };
 		8A540B681E6C296D00970420 /* newicon_167.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A540B671E6C296D00970420 /* newicon_167.png */; };
 		8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */; };
 		8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */; };
@@ -269,7 +272,6 @@
 		8AF2497B1AFF308B000070C0 /* nosign.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249761AFF308B000070C0 /* nosign.pdf */; };
 		8AF2497C1AFF308B000070C0 /* polyeleos.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249771AFF308B000070C0 /* polyeleos.pdf */; };
 		8AF2497D1AFF308B000070C0 /* sixverse.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249781AFF308B000070C0 /* sixverse.pdf */; };
-		8AF249841AFF4C64000070C0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF249831AFF4C64000070C0 /* libsqlite3.dylib */; };
 		8AF37E391B36B1FD00101148 /* launch-hd4.7.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E361B36B1FD00101148 /* launch-hd4.7.png */; };
 		8AF37E3A1B36B1FD00101148 /* launch-hd5.5-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E371B36B1FD00101148 /* launch-hd5.5-landscape.png */; };
 		8AF37E3B1B36B1FD00101148 /* launch-hd5.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E381B36B1FD00101148 /* launch-hd5.5.png */; };
@@ -286,7 +288,6 @@
 		8AFAA3991B12E90B001699D6 /* saints_05_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AFAA3981B12E90B001699D6 /* saints_05_en.txt */; };
 		8AFB8DEB1B1FDC12006715A3 /* saints_03_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AFB8DE91B1FDC12006715A3 /* saints_03_en.sqlite */; };
 		8AFB8DEC1B1FDC12006715A3 /* saints_03_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AFB8DEA1B1FDC12006715A3 /* saints_03_en.txt */; };
-		D8747E0B1509E9D5240A9B66 /* Pods_ponomar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A60D18B1F88822B0023CFAE /* Pods_ponomar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -325,10 +326,7 @@
 
 /* Begin PBXFileReference section */
 		4C178967DF3E947D091585D6 /* Pods_ponomar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ponomar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8187A24DCCFEA2A4EFC32F44 /* Pods_CalendarWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalendarWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		837BEB4B22499DD2905795D3 /* Pods-ponomar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ponomar.release.xcconfig"; path = "Pods/Target Support Files/Pods-ponomar/Pods-ponomar.release.xcconfig"; sourceTree = "<group>"; };
-		8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8A06E66D1B187FC300925F63 /* saints_12_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_12_en.sqlite; sourceTree = "<group>"; };
 		8A06E66E1B187FC300925F63 /* saints_12_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_12_en.txt; sourceTree = "<group>"; };
 		8A08D8D61B71D4DD00495BEB /* saints_03_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_03_cn.sqlite; sourceTree = "<group>"; };
@@ -384,6 +382,9 @@
 		8A4EA0E51E63F4BA00E63399 /* food-pizza.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-pizza.pdf"; sourceTree = "<group>"; };
 		8A4EA0E61E63F4BA00E63399 /* food-without-oil.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-without-oil.pdf"; sourceTree = "<group>"; };
 		8A4EA0E71E63F4BA00E63399 /* food-xerography.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-xerography.pdf"; sourceTree = "<group>"; };
+		8A4F2E6C22E6E7F70087A3F0 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
+		8A4F2E6E22E6E7FB0087A3F0 /* Squeal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Squeal.framework; path = Carthage/Build/iOS/Squeal.framework; sourceTree = "<group>"; };
+		8A4F2E7022E6E7FF0087A3F0 /* swift_toolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = swift_toolkit.framework; path = Carthage/Build/iOS/swift_toolkit.framework; sourceTree = "<group>"; };
 		8A540B671E6C296D00970420 /* newicon_167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_167.png; sourceTree = "<group>"; };
 		8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDetailsCell.swift; sourceTree = "<group>"; };
 		8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
@@ -443,7 +444,6 @@
 		8A81FB4C1C1ECB7600D28F58 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		8A81FB4D1C1ECB7600D28F58 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		8A81FB4E1C1ECB7600D28F58 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
-		8A851D3E549C35694A51B97D /* Pods-ponomar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ponomar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ponomar/Pods-ponomar.debug.xcconfig"; sourceTree = "<group>"; };
 		8A8810E21A300DE40095C081 /* acts_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = acts_en.sqlite; sourceTree = "<group>"; };
 		8A8810E31A300DE40095C081 /* john_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = john_en.sqlite; sourceTree = "<group>"; };
 		8A8810E41A300DE40095C081 /* luke_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = luke_en.sqlite; sourceTree = "<group>"; };
@@ -610,8 +610,6 @@
 		8AFAA3981B12E90B001699D6 /* saints_05_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_05_en.txt; sourceTree = "<group>"; };
 		8AFB8DE91B1FDC12006715A3 /* saints_03_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_03_en.sqlite; sourceTree = "<group>"; };
 		8AFB8DEA1B1FDC12006715A3 /* saints_03_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_03_en.txt; sourceTree = "<group>"; };
-		C38CBCE20E8FB7F697A383E6 /* Pods-CalendarWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalendarWidget/Pods-CalendarWidget.debug.xcconfig"; sourceTree = "<group>"; };
-		E4427FB252A60BF99A197663 /* Pods-CalendarWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalendarWidget/Pods-CalendarWidget.release.xcconfig"; sourceTree = "<group>"; };
 		FB949D5EE4022DBBF8C2E216 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -620,13 +618,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A2197BE1ECAADD6007CB039 /* ChameleonFramework.framework in Frameworks */,
+				8A4F2E7122E6E7FF0087A3F0 /* swift_toolkit.framework in Frameworks */,
+				8A4F2E6F22E6E7FB0087A3F0 /* Squeal.framework in Frameworks */,
+				8A4F2E6D22E6E7F70087A3F0 /* Chameleon.framework in Frameworks */,
 				8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */,
-				8AF249841AFF4C64000070C0 /* libsqlite3.dylib in Frameworks */,
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
-				D8747E0B1509E9D5240A9B66 /* Pods_ponomar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,27 +632,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A4F2E7322E6E82D0087A3F0 /* Squeal.framework in Frameworks */,
+				8A4F2E7222E6E8070087A3F0 /* swift_toolkit.framework in Frameworks */,
 				8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */,
-				64DBF1D9FA05BFA4C1D30D35 /* Pods_CalendarWidget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		25E93E93270EA3DD693061FB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8799EEEA8D5859351A428ACC /* Pods.debug.xcconfig */,
-				5A62731A9EACCC95CE394485 /* Pods.release.xcconfig */,
-				8A851D3E549C35694A51B97D /* Pods-ponomar.debug.xcconfig */,
-				837BEB4B22499DD2905795D3 /* Pods-ponomar.release.xcconfig */,
-				C38CBCE20E8FB7F697A383E6 /* Pods-CalendarWidget.debug.xcconfig */,
-				E4427FB252A60BF99A197663 /* Pods-CalendarWidget.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		8A74D7EE198F20CC0078F39F = {
 			isa = PBXGroup;
 			children = (
@@ -663,7 +649,6 @@
 				8AB749A21C4C7A3500CD1B32 /* CalendarWidget */,
 				8A74D7F9198F20CC0078F39F /* Frameworks */,
 				8A74D7F8198F20CC0078F39F /* Products */,
-				25E93E93270EA3DD693061FB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -679,6 +664,9 @@
 		8A74D7F9198F20CC0078F39F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A4F2E7022E6E7FF0087A3F0 /* swift_toolkit.framework */,
+				8A4F2E6E22E6E7FB0087A3F0 /* Squeal.framework */,
+				8A4F2E6C22E6E7F70087A3F0 /* Chameleon.framework */,
 				8A60D18B1F88822B0023CFAE /* Pods_ponomar.framework */,
 				8A2197BD1ECAADD6007CB039 /* ChameleonFramework.framework */,
 				8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */,
@@ -1031,13 +1019,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A74D82C198F20CC0078F39F /* Build configuration list for PBXNativeTarget "ponomar" */;
 			buildPhases = (
-				D38BA3FCE733F88380D63661 /* [CP] Check Pods Manifest.lock */,
 				8A74D7F3198F20CC0078F39F /* Sources */,
 				8A74D7F4198F20CC0078F39F /* Frameworks */,
 				8A74D7F5198F20CC0078F39F /* Resources */,
 				8A00C82C1DBF0A82000893A7 /* Embed Frameworks */,
-				C00E30B932C96A083AA35A73 /* [CP] Embed Pods Frameworks */,
 				8A638C9C1ECC55CA00424A9E /* Embed App Extensions */,
+				8A4F2E7422E6E83A0087A3F0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1053,7 +1040,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8AB749B31C4C7A3500CD1B32 /* Build configuration list for PBXNativeTarget "CalendarWidget" */;
 			buildPhases = (
-				79CF8D701927D75E8DA3231B /* [CP] Check Pods Manifest.lock */,
 				8AB7499B1C4C7A3400CD1B32 /* Sources */,
 				8AB7499C1C4C7A3400CD1B32 /* Frameworks */,
 				8AB7499D1C4C7A3400CD1B32 /* Resources */,
@@ -1369,61 +1355,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		79CF8D701927D75E8DA3231B /* [CP] Check Pods Manifest.lock */ = {
+		8A4F2E7422E6E83A0087A3F0 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+			inputFileListPaths = (
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/swift_toolkit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Squeal.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Chameleon.framework",
+			);
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CalendarWidget-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C00E30B932C96A083AA35A73 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ponomar/Pods-ponomar-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
-				"${BUILT_PRODUCTS_DIR}/Squeal/Squeal.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Squeal.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ponomar/Pods-ponomar-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D38BA3FCE733F88380D63661 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ponomar-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1585,7 +1535,6 @@
 		};
 		8A74D82D198F20CC0078F39F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A851D3E549C35694A51B97D /* Pods-ponomar.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1598,10 +1547,14 @@
 				DEVELOPMENT_TEAM = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1618,7 +1571,6 @@
 		};
 		8A74D82E198F20CC0078F39F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 837BEB4B22499DD2905795D3 /* Pods-ponomar.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1631,10 +1583,14 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1650,7 +1606,6 @@
 		};
 		8AB749AC1C4C7A3500CD1B32 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C38CBCE20E8FB7F697A383E6 /* Pods-CalendarWidget.debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = CalendarWidget/CalendarWidget.entitlements;
@@ -1660,9 +1615,13 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rlc.ponomar.CalendarWidget;
@@ -1678,7 +1637,6 @@
 		};
 		8AB749AD1C4C7A3500CD1B32 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4427FB252A60BF99A197663 /* Pods-CalendarWidget.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = CalendarWidget/CalendarWidget.entitlements;
@@ -1688,9 +1646,13 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rlc.ponomar.CalendarWidget;

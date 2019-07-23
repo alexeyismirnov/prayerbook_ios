@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ChameleonFramework
+import Chameleon
 
 enum AppTheme {
     case Default
