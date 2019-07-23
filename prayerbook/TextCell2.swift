@@ -8,12 +8,12 @@
 
 import UIKit
 
-class TextCell : ConfigurableCell {
+class TextCell2 : ConfigurableCell2 {
     
     override class var cellId: String {
         get { return "TextCell" }
     }
 
-    @IBOutlet weak var title: RWLabel!
+    @IBOutlet weak var title: UILabel!
     
 }

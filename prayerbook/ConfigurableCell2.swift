@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfigurableCell : UITableViewCell  {
+class ConfigurableCell2 : UITableViewCell  {
     class var cellId: String {
         get { return "" }
     }

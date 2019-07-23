@@ -8,9 +8,12 @@
 
 import UIKit
 import Squeal
+import swift_toolkit
 
-class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var tableView: UITableView!
+    
+    let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     
     static let size15 = CGSize(width: 15, height: 15)
     static let icon15x15 : [FeastType: UIImage] = [
@@ -22,8 +25,6 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         .great: UIImage(named: "great")!.resize(size15)
     ]
     
-    var animation = DailyAnimator()
-    var animationInteractive = DailyAnimatorInteractive()
     var appeared = false
     
     var fasting: (FastingType, String) = (.vegetarian, "")
@@ -58,12 +59,23 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     }()
     
     static var background : UIImage?
-    static let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
+    
     static func date(_ date: Date) -> UIViewController {
-        let vc = storyboard.instantiateViewController(withIdentifier: "Daily2") as! DailyTab2
+        let vc = UIViewController.named("Daily") as! DailyTab
         vc.currentDate = date
         return vc
+    }
+    
+    override func viewControllerCurrent() -> UIViewController {
+        return DailyTab.date(currentDate)
+    }
+    
+    override func viewControllerForward() -> UIViewController {
+        return DailyTab.date(currentDate + 1.days)
+    }
+    
+    override func viewControllerBackward() -> UIViewController {
+        return DailyTab.date(currentDate - 1.days)
     }
     
     override func viewDidLoad() {
@@ -77,17 +89,13 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         configureNavbar()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
+        tableView.register(UINib(nibName: "TextCell", bundle: toolkit), forCellReuseIdentifier: "TextCell")
+        tableView.register(UINib(nibName: "TextDetailsCell", bundle: toolkit), forCellReuseIdentifier: "TextDetailsCell")
+        tableView.register(UINib(nibName: "ImageCell", bundle: toolkit), forCellReuseIdentifier: "ImageCell")
+
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: NSNotification.Name(rawValue: dateChangedNotification), object: nil)
-
-        navigationController?.delegate = self
-        animationInteractive.completionSpeed = 0.999
-        
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan))
-        pan.delegate = self
-        view.addGestureRecognizer(pan)
         
         reloadTheme()
     }
@@ -159,30 +167,6 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         }
     }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let headerView = view as! UITableViewHeaderFooterView
-        headerView.contentView.backgroundColor = UIColor.clear
-        headerView.backgroundView?.backgroundColor = UIColor.clear
-        headerView.textLabel?.textColor = Theme.secondaryColor
-    }
-    
-    func getCell<T: ConfigurableCell>() -> T {
-        if let newCell  = tableView.dequeueReusableCell(withIdentifier: T.cellId) as? T {
-            newCell.accessoryType = .none
-            newCell.backgroundColor = .clear
-            return newCell
-            
-        } else {
-            return T(style: UITableViewCell.CellStyle.default, reuseIdentifier: T.cellId)
-        }
-    }
-    
-    func getSimpleCell() -> UITableViewCell {
-        let newCell  = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        newCell.accessoryType = .none
-        return newCell
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
@@ -206,25 +190,19 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, U
                 }
                 
                 if let toneDescription = Cal.getToneDescription(currentDate) {
-                    if descr.characters.count > 0 {
+                    if descr.count > 0 {
                         descr += "; "
                     }
                     descr += toneDescription
                 }
                 
-                cell.title.textColor =  Theme.textColor
-                cell.title.text = descr
-                
-                return cell
+                return getTextCell(descr)
                 
             default:
                 let feast:FeastType = dayDescription[indexPath.row-2].0
                 
                 if feast == .none {
-                    let cell: TextCell  = getCell()
-                    cell.title.textColor = Theme.textColor
-                    cell.title.text = dayDescription[indexPath.row-2].1
-                    return cell
+                    return getTextCell(dayDescription[indexPath.row-2].1)
                     
                 } else if feast == .great {
                     let cell: ImageCell = getCell()
@@ -238,14 +216,13 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, U
                     let cell: TextCell = getCell()
                     
                     let attachment = NSTextAttachment()
-                    attachment.image = DailyTab2.icon15x15[feast]
+                    attachment.image = DailyTab.icon15x15[feast]
                     
                     let myString = NSMutableAttributedString(string: "")
                     myString.append(NSAttributedString(attachment: attachment))
                     
                     let dayString = dayDescription[indexPath.row-2].1
-                    let day = NSMutableAttributedString(string: dayString)
-                    day.addAttribute(NSAttributedString.Key.foregroundColor, value: Theme.textColor!, range: NSMakeRange(0, dayString.characters.count))
+                    let day = dayString.colored(with: Theme.textColor)
                     myString.append(day)
                     
                     cell.title.attributedText = myString
@@ -296,11 +273,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, U
                 return cell
                 
             } else {
-                let cell = getSimpleCell()
-                cell.backgroundColor = UIColor.clear
-                cell.textLabel?.textColor = Theme.textColor
-                cell.accessoryType = .none
-                cell.textLabel?.text = title
+                let cell = getSimpleCell(title)
                 cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
                 
                 return cell
@@ -319,31 +292,23 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, U
             
             if saints[indexPath.row].0 == .none {
                 if appeared {
-                    let cell: TextCell = getCell()
-                    cell.title.textColor =  Theme.textColor
-                    cell.title.text = saints[indexPath.row].1
-                    return cell
+                    return getTextCell(saints[indexPath.row].1)
                     
                 } else {
-                    let cell = getSimpleCell()
-                    cell.backgroundColor = UIColor.clear
-                    cell.textLabel?.text = saints[indexPath.row].1
-                    cell.textLabel?.textColor = Theme.textColor
-                    
-                    return cell
+                    return getSimpleCell(saints[indexPath.row].1)
                 }
                 
             } else {
                 let attachment = NSTextAttachment()
-                attachment.image = DailyTab2.icon15x15[saints[indexPath.row].0]
+                attachment.image = DailyTab.icon15x15[saints[indexPath.row].0]
                 let attachmentString = NSAttributedString(attachment: attachment)
                 
                 let myString = NSMutableAttributedString(string: "")
                 myString.append(attachmentString)
                 
                 let saintString = saints[indexPath.row].1
-                let saint = NSMutableAttributedString(string: saintString)
-                saint.addAttribute(NSAttributedString.Key.foregroundColor, value: Theme.textColor!, range: NSMakeRange(0, saintString.characters.count))
+                let saint = saintString.colored(with: Theme.textColor)
+               
                 myString.append(saint)
                 
                 if appeared {
@@ -352,7 +317,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, U
                     return cell
                     
                 } else {
-                    let cell = getSimpleCell()
+                    let cell = getSimpleCell("")
                     cell.backgroundColor = UIColor.clear
                     cell.textLabel?.attributedText = myString
                     return cell
@@ -361,7 +326,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, U
             }
         }
         
-        let cell = getSimpleCell()
+        let cell = getSimpleCell("")
         return cell
     }
     
@@ -429,13 +394,11 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         }
     }
     
-    func calculateHeightForCell(_ cell: UITableViewCell) -> CGFloat {
-        cell.bounds = CGRect(x: 0, y: 0, width: tableView.frame.width, height: cell.bounds.height)
-        cell.setNeedsLayout()
-        cell.layoutIfNeeded()
-        
-        let size = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-        return size.height+1.0
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        headerView.contentView.backgroundColor = UIColor.clear
+        headerView.backgroundView?.backgroundColor = UIColor.clear
+        headerView.textLabel?.textColor = Theme.secondaryColor
     }
     
     @objc func reloadTheme() {
@@ -443,11 +406,11 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, U
             view.backgroundColor =  bgColor
             
         } else {
-            if DailyTab2.background == nil {
-                DailyTab2.background = UIImage(background: "bg3.jpg", inView: view)
+            if DailyTab.background == nil {
+                DailyTab.background = UIImage(background: "bg3.jpg", inView: view, bundle: toolkit)
             }
    
-            view.backgroundColor = UIColor(patternImage: DailyTab2.background!)
+            view.backgroundColor = UIColor(patternImage: DailyTab.background!)
         }
         
         reload()
@@ -476,65 +439,6 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         
         navigationItem.leftBarButtonItems = [button_monthly]
         navigationItem.rightBarButtonItems = [button_options, button_widget]
-    }
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        return (animation.direction != .none) ? animation : nil
-    }
-    
-    func navigationController(_ navigationController: UINavigationController,
-                              interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        
-        return (animation.direction != .none) ? animationInteractive : nil
-    }
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if let recognizer = gestureRecognizer as? UIPanGestureRecognizer {
-            let velocity = recognizer.velocity(in: view)
-            return abs(velocity.x) > abs(velocity.y)
-        }
-        
-        return true
-    }
-    
-    @objc func didPan(recognizer: UIPanGestureRecognizer) {
-        switch recognizer.state {
-        case .began:
-            let velocity = recognizer.velocity(in: view)
-            animationInteractive.velocity = velocity
-            
-            if velocity.x < 0 {
-                animation.direction = .positive
-                navigationController?.pushViewController(DailyTab2.date(currentDate + 1.days), animated: true)
-                
-            } else {
-                animation.direction = .negative
-                navigationController?.pushViewController(DailyTab2.date(currentDate - 1.days), animated: true)
-            }
-            
-        case .changed:
-            animationInteractive.handlePan(recognizer: recognizer)
-            
-        case .ended:
-            animationInteractive.handlePan(recognizer: recognizer)
-            
-            if animationInteractive.cancelled {
-                let vc = DailyTab2.date(currentDate)
-                navigationController?.setViewControllers([vc], animated: false)
-                
-            } else {
-                let top = navigationController?.topViewController!
-                navigationController?.setViewControllers([top!], animated: false)
-            }
-            
-        default:
-            break
-        }
     }
     
     @objc func showMonthlyCalendar() {

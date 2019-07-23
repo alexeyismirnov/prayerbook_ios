@@ -64,27 +64,27 @@
 		8A4F2E7122E6E7FF0087A3F0 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4F2E7022E6E7FF0087A3F0 /* swift_toolkit.framework */; };
 		8A4F2E7222E6E8070087A3F0 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4F2E7022E6E7FF0087A3F0 /* swift_toolkit.framework */; };
 		8A4F2E7322E6E82D0087A3F0 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4F2E6E22E6E7FB0087A3F0 /* Squeal.framework */; };
+		8A4F2E7822E6F8430087A3F0 /* DateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F2E7622E6F8420087A3F0 /* DateViewCell.swift */; };
+		8A4F2E7922E6F8430087A3F0 /* DateViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A4F2E7722E6F8430087A3F0 /* DateViewCell.xib */; };
+		8A4F2E7A22E6F8600087A3F0 /* DateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F2E7622E6F8420087A3F0 /* DateViewCell.swift */; };
+		8A4F2E7B22E6F8600087A3F0 /* DateViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 8A4F2E7722E6F8430087A3F0 /* DateViewCell.xib */; };
 		8A540B681E6C296D00970420 /* newicon_167.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A540B671E6C296D00970420 /* newicon_167.png */; };
-		8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */; };
-		8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */; };
+		8A59A77D1AD23EEF00F92017 /* ConfigurableCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59A77C1AD23EEF00F92017 /* ConfigurableCell2.swift */; };
 		8A59F34D1B14371800B15FA1 /* saints_07_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A59F34B1B14371800B15FA1 /* saints_07_en.sqlite */; };
 		8A59F34E1B14371800B15FA1 /* saints_07_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A59F34C1B14371800B15FA1 /* saints_07_en.txt */; };
 		8A60D18D1F8885040023CFAE /* newicon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A60D18C1F8885040023CFAE /* newicon_1024.png */; };
 		8A638C5A1ECBF5AE00424A9E /* bg3@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A638C571ECBF5AE00424A9E /* bg3@2x.jpg */; };
 		8A638C5B1ECBF5AE00424A9E /* church@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A638C581ECBF5AE00424A9E /* church@2x.jpg */; };
 		8A638C5C1ECBF5AE00424A9E /* question.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A638C591ECBF5AE00424A9E /* question.pdf */; };
-		8A638C651ECBF60F00424A9E /* DailyTab2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C621ECBF60F00424A9E /* DailyTab2.swift */; };
+		8A638C651ECBF60F00424A9E /* DailyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C621ECBF60F00424A9E /* DailyTab.swift */; };
 		8A638C661ECBF60F00424A9E /* Db.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C631ECBF60F00424A9E /* Db.swift */; };
 		8A638C671ECBF60F00424A9E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C641ECBF60F00424A9E /* Extensions.swift */; };
 		8A638C6A1ECBFA8400424A9E /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C681ECBFA8400424A9E /* Animation.swift */; };
 		8A638C6B1ECBFA8400424A9E /* ChurchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C691ECBFA8400424A9E /* ChurchCalendar.swift */; };
 		8A638C791ECC38A500424A9E /* Library2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C781ECC38A500424A9E /* Library2.swift */; };
 		8A638C811ECC3CD400424A9E /* PrayersTab2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C801ECC3CD300424A9E /* PrayersTab2.swift */; };
-		8A638C911ECC520B00424A9E /* CalendarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C8B1ECC520B00424A9E /* CalendarContainer.swift */; };
-		8A638C921ECC520B00424A9E /* CalendarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C8C1ECC520B00424A9E /* CalendarDelegate.swift */; };
 		8A638C931ECC520B00424A9E /* CalendarImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C8D1ECC520B00424A9E /* CalendarImageCell.swift */; };
 		8A638C941ECC520B00424A9E /* CalendarInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C8E1ECC520B00424A9E /* CalendarInfo.swift */; };
-		8A638C951ECC520B00424A9E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C8F1ECC520B00424A9E /* CalendarView.swift */; };
 		8A638C961ECC520B00424A9E /* CalendarViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C901ECC520B00424A9E /* CalendarViewTextCell.swift */; };
 		8A638C981ECC55B600424A9E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C971ECC55B600424A9E /* MainViewController.swift */; };
 		8A638C991ECC55CA00424A9E /* CalendarWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -92,11 +92,9 @@
 		8A638C9E1ECC56A000424A9E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C641ECBF60F00424A9E /* Extensions.swift */; };
 		8A638C9F1ECC56A000424A9E /* ChurchCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C691ECBFA8400424A9E /* ChurchCalendar.swift */; };
 		8A638CA01ECC56DC00424A9E /* Db.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C631ECBF60F00424A9E /* Db.swift */; };
-		8A638CA11ECC56DC00424A9E /* CalendarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C8C1ECC520B00424A9E /* CalendarDelegate.swift */; };
 		8A638CA21ECC56DC00424A9E /* CalendarViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C901ECC520B00424A9E /* CalendarViewTextCell.swift */; };
 		8A71ED331ECD55A300D55DEC /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A71ED311ECD55A300D55DEC /* Options.swift */; };
 		8A71ED341ECD55A300D55DEC /* RTFDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A71ED321ECD55A300D55DEC /* RTFDocument.swift */; };
-		8A71ED361ECD55C000D55DEC /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A71ED351ECD55C000D55DEC /* Palette.swift */; };
 		8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FA198F20CC0078F39F /* Foundation.framework */; };
 		8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */; };
 		8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FE198F20CC0078F39F /* UIKit.framework */; };
@@ -177,7 +175,6 @@
 		8AA3DF591B18594F00507129 /* saints_10_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3DF551B18594F00507129 /* saints_10_en.txt */; };
 		8AA3DF5E1B185AE800507129 /* saints_11_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3DF5C1B185AE800507129 /* saints_11_en.sqlite */; };
 		8AA3DF5F1B185AE800507129 /* saints_11_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3DF5D1B185AE800507129 /* saints_11_en.txt */; };
-		8AAE4D831AC8E332009421AF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAE4D821AC8E332009421AF /* ImageCell.swift */; };
 		8AB0DC951C27EFEC00C6A494 /* typica_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC8D1C27EFEC00C6A494 /* typica_1.plist */; };
 		8AB0DC961C27EFEC00C6A494 /* typica_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC8E1C27EFEC00C6A494 /* typica_2.plist */; };
 		8AB0DC971C27EFEC00C6A494 /* typica_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC8F1C27EFEC00C6A494 /* typica_3.plist */; };
@@ -249,8 +246,7 @@
 		8AE74D921B9C103B000DD7D2 /* close2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE74D911B9C103B000DD7D2 /* close2.pdf */; };
 		8AE798B61B78321600E7F694 /* saints_08_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE798B41B78321600E7F694 /* saints_08_cn.sqlite */; };
 		8AE798B71B78321600E7F694 /* saints_08_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AE798B51B78321600E7F694 /* saints_08_cn.txt */; };
-		8AE821F91AC55D8D000460C1 /* RWLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821F81AC55D8D000460C1 /* RWLabel.swift */; };
-		8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821FA1AC560FE000460C1 /* TextCell.swift */; };
+		8AE821FB1AC560FE000460C1 /* TextCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE821FA1AC560FE000460C1 /* TextCell2.swift */; };
 		8AE8A02C1B7980A4000A29F2 /* saints_09_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE8A0281B7980A4000A29F2 /* saints_09_cn.sqlite */; };
 		8AE8A02D1B7980A4000A29F2 /* saints_09_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AE8A0291B7980A4000A29F2 /* saints_09_cn.txt */; };
 		8AE8A02E1B7980A4000A29F2 /* saints_10_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE8A02A1B7980A4000A29F2 /* saints_10_cn.sqlite */; };
@@ -385,9 +381,10 @@
 		8A4F2E6C22E6E7F70087A3F0 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		8A4F2E6E22E6E7FB0087A3F0 /* Squeal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Squeal.framework; path = Carthage/Build/iOS/Squeal.framework; sourceTree = "<group>"; };
 		8A4F2E7022E6E7FF0087A3F0 /* swift_toolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = swift_toolkit.framework; path = Carthage/Build/iOS/swift_toolkit.framework; sourceTree = "<group>"; };
+		8A4F2E7622E6F8420087A3F0 /* DateViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewCell.swift; sourceTree = "<group>"; };
+		8A4F2E7722E6F8430087A3F0 /* DateViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateViewCell.xib; sourceTree = "<group>"; };
 		8A540B671E6C296D00970420 /* newicon_167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_167.png; sourceTree = "<group>"; };
-		8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDetailsCell.swift; sourceTree = "<group>"; };
-		8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell.swift; sourceTree = "<group>"; };
+		8A59A77C1AD23EEF00F92017 /* ConfigurableCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurableCell2.swift; sourceTree = "<group>"; };
 		8A59F34B1B14371800B15FA1 /* saints_07_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_07_en.sqlite; sourceTree = "<group>"; };
 		8A59F34C1B14371800B15FA1 /* saints_07_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_07_en.txt; sourceTree = "<group>"; };
 		8A60D18B1F88822B0023CFAE /* Pods_ponomar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ponomar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -395,23 +392,19 @@
 		8A638C571ECBF5AE00424A9E /* bg3@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg3@2x.jpg"; sourceTree = "<group>"; };
 		8A638C581ECBF5AE00424A9E /* church@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "church@2x.jpg"; sourceTree = "<group>"; };
 		8A638C591ECBF5AE00424A9E /* question.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = question.pdf; sourceTree = "<group>"; };
-		8A638C621ECBF60F00424A9E /* DailyTab2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab2.swift; sourceTree = "<group>"; };
+		8A638C621ECBF60F00424A9E /* DailyTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab.swift; sourceTree = "<group>"; };
 		8A638C631ECBF60F00424A9E /* Db.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Db.swift; sourceTree = "<group>"; };
 		8A638C641ECBF60F00424A9E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8A638C681ECBFA8400424A9E /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		8A638C691ECBFA8400424A9E /* ChurchCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChurchCalendar.swift; sourceTree = "<group>"; };
 		8A638C781ECC38A500424A9E /* Library2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library2.swift; sourceTree = "<group>"; };
 		8A638C801ECC3CD300424A9E /* PrayersTab2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayersTab2.swift; sourceTree = "<group>"; };
-		8A638C8B1ECC520B00424A9E /* CalendarContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarContainer.swift; sourceTree = "<group>"; };
-		8A638C8C1ECC520B00424A9E /* CalendarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDelegate.swift; sourceTree = "<group>"; };
 		8A638C8D1ECC520B00424A9E /* CalendarImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarImageCell.swift; sourceTree = "<group>"; };
 		8A638C8E1ECC520B00424A9E /* CalendarInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarInfo.swift; sourceTree = "<group>"; };
-		8A638C8F1ECC520B00424A9E /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		8A638C901ECC520B00424A9E /* CalendarViewTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewTextCell.swift; sourceTree = "<group>"; };
 		8A638C971ECC55B600424A9E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8A71ED311ECD55A300D55DEC /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		8A71ED321ECD55A300D55DEC /* RTFDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTFDocument.swift; sourceTree = "<group>"; };
-		8A71ED351ECD55C000D55DEC /* Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		8A74D7F7198F20CC0078F39F /* ponomar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ponomar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A74D7FA198F20CC0078F39F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -497,7 +490,6 @@
 		8AA3DF551B18594F00507129 /* saints_10_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_10_en.txt; sourceTree = "<group>"; };
 		8AA3DF5C1B185AE800507129 /* saints_11_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_11_en.sqlite; sourceTree = "<group>"; };
 		8AA3DF5D1B185AE800507129 /* saints_11_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_11_en.txt; sourceTree = "<group>"; };
-		8AAE4D821AC8E332009421AF /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		8AB0DC8D1C27EFEC00C6A494 /* typica_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_1.plist; sourceTree = "<group>"; };
 		8AB0DC8E1C27EFEC00C6A494 /* typica_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_2.plist; sourceTree = "<group>"; };
 		8AB0DC8F1C27EFEC00C6A494 /* typica_3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_3.plist; sourceTree = "<group>"; };
@@ -570,8 +562,7 @@
 		8AE74D911B9C103B000DD7D2 /* close2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = close2.pdf; sourceTree = "<group>"; };
 		8AE798B41B78321600E7F694 /* saints_08_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_08_cn.sqlite; sourceTree = "<group>"; };
 		8AE798B51B78321600E7F694 /* saints_08_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_08_cn.txt; sourceTree = "<group>"; };
-		8AE821F81AC55D8D000460C1 /* RWLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWLabel.swift; sourceTree = "<group>"; };
-		8AE821FA1AC560FE000460C1 /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
+		8AE821FA1AC560FE000460C1 /* TextCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCell2.swift; sourceTree = "<group>"; };
 		8AE8A0281B7980A4000A29F2 /* saints_09_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_09_cn.sqlite; sourceTree = "<group>"; };
 		8AE8A0291B7980A4000A29F2 /* saints_09_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_09_cn.txt; sourceTree = "<group>"; };
 		8AE8A02A1B7980A4000A29F2 /* saints_10_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_10_cn.sqlite; sourceTree = "<group>"; };
@@ -691,6 +682,8 @@
 				8A74D857199076EF0078F39F /* html */,
 				8A74D844198F624C0078F39F /* images */,
 				8A74D832198F224E0078F39F /* Main.storyboard */,
+				8A4F2E7622E6F8420087A3F0 /* DateViewCell.swift */,
+				8A4F2E7722E6F8430087A3F0 /* DateViewCell.xib */,
 				8A26E7881ED19C5300071C66 /* widget.mp4 */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
 				8A638C681ECBFA8400424A9E /* Animation.swift */,
@@ -701,26 +694,19 @@
 				8A638C691ECBFA8400424A9E /* ChurchCalendar.swift */,
 				8A26E7741ED15A5700071C66 /* DailyReading.swift */,
 				8A2F46A819E1302700076AF4 /* Translate.swift */,
-				8AE821F81AC55D8D000460C1 /* RWLabel.swift */,
-				8A59A77C1AD23EEF00F92017 /* ConfigurableCell.swift */,
-				8AE821FA1AC560FE000460C1 /* TextCell.swift */,
-				8A59A7771AD2318C00F92017 /* TextDetailsCell.swift */,
-				8AAE4D821AC8E332009421AF /* ImageCell.swift */,
+				8A59A77C1AD23EEF00F92017 /* ConfigurableCell2.swift */,
+				8AE821FA1AC560FE000460C1 /* TextCell2.swift */,
 				8A26E7751ED15A5700071C66 /* Scripture.swift */,
 				8A2F46A419E11CEA00076AF4 /* Prayer.swift */,
 				8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */,
-				8A638C621ECBF60F00424A9E /* DailyTab2.swift */,
+				8A638C621ECBF60F00424A9E /* DailyTab.swift */,
 				8A638C801ECC3CD300424A9E /* PrayersTab2.swift */,
 				8A638C781ECC38A500424A9E /* Library2.swift */,
 				8A71ED311ECD55A300D55DEC /* Options.swift */,
-				8A71ED351ECD55C000D55DEC /* Palette.swift */,
 				8A71ED321ECD55A300D55DEC /* RTFDocument.swift */,
 				8AC2780A1C61D48A00436D51 /* Tutorial.swift */,
-				8A638C8B1ECC520B00424A9E /* CalendarContainer.swift */,
-				8A638C8C1ECC520B00424A9E /* CalendarDelegate.swift */,
 				8A638C8D1ECC520B00424A9E /* CalendarImageCell.swift */,
 				8A638C8E1ECC520B00424A9E /* CalendarInfo.swift */,
-				8A638C8F1ECC520B00424A9E /* CalendarView.swift */,
 				8A638C901ECC520B00424A9E /* CalendarViewTextCell.swift */,
 				8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */,
 				8A74D837198F2AF70078F39F /* prayers.plist */,
@@ -1239,6 +1225,7 @@
 				8A8810E91A300DE40095C081 /* luke_en.sqlite in Resources */,
 				8AF37E581B36C7A500101148 /* newicon_40.png in Resources */,
 				8ADD7D871A56A5C200BA9F37 /* prov_en.sqlite in Resources */,
+				8A4F2E7922E6F8430087A3F0 /* DateViewCell.xib in Resources */,
 				8A8810E71A300DE40095C081 /* acts_en.sqlite in Resources */,
 				8A81858319D2E3F300D4B328 /* prayer_communion_2_cn.html in Resources */,
 				8A74D84D198F691A0078F39F /* CN@2x.png in Resources */,
@@ -1383,28 +1370,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A2197B71ECAADB8007CB039 /* Theme.swift in Sources */,
-				8A638C651ECBF60F00424A9E /* DailyTab2.swift in Sources */,
+				8A638C651ECBF60F00424A9E /* DailyTab.swift in Sources */,
+				8A4F2E7822E6F8430087A3F0 /* DateViewCell.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
-				8A638C911ECC520B00424A9E /* CalendarContainer.swift in Sources */,
 				8A638C791ECC38A500424A9E /* Library2.swift in Sources */,
 				8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */,
 				8A638C6B1ECBFA8400424A9E /* ChurchCalendar.swift in Sources */,
 				8A638C961ECC520B00424A9E /* CalendarViewTextCell.swift in Sources */,
 				8A638C6A1ECBFA8400424A9E /* Animation.swift in Sources */,
-				8A638C921ECC520B00424A9E /* CalendarDelegate.swift in Sources */,
-				8AAE4D831AC8E332009421AF /* ImageCell.swift in Sources */,
 				8A26E7771ED15A5700071C66 /* Scripture.swift in Sources */,
 				8A2F46A919E1302700076AF4 /* Translate.swift in Sources */,
-				8A59A7781AD2318C00F92017 /* TextDetailsCell.swift in Sources */,
 				8A638C941ECC520B00424A9E /* CalendarInfo.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
-				8AE821F91AC55D8D000460C1 /* RWLabel.swift in Sources */,
 				8AC2780B1C61D48A00436D51 /* Tutorial.swift in Sources */,
-				8A59A77D1AD23EEF00F92017 /* ConfigurableCell.swift in Sources */,
-				8A638C951ECC520B00424A9E /* CalendarView.swift in Sources */,
-				8AE821FB1AC560FE000460C1 /* TextCell.swift in Sources */,
-				8A71ED361ECD55C000D55DEC /* Palette.swift in Sources */,
+				8A59A77D1AD23EEF00F92017 /* ConfigurableCell2.swift in Sources */,
+				8AE821FB1AC560FE000460C1 /* TextCell2.swift in Sources */,
 				8A638C661ECBF60F00424A9E /* Db.swift in Sources */,
 				8A71ED341ECD55A300D55DEC /* RTFDocument.swift in Sources */,
 				8A26E7761ED15A5700071C66 /* DailyReading.swift in Sources */,
@@ -1420,8 +1401,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A4F2E7A22E6F8600087A3F0 /* DateViewCell.swift in Sources */,
+				8A4F2E7B22E6F8600087A3F0 /* DateViewCell.xib in Sources */,
 				8A638CA01ECC56DC00424A9E /* Db.swift in Sources */,
-				8A638CA11ECC56DC00424A9E /* CalendarDelegate.swift in Sources */,
 				8A638CA21ECC56DC00424A9E /* CalendarViewTextCell.swift in Sources */,
 				8A638C9D1ECC56A000424A9E /* Animation.swift in Sources */,
 				8A638C9E1ECC56A000424A9E /* Extensions.swift in Sources */,

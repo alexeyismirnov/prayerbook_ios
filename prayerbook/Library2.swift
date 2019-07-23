@@ -130,9 +130,9 @@ class Library2: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "TextCell"
         
-        var newCell  = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TextCell
+        var newCell  = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TextCell2
         if newCell == nil {
-            newCell = TextCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: TextCell.cellId)
+            newCell = TextCell2(style: UITableViewCell.CellStyle.default, reuseIdentifier: TextCell2.cellId)
         }
         
         newCell?.backgroundColor = .clear
