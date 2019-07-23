@@ -9,7 +9,7 @@
 import UIKit
 
 class PrayersTab2: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var tab_index: NSNumber!
+    @objc var tab_index: NSNumber!
     @IBOutlet weak var tableView: UITableView!
     
     var entries = [[String]]()

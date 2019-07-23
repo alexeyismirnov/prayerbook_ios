@@ -21,8 +21,6 @@
 		8A2197BE1ECAADD6007CB039 /* ChameleonFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A2197BD1ECAADD6007CB039 /* ChameleonFramework.framework */; };
 		8A26E7761ED15A5700071C66 /* DailyReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26E7741ED15A5700071C66 /* DailyReading.swift */; };
 		8A26E7771ED15A5700071C66 /* Scripture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26E7751ED15A5700071C66 /* Scripture.swift */; };
-		8A26E7791ED15AEE00071C66 /* FastingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26E7781ED15AEE00071C66 /* FastingViewController.swift */; };
-		8A26E77C1ED15FEC00071C66 /* FastingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A26E77B1ED15FEC00071C66 /* FastingViewController.xib */; };
 		8A26E7891ED19C5300071C66 /* widget.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8A26E7881ED19C5300071C66 /* widget.mp4 */; };
 		8A2CD31A1E654DC20060D524 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3171E654DC20060D524 /* CompactViewController.swift */; };
 		8A2CD31B1E654DC20060D524 /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */; };
@@ -345,8 +343,6 @@
 		8A2197BD1ECAADD6007CB039 /* ChameleonFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChameleonFramework.framework; path = "../../Derived3/prayerbook-gahulcbgsvzkmfdoornliopgnepy/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework"; sourceTree = "<group>"; };
 		8A26E7741ED15A5700071C66 /* DailyReading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyReading.swift; sourceTree = "<group>"; };
 		8A26E7751ED15A5700071C66 /* Scripture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripture.swift; sourceTree = "<group>"; };
-		8A26E7781ED15AEE00071C66 /* FastingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastingViewController.swift; sourceTree = "<group>"; };
-		8A26E77B1ED15FEC00071C66 /* FastingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FastingViewController.xib; sourceTree = "<group>"; };
 		8A26E7881ED19C5300071C66 /* widget.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = widget.mp4; sourceTree = "<group>"; };
 		8A2CD3171E654DC20060D524 /* CompactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
 		8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedViewController.swift; sourceTree = "<group>"; };
@@ -738,8 +734,6 @@
 				8A638C8E1ECC520B00424A9E /* CalendarInfo.swift */,
 				8A638C8F1ECC520B00424A9E /* CalendarView.swift */,
 				8A638C901ECC520B00424A9E /* CalendarViewTextCell.swift */,
-				8A26E7781ED15AEE00071C66 /* FastingViewController.swift */,
-				8A26E77B1ED15FEC00071C66 /* FastingViewController.xib */,
 				8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */,
 				8A74D837198F2AF70078F39F /* prayers.plist */,
 				8AC1B114199871DE00A017C7 /* trans_ui_cn.plist */,
@@ -1113,6 +1107,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				"zh-Hans",
@@ -1232,7 +1227,6 @@
 				8A3A21281A46C14D0052861D /* philem_en.sqlite in Resources */,
 				8AB0DCA31C27F00400C6A494 /* Reading_cn.plist in Resources */,
 				8A81858A19D2E3F300D4B328 /* prayer_daily_0_en.html in Resources */,
-				8A26E77C1ED15FEC00071C66 /* FastingViewController.xib in Resources */,
 				8AF37E3A1B36B1FD00101148 /* launch-hd5.5-landscape.png in Resources */,
 				8A3A21151A46C0150052861D /* 2john_en.sqlite in Resources */,
 				8A74D816198F20CC0078F39F /* Images.xcassets in Resources */,
@@ -1401,13 +1395,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ponomar/Pods-ponomar-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
-				"${BUILT_PRODUCTS_DIR}/NAModalSheet/NAModalSheet.framework",
 				"${BUILT_PRODUCTS_DIR}/Squeal/Squeal.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NAModalSheet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Squeal.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1441,7 +1433,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A2197B71ECAADB8007CB039 /* Theme.swift in Sources */,
-				8A26E7791ED15AEE00071C66 /* FastingViewController.swift in Sources */,
 				8A638C651ECBF60F00424A9E /* DailyTab2.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
 				8A638C911ECC520B00424A9E /* CalendarContainer.swift in Sources */,

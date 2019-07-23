@@ -7,16 +7,14 @@
 //
 
 import UIKit
-import NAModalSheet
 
 let optionsSavedNotification  = "OPTIONS_SAVED"
 let themeChangedNotification  = "THEME_CHANGED"
 
-class Options: UITableViewController, NAModalSheetDelegate {
+class Options: UITableViewController {
     
     let prefs = UserDefaults(suiteName: groupId)!
     var lastSelected: IndexPath?
-    var modalSheet: NAModalSheet!
     
     let labels : [(IndexPath, String)] = [
         (IndexPath(row:0,section:2), "Laymen fasting"),
@@ -89,6 +87,7 @@ class Options: UITableViewController, NAModalSheetDelegate {
                 self.dismiss(animated: false, completion: {})
                 
             } else {
+                /*
                 var width, height : CGFloat
                 
                 if (UIDevice.current.userInterfaceIdiom == .phone) {
@@ -113,6 +112,7 @@ class Options: UITableViewController, NAModalSheetDelegate {
                 modalSheet.adjustContentSize(CGSize(width: width, height: height), animated: false)
                 
                 modalSheet.present(completion: {})
+ */
             }
             
         }
@@ -155,6 +155,7 @@ class Options: UITableViewController, NAModalSheetDelegate {
     }
     
     func doneWithColor(_ color: UIColor) {
+        /*
         modalSheet.dismiss(completion: {
             Theme.set(.Chameleon(color: color))
             
@@ -164,21 +165,7 @@ class Options: UITableViewController, NAModalSheetDelegate {
             NotificationCenter.default.post(name: Notification.Name(rawValue: themeChangedNotification), object: nil)
             self.dismiss(animated: false, completion: {})
         })
+ */
     }
-    
-    // MARK: NAModalSheetDelegate
-    
-    func modalSheetTouchedOutsideContent(_ sheet: NAModalSheet!) {
-        sheet.dismiss(completion: {})
-    }
-    
-    func modalSheetShouldAutorotate(_ sheet: NAModalSheet!) -> Bool {
-        return shouldAutorotate
-    }
-    
-    func modalSheetSupportedInterfaceOrientations(_ sheet: NAModalSheet!) -> UInt {
-        return supportedInterfaceOrientations.rawValue
-    }
-
 
 }

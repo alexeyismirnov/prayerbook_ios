@@ -8,10 +8,8 @@
 
 import UIKit
 import Squeal
-import NAModalSheet
 
-class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, NAModalSheetDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
-    
+class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     static let size15 = CGSize(width: 15, height: 15)
@@ -58,8 +56,6 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         formatter.timeStyle = .none
         return formatter
     }()
-
-    var modalSheet: NAModalSheet!
     
     static var background : UIImage?
     static let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -387,6 +383,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
             navigationController?.pushViewController(vc, animated: true)
             
         } else if FastingLevel() == .laymen && indexPath.section == 1 && indexPath.row == 0 {
+            /*
             let fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
             modalSheet = NAModalSheet(viewController: fastingInfo, presentationStyle: .fadeInCentered)!
             
@@ -399,6 +396,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
             fastingInfo.fastTitle = fasting.1
             
             modalSheet.present(completion: {})
+ */
             
         } else if indexPath.section == 3 {
             let prayer = UIViewController.named("Prayer") as! Prayer
@@ -540,6 +538,7 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     }
     
     @objc func showMonthlyCalendar() {
+       /*
         var width, height : CGFloat
         
         if (UIDevice.current.userInterfaceIdiom == .phone) {
@@ -565,11 +564,14 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         modalSheet.adjustContentSize(CGSize(width: width, height: height), animated: false)
         
         modalSheet.present(completion: {})
+ */
     }
         
     @objc func updateDate(_ notification: NSNotification) {
+        /*
         modalSheet.dismiss(completion: {
         })
+        */
         
         if let newDate = notification.userInfo?["date"] as? Date {
             currentDate = newDate
@@ -592,24 +594,4 @@ class DailyTab2: UIViewController, UITableViewDelegate, UITableViewDataSource, N
         navigationController?.present(nav, animated: true, completion: {})
     }
     
-    // MARK: NAModalSheetDelegate
-    
-    func modalSheetTouchedOutsideContent(_ sheet: NAModalSheet!) {
-        sheet.dismiss(completion: {})
-    }
-    
-    func modalSheetShouldAutorotate(_ sheet: NAModalSheet!) -> Bool {
-        return shouldAutorotate
-    }
-    
-    func modalSheetSupportedInterfaceOrientations(_ sheet: NAModalSheet!) -> UInt {
-        return supportedInterfaceOrientations.rawValue
-    }
-    
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
-	guard let input = input else { return nil }
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }
