@@ -14,7 +14,6 @@ class ChaptersCell: UITableViewCell, UICollectionViewDataSource, UICollectionVie
     @IBOutlet weak var collectionView: UICollectionView!
     var numChapters: Int!
     var index : IndexPath!
-    let cellId = "DateViewCell"
     
     required override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?)
     {
@@ -28,7 +27,6 @@ class ChaptersCell: UITableViewCell, UICollectionViewDataSource, UICollectionVie
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        collectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -41,7 +39,7 @@ class ChaptersCell: UITableViewCell, UICollectionViewDataSource, UICollectionVie
         let loc = recognizer.location(in: collectionView)
         
         if  let path = collectionView.indexPathForItem(at: loc) {
-            let userInfo = ["index": index, "chapter": path.row] as [String : Any]
+            let userInfo = ["index": index!, "chapter": path.row] as [String : Any]
             NotificationCenter.default.post(name: Notification.Name(rawValue: chapterSelectedNotification), object: nil, userInfo: userInfo as [AnyHashable : Any])
         }
     }
@@ -51,8 +49,8 @@ class ChaptersCell: UITableViewCell, UICollectionViewDataSource, UICollectionVie
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! DateViewCell
-        cell.dateLabel.text = "\(indexPath.row+1)"
+        let cell : LabelViewCell = collectionView.dequeueReusableCell(for: indexPath)
+        cell.title.text = "\(indexPath.row+1)"
         
         return cell
     }

@@ -59,12 +59,7 @@ class ExpandedViewController: UIViewController {
         collectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
         calendarDelegate.cellReuseIdentifier = cellId
         
-        if #available(iOS 10.0, *) {
-            textColor =  UIColor.black
-            
-        } else {
-            textColor =  UIColor.white
-        }
+        textColor =  UIColor.black
         
         DateViewCell.textColor = textColor
         DateViewCell.selectedDate = currentDate
