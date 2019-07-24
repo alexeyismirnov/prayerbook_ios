@@ -10,12 +10,10 @@ import UIKit
 import Chameleon
 
 class AppDelegate : UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
     var openDate: Date?
     
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-        
         if url.scheme == "ponomar" {
             openDate = Date(timeIntervalSince1970: Double(url.query!)!)            
         }
@@ -40,7 +38,6 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         let prefs = UserDefaults(suiteName: groupId)!
         let lang = Locale.preferredLanguages[0]
         
@@ -76,7 +73,11 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
                 
         setupFiles()
 
-        Translate.files = ["trans_ui", "trans_cal", "trans_library"]
+        let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
+
+        Translate.files = ["trans_ui_cn", "trans_cal_cn", "trans_library_cn"].map { file in
+            return groupURL.appendingPathComponent("\(file).plist").path
+        }
         
         let language = prefs.object(forKey: "language") as! String
         Translate.language = language

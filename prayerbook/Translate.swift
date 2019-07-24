@@ -8,10 +8,7 @@
 
 import UIKit
 
-var groupId = "group.rlc.ponomar"
-
 @objc class Translate: NSObject {    
-    static let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
 
     fileprivate static var dict = [String:String]()
     static var defaultLanguage = "en"
@@ -20,33 +17,22 @@ var groupId = "group.rlc.ponomar"
     
     static var language:String = defaultLanguage {
         didSet {
-            locale = Locale(identifier: (language == "en") ? "en" : "zh_CN")
+            locale = Locale(identifier: (language == "cn") ? "zh_CN" : language)
             
+            dict = [:]
+
             if language == defaultLanguage {
                 return
             }
             
-            dict = [:]
             for (_, file) in files.enumerated() {
-                let filename = "\(file)_\(language).plist"
-                let dst = groupURL.appendingPathComponent(filename)
-                let newDict = NSDictionary(contentsOfFile: dst.path) as! [String: String]
-                
-                dict += newDict
+                dict += NSDictionary(contentsOfFile: file) as! [String: String]
             }
         }
     }
     
     static func s(_ str : String) -> String {
-        if language == defaultLanguage {
-            return str
-        }
-        
-        if let trans_str = dict[str] as String!  {
-            return trans_str
-        } else {
-            return str
-        }
+        return dict[str] ?? str
     }
     
     static func stringFromNumber(_ num : Int) -> String {
