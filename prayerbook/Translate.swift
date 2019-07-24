@@ -9,11 +9,7 @@
 import UIKit
 import swift_toolkit
 
-var groupId = "group.rlc.ponomar-ru"
-
-@objc class Translate: NSObject {    
-    static let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
-
+class Translate: NSObject {
     fileprivate static var dict = [String:String]()
     static var defaultLanguage = "en"
     static var locale  = Locale(identifier: "en")
@@ -21,34 +17,22 @@ var groupId = "group.rlc.ponomar-ru"
     
     static var language:String = defaultLanguage {
         didSet {
-            locale = Locale(identifier: "ru")
+            locale = Locale(identifier: (language == "cn") ? "zh_CN" : language)
+            
+            dict = [:]
             
             if language == defaultLanguage {
                 return
             }
             
-            dict = [:]
-            
             for (_, file) in files.enumerated() {
-                let filename = "\(file)_\(language).plist"
-                let dst = groupURL.appendingPathComponent(filename)
-                let newDict = NSDictionary(contentsOfFile: dst.path) as! [String: String]
-                
-                dict += newDict
+                dict += NSDictionary(contentsOfFile: file) as! [String: String]
             }
         }
     }
     
-    @objc static func s(_ str : String) -> String {
-        if language == defaultLanguage {
-            return str
-        }
-        
-        if let trans_str = dict[str]  {
-            return trans_str
-        } else {
-            return str
-        }
+    static func s(_ str : String) -> String {
+        return dict[str] ?? str
     }
     
     static func stringFromNumber(_ num : Int) -> String {

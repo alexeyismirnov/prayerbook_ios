@@ -10,6 +10,8 @@ import Foundation
 import Squeal
 import swift_toolkit
 
+var groupId = "group.rlc.ponomar-ru"
+
 struct Db {
     static let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
 

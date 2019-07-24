@@ -73,7 +73,11 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         
         setupFiles()
 
-        Translate.files = ["trans_ui", "trans_cal", "trans_library"]
+        let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
+
+        Translate.files = ["trans_ui_ru", "trans_cal_ru", "trans_library_ru"].map { file in
+            return groupURL.appendingPathComponent("\(file).plist").path
+        }
         
         let language = prefs.object(forKey: "language") as! String
         Translate.language = language
