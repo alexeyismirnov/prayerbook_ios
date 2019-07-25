@@ -29,8 +29,6 @@ class CompactViewController: UIViewController {
     
     var fasting: FastingModel!
 
-    let prefs = UserDefaults(suiteName: groupId)!
-
     @IBOutlet weak var dayInfo: UITextView!
     @IBOutlet weak var buttonUp: UIButton!
     @IBOutlet weak var buttonDown: UIButton!

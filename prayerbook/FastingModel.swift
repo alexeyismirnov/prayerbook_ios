@@ -11,17 +11,6 @@ import swift_toolkit
 
 public enum FastingLevel: Int {
     case laymen=0, monastic
-    
-    init() {
-        let prefs = UserDefaults(suiteName: groupId)!
-        self = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))!
-    }
-    
-    func save() {
-        let prefs = UserDefaults(suiteName: groupId)!
-        prefs.set(self.rawValue, forKey: "fastingLevel")
-        prefs.synchronize()
-    }
 }
 
 public enum FastingType: Int {
@@ -85,6 +74,8 @@ struct FastingModel {
         FastingModel(.vegetarian), FastingModel(.fishAllowed), FastingModel(.fastFree)
     ]
     
+    static var fastingLevel: FastingLevel!
+    
     init(_ type: FastingType, _ descr: String? = nil) {
         self.type = type
         self.color = FastingModel.fastingColor[type]!
@@ -102,7 +93,7 @@ struct FastingModel {
     static func fasting(forDate date: Date) -> FastingModel{
         Cal.setDate(date)
         
-        switch FastingLevel() {
+        switch fastingLevel! {
         case .laymen:
             return getFastingLaymen(date)
             

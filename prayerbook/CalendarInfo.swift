@@ -10,7 +10,7 @@ import UIKit
 import swift_toolkit
 
 class CalendarInfo: UITableViewController {
-    let fastingTypes : [FastingModel] = (FastingLevel() == .monastic) ? FastingModel.monasticTypes : FastingModel.laymenTypes
+    let fastingTypes : [FastingModel] = (FastingModel.fastingLevel == .monastic) ? FastingModel.monasticTypes : FastingModel.laymenTypes
 
     override func viewDidLoad() {
         super.viewDidLoad()

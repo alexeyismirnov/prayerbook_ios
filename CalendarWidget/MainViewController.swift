@@ -11,6 +11,7 @@ import NotificationCenter
 
 class MainViewController : UINavigationController, NCWidgetProviding {
     static var icon15x15 = [FeastType: UIImage]()
+    let prefs = UserDefaults(suiteName: groupId)!
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -27,7 +28,8 @@ class MainViewController : UINavigationController, NCWidgetProviding {
         let size15 = CGSize(width: 15, height: 15)
 
         Db.initTranslations()
-        
+        FastingModel.fastingLevel = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))
+
         isNavigationBarHidden = true
 
         if MainViewController.icon15x15.count == 0 {

@@ -63,7 +63,7 @@ class YearlyCalendar: UIViewControllerAnimated, UICollectionViewDataSource, UICo
     var feasts : NSAttributedString!
     var con : [NSLayoutConstraint]!
     
-    let fastingTypes : [FastingModel] = (FastingLevel() == .monastic) ? FastingModel.monasticTypes : FastingModel.laymenTypes
+    let fastingTypes : [FastingModel] = (FastingModel.fastingLevel == .monastic) ? FastingModel.monasticTypes : FastingModel.laymenTypes
     
     var shareButton, listButton, gridButton :UIBarButtonItem!
     

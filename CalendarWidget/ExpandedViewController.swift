@@ -35,9 +35,7 @@ class ExpandedViewController: UIViewController {
         return formatter
     }()
     
-    let prefs = UserDefaults(suiteName: groupId)!
     var textColor : UIColor!
-
     var calendarDelegate: CalendarDelegate!
 
     override func viewDidLoad() {

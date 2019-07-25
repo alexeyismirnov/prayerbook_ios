@@ -172,7 +172,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             return ""
             
         case 2:
-            return (FastingLevel() == .monastic) ? Translate.s("Monastic fasting") : Translate.s("Laymen fasting")
+            return (FastingModel.fastingLevel == .monastic) ? Translate.s("Monastic fasting") : Translate.s("Laymen fasting")
             
         case 3:
             return Translate.s("Gospel of the day")

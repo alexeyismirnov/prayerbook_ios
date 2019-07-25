@@ -62,7 +62,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         }
         
         if prefs.object(forKey: "fastingLevel") == nil {
-            FastingLevel.laymen.save()
+            prefs.set(0, forKey: "fastingLevel")
         }
         
         if prefs.object(forKey: "bookmarks") == nil {
@@ -71,6 +71,8 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         
         prefs.synchronize()
         
+        FastingModel.fastingLevel = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))
+
         FastingModel.fastingComments = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "fasting", ofType: "plist")!)
             as! Dictionary<String, String>
         

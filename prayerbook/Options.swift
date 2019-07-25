@@ -84,6 +84,8 @@ class Options: UITableViewController {
             
             let fasting = indexPath.row
             
+            FastingModel.fastingLevel = FastingLevel(rawValue:fasting)
+            
             prefs.set(fasting, forKey: "fastingLevel")
             prefs.synchronize()
             
