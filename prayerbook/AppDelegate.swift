@@ -72,16 +72,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         prefs.synchronize()
         
         setupFiles()
-
-        let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
-
-        Translate.files = ["trans_ui_ru", "trans_cal_ru", "trans_library_ru"].map { file in
-            return groupURL.appendingPathComponent("\(file).plist").path
-        }
-        
-        let language = prefs.object(forKey: "language") as! String
-        Translate.language = language
-        
+        Db.initTranslations()
         FeastNotifications.setupNotifications()
         
         return true

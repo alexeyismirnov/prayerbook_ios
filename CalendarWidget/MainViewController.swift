@@ -10,7 +10,6 @@ import UIKit
 import NotificationCenter
 
 class MainViewController : UINavigationController, NCWidgetProviding {
-    
     static var icon15x15 = [FeastType: UIImage]()
 
     required public init?(coder aDecoder: NSCoder) {
@@ -22,20 +21,15 @@ class MainViewController : UINavigationController, NCWidgetProviding {
     }
     
     override func viewDidLoad() {
-        var iconColor : UIColor!
-        let size15 = CGSize(width: 15, height: 15)
-
         super.viewDidLoad()
+
+        Db.initTranslations()
+        
+        let iconColor : UIColor = .black
+        let size15 = CGSize(width: 15, height: 15)
 
         isNavigationBarHidden = true
 
-        if #available(iOSApplicationExtension 10.0, *) {
-            iconColor = .black
-            
-        } else {
-            iconColor = .white
-        }
-        
         if MainViewController.icon15x15.count == 0 {
             MainViewController.icon15x15 = [
                 .noSign: UIImage(named: "nosign")!.maskWithColor(iconColor).resize(size15),
@@ -47,20 +41,9 @@ class MainViewController : UINavigationController, NCWidgetProviding {
             ]
         }
 
-        if #available(iOSApplicationExtension 10.0, *) {
-            extensionContext?.widgetLargestAvailableDisplayMode = .expanded
-
-        } else {
-            self.preferredContentSize = CGSize(width: 0.0, height: 350)
-
-            let storyboard = UIStoryboard(name: "MainInterface", bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: "Expanded")
-            pushViewController(viewController, animated: false)
-        }
-        
+        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
     
-    @available(iOSApplicationExtension 10.0, *)
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         let storyboard = UIStoryboard(name: "MainInterface", bundle: nil)
         var viewController : UIViewController!
@@ -98,22 +81,14 @@ class MainViewController : UINavigationController, NCWidgetProviding {
             myString.append(NSAttributedString(attachment: attachment))
         }
         
-        var textColor:UIColor
-        
-        if #available(iOSApplicationExtension 10.0, *) {
-            textColor = (saints[0].0 == .great) ? UIColor.red:UIColor.black
-        } else {
-            textColor = (saints[0].0 == .great) ? UIColor.red:UIColor.white
-        }
-        
+        let textColor:UIColor = (saints[0].0 == .great) ? .red : .black
+
         myString.append(NSMutableAttributedString(string: saints[0].1,
                                                   attributes: [
                                                     .foregroundColor: textColor,
-                                                    .font: font
-            ]))
+                                                    .font: font! ]))
         
         return myString
     }
     
-
 }

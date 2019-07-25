@@ -42,9 +42,7 @@ class ExpandedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        Translate.files = ["trans_ui", "trans_cal", "trans_library"]
-
+        
         let arrowLeft = UIImage(named: "fat-left")?.withRenderingMode(.alwaysTemplate)
         buttonLeft.imageView?.tintColor = UIColor.white
         buttonLeft.setImage(arrowLeft, for: UIControl.State())
@@ -75,20 +73,16 @@ class ExpandedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if let language = prefs.object(forKey: "language") as? String {
-            Translate.language = language
-        }
-        
+
         CalendarContainer.generateLabels(view, standalone: false, textColor: textColor)
 
         refresh()
     }
         
     func refresh() {
-        formatter.locale = Locale(identifier: "ru")
-
+        formatter.locale = Translate.locale
         monthLabel.text = formatter.string(from: currentDate).capitalizingFirstLetter()
+        
         calendarDelegate.currentDate = currentDate
         collectionView.reloadData()
         

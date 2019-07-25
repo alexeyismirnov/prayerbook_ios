@@ -14,6 +14,16 @@ var groupId = "group.rlc.ponomar-ru"
 
 struct Db {
     static let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
+    
+    static func initTranslations() {
+        let prefs = UserDefaults(suiteName: groupId)!
+
+        Translate.files = ["trans_ui_ru", "trans_cal_ru", "trans_library_ru"].map { file in
+            return groupURL.appendingPathComponent("\(file).plist").path
+        }
+        
+        Translate.language = prefs.object(forKey: "language") as! String
+    }
 
     static func saints(_ date: Date) -> [(FeastType, String)] {
         var saints = [(FeastType, String)]()

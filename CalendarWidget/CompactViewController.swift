@@ -45,14 +45,8 @@ class CompactViewController: UIViewController {
         let image2 = UIImage(named: "fat-down")!.withRenderingMode(.alwaysTemplate)
         buttonDown.setImage(image2, for: UIControl.State())
         buttonDown.imageView?.tintColor = UIColor.darkGray
-
-        Translate.files = ["trans_ui", "trans_cal", "trans_library"]
-
-        if let language = prefs.object(forKey: "language") as? String {
-            Translate.language = language
-        }
         
-        formatter.locale = Translate.locale as Locale?
+        formatter.locale = Translate.locale 
         
         let recognizer = UITapGestureRecognizer(target: self, action:#selector(self.onTapLabel(_:)))
         recognizer.numberOfTapsRequired = 1
