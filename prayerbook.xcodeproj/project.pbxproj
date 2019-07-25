@@ -121,7 +121,6 @@
 		8A81858C19D2E3F300D4B328 /* prayer_daily_1_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81857419D2E3F300D4B328 /* prayer_daily_1_en.html */; };
 		8A81858D19D2E3F300D4B328 /* prayer_daily_2_cn.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81857519D2E3F300D4B328 /* prayer_daily_2_cn.html */; };
 		8A81858E19D2E3F300D4B328 /* prayer_daily_2_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A81857619D2E3F300D4B328 /* prayer_daily_2_en.html */; };
-		8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A81FB4D1C1ECB7600D28F58 /* Appirater.m */; };
 		8A8810E71A300DE40095C081 /* acts_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A8810E21A300DE40095C081 /* acts_en.sqlite */; };
 		8A8810E81A300DE40095C081 /* john_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A8810E31A300DE40095C081 /* john_en.sqlite */; };
 		8A8810E91A300DE40095C081 /* luke_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A8810E41A300DE40095C081 /* luke_en.sqlite */; };
@@ -434,9 +433,6 @@
 		8A81857419D2E3F300D4B328 /* prayer_daily_1_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_daily_1_en.html; sourceTree = "<group>"; };
 		8A81857519D2E3F300D4B328 /* prayer_daily_2_cn.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_daily_2_cn.html; sourceTree = "<group>"; };
 		8A81857619D2E3F300D4B328 /* prayer_daily_2_en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = prayer_daily_2_en.html; sourceTree = "<group>"; };
-		8A81FB4C1C1ECB7600D28F58 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
-		8A81FB4D1C1ECB7600D28F58 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
-		8A81FB4E1C1ECB7600D28F58 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
 		8A8810E21A300DE40095C081 /* acts_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = acts_en.sqlite; sourceTree = "<group>"; };
 		8A8810E31A300DE40095C081 /* john_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = john_en.sqlite; sourceTree = "<group>"; };
 		8A8810E41A300DE40095C081 /* luke_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = luke_en.sqlite; sourceTree = "<group>"; };
@@ -713,9 +709,6 @@
 				8AC1B114199871DE00A017C7 /* trans_ui_cn.plist */,
 				8AEB5AD41B3410B000CCFC72 /* trans_cal_cn.plist */,
 				8AEC2B0B1B52600900A94FA6 /* trans_library_cn.plist */,
-				8A81FB4C1C1ECB7600D28F58 /* Appirater.h */,
-				8A81FB4D1C1ECB7600D28F58 /* Appirater.m */,
-				8A81FB4E1C1ECB7600D28F58 /* AppiraterDelegate.h */,
 				8A74D801198F20CC0078F39F /* Supporting Files */,
 			);
 			path = prayerbook;
@@ -1374,7 +1367,6 @@
 				8A4F2E7822E6F8430087A3F0 /* DateViewCell.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
 				8A638C791ECC38A500424A9E /* Library2.swift in Sources */,
-				8A81FB4F1C1ECB7700D28F58 /* Appirater.m in Sources */,
 				8A638C6B1ECBFA8400424A9E /* ChurchCalendar.swift in Sources */,
 				8A638C961ECC520B00424A9E /* CalendarViewTextCell.swift in Sources */,
 				8A638C6A1ECBFA8400424A9E /* Animation.swift in Sources */,

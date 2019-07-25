@@ -70,25 +70,9 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
             prefs.set(1, forKey: "fastingLevel")
             prefs.synchronize()
         }
-                
+        
+        Db.initTranslations()
         setupFiles()
-
-        let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
-
-        Translate.files = ["trans_ui_cn", "trans_cal_cn", "trans_library_cn"].map { file in
-            return groupURL.appendingPathComponent("\(file).plist").path
-        }
-        
-        let language = prefs.object(forKey: "language") as! String
-        Translate.language = language
-        
-        Appirater.setAppId("1010208102")
-        Appirater.setDaysUntilPrompt(5)
-        Appirater.setUsesUntilPrompt(5)
-        Appirater.setSignificantEventsUntilPrompt(-1)
-        Appirater.setTimeBeforeReminding(2)
-        Appirater.setDebug(false)
-        Appirater.appLaunched(true)
         
         return true
     }
@@ -119,10 +103,6 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         } catch let error as NSError  {
             print(error.description)
         }
-    }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        Appirater.appEnteredForeground(true)
     }
     
 }

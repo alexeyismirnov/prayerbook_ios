@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Alexey Smirnov. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import Squeal
 
@@ -22,6 +21,17 @@ extension Collection where Indices.Iterator.Element == Index {
 struct Db {
     static let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
 
+    static func initTranslations() {
+        let prefs = UserDefaults(suiteName: groupId)!
+        
+        Translate.files = ["trans_ui_cn", "trans_cal_cn", "trans_library_cn"].map { file in
+            return groupURL.appendingPathComponent("\(file).plist").path
+        }
+        
+        Translate.language = prefs.object(forKey: "language") as! String
+    }
+
+    
     static func saints(_ date: Date) -> [(FeastType, String)] {
         var saints = [(FeastType, String)]()
 
