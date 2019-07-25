@@ -22,12 +22,12 @@ class MainViewController : UINavigationController, NCWidgetProviding {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        Db.initTranslations()
         
         let iconColor : UIColor = .black
         let size15 = CGSize(width: 15, height: 15)
 
+        Db.initTranslations()
+        
         isNavigationBarHidden = true
 
         if MainViewController.icon15x15.count == 0 {

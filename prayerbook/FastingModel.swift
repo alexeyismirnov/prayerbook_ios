@@ -74,10 +74,7 @@ struct FastingModel {
         .withOil:       "vegetables",
     ]
     
-    static let groupURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
-
-    static let fastingComments = NSDictionary(contentsOfFile: groupURL.appendingPathComponent("fasting.plist").path)
-        as! Dictionary<String, AnyObject>
+    static var fastingComments = [String:String]()
     
     static let monasticTypes : [FastingModel] = [
         FastingModel(.noFood), FastingModel(.xerophagy),
@@ -99,7 +96,7 @@ struct FastingModel {
         }
         
         self.icon = FastingModel.fastingIcon[type]!
-        self.comments = FastingModel.fastingComments[self.descr] as? String
+        self.comments = FastingModel.fastingComments[self.descr]
     }
     
     static func fasting(forDate date: Date) -> FastingModel{
