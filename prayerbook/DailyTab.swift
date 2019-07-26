@@ -270,7 +270,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             }
 
             cell.title.textColor =  Theme.textColor
-            cell.icon.image = UIImage(named: "food-\(fasting.icon)")
+            cell.icon.image = UIImage(named: "food-\(fasting.icon)", in: toolkit, compatibleWith: nil)
             cell.accessoryType =  .none
             
             return cell
