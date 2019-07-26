@@ -50,15 +50,8 @@
 		8A3A21221A46C0150052861D /* tit_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A210E1A46C0150052861D /* tit_en.sqlite */; };
 		8A3A21281A46C14D0052861D /* philem_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21261A46C14D0052861D /* philem_en.sqlite */; };
 		8A3A21291A46C14D0052861D /* rev_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3A21271A46C14D0052861D /* rev_en.sqlite */; };
-		8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */; };
-		8A41936319E6921600D570A9 /* food-egg.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936119E6921600D570A9 /* food-egg.pdf */; };
-		8A41936419E6921600D570A9 /* food-milk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A41936219E6921600D570A9 /* food-milk.pdf */; };
 		8A4EA0E81E63F4BA00E63399 /* fat-down.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A4EA0E21E63F4BA00E63399 /* fat-down.pdf */; };
 		8A4EA0E91E63F4BA00E63399 /* fat-up.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A4EA0E31E63F4BA00E63399 /* fat-up.pdf */; };
-		8A4EA0EA1E63F4BA00E63399 /* food-nothing.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A4EA0E41E63F4BA00E63399 /* food-nothing.pdf */; };
-		8A4EA0EB1E63F4BA00E63399 /* food-pizza.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A4EA0E51E63F4BA00E63399 /* food-pizza.pdf */; };
-		8A4EA0EC1E63F4BA00E63399 /* food-without-oil.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A4EA0E61E63F4BA00E63399 /* food-without-oil.pdf */; };
-		8A4EA0ED1E63F4BA00E63399 /* food-xerography.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A4EA0E71E63F4BA00E63399 /* food-xerography.pdf */; };
 		8A4F2E6D22E6E7F70087A3F0 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4F2E6C22E6E7F70087A3F0 /* Chameleon.framework */; };
 		8A4F2E6F22E6E7FB0087A3F0 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4F2E6E22E6E7FB0087A3F0 /* Squeal.framework */; };
 		8A4F2E7122E6E7FF0087A3F0 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4F2E7022E6E7FF0087A3F0 /* swift_toolkit.framework */; };
@@ -207,17 +200,6 @@
 		8AC278091C61A0C800436D51 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D803198F20CC0078F39F /* InfoPlist.strings */; };
 		8AC2780B1C61D48A00436D51 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC2780A1C61D48A00436D51 /* Tutorial.swift */; };
 		8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */; };
-		8AC6950B19E3EDED00773FEB /* food-vegetables.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950A19E3EDED00773FEB /* food-vegetables.pdf */; };
-		8AC6951619E3FBC200773FEB /* food-bread.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950C19E3FBC200773FEB /* food-bread.pdf */; };
-		8AC6951719E3FBC200773FEB /* food-cheese.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950D19E3FBC200773FEB /* food-cheese.pdf */; };
-		8AC6951819E3FBC200773FEB /* food-cupcake.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950E19E3FBC200773FEB /* food-cupcake.pdf */; };
-		8AC6951919E3FBC200773FEB /* food-fish.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6950F19E3FBC200773FEB /* food-fish.pdf */; };
-		8AC6951A19E3FBC200773FEB /* food-meat.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6951019E3FBC200773FEB /* food-meat.pdf */; };
-		8AC6951B19E3FBC200773FEB /* food-no-egg.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6951119E3FBC200773FEB /* food-no-egg.pdf */; };
-		8AC6951C19E3FBC200773FEB /* food-no-fish.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6951219E3FBC200773FEB /* food-no-fish.pdf */; };
-		8AC6951D19E3FBC200773FEB /* food-no-meat.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6951319E3FBC200773FEB /* food-no-meat.pdf */; };
-		8AC6951E19E3FBC200773FEB /* food-no-milk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6951419E3FBC200773FEB /* food-no-milk.pdf */; };
-		8AC6951F19E3FBC200773FEB /* food-nuts.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6951519E3FBC200773FEB /* food-nuts.pdf */; };
 		8AC6952419E4011700773FEB /* communion.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952019E4011700773FEB /* communion.pdf */; };
 		8AC6952519E4011700773FEB /* daily.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952119E4011700773FEB /* daily.pdf */; };
 		8AC6952619E4011700773FEB /* group.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952219E4011700773FEB /* group.pdf */; };
@@ -236,6 +218,8 @@
 		8ADF91ED1B7731EA0078BB6B /* saints_06_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8ADF91E91B7731EA0078BB6B /* saints_06_cn.txt */; };
 		8ADF91EE1B7731EA0078BB6B /* saints_07_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ADF91EA1B7731EA0078BB6B /* saints_07_cn.sqlite */; };
 		8ADF91EF1B7731EA0078BB6B /* saints_07_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8ADF91EB1B7731EA0078BB6B /* saints_07_cn.txt */; };
+		8AE3F9FC22EB022A0051F27F /* FastingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE3F9FB22EB022A0051F27F /* FastingModel.swift */; };
+		8AE3F9FD22EB031E0051F27F /* FastingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE3F9FB22EB022A0051F27F /* FastingModel.swift */; };
 		8AE6FE8C1B70CCA500FDAA47 /* saints_01_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6FE8A1B70CCA500FDAA47 /* saints_01_cn.sqlite */; };
 		8AE6FE8D1B70CCA500FDAA47 /* saints_01_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6FE8B1B70CCA500FDAA47 /* saints_01_cn.txt */; };
 		8AE6FE901B70D60300FDAA47 /* saints_02_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6FE8E1B70D60300FDAA47 /* saints_02_cn.sqlite */; };
@@ -368,15 +352,8 @@
 		8A3A210E1A46C0150052861D /* tit_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = tit_en.sqlite; sourceTree = "<group>"; };
 		8A3A21261A46C14D0052861D /* philem_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = philem_en.sqlite; sourceTree = "<group>"; };
 		8A3A21271A46C14D0052861D /* rev_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = rev_en.sqlite; sourceTree = "<group>"; };
-		8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-cupcake.pdf"; sourceTree = "<group>"; };
-		8A41936119E6921600D570A9 /* food-egg.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-egg.pdf"; sourceTree = "<group>"; };
-		8A41936219E6921600D570A9 /* food-milk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-milk.pdf"; sourceTree = "<group>"; };
 		8A4EA0E21E63F4BA00E63399 /* fat-down.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-down.pdf"; sourceTree = "<group>"; };
 		8A4EA0E31E63F4BA00E63399 /* fat-up.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-up.pdf"; sourceTree = "<group>"; };
-		8A4EA0E41E63F4BA00E63399 /* food-nothing.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-nothing.pdf"; sourceTree = "<group>"; };
-		8A4EA0E51E63F4BA00E63399 /* food-pizza.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-pizza.pdf"; sourceTree = "<group>"; };
-		8A4EA0E61E63F4BA00E63399 /* food-without-oil.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-without-oil.pdf"; sourceTree = "<group>"; };
-		8A4EA0E71E63F4BA00E63399 /* food-xerography.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-xerography.pdf"; sourceTree = "<group>"; };
 		8A4F2E6C22E6E7F70087A3F0 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		8A4F2E6E22E6E7FB0087A3F0 /* Squeal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Squeal.framework; path = Carthage/Build/iOS/Squeal.framework; sourceTree = "<group>"; };
 		8A4F2E7022E6E7FF0087A3F0 /* swift_toolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = swift_toolkit.framework; path = Carthage/Build/iOS/swift_toolkit.framework; sourceTree = "<group>"; };
@@ -521,17 +498,6 @@
 		8AC278081C619EFB00436D51 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		8AC2780A1C61D48A00436D51 /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		8AC6950A19E3EDED00773FEB /* food-vegetables.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-vegetables.pdf"; sourceTree = "<group>"; };
-		8AC6950C19E3FBC200773FEB /* food-bread.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-bread.pdf"; sourceTree = "<group>"; };
-		8AC6950D19E3FBC200773FEB /* food-cheese.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-cheese.pdf"; sourceTree = "<group>"; };
-		8AC6950E19E3FBC200773FEB /* food-cupcake.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-cupcake.pdf"; sourceTree = "<group>"; };
-		8AC6950F19E3FBC200773FEB /* food-fish.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-fish.pdf"; sourceTree = "<group>"; };
-		8AC6951019E3FBC200773FEB /* food-meat.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-meat.pdf"; sourceTree = "<group>"; };
-		8AC6951119E3FBC200773FEB /* food-no-egg.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-egg.pdf"; sourceTree = "<group>"; };
-		8AC6951219E3FBC200773FEB /* food-no-fish.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-fish.pdf"; sourceTree = "<group>"; };
-		8AC6951319E3FBC200773FEB /* food-no-meat.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-meat.pdf"; sourceTree = "<group>"; };
-		8AC6951419E3FBC200773FEB /* food-no-milk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-no-milk.pdf"; sourceTree = "<group>"; };
-		8AC6951519E3FBC200773FEB /* food-nuts.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "food-nuts.pdf"; sourceTree = "<group>"; };
 		8AC6952019E4011700773FEB /* communion.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = communion.pdf; sourceTree = "<group>"; };
 		8AC6952119E4011700773FEB /* daily.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = daily.pdf; sourceTree = "<group>"; };
 		8AC6952219E4011700773FEB /* group.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = group.pdf; sourceTree = "<group>"; };
@@ -549,6 +515,7 @@
 		8ADF91E91B7731EA0078BB6B /* saints_06_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_06_cn.txt; sourceTree = "<group>"; };
 		8ADF91EA1B7731EA0078BB6B /* saints_07_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_07_cn.sqlite; sourceTree = "<group>"; };
 		8ADF91EB1B7731EA0078BB6B /* saints_07_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_07_cn.txt; sourceTree = "<group>"; };
+		8AE3F9FB22EB022A0051F27F /* FastingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastingModel.swift; sourceTree = "<group>"; };
 		8AE6FE8A1B70CCA500FDAA47 /* saints_01_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_01_cn.sqlite; sourceTree = "<group>"; };
 		8AE6FE8B1B70CCA500FDAA47 /* saints_01_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_01_cn.txt; sourceTree = "<group>"; };
 		8AE6FE8E1B70D60300FDAA47 /* saints_02_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_02_cn.sqlite; sourceTree = "<group>"; };
@@ -688,6 +655,7 @@
 				8A638C631ECBF60F00424A9E /* Db.swift */,
 				8A2197B61ECAADB8007CB039 /* Theme.swift */,
 				8A638C691ECBFA8400424A9E /* ChurchCalendar.swift */,
+				8AE3F9FB22EB022A0051F27F /* FastingModel.swift */,
 				8A26E7741ED15A5700071C66 /* DailyReading.swift */,
 				8A2F46A819E1302700076AF4 /* Translate.swift */,
 				8A59A77C1AD23EEF00F92017 /* ConfigurableCell2.swift */,
@@ -733,10 +701,6 @@
 				8A638C591ECBF5AE00424A9E /* question.pdf */,
 				8A4EA0E21E63F4BA00E63399 /* fat-down.pdf */,
 				8A4EA0E31E63F4BA00E63399 /* fat-up.pdf */,
-				8A4EA0E41E63F4BA00E63399 /* food-nothing.pdf */,
-				8A4EA0E51E63F4BA00E63399 /* food-pizza.pdf */,
-				8A4EA0E61E63F4BA00E63399 /* food-without-oil.pdf */,
-				8A4EA0E71E63F4BA00E63399 /* food-xerography.pdf */,
 				8AC278061C61986000436D51 /* widget.pdf */,
 				8AE718D41C560CC30035CDCE /* fat-right.pdf */,
 				8AE718CD1C560C420035CDCE /* fat-left.pdf */,
@@ -771,20 +735,6 @@
 				8AC6952119E4011700773FEB /* daily.pdf */,
 				8AC6952219E4011700773FEB /* group.pdf */,
 				8AC6952319E4011700773FEB /* library.pdf */,
-				8A41936119E6921600D570A9 /* food-egg.pdf */,
-				8A41936219E6921600D570A9 /* food-milk.pdf */,
-				8AC6950C19E3FBC200773FEB /* food-bread.pdf */,
-				8AC6950D19E3FBC200773FEB /* food-cheese.pdf */,
-				8AC6950E19E3FBC200773FEB /* food-cupcake.pdf */,
-				8AC6950F19E3FBC200773FEB /* food-fish.pdf */,
-				8AC6951019E3FBC200773FEB /* food-meat.pdf */,
-				8A41935F19E68D9900D570A9 /* food-no-cupcake.pdf */,
-				8AC6951119E3FBC200773FEB /* food-no-egg.pdf */,
-				8AC6951219E3FBC200773FEB /* food-no-fish.pdf */,
-				8AC6951319E3FBC200773FEB /* food-no-meat.pdf */,
-				8AC6951419E3FBC200773FEB /* food-no-milk.pdf */,
-				8AC6951519E3FBC200773FEB /* food-nuts.pdf */,
-				8AC6950A19E3EDED00773FEB /* food-vegetables.pdf */,
 				8AC1B106199866FF00A017C7 /* launch-ipad.png */,
 				8AC1B107199866FF00A017C7 /* launch-ipad@2x.png */,
 				8AC1B108199866FF00A017C7 /* launch-iphone@2x.png */,
@@ -1098,7 +1048,6 @@
 				8A8E99A81B76F342006B6377 /* saints_04_cn.txt in Resources */,
 				8AEA34921B5738BF006153F3 /* john_cn.sqlite in Resources */,
 				8A81858119D2E3F300D4B328 /* prayer_communion_1_cn.html in Resources */,
-				8A4EA0EA1E63F4BA00E63399 /* food-nothing.pdf in Resources */,
 				8AA3DF5F1B185AE800507129 /* saints_11_en.txt in Resources */,
 				8A8D4E1C1B64AC8F002C614F /* isa_cn.sqlite in Resources */,
 				8AC1B113199866FF00A017C7 /* launch-landscape@2x.png in Resources */,
@@ -1106,7 +1055,6 @@
 				8A8810EB1A300DE40095C081 /* matthew_en.sqlite in Resources */,
 				8A74D833198F224E0078F39F /* Main.storyboard in Resources */,
 				8A3A211F1A46C0150052861D /* jude_en.sqlite in Resources */,
-				8AC6951619E3FBC200773FEB /* food-bread.pdf in Resources */,
 				8A8D4E111B64A349002C614F /* james_cn.sqlite in Resources */,
 				8A8D4E061B64A349002C614F /* 2cor_cn.sqlite in Resources */,
 				8AF37E591B36C7A500101148 /* newicon_58.png in Resources */,
@@ -1124,7 +1072,6 @@
 				8AB0DC971C27EFEC00C6A494 /* typica_3.plist in Resources */,
 				8A8D4E0F1B64A349002C614F /* gal_cn.sqlite in Resources */,
 				8A3A21141A46C0150052861D /* 2cor_en.sqlite in Resources */,
-				8A41936419E6921600D570A9 /* food-milk.pdf in Resources */,
 				8AE798B61B78321600E7F694 /* saints_08_cn.sqlite in Resources */,
 				8A9A3DD519D3AE1600A7D82A /* prayer_communion_4_cn.html in Resources */,
 				8ABAFC461C0B0385008DB93C /* prayer_typica_0_cn.html in Resources */,
@@ -1135,7 +1082,6 @@
 				8A9A3DE119D3AE2800A7D82A /* prayer_group_2_cn.html in Resources */,
 				8AE6FE911B70D60300FDAA47 /* saints_02_cn.txt in Resources */,
 				8A9A3DDF19D3AE2800A7D82A /* prayer_group_1_cn.html in Resources */,
-				8AC6951B19E3FBC200773FEB /* food-no-egg.pdf in Resources */,
 				8AFB8DEB1B1FDC12006715A3 /* saints_03_en.sqlite in Resources */,
 				8AE8A02C1B7980A4000A29F2 /* saints_09_cn.sqlite in Resources */,
 				8AE8A02F1B7980A4000A29F2 /* saints_10_cn.txt in Resources */,
@@ -1145,10 +1091,8 @@
 				8AF249791AFF308B000070C0 /* doxology.pdf in Resources */,
 				8AFAA3971B12E57B001699D6 /* saints_05_en.sqlite in Resources */,
 				8AF2496D1AFF27E0000070C0 /* vigil.pdf in Resources */,
-				8A41936019E68D9900D570A9 /* food-no-cupcake.pdf in Resources */,
 				8A2F46A119E110CF00076AF4 /* prayer_group_0_en.html in Resources */,
 				8A8D4E1B1B64AC8F002C614F /* gen_cn.sqlite in Resources */,
-				8A41936319E6921600D570A9 /* food-egg.pdf in Resources */,
 				8A9A3DE219D3AE2800A7D82A /* prayer_group_2_en.html in Resources */,
 				8A8810EA1A300DE40095C081 /* mark_en.sqlite in Resources */,
 				8A59F34D1B14371800B15FA1 /* saints_07_en.sqlite in Resources */,
@@ -1164,7 +1108,6 @@
 				8A8E99A71B76F342006B6377 /* saints_04_cn.sqlite in Resources */,
 				8A74D84C198F691A0078F39F /* CN.png in Resources */,
 				8A8D4E051B64A349002C614F /* 1tim_cn.sqlite in Resources */,
-				8AC6951A19E3FBC200773FEB /* food-meat.pdf in Resources */,
 				8AB0DC961C27EFEC00C6A494 /* typica_2.plist in Resources */,
 				8ADF91ED1B7731EA0078BB6B /* saints_06_cn.txt in Resources */,
 				8A3A210F1A46C0150052861D /* 1cor_en.sqlite in Resources */,
@@ -1174,7 +1117,6 @@
 				8A638C5C1ECBF5AE00424A9E /* question.pdf in Resources */,
 				8AE6FE901B70D60300FDAA47 /* saints_02_cn.sqlite in Resources */,
 				8A74D84F198F691A0078F39F /* US@2x.png in Resources */,
-				8AC6951919E3FBC200773FEB /* food-fish.pdf in Resources */,
 				8ADDE7D61B7AD29600EF0F65 /* saints_11_cn.sqlite in Resources */,
 				8A8D4E0B1B64A349002C614F /* 3john_cn.sqlite in Resources */,
 				8AA3DF5E1B185AE800507129 /* saints_11_en.sqlite in Resources */,
@@ -1186,7 +1128,6 @@
 				8AF37E5C1B36C7A500101148 /* newicon_87.png in Resources */,
 				8ABAFC491C0B03A9008DB93C /* prayer_typica_0_en.html in Resources */,
 				8AC1B10D199866FF00A017C7 /* launch-ipad.png in Resources */,
-				8A4EA0EB1E63F4BA00E63399 /* food-pizza.pdf in Resources */,
 				8AB4E2B51B20168E0015E19B /* saints_04_en.txt in Resources */,
 				8AA3DF511B1847D700507129 /* saints_08_en.txt in Resources */,
 				8A3A21281A46C14D0052861D /* philem_en.sqlite in Resources */,
@@ -1198,7 +1139,6 @@
 				8AF163951B1418880093CC77 /* saints_06_en.txt in Resources */,
 				8AE6FE8C1B70CCA500FDAA47 /* saints_01_cn.sqlite in Resources */,
 				8A81858D19D2E3F300D4B328 /* prayer_daily_2_cn.html in Resources */,
-				8AC6951E19E3FBC200773FEB /* food-no-milk.pdf in Resources */,
 				8ADD7D861A56A5C200BA9F37 /* isa_en.sqlite in Resources */,
 				8AC278071C61986000436D51 /* widget.pdf in Resources */,
 				8AF163941B1418880093CC77 /* saints_06_en.sqlite in Resources */,
@@ -1206,7 +1146,6 @@
 				8A81858C19D2E3F300D4B328 /* prayer_daily_1_en.html in Resources */,
 				8AF37E391B36B1FD00101148 /* launch-hd4.7.png in Resources */,
 				8AB0DCA61C27F00400C6A494 /* ReadingLent.plist in Resources */,
-				8A4EA0ED1E63F4BA00E63399 /* food-xerography.pdf in Resources */,
 				8A9A3DE019D3AE2800A7D82A /* prayer_group_1_en.html in Resources */,
 				8AC6952919E4034D00773FEB /* options.pdf in Resources */,
 				8A74D84E198F691A0078F39F /* US.png in Resources */,
@@ -1224,7 +1163,6 @@
 				8A74D84D198F691A0078F39F /* CN@2x.png in Resources */,
 				8AB0DC981C27EFEC00C6A494 /* typica_4.plist in Resources */,
 				8AC6952419E4011700773FEB /* communion.pdf in Resources */,
-				8A4EA0EC1E63F4BA00E63399 /* food-without-oil.pdf in Resources */,
 				8A74D838198F2AF70078F39F /* prayers.plist in Resources */,
 				8A8D4E0E1B64A349002C614F /* ephes_cn.sqlite in Resources */,
 				8A638C5B1ECBF5AE00424A9E /* church@2x.jpg in Resources */,
@@ -1249,7 +1187,6 @@
 				8AF2497C1AFF308B000070C0 /* polyeleos.pdf in Resources */,
 				8AEB5AD51B3410B000CCFC72 /* trans_cal_cn.plist in Resources */,
 				8A8D4E1D1B64AC8F002C614F /* prov_cn.sqlite in Resources */,
-				8AC6950B19E3EDED00773FEB /* food-vegetables.pdf in Resources */,
 				8A08D8D81B71D4DD00495BEB /* saints_03_cn.sqlite in Resources */,
 				8AC6952719E4011700773FEB /* library.pdf in Resources */,
 				8AA3DF521B1847D700507129 /* saints_09_en.sqlite in Resources */,
@@ -1267,19 +1204,16 @@
 				8A8D4E091B64A349002C614F /* 2thess_cn.sqlite in Resources */,
 				8A81858619D2E3F300D4B328 /* prayer_communion_3_en.html in Resources */,
 				8A0EDB121B1E8E29008E48CB /* saints_02_en.sqlite in Resources */,
-				8AC6951819E3FBC200773FEB /* food-cupcake.pdf in Resources */,
 				8A2F46A019E110CF00076AF4 /* prayer_group_0_cn.html in Resources */,
 				8AC1B112199866FF00A017C7 /* launch-landscape.png in Resources */,
 				8AB0DC951C27EFEC00C6A494 /* typica_1.plist in Resources */,
 				8A9A3DD819D3AE1600A7D82A /* prayer_communion_5_en.html in Resources */,
 				8AEB1AAE1B7C261E003DD686 /* saints_12_cn.sqlite in Resources */,
 				8A8D4E101B64A349002C614F /* heb_cn.sqlite in Resources */,
-				8AC6951D19E3FBC200773FEB /* food-no-meat.pdf in Resources */,
 				8A3A211D1A46C0150052861D /* heb_en.sqlite in Resources */,
 				8A181E0E1B1D3C9A00D8C2FB /* saints_01_en.sqlite in Resources */,
 				8AE6FE8D1B70CCA500FDAA47 /* saints_01_cn.txt in Resources */,
 				8A81858419D2E3F300D4B328 /* prayer_communion_2_en.html in Resources */,
-				8AC6951C19E3FBC200773FEB /* food-no-fish.pdf in Resources */,
 				8A4EA0E81E63F4BA00E63399 /* fat-down.pdf in Resources */,
 				8A81858B19D2E3F300D4B328 /* prayer_daily_1_cn.html in Resources */,
 				8AB0DC9B1C27EFEC00C6A494 /* typica_7.plist in Resources */,
@@ -1289,10 +1223,8 @@
 				8AA3DF501B1847D700507129 /* saints_08_en.sqlite in Resources */,
 				8A638C5A1ECBF5AE00424A9E /* bg3@2x.jpg in Resources */,
 				8AE8A02D1B7980A4000A29F2 /* saints_09_cn.txt in Resources */,
-				8AC6951F19E3FBC200773FEB /* food-nuts.pdf in Resources */,
 				8AC6952519E4011700773FEB /* daily.pdf in Resources */,
 				8AB4E2B41B20168E0015E19B /* saints_04_en.sqlite in Resources */,
-				8AC6951719E3FBC200773FEB /* food-cheese.pdf in Resources */,
 				8AE718D51C560CC30035CDCE /* fat-right.pdf in Resources */,
 				8A8D4E041B64A349002C614F /* 1thess_cn.sqlite in Resources */,
 				8AA3DF531B1847D700507129 /* saints_09_en.txt in Resources */,
@@ -1373,6 +1305,7 @@
 				8A26E7771ED15A5700071C66 /* Scripture.swift in Sources */,
 				8A2F46A919E1302700076AF4 /* Translate.swift in Sources */,
 				8A638C941ECC520B00424A9E /* CalendarInfo.swift in Sources */,
+				8AE3F9FC22EB022A0051F27F /* FastingModel.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
 				8AC2780B1C61D48A00436D51 /* Tutorial.swift in Sources */,
@@ -1393,6 +1326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AE3F9FD22EB031E0051F27F /* FastingModel.swift in Sources */,
 				8A4F2E7A22E6F8600087A3F0 /* DateViewCell.swift in Sources */,
 				8A4F2E7B22E6F8600087A3F0 /* DateViewCell.xib in Sources */,
 				8A638CA01ECC56DC00424A9E /* Db.swift in Sources */,

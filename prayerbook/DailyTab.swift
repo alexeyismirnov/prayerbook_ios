@@ -27,20 +27,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     
     var appeared = false
     
-    var fasting: (FastingType, String) = (.vegetarian, "")
-    
-    var foodIcon: [FastingType: String] = [
-        .noFast:        "meat",
-        .vegetarian:    "vegetables",
-        .fishAllowed:   "fish",
-        .fastFree:      "cupcake",
-        .cheesefare:    "cheese",
-        .noFood:        "nothing",
-        .xerophagy:     "xerography",
-        .withoutOil:    "without-oil",
-        .noFastMonastic:"pizza"
-    ]
-    
+    var fasting: FastingModel!
     var readings = [String]()
     
     var dayDescription = [(FeastType, String)]()
@@ -151,7 +138,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             return ""
             
         case 1:
-            return (FastingLevel() == .monastic) ? Translate.s("Monastic fasting") : Translate.s("Laymen fasting")
+            return (FastingModel.fastingLevel == .monastic) ? Translate.s("Monastic fasting") : Translate.s("Laymen fasting")
             
         case 2:
             return readings.count > 0 ? Translate.s("Gospel of the day") : nil
@@ -233,9 +220,10 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             
         } else if indexPath.section == 1 {
             let cell: ImageCell  = getCell()
-            cell.title.text = fasting.1
+
+            cell.title.attributedText = NSAttributedString(string: fasting.descr)
             cell.title.textColor =  Theme.textColor
-            cell.icon.image = UIImage(named: "food-\(foodIcon[fasting.0]!)")
+            cell.icon.image = UIImage(named: "food-\(fasting.icon)", in: toolkit, compatibleWith: nil)
             cell.accessoryType =  .none
             
             return cell
@@ -347,22 +335,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             
             navigationController?.pushViewController(vc, animated: true)
             
-        } else if FastingLevel() == .laymen && indexPath.section == 1 && indexPath.row == 0 {
-            /*
-            let fastingInfo = FastingViewController(nibName: "FastingViewController", bundle: nil)
-            modalSheet = NAModalSheet(viewController: fastingInfo, presentationStyle: .fadeInCentered)!
-            
-            modalSheet.disableBlurredBackground = true
-            modalSheet.cornerRadiusWhenCentered = 10
-            modalSheet.delegate = self
-            
-            fastingInfo.modalSheet = modalSheet
-            fastingInfo.type =  fasting.0
-            fastingInfo.fastTitle = fasting.1
-            
-            modalSheet.present(completion: {})
- */
-            
         } else if indexPath.section == 3 {
             let prayer = UIViewController.named("Prayer") as! Prayer
             prayer.code = "typica"
@@ -375,7 +347,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         if (appeared) {
             let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
             return calculateHeightForCell(cell)
@@ -417,10 +388,10 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     }
     
     @objc func reload() {
-        formatter.locale = Translate.locale as Locale!
+        formatter.locale = Translate.locale
         
         dayDescription = Cal.getDayDescription(currentDate)
-        fasting = Cal.getFastingDescription(currentDate, FastingLevel())
+        fasting = FastingModel.fasting(forDate: currentDate)
         
         saints=Db.saints(self.currentDate)
         readings = DailyReading.getDailyReading(currentDate)

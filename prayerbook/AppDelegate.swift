@@ -58,19 +58,20 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
             }
             
             if (UIDevice.current.userInterfaceIdiom == .phone) {
-                prefs.set(18, forKey: "fontSize")
-            } else {
                 prefs.set(20, forKey: "fontSize")
+            } else {
+                prefs.set(22, forKey: "fontSize")
             }
-            
-            prefs.synchronize()
         }
         
         if prefs.object(forKey: "fastingLevel") == nil {
-            prefs.set(1, forKey: "fastingLevel")
-            prefs.synchronize()
+            prefs.set(0, forKey: "fastingLevel")
         }
         
+        prefs.synchronize()
+        
+        FastingModel.fastingLevel = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))
+
         Db.initTranslations()
         setupFiles()
         
