@@ -391,7 +391,7 @@ struct ChurchCalendar {
             pascha+57.days:                           [.beginningOfApostolesFast],
         ]
     
-        let fixedFeasts : [Date: [NameOfDay]] = [
+        var fixedFeasts : [Date: [NameOfDay]] = [
             Date(1,  1, year):   [.startOfYear],
             Date(6,  1, year):   [.eveOfNativityOfGod],
             Date(7,  1, year):   [.nativityOfGod],
@@ -402,8 +402,6 @@ struct ChurchCalendar {
             Date(20, 1, year):   [.synaxisForerunner],
             Date(15, 2, year):   [.meetingOfLord],
             Date(7,  4, year):   [.annunciation],
-            Date(9,  5, year):   [.killedInAction],
-
             Date(7,  7, year):   [.nativityOfJohn],
             Date(12, 7, year):   [.peterAndPaul],
             Date(14, 8, year):   [.beginningOfDormitionFast],
@@ -418,6 +416,10 @@ struct ChurchCalendar {
             Date(19, 12, year):  [.stNicholas],
             Date(31, 12, year):  [.endOfYear],
         ];
+        
+        if Translate.language == "ru" {
+            fixedFeasts += [Date(9,  5, year): [.killedInAction]]
+        }
 
         feastDates += movingFeasts
         feastDates += fixedFeasts
@@ -504,9 +506,12 @@ struct ChurchCalendar {
         }
         
         feastDates += [nearestSundayAfter(Date(29, 7, year)): [.holyFathersSixCouncils]]
-        feastDates += [nearestSundayBefore(Date(8, 9, year)): [.synaxisMoscowSaints]]
-        feastDates += [nearestSundayAfter(Date(8, 9, year)):  [.synaxisNizhnyNovgorodSaints]]
-
+        
+        if Translate.language == "ru" {
+            feastDates += [nearestSundayBefore(Date(8, 9, year)): [.synaxisMoscowSaints]]
+            feastDates += [nearestSundayAfter(Date(8, 9, year)):  [.synaxisNizhnyNovgorodSaints]]
+        }
+        
         let start: Int = NameOfDay.startOfYear.rawValue
         let end: Int = NameOfDay.endOfYear.rawValue
         
