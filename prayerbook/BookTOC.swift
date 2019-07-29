@@ -11,7 +11,7 @@ import swift_toolkit
 
 class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
-    let prefs = UserDefaults(suiteName: groupId)!
+    let prefs = AppGroup.prefs!
 
     var expanded = Set<IndexPath>()
     var model : BookModel!

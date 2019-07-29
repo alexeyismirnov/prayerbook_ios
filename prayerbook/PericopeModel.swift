@@ -19,7 +19,7 @@ class PericopeModel : BookModel {
     
     func getPericope(_ str: String, decorated: Bool = true) -> [(NSAttributedString, NSAttributedString)] {
         var result = [(NSAttributedString, NSAttributedString)]()
-        let prefs = UserDefaults(suiteName: groupId)!
+        let prefs = AppGroup.prefs!
         let fontSize = CGFloat(prefs.integer(forKey: "fontSize"))
         
         var pericope = str.split { $0 == " " }.map { String($0) }

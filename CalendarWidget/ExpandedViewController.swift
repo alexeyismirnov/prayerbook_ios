@@ -111,7 +111,7 @@ class ExpandedViewController: UIViewController {
     
     func showSaints() {
         let date = DateViewCell.selectedDate!
-        let saints = Db.saints(date)
+        let saints = SaintModel.saints(date)
         let dayDescription = Cal.getDayDescription(date)
         let feasts = (saints+dayDescription).sorted { $0.0.rawValue > $1.0.rawValue }
         

@@ -8,10 +8,13 @@
 
 import UIKit
 import NotificationCenter
+import swift_toolkit
 
 class MainViewController : UINavigationController, NCWidgetProviding {
     static var icon15x15 = [FeastType: UIImage]()
-    let prefs = UserDefaults(suiteName: groupId)!
+    
+    let size15 = CGSize(width: 15, height: 15)
+    let iconColor : UIColor = .black
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -23,12 +26,12 @@ class MainViewController : UINavigationController, NCWidgetProviding {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let iconColor : UIColor = .black
-        let size15 = CGSize(width: 15, height: 15)
+       
+        AppGroup.id = "group.rlc.ponomar-ru"
 
-        Db.initTranslations()
-        FastingModel.fastingLevel = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))
+        Translate.files = ["trans_ui_ru", "trans_cal_ru", "trans_library_ru"]
+        Translate.language = AppGroup.prefs.object(forKey: "language") as! String
+        FastingModel.fastingLevel = FastingLevel(rawValue: AppGroup.prefs.integer(forKey: "fastingLevel"))
 
         isNavigationBarHidden = true
 

@@ -18,7 +18,7 @@ class TroparionFeastView:  UIViewController, ResizableTableViewCells, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
-    let prefs = UserDefaults(suiteName: groupId)!
+    let prefs = AppGroup.prefs!
 
     var greatFeast : NameOfDay!
     var troparion = [Troparion]()

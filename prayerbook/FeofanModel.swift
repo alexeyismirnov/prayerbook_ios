@@ -22,7 +22,7 @@ class FeofanModel : BookModel {
     static func getFeofan(for date: Date) -> [(String, String)] {
         var feofan = [(String,String)]()
         
-        let pascha = Cal.paschaDay(date.year)
+        let pascha = Cal.d(.pascha)
         let greatLentStart = pascha-48.days
         
         if date == Cal.d(.meetingOfLord) {
@@ -105,7 +105,7 @@ class FeofanModel : BookModel {
     func getNumChapters(_ index: IndexPath) -> Int { return 0 }
     
     func getContent(at pos: BookPosition) -> Any? {
-        let prefs = UserDefaults(suiteName: groupId)!
+        let prefs = AppGroup.prefs!
         let fontSize = CGFloat(prefs.integer(forKey: "fontSize"))
         let content = NSAttributedString(string: pos.location!)
         

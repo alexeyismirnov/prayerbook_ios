@@ -14,7 +14,7 @@ extension Notification.Name {
 }
 
 class Options: UITableViewController {
-    let prefs = UserDefaults(suiteName: groupId)!
+    let prefs = AppGroup.prefs!
     
     override func viewDidLoad() {
         super.viewDidLoad()

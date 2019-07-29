@@ -28,8 +28,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     
     static let bookIcon = UIImage(named: "book")!.maskWithColor(.red).resize(CGSize(width: 20, height: 20))
     
-    let prefs = UserDefaults(suiteName: groupId)!
-
     var appeared = false
     
     var fasting: FastingModel!
@@ -406,7 +404,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
 
                 let labelVC = LabelViewController()
                 labelVC.text = comments
-                labelVC.fontSize = prefs.integer(forKey: "fontSize")
+                labelVC.fontSize = AppGroup.prefs.integer(forKey: "fontSize")
                 
                 showPopup(labelVC)
             }
@@ -491,7 +489,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         dayDescription = Cal.getDayDescription(currentDate)
         fasting = FastingModel.fasting(forDate: currentDate)
         
-        saints=Db.saints(self.currentDate)
+        saints = SaintModel.saints(self.currentDate)
         readings = DailyReading.getDailyReading(currentDate)
         synaxarion = SynaxarionModel.shared.getSynaxarion(for: currentDate)
         greatFeast = Cal.getGreatFeast(currentDate)

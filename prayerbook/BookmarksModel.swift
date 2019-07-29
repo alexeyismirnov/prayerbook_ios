@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import swift_toolkit
 
 class BookmarksModel : BookModel {
     var code = "Bookmarks"
@@ -16,7 +17,7 @@ class BookmarksModel : BookModel {
     var isExpandable = false
     var hasNavigation = false
     
-    let prefs = UserDefaults(suiteName: groupId)!
+    let prefs = AppGroup.prefs!
     static let shared = BookmarksModel()
 
     

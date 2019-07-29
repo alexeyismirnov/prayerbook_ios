@@ -101,7 +101,7 @@ class TroparionModel : BookModel {
       
         var text = NSAttributedString()
         
-        let prefs = UserDefaults(suiteName: groupId)!
+        let prefs = AppGroup.prefs!
         let fontSize = prefs.integer(forKey: "fontSize")
         
         for line in data {

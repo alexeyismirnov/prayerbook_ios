@@ -68,7 +68,7 @@ class ZvezdinskyModel : BookModel {
     
     func getContent(at pos: BookPosition) -> Any? {
         guard let index = pos.index else { return nil }
-        let prefs = UserDefaults(suiteName: groupId)!
+        let prefs = AppGroup.prefs!
         let fontSize = CGFloat(prefs.integer(forKey: "fontSize"))
         
         let results = try! db.selectFrom("content", whereExpr:"chapter=\"\(index.row+1)\"") { ["text": $0["text"]] }

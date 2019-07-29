@@ -55,7 +55,7 @@ struct FeastNotifications {
     }
     
     static func setupNotifications() {
-        let prefs = UserDefaults(suiteName: groupId)!
+        let prefs = AppGroup.prefs!
 
         FeastList.sharing = false
         FeastList.setDate(Date())

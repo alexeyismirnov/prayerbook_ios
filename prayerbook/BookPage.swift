@@ -10,7 +10,7 @@ import UIKit
 import swift_toolkit
 
 class FontSizeViewController : UIViewController, PopupContentViewController {
-    let prefs = UserDefaults(suiteName: groupId)!
+    let prefs = AppGroup.prefs!
     var delegate: BookPage!
     
     var text : String!
@@ -84,7 +84,7 @@ class FontSizeViewController : UIViewController, PopupContentViewController {
 }
 
 class BookPage: UIViewController {
-    let prefs = UserDefaults(suiteName: groupId)!
+    let prefs = AppGroup.prefs!
     var fontSize : Int
     
     var model : BookModel

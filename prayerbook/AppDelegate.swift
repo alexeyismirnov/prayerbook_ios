@@ -10,7 +10,6 @@ import UIKit
 import swift_toolkit
 
 class AppDelegate : UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -40,7 +39,8 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let prefs = UserDefaults(suiteName: groupId)!
+        AppGroup.id = "group.rlc.ponomar-ru"
+        let prefs = AppGroup.prefs!
 
         if prefs.object(forKey: "theme") == nil {
             Theme.set(.Default)
@@ -77,7 +77,10 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
             as! Dictionary<String, String>
         
         setupFiles()
-        Db.initTranslations()
+        
+        Translate.files = ["trans_ui_ru", "trans_cal_ru", "trans_library_ru"]
+        Translate.language = prefs.object(forKey: "language") as! String
+
         FeastNotifications.setupNotifications()
         
         return true
@@ -87,28 +90,13 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         for lang in ["ru"] {
             for month in 1...12 {
                 let filename = String(format: "saints_%02d_%@", month, lang)
-                copyFile(filename, "sqlite")
+                AppGroup.copyFile(filename, "sqlite")
             }
         }
         
-        copyFile("trans_ui_ru", "plist")
-        copyFile("trans_cal_ru", "plist")
-        copyFile("trans_library_ru", "plist")
-    }
-    
-    func copyFile(_ filename: String, _ ext: String)  {
-        let fileManager = FileManager.default
-        let groupURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
-        let srcPath = Bundle.main.url(forResource: filename, withExtension: ext)!
-        let dstPath = groupURL.appendingPathComponent(filename+"."+ext)
-        
-        do {            
-            let data = try Data(contentsOf: srcPath)
-            try data.write(to: dstPath, options: .atomic)
-            
-        } catch let error as NSError  {            
-            print(error.description)
-        }
+        AppGroup.copyFile("trans_ui_ru", "plist")
+        AppGroup.copyFile("trans_cal_ru", "plist")
+        AppGroup.copyFile("trans_library_ru", "plist")
     }
     
 }

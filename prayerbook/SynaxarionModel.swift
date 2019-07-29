@@ -77,7 +77,7 @@ class SynaxarionModel : BookModel {
     }
     
     func getContent(at pos: BookPosition) -> Any? {
-        let prefs = UserDefaults(suiteName: groupId)!
+        let prefs = AppGroup.prefs!
         let fontSize = CGFloat(prefs.integer(forKey: "fontSize"))
         let filename = pos.location ?? data[pos.index!.row].1
         

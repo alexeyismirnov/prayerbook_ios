@@ -20,7 +20,7 @@ struct BibleModel {
     static func getChapter(_ name: String, _ chapter: Int) -> NSAttributedString {
         var text = NSAttributedString()
         
-        let prefs = UserDefaults(suiteName: groupId)!
+        let prefs = AppGroup.prefs!
         let fontSize = prefs.integer(forKey: "fontSize")
         
         let header = (name == "ps") ? "Кафизма %@" : Translate.s("Chapter %@")
