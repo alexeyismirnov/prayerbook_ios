@@ -27,8 +27,6 @@ class CompactViewController: UIViewController {
         return DateComponents(date: Date()).toDate()
     }()
     
-    var fasting: FastingModel!
-
     @IBOutlet weak var dayInfo: UITextView!
     @IBOutlet weak var buttonUp: UIButton!
     @IBOutlet weak var buttonDown: UIButton!
@@ -91,7 +89,7 @@ class CompactViewController: UIViewController {
             result.append(s3)
         }
         
-        fasting = FastingModel.fasting(forDate: currentDate)
+        let fasting = FastingModel.fasting(forDate: currentDate)
         descr = ". " + fasting.descr
 
         let s4 = NSAttributedString(string: descr, attributes: [.font: fontItalic])

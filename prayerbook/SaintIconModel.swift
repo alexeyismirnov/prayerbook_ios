@@ -10,6 +10,12 @@ import Foundation
 import Squeal
 import swift_toolkit
 
+enum IconCodes: Int {
+    case pascha=100000, palmSunday=100001, ascension=100002, pentecost=100003,
+    theotokosLiveGiving=100100, theotokosDubenskaya=100101, theotokosChelnskaya=100103,
+    theotokosWall=100105, theotokosSevenArrows=100106, theotokosTabynsk=100108
+}
+
 struct Saint {
     var id : Int
     var name : String
@@ -28,7 +34,6 @@ struct Saint {
 
 
 struct SaintIconModel {
-
     static let db = try! Database(path:Bundle.main.path(forResource: "icons", ofType: "sqlite")!)
 
     static func addSaints(date: Date) -> [Saint] {
@@ -66,8 +71,21 @@ struct SaintIconModel {
         let year = date.year
 
         Cal.setDate(date)
-
-        if let codes = Cal.moveableIcons[date] {
+        let pascha = Cal.d(.pascha)
+        
+        let moveableIcons : [Date: [IconCodes]] = [
+            pascha-7.days:      [.palmSunday],
+            pascha:             [.pascha],
+            pascha+39.days:     [.ascension],
+            pascha+49.days:     [.pentecost],
+            pascha+5.days:      [.theotokosLiveGiving],
+            pascha+24.days:     [.theotokosDubenskaya],
+            pascha+42.days:     [.theotokosChelnskaya],
+            pascha+56.days:     [.theotokosWall, .theotokosSevenArrows],
+            pascha+61.days:     [.theotokosTabynsk],
+        ]
+        
+        if let codes = moveableIcons[date] {
             for code in codes {
                 let results = try! db.selectFrom("app_saint", whereExpr:"id=\(code.rawValue)")
                 { [ "name": $0["name"], "has_icon": $0["has_icon"]] }
