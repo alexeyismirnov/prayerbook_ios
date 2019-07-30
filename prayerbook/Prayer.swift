@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import swift_toolkit
 
 class Prayer: UIViewController {
     
     @IBOutlet weak var webView: UIWebView!
-    let prefs = UserDefaults(suiteName: groupId)!
+    let prefs = AppGroup.prefs!
+    
     var fontSize: Int = 0
     var index:Int!
     var code:String!

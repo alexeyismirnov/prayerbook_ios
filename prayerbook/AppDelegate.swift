@@ -8,38 +8,40 @@
 
 import UIKit
 import Chameleon
+import swift_toolkit
 
 class AppDelegate : UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var openDate: Date?
-    
-    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-        if url.scheme == "ponomar" {
-            openDate = Date(timeIntervalSince1970: Double(url.query!)!)            
-        }
+   
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        var openDate: Date
         
-        return true
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        if let root = window?.rootViewController as? MainVC,
-            let controllers = root.viewControllers,
-            let nav = controllers[0] as? UINavigationController,
-            let vc = nav.topViewController as? DailyTab,
-            let date = openDate {
-                root.selectedIndex = 0
-                vc.currentDate = date
+        if url.scheme == "ponomar" {
+            openDate = Date(timeIntervalSince1970: Double(url.query!)!)
             
+            if let root = window?.rootViewController as? MainVC,
+                let controllers = root.viewControllers,
+                let nav = controllers[0] as? UINavigationController,
+                let vc = nav.topViewController as? DailyTab{
+                root.selectedIndex = 0
+                vc.currentDate = openDate
+                
                 if vc.isViewLoaded {
                     vc.reload()
                 }
-                openDate = nil
+            }
+            
+            return true
+            
+        }  else {
+            return false
         }
+        
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let prefs = UserDefaults(suiteName: groupId)!
-        let lang = Locale.preferredLanguages[0]
+        AppGroup.id = "group.rlc.ponomar"
+        let prefs = AppGroup.prefs!
         
         if prefs.object(forKey: "theme") == nil {
             Theme.set(.Default)
@@ -51,6 +53,8 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         
         // the first time app is launched
         if prefs.object(forKey: "fontSize") == nil {
+            let lang = Locale.preferredLanguages[0]
+
             if (lang.hasPrefix("zh-Hans") || lang.hasPrefix("zh-Hant")) {
                 prefs.set("cn", forKey: "language")
             } else {
@@ -72,8 +76,10 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         
         FastingModel.fastingLevel = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))
 
-        Db.initTranslations()
         setupFiles()
+        
+        Translate.files = ["trans_ui_cn", "trans_cal_cn", "trans_library_cn"]
+        Translate.language = prefs.object(forKey: "language") as! String
         
         return true
     }
@@ -82,28 +88,13 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         for lang in ["en", "cn"] {
             for month in 1...12 {
                 let filename = String(format: "saints_%02d_%@", month, lang)
-                copyFile(filename, "sqlite")
+                AppGroup.copyFile(filename, "sqlite")
             }
         }
         
-        copyFile("trans_ui_cn", "plist")
-        copyFile("trans_cal_cn", "plist")
-        copyFile("trans_library_cn", "plist")
-    }
-    
-    func copyFile(_ filename: String, _ ext: String)  {
-        let fileManager = FileManager.default
-        let groupURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: groupId)!
-        let srcPath = Bundle.main.url(forResource: filename, withExtension: ext)!
-        let dstPath = groupURL.appendingPathComponent(filename+"."+ext)
-        
-        do {
-            let data = try Data(contentsOf: srcPath)
-            try data.write(to: dstPath, options: .atomic)
-            
-        } catch let error as NSError  {
-            print(error.description)
-        }
+        AppGroup.copyFile("trans_ui_cn", "plist")
+        AppGroup.copyFile("trans_cal_cn", "plist")
+        AppGroup.copyFile("trans_library_cn", "plist")
     }
     
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import MediaPlayer
+import swift_toolkit
 
 class Tutorial : UIViewController {
     

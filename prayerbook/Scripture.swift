@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import swift_toolkit
 
 enum ScriptureDisplay {
     case chapter(String, Int)
@@ -17,7 +18,7 @@ class Scripture: UIViewController {
 
     var fontSize: Int = 0
     var code: ScriptureDisplay = .chapter("", 0)
-    let prefs = UserDefaults(suiteName: groupId)!
+    let prefs = AppGroup.prefs!
 
     @IBOutlet weak var textView: UITextView!
     

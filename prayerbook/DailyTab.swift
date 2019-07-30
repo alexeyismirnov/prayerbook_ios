@@ -393,7 +393,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         dayDescription = Cal.getDayDescription(currentDate)
         fasting = FastingModel.fasting(forDate: currentDate)
         
-        saints=Db.saints(self.currentDate)
+        saints = SaintModel.saints(self.currentDate)
         readings = DailyReading.getDailyReading(currentDate)
         
         tableView.reloadData()

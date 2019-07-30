@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import swift_toolkit
 
 extension UITextView {
     func increaseFontSize () {
@@ -15,9 +16,9 @@ extension UITextView {
 }
 
 class RTFDocument: UIViewController {
-
     @IBOutlet weak var textView: UITextView!
-    let prefs = UserDefaults(suiteName: groupId)!
+    
+    let prefs = AppGroup.prefs!
     var fontSize: Int = 0
 
     var docTitle : String!

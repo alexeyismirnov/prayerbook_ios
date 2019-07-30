@@ -34,9 +34,7 @@ class ExpandedViewController: UIViewController {
         formatter.dateFormat = "LLLL yyyy"
         return formatter
     }()
-    
-    let prefs = UserDefaults(suiteName: groupId)!
-    
+        
     var calendarDelegate: CalendarDelegate!
     var textColor : UIColor!
 
@@ -116,7 +114,7 @@ class ExpandedViewController: UIViewController {
     
     func showSaints() {
         let date = DateViewCell.selectedDate!
-        let saints = Db.saints(date)
+        let saints = SaintModel.saints(date)
         let dayDescription = Cal.getDayDescription(date)
         let feasts = (saints+dayDescription).sorted { $0.0.rawValue > $1.0.rawValue }
         

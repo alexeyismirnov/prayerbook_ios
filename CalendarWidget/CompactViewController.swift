@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import swift_toolkit
 
 class CompactViewController: UIViewController {
     enum AnimationDirection: Int {
@@ -92,7 +93,7 @@ class CompactViewController: UIViewController {
         let s4 = NSAttributedString(string: descr, attributes: [.font: fontItalic])
         result.append(s4)
         
-        let saints = Db.saints(currentDate)
+        let saints = SaintModel.saints(currentDate)
         let day = Cal.getDayDescription(currentDate)
         let feasts = (saints+day).sorted { $0.0.rawValue > $1.0.rawValue }
         

@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import swift_toolkit
 
 let optionsSavedNotification  = "OPTIONS_SAVED"
 let themeChangedNotification  = "THEME_CHANGED"
 
 class Options: UITableViewController {
     
-    let prefs = UserDefaults(suiteName: groupId)!
+    let prefs = AppGroup.prefs!
     var lastSelected: IndexPath?
     
     let labels : [(IndexPath, String)] = [
