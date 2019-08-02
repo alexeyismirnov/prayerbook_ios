@@ -44,9 +44,7 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        DateViewCell.textSize = 16
-        
+                
         if model.code == "Bookmarks" {
             tableView.reloadData()
         }

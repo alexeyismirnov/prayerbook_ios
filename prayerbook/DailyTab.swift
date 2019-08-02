@@ -558,10 +558,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     
     func showMonthlyCalendar() {
         UIViewController.popup.dismiss({
-            DateViewCell.textColor = nil
-            DateViewCell.textSize = nil
-            DateViewCell.selectedDate = self.currentDate
-            
             let image_info = UIImage(named: "help", in: nil, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
             let button_info = UIBarButtonItem(image: image_info, style: .plain, target: self, action: #selector(self.showInfo))
 
@@ -570,8 +566,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
 
             UIViewController.popup =  CalendarContainer.show(inVC: self.navigationController!,
                                                  initialDate: self.currentDate,
-                                                 cellReuseIdentifier: "DateViewCell",
-                                                 cellNibName: "DateViewCell",
                                                  leftButton: button_today,
                                                  rightButton: button_info)
         })
@@ -579,8 +573,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     
     func showYearlyCalendar() {
         UIViewController.popup.dismiss({
-            DateViewCell.selectedDate = nil
-
             let vc = UIViewController.named("yearly") as! YearlyCalendar
             let nav = UINavigationController(rootViewController: vc)
             

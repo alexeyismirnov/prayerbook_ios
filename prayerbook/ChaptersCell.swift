@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import swift_toolkit
 
 public let chapterSelectedNotification = "CHAPTER_SELECTED"
 
@@ -49,7 +50,7 @@ class ChaptersCell: UITableViewCell, UICollectionViewDataSource, UICollectionVie
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell : LabelViewCell = collectionView.dequeueReusableCell(for: indexPath)
+        let cell: LabelViewCell = collectionView.dequeueReusableCell(for: indexPath)
         cell.title.text = "\(indexPath.row+1)"
         
         return cell

@@ -10,11 +10,6 @@ import UIKit
 import swift_toolkit
 
 class CompactViewController: UIViewController {
-    enum AnimationDirection: Int {
-        case positive = 1
-        case negative = -1
-    }
-
     var formatter: DateFormatter = {
         var formatter = DateFormatter()
         formatter.timeStyle = .none

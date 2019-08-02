@@ -34,7 +34,6 @@ class YearlyMonthViewCell: UICollectionViewCell {
                 
                 collectionView.delegate = calendarDelegate
                 collectionView.dataSource = calendarDelegate
-            
             }
             
             calendarDelegate.currentDate = currentDate
@@ -58,14 +57,7 @@ class YearlyMonthViewCell: UICollectionViewCell {
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .vertical
                 
-        calendarDelegate = CalendarDelegate()
-
-        let cellId = "DateViewCell"
-        collectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
-        calendarDelegate.cellReuseIdentifier = cellId
-        
-        DateViewCell.textColor = YearlyCalendar.isSharing ? .black : Theme.textColor
-        DateViewCell.textSize = YC.config.fontSize
+        calendarDelegate = CalendarDelegate(fontSize: YC.config.fontSize, textColor: YearlyCalendar.isSharing ? .black : Theme.textColor)
         
         collectionView.layer.addBorder(edge: .top, color: YearlyCalendar.isSharing ? .black : Theme.secondaryColor, thickness: 1)
 
