@@ -10,11 +10,6 @@ import UIKit
 import swift_toolkit
 
 class CompactViewController: UIViewController {
-    enum AnimationDirection: Int {
-        case positive = 1
-        case negative = -1
-    }
-
     var formatter: DateFormatter = {
         var formatter = DateFormatter()
         formatter.timeStyle = .none
@@ -59,7 +54,8 @@ class CompactViewController: UIViewController {
         
         var fontSize : CGFloat
 
-        if ["iPhone 5", "iPhone 5s", "iPhone 5c", "iPhone 6", "iPhone 6s", "iPhone 7", "iPhone 8", "iPhone SE"].contains(UIDevice.modelName) {
+        if ["iPhone 5", "iPhone 5s", "iPhone 5c", "iPhone 6", "iPhone 6s", "iPhone 7", "iPhone 8",
+            "iPhone SE", "iPhone X"].contains(UIDevice.modelName) {
             fontSize = 15
         } else {
             fontSize = 18

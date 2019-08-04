@@ -13,9 +13,9 @@ import swift_toolkit
 class MainViewController : UINavigationController, NCWidgetProviding {
     static var icon15x15 = [FeastType: UIImage]()
     
-    let iconColor : UIColor = .black
     let size15 = CGSize(width: 15, height: 15)
-    
+    let iconColor : UIColor = .black
+
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -86,9 +86,7 @@ class MainViewController : UINavigationController, NCWidgetProviding {
             myString.append(NSAttributedString(attachment: attachment))
         }
         
-        var textColor:UIColor
-        
-        textColor = (saints[0].0 == .great) ? .red:.black
+        let textColor:UIColor = (saints[0].0 == .great) ? .red : .black
         
         myString.append(NSMutableAttributedString(string: saints[0].1,
                                                   attributes: [

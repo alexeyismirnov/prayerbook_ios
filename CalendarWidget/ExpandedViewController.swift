@@ -11,12 +11,6 @@ import NotificationCenter
 import swift_toolkit
 
 class ExpandedViewController: UIViewController {
-
-    enum AnimationDirection: Int {
-        case positive = 1
-        case negative = -1
-    }
-
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var buttonRight: UIButton!
     @IBOutlet weak var buttonLeft: UIButton!
@@ -27,16 +21,19 @@ class ExpandedViewController: UIViewController {
         return DateComponents(date: Date()).toDate()
     }()
     
+    var selectedDate: Date!
+    
     var formatter: DateFormatter = {
         var formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .none
         formatter.dateFormat = "LLLL yyyy"
+        formatter.locale = Translate.locale
         return formatter
     }()
         
-    var calendarDelegate: CalendarDelegate!
     var textColor : UIColor!
+    var calendarDelegate: CalendarDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,22 +46,9 @@ class ExpandedViewController: UIViewController {
         buttonRight.imageView?.tintColor = UIColor.white
         buttonRight.setImage(arrowRight, for: UIControl.State())
         
-        calendarDelegate = CalendarDelegate()
+        selectedDate = currentDate
         
-        let cellId = "DateViewCell"
-        collectionView.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
-        calendarDelegate.cellReuseIdentifier = cellId
-        
-        if #available(iOS 10.0, *) {
-            textColor =  UIColor.black
-            
-        } else {
-            textColor =  UIColor.white
-        }
-        
-        DateViewCell.textColor = textColor
-        DateViewCell.selectedDate = currentDate
-        
+        calendarDelegate = CalendarDelegate(fontSize: 16.0)
         collectionView.delegate = calendarDelegate
         collectionView.dataSource = calendarDelegate
         
@@ -81,12 +65,12 @@ class ExpandedViewController: UIViewController {
     }
         
     func refresh() {
-        formatter.locale = Translate.locale
-
         monthLabel.text = formatter.string(from: currentDate).capitalizingFirstLetter()
+
         calendarDelegate.currentDate = currentDate
-        collectionView.reloadData()
+        calendarDelegate.selectedDate = selectedDate
         
+        collectionView.reloadData()
         showSaints()
     }
 
@@ -96,7 +80,7 @@ class ExpandedViewController: UIViewController {
                         inView: view,
                         update: {
                             self.currentDate = self.currentDate - 1.months
-                            DateViewCell.selectedDate = Date(1, self.currentDate.month, self.currentDate.year)
+                            self.selectedDate = Date(1, self.currentDate.month, self.currentDate.year)
                             self.refresh()
         })
     }
@@ -107,13 +91,13 @@ class ExpandedViewController: UIViewController {
                         inView: view,
                         update: {
                             self.currentDate = self.currentDate + 1.months
-                            DateViewCell.selectedDate = Date(1, self.currentDate.month, self.currentDate.year)
+                            self.selectedDate = Date(1, self.currentDate.month, self.currentDate.year)
                             self.refresh()
         })
     }
     
     func showSaints() {
-        let date = DateViewCell.selectedDate!
+        let date = selectedDate!
         let saints = SaintModel.saints(date)
         let dayDescription = Cal.getDayDescription(date)
         let feasts = (saints+dayDescription).sorted { $0.0.rawValue > $1.0.rawValue }
@@ -125,17 +109,15 @@ class ExpandedViewController: UIViewController {
         let loc = recognizer.location(in: collectionView)
         
         if  let path = collectionView.indexPathForItem(at: loc),
-            let cell = collectionView.cellForItem(at: path) as? DateViewCell,
-            let curDate = cell.currentDate {
-            DateViewCell.selectedDate = curDate
-            
-            showSaints()
-            collectionView.reloadData()
+            let cell = collectionView.cellForItem(at: path) as? DayViewCell,
+            let date = cell.currentDate {
+            selectedDate = date
+            refresh()
         }
     }
     
     @IBAction func onTapLabel(_ sender: AnyObject) {
-        let seconds = DateViewCell.selectedDate!.timeIntervalSince1970
+        let seconds = selectedDate!.timeIntervalSince1970
         let url = URL(string: "ponomar://open?\(seconds)")!
         extensionContext!.open(url, completionHandler: nil)
     }

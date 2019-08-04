@@ -155,21 +155,13 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
-                let cell: TextDetailsCell = getCell()
-                cell.title.text = formatter.string(from: currentDate).capitalizingFirstLetter()
-                cell.subtitle.text = ""
-                
-                cell.title.textColor = Theme.textColor
-                cell.subtitle.textColor = Theme.secondaryColor
-                
-                return cell
+                return getTextDetailsCell(title: formatter.string(from: currentDate).capitalizingFirstLetter(),
+                                          subtitle: "")
                 
             case 1:
-                let cell: TextCell = getCell()
                 var descr = ""
                 
                 if let weekDescription = Cal.getWeekDescription(currentDate) {
@@ -229,7 +221,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             return cell
             
         } else if indexPath.section == 2 {
-            
             var title : String!
             var subtitle : String!
             
@@ -250,15 +241,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             }
             
             if appeared {
-                let cell: TextDetailsCell = getCell()
-                cell.accessoryType = .none
-                
-                cell.title.textColor = Theme.textColor
-                cell.title.text = title
-                cell.subtitle.text = subtitle
-                cell.subtitle.textColor = Theme.secondaryColor
-                
-                return cell
+                return getTextDetailsCell(title: title, subtitle: subtitle)
                 
             } else {
                 let cell = getSimpleCell(title)
@@ -269,13 +252,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             
             
         } else if indexPath.section == 3 {
-            let cell: TextDetailsCell = getCell()
-            cell.title.textColor = Theme.textColor
-            cell.title.text = Translate.s("Typica")
-            cell.subtitle.text = ""
-            
-            return cell
-            
+            return getTextDetailsCell(title: Translate.s("Typica"), subtitle: "")
+
         } else if indexPath.section == 4 {
             
             if saints[indexPath.row].0 == .none {
@@ -393,7 +371,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         dayDescription = Cal.getDayDescription(currentDate)
         fasting = FastingModel.fasting(forDate: currentDate)
         
-        saints = SaintModel.saints(self.currentDate)
+        saints = SaintModel.saints(currentDate)
         readings = DailyReading.getDailyReading(currentDate)
         
         tableView.reloadData()
@@ -402,65 +380,28 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     func configureNavbar() {
         navigationController?.makeTransparent()
         
-        let button_monthly = UIBarButtonItem(image: UIImage(named: "calendar"), style: .plain, target: self, action: #selector(showMonthlyCalendar))
-        let button_widget = UIBarButtonItem(image: UIImage(named: "question"), style: .plain, target: self, action: #selector(showTutorial))
-        let button_options = UIBarButtonItem(image: UIImage(named: "options"), style: .plain, target: self, action: #selector(showOptions))
-        
-        button_widget.imageInsets = UIEdgeInsets.init(top: 0,left: 0,bottom: 0,right: -20)
+        let button_monthly = CustomBarButton(image: UIImage(named: "calendar"), style: .plain, target: self, action: #selector(showMonthlyCalendar))
+       
+        let button_options = CustomBarButton(image: UIImage(named: "options"), style: .plain, target: self, action: #selector(showOptions))
         
         navigationItem.leftBarButtonItems = [button_monthly]
-        navigationItem.rightBarButtonItems = [button_options, button_widget]
+        navigationItem.rightBarButtonItems = [button_options]
     }
     
     @objc func showMonthlyCalendar() {
-       /*
-        var width, height : CGFloat
-        
-        if (UIDevice.current.userInterfaceIdiom == .phone) {
-            width = 300
-            height = 350
-            
-        } else {
-            width = 500
-            height = 530
-        }
-        
-        let container = UIViewController.named("CalendarContainer") as! UINavigationController
-        container.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
-        container.navigationBar.barTintColor = UIColor(hex: "#FFEBCD")
-        container.navigationBar.tintColor = .blue
-        container.navigationBar.titleTextAttributes = convertToOptionalNSAttributedStringKeyDictionary([NSAttributedString.Key.foregroundColor.rawValue : UIColor.black])
-
-        modalSheet = NAModalSheet(viewController: container, presentationStyle: .fadeInCentered)
-        
-        modalSheet.disableBlurredBackground = true
-        modalSheet.cornerRadiusWhenCentered = 10
-        modalSheet.delegate = self
-        modalSheet.adjustContentSize(CGSize(width: width, height: height), animated: false)
-        
-        modalSheet.present(completion: {})
- */
+        let container = UIViewController.named("CalendarContainer", bundle: toolkit) as! CalendarNavigation
+        container.initialDate = currentDate
+        showPopup(container)
     }
         
     @objc func updateDate(_ notification: NSNotification) {
-        /*
-        modalSheet.dismiss(completion: {
-        })
-        */
+        UIViewController.popup.dismiss()
         
         if let newDate = notification.userInfo?["date"] as? Date {
             currentDate = newDate
             reload()
             tableView.setContentOffset(CGPoint.zero, animated: false)
         }
-    }
-    
-    @objc func showTutorial() {
-        let vc = UIViewController.named("Tutorial") as! Tutorial
-        let nav = UINavigationController(rootViewController: vc)
-        vc.delegate = self
-        
-        navigationController?.present(nav, animated: true, completion: {})
     }
     
     @objc func showOptions() {
