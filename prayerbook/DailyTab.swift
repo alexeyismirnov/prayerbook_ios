@@ -563,11 +563,12 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
 
             let image_today = UIImage(named: "today", in: nil, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
             let button_today = UIBarButtonItem(image: image_today, style: .plain, target: self, action: #selector(self.showToday))
-
-            UIViewController.popup =  CalendarContainer.show(inVC: self.navigationController!,
-                                                 initialDate: self.currentDate,
-                                                 leftButton: button_today,
-                                                 rightButton: button_info)
+            
+            let container = UIViewController.named("CalendarContainer", bundle: self.toolkit) as! CalendarNavigation
+            container.leftButton = button_today
+            container.rightButton = button_info
+            container.initialDate = self.currentDate
+            self.showPopup(container)
         })
     }
     
