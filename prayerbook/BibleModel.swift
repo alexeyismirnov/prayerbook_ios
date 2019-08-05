@@ -10,7 +10,23 @@ import UIKit
 import swift_toolkit
 
 struct BibleModel {
-    static func decorateLine(_ verse:Int64, _ content:String, _ fontSize:CGFloat) -> NSAttributedString {
+    static func decorateLine(_ verse:Int64, _ content:String, _ fontSize:CGFloat, _ isPsalm: Bool = false) -> NSAttributedString {
+        if isPsalm {
+            let text = NSMutableAttributedString(attributedString: content.colored(with: Theme.textColor).systemFont(ofSize: fontSize))
+            
+            if let r = content.range(of: "Слава:", options:[], range: nil) {
+                text.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.bold), range: NSRange(r, in: content))
+            }
+            
+            if let r = content.range(of: ".", options:[], range: nil) {
+                let r2 = content.startIndex..<r.upperBound
+                
+                text.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(r2, in: content))
+            }
+
+            return "\(verse) ".colored(with: UIColor.red).systemFont(ofSize: fontSize) + text + "\n"
+        }
+        
         var text = NSAttributedString()
         text += "\(verse) ".colored(with: UIColor.red) + content.colored(with: Theme.textColor) + "\n"
         
@@ -30,7 +46,7 @@ struct BibleModel {
         text += title + "\n\n"
         
         for line in Db.book(name, whereExpr: "chapter=\(chapter)") {
-            let row  = decorateLine(line["verse"] as! Int64, line["text"] as! String, CGFloat(fontSize))
+            let row  = decorateLine(line["verse"] as! Int64, line["text"] as! String, CGFloat(fontSize), name == "ps")
             text = text + row
         }
         

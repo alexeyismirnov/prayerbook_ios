@@ -11,7 +11,6 @@ import Squeal
 import swift_toolkit
 
 class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource {
-    
     @IBOutlet weak var tableView: UITableView!
     
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
@@ -489,7 +488,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
         dayDescription = Cal.getDayDescription(currentDate)
         fasting = FastingModel.fasting(forDate: currentDate)
         
-        saints = SaintModel.saints(self.currentDate)
+        saints = SaintModel.saints(currentDate)
         readings = DailyReading.getDailyReading(currentDate)
         synaxarion = SynaxarionModel.shared.getSynaxarion(for: currentDate)
         greatFeast = Cal.getGreatFeast(currentDate)
