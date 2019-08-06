@@ -9,10 +9,12 @@
 import UIKit
 import swift_toolkit
 
-class PrayersTab2: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PrayersTab2: UIViewController, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource {
     @objc var tab_index: NSNumber!
     @IBOutlet weak var tableView: UITableView!
     
+    let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+
     var entries = [[String]]()
     var titles = ["Eucharist", "Prayers"]
     var sections = [ ["communion"], ["daily", "group"] ]
@@ -27,6 +29,8 @@ class PrayersTab2: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         automaticallyAdjustsScrollViewInsets = false
         navigationController?.makeTransparent()
+        
+        tableView.register(UINib(nibName: "TextCell", bundle: toolkit), forCellReuseIdentifier: "TextCell")
 
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
@@ -39,7 +43,7 @@ class PrayersTab2: UIViewController, UITableViewDelegate, UITableViewDataSource 
             view.backgroundColor =  bgColor
             
         } else {
-            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view))
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: toolkit))
         }
         
         reload()
@@ -57,16 +61,6 @@ class PrayersTab2: UIViewController, UITableViewDelegate, UITableViewDataSource 
         title = Translate.s(titles[tab_index as! Int])
         
         tableView.reloadData()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Prayer" {
-            let view = segue.destination as! Prayer
-            let index = tableView.indexPathForSelectedRow as IndexPath!
-            view.index = index?.row
-            view.code = sections[tab_index as! Int][(index?.section)!]
-            view.name = entries[(index?.section)!][(index?.row)!]
-        }
     }
     
     // MARK: Table view data source
@@ -104,32 +98,13 @@ class PrayersTab2: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "TextCell"
-        
-        var newCell  = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TextCell2
-        if newCell == nil {
-            newCell = TextCell2(style: UITableViewCell.CellStyle.default, reuseIdentifier: TextCell2.cellId)
-        }
-        
-        newCell!.backgroundColor = .clear
-        newCell!.title.textColor =  Theme.textColor
-        newCell!.title.text = Translate.s(entries[indexPath.section][indexPath.row])
-        return newCell!
+        return getTextCell(Translate.s(entries[indexPath.section][indexPath.row]))
     }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
         return calculateHeightForCell(cell)
     }
-    
-    func calculateHeightForCell(_ cell: UITableViewCell) -> CGFloat {
-        cell.bounds = CGRect(x: 0, y: 0, width: tableView.frame.width, height: cell.bounds.height)
-        cell.setNeedsLayout()
-        cell.layoutIfNeeded()
-        
-        let size = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-        return max(size.height+1.0, 40)
-    }
-    
     
 }
