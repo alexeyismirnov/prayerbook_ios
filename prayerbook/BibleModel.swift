@@ -14,14 +14,16 @@ struct BibleModel {
         if isPsalm {
             let text = NSMutableAttributedString(attributedString: content.colored(with: Theme.textColor).systemFont(ofSize: fontSize))
             
-            if let r = content.range(of: "Слава:", options:[], range: nil) {
+            if let r = content.range(of: Translate.s("Statis"), options:[], range: nil) {
                 text.addAttribute(.font, value: UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.bold), range: NSRange(r, in: content))
             }
             
-            if let r = content.range(of: ".", options:[], range: nil) {
-                let r2 = content.startIndex..<r.upperBound
-                
-                text.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(r2, in: content))
+            if Translate.language == "en" ||  Translate.language == "ru" {
+                if let r = content.range(of: ".", options:[], range: nil) {
+                    let r2 = content.startIndex..<r.upperBound
+                    
+                    text.addAttribute(.foregroundColor, value: UIColor.red, range: NSRange(r2, in: content))
+                }
             }
 
             return "\(verse) ".colored(with: UIColor.red).systemFont(ofSize: fontSize) + text + "\n"
@@ -39,7 +41,7 @@ struct BibleModel {
         let prefs = AppGroup.prefs!
         let fontSize = prefs.integer(forKey: "fontSize")
         
-        let header = (name == "ps") ? "Кафизма %@" : Translate.s("Chapter %@")
+        let header = (name == "ps") ? Translate.s("Kathisma %@") : Translate.s("Chapter %@")
         let title = String(format: header, Translate.stringFromNumber(chapter))
             .colored(with: Theme.textColor).boldFont(ofSize: CGFloat(fontSize)).centered
         
@@ -57,7 +59,7 @@ struct BibleModel {
 
 class OldTestamentModel : BookModel {
     var code : String = "OldTestament"
-    var title = "Ветхий Завет"
+    var title = Translate.s("Old Testament")
     var mode: BookType = .text
 
     var isExpandable = true
@@ -117,7 +119,7 @@ class OldTestamentModel : BookModel {
     static let shared = OldTestamentModel()
 
     func getSections() -> [String] {
-        return ["Пятикнижие Моисея", "Книги исторические", "Книги учительные", "Книги пророческие"]
+        return ["Five Books of Moses", "Historical books", "Wisdom books", "Prophets books"].map { return Translate.s($0) }
     }
     
     func getItems(_ section: Int) -> [String] {
@@ -138,13 +140,10 @@ class OldTestamentModel : BookModel {
         let row = Int(comp[2])!
         let chapter = Int(comp[3])!
         
-        var chapterTitle = "глава"
+        let header = (OldTestamentModel.data[section][row].1 == "ps") ? Translate.s("Kathisma %@") : Translate.s("Chapter %@")
+        let chapterTitle = String(format: header, Translate.stringFromNumber(chapter+1)).lowercased()
         
-        if (OldTestamentModel.data[section][row].1 == "ps") {
-            chapterTitle = "кафизма"
-        }
-        
-        return "Ветхий Завет - " + Translate.s(OldTestamentModel.data[section][row].0) + ", \(chapterTitle) \(chapter+1)"
+        return "\(title) - " + Translate.s(OldTestamentModel.data[section][row].0) + ", \(chapterTitle)"
     }
     
     func getContent(at pos: BookPosition) -> Any? {
@@ -183,7 +182,7 @@ class OldTestamentModel : BookModel {
 
 class NewTestamentModel : BookModel {
     var code: String = "NewTestament"
-    var title = "Новый Завет"
+    var title = Translate.s("New Testament")
 
     var mode: BookType = .text
 
@@ -231,7 +230,7 @@ class NewTestamentModel : BookModel {
     static let shared = NewTestamentModel()
     
     func getSections() -> [String] {
-        return ["Евангелия и Деяния", "Соборные Послания", "Послания св. Апостола Павла", "Откровение св. Ап. Иоанна Богослова"]
+        return ["Four Gospels and Acts", "Catholic Epistles", "Epistles of Paul", "Apocalypse"].map { return Translate.s($0) }
     }
     
     func getItems(_ section: Int) -> [String] {
@@ -252,7 +251,9 @@ class NewTestamentModel : BookModel {
         let row = Int(comp[2])!
         let chapter = Int(comp[3])!
         
-        return "Новый Завет - " + Translate.s(NewTestamentModel.data[section][row].0) + ", глава \(chapter+1)"
+        let chapterTitle = String(format: Translate.s("Chapter %@"), Translate.stringFromNumber(chapter+1)).lowercased()
+        
+        return "\(title) - " + Translate.s(NewTestamentModel.data[section][row].0) + ", \(chapterTitle)"
     }
         
     func getContent(at pos: BookPosition) -> Any? {

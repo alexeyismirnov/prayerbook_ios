@@ -175,9 +175,31 @@
 	<string>Откровение Иоанна Богослова</string>
 	<key>Chapter %@</key>
 	<string>Глава %@</string>
+    <key>Kathisma %@</key>
+    <string>Кафизма %@</string>
+    
 	<key>New Testament</key>
 	<string>Новый Завет</string>
 	<key>Old Testament</key>
 	<string>Ветхий Завет</string>
+    
+    <key>Five Books of Moses</key>
+    <string>Пятикнижие Моисея</string>
+    <key>Historical books</key>
+    <string>Книги исторические</string>
+    <key>Wisdom books</key>
+    <string>Книги учительные</string>
+    <key>Prophets books</key>
+    <string>Книги пророческие</string>
+    <key>Four Gospels and Acts</key>
+    <string>Евангелия и Деяния</string>
+    <key>Catholic Epistles</key>
+    <string>Соборные Послания</string>
+    <key>Epistles of Paul</key>
+    <string>Послания св. Апостола Павла</string>
+    <key>Apocalypse</key>
+    <string>Апокалипсис</string>
+    <key>Statis</key>
+    <string>Слава:</string>
 </dict>
 </plist>
