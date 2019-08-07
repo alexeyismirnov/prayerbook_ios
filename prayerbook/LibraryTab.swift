@@ -78,10 +78,7 @@ class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        let toc = UIViewController.named("BookTOC") as! BookTOC
-        toc.model = books[indexPath.row]
-        navigationController?.pushViewController(toc, animated: true)
-
+        navigationController?.pushViewController(BookTOC(books[indexPath.row])!, animated: true)
         return nil
     }
     

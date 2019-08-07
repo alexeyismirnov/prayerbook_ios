@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="G5G-CB-Hhd">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -210,41 +214,6 @@
             </objects>
             <point key="canvasLocation" x="857" y="254"/>
         </scene>
-        <!--BookTOC-->
-        <scene sceneID="ZIP-z4-SQb">
-            <objects>
-                <viewController storyboardIdentifier="BookTOC" automaticallyAdjustsScrollViewInsets="NO" id="z2q-jG-b8G" customClass="BookTOC" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vBB-tq-4Ca"/>
-                        <viewControllerLayoutGuide type="bottom" id="MIx-55-dgB"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TRt-ch-XVE">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="uZN-kN-55M">
-                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="uZN-kN-55M" secondAttribute="trailing" id="C25-NW-eRm"/>
-                            <constraint firstItem="MIx-55-dgB" firstAttribute="top" secondItem="uZN-kN-55M" secondAttribute="bottom" id="DQt-4x-LPJ"/>
-                            <constraint firstItem="uZN-kN-55M" firstAttribute="leading" secondItem="TRt-ch-XVE" secondAttribute="leading" id="USV-ck-YPD"/>
-                            <constraint firstItem="uZN-kN-55M" firstAttribute="top" secondItem="vBB-tq-4Ca" secondAttribute="bottom" id="gbZ-8h-X6w"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Wuz-jm-kOK"/>
-                    <connections>
-                        <outlet property="tableView" destination="uZN-kN-55M" id="cFi-aL-MRK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P3b-mC-S1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="187" y="254"/>
-        </scene>
         <!--Library Tab-->
         <scene sceneID="d5g-l8-dj5">
             <objects>
@@ -254,7 +223,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1wK-Nd-sqA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lZm-Hm-3US">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="954"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="n44-Mr-6vz">
@@ -444,7 +413,7 @@
                         <viewControllerLayoutGuide type="bottom" id="9Io-Wu-SYo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v3t-Kb-Qnp">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="954"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zgb-I3-x6V">

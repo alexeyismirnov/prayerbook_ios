@@ -17,20 +17,40 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var model : BookModel!
     var expandable : Bool!
 
-    @IBOutlet weak var tableView: UITableView!
+    var tableView: UITableView!
+    
+    init?(_ model: BookModel) {
+        self.model = model
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         expandable = model.isExpandable
         
+        tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
         tableView.contentInset = UIEdgeInsets(top: -30, left: 0, bottom: 0, right: 0)
         
         tableView.register(UINib(nibName: "ChaptersCell", bundle: nil), forCellReuseIdentifier: "ChaptersCell")
         tableView.register(UINib(nibName: "TextCell", bundle: toolkit), forCellReuseIdentifier: TextCell.cellId)
+        
+        view.addSubview(tableView)
+
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: navigationController!.navigationBar.frame.height + UIApplication.shared.statusBarFrame.height).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         automaticallyAdjustsScrollViewInsets = false
         navigationController?.makeTransparent()
