@@ -8,8 +8,30 @@
 
 import UIKit
 import swift_toolkit
+import Squeal
 
 struct BibleModel {
+    static func book(_ name: String, whereExpr: String = "") -> [[String:Bindable?]] {
+        let path = Bundle.main.path(forResource: name.lowercased()+"_"+Translate.language, ofType: "sqlite")!
+        let db = try! Database(path:path)
+        
+        return try! db.selectFrom("scripture", whereExpr:whereExpr) { ["verse": $0["verse"], "text": $0["text"]] }
+    }
+    
+    static func numberOfChapters(_ name: String) -> Int {
+        let path = Bundle.main.path(forResource: name.lowercased()+"_"+Translate.language, ofType: "sqlite")!
+        let db = try! Database(path:path)
+        
+        let results = try! db.prepareStatement("SELECT COUNT(DISTINCT chapter) FROM scripture")
+        
+        while try! results.next() {
+            let num = results[0] as! Int64
+            return Int(num)
+        }
+        
+        return 0
+    }
+    
     static func decorateLine(_ verse:Int64, _ content:String, _ fontSize:CGFloat, _ isPsalm: Bool = false) -> NSAttributedString {
         if isPsalm {
             let text = NSMutableAttributedString(attributedString: content.colored(with: Theme.textColor).systemFont(ofSize: fontSize))
@@ -47,7 +69,7 @@ struct BibleModel {
         
         text += title + "\n\n"
         
-        for line in Db.book(name, whereExpr: "chapter=\(chapter)") {
+        for line in book(name, whereExpr: "chapter=\(chapter)") {
             let row  = decorateLine(line["verse"] as! Int64, line["text"] as! String, CGFloat(fontSize), name == "ps")
             text = text + row
         }
@@ -127,7 +149,7 @@ class OldTestamentModel : BookModel {
     }
     
     func getNumChapters(_ index: IndexPath) -> Int {
-        return Db.numberOfChapters(OldTestamentModel.data[index.section][index.row].1)
+        return BibleModel.numberOfChapters(OldTestamentModel.data[index.section][index.row].1)
     }
 
     func getComment(commentId: Int) -> String? { return nil }
@@ -160,7 +182,7 @@ class OldTestamentModel : BookModel {
     func getNextSection(at pos: BookPosition) -> BookPosition? {
         guard let index = pos.index, let chapter = pos.chapter else { return nil }
 
-        let numChapters = Db.numberOfChapters(OldTestamentModel.data[index.section][index.row].1)
+        let numChapters = BibleModel.numberOfChapters(OldTestamentModel.data[index.section][index.row].1)
         if chapter < numChapters-1 {
             return BookPosition(index: index, chapter: chapter+1)
         } else {
@@ -238,7 +260,7 @@ class NewTestamentModel : BookModel {
     }
     
     func getNumChapters(_ index: IndexPath) -> Int {
-        return Db.numberOfChapters(NewTestamentModel.data[index.section][index.row].1)
+        return BibleModel.numberOfChapters(NewTestamentModel.data[index.section][index.row].1)
     }
     
     func getComment(commentId: Int) -> String? { return nil }
@@ -271,7 +293,7 @@ class NewTestamentModel : BookModel {
     func getNextSection(at pos: BookPosition) -> BookPosition? {
         guard let index = pos.index, let chapter = pos.chapter else { return nil }
 
-        let numChapters = Db.numberOfChapters(NewTestamentModel.data[index.section][index.row].1)
+        let numChapters = BibleModel.numberOfChapters(NewTestamentModel.data[index.section][index.row].1)
         if chapter < numChapters-1 {
             return BookPosition(index: index, chapter: chapter+1)
         } else {

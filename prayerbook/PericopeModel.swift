@@ -59,7 +59,7 @@ class PericopeModel : BookModel {
                 }
                 
                 if range.count == 1 {
-                    for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse=\(range[0].1)") {
+                    for line in BibleModel.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse=\(range[0].1)") {
                         if decorated {
                             text += BibleModel.decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize )
                         } else {
@@ -68,7 +68,7 @@ class PericopeModel : BookModel {
                     }
                     
                 } else if range[0].0 != range[1].0 {
-                    for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1)") {
+                    for line in BibleModel.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1)") {
                         if decorated {
                             text += BibleModel.decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
                         } else {
@@ -77,7 +77,7 @@ class PericopeModel : BookModel {
                     }
                     
                     for chap in range[0].0+1 ..< range[1].0 {
-                        for line in Db.book(fileName, whereExpr: "chapter=\(chap)") {
+                        for line in BibleModel.book(fileName, whereExpr: "chapter=\(chap)") {
                             if decorated {
                                 text += BibleModel.decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
                             } else {
@@ -86,7 +86,7 @@ class PericopeModel : BookModel {
                         }
                     }
                     
-                    for line in Db.book(fileName, whereExpr: "chapter=\(range[1].0) AND verse<=\(range[1].1)") {
+                    for line in BibleModel.book(fileName, whereExpr: "chapter=\(range[1].0) AND verse<=\(range[1].1)") {
                         if decorated {
                             text += BibleModel.decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
                         } else {
@@ -95,7 +95,7 @@ class PericopeModel : BookModel {
                     }
                     
                 } else {
-                    for line in Db.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1) AND verse<=\(range[1].1)") {
+                    for line in BibleModel.book(fileName, whereExpr: "chapter=\(range[0].0) AND verse>=\(range[0].1) AND verse<=\(range[1].1)") {
                         if decorated {
                             text += BibleModel.decorateLine(line["verse"] as! Int64, line["text"] as! String, fontSize)
                         } else {
