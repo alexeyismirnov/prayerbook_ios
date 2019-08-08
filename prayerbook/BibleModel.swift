@@ -145,7 +145,7 @@ class OldTestamentModel : BookModel {
     }
     
     func getItems(_ section: Int) -> [String] {
-        return OldTestamentModel.data[section].map { return $0.0 }
+        return OldTestamentModel.data[section].map { return Translate.s($0.0) }
     }
     
     func getNumChapters(_ index: IndexPath) -> Int {
@@ -256,7 +256,7 @@ class NewTestamentModel : BookModel {
     }
     
     func getItems(_ section: Int) -> [String] {
-        return NewTestamentModel.data[section].map { return $0.0 }
+        return NewTestamentModel.data[section].map { return  Translate.s($0.0) }
     }
     
     func getNumChapters(_ index: IndexPath) -> Int {

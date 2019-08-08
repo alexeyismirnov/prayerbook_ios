@@ -9,7 +9,7 @@
 import UIKit
 import swift_toolkit
 
-class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource, ResizableTableViewCells {
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     let prefs = AppGroup.prefs!
 
@@ -42,9 +42,8 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.separatorStyle = .none
         tableView.contentInset = UIEdgeInsets(top: -30, left: 0, bottom: 0, right: 0)
         
-        tableView.register(UINib(nibName: "ChaptersCell", bundle: nil), forCellReuseIdentifier: "ChaptersCell")
-        tableView.register(UINib(nibName: "TextCell", bundle: toolkit), forCellReuseIdentifier: TextCell.cellId)
-        
+        tableView.register(UINib(nibName: "TextDetailsCell", bundle: toolkit), forCellReuseIdentifier: "TextDetailsCell")
+
         view.addSubview(tableView)
 
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -158,22 +157,12 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let section = indexPath.section
         
         if (expandable) {
-            let index = indexPath.row / 2
-            
             if indexPath.row % 2 == 0 {
-                let newCell = tableView.dequeueReusableCell(withIdentifier: TextCell.cellId) as! TextCell
-               
-                newCell.backgroundColor = .clear
-                newCell.title.textColor =  Theme.textColor
-                newCell.title.text = Translate.s(model.getItems(section)[index])
-                
-                return newCell
+                return getTextDetailsCell(title: model.getItems(section)[indexPath.row / 2], subtitle: "")
                 
             } else {
-                let newCell = tableView.dequeueReusableCell(withIdentifier: "ChaptersCell") as! ChaptersCell
-                let newIndex = IndexPath(row: index, section: section)
-                
-                newCell.backgroundColor = .clear
+                let newCell: ChapterViewCell = tableView.dequeueReusableCell()
+                let newIndex = IndexPath(row: indexPath.row / 2, section: section)
                 newCell.index = newIndex
                 newCell.numChapters = model.getNumChapters(newIndex)
                 newCell.collectionView.reloadData()
@@ -182,12 +171,7 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
             
         } else {
-            let newCell = tableView.dequeueReusableCell(withIdentifier: TextCell.cellId) as! TextCell
-            newCell.backgroundColor = .clear
-            newCell.title.textColor =  Theme.textColor
-            newCell.title.text = Translate.s(model.getItems(section)[indexPath.row])
-            
-            return newCell
+            return getTextDetailsCell(title: model.getItems(section)[indexPath.row], subtitle: "")
         }
 
     }
@@ -200,8 +184,8 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 return calculateHeightForCell(self.tableView(tableView, cellForRowAt: indexPath))
                 
             } else if (expanded.contains(IndexPath(row: index, section: indexPath.section))) {
-                let cell = self.tableView(tableView, cellForRowAt: indexPath) as! ChaptersCell
-                
+                let cell = self.tableView(tableView, cellForRowAt: indexPath) as! ChapterViewCell
+
                 cell.bounds = CGRect(x: 0, y: 0, width: tableView.frame.width, height: cell.bounds.height)
                 cell.setNeedsLayout()
                 cell.layoutIfNeeded()
@@ -243,15 +227,6 @@ class BookTOC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "Удалить"
-    }
-    
-    func calculateHeightForCell(_ cell: UITableViewCell) -> CGFloat {
-        cell.bounds = CGRect(x: 0, y: 0, width: tableView.frame.width, height: cell.bounds.height)
-        cell.setNeedsLayout()
-        cell.layoutIfNeeded()
-        
-        let size = cell.contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-        return max(size.height+1.0, 40)
     }
     
 }

@@ -52,6 +52,7 @@
 		8A1B2575202955A60038C0C4 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 8A1B2574202955A60038C0C4 /* icons */; };
 		8A1B2577202956840038C0C4 /* SaintIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B2576202956840038C0C4 /* SaintIconView.swift */; };
 		8A1B257920295C9D0038C0C4 /* CenterViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B257820295C9D0038C0C4 /* CenterViewFlowLayout.swift */; };
+		8A1EA09322FC253400F0ECF1 /* ChapterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1EA09222FC253400F0ECF1 /* ChapterViewCell.swift */; };
 		8A1F2C981DD9B0F000F13A3D /* newicon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2C971DD9B0F000F13A3D /* newicon_1024.png */; };
 		8A1F2CB41DD9C18600F13A3D /* newicon_167.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CB31DD9C18600F13A3D /* newicon_167.png */; };
 		8A1F8286202AA7EC0010C02F /* iPhoneX-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F8285202AA7EC0010C02F /* iPhoneX-Portrait.png */; };
@@ -144,8 +145,6 @@
 		8AB749A41C4C7A3500CD1B32 /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB749A31C4C7A3500CD1B32 /* ExpandedViewController.swift */; };
 		8AB749A71C4C7A3500CD1B32 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AB749A51C4C7A3500CD1B32 /* MainInterface.storyboard */; };
 		8AB8674B229B8FAD00D6EFA7 /* SynaxarionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8674A229B8FAD00D6EFA7 /* SynaxarionModel.swift */; };
-		8AB90801216EF7580030F989 /* ChaptersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB907FF216EF7580030F989 /* ChaptersCell.swift */; };
-		8AB90802216EF7580030F989 /* ChaptersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB90800216EF7580030F989 /* ChaptersCell.xib */; };
 		8AC10A0B222A694F00540B22 /* num_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109CA222A694300540B22 /* num_ru.sqlite */; };
 		8AC10A0C222A694F00540B22 /* ephes_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109CB222A694300540B22 /* ephes_ru.sqlite */; };
 		8AC10A0D222A694F00540B22 /* john_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109CC222A694300540B22 /* john_ru.sqlite */; };
@@ -337,6 +336,7 @@
 		8A1B2576202956840038C0C4 /* SaintIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintIconView.swift; sourceTree = "<group>"; };
 		8A1B257820295C9D0038C0C4 /* CenterViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewFlowLayout.swift; sourceTree = "<group>"; };
 		8A1DD3221E9CC82A00A04024 /* NAModalSheet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NAModalSheet.framework; path = "../../Library/Developer/Xcode/DerivedData/prayerbook-ewzsuaxwoacyigdcqavmiszgcxqo/Build/Products/Debug-iphonesimulator/NAModalSheet/NAModalSheet.framework"; sourceTree = "<group>"; };
+		8A1EA09222FC253400F0ECF1 /* ChapterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterViewCell.swift; sourceTree = "<group>"; };
 		8A1F2C971DD9B0F000F13A3D /* newicon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_1024.png; sourceTree = "<group>"; };
 		8A1F2CB31DD9C18600F13A3D /* newicon_167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_167.png; sourceTree = "<group>"; };
 		8A1F8285202AA7EC0010C02F /* iPhoneX-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhoneX-Portrait.png"; sourceTree = "<group>"; };
@@ -435,8 +435,6 @@
 		8AB749A61C4C7A3500CD1B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		8AB749A81C4C7A3500CD1B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AB8674A229B8FAD00D6EFA7 /* SynaxarionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynaxarionModel.swift; sourceTree = "<group>"; };
-		8AB907FF216EF7580030F989 /* ChaptersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersCell.swift; sourceTree = "<group>"; };
-		8AB90800216EF7580030F989 /* ChaptersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChaptersCell.xib; sourceTree = "<group>"; };
 		8AC109CA222A694300540B22 /* num_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = num_ru.sqlite; sourceTree = "<group>"; };
 		8AC109CB222A694300540B22 /* ephes_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ephes_ru.sqlite; sourceTree = "<group>"; };
 		8AC109CC222A694300540B22 /* john_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = john_ru.sqlite; sourceTree = "<group>"; };
@@ -663,8 +661,7 @@
 				8AB8674A229B8FAD00D6EFA7 /* SynaxarionModel.swift */,
 				8A6F7E9222A108E7006FD639 /* ZvezdinskyModel.swift */,
 				8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */,
-				8AB907FF216EF7580030F989 /* ChaptersCell.swift */,
-				8AB90800216EF7580030F989 /* ChaptersCell.xib */,
+				8A1EA09222FC253400F0ECF1 /* ChapterViewCell.swift */,
 				8A1B2576202956840038C0C4 /* SaintIconView.swift */,
 				8A54E3DC2028637E00245C31 /* SaintIconModel.swift */,
 				8A1B257820295C9D0038C0C4 /* CenterViewFlowLayout.swift */,
@@ -1072,7 +1069,6 @@
 				8A5457831E70174300A86B5A /* synaxarion19.rtf in Resources */,
 				8AC10A44222A694F00540B22 /* song_ru.sqlite in Resources */,
 				8A5457811E70174300A86B5A /* synaxarion17.rtf in Resources */,
-				8AB90802216EF7580030F989 /* ChaptersCell.xib in Resources */,
 				8AC10A12222A694F00540B22 /* mark_ru.sqlite in Resources */,
 				8A54577F1E70174300A86B5A /* synaxarion15.rtf in Resources */,
 				8A008FF62258A7B100A9636B /* liturgy.sqlite in Resources */,
@@ -1282,6 +1278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A1EA09322FC253400F0ECF1 /* ChapterViewCell.swift in Sources */,
 				8A6F7E9322A108E7006FD639 /* ZvezdinskyModel.swift in Sources */,
 				8A01E42621957BD8005BE65F /* DownloadManager.swift in Sources */,
 				8AE46EFE1EA9A6F900CAC1CB /* CalendarInfo.swift in Sources */,
@@ -1290,7 +1287,6 @@
 				8A916D8522575870003FEF70 /* BookPageHTML.swift in Sources */,
 				8A6684FC2178834700C19C04 /* TopAlignedCollection.swift in Sources */,
 				8ACC2F03229E2B4A00F43229 /* FeofanModel.swift in Sources */,
-				8AB90801216EF7580030F989 /* ChaptersCell.swift in Sources */,
 				8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */,
 				8A13C8FD219172E500D0CE7E /* AudioPlayerCell.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
