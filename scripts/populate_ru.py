@@ -6,8 +6,8 @@ import sqlite3 as lite
 import urllib2
 from bs4 import BeautifulSoup
 
-book = 39
-num_chapters = 4
+book = 37
+num_chapters = 2
 
 with lite.connect("./%s.sqlite" % book) as con:
     cur = con.cursor()
@@ -15,7 +15,7 @@ with lite.connect("./%s.sqlite" % book) as con:
     cur.execute("CREATE TABLE scripture(chapter INT,verse INT, text TEXT)")
 
     for chapter in range(1, num_chapters+1):
-        page = urllib2.urlopen("https://www.bibleonline.ru/bible/rus/%d/%d/" % (book,chapter)).read()
+        page = urllib2.urlopen("https://old.bibleonline.ru/bible/rus/%d/%02d/" % (book,chapter)).read()
         soup = BeautifulSoup(page, "html.parser")
 
         div = soup.find(id="biblecont")
@@ -24,6 +24,6 @@ with lite.connect("./%s.sqlite" % book) as con:
             verse =  li['value']
 
             print "%d:%d" % ( int(chapter), int(verse))
-            print li.getText()
+            print li.getText().encode('utf-8')
 
             cur.execute("INSERT INTO scripture VALUES(%d, %d, \"%s\")" % (int(chapter), int(verse), li.getText()))
