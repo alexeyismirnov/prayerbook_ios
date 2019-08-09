@@ -43,16 +43,13 @@
 		8A13C8FE219172E500D0CE7E /* AudioPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C8FC219172E500D0CE7E /* AudioPlayerCell.xib */; };
 		8A13C90121917AB700D0CE7E /* pause.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C8FF21917AB700D0CE7E /* pause.pdf */; };
 		8A13C90221917AB700D0CE7E /* play.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C90021917AB700D0CE7E /* play.pdf */; };
-		8A16CB2B228BC35A004147B6 /* BookPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A16CB2A228BC35A004147B6 /* BookPage.swift */; };
 		8A1736EF22D20E4C00654AB1 /* TroparionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1736EE22D20E4C00654AB1 /* TroparionModel.swift */; };
 		8A1736F322D214B700654AB1 /* troparion.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A1736F222D214B700654AB1 /* troparion.sqlite */; };
 		8A18FB7F22CC4EC9006B3F29 /* fasting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A18FB7E22CC4EC9006B3F29 /* fasting.plist */; };
 		8A1964512186AC5700CDDCB5 /* FeastList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1964502186AC5700CDDCB5 /* FeastList.swift */; };
-		8A1AD228228D62C40043F487 /* BookPageText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1AD227228D62C30043F487 /* BookPageText.swift */; };
 		8A1B2575202955A60038C0C4 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 8A1B2574202955A60038C0C4 /* icons */; };
 		8A1B2577202956840038C0C4 /* SaintIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B2576202956840038C0C4 /* SaintIconView.swift */; };
 		8A1B257920295C9D0038C0C4 /* CenterViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B257820295C9D0038C0C4 /* CenterViewFlowLayout.swift */; };
-		8A1EA09322FC253400F0ECF1 /* ChapterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1EA09222FC253400F0ECF1 /* ChapterViewCell.swift */; };
 		8A1F2C981DD9B0F000F13A3D /* newicon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2C971DD9B0F000F13A3D /* newicon_1024.png */; };
 		8A1F2CB41DD9C18600F13A3D /* newicon_167.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CB31DD9C18600F13A3D /* newicon_167.png */; };
 		8A24885E1EB0948A006877D8 /* YearlyCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */; };
@@ -88,7 +85,6 @@
 		8A5457831E70174300A86B5A /* synaxarion19.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54576E1E70174300A86B5A /* synaxarion19.rtf */; };
 		8A5457841E70174300A86B5A /* synaxarion20.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54576F1E70174300A86B5A /* synaxarion20.rtf */; };
 		8A54C42A1EA74CE90083AA2F /* DailyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C4291EA74CE90083AA2F /* DailyTab.swift */; };
-		8A54C42C1EA760E30083AA2F /* BookTOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C42B1EA760E30083AA2F /* BookTOC.swift */; };
 		8A54E3DB202857E900245C31 /* icons.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A54E3DA202857E900245C31 /* icons.sqlite */; };
 		8A54E3DD2028637E00245C31 /* SaintIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54E3DC2028637E00245C31 /* SaintIconModel.swift */; };
 		8A560789219AC51C006E52F2 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A560788219AC51C006E52F2 /* Squeal.framework */; };
@@ -111,13 +107,10 @@
 		8A76870D1EB72A6E000F7533 /* YearlyMonthViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */; };
 		8A7DF2FD22CB5FA90071FCB4 /* book.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A7DF2FC22CB5FA90071FCB4 /* book.pdf */; };
 		8A8753F41FC429C400C857DE /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8753F51FC429C400C857DE /* Squeal.framework */; };
-		8A916D8522575870003FEF70 /* BookPageHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A916D8422575870003FEF70 /* BookPageHTML.swift */; };
 		8A916D8722575EA7003FEF70 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A916D8622575EA7003FEF70 /* WebKit.framework */; };
 		8A916D8922576C34003FEF70 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A916D8822576C34003FEF70 /* ServiceModel.swift */; };
 		8A953B371DC736C2001062AF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A953B361DC736C2001062AF /* MainViewController.swift */; };
-		8A96719C2230C1900086CBA6 /* BibleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A96719B2230C1900086CBA6 /* BibleModel.swift */; };
 		8A9FE9482291569000319DCE /* PericopeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FE9472291569000319DCE /* PericopeModel.swift */; };
-		8A9FE94A22915CA500319DCE /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9FE94922915CA500319DCE /* BookModel.swift */; };
 		8AADFF521E84C25300CE3D0F /* synaxarion21.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF441E84C25300CE3D0F /* synaxarion21.rtf */; };
 		8AADFF531E84C25300CE3D0F /* synaxarion22.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF451E84C25300CE3D0F /* synaxarion22.rtf */; };
 		8AADFF541E84C25300CE3D0F /* synaxarion23.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF461E84C25300CE3D0F /* synaxarion23.rtf */; };
@@ -218,7 +211,6 @@
 		8AC6952719E4011700773FEB /* library.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952319E4011700773FEB /* library.pdf */; };
 		8AC7203922880E04006862E4 /* remove_bookmark.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7203722880E04006862E4 /* remove_bookmark.pdf */; };
 		8AC7203A22880E04006862E4 /* add_bookmark.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7203822880E04006862E4 /* add_bookmark.pdf */; };
-		8AC7203C22881A4A006862E4 /* BookmarksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC7203B22881A4A006862E4 /* BookmarksModel.swift */; };
 		8AC757C21C550BFD0088D4D0 /* Images.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D815198F20CC0078F39F /* Images.xcassets */; };
 		8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89219E4CECB00B51294 /* arrow-left.pdf */; };
 		8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89319E4CECB00B51294 /* arrow-right.pdf */; };
@@ -325,17 +317,14 @@
 		8A13C90021917AB700D0CE7E /* play.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = play.pdf; sourceTree = "<group>"; };
 		8A13C903219190F500D0CE7E /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		8A13C905219190FF00D0CE7E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		8A16CB2A228BC35A004147B6 /* BookPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPage.swift; sourceTree = "<group>"; };
 		8A1736EE22D20E4C00654AB1 /* TroparionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroparionModel.swift; sourceTree = "<group>"; };
 		8A1736F222D214B700654AB1 /* troparion.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = troparion.sqlite; sourceTree = "<group>"; };
 		8A18FB7E22CC4EC9006B3F29 /* fasting.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = fasting.plist; sourceTree = "<group>"; };
 		8A1964502186AC5700CDDCB5 /* FeastList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeastList.swift; sourceTree = "<group>"; };
-		8A1AD227228D62C30043F487 /* BookPageText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPageText.swift; sourceTree = "<group>"; };
 		8A1B2574202955A60038C0C4 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icons; sourceTree = "<group>"; };
 		8A1B2576202956840038C0C4 /* SaintIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintIconView.swift; sourceTree = "<group>"; };
 		8A1B257820295C9D0038C0C4 /* CenterViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewFlowLayout.swift; sourceTree = "<group>"; };
 		8A1DD3221E9CC82A00A04024 /* NAModalSheet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NAModalSheet.framework; path = "../../Library/Developer/Xcode/DerivedData/prayerbook-ewzsuaxwoacyigdcqavmiszgcxqo/Build/Products/Debug-iphonesimulator/NAModalSheet/NAModalSheet.framework"; sourceTree = "<group>"; };
-		8A1EA09222FC253400F0ECF1 /* ChapterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterViewCell.swift; sourceTree = "<group>"; };
 		8A1F2C971DD9B0F000F13A3D /* newicon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_1024.png; sourceTree = "<group>"; };
 		8A1F2CB31DD9C18600F13A3D /* newicon_167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_167.png; sourceTree = "<group>"; };
 		8A2197D91ECAD486007CB039 /* ChameleonFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChameleonFramework.framework; path = "../../Derived3/prayerbook-ewzsuaxwoacyigdcqavmiszgcxqo/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework"; sourceTree = "<group>"; };
@@ -372,7 +361,6 @@
 		8A54576E1E70174300A86B5A /* synaxarion19.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion19.rtf; sourceTree = "<group>"; };
 		8A54576F1E70174300A86B5A /* synaxarion20.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion20.rtf; sourceTree = "<group>"; };
 		8A54C4291EA74CE90083AA2F /* DailyTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab.swift; sourceTree = "<group>"; };
-		8A54C42B1EA760E30083AA2F /* BookTOC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTOC.swift; sourceTree = "<group>"; };
 		8A54E3DA202857E900245C31 /* icons.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.sqlite; sourceTree = "<group>"; };
 		8A54E3DC2028637E00245C31 /* SaintIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintIconModel.swift; sourceTree = "<group>"; };
 		8A560788219AC51C006E52F2 /* Squeal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Squeal.framework; path = Carthage/Build/iOS/Squeal.framework; sourceTree = "<group>"; };
@@ -398,14 +386,11 @@
 		8A7DF2FC22CB5FA90071FCB4 /* book.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = book.pdf; sourceTree = "<group>"; };
 		8A8753F51FC429C400C857DE /* Squeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Squeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = swift_toolkit.framework; path = Carthage/Build/iOS/swift_toolkit.framework; sourceTree = "<group>"; };
-		8A916D8422575870003FEF70 /* BookPageHTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPageHTML.swift; sourceTree = "<group>"; };
 		8A916D8622575EA7003FEF70 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		8A916D8822576C34003FEF70 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		8A953B361DC736C2001062AF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		8A96719B2230C1900086CBA6 /* BibleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleModel.swift; sourceTree = "<group>"; };
 		8A9A36D81CAD127400D33D5A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8A9FE9472291569000319DCE /* PericopeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PericopeModel.swift; sourceTree = "<group>"; };
-		8A9FE94922915CA500319DCE /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		8AADFF441E84C25300CE3D0F /* synaxarion21.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion21.rtf; sourceTree = "<group>"; };
 		8AADFF451E84C25300CE3D0F /* synaxarion22.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion22.rtf; sourceTree = "<group>"; };
 		8AADFF461E84C25300CE3D0F /* synaxarion23.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion23.rtf; sourceTree = "<group>"; };
@@ -508,7 +493,6 @@
 		8AC6952319E4011700773FEB /* library.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = library.pdf; sourceTree = "<group>"; };
 		8AC7203722880E04006862E4 /* remove_bookmark.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = remove_bookmark.pdf; sourceTree = "<group>"; };
 		8AC7203822880E04006862E4 /* add_bookmark.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = add_bookmark.pdf; sourceTree = "<group>"; };
-		8AC7203B22881A4A006862E4 /* BookmarksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksModel.swift; sourceTree = "<group>"; };
 		8AC7B89219E4CECB00B51294 /* arrow-left.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-left.pdf"; sourceTree = "<group>"; };
 		8AC7B89319E4CECB00B51294 /* arrow-right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-right.pdf"; sourceTree = "<group>"; };
 		8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeofanModel.swift; sourceTree = "<group>"; };
@@ -646,20 +630,12 @@
 				8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */,
 				8A54C4291EA74CE90083AA2F /* DailyTab.swift */,
 				8A0689F8221FF8A600F1E711 /* LibraryTab.swift */,
-				8A54C42B1EA760E30083AA2F /* BookTOC.swift */,
-				8A9FE94922915CA500319DCE /* BookModel.swift */,
-				8A16CB2A228BC35A004147B6 /* BookPage.swift */,
-				8A916D8422575870003FEF70 /* BookPageHTML.swift */,
-				8A1AD227228D62C30043F487 /* BookPageText.swift */,
 				8A1736EE22D20E4C00654AB1 /* TroparionModel.swift */,
-				8AC7203B22881A4A006862E4 /* BookmarksModel.swift */,
-				8A96719B2230C1900086CBA6 /* BibleModel.swift */,
 				8A9FE9472291569000319DCE /* PericopeModel.swift */,
 				8A916D8822576C34003FEF70 /* ServiceModel.swift */,
 				8AB8674A229B8FAD00D6EFA7 /* SynaxarionModel.swift */,
 				8A6F7E9222A108E7006FD639 /* ZvezdinskyModel.swift */,
 				8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */,
-				8A1EA09222FC253400F0ECF1 /* ChapterViewCell.swift */,
 				8A1B2576202956840038C0C4 /* SaintIconView.swift */,
 				8A54E3DC2028637E00245C31 /* SaintIconModel.swift */,
 				8A1B257820295C9D0038C0C4 /* CenterViewFlowLayout.swift */,
@@ -1274,38 +1250,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A1EA09322FC253400F0ECF1 /* ChapterViewCell.swift in Sources */,
 				8A6F7E9322A108E7006FD639 /* ZvezdinskyModel.swift in Sources */,
 				8A01E42621957BD8005BE65F /* DownloadManager.swift in Sources */,
 				8AE46EFE1EA9A6F900CAC1CB /* CalendarInfo.swift in Sources */,
 				8A24885E1EB0948A006877D8 /* YearlyCalendar.swift in Sources */,
 				8A9FE9482291569000319DCE /* PericopeModel.swift in Sources */,
-				8A916D8522575870003FEF70 /* BookPageHTML.swift in Sources */,
 				8A6684FC2178834700C19C04 /* TopAlignedCollection.swift in Sources */,
 				8ACC2F03229E2B4A00F43229 /* FeofanModel.swift in Sources */,
 				8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */,
 				8A13C8FD219172E500D0CE7E /* AudioPlayerCell.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
-				8AC7203C22881A4A006862E4 /* BookmarksModel.swift in Sources */,
 				8AB8674B229B8FAD00D6EFA7 /* SynaxarionModel.swift in Sources */,
 				8A1964512186AC5700CDDCB5 /* FeastList.swift in Sources */,
-				8A1AD228228D62C40043F487 /* BookPageText.swift in Sources */,
 				8A1B2577202956840038C0C4 /* SaintIconView.swift in Sources */,
 				8A24F52F1EB98A1700CE19E7 /* CalendarImageCell.swift in Sources */,
 				8AB004D521884F97005D8A77 /* FeastNotifications.swift in Sources */,
 				8A0689F9221FF8A600F1E711 /* LibraryTab.swift in Sources */,
 				8A76870C1EB72A6E000F7533 /* YearlyMonthViewCell.swift in Sources */,
 				8A01E42221956295005BE65F /* TroparionFeastModel.swift in Sources */,
-				8A96719C2230C1900086CBA6 /* BibleModel.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A916D8922576C34003FEF70 /* ServiceModel.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
-				8A54C42C1EA760E30083AA2F /* BookTOC.swift in Sources */,
 				8A54E3DD2028637E00245C31 /* SaintIconModel.swift in Sources */,
-				8A9FE94A22915CA500319DCE /* BookModel.swift in Sources */,
 				8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */,
 				8A2F46AB19E145D200076AF4 /* Options.swift in Sources */,
-				8A16CB2B228BC35A004147B6 /* BookPage.swift in Sources */,
 				8A54C42A1EA74CE90083AA2F /* DailyTab.swift in Sources */,
 				8A1736EF22D20E4C00654AB1 /* TroparionModel.swift in Sources */,
 				8A1B257920295C9D0038C0C4 /* CenterViewFlowLayout.swift in Sources */,

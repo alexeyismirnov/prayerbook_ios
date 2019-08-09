@@ -25,6 +25,8 @@ class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        BookmarksModel.books = books
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear

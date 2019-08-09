@@ -8,6 +8,7 @@
 
 import UIKit
 import Squeal
+import swift_toolkit
 
 protocol ServiceModel  {
     var data: [[String]] { get }

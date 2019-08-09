@@ -70,5 +70,9 @@
 	<string>Настройки</string>
 	<key>Prayerbook</key>
 	<string>Молитвослов</string>
+    <key>Delete</key>
+    <string>Удалить</string>
+    <key>No bookmarks</key>
+    <string>Нет закладок</string>
 </dict>
 </plist>
