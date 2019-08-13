@@ -9,60 +9,43 @@
 import UIKit
 import swift_toolkit
 
-extension UIView {
-    var parentViewController: UIViewController? {
-        var parentResponder: UIResponder? = self
-        while parentResponder != nil {
-            parentResponder = parentResponder!.next
-            if let viewController = parentResponder as? UIViewController {
-                return viewController
-            }
-        }
-        return nil
-    }
-}
-
-class CollectionViewCell : UICollectionViewCell {
-    @IBOutlet weak var icon: UIImageView!
-}
-
-class SaintIconCell : ConfigurableCell, UICollectionViewDataSource, UICollectionViewDelegate  {
-    override class var cellId: String {
-        get { return "SaintIconCell" }
-    }
-    
+class SaintIconCell : UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate  {
     var saints = [Saint]()  {
         didSet {
             collectionView.reloadData()
         }
     }
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    let collectionReuseIdentifier = "collectionViewCellId"
-    
-    static func itemSize() -> CGSize {
-        if (UIDevice.current.userInterfaceIdiom == .phone) {
-            if ["iPhone 6 Plus", "iPhone 6s Plus", "iPhone 7 Plus", "iPhone 8 Plus"].contains(UIDevice.modelName) {
-                return CGSize(width: 120, height: 120)
-                
-            } else  if ["iPhone 4s", "iPhone 5", "iPhone 5s", "iPhone SE"].contains(UIDevice.modelName) {
-                return CGSize(width: 90, height: 90)
-            
-            } else {
-                return CGSize(width: 110, height: 110)
+    var collectionView: UICollectionView!
 
-            }
-        } else {
-            return CGSize(width: 180, height: 180)
-        }
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        (collectionView.collectionViewLayout as!  UICollectionViewFlowLayout).itemSize = SaintIconCell.itemSize()
+        backgroundColor = .clear
+        clipsToBounds = true
+        
+        let flowLayout = CenterViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.itemSize = SaintIconCell.getItemSize()
+        
+        collectionView = UICollectionView(frame: bounds, collectionViewLayout: flowLayout)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isPagingEnabled = true
+        collectionView.backgroundColor = .clear
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        addSubview(collectionView)
+        fullScreen(view: collectionView)
         
     }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -72,14 +55,14 @@ class SaintIconCell : ConfigurableCell, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionReuseIdentifier, for: indexPath) as! CollectionViewCell
-        
+        let cell: ImageViewCell = collectionView.dequeueReusableCell(for: indexPath)
+
         guard let resourcePath = Bundle.main.resourcePath else { return cell }
         let iconPath = resourcePath + "/icons/\(saints[indexPath.row].id).jpg"
         
         if saints[indexPath.row].has_icon {
-            try! cell.icon!.image = UIImage(data: Data(contentsOf: URL(fileURLWithPath: iconPath)))
-            cell.icon!.contentMode = .scaleAspectFit
+            try! cell.icon.image = UIImage(data: Data(contentsOf: URL(fileURLWithPath: iconPath)))
+            cell.icon.contentMode = .scaleAspectFit
         }
         
         return cell
@@ -92,5 +75,22 @@ class SaintIconCell : ConfigurableCell, UICollectionViewDataSource, UICollection
                               handler: { _ in })
     }
 
+    static func getItemSize() -> CGSize {
+        if (UIDevice.current.userInterfaceIdiom == .phone) {
+            if ["iPhone 6 Plus", "iPhone 6s Plus", "iPhone 7 Plus", "iPhone 8 Plus"].contains(UIDevice.modelName) {
+                return CGSize(width: 120, height: 120)
+                
+            } else  if ["iPhone 4s", "iPhone 5", "iPhone 5s", "iPhone SE"].contains(UIDevice.modelName) {
+                return CGSize(width: 90, height: 90)
+                
+            } else {
+                return CGSize(width: 110, height: 110)
+                
+            }
+        } else {
+            return CGSize(width: 180, height: 180)
+        }
+    }
 }
 
+extension SaintIconCell: ReusableView {}

@@ -10,8 +10,8 @@ import UIKit
 import Squeal
 import swift_toolkit
 
-class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var tableView: UITableView!
+class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
+    var tableView: UITableView!
     
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
 
@@ -83,11 +83,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.backgroundColor = .clear
-        automaticallyAdjustsScrollViewInsets = false
-
+        createTableView(style: .plain)
         configureNavbar()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -244,7 +240,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
             
         } else if indexPath.section == 1 {
             if appeared {
-                let cell: SaintIconCell  = getCell()
+                let cell: SaintIconCell = tableView.dequeueReusableCell(for: indexPath)
                 cell.saints = saintIcons
                 return cell
 
@@ -435,7 +431,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (appeared) {
             if indexPath.section == 1 {
-                return SaintIconCell.itemSize().height + 40 // some margin
+                return SaintIconCell.getItemSize().height + 40 // some margin
                 
             } else {
                 let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)

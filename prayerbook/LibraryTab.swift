@@ -17,25 +17,21 @@ let books : [BookModel] = [BookmarksModel.shared,
                            ZvezdinskyModel.shared,
                            SynaxarionModel.shared]
 
+
 class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, ResizableTableViewCells  {    
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
-    
-    @IBOutlet weak var tableView: UITableView!
+    var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         BookmarksModel.books = books
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.backgroundColor = .clear
+        createTableView(style: .grouped)
         tableView.contentInset = UIEdgeInsets(top: -30, left: 0, bottom: 0, right: 0)
-        
-        tableView.register(UINib(nibName: "TextCell", bundle: toolkit), forCellReuseIdentifier: "TextCell")
+
         tableView.register(UINib(nibName: "TextDetailsCell", bundle: toolkit), forCellReuseIdentifier: "TextDetailsCell")
 
-        automaticallyAdjustsScrollViewInsets = false
         navigationController?.makeTransparent()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
@@ -63,15 +59,8 @@ class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         return books.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
-        let cell: TextDetailsCell = getCell()
-        
-        cell.backgroundColor = .clear
-        cell.title.textColor =  Theme.textColor
-        cell.title.text = books[indexPath.row].title
-        cell.subtitle.text = ""
-        
-        return cell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return getTextDetailsCell(title: books[indexPath.row].title, subtitle: "")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
