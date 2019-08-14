@@ -11,13 +11,11 @@ import swift_toolkit
 
 class CalendarInfo: UITableViewController {
     let fastingTypes : [FastingModel] = (FastingModel.fastingLevel == .monastic) ? FastingModel.monasticTypes : FastingModel.laymenTypes
+    let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
-        tableView.register(UINib(nibName: "ImageCell", bundle: toolkit), forCellReuseIdentifier: "ImageCell")
-
         view.backgroundColor = UIColor(hex: "#FFEBCD")
 
         let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(close))
@@ -34,7 +32,7 @@ class CalendarInfo: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell  = tableView.dequeueReusableCell(withIdentifier: "ImageCell") as! ImageCell
+        let cell: ImageCell = tableView.dequeueReusableCell()
         let fasting = fastingTypes[indexPath.row]
         
         cell.title.text = fasting.descr

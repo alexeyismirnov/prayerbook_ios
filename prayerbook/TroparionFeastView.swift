@@ -33,7 +33,6 @@ class TroparionFeastView:  UIViewController, ResizableTableViewCells, UITableVie
         tableView.dataSource = self
         
         tableView.register(UINib(nibName: "AudioPlayerCell", bundle: nil), forCellReuseIdentifier: "AudioPlayerCell")
-        tableView.register(UINib(nibName: "TextCell", bundle: toolkit), forCellReuseIdentifier: "TextCell")
 
         fontSize = prefs.integer(forKey: "fontSize")
         reloadTheme()
