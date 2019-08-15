@@ -30,7 +30,7 @@ class Options: UITableViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: doneLabel)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTheme), name: .themeChangedNotification, object: nil)
 
         view.backgroundColor = UIColor.clear
         tableView.backgroundView = UIImageView(image: UIImage(background: "church.jpg", inView: view, bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
@@ -96,7 +96,7 @@ class Options: UITableViewController {
                 prefs.removeObject(forKey: "theme")
                 prefs.synchronize()
                 
-                NotificationCenter.default.post(name: Notification.Name(rawValue: themeChangedNotification), object: nil)
+                NotificationCenter.default.post(name: .themeChangedNotification, object: nil)
                 self.dismiss(animated: false, completion: {})
                 
             } else {

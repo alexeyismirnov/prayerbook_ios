@@ -32,7 +32,7 @@ class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 
         navigationController?.makeTransparent()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .themeChangedNotification, object: nil)
 
         reloadTheme()
     }
