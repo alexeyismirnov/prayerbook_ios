@@ -15,7 +15,6 @@ enum ScriptureDisplay {
 }
 
 class Scripture: UIViewController {
-
     var fontSize: Int = 0
     var code: ScriptureDisplay = .chapter("", 0)
     let prefs = AppGroup.prefs!
@@ -25,8 +24,8 @@ class Scripture: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .optionsSavedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .themeChangedNotification, object: nil)
 
         let backButton = UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(closeView))
         navigationItem.leftBarButtonItem = backButton
@@ -132,7 +131,9 @@ class Scripture: UIViewController {
     
     static func getPericope(_ str: String, decorated: Bool, fontSize: Int = 0) -> [(NSMutableAttributedString, NSMutableAttributedString)] {
         var result = [(NSMutableAttributedString, NSMutableAttributedString)]()
+        return result
         
+        /*
         var pericope = str.characters.split { $0 == " " }.map { String($0) }
         
         for i in stride(from: 0, to: pericope.count-1, by: 2) {
@@ -228,6 +229,7 @@ class Scripture: UIViewController {
         }
         
         return result
+ */
     }
 
 

@@ -10,8 +10,8 @@ import UIKit
 import Squeal
 import swift_toolkit
 
-class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource{
-    @IBOutlet weak var tableView: UITableView!
+class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
+    var tableView: UITableView!
     
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     
@@ -68,21 +68,12 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.backgroundColor = .clear
-        automaticallyAdjustsScrollViewInsets = false
-
+        createTableView(style: .plain)
         configureNavbar()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.register(UINib(nibName: "TextCell", bundle: toolkit), forCellReuseIdentifier: "TextCell")
-        tableView.register(UINib(nibName: "TextDetailsCell", bundle: toolkit), forCellReuseIdentifier: "TextDetailsCell")
-        tableView.register(UINib(nibName: "ImageCell", bundle: toolkit), forCellReuseIdentifier: "ImageCell")
-
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: optionsSavedNotification), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name(rawValue: themeChangedNotification), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: NSNotification.Name(rawValue: dateChangedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .optionsSavedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .themeChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: .dateChangedNotification, object: nil)
         
         reloadTheme()
     }

@@ -9,8 +9,9 @@
 import UIKit
 import swift_toolkit
 
-let optionsSavedNotification  = "OPTIONS_SAVED"
-let themeChangedNotification  = "THEME_CHANGED"
+extension Notification.Name {
+    public static let optionsSavedNotification = Notification.Name("OPTIONS_SAVED")
+}
 
 class Options: UITableViewController {
     
@@ -84,7 +85,8 @@ class Options: UITableViewController {
                 prefs.removeObject(forKey: "theme")
                 prefs.synchronize()
                 
-                NotificationCenter.default.post(name: Notification.Name(rawValue: themeChangedNotification), object: nil)
+                NotificationCenter.default.post(name: .themeChangedNotification, object: nil)
+
                 self.dismiss(animated: false, completion: {})
                 
             } else {
@@ -151,7 +153,8 @@ class Options: UITableViewController {
         prefs.set(fasting, forKey: "fastingLevel")
         prefs.synchronize()
         
-        NotificationCenter.default.post(name: Notification.Name(rawValue: optionsSavedNotification), object: nil)
+        NotificationCenter.default.post(name: .optionsSavedNotification, object: nil)
+
         dismiss(animated: true, completion: nil)
     }
     

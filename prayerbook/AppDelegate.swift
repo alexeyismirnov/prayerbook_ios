@@ -72,6 +72,10 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
             prefs.set(0, forKey: "fastingLevel")
         }
         
+        if prefs.object(forKey: "bookmarks") == nil {
+            prefs.set([String](), forKey: "bookmarks")
+        }
+        
         prefs.synchronize()
         
         FastingModel.fastingLevel = FastingLevel(rawValue: prefs.integer(forKey: "fastingLevel"))
