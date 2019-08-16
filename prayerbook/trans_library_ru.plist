@@ -4,121 +4,82 @@
 <dict>
 	<key>Genesis</key>
 	<string>Книга Бытия</string>
-    
-    <key>Exodus</key>
-    <string>Книга Исход</string>
-    
-    <key>Leviticus</key>
-    <string>Книга Левит</string>
-    
-    <key>Numbers</key>
-    <string>Книга Чисел</string>
-    
-    <key>Deuteronomy</key>
-    <string>Второзаконие</string>
-    
-    <key>Joshua</key>
-    <string>Книга Иисуса Навина</string>
-    
-    <key>Judges</key>
-    <string>Книга Судей Израилевых</string>
-    
-    <key>Ruth</key>
-    <string>Книга Руфь</string>
-    
-    <key>1 Samuel</key>
-    <string>Первая книга Царств</string>
-    
-    <key>2 Samuel</key>
-    <string>Вторая книга Царств</string>
-    
-    <key>1 Kings</key>
-    <string>Третья книга Царств</string>
-    
-    <key>2 Kings</key>
-    <string>Четвёртая книга Царств</string>
-    
-    <key>1 Chronicles</key>
-    <string>1-я Паралипоменон</string>
-    
-    <key>2 Chronicles</key>
-    <string>2-я Паралипоменон</string>
-    
-    <key>Ezra</key>
-    <string>Книга Ездры</string>
-    
-    <key>Nehemiah</key>
-    <string>Книга Неемии</string>
-    
-    <key>Esther</key>
-    <string>Книга Есфирь</string>
-    
-    <key>Job</key>
-    <string>Книга Иова</string>
-    
-    <key>Psalms</key>
-    <string>Псалтирь</string>
-    
-    <key>Proverbs</key>
-    <string>Книга притчей Соломоновых</string>
-    
-    <key>Ecclesiastes</key>
-    <string>Книга Екклесиаста</string>
-    
-    <key>Song of Solomon</key>
-    <string>Песнь песней Соломона</string>
-    
-    <key>Isaiah</key>
-    <string>Книга пророка Исаии</string>
-    
-    <key>Jeremiah</key>
-    <string>Книга пророка Иеремии</string>
-    
-    <key>Lamentations</key>
-    <string>Плач Иеремии</string>
-    
-    <key>Ezekiel</key>
-    <string>Книга пророка Иезекииля</string>
-    
-    <key>Daniel</key>
-    <string>Книга пророка Даниила</string>
-    
-    <key>Hosea</key>
-    <string>Книга пророка Осии</string>
-    
-    <key>Joel</key>
-    <string>Книга пророка Иоиля</string>
-    
-    <key>Amos</key>
-    <string>Книга пророка Амоса</string>
-    
-    <key>Obadiah</key>
-    <string>Книга пророка Авдия</string>
-    
-    <key>Jonah</key>
-    <string>Книга пророка Ионы</string>
-    
-    <key>Micah</key>
-    <string>Книга пророка Михея</string>
-    
-    <key>Nahum</key>
-    <string>Книга пророка Наума</string>
-    
-    <key>Habakkuk</key>
-    <string>Книга пророка Аввакума</string>
-    
-    <key>Zephaniah</key>
-    <string>Книга пророка Софонии</string>
-    
-    <key>Haggai</key>
-    <string>Книга пророка Аггея</string>
-    
-    <key>Zechariah</key>
-    <string>Книга пророка Захарии</string>
-    
-    <key>Malachi</key>
-    <string>Книга пророка Малахии</string>
-    
+	<key>Exodus</key>
+	<string>Книга Исход</string>
+	<key>Leviticus</key>
+	<string>Книга Левит</string>
+	<key>Numbers</key>
+	<string>Книга Чисел</string>
+	<key>Deuteronomy</key>
+	<string>Второзаконие</string>
+	<key>Joshua</key>
+	<string>Книга Иисуса Навина</string>
+	<key>Judges</key>
+	<string>Книга Судей Израилевых</string>
+	<key>Ruth</key>
+	<string>Книга Руфь</string>
+	<key>1 Samuel</key>
+	<string>Первая книга Царств</string>
+	<key>2 Samuel</key>
+	<string>Вторая книга Царств</string>
+	<key>1 Kings</key>
+	<string>Третья книга Царств</string>
+	<key>2 Kings</key>
+	<string>Четвёртая книга Царств</string>
+	<key>1 Chronicles</key>
+	<string>1-я Паралипоменон</string>
+	<key>2 Chronicles</key>
+	<string>2-я Паралипоменон</string>
+	<key>Ezra</key>
+	<string>Книга Ездры</string>
+	<key>Nehemiah</key>
+	<string>Книга Неемии</string>
+	<key>Esther</key>
+	<string>Книга Есфирь</string>
+	<key>Job</key>
+	<string>Книга Иова</string>
+	<key>Psalms</key>
+	<string>Псалтирь</string>
+	<key>Proverbs</key>
+	<string>Книга притчей Соломоновых</string>
+	<key>Ecclesiastes</key>
+	<string>Книга Екклесиаста</string>
+	<key>Song of Solomon</key>
+	<string>Песнь песней Соломона</string>
+	<key>Isaiah</key>
+	<string>Книга пророка Исаии</string>
+	<key>Jeremiah</key>
+	<string>Книга пророка Иеремии</string>
+	<key>Lamentations</key>
+	<string>Плач Иеремии</string>
+	<key>Ezekiel</key>
+	<string>Книга пророка Иезекииля</string>
+	<key>Daniel</key>
+	<string>Книга пророка Даниила</string>
+	<key>Hosea</key>
+	<string>Книга пророка Осии</string>
+	<key>Joel</key>
+	<string>Книга пророка Иоиля</string>
+	<key>Amos</key>
+	<string>Книга пророка Амоса</string>
+	<key>Obadiah</key>
+	<string>Книга пророка Авдия</string>
+	<key>Jonah</key>
+	<string>Книга пророка Ионы</string>
+	<key>Micah</key>
+	<string>Книга пророка Михея</string>
+	<key>Nahum</key>
+	<string>Книга пророка Наума</string>
+	<key>Habakkuk</key>
+	<string>Книга пророка Аввакума</string>
+	<key>Zephaniah</key>
+	<string>Книга пророка Софонии</string>
+	<key>Haggai</key>
+	<string>Книга пророка Аггея</string>
+	<key>Zechariah</key>
+	<string>Книга пророка Захарии</string>
+	<key>Malachi</key>
+	<string>Книга пророка Малахии</string>
 	<key>Gospel of St Matthew</key>
 	<string>Евангелие от Матфея</string>
 	<key>Gospel of St Mark</key>
@@ -175,31 +136,29 @@
 	<string>Откровение Иоанна Богослова</string>
 	<key>Chapter %@</key>
 	<string>Глава %@</string>
-    <key>Kathisma %@</key>
-    <string>Кафизма %@</string>
-    
+	<key>Kathisma %@</key>
+	<string>Кафизма %@</string>
 	<key>New Testament</key>
 	<string>Новый Завет</string>
 	<key>Old Testament</key>
 	<string>Ветхий Завет</string>
-    
-    <key>Five Books of Moses</key>
-    <string>Пятикнижие Моисея</string>
-    <key>Historical books</key>
-    <string>Книги исторические</string>
-    <key>Wisdom books</key>
-    <string>Книги учительные</string>
-    <key>Prophets books</key>
-    <string>Книги пророческие</string>
-    <key>Four Gospels and Acts</key>
-    <string>Евангелия и Деяния</string>
-    <key>Catholic Epistles</key>
-    <string>Соборные Послания</string>
-    <key>Epistles of Paul</key>
-    <string>Послания св. Апостола Павла</string>
-    <key>Apocalypse</key>
-    <string>Апокалипсис</string>
-    <key>Statis</key>
-    <string>Слава:</string>
+	<key>Five Books of Moses</key>
+	<string>Пятикнижие Моисея</string>
+	<key>Historical books</key>
+	<string>Книги исторические</string>
+	<key>Wisdom books</key>
+	<string>Книги учительные</string>
+	<key>Prophets books</key>
+	<string>Книги пророческие</string>
+	<key>Four Gospels and Acts</key>
+	<string>Евангелия и Деяния</string>
+	<key>Catholic Epistles</key>
+	<string>Соборные Послания</string>
+	<key>Epistles of Paul</key>
+	<string>Послания св. Апостола Павла</string>
+	<key>Apocalypse</key>
+	<string>Апокалипсис</string>
+	<key>Stasis</key>
+	<string>Слава:</string>
 </dict>
 </plist>

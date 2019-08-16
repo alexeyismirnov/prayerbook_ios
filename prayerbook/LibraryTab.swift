@@ -18,7 +18,7 @@ let books : [BookModel] = [BookmarksModel.shared,
                            SynaxarionModel.shared]
 
 
-class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, ResizableTableViewCells  {    
+class LibraryTab: UIViewController, ResizableTableViewCells  {    
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     var tableView: UITableView!
     
@@ -33,7 +33,6 @@ class LibraryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         navigationController?.makeTransparent()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .themeChangedNotification, object: nil)
-
         reloadTheme()
     }
     
