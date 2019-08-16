@@ -64,33 +64,29 @@
 	<string>若望默示录</string>
 	<key>Chapter %@</key>
 	<string>第%@章</string>
-    
-    <key>Kathisma %@</key>
-    <string>第%@分</string>
-    
+	<key>Kathisma %@</key>
+	<string>第%@分</string>
 	<key>New Testament</key>
 	<string>新约全书</string>
-    <key>Old Testament</key>
-    <string>旧约全书</string>
-    
-    <key>Five Books of Moses</key>
-    <string>梅瑟五书</string>
-    <key>Historical books</key>
-    <string>历史书</string>
-    <key>Wisdom books</key>
-    <string>智慧书</string>
-    <key>Prophets books</key>
-    <string>先知书</string>
-    <key>Four Gospels and Acts</key>
-    <string>四福音书及使徒行传</string>
-    <key>Catholic Epistles</key>
-    <string>宗徒若望的书信</string>
-    <key>Epistles of Paul</key>
-    <string>宗徒保禄致各教会的书信</string>
-    <key>Apocalypse</key>
-    <string>默示录（启示录）</string>
-    
-    <key>Statis</key>
-    <string>荣光赞词</string>
+	<key>Old Testament</key>
+	<string>旧约全书</string>
+	<key>Five Books of Moses</key>
+	<string>梅瑟五书</string>
+	<key>Historical books</key>
+	<string>历史书</string>
+	<key>Wisdom books</key>
+	<string>智慧书</string>
+	<key>Prophets books</key>
+	<string>先知书</string>
+	<key>Four Gospels and Acts</key>
+	<string>四福音书及使徒行传</string>
+	<key>Catholic Epistles</key>
+	<string>宗徒若望的书信</string>
+	<key>Epistles of Paul</key>
+	<string>宗徒保禄致各教会的书信</string>
+	<key>Apocalypse</key>
+	<string>默示录（启示录）</string>
+	<key>Stasis</key>
+	<string>荣光赞词</string>
 </dict>
 </plist>
