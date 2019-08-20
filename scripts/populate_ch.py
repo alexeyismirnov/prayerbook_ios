@@ -1,10 +1,11 @@
 #!/usr/bin/python
+import re
 import sqlite3 as lite
 import urllib2
 from bs4 import BeautifulSoup
 
-book = 59
-num_chapters = 21
+book = 53
+num_chapters = 3
 
 with lite.connect("./%s.sqlite" % book) as con:
 
@@ -21,9 +22,17 @@ with lite.connect("./%s.sqlite" % book) as con:
             if len(children) != 3 or len(children[0].getText()) == 0:
                 continue
 
-            chapter,verse = children[0].getText().split(":")
-            verse = verse.split("-")[0]
+            pos = children[0].getText()
+
+            if re.match(r'\d+:\d+', pos):
+                chapter,verse = pos.split(":")
+                verse = re.findall(r'\d+', verse)[0]
+            elif re.match(r'\d+', pos):
+                verse = re.findall(r'\d+', pos)[0]
+            else:
+                continue
+
             print "%d:%d" % ( int(chapter), int(verse))
-            print children[1].getText()
+            print children[1].getText().encode('utf-8')
 
             cur.execute("INSERT INTO scripture VALUES(%d, %d, \"%s\")" % (int(chapter), int(verse), children[1].getText()))
