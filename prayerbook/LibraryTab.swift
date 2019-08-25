@@ -27,7 +27,9 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
         
         navigationController?.makeTransparent()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .optionsSavedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .themeChangedNotification, object: nil)
+        
         reloadTheme()
     }
     

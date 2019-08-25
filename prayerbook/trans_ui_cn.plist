@@ -104,5 +104,9 @@
 	<string>设置</string>
 	<key>Prayerbook</key>
 	<string>正教祈祷书</string>
+    <key>Bookmarks...</key>
+    <string>书签...</string>
+    <key>No bookmarks</key>
+    <string>没有书签</string>
 </dict>
 </plist>
