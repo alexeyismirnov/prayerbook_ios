@@ -30,7 +30,6 @@ class PrayersTab2: UIViewController, ResizableTableViewCells, UITableViewDelegat
         automaticallyAdjustsScrollViewInsets = false
         navigationController?.makeTransparent()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .optionsSavedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .themeChangedNotification, object: nil)
         
         reloadTheme()

@@ -16,7 +16,7 @@ class MainVC: UITabBarController, UITabBarControllerDelegate, UIViewControllerAn
         
         delegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name:  .optionsSavedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name:  .themeChangedNotification, object: nil)
 
         tabBar.isTranslucent = true
         tabBar.backgroundImage = UIImage()

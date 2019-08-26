@@ -27,7 +27,6 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
         
         navigationController?.makeTransparent()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .optionsSavedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .themeChangedNotification, object: nil)
         
         reloadTheme()
@@ -59,7 +58,7 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
-        return calculateHeightForCell(cell)
+        return calculateHeightForCell(cell, minHeight: CGFloat(40))
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {

@@ -9,10 +9,6 @@
 import UIKit
 import swift_toolkit
 
-extension Notification.Name {
-    public static let optionsSavedNotification = Notification.Name("OPTIONS_SAVED")
-}
-
 class Options: UITableViewController {
     
     let prefs = AppGroup.prefs!
@@ -153,7 +149,7 @@ class Options: UITableViewController {
         prefs.set(fasting, forKey: "fastingLevel")
         prefs.synchronize()
         
-        NotificationCenter.default.post(name: .optionsSavedNotification, object: nil)
+        NotificationCenter.default.post(name: .themeChangedNotification, object: nil)
 
         dismiss(animated: true, completion: nil)
     }
