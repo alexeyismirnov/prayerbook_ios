@@ -74,5 +74,8 @@
     <string>Удалить</string>
     <key>No bookmarks</key>
     <string>Нет закладок</string>
+    <key>Bookmarks...</key>
+    <string>Закладки...</string>
+  
 </dict>
 </plist>

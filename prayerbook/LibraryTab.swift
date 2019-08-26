@@ -62,7 +62,7 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
-        return calculateHeightForCell(cell)
+        return calculateHeightForCell(cell, minHeight: CGFloat(40))
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {

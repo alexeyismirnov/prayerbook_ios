@@ -86,7 +86,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         createTableView(style: .plain)
         configureNavbar()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .optionsSavedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .themeChangedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: .dateChangedNotification, object: nil)
 
