@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Genesis</key>
-	<string>创世纪</string>
-	<key>The Proverbs</key>
-	<string>箴言</string>
-	<key>The Book of Prophet Isaiah</key>
-	<string>依撒意亚</string>
 	<key>Gospel of St Matthew</key>
 	<string>玛窦福音</string>
 	<key>Gospel of St Mark</key>
@@ -88,5 +82,84 @@
 	<string>默示录（启示录）</string>
 	<key>Stasis</key>
 	<string>荣光赞词</string>
+    <key>Genesis</key>
+    <string>创世纪</string>
+    <key>Exodus</key>
+    <string>出谷纪</string>
+    <key>Leviticus</key>
+    <string>肋未纪</string>
+    <key>Numbers</key>
+    <string>户籍纪</string>
+    <key>Deuteronomy</key>
+    <string>申命纪</string>
+    <key>Joshua</key>
+    <string>若苏厄书</string>
+    <key>Judges</key>
+    <string>民长纪</string>
+    <key>Ruth</key>
+    <string>卢德传</string>
+    <key>1 Samuel</key>
+    <string>撒慕尔纪上</string>
+    <key>2 Samuel</key>
+    <string>撒慕尔纪下</string>
+    <key>1 Kings</key>
+    <string>列王纪上</string>
+    <key>2 Kings</key>
+    <string>列王纪下</string>
+    <key>1 Chronicles</key>
+    <string>编年纪上</string>
+    <key>2 Chronicles</key>
+    <string>编年纪下</string>
+    <key>Ezra</key>
+    <string>厄斯德拉上</string>
+    <key>Nehemiah</key>
+    <string>厄斯德拉下</string>
+    <key>Esther</key>
+    <string>艾斯德尔传</string>
+    <key>Job</key>
+    <string>约伯传</string>
+    <key>Psalms</key>
+    <string>圣咏集</string>
+    <key>Proverbs</key>
+    <string>箴言</string>
+    <key>Ecclesiastes</key>
+    <string>训道篇</string>
+    <key>Song of Solomon</key>
+    <string>雅歌</string>
+    <key>Isaiah</key>
+    <string>依撒意亚</string>
+    <key>Jeremiah</key>
+    <string>耶肋米亚</string>
+    <key>Lamentations</key>
+    <string>耶肋米亚哀歌</string>
+    <key>Ezekiel</key>
+    <string>厄则克耳</string>
+    <key>Daniel</key>
+    <string>达尼尔</string>
+    <key>Hosea</key>
+    <string>欧瑟亚</string>
+    <key>Joel</key>
+    <string>岳厄尔</string>
+    <key>Amos</key>
+    <string>亚毛斯</string>
+    <key>Obadiah</key>
+    <string>亚北底亚</string>
+    <key>Jonah</key>
+    <string>约纳</string>
+    <key>Micah</key>
+    <string>米该亚</string>
+    <key>Nahum</key>
+    <string>纳鸿</string>
+    <key>Habakkuk</key>
+    <string>哈巴谷</string>
+    <key>Zephaniah</key>
+    <string>索福尼亚</string>
+    <key>Haggai</key>
+    <string>哈盖</string>
+    <key>Zechariah</key>
+    <string>匝加利亚</string>
+    <key>Malachi</key>
+    <string>玛拉基亚</string>
+    
 </dict>
 </plist>
