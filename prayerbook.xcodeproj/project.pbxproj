@@ -24,6 +24,9 @@
 		8A2F46A119E110CF00076AF4 /* prayer_group_0_en.html in Resources */ = {isa = PBXBuildFile; fileRef = 8A2F469D19E110CF00076AF4 /* prayer_group_0_en.html */; };
 		8A2F46A519E11CEA00076AF4 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A419E11CEA00076AF4 /* Prayer.swift */; };
 		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
+		8A429DCD2317B79600F4E5AB /* LiturgyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A429DCC2317B79600F4E5AB /* LiturgyModel.swift */; };
+		8A429DD12317CE0A00F4E5AB /* liturgy_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A429DCF2317CE0A00F4E5AB /* liturgy_en.sqlite */; };
+		8A429DD22317CE0A00F4E5AB /* liturgy_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A429DD02317CE0A00F4E5AB /* liturgy_cn.sqlite */; };
 		8A4EA0E81E63F4BA00E63399 /* fat-down.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A4EA0E21E63F4BA00E63399 /* fat-down.pdf */; };
 		8A4EA0E91E63F4BA00E63399 /* fat-up.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A4EA0E31E63F4BA00E63399 /* fat-up.pdf */; };
 		8A4F2E6D22E6E7F70087A3F0 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4F2E6C22E6E7F70087A3F0 /* Chameleon.framework */; };
@@ -381,6 +384,9 @@
 		8A2F46A419E11CEA00076AF4 /* Prayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
 		8A2F46A619E12B4100076AF4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Bridging-Header.h"; sourceTree = "<group>"; };
+		8A429DCC2317B79600F4E5AB /* LiturgyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiturgyModel.swift; sourceTree = "<group>"; };
+		8A429DCF2317CE0A00F4E5AB /* liturgy_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = liturgy_en.sqlite; sourceTree = "<group>"; };
+		8A429DD02317CE0A00F4E5AB /* liturgy_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = liturgy_cn.sqlite; sourceTree = "<group>"; };
 		8A4EA0E21E63F4BA00E63399 /* fat-down.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-down.pdf"; sourceTree = "<group>"; };
 		8A4EA0E31E63F4BA00E63399 /* fat-up.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-up.pdf"; sourceTree = "<group>"; };
 		8A4F2E6C22E6E7F70087A3F0 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
@@ -709,6 +715,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A429DCE2317CDEC00F4E5AB /* books */ = {
+			isa = PBXGroup;
+			children = (
+				8A429DD02317CE0A00F4E5AB /* liturgy_cn.sqlite */,
+				8A429DCF2317CE0A00F4E5AB /* liturgy_en.sqlite */,
+			);
+			path = books;
+			sourceTree = "<group>";
+		};
 		8A74D7EE198F20CC0078F39F = {
 			isa = PBXGroup;
 			children = (
@@ -753,6 +768,7 @@
 		8A74D800198F20CC0078F39F /* prayerbook */ = {
 			isa = PBXGroup;
 			children = (
+				8A429DCE2317CDEC00F4E5AB /* books */,
 				8AF8C71E230F8E190020D5E5 /* bible_cn */,
 				8AF8C699230F8CA20020D5E5 /* bible_en */,
 				8AFEE0591C210FB0004A68DC /* readings */,
@@ -769,6 +785,7 @@
 				8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */,
 				8A638C621ECBF60F00424A9E /* DailyTab.swift */,
 				8A1D285623050BC4001913C7 /* LibraryTab.swift */,
+				8A429DCC2317B79600F4E5AB /* LiturgyModel.swift */,
 				8A638C801ECC3CD300424A9E /* PrayersTab2.swift */,
 				8A71ED311ECD55A300D55DEC /* Options.swift */,
 				8A71ED321ECD55A300D55DEC /* RTFDocument.swift */,
@@ -1348,6 +1365,7 @@
 				8AF8C6F2230F8CE80020D5E5 /* ruth_en.sqlite in Resources */,
 				8AF8C6EF230F8CE80020D5E5 /* 2chron_en.sqlite in Resources */,
 				8AF8C791230F8E4D0020D5E5 /* hab_cn.sqlite in Resources */,
+				8A429DD12317CE0A00F4E5AB /* liturgy_en.sqlite in Resources */,
 				8A81858C19D2E3F300D4B328 /* prayer_daily_1_en.html in Resources */,
 				8AF37E391B36B1FD00101148 /* launch-hd4.7.png in Resources */,
 				8AB0DCA61C27F00400C6A494 /* ReadingLent.plist in Resources */,
@@ -1462,6 +1480,7 @@
 				8AF37E5B1B36C7A500101148 /* newicon_80.png in Resources */,
 				8AA3DF501B1847D700507129 /* saints_08_en.sqlite in Resources */,
 				8A638C5A1ECBF5AE00424A9E /* bg3@2x.jpg in Resources */,
+				8A429DD22317CE0A00F4E5AB /* liturgy_cn.sqlite in Resources */,
 				8AF8C70F230F8CE80020D5E5 /* james_en.sqlite in Resources */,
 				8AE8A02D1B7980A4000A29F2 /* saints_09_cn.txt in Resources */,
 				8AC6952519E4011700773FEB /* daily.pdf in Resources */,
@@ -1560,6 +1579,7 @@
 				8A638C931ECC520B00424A9E /* CalendarImageCell.swift in Sources */,
 				8A2F46A519E11CEA00076AF4 /* Prayer.swift in Sources */,
 				8A71ED331ECD55A300D55DEC /* Options.swift in Sources */,
+				8A429DCD2317B79600F4E5AB /* LiturgyModel.swift in Sources */,
 				8A638C811ECC3CD400424A9E /* PrayersTab2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,8 @@ import swift_toolkit
 
 let books : [BookModel] = [BookmarksModel.shared,
                            OldTestamentModel.shared,
-                           NewTestamentModel.shared]
+                           NewTestamentModel.shared,
+                           LiturgyModel.shared]
 
 class LibraryTab: UIViewController, ResizableTableViewCells  {
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
