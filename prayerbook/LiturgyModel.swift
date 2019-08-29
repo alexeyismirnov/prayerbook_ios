@@ -67,6 +67,7 @@ class LiturgyModel : BookModel {
             "Litany before the Lord's Prayer",
             "The Lord's Prayer",
             "The Communion of the People",
+            "Litany",
             "The Prayer behind the Ambo",
             "Psalm 33",
             "The Dismissal"
