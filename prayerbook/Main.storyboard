@@ -9,32 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tutorial-->
-        <scene sceneID="Zb2-2n-J13">
-            <objects>
-                <viewController storyboardIdentifier="Tutorial" automaticallyAdjustsScrollViewInsets="NO" id="g3t-Jh-1Nm" customClass="Tutorial" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="snx-gc-NnU"/>
-                        <viewControllerLayoutGuide type="bottom" id="fOT-d2-bJy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="u8p-ky-Y70">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="954"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="DxT-wC-WR2">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="o2w-48-96o">
-                            <connections>
-                                <action selector="close:" destination="g3t-Jh-1Nm" id="cVb-3h-0YR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OTp-7P-jaw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1876.5625" y="1.171875"/>
-        </scene>
         <!--Title-->
         <scene sceneID="xiR-6X-NLn">
             <objects>
@@ -82,8 +56,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="G84-hy-s0A" kind="relationship" relationship="viewControllers" id="qNS-s5-nHR"/>
-                        <segue destination="x5e-qi-gb8" kind="relationship" relationship="viewControllers" id="CHQ-Gv-esh"/>
-                        <segue destination="SsX-Q4-dMs" kind="relationship" relationship="viewControllers" id="488-PD-bzI"/>
                         <segue destination="0X5-7L-jSp" kind="relationship" relationship="viewControllers" id="KMH-VO-Olm"/>
                     </connections>
                 </tabBarController>
@@ -131,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T40-Sg-o9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="225" y="769.921875"/>
+            <point key="canvasLocation" x="473" y="98"/>
         </scene>
         <!--Library-->
         <scene sceneID="BwA-TN-JYu">
@@ -149,43 +121,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="srx-gj-ZIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1116.40625" y="767.578125"/>
-        </scene>
-        <!--Prayers-->
-        <scene sceneID="dCu-sf-oj4">
-            <objects>
-                <navigationController restorationIdentifier="Prayers" definesPresentationContext="YES" id="SsX-Q4-dMs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Prayers" image="group" id="kA4-di-xhG"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="uHF-CH-tyU">
-                        <rect key="frame" x="0.0" y="20" width="768" height="50"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="PPb-HG-oE2" kind="relationship" relationship="rootViewController" id="FdD-Yq-Orn"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YQY-O1-WAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1127.34375" y="94.921875"/>
-        </scene>
-        <!--Eucharist-->
-        <scene sceneID="Ylu-Ah-0Bh">
-            <objects>
-                <navigationController restorationIdentifier="Communion" definesPresentationContext="YES" id="x5e-qi-gb8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Eucharist" image="communion" id="T2A-zr-QUx"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="5Ro-wi-CsL">
-                        <rect key="frame" x="0.0" y="20" width="768" height="50"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="0Xo-T6-KW1" kind="relationship" relationship="rootViewController" id="dRA-h3-G9r"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tJH-Tx-EnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1124.21875" y="-564.2578125"/>
+            <point key="canvasLocation" x="-1120" y="99"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qZa-Yj-g12">
@@ -223,26 +159,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S4e-fy-YBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1163.28125" y="-1275"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="eJk-D2-DRA">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b8S-tr-o7i" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="QkA-8Z-4E5">
-                        <rect key="frame" x="0.0" y="20" width="768" height="50"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="g3t-Jh-1Nm" kind="relationship" relationship="rootViewController" id="2xe-sL-nbs"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mtv-Rx-hyB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1110.9375" y="1.171875"/>
+            <point key="canvasLocation" x="-1120" y="-693"/>
         </scene>
         <!--Daily Tab-->
         <scene sceneID="N4e-rk-Qcy">
@@ -262,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y0C-fS-48K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-446.09375" y="-1275"/>
+            <point key="canvasLocation" x="-323" y="-693"/>
         </scene>
         <!--Library Tab-->
         <scene sceneID="cgH-uf-n61">
@@ -281,87 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQB-Qb-Bho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-442.96875" y="766.9921875"/>
-        </scene>
-        <!--Prayers Tab2-->
-        <scene sceneID="t9u-nF-Oaa">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="0Xo-T6-KW1" customClass="PrayersTab2" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="S8D-sR-Sxw"/>
-                        <viewControllerLayoutGuide type="bottom" id="aMy-mU-k8n"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="O6k-7E-Tao">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="954"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="dts-cz-e4c">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="904"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="aMy-mU-k8n" firstAttribute="top" secondItem="dts-cz-e4c" secondAttribute="bottom" id="ApR-3N-mG9"/>
-                            <constraint firstAttribute="trailing" secondItem="dts-cz-e4c" secondAttribute="trailing" id="Xz6-or-7va"/>
-                            <constraint firstItem="dts-cz-e4c" firstAttribute="top" secondItem="S8D-sR-Sxw" secondAttribute="bottom" id="Zki-2Z-4c2"/>
-                            <constraint firstItem="dts-cz-e4c" firstAttribute="leading" secondItem="O6k-7E-Tao" secondAttribute="leading" id="dWu-Wo-dSj"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="xva-Z5-D1g"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="tab_index">
-                            <integer key="value" value="0"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="tableView" destination="dts-cz-e4c" id="PHy-XT-gS2"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XDZ-TM-4i1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-446.09375" y="-564.2578125"/>
-        </scene>
-        <!--Prayers Tab2-->
-        <scene sceneID="JSP-Xh-0fH">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="PPb-HG-oE2" customClass="PrayersTab2" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ic7-fK-vsl"/>
-                        <viewControllerLayoutGuide type="bottom" id="obd-wg-7Jf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pcg-IL-Lrj">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="954"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Fsu-Vu-vXr">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="904"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Fsu-Vu-vXr" firstAttribute="leading" secondItem="pcg-IL-Lrj" secondAttribute="leading" id="JFj-xO-fz6"/>
-                            <constraint firstAttribute="trailing" secondItem="Fsu-Vu-vXr" secondAttribute="trailing" id="P9R-UZ-QQl"/>
-                            <constraint firstItem="obd-wg-7Jf" firstAttribute="top" secondItem="Fsu-Vu-vXr" secondAttribute="bottom" id="hO4-Ws-B27"/>
-                            <constraint firstItem="Fsu-Vu-vXr" firstAttribute="top" secondItem="Ic7-fK-vsl" secondAttribute="bottom" id="vtb-Nz-x1d"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="CsP-dv-dNK"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="tab_index">
-                            <integer key="value" value="1"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="tableView" destination="Fsu-Vu-vXr" id="4iS-C6-r9R"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PLK-PM-8aq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-446.09375" y="99.0234375"/>
+            <point key="canvasLocation" x="-323" y="98"/>
         </scene>
         <!--Calendar Info-->
         <scene sceneID="PKn-o1-v1E">
@@ -379,7 +216,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYk-f0-e3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2536.71875" y="-692.578125"/>
+            <point key="canvasLocation" x="1205" y="98"/>
         </scene>
         <!--Options-->
         <scene sceneID="8k4-iH-F4S">
@@ -544,9 +381,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="communion" width="30" height="30"/>
         <image name="daily" width="30" height="30"/>
-        <image name="group" width="30" height="30"/>
         <image name="library" width="30" height="30"/>
     </resources>
 </document>

@@ -46,7 +46,7 @@ extension BasicModel where Self: BookModel {
     func getPrevSection(at pos: BookPosition) -> BookPosition? { return nil }
 }
 
-class EucharistModel2 : BasicModel {
+class EucharistModel : BasicModel, BookModel {
     var code: String = "Eucharist"
     var basename: String = "prayer_communion"
     
@@ -66,9 +66,31 @@ class EucharistModel2 : BasicModel {
          "Thanksgiving after Holy Communion"
         ]]
 
-    static let shared = EucharistModel2()
-
+    static let shared = EucharistModel()
 }
 
+class PrayerbookModel : BasicModel, BookModel {
+    var code: String = "Prayerbook"
+    var basename: String = "prayer_book"
+    
+    var mode: BookType = .html
+    var isExpandable = false
+    var hasNavigation = false
+    
+    var title: String {
+        get { return Translate.s("Prayerbook") }
+    }
+    
+    var data: [[String]] = [
+        ["Morning Prayers",
+         "Prayers before Sleep",
+         "Prayers during the day",
+         "The order of reading Canons and Akathists when alone",
+         "Canon To our Lord Jesus Christ",
+         "Akathist to our Sweetest Lord Jesus Christ"
+        ]]
+    
+    static let shared = PrayerbookModel()
+}
 
 
