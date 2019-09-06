@@ -16,6 +16,10 @@
 	<string></string>
 	<key>Theotokos</key>
 	<string></string>
+    <key>Forerunner</key>
+    <string></string>
+    <key>Fathers</key>
+    <string></string>
 	<key>St. Nicholas</key>
 	<string></string>
 	<key>St. John</key>
@@ -24,6 +28,10 @@
 	<string></string>
 	<key>Prophet</key>
 	<string></string>
+    <key>New Year</key>
+    <string></string>
+    <key>Great Martyr</key>
+    <string></string>
 	<key>Saint</key>
 	<string></string>
 	<key>Equal-to-the Apostles</key>
@@ -34,12 +42,16 @@
 	<string></string>
 	<key>Hierarchs</key>
 	<string></string>
+    <key>Venerable</key>
+    <string></string>
 	<key>Venerable Euthymius</key>
 	<string></string>
 	<key>Venerable Anthony</key>
 	<string></string>
 	<key>Martyrs</key>
 	<string></string>
+    <key>Departed</key>
+    <string>纪念亡者</string>
 	<key>Saturday Reading</key>
 	<string></string>
 	<key>Friday Reading</key>

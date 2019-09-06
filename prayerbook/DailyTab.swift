@@ -290,17 +290,9 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         if indexPath.section == 2 {
             var vc : UIViewController!
             
-            switch indexPath.row {
-            case 0 ..< readings.count:
-                let currentReading = readings[indexPath.row].components(separatedBy: "#")
-                vc = UIViewController.named("Scripture")
-                (vc as! Scripture).code = .pericope(currentReading[0])
-                
-            default:
-                break
-                
-            }
-            
+            let currentReading = readings[indexPath.row].components(separatedBy: "#").first!
+            let pos = BookPosition(model: PericopeModel.shared, location: currentReading)
+            vc = BookPageText(pos)
             navigationController?.pushViewController(vc, animated: true)
             
         } else if indexPath.section == 3 {

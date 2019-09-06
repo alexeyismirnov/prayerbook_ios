@@ -17,7 +17,6 @@
 		8A181E0E1B1D3C9A00D8C2FB /* saints_01_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0C1B1D3C9A00D8C2FB /* saints_01_en.sqlite */; };
 		8A181E0F1B1D3C9A00D8C2FB /* saints_01_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0D1B1D3C9A00D8C2FB /* saints_01_en.txt */; };
 		8A1D285723050BC4001913C7 /* LibraryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D285623050BC4001913C7 /* LibraryTab.swift */; };
-		8A26E7771ED15A5700071C66 /* Scripture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A26E7751ED15A5700071C66 /* Scripture.swift */; };
 		8A2CD31A1E654DC20060D524 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3171E654DC20060D524 /* CompactViewController.swift */; };
 		8A2CD31B1E654DC20060D524 /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */; };
 		8A2CD31E1E654DD50060D524 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2CD31D1E654DD50060D524 /* MainInterface.storyboard */; };
@@ -57,7 +56,6 @@
 		8A74D807198F20CC0078F39F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D806198F20CC0078F39F /* main.m */; };
 		8A74D816198F20CC0078F39F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D815198F20CC0078F39F /* Images.xcassets */; };
 		8A74D833198F224E0078F39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D832198F224E0078F39F /* Main.storyboard */; };
-		8A74D838198F2AF70078F39F /* prayers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D837198F2AF70078F39F /* prayers.plist */; };
 		8A74D84C198F691A0078F39F /* CN.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D848198F691A0078F39F /* CN.png */; };
 		8A74D84D198F691A0078F39F /* CN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D849198F691A0078F39F /* CN@2x.png */; };
 		8A74D84E198F691A0078F39F /* US.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D84A198F691A0078F39F /* US.png */; };
@@ -104,12 +102,7 @@
 		8AB0DC9A1C27EFEC00C6A494 /* typica_6.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC921C27EFEC00C6A494 /* typica_6.plist */; };
 		8AB0DC9B1C27EFEC00C6A494 /* typica_7.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC931C27EFEC00C6A494 /* typica_7.plist */; };
 		8AB0DC9C1C27EFEC00C6A494 /* typica_8.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC941C27EFEC00C6A494 /* typica_8.plist */; };
-		8AB0DCA31C27F00400C6A494 /* Reading_cn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC9D1C27F00400C6A494 /* Reading_cn.plist */; };
-		8AB0DCA41C27F00400C6A494 /* ReadingApostle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC9E1C27F00400C6A494 /* ReadingApostle.plist */; };
-		8AB0DCA51C27F00400C6A494 /* ReadingJohn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC9F1C27F00400C6A494 /* ReadingJohn.plist */; };
-		8AB0DCA61C27F00400C6A494 /* ReadingLent.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DCA01C27F00400C6A494 /* ReadingLent.plist */; };
-		8AB0DCA71C27F00400C6A494 /* ReadingLuke.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DCA11C27F00400C6A494 /* ReadingLuke.plist */; };
-		8AB0DCA81C27F00400C6A494 /* ReadingMatthew.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DCA21C27F00400C6A494 /* ReadingMatthew.plist */; };
+		8AB0DCA31C27F00400C6A494 /* trans_reading_cn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC9D1C27F00400C6A494 /* trans_reading_cn.plist */; };
 		8AB4E2B41B20168E0015E19B /* saints_04_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AB4E2B21B20168E0015E19B /* saints_04_en.sqlite */; };
 		8AB4E2B51B20168E0015E19B /* saints_04_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AB4E2B31B20168E0015E19B /* saints_04_en.txt */; };
 		8AB62A671C180F4F001ACD2A /* zoom_in.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AB62A651C180F4F001ACD2A /* zoom_in.pdf */; };
@@ -369,7 +362,6 @@
 		8A181E0D1B1D3C9A00D8C2FB /* saints_01_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_01_en.txt; sourceTree = "<group>"; };
 		8A1D285623050BC4001913C7 /* LibraryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTab.swift; sourceTree = "<group>"; };
 		8A2197BD1ECAADD6007CB039 /* ChameleonFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChameleonFramework.framework; path = "../../Derived3/prayerbook-gahulcbgsvzkmfdoornliopgnepy/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework"; sourceTree = "<group>"; };
-		8A26E7751ED15A5700071C66 /* Scripture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripture.swift; sourceTree = "<group>"; };
 		8A2CD3171E654DC20060D524 /* CompactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
 		8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedViewController.swift; sourceTree = "<group>"; };
 		8A2CD31D1E654DD50060D524 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
@@ -409,7 +401,6 @@
 		8A74D808198F20CC0078F39F /* prayerbook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Prefix.pch"; sourceTree = "<group>"; };
 		8A74D815198F20CC0078F39F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8A74D832198F224E0078F39F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8A74D837198F2AF70078F39F /* prayers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prayers.plist; sourceTree = "<group>"; };
 		8A74D848198F691A0078F39F /* CN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CN.png; sourceTree = "<group>"; };
 		8A74D849198F691A0078F39F /* CN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CN@2x.png"; sourceTree = "<group>"; };
 		8A74D84A198F691A0078F39F /* US.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = US.png; sourceTree = "<group>"; };
@@ -456,12 +447,7 @@
 		8AB0DC921C27EFEC00C6A494 /* typica_6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_6.plist; sourceTree = "<group>"; };
 		8AB0DC931C27EFEC00C6A494 /* typica_7.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_7.plist; sourceTree = "<group>"; };
 		8AB0DC941C27EFEC00C6A494 /* typica_8.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_8.plist; sourceTree = "<group>"; };
-		8AB0DC9D1C27F00400C6A494 /* Reading_cn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Reading_cn.plist; sourceTree = "<group>"; };
-		8AB0DC9E1C27F00400C6A494 /* ReadingApostle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingApostle.plist; sourceTree = "<group>"; };
-		8AB0DC9F1C27F00400C6A494 /* ReadingJohn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingJohn.plist; sourceTree = "<group>"; };
-		8AB0DCA01C27F00400C6A494 /* ReadingLent.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingLent.plist; sourceTree = "<group>"; };
-		8AB0DCA11C27F00400C6A494 /* ReadingLuke.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingLuke.plist; sourceTree = "<group>"; };
-		8AB0DCA21C27F00400C6A494 /* ReadingMatthew.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ReadingMatthew.plist; sourceTree = "<group>"; };
+		8AB0DC9D1C27F00400C6A494 /* trans_reading_cn.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_reading_cn.plist; sourceTree = "<group>"; };
 		8AB4E2B21B20168E0015E19B /* saints_04_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_04_en.sqlite; sourceTree = "<group>"; };
 		8AB4E2B31B20168E0015E19B /* saints_04_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_04_en.txt; sourceTree = "<group>"; };
 		8AB62A651C180F4F001ACD2A /* zoom_in.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = zoom_in.pdf; sourceTree = "<group>"; };
@@ -766,7 +752,6 @@
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
 				8A2F46A619E12B4100076AF4 /* AppDelegate.swift */,
 				8A638C631ECBF60F00424A9E /* Db.swift */,
-				8A26E7751ED15A5700071C66 /* Scripture.swift */,
 				8A2F46A419E11CEA00076AF4 /* Prayer.swift */,
 				8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */,
 				8A638C621ECBF60F00424A9E /* DailyTab.swift */,
@@ -778,9 +763,9 @@
 				8A638C8E1ECC520B00424A9E /* CalendarInfo.swift */,
 				8A638C901ECC520B00424A9E /* CalendarViewTextCell.swift */,
 				8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */,
-				8A74D837198F2AF70078F39F /* prayers.plist */,
 				8AC1B114199871DE00A017C7 /* trans_ui_cn.plist */,
 				8AEB5AD41B3410B000CCFC72 /* trans_cal_cn.plist */,
+				8AB0DC9D1C27F00400C6A494 /* trans_reading_cn.plist */,
 				8AEC2B0B1B52600900A94FA6 /* trans_library_cn.plist */,
 				8A74D801198F20CC0078F39F /* Supporting Files */,
 			);
@@ -1103,12 +1088,6 @@
 		8AFEE0591C210FB0004A68DC /* readings */ = {
 			isa = PBXGroup;
 			children = (
-				8AB0DC9D1C27F00400C6A494 /* Reading_cn.plist */,
-				8AB0DC9E1C27F00400C6A494 /* ReadingApostle.plist */,
-				8AB0DC9F1C27F00400C6A494 /* ReadingJohn.plist */,
-				8AB0DCA01C27F00400C6A494 /* ReadingLent.plist */,
-				8AB0DCA11C27F00400C6A494 /* ReadingLuke.plist */,
-				8AB0DCA21C27F00400C6A494 /* ReadingMatthew.plist */,
 				8AB0DC8D1C27EFEC00C6A494 /* typica_1.plist */,
 				8AB0DC8E1C27EFEC00C6A494 /* typica_2.plist */,
 				8AB0DC8F1C27EFEC00C6A494 /* typica_3.plist */,
@@ -1280,7 +1259,6 @@
 				8AF8C6DC230F8CE80020D5E5 /* phil_en.sqlite in Resources */,
 				8A59F34D1B14371800B15FA1 /* saints_07_en.sqlite in Resources */,
 				8AF8C785230F8E4D0020D5E5 /* obad_cn.sqlite in Resources */,
-				8AB0DCA51C27F00400C6A494 /* ReadingJohn.plist in Resources */,
 				8A4EA0E91E63F4BA00E63399 /* fat-up.pdf in Resources */,
 				8AF8C71C230F8CE80020D5E5 /* zeph_en.sqlite in Resources */,
 				8AF8C77A230F8E4D0020D5E5 /* jon_cn.sqlite in Resources */,
@@ -1314,7 +1292,7 @@
 				8AC1B10D199866FF00A017C7 /* launch-ipad.png in Resources */,
 				8AB4E2B51B20168E0015E19B /* saints_04_en.txt in Resources */,
 				8AA3DF511B1847D700507129 /* saints_08_en.txt in Resources */,
-				8AB0DCA31C27F00400C6A494 /* Reading_cn.plist in Resources */,
+				8AB0DCA31C27F00400C6A494 /* trans_reading_cn.plist in Resources */,
 				8A81858A19D2E3F300D4B328 /* prayer_book_0_en.html in Resources */,
 				8AF8C798230F8E4D0020D5E5 /* hos_cn.sqlite in Resources */,
 				8AF8C764230F8E4D0020D5E5 /* matthew_cn.sqlite in Resources */,
@@ -1347,7 +1325,6 @@
 				8A429DD12317CE0A00F4E5AB /* liturgy_en.sqlite in Resources */,
 				8A81858C19D2E3F300D4B328 /* prayer_book_1_en.html in Resources */,
 				8AF37E391B36B1FD00101148 /* launch-hd4.7.png in Resources */,
-				8AB0DCA61C27F00400C6A494 /* ReadingLent.plist in Resources */,
 				8AF8C70A230F8CE80020D5E5 /* 2thess_en.sqlite in Resources */,
 				8A9A3DE019D3AE2800A7D82A /* prayer_book_4_en.html in Resources */,
 				8AC6952919E4034D00773FEB /* options.pdf in Resources */,
@@ -1369,7 +1346,6 @@
 				8AB0DC981C27EFEC00C6A494 /* typica_4.plist in Resources */,
 				8AC6952419E4011700773FEB /* communion.pdf in Resources */,
 				8AF8C76D230F8E4D0020D5E5 /* 1pet_cn.sqlite in Resources */,
-				8A74D838198F2AF70078F39F /* prayers.plist in Resources */,
 				8AF8C76F230F8E4D0020D5E5 /* zech_cn.sqlite in Resources */,
 				8AF8C782230F8E4D0020D5E5 /* 2kings_cn.sqlite in Resources */,
 				8A638C5B1ECBF5AE00424A9E /* church@2x.jpg in Resources */,
@@ -1466,12 +1442,10 @@
 				8AB4E2B41B20168E0015E19B /* saints_04_en.sqlite in Resources */,
 				8AE718D51C560CC30035CDCE /* fat-right.pdf in Resources */,
 				8AA3DF531B1847D700507129 /* saints_09_en.txt in Resources */,
-				8AB0DCA71C27F00400C6A494 /* ReadingLuke.plist in Resources */,
 				8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */,
 				8AF8C77F230F8E4D0020D5E5 /* gen_cn.sqlite in Resources */,
 				8AFB8DEC1B1FDC12006715A3 /* saints_03_en.txt in Resources */,
 				8AF8C780230F8E4D0020D5E5 /* lev_cn.sqlite in Resources */,
-				8AB0DCA41C27F00400C6A494 /* ReadingApostle.plist in Resources */,
 				8AF8C774230F8E4D0020D5E5 /* ex_cn.sqlite in Resources */,
 				8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */,
 				8AF8C77C230F8E4D0020D5E5 /* 3john_cn.sqlite in Resources */,
@@ -1490,7 +1464,6 @@
 				8AF8C704230F8CE80020D5E5 /* nahum_en.sqlite in Resources */,
 				8A74D805198F20CC0078F39F /* InfoPlist.strings in Resources */,
 				8AC1B110199866FF00A017C7 /* launch-iphone4.png in Resources */,
-				8AB0DCA81C27F00400C6A494 /* ReadingMatthew.plist in Resources */,
 				8AE74D921B9C103B000DD7D2 /* close2.pdf in Resources */,
 				8AF8C771230F8E4D0020D5E5 /* ps_cn.sqlite in Resources */,
 				8AA3DF581B18594F00507129 /* saints_10_en.sqlite in Resources */,
@@ -1546,7 +1519,6 @@
 				8A161E1D23220C8C0067BE89 /* PrayerbookModel.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
 				8A638C961ECC520B00424A9E /* CalendarViewTextCell.swift in Sources */,
-				8A26E7771ED15A5700071C66 /* Scripture.swift in Sources */,
 				8A638C941ECC520B00424A9E /* CalendarInfo.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,

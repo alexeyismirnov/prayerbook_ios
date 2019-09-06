@@ -63,6 +63,7 @@ class Prayer: UIViewController {
                 
             }
             
+            /*
             let readingStr = DailyReading.getDailyReading(Cal.currentDate)[0].components(separatedBy: "#")
             let readings = Scripture.getPericope(readingStr[0], decorated: false)
             
@@ -76,6 +77,7 @@ class Prayer: UIViewController {
                     with: content.string)
 
             }
+ */
             
         }
         
