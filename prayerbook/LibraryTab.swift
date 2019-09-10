@@ -14,6 +14,7 @@ let books : [BookModel] = [BookmarksModel.shared,
                            NewTestamentModel.shared,
                            LiturgyModel.shared,
                            EucharistModel.shared,
+                           TypikaModel.shared,
                            PrayerbookModel.shared]
 
 class LibraryTab: UIViewController, ResizableTableViewCells  {

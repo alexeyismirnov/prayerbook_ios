@@ -36,6 +36,8 @@
 		8A59F34D1B14371800B15FA1 /* saints_07_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A59F34B1B14371800B15FA1 /* saints_07_en.sqlite */; };
 		8A59F34E1B14371800B15FA1 /* saints_07_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A59F34C1B14371800B15FA1 /* saints_07_en.txt */; };
 		8A60D18D1F8885040023CFAE /* newicon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A60D18C1F8885040023CFAE /* newicon_1024.png */; };
+		8A62E3702327916900C7C4C5 /* TypikaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62E36F2327916900C7C4C5 /* TypikaModel.swift */; };
+		8A62E3722327A6EF00C7C4C5 /* typika_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A62E3712327A6EF00C7C4C5 /* typika_en.sqlite */; };
 		8A638C5A1ECBF5AE00424A9E /* bg3@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A638C571ECBF5AE00424A9E /* bg3@2x.jpg */; };
 		8A638C5B1ECBF5AE00424A9E /* church@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A638C581ECBF5AE00424A9E /* church@2x.jpg */; };
 		8A638C5C1ECBF5AE00424A9E /* question.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A638C591ECBF5AE00424A9E /* question.pdf */; };
@@ -381,6 +383,8 @@
 		8A59F34C1B14371800B15FA1 /* saints_07_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_07_en.txt; sourceTree = "<group>"; };
 		8A60D18B1F88822B0023CFAE /* Pods_ponomar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ponomar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A60D18C1F8885040023CFAE /* newicon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_1024.png; sourceTree = "<group>"; };
+		8A62E36F2327916900C7C4C5 /* TypikaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypikaModel.swift; sourceTree = "<group>"; };
+		8A62E3712327A6EF00C7C4C5 /* typika_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = typika_en.sqlite; sourceTree = "<group>"; };
 		8A638C571ECBF5AE00424A9E /* bg3@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg3@2x.jpg"; sourceTree = "<group>"; };
 		8A638C581ECBF5AE00424A9E /* church@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "church@2x.jpg"; sourceTree = "<group>"; };
 		8A638C591ECBF5AE00424A9E /* question.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = question.pdf; sourceTree = "<group>"; };
@@ -691,6 +695,7 @@
 		8A429DCE2317CDEC00F4E5AB /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8A62E3712327A6EF00C7C4C5 /* typika_en.sqlite */,
 				8A429DD02317CE0A00F4E5AB /* liturgy_cn.sqlite */,
 				8A429DCF2317CE0A00F4E5AB /* liturgy_en.sqlite */,
 			);
@@ -757,6 +762,7 @@
 				8A638C621ECBF60F00424A9E /* DailyTab.swift */,
 				8A1D285623050BC4001913C7 /* LibraryTab.swift */,
 				8A429DCC2317B79600F4E5AB /* LiturgyModel.swift */,
+				8A62E36F2327916900C7C4C5 /* TypikaModel.swift */,
 				8A161E1C23220C8C0067BE89 /* PrayerbookModel.swift */,
 				8A71ED311ECD55A300D55DEC /* Options.swift */,
 				8A638C8D1ECC520B00424A9E /* CalendarImageCell.swift */,
@@ -1238,6 +1244,7 @@
 				8AC1B10E199866FF00A017C7 /* launch-ipad@2x.png in Resources */,
 				8A9A3DE119D3AE2800A7D82A /* prayer_book_5_cn.html in Resources */,
 				8AE6FE911B70D60300FDAA47 /* saints_02_cn.txt in Resources */,
+				8A62E3722327A6EF00C7C4C5 /* typika_en.sqlite in Resources */,
 				8A9A3DDF19D3AE2800A7D82A /* prayer_book_4_cn.html in Resources */,
 				8AF8C6F5230F8CE80020D5E5 /* rev_en.sqlite in Resources */,
 				8AFB8DEB1B1FDC12006715A3 /* saints_03_en.sqlite in Resources */,
@@ -1526,6 +1533,7 @@
 				8A1D285723050BC4001913C7 /* LibraryTab.swift in Sources */,
 				8A638C931ECC520B00424A9E /* CalendarImageCell.swift in Sources */,
 				8A2F46A519E11CEA00076AF4 /* Prayer.swift in Sources */,
+				8A62E3702327916900C7C4C5 /* TypikaModel.swift in Sources */,
 				8A71ED331ECD55A300D55DEC /* Options.swift in Sources */,
 				8A429DCD2317B79600F4E5AB /* LiturgyModel.swift in Sources */,
 			);

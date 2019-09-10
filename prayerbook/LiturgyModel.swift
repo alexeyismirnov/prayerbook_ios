@@ -47,7 +47,7 @@ class LiturgyModel : BookModel {
             "Prayer of the Little Entrance",
             "Prayer of the Thrice-Holy",
             "The Thrice-Holy (Trisagion)",
-            "The Apostle",
+            "The Epistle",
             "The Gospel",
             "The Litany of Fervent Supplication",
             "The Prayer of the Litany of Fervent Supplication",
@@ -77,13 +77,13 @@ class LiturgyModel : BookModel {
     static let shared = LiturgyModel()
     
     init() {
-        let path = Bundle.main.path(forResource: "liturgy"+"_"+Translate.language, ofType: "sqlite")!
+        let path = Bundle.main.path(forResource: "liturgy_"+Translate.language, ofType: "sqlite")!
         db = try! Database(path:path)
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .themeChangedNotification, object: nil)
     }
     
     @objc func reload() {
-        let path = Bundle.main.path(forResource: "liturgy"+"_"+Translate.language, ofType: "sqlite")!
+        let path = Bundle.main.path(forResource: "liturgy_"+Translate.language, ofType: "sqlite")!
         db = try! Database(path:path)
     }
     
