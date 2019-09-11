@@ -71,7 +71,6 @@ class TypikaModel : BookModel {
         return nil
     }
     
-    
     func getContent(at pos: BookPosition) -> Any? {
         guard let index = pos.index else { return nil }
         var res = ""

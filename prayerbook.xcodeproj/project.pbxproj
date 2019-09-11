@@ -14,6 +14,7 @@
 		8A0EDB121B1E8E29008E48CB /* saints_02_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0EDB101B1E8E29008E48CB /* saints_02_en.sqlite */; };
 		8A0EDB131B1E8E29008E48CB /* saints_02_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A0EDB111B1E8E29008E48CB /* saints_02_en.txt */; };
 		8A161E1D23220C8C0067BE89 /* PrayerbookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A161E1C23220C8C0067BE89 /* PrayerbookModel.swift */; };
+		8A17277423289DBF00D9F280 /* typika_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A17277323289DBF00D9F280 /* typika_cn.sqlite */; };
 		8A181E0E1B1D3C9A00D8C2FB /* saints_01_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0C1B1D3C9A00D8C2FB /* saints_01_en.sqlite */; };
 		8A181E0F1B1D3C9A00D8C2FB /* saints_01_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0D1B1D3C9A00D8C2FB /* saints_01_en.txt */; };
 		8A1D285723050BC4001913C7 /* LibraryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D285623050BC4001913C7 /* LibraryTab.swift */; };
@@ -360,6 +361,7 @@
 		8A0F6F5B1C50C4BE0063DBF1 /* ponomar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ponomar.entitlements; sourceTree = "<group>"; };
 		8A0F6F5C1C50C4EC0063DBF1 /* CalendarWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CalendarWidget.entitlements; sourceTree = "<group>"; };
 		8A161E1C23220C8C0067BE89 /* PrayerbookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerbookModel.swift; sourceTree = "<group>"; };
+		8A17277323289DBF00D9F280 /* typika_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = typika_cn.sqlite; sourceTree = "<group>"; };
 		8A181E0C1B1D3C9A00D8C2FB /* saints_01_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_01_en.sqlite; sourceTree = "<group>"; };
 		8A181E0D1B1D3C9A00D8C2FB /* saints_01_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_01_en.txt; sourceTree = "<group>"; };
 		8A1D285623050BC4001913C7 /* LibraryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTab.swift; sourceTree = "<group>"; };
@@ -695,6 +697,7 @@
 		8A429DCE2317CDEC00F4E5AB /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8A17277323289DBF00D9F280 /* typika_cn.sqlite */,
 				8A62E3712327A6EF00C7C4C5 /* typika_en.sqlite */,
 				8A429DD02317CE0A00F4E5AB /* liturgy_cn.sqlite */,
 				8A429DCF2317CE0A00F4E5AB /* liturgy_en.sqlite */,
@@ -1461,6 +1464,7 @@
 				8AF8C79B230F8E4D0020D5E5 /* 2tim_cn.sqlite in Resources */,
 				8AB62A681C180F4F001ACD2A /* zoom_out.pdf in Resources */,
 				8AF2497A1AFF308B000070C0 /* great.pdf in Resources */,
+				8A17277423289DBF00D9F280 /* typika_cn.sqlite in Resources */,
 				8AF8C788230F8E4D0020D5E5 /* judg_cn.sqlite in Resources */,
 				8AF8C766230F8E4D0020D5E5 /* hag_cn.sqlite in Resources */,
 				8AF8C79C230F8E4D0020D5E5 /* rev_cn.sqlite in Resources */,
