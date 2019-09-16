@@ -10,7 +10,7 @@ import UIKit
 import swift_toolkit
 
 protocol BasicModel  {
-    var data: [[String]] { get }
+    var data: [String] { get }
     var basename : String { get }
 }
 
@@ -18,7 +18,7 @@ extension BasicModel where Self: BookModel {
     func getSections() -> [String] { return [""] }
     
     func getItems(_ section: Int) -> [String] {
-        return data[section].map { return Translate.s($0) }
+        return data.map { return Translate.s($0) }
     }
     
     func getNumChapters(_ index: IndexPath) -> Int {
@@ -36,14 +36,29 @@ extension BasicModel where Self: BookModel {
         let bundleName = Bundle.main.path(forResource: filename, ofType: nil)
         let txt:String! = try? String(contentsOfFile: bundleName!, encoding: String.Encoding.utf8)
         
-        return txt
+        let title = "<p align=\"center\"><b>" + Translate.s(data[index.row]) + "</b></p>"
+
+        return title+txt
     }
     
-    func getBookmark(at pos: BookPosition) -> String? { return nil }
-    func getBookmarkName(_ bookmark: String) -> String { return "" }
+    func getNextSection(at pos: BookPosition) -> BookPosition? {
+        if let index = pos.index {
+            if index.row < data.count - 1 {
+                return BookPosition(index: IndexPath(row: index.row+1, section: 0), chapter: 0)
+            }
+        }
+        return nil
+    }
     
-    func getNextSection(at pos: BookPosition) -> BookPosition? { return nil }
-    func getPrevSection(at pos: BookPosition) -> BookPosition? { return nil }
+    func getPrevSection(at pos: BookPosition) -> BookPosition? {
+        if let index = pos.index {
+            if index.row > 0 {
+                return BookPosition(index: IndexPath(row: index.row-1, section: 0), chapter: 0)
+            }
+        }
+        
+        return nil
+    }
 }
 
 class EucharistModel : BasicModel, BookModel {
@@ -60,13 +75,13 @@ class EucharistModel : BasicModel, BookModel {
         get { return Translate.s("Eucharist prayers") }
     }
     
-    var data: [[String]] = [
+    var data: [String] =
         ["A Canon of Repentance to our Lord Jesus Christ",
          "Canon To the Most Holy Mother of God",
          "Canon To the Guardian Angel",
          "Order of Pre-communion prayers",
          "Thanksgiving after Holy Communion"
-        ]]
+        ]
 
     static let shared = EucharistModel()
 }
@@ -85,14 +100,14 @@ class PrayerbookModel : BasicModel, BookModel {
         get { return Translate.s("Prayerbook") }
     }
     
-    var data: [[String]] = [
+    var data: [String] =
         ["Morning Prayers",
          "Prayers before Sleep",
          "Prayers during the day",
          "The order of reading Canons and Akathists when alone",
          "Canon To our Lord Jesus Christ",
          "Akathist to our Sweetest Lord Jesus Christ"
-        ]]
+        ]
     
     static let shared = PrayerbookModel()
 }

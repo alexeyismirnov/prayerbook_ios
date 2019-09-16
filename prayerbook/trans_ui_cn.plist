@@ -82,5 +82,8 @@
     <string>书签...</string>
     <key>No bookmarks</key>
     <string>没有书签</string>
+    <key>Service date</key>
+    <string>礼仪日期</string>
+    
 </dict>
 </plist>

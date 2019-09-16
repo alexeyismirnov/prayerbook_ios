@@ -66,7 +66,16 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        navigationController?.pushViewController(BookTOC(books[indexPath.row])!, animated: true)
+        let model = books[indexPath.row]
+        
+        if model.hasDate {
+            let container = ServiceDateSelector(model)!
+            showPopup(container)
+
+        } else {
+            navigationController?.pushViewController(BookTOC(books[indexPath.row])!, animated: true)
+        }
+        
         return nil
     }
     

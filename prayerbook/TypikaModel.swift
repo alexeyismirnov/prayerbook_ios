@@ -105,8 +105,17 @@ class TypikaModel : BookModel {
         return nil
     }
     
-    func getBookmark(at pos: BookPosition) -> String? { return nil }
-    func getBookmarkName(_ bookmark: String) -> String { return "" }
+    func dateIterator(startDate: Date) -> AnyIterator<Date> {
+        var currentDate = startDate
+        
+        return AnyIterator({
+            let nextDate = Cal.nearestSundayAfter(currentDate)
+            currentDate = nextDate + 1.days
+            
+            return nextDate
+        })
+    }
+    
     
 }
 
