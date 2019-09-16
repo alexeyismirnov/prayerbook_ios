@@ -15,7 +15,8 @@ class SynaxarionModel : BookModel {
     var mode: BookType = .text
     
     var isExpandable = false
-    var hasNavigation = true
+    var hasDate = false
+    var date: Date = Date()
     
     var currentYear : Int = 0
     
@@ -149,7 +150,7 @@ class SynaxarionModel : BookModel {
         return nil
     }
     
-    func getBookmark(at pos: BookPosition) -> String {
+    func getBookmark(at pos: BookPosition) -> String? {
         if let index = pos.index {
             return "\(code)_\(index.section)_\(index.row)"
             

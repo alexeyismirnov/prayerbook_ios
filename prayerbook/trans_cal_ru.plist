@@ -44,6 +44,10 @@
 	<string>прпп.</string>
 	<key>Martyrs</key>
 	<string>мучеников</string>
+    <key>Eve of the Nativity</key>
+    <string>навечерия Рождества</string>
+    <key>Epiphany Eve</key>
+    <string>навечерия Богоявления</string>
 	<key>Sunday after the Theophany</key>
 	<string>недели по Богоявлении</string>
 	<key>Saturday after the Theophany</key>
@@ -289,7 +293,7 @@
 	<key>Circumcision of our Lord</key>
 	<string>Обрезание Господне</string>
 	<key>Eve of Theophany</key>
-	<string>Навечерие Богоявления</string>
+	<string>Крещенский сочельник</string>
 	<key>Holy Theophany: the Baptism of Our Lord, God, and Saviour Jesus Christ</key>
 	<string>Святое Богоявление. Крещение Господа Бога и Спаса нашего Иисуса Христа</string>
 	<key>The Meeting of our Lord, God, and Saviour Jesus Christ in the Temple</key>

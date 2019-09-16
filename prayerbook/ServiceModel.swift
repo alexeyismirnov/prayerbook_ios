@@ -94,7 +94,7 @@ extension ServiceModel where Self: BookModel {
         return getData(index)
     }
     
-    func getBookmark(at pos: BookPosition) -> String {
+    func getBookmark(at pos: BookPosition) -> String? {
         guard let index = pos.index else { return "" }
         return "\(code)_\(index.section)_\(index.row)"
     }
@@ -140,7 +140,8 @@ class LiturgyModel : BookModel, ServiceModel {
     var mode: BookType = .html
 
     var isExpandable = false
-    var hasNavigation = true
+    var hasDate = false
+    var date: Date = Date()
     
     var db : Database
     
@@ -211,7 +212,8 @@ class VespersModel : BookModel, ServiceModel {
     var mode: BookType = .html
     
     var isExpandable = false
-    var hasNavigation = true
+    var hasDate = false
+    var date: Date = Date()
     
     var db : Database
     

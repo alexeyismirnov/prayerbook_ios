@@ -15,7 +15,8 @@ class FeofanModel : BookModel {
     var mode: BookType = .text
     
     var isExpandable = false
-    var hasNavigation = false
+    var hasDate = false
+    var date: Date = Date()
     
     static let shared = FeofanModel()
 
@@ -113,14 +114,6 @@ class FeofanModel : BookModel {
     }
     
     func getComment(commentId: Int) -> String? { return nil }
-    
-    func getNextSection(at pos: BookPosition) -> BookPosition? { return nil }
-    
-    func getPrevSection(at pos: BookPosition) -> BookPosition? { return nil }
-    
-    func getBookmark(at pos: BookPosition) -> String { return "" }
-    
-    func getBookmarkName(_ bookmark: String) -> String { return "" }
     
 }
 

@@ -16,7 +16,9 @@ class ZvezdinskyModel : BookModel {
     var mode: BookType = .text
     
     var isExpandable = false
-    var hasNavigation = true
+    var hasDate = false
+    var date: Date = Date()
+    
     var db : Database
 
     static let shared = ZvezdinskyModel()
@@ -103,7 +105,7 @@ class ZvezdinskyModel : BookModel {
         return nil
     }
     
-    func getBookmark(at pos: BookPosition) -> String {
+    func getBookmark(at pos: BookPosition) -> String? {
         guard let index = pos.index else { return "" }
         return "\(code)_\(index.section)_\(index.row)"
     }

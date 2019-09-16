@@ -18,8 +18,8 @@ class TroparionModel : BookModel {
     var title = ""
     
     var isExpandable = false
-    
-    var hasNavigation = false
+    var hasDate = false
+    var date: Date = Date()
     
     static let shared = TroparionModel()
     
@@ -113,22 +113,6 @@ class TroparionModel : BookModel {
         }
         
         return text
-    }
-    
-    func getBookmark(at pos: BookPosition) -> String {
-        return ""
-    }
-    
-    func getNextSection(at pos: BookPosition) -> BookPosition? {
-        return nil
-    }
-    
-    func getPrevSection(at pos: BookPosition) -> BookPosition? {
-        return nil
-    }
-    
-    func getBookmarkName(_ bookmark: String) -> String {
-        return ""
     }
     
 }
