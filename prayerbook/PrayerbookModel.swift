@@ -39,7 +39,7 @@ extension BasicModel where Self: BookModel {
         return txt
     }
     
-    func getBookmark(at pos: BookPosition) -> String { return "" }
+    func getBookmark(at pos: BookPosition) -> String? { return nil }
     func getBookmarkName(_ bookmark: String) -> String { return "" }
     
     func getNextSection(at pos: BookPosition) -> BookPosition? { return nil }
@@ -52,7 +52,9 @@ class EucharistModel : BasicModel, BookModel {
     
     var mode: BookType = .html
     var isExpandable = false
-    var hasNavigation = false
+
+    var hasDate = false
+    var date: Date = Date()
     
     var title: String {
         get { return Translate.s("Eucharist prayers") }
@@ -75,7 +77,9 @@ class PrayerbookModel : BasicModel, BookModel {
     
     var mode: BookType = .html
     var isExpandable = false
-    var hasNavigation = false
+
+    var hasDate = false
+    var date: Date = Date()
     
     var title: String {
         get { return Translate.s("Prayerbook") }

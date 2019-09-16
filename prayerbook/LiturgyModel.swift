@@ -24,7 +24,8 @@ class LiturgyModel : BookModel {
     var mode: BookType = .html
     
     var isExpandable = false
-    var hasNavigation = true
+    var hasDate = false
+    var date: Date = Date()
     
     var db : Database
     
@@ -117,7 +118,7 @@ class LiturgyModel : BookModel {
         return title + res
     }
     
-    func getBookmark(at pos: BookPosition) -> String {
+    func getBookmark(at pos: BookPosition) -> String? {
         guard let index = pos.index else { return "" }
         return "\(code)_\(index.section)_\(index.row)"
     }

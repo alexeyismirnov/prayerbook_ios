@@ -24,7 +24,8 @@ class TypikaModel : BookModel {
     var mode: BookType = .html
     
     var isExpandable = false
-    var hasNavigation = true
+    var hasDate = true
+    var date: Date = Date()
     
     var db : Database
     
@@ -104,22 +105,8 @@ class TypikaModel : BookModel {
         return nil
     }
     
-    func getBookmark(at pos: BookPosition) -> String {
-        if let index = pos.index {
-            return "\(code)_\(index.section)_\(index.row)"
-        }
-        
-        return ""
-    }
-    
-    func getBookmarkName(_ bookmark: String) -> String {
-        let comp = bookmark.components(separatedBy: "_")
-        guard comp[0] == code else { return "" }
-        
-        let row = Int(comp[2])!
-        return data[row]
-    }
-    
+    func getBookmark(at pos: BookPosition) -> String? { return nil }
+    func getBookmarkName(_ bookmark: String) -> String { return "" }
     
 }
 
