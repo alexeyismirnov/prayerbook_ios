@@ -20,6 +20,7 @@ let books : [BookModel] = [BookmarksModel.shared,
 class LibraryTab: UIViewController, ResizableTableViewCells  {
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     var tableView: UITableView!
+    var selectedModel : BookModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,8 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
         navigationController?.makeTransparent()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .themeChangedNotification, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(setServiceDate), name: .dateSelectedNotification, object: nil)
+
         reloadTheme()
     }
     
@@ -66,11 +68,10 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        let model = books[indexPath.row]
+        selectedModel = books[indexPath.row]
         
-        if model.hasDate {
-            let container = ServiceDateSelector(model)!
-            showPopup(container)
+        if selectedModel.hasDate {
+            showPopup(ServiceDateSelector(selectedModel)!)
 
         } else {
             navigationController?.pushViewController(BookTOC(books[indexPath.row])!, animated: true)
@@ -79,4 +80,13 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
         return nil
     }
     
+    @objc func setServiceDate(_ notification: NSNotification) {
+        UIViewController.popup.dismiss({
+            if let date = notification.userInfo?["date"] as? Date {
+                self.selectedModel.date = date
+                self.navigationController?.pushViewController(BookTOC(self.selectedModel)!, animated: true)
+            }
+        })
+        
+    }
 }

@@ -9,6 +9,10 @@
 import UIKit
 import swift_toolkit
 
+public extension Notification.Name {
+    static let dateSelectedNotification = Notification.Name("DATE_SELECTED")
+}
+
 class ServiceDateSelector: UIViewController, ResizableTableViewCells, PopupContentViewController {
     var tableView: UITableView!
     var model : BookModel
@@ -19,7 +23,7 @@ class ServiceDateSelector: UIViewController, ResizableTableViewCells, PopupConte
     
     init?(_ model: BookModel) {
         self.model = model
-        self.iterator = model.dateIterator(startDate: Date())
+        self.iterator = model.dateIterator(startDate: DateComponents(date: Date()).toDate())
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,6 +48,9 @@ class ServiceDateSelector: UIViewController, ResizableTableViewCells, PopupConte
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let userInfo:[String: Date] = ["date": dates[indexPath.row]]
+        NotificationCenter.default.post(name: .dateSelectedNotification, object: nil, userInfo: userInfo)
+        
         return nil
     }
     

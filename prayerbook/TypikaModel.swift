@@ -25,7 +25,22 @@ class TypikaModel : BookModel {
     
     var isExpandable = false
     var hasDate = true
-    var date: Date = Date()
+    
+    var tone: Int!
+    var fragments = [String]()
+    
+    var date: Date = Date() {
+        didSet {
+            tone = Cal.getTone(date)!
+
+            fragments = [String]()
+            
+            let res = try! db.selectFrom("fragments", whereExpr:"glas=\(tone!)", orderBy: "id") { ["text": $0["text"]] }
+            for line in res {
+                fragments.append(line["text"] as! String)
+            }
+        }
+    }
     
     var db : Database
     
@@ -52,6 +67,7 @@ class TypikaModel : BookModel {
     init() {
         let path = Bundle.main.path(forResource: "typika_"+Translate.language, ofType: "sqlite")!
         db = try! Database(path:path)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .themeChangedNotification, object: nil)
     }
     
@@ -74,16 +90,38 @@ class TypikaModel : BookModel {
     
     func getContent(at pos: BookPosition) -> Any? {
         guard let index = pos.index else { return nil }
-        var res = ""
+        var content = ""
         let typika = try! db.selectFrom("content", whereExpr:"section=\(index.row+1)") { ["text": $0["text"]] }
         
         for line in typika {
-            res += line["text"] as! String
+            content += line["text"] as! String
+        }
+        
+        content = content.replacingOccurrences(of: "GLAS", with: Translate.stringFromNumber(tone!))
+        
+        for (i, fragment) in fragments.enumerated() {
+            content = content.replacingOccurrences(
+                of: String(format:"FRAGMENT%d!", i+1),
+                with: fragment)
+        }
+        
+        let readingStr = DailyReading.getRegularReading(date)!
+        let readings = PericopeModel.shared.getPericope(readingStr, decorated: false)
+        
+        for (i, (title, text)) in readings.enumerated() {
+            content = content.replacingOccurrences(
+                of: String(format:"TITLE%d", (i+1)),
+                with: title.string)
+            
+            content = content.replacingOccurrences(
+                of: String(format:"READING%d", (i+1)),
+                with: text.string)
+            
         }
         
         let title = "<p align=\"center\"><b>" + Translate.s(data[index.row]) + "</b></p>"
         
-        return title + res
+        return title + content
     }
     
     func getNextSection(at pos: BookPosition) -> BookPosition? {
@@ -107,10 +145,16 @@ class TypikaModel : BookModel {
     
     func dateIterator(startDate: Date) -> AnyIterator<Date> {
         var currentDate = startDate
+        var nextDate, pascha: Date!
         
         return AnyIterator({
-            let nextDate = Cal.nearestSundayAfter(currentDate)
-            currentDate = nextDate + 1.days
+            repeat {
+                nextDate = Cal.nearestSundayAfter(currentDate)
+                pascha = Cal.paschaDay(nextDate.year)
+                currentDate = nextDate + 1.days
+                
+            } while (pascha-48.days ... pascha ~= nextDate)
+          
             
             return nextDate
         })
