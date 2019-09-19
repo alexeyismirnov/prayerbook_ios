@@ -13,7 +13,6 @@
 		8A08D8D91B71D4DD00495BEB /* saints_03_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A08D8D71B71D4DD00495BEB /* saints_03_cn.txt */; };
 		8A0EDB121B1E8E29008E48CB /* saints_02_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0EDB101B1E8E29008E48CB /* saints_02_en.sqlite */; };
 		8A0EDB131B1E8E29008E48CB /* saints_02_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A0EDB111B1E8E29008E48CB /* saints_02_en.txt */; };
-		8A13D354232F627E00C9BCBD /* ServiceDateSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13D353232F627E00C9BCBD /* ServiceDateSelector.swift */; };
 		8A161E1D23220C8C0067BE89 /* PrayerbookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A161E1C23220C8C0067BE89 /* PrayerbookModel.swift */; };
 		8A17277423289DBF00D9F280 /* typika_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A17277323289DBF00D9F280 /* typika_cn.sqlite */; };
 		8A181E0E1B1D3C9A00D8C2FB /* saints_01_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0C1B1D3C9A00D8C2FB /* saints_01_en.sqlite */; };
@@ -22,7 +21,6 @@
 		8A2CD31A1E654DC20060D524 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3171E654DC20060D524 /* CompactViewController.swift */; };
 		8A2CD31B1E654DC20060D524 /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */; };
 		8A2CD31E1E654DD50060D524 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2CD31D1E654DD50060D524 /* MainInterface.storyboard */; };
-		8A2F46A519E11CEA00076AF4 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A419E11CEA00076AF4 /* Prayer.swift */; };
 		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
 		8A429DCD2317B79600F4E5AB /* LiturgyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A429DCC2317B79600F4E5AB /* LiturgyModel.swift */; };
 		8A429DD12317CE0A00F4E5AB /* liturgy_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A429DCF2317CE0A00F4E5AB /* liturgy_en.sqlite */; };
@@ -361,7 +359,6 @@
 		8A0EDB111B1E8E29008E48CB /* saints_02_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_02_en.txt; sourceTree = "<group>"; };
 		8A0F6F5B1C50C4BE0063DBF1 /* ponomar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ponomar.entitlements; sourceTree = "<group>"; };
 		8A0F6F5C1C50C4EC0063DBF1 /* CalendarWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CalendarWidget.entitlements; sourceTree = "<group>"; };
-		8A13D353232F627E00C9BCBD /* ServiceDateSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDateSelector.swift; sourceTree = "<group>"; };
 		8A161E1C23220C8C0067BE89 /* PrayerbookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerbookModel.swift; sourceTree = "<group>"; };
 		8A17277323289DBF00D9F280 /* typika_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = typika_cn.sqlite; sourceTree = "<group>"; };
 		8A181E0C1B1D3C9A00D8C2FB /* saints_01_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_01_en.sqlite; sourceTree = "<group>"; };
@@ -371,7 +368,6 @@
 		8A2CD3171E654DC20060D524 /* CompactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
 		8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedViewController.swift; sourceTree = "<group>"; };
 		8A2CD31D1E654DD50060D524 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
-		8A2F46A419E11CEA00076AF4 /* Prayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
 		8A2F46A619E12B4100076AF4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Bridging-Header.h"; sourceTree = "<group>"; };
 		8A429DCC2317B79600F4E5AB /* LiturgyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiturgyModel.swift; sourceTree = "<group>"; };
@@ -762,14 +758,12 @@
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
 				8A2F46A619E12B4100076AF4 /* AppDelegate.swift */,
 				8A638C631ECBF60F00424A9E /* Db.swift */,
-				8A2F46A419E11CEA00076AF4 /* Prayer.swift */,
 				8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */,
 				8A638C621ECBF60F00424A9E /* DailyTab.swift */,
 				8A1D285623050BC4001913C7 /* LibraryTab.swift */,
 				8A429DCC2317B79600F4E5AB /* LiturgyModel.swift */,
 				8A62E36F2327916900C7C4C5 /* TypikaModel.swift */,
 				8A161E1C23220C8C0067BE89 /* PrayerbookModel.swift */,
-				8A13D353232F627E00C9BCBD /* ServiceDateSelector.swift */,
 				8A71ED311ECD55A300D55DEC /* Options.swift */,
 				8A638C8D1ECC520B00424A9E /* CalendarImageCell.swift */,
 				8A638C8E1ECC520B00424A9E /* CalendarInfo.swift */,
@@ -1532,7 +1526,6 @@
 				8A638C651ECBF60F00424A9E /* DailyTab.swift in Sources */,
 				8A161E1D23220C8C0067BE89 /* PrayerbookModel.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
-				8A13D354232F627E00C9BCBD /* ServiceDateSelector.swift in Sources */,
 				8A638C961ECC520B00424A9E /* CalendarViewTextCell.swift in Sources */,
 				8A638C941ECC520B00424A9E /* CalendarInfo.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
@@ -1540,7 +1533,6 @@
 				8A638C661ECBF60F00424A9E /* Db.swift in Sources */,
 				8A1D285723050BC4001913C7 /* LibraryTab.swift in Sources */,
 				8A638C931ECC520B00424A9E /* CalendarImageCell.swift in Sources */,
-				8A2F46A519E11CEA00076AF4 /* Prayer.swift in Sources */,
 				8A62E3702327916900C7C4C5 /* TypikaModel.swift in Sources */,
 				8A71ED331ECD55A300D55DEC /* Options.swift in Sources */,
 				8A429DCD2317B79600F4E5AB /* LiturgyModel.swift in Sources */,

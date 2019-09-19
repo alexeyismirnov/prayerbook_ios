@@ -84,20 +84,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         tableView.reloadData()
     }
     
-    func hasTypica() -> Bool {
-        if Translate.language != "cn" {
-            return false
-        }
-        if (currentDate > Cal.d(.beginningOfGreatLent) && currentDate < Cal.d(.sunday2AfterPascha) || Cal.currentWeekday != .sunday) {
-            return false
-         
-        } else {
-            return true
-        }
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -112,9 +100,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             return readings.count
             
         case 3:
-            return hasTypica() ? 1 : 0
-            
-        case 4:
             return saints.count
             
         default:
@@ -134,9 +119,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             return readings.count > 0 ? Translate.s("Gospel of the day") : nil
             
         case 3:
-            return hasTypica() ? Translate.s("Prayers") : nil
-            
-        case 4:
             return Translate.s("Memory of saints")
             
         default:
@@ -240,12 +222,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 return cell
             }
             
-            
         } else if indexPath.section == 3 {
-            return getTextDetailsCell(title: Translate.s("Typica"), subtitle: "")
-
-        } else if indexPath.section == 4 {
-            
             if saints[indexPath.row].0 == .none {
                 if appeared {
                     return getTextCell(saints[indexPath.row].1)
@@ -295,12 +272,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             vc = BookPageText(pos)
             navigationController?.pushViewController(vc, animated: true)
             
-        } else if indexPath.section == 3 {
-            let prayer = UIViewController.named("Prayer") as! Prayer
-            prayer.code = "typica"
-            prayer.index = 0
-            prayer.name = Translate.s("Typica")
-            navigationController?.pushViewController(prayer, animated: true)
         }
         
         return nil
