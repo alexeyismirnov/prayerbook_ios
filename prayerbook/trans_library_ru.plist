@@ -160,5 +160,12 @@
 	<string>Апокалипсис</string>
 	<key>Stasis</key>
 	<string>Слава:</string>
+    
+    <key>Typika Reader Service</key>
+    <string>Обедница воскресная для мирян</string>
+    
+    <key>Service date</key>
+    <string>Дата службы</string>
+    
 </dict>
 </plist>

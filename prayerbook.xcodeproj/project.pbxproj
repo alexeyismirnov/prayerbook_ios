@@ -110,6 +110,7 @@
 		8A916D8722575EA7003FEF70 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A916D8622575EA7003FEF70 /* WebKit.framework */; };
 		8A916D8922576C34003FEF70 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A916D8822576C34003FEF70 /* ServiceModel.swift */; };
 		8A953B371DC736C2001062AF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A953B361DC736C2001062AF /* MainViewController.swift */; };
+		8AA5E74223321444002E6BE5 /* typika.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA5E74123321444002E6BE5 /* typika.sqlite */; };
 		8AADFF521E84C25300CE3D0F /* synaxarion21.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF441E84C25300CE3D0F /* synaxarion21.rtf */; };
 		8AADFF531E84C25300CE3D0F /* synaxarion22.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF451E84C25300CE3D0F /* synaxarion22.rtf */; };
 		8AADFF541E84C25300CE3D0F /* synaxarion23.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF461E84C25300CE3D0F /* synaxarion23.rtf */; };
@@ -125,6 +126,7 @@
 		8AADFF5E1E84C25300CE3D0F /* synaxarion33.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF501E84C25300CE3D0F /* synaxarion33.rtf */; };
 		8AADFF5F1E84C25300CE3D0F /* synaxarion34.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF511E84C25300CE3D0F /* synaxarion34.rtf */; };
 		8AADFF6E1E84F28900CE3D0F /* feofan.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF6D1E84F28900CE3D0F /* feofan.sqlite */; };
+		8AAE60E52334853F005563D3 /* TypikaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAE60E42334853F005563D3 /* TypikaModel.swift */; };
 		8AB004D521884F97005D8A77 /* FeastNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB004D421884F97005D8A77 /* FeastNotifications.swift */; };
 		8AB018E11C5EED5D00DE96B0 /* Db.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFC27C1A2C8DF800BAACE0 /* Db.swift */; };
 		8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */; };
@@ -384,6 +386,7 @@
 		8A916D8822576C34003FEF70 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		8A953B361DC736C2001062AF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8A9A36D81CAD127400D33D5A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		8AA5E74123321444002E6BE5 /* typika.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = typika.sqlite; sourceTree = "<group>"; };
 		8AADFF441E84C25300CE3D0F /* synaxarion21.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion21.rtf; sourceTree = "<group>"; };
 		8AADFF451E84C25300CE3D0F /* synaxarion22.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion22.rtf; sourceTree = "<group>"; };
 		8AADFF461E84C25300CE3D0F /* synaxarion23.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion23.rtf; sourceTree = "<group>"; };
@@ -399,6 +402,7 @@
 		8AADFF501E84C25300CE3D0F /* synaxarion33.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion33.rtf; sourceTree = "<group>"; };
 		8AADFF511E84C25300CE3D0F /* synaxarion34.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion34.rtf; sourceTree = "<group>"; };
 		8AADFF6D1E84F28900CE3D0F /* feofan.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = feofan.sqlite; sourceTree = "<group>"; };
+		8AAE60E42334853F005563D3 /* TypikaModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypikaModel.swift; sourceTree = "<group>"; };
 		8AB004D421884F97005D8A77 /* FeastNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeastNotifications.swift; sourceTree = "<group>"; };
 		8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalendarWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -546,6 +550,7 @@
 		8A008FF22258A71400A9636B /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8AA5E74123321444002E6BE5 /* typika.sqlite */,
 				8AADFF6D1E84F28900CE3D0F /* feofan.sqlite */,
 				8A1736F222D214B700654AB1 /* troparion.sqlite */,
 				8A6F7E9422A12094006FD639 /* zvezdinsky.sqlite */,
@@ -623,6 +628,7 @@
 				8AB8674A229B8FAD00D6EFA7 /* SynaxarionModel.swift */,
 				8A6F7E9222A108E7006FD639 /* ZvezdinskyModel.swift */,
 				8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */,
+				8AAE60E42334853F005563D3 /* TypikaModel.swift */,
 				8A1B2576202956840038C0C4 /* SaintIconView.swift */,
 				8A54E3DC2028637E00245C31 /* SaintIconModel.swift */,
 				8A1B257820295C9D0038C0C4 /* CenterViewFlowLayout.swift */,
@@ -1020,6 +1026,7 @@
 				8A54577F1E70174300A86B5A /* synaxarion15.rtf in Resources */,
 				8A008FF62258A7B100A9636B /* liturgy.sqlite in Resources */,
 				8A0B4CB11C8C1E8000747BB4 /* saints_06_ru.sqlite in Resources */,
+				8AA5E74223321444002E6BE5 /* typika.sqlite in Resources */,
 				8A1F2C981DD9B0F000F13A3D /* newicon_1024.png in Resources */,
 				8AF8EE63229FBA580097356B /* vespers.sqlite in Resources */,
 				8AC10A1A222A694F00540B22 /* ezek_ru.sqlite in Resources */,
@@ -1234,6 +1241,7 @@
 				8A24F52F1EB98A1700CE19E7 /* CalendarImageCell.swift in Sources */,
 				8AB004D521884F97005D8A77 /* FeastNotifications.swift in Sources */,
 				8A0689F9221FF8A600F1E711 /* LibraryTab.swift in Sources */,
+				8AAE60E52334853F005563D3 /* TypikaModel.swift in Sources */,
 				8A76870C1EB72A6E000F7533 /* YearlyMonthViewCell.swift in Sources */,
 				8A01E42221956295005BE65F /* TroparionFeastModel.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,

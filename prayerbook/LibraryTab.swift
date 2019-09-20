@@ -15,13 +15,15 @@ let books : [BookModel] = [BookmarksModel.shared,
                            VespersModel.shared,
                            LiturgyModel.shared,
                            ZvezdinskyModel.shared,
+                           TypikaModel.shared,
                            SynaxarionModel.shared]
 
 
 class LibraryTab: UIViewController, ResizableTableViewCells  {    
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     var tableView: UITableView!
-    
+    var selectedModel : BookModel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,8 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
         navigationController?.makeTransparent()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .themeChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setServiceDate), name: .dateSelectedNotification, object: nil)
+
         reloadTheme()
     }
     
@@ -66,8 +70,26 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        navigationController?.pushViewController(BookTOC(books[indexPath.row])!, animated: true)
+        selectedModel = books[indexPath.row]
+        
+        if selectedModel.hasDate {
+            showPopup(ServiceDateSelector(selectedModel)!)
+            
+        } else {
+            navigationController?.pushViewController(BookTOC(books[indexPath.row])!, animated: true)
+        }
+        
         return nil
+    }
+    
+    @objc func setServiceDate(_ notification: NSNotification) {
+        UIViewController.popup.dismiss({
+            if let date = notification.userInfo?["date"] as? Date {
+                self.selectedModel.date = date
+                self.navigationController?.pushViewController(BookTOC(self.selectedModel)!, animated: true)
+            }
+        })
+        
     }
     
 }
