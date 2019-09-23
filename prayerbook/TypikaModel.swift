@@ -24,17 +24,23 @@ class TypikaModel : BookModel {
     
     var tone: Int!
     var fragments = [String]()
+    var prokimen = [String]()
     
     var date: Date = Date() {
         didSet {
             tone = Cal.getTone(date)!
 
             fragments = [String]()
+            prokimen = [String]()
             
-            let res = try! db.selectFrom("fragments", whereExpr:"glas=\(tone!)", orderBy: "id") { ["text": $0["text"]] }
-            for line in res {
-                fragments.append(line["text"] as! String)
-            }
+            let _ = try! db.selectFrom("fragments", whereExpr:"glas=\(tone!)", orderBy: "id")
+                { fragments.append($0.stringValue("text") ?? "") }
+            
+            let _ = try! db.selectFrom("prokimen", whereExpr:"glas=\(tone!)", orderBy: "id")
+                { prokimen.append($0.stringValue("text") ?? "") }
+            
+            prokimen.append(contentsOf: prokimen[0].components(separatedBy: "/"))
+            prokimen[0] = prokimen[0].replacingOccurrences(of: "/", with: " ")
         }
     }
     
@@ -64,17 +70,17 @@ class TypikaModel : BookModel {
         "Евангелие от Луки": "От Луки Святаго Евангелия",
         "Евангелие от Иоанна": "От Иоанна Святаго Евангелия",
         "Деяния святых апостолов": "Деяний святых апостол",
-        "Послание к Римлянам": "К римляном послания святаго Апостола Павла",
-        "послание к Коринфянам": "К коринфяном послания святаго Апостола Павла",
-        "Послание к Галатам": " К галатом послания святаго Апостола Павла",
-        "Послание к Ефесянам": "Ко ефесеем послания святаго Апостола Павла",
-        "Послание к Филиппийцам": "К филипписием послания святаго Апостола Павла",
-        "Послание к Колоссянам": "К колоссаем послания святаго Апостола Павла",
-        "послание к Фессалоникийцам": "К солуняном послания святаго Апостола Павла",
+        "Послание к Римлянам": "К Римляном послания святаго Апостола Павла",
+        "послание к Коринфянам": "К Коринфяном послания святаго Апостола Павла",
+        "Послание к Галатам": " К Галатом послания святаго Апостола Павла",
+        "Послание к Ефесянам": "Ко Ефесеем послания святаго Апостола Павла",
+        "Послание к Филиппийцам": "К Филипписием послания святаго Апостола Павла",
+        "Послание к Колоссянам": "К Колоссаем послания святаго Апостола Павла",
+        "послание к Фессалоникийцам": "К Солуняном послания святаго Апостола Павла",
         "послание к Тимофею": "К Тимофею послания святаго Апостола Павла",
         "Послание к Титу": "К Титу послания святаго Апостола Павла",
         "Послание к Филимону": "К Филимону послания святаго Апостола Павла",
-        "Послание к Евреям": "Ко евреем послания святаго Апостола Павла",
+        "Послание к Евреям": "Ко Евреем послания святаго Апостола Павла",
         "Послание Иакова": "Соборного послания Иаковля",
         "послание Петра": "Соборного послания Петрова",
         "послание Иоанна": "Соборного послания Иоаннова",
@@ -114,6 +120,14 @@ class TypikaModel : BookModel {
             content = content.replacingOccurrences(
                 of: String(format:"FRAGMENT%d!", i+1),
                 with: fragment)
+        }
+        
+        content = content.replacingOccurrences(of: "PROKIMEN0", with: "Вонмем. Премудрость. Прокимен, глас \(tone!).")
+
+        for (i, text) in prokimen.enumerated() {
+            content = content.replacingOccurrences(
+                of: String(format:"PROKIMEN%d", i+1),
+                with: text)
         }
         
         let readingStr = DailyReading.getRegularReading(date)!
