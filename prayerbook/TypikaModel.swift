@@ -28,17 +28,24 @@ class TypikaModel : BookModel {
     
     var tone: Int!
     var fragments = [String]()
-    
+    var prokimen = [String]()
+
     var date: Date = Date() {
         didSet {
             tone = Cal.getTone(date)!
 
             fragments = [String]()
+            prokimen = [String]()
             
-            let res = try! db.selectFrom("fragments", whereExpr:"glas=\(tone!)", orderBy: "id") { ["text": $0["text"]] }
-            for line in res {
-                fragments.append(line["text"] as! String)
-            }
+            let _ = try! db.selectFrom("fragments", whereExpr:"glas=\(tone!)", orderBy: "id")
+                { fragments.append($0.stringValue("text") ?? "") }
+            
+            let _ = try! db.selectFrom("prokimen", whereExpr:"glas=\(tone!)", orderBy: "id")
+                { prokimen.append($0.stringValue("text") ?? "") }
+            
+            prokimen.append(contentsOf: prokimen[0].components(separatedBy: "/"))
+            prokimen[0] = prokimen[0].replacingOccurrences(of: "/", with: " ")
+
         }
     }
     
@@ -103,6 +110,12 @@ class TypikaModel : BookModel {
             content = content.replacingOccurrences(
                 of: String(format:"FRAGMENT%d!", i+1),
                 with: fragment)
+        }
+        
+        for (i, text) in prokimen.enumerated() {
+            content = content.replacingOccurrences(
+                of: String(format:"PROKIMEN%d", i+1),
+                with: text)
         }
         
         let readingStr = DailyReading.getRegularReading(date)!
