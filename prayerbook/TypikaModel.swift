@@ -10,6 +10,17 @@ import UIKit
 import Squeal
 import swift_toolkit
 
+extension String {
+    var paragraph: String {
+        return self.count > 0 ? "<p>\(self)</p>" : ""
+    }
+    
+    var title: String {
+        return self.count > 0 ? "<p class=\"rubric\">\(self)</p>" : ""
+    }
+}
+
+
 class TypikaModel : BookModel {
     var code: String = "Typika"
     
@@ -23,24 +34,58 @@ class TypikaModel : BookModel {
     var hasDate = true
     
     var tone: Int!
-    var fragments = [String]()
+        
+    var beatitudes = [String]()
     var prokimen = [String]()
+    var alleluia = [String]()
+    var troparion = [(String,String)]()
+    var kontakion = [(String,String)]()
+    
+    let default_kontakia = [("", "Со святыми упокой  Христе, души раб Твоих,  идеже несть болезнь, ни печаль,  ни воздыхание,  но жизнь безконечная"),
+    ("", "Предстательство христиан непостыдное,  ходатайство ко Творцу непреложное,  не презри грешных молений гласы,  но предвари, яко Благая, на помощь нас, верно зовущих Ти:  ускори на молитву и потщися на умоление,  предстательствующи присно, Богородице, чтущих Тя.")]
+
+    func resetData() {
+        beatitudes = [String]()
+        prokimen = [String]()
+        alleluia = [String]()
+        troparion = [(String,String)]()
+        kontakion = [(String,String)]()
+    }
     
     var date: Date = Date() {
         didSet {
             tone = Cal.getTone(date)!
-
-            fragments = [String]()
-            prokimen = [String]()
             
-            let _ = try! db.selectFrom("fragments", whereExpr:"glas=\(tone!)", orderBy: "id")
-                { fragments.append($0.stringValue("text") ?? "") }
+            resetData()
             
-            let _ = try! db.selectFrom("prokimen", whereExpr:"glas=\(tone!)", orderBy: "id")
+            let _ = try! db.selectFrom("blazh_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
+                       { beatitudes.append($0.stringValue("text") ?? "") }
+            
+            while beatitudes.count < 12 {
+                beatitudes.insert("", at: 0)
+            }
+            
+            let _ = try! db.selectFrom("prokimen_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
                 { prokimen.append($0.stringValue("text") ?? "") }
             
             prokimen.append(contentsOf: prokimen[0].components(separatedBy: "/"))
             prokimen[0] = prokimen[0].replacingOccurrences(of: "/", with: " ")
+            
+            let _ = try! db.selectFrom("alleluia_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
+            { alleluia.append($0.stringValue("text") ?? "") }
+            
+            let _ = try! db.selectFrom("tropar_sun", whereExpr:"glas=\(tone!)")
+            { troparion.append(("Тропарь воскресный, глас \(tone!):", $0.stringValue("text") ?? "")) }
+            
+            while troparion.count < 3 {
+                troparion.append(("", ""))
+            }
+            
+            let _ = try! db.selectFrom("kondak_sun", whereExpr:"glas=\(tone!)")
+            { kontakion.append(("Кондак воскресный, глас \(tone!):", $0.stringValue("text") ?? "")) }
+            
+            kontakion.append(contentsOf: default_kontakia)
+            
         }
     }
     
@@ -116,10 +161,22 @@ class TypikaModel : BookModel {
         
         content = content.replacingOccurrences(of: "GLAS", with: Translate.stringFromNumber(tone!))
         
-        for (i, fragment) in fragments.enumerated() {
+        for (i, text) in beatitudes.enumerated() {
             content = content.replacingOccurrences(
-                of: String(format:"FRAGMENT%d!", i+1),
-                with: fragment)
+                of: String(format:"BLAZH%d!", i+1),
+                with: text.paragraph)
+        }
+        
+        for (i, text) in troparion.enumerated() {
+            content = content.replacingOccurrences(
+                of: String(format:"TROPAR%d", i+1),
+                with: text.0.title + text.1.paragraph)
+        }
+        
+        for (i, text) in kontakion.enumerated() {
+            content = content.replacingOccurrences(
+                of: String(format:"KONDAK%d", i+1),
+                with: text.0.title + text.1.paragraph)
         }
         
         content = content.replacingOccurrences(of: "PROKIMEN0", with: "Вонмем. Премудрость. Прокимен, глас \(tone!).")
@@ -128,6 +185,12 @@ class TypikaModel : BookModel {
             content = content.replacingOccurrences(
                 of: String(format:"PROKIMEN%d", i+1),
                 with: text)
+        }
+        
+        for (i, text) in alleluia.enumerated() {
+            content = content.replacingOccurrences(
+                of: String(format:"ALLELUIA%d", i+1),
+                with: text.paragraph)
         }
         
         let readingStr = DailyReading.getRegularReading(date)!
