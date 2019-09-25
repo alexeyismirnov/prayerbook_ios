@@ -34,10 +34,12 @@ class TypikaModel : BookModel {
     var hasDate = true
     
     var tone: Int!
-        
+    
     var beatitudes = [String]()
     var prokimen = [String]()
+    var prokimen_tone = [Int]()
     var alleluia = [String]()
+    var alleluia_tone: Int!
     var troparion = [(String,String)]()
     var kontakion = [(String,String)]()
     
@@ -47,9 +49,30 @@ class TypikaModel : BookModel {
     func resetData() {
         beatitudes = [String]()
         prokimen = [String]()
+        prokimen_tone = [Int]()
+        
         alleluia = [String]()
         troparion = [(String,String)]()
         kontakion = [(String,String)]()
+    }
+    
+    func makeSingleProkimenon() {
+        prokimen.append(contentsOf: prokimen[0].components(separatedBy: "/"))
+        prokimen[0] = prokimen[0].replacingOccurrences(of: "/", with: " ")
+    }
+    
+    func sundayProkimenAlleluia() {
+        prokimen_tone = [tone]
+                       
+        let _ = try! db.selectFrom("prokimen_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
+           { prokimen.append($0.stringValue("text") ?? "") }
+
+        makeSingleProkimenon()
+
+        alleluia_tone = tone
+
+        let _ = try! db.selectFrom("alleluia_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
+           { alleluia.append($0.stringValue("text") ?? "") }
     }
     
     var date: Date = Date() {
@@ -59,32 +82,58 @@ class TypikaModel : BookModel {
             resetData()
             
             let _ = try! db.selectFrom("blazh_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
-                       { beatitudes.append($0.stringValue("text") ?? "") }
+                                  { beatitudes.append($0.stringValue("text") ?? "") }
+            
+            let _ = try! db.selectFrom("tropar_sun", whereExpr:"glas=\(tone!)")
+            { troparion.append(("Тропарь воскресный, глас \(tone!):", $0.stringValue("text") ?? "")) }
+           
+            if Cal.d(.sundayOfPublicianAndPharisee) ... Cal.d(.pentecost)+7.days ~= date {
+                let week_num = (Cal.d(.sundayOfPublicianAndPharisee) >> date) / 7
+                
+                beatitudes.removeLast()
+                beatitudes.removeLast()
+
+                let _ = try! db.selectFrom("blazh_triod", whereExpr:"week=\(week_num)", orderBy: "id")
+                { beatitudes.append($0.stringValue("text") ?? "") }
+                
+                let _ = try! db.selectFrom("kondak_triod", whereExpr:"week=\(week_num)")
+                { kontakion.append(($0.stringValue("title") ?? "", $0.stringValue("text") ?? "")) }
+                
+                if (date == Cal.d(.sundayOfPublicianAndPharisee) || date == Cal.d(.sundayOfProdigalSon)) {
+                    sundayProkimenAlleluia()
+
+                } else {
+                    let _ = try! db.selectFrom("prokimen_triod", whereExpr:"week=\(week_num)", orderBy: "id")
+                    { prokimen_tone.append($0.intValue("glas") ?? 0)
+                      prokimen.append($0.stringValue("text") ?? "") }
+                
+                    makeSingleProkimenon()
+
+                    let _ = try! db.selectFrom("alleluia_triod", whereExpr:"week=\(week_num)", orderBy: "id")
+                    { alleluia_tone = ($0.intValue("glas") ?? 0)
+                      alleluia.append($0.stringValue("text") ?? "") }
+                }
+                
+            } else {
+                sundayProkimenAlleluia()
+
+                let _ = try! db.selectFrom("kondak_sun", whereExpr:"glas=\(tone!)")
+                           { kontakion.append(("Кондак воскресный, глас \(tone!):", $0.stringValue("text") ?? "")) }
+                           
+                kontakion.append(contentsOf: default_kontakia)
+            }
             
             while beatitudes.count < 12 {
                 beatitudes.insert("", at: 0)
             }
             
-            let _ = try! db.selectFrom("prokimen_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
-                { prokimen.append($0.stringValue("text") ?? "") }
-            
-            prokimen.append(contentsOf: prokimen[0].components(separatedBy: "/"))
-            prokimen[0] = prokimen[0].replacingOccurrences(of: "/", with: " ")
-            
-            let _ = try! db.selectFrom("alleluia_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
-            { alleluia.append($0.stringValue("text") ?? "") }
-            
-            let _ = try! db.selectFrom("tropar_sun", whereExpr:"glas=\(tone!)")
-            { troparion.append(("Тропарь воскресный, глас \(tone!):", $0.stringValue("text") ?? "")) }
-            
             while troparion.count < 3 {
                 troparion.append(("", ""))
             }
             
-            let _ = try! db.selectFrom("kondak_sun", whereExpr:"glas=\(tone!)")
-            { kontakion.append(("Кондак воскресный, глас \(tone!):", $0.stringValue("text") ?? "")) }
-            
-            kontakion.append(contentsOf: default_kontakia)
+            while kontakion.count < 3 {
+                kontakion.insert(("",""), at: 0)
+            }
             
         }
     }
@@ -179,7 +228,7 @@ class TypikaModel : BookModel {
                 with: text.0.title + text.1.paragraph)
         }
         
-        content = content.replacingOccurrences(of: "PROKIMEN0", with: "Вонмем. Премудрость. Прокимен, глас \(tone!).")
+        content = content.replacingOccurrences(of: "PROKIMEN0", with: "Вонмем. Премудрость. Прокимен, глас \(prokimen_tone[0]).")
 
         for (i, text) in prokimen.enumerated() {
             content = content.replacingOccurrences(
@@ -187,10 +236,12 @@ class TypikaModel : BookModel {
                 with: text)
         }
         
+        content = content.replacingOccurrences(of: "ALLELUIA0", with: "Аллилуия, глас \(alleluia_tone!).")
+
         for (i, text) in alleluia.enumerated() {
             content = content.replacingOccurrences(
                 of: String(format:"ALLELUIA%d", i+1),
-                with: text.paragraph)
+                with: text)
         }
         
         let readingStr = DailyReading.getRegularReading(date)!
@@ -250,7 +301,9 @@ class TypikaModel : BookModel {
                 pascha = Cal.paschaDay(nextDate.year)
                 currentDate = nextDate + 1.days
                 
-            } while (pascha-48.days ... pascha ~= nextDate)
+            } while (nextDate == pascha-7.days ||
+                    nextDate == pascha ||
+                    nextDate == pascha+49.days)
           
             
             return nextDate
