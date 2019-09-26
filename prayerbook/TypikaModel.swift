@@ -65,6 +65,16 @@ class TypikaModel : BookModel {
             prokimen.append($0.stringValue("text") ?? "") }
     }
     
+    func getProkimenonSundayTriod(_ week_num: Int) {
+        let _ = try! db.selectFrom("prokimen_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
+         { prokimen_tone.append(tone)
+           prokimen.append($0.stringValue("text") ?? "") }
+        
+        let _ = try! db.selectFrom("prokimen_triod", whereExpr:"week=\(week_num)", orderBy: "id")
+          { prokimen_tone.append($0.intValue("glas") ?? 0)
+            prokimen.append($0.stringValue("text") ?? "") }
+    }
+    
     func makeSingleProkimenon() {
         prokimen.append(contentsOf: prokimen[0].components(separatedBy: "/"))
         prokimen[0] = prokimen[0].replacingOccurrences(of: "/", with: " ")
@@ -77,11 +87,22 @@ class TypikaModel : BookModel {
         prokimen[0] = prokimen[0].replacingOccurrences(of: "/", with: " ")
     }
     
+    func getAlleluiaSundayTriod(_ week_num: Int) {
+        let _ = try! db.selectFrom("alleluia_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
+                  { alleluia.append($0.stringValue("text") ?? "") }
+        
+        alleluia.removeLast()
+        let _ = try! db.selectFrom("alleluia_triod", whereExpr:"week=\(week_num)", orderBy: "id")
+        { alleluia_tone = ($0.intValue("glas") ?? 0)
+          alleluia.append($0.stringValue("text") ?? "") }
+        
+        alleluia_tone = tone
+    }
+    
     func sundayProkimenAlleluia() {
-        prokimen_tone = [tone]
-                       
         let _ = try! db.selectFrom("prokimen_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
-           { prokimen.append($0.stringValue("text") ?? "") }
+          { prokimen_tone.append(tone)
+            prokimen.append($0.stringValue("text") ?? "") }
 
         makeSingleProkimenon()
 
@@ -106,11 +127,14 @@ class TypikaModel : BookModel {
             if Cal.d(.sundayOfPublicianAndPharisee) ... Cal.d(.pentecost)+7.days ~= date {
                 let week_num = (Cal.d(.sundayOfPublicianAndPharisee) >> date) / 7
                 
-                beatitudes.removeLast()
-                beatitudes.removeLast()
+                if (date != Cal.d(.beginningOfGreatLent) + 27.days &&
+                    date != Cal.d(.beginningOfGreatLent) + 34.days) {
+                    beatitudes.removeLast()
+                    beatitudes.removeLast()
 
-                let _ = try! db.selectFrom("blazh_triod", whereExpr:"week=\(week_num)", orderBy: "id")
-                { beatitudes.append($0.stringValue("text") ?? "") }
+                    let _ = try! db.selectFrom("blazh_triod", whereExpr:"week=\(week_num)", orderBy: "id")
+                    { beatitudes.append($0.stringValue("text") ?? "") }
+                }
                 
                 let _ = try! db.selectFrom("tropar_triod", whereExpr:"week=\(week_num)")
                 { troparion.append(($0.stringValue("title") ?? "", $0.stringValue("text") ?? "")) }
@@ -125,16 +149,18 @@ class TypikaModel : BookModel {
                     getProkimenonTriod(week_num)
                     makeDoubleProkimenon()
                     
-                    let _ = try! db.selectFrom("alleluia_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
-                              { alleluia.append($0.stringValue("text") ?? "") }
+                    getAlleluiaSundayTriod(week_num)
                     
-                    alleluia.removeLast()
-                    let _ = try! db.selectFrom("alleluia_triod", whereExpr:"week=\(week_num)", orderBy: "id")
-                    { alleluia_tone = ($0.intValue("glas") ?? 0)
-                      alleluia.append($0.stringValue("text") ?? "") }
+                } else if (date == Cal.d(.beginningOfGreatLent) + 27.days ||
+                        date == Cal.d(.beginningOfGreatLent) + 34.days) {
+                    getProkimenonSundayTriod(week_num)
+                    makeDoubleProkimenon()
+
+                    getAlleluiaSundayTriod(week_num)
                     
-                    alleluia_tone = tone
-                    
+                    let _ = try! db.selectFrom("kondak_sun", whereExpr:"glas=\(tone!)")
+                        { kontakion.append(("Кондак воскресный, глас \(tone!):", $0.stringValue("text") ?? "")) }
+
                 } else {
                     getProkimenonTriod(week_num)
                     makeSingleProkimenon()
