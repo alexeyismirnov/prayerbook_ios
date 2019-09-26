@@ -10,7 +10,7 @@ import UIKit
 import Squeal
 import swift_toolkit
 
-extension String {
+fileprivate extension String {
     var paragraph: String {
         return self.count > 0 ? "<p>\(self)</p>" : ""
     }
@@ -22,6 +22,8 @@ extension String {
 
 
 class TypikaModel : BookModel {
+    static let shared = TypikaModel()
+
     var code: String = "Typika"
     
     var title: String {
@@ -33,6 +35,7 @@ class TypikaModel : BookModel {
     var isExpandable = false
     var hasDate = true
     
+    var content: String!
     var tone: Int!
     
     var beatitudes = [String]()
@@ -56,8 +59,21 @@ class TypikaModel : BookModel {
         kontakion = [(String,String)]()
     }
     
+    func getProkimenonTriod(_ week_num: Int) {
+        let _ = try! db.selectFrom("prokimen_triod", whereExpr:"week=\(week_num)", orderBy: "id")
+          { prokimen_tone.append($0.intValue("glas") ?? 0)
+            prokimen.append($0.stringValue("text") ?? "") }
+    }
+    
     func makeSingleProkimenon() {
         prokimen.append(contentsOf: prokimen[0].components(separatedBy: "/"))
+        prokimen[0] = prokimen[0].replacingOccurrences(of: "/", with: " ")
+    }
+    
+    func makeDoubleProkimenon() {
+        prokimen.append(prokimen[2])
+        
+        prokimen[2] = "Ин прокимен, глас \(prokimen_tone[2]). " + prokimen[2]
         prokimen[0] = prokimen[0].replacingOccurrences(of: "/", with: " ")
     }
     
@@ -96,17 +112,31 @@ class TypikaModel : BookModel {
                 let _ = try! db.selectFrom("blazh_triod", whereExpr:"week=\(week_num)", orderBy: "id")
                 { beatitudes.append($0.stringValue("text") ?? "") }
                 
+                let _ = try! db.selectFrom("tropar_triod", whereExpr:"week=\(week_num)")
+                { troparion.append(($0.stringValue("title") ?? "", $0.stringValue("text") ?? "")) }
+                
                 let _ = try! db.selectFrom("kondak_triod", whereExpr:"week=\(week_num)")
                 { kontakion.append(($0.stringValue("title") ?? "", $0.stringValue("text") ?? "")) }
                 
                 if (date == Cal.d(.sundayOfPublicianAndPharisee) || date == Cal.d(.sundayOfProdigalSon)) {
                     sundayProkimenAlleluia()
-
+                    
+                } else if (date == Cal.d(.beginningOfGreatLent) + 13.days) {
+                    getProkimenonTriod(week_num)
+                    makeDoubleProkimenon()
+                    
+                    let _ = try! db.selectFrom("alleluia_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
+                              { alleluia.append($0.stringValue("text") ?? "") }
+                    
+                    alleluia.removeLast()
+                    let _ = try! db.selectFrom("alleluia_triod", whereExpr:"week=\(week_num)", orderBy: "id")
+                    { alleluia_tone = ($0.intValue("glas") ?? 0)
+                      alleluia.append($0.stringValue("text") ?? "") }
+                    
+                    alleluia_tone = tone
+                    
                 } else {
-                    let _ = try! db.selectFrom("prokimen_triod", whereExpr:"week=\(week_num)", orderBy: "id")
-                    { prokimen_tone.append($0.intValue("glas") ?? 0)
-                      prokimen.append($0.stringValue("text") ?? "") }
-                
+                    getProkimenonTriod(week_num)
                     makeSingleProkimenon()
 
                     let _ = try! db.selectFrom("alleluia_triod", whereExpr:"week=\(week_num)", orderBy: "id")
@@ -180,7 +210,43 @@ class TypikaModel : BookModel {
         "послание Иоанна": "Соборного послания Иоаннова",
         "Послание Иуды": "Соборного послания Иудина"]
     
-    static let shared = TypikaModel()
+    
+    func getBookTitle(title: String) -> String {
+        let regex = try! NSRegularExpression(pattern:"\\d-..", options: .caseInsensitive)
+        var titleStr = title
+
+        titleStr = regex.stringByReplacingMatches(
+           in: titleStr,
+           options: [],
+           range: NSRange(titleStr.startIndex..., in: titleStr),
+           withTemplate: "")
+        
+        return bookTitle[titleStr]! + " чтение."
+    }
+    
+    func getReading(_ readingStr: String, index : Int) {
+        let readings = PericopeModel.shared.getPericope(readingStr, decorated: false)
+
+        let (title1, text1) = readings[0]
+        let (title2, text2) = readings[1]
+        
+        content = content.replacingOccurrences(
+                       of: String(format:"EPISTLE_TITLE%d", index),
+                       with: getBookTitle(title: title1.string).paragraph)
+                   
+        content = content.replacingOccurrences(
+           of: String(format:"EPISTLE_READING%d", index),
+           with: text1.string.paragraph)
+        
+        content = content.replacingOccurrences(
+                       of: String(format:"GOSPEL_TITLE%d", index),
+                       with: getBookTitle(title: title2.string).paragraph)
+                   
+        content = content.replacingOccurrences(
+           of: String(format:"GOSPEL_READING%d", index),
+           with: text2.string.paragraph)
+
+    }
     
     init() {
         let path = Bundle.main.path(forResource: "typika", ofType: "sqlite")!
@@ -201,9 +267,9 @@ class TypikaModel : BookModel {
     
     func getContent(at pos: BookPosition) -> Any? {
         guard let index = pos.index else { return nil }
-        var content = ""
         let typika = try! db.selectFrom("content", whereExpr:"section=\(index.row+1)") { ["text": $0["text"]] }
         
+        content = ""
         for line in typika {
             content += line["text"] as! String
         }
@@ -244,27 +310,22 @@ class TypikaModel : BookModel {
                 with: text)
         }
         
-        let readingStr = DailyReading.getRegularReading(date)!
-        let readings = PericopeModel.shared.getPericope(readingStr, decorated: false)
+        getReading(DailyReading.getRegularReading(date)!, index: 1)
         
-        for (i, (title, text)) in readings.enumerated() {
-            let regex = try! NSRegularExpression(pattern:"\\d-..", options: .caseInsensitive)
-            var titleStr = title.string
+        let lentReading = [
+            Cal.d(.beginningOfGreatLent)+13.days: "Heb 7:26-8:2 John 10:9-16",
+            Cal.d(.beginningOfGreatLent)+27.days: "Ephes 5:8-19 Matthew 4:25-5:12",
+            Cal.d(.beginningOfGreatLent)+34.days: "Gal 3:23-29 Luke 7:36-50",
+        ]
+        
+        if let readingStr = lentReading[date] {
+            getReading(readingStr, index: 2)
             
-            titleStr = regex.stringByReplacingMatches(
-                in: titleStr,
-                options: [],
-                range: NSRange(titleStr.startIndex..., in: titleStr),
-                withTemplate: "")
-
-            content = content.replacingOccurrences(
-                of: String(format:"TITLE%d", (i+1)),
-                with: bookTitle[titleStr] ?? "")
-            
-            content = content.replacingOccurrences(
-                of: String(format:"READING%d", (i+1)),
-                with: text.string)
-            
+        } else {
+            content = content.replacingOccurrences(of: "EPISTLE_TITLE2", with: "")
+            content = content.replacingOccurrences(of: "EPISTLE_READING2", with: "")
+            content = content.replacingOccurrences(of: "GOSPEL_TITLE2", with: "")
+            content = content.replacingOccurrences(of: "GOSPEL_READING2", with: "")
         }
         
         let title = "<p align=\"center\"><b>" + Translate.s(data[index.row]) + "</b></p>"
