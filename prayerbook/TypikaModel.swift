@@ -99,6 +99,12 @@ class TypikaModel : BookModel {
         alleluia_tone = tone
     }
     
+    func getAlleluiaTriod(_ week_num: Int) {
+        let _ = try! db.selectFrom("alleluia_triod", whereExpr:"week=\(week_num)", orderBy: "id")
+        { alleluia_tone = ($0.intValue("glas") ?? 0)
+          alleluia.append($0.stringValue("text") ?? "") }
+    }
+    
     func sundayProkimenAlleluia() {
         let _ = try! db.selectFrom("prokimen_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
           { prokimen_tone.append(tone)
@@ -110,6 +116,10 @@ class TypikaModel : BookModel {
 
         let _ = try! db.selectFrom("alleluia_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
            { alleluia.append($0.stringValue("text") ?? "") }
+    }
+    
+    var week_num: Int {
+        return (Cal.d(.sundayOfPublicianAndPharisee) >> date) / 7
     }
     
     var date: Date = Date() {
@@ -124,9 +134,33 @@ class TypikaModel : BookModel {
             let _ = try! db.selectFrom("tropar_sun", whereExpr:"glas=\(tone!)")
             { troparion.append(("Тропарь воскресный, глас \(tone!):", $0.stringValue("text") ?? "")) }
            
-            if Cal.d(.sundayOfPublicianAndPharisee) ... Cal.d(.pentecost)+7.days ~= date {
-                let week_num = (Cal.d(.sundayOfPublicianAndPharisee) >> date) / 7
+            if Cal.d(.pascha) ... Cal.d(.pentecost)+7.days ~= date {
+                beatitudes.removeAll()
                 
+                let _ = try! db.selectFrom("blazh_triod", whereExpr:"week=\(week_num)", orderBy: "id")
+                { beatitudes.append($0.stringValue("text") ?? "") }
+                
+                if date == Cal.d(.pascha)+7.days {
+                    troparion.removeAll()
+                }
+                
+                let _ = try! db.selectFrom("tropar_triod", whereExpr:"week=\(week_num)")
+                { troparion.append(($0.stringValue("title") ?? "", $0.stringValue("text") ?? "")) }
+                
+                let _ = try! db.selectFrom("kondak_triod", whereExpr:"week=\(week_num)")
+                { kontakion.append(($0.stringValue("title") ?? "", $0.stringValue("text") ?? "")) }
+                
+                if Cal.d(.pascha)+14.days ... Cal.d(.ascension) ~= date {
+                    kontakion.append(("Кондак Пасхи, глас 8:", "Аще и во гроб снизшел еси, Безсмертне, / но адову разрушил еси силу, / и воскресл еси, яко победитель, Христе Боже, / женам мироносицам вещавый: радуйтеся, / и Твоим апостолом мир даруяй, / падшим подаяй воскресение."))
+                }
+                
+                getProkimenonTriod(week_num)
+                makeSingleProkimenon()
+                
+                getAlleluiaTriod(week_num)
+
+                
+            } else if Cal.d(.sundayOfPublicianAndPharisee) ... Cal.d(.pascha) ~= date {
                 if (date != Cal.d(.beginningOfGreatLent) + 27.days &&
                     date != Cal.d(.beginningOfGreatLent) + 34.days) {
                     beatitudes.removeLast()
@@ -165,9 +199,7 @@ class TypikaModel : BookModel {
                     getProkimenonTriod(week_num)
                     makeSingleProkimenon()
 
-                    let _ = try! db.selectFrom("alleluia_triod", whereExpr:"week=\(week_num)", orderBy: "id")
-                    { alleluia_tone = ($0.intValue("glas") ?? 0)
-                      alleluia.append($0.stringValue("text") ?? "") }
+                    getAlleluiaTriod(week_num)
                 }
                 
             } else {
