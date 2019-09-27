@@ -140,7 +140,7 @@ class TypikaModel : BookModel {
                 let _ = try! db.selectFrom("blazh_triod", whereExpr:"week=\(week_num)", orderBy: "id")
                 { beatitudes.append($0.stringValue("text") ?? "") }
                 
-                if date == Cal.d(.pascha)+7.days {
+                if date == Cal.d(.sunday2AfterPascha) {
                     troparion.removeAll()
                 }
                 
@@ -150,12 +150,17 @@ class TypikaModel : BookModel {
                 let _ = try! db.selectFrom("kondak_triod", whereExpr:"week=\(week_num)")
                 { kontakion.append(($0.stringValue("title") ?? "", $0.stringValue("text") ?? "")) }
                 
-                if Cal.d(.pascha)+14.days ... Cal.d(.ascension) ~= date {
+                if Cal.d(.pascha)+14.days ... Cal.d(.ascension) ~= date && date != Cal.d(.sunday5AfterPascha) {
                     kontakion.append(("Кондак Пасхи, глас 8:", "Аще и во гроб снизшел еси, Безсмертне, / но адову разрушил еси силу, / и воскресл еси, яко победитель, Христе Боже, / женам мироносицам вещавый: радуйтеся, / и Твоим апостолом мир даруяй, / падшим подаяй воскресение."))
                 }
                 
                 getProkimenonTriod(week_num)
-                makeSingleProkimenon()
+
+                if date == Cal.d(.pentecost)+7.days {
+                    makeDoubleProkimenon()
+                } else {
+                    makeSingleProkimenon()
+                }
                 
                 getAlleluiaTriod(week_num)
 
