@@ -52,8 +52,6 @@
 		8A1B257920295C9D0038C0C4 /* CenterViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B257820295C9D0038C0C4 /* CenterViewFlowLayout.swift */; };
 		8A1F2C981DD9B0F000F13A3D /* newicon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2C971DD9B0F000F13A3D /* newicon_1024.png */; };
 		8A1F2CB41DD9C18600F13A3D /* newicon_167.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CB31DD9C18600F13A3D /* newicon_167.png */; };
-		8A24885E1EB0948A006877D8 /* YearlyCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */; };
-		8A24F52F1EB98A1700CE19E7 /* CalendarImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A24F52E1EB98A1700CE19E7 /* CalendarImageCell.swift */; };
 		8A2AE4891FC2DAFA00B30B53 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */; };
 		8A2AE48D1FC2E19F00B30B53 /* CalendarWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
@@ -329,8 +327,6 @@
 		8A1F2C971DD9B0F000F13A3D /* newicon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_1024.png; sourceTree = "<group>"; };
 		8A1F2CB31DD9C18600F13A3D /* newicon_167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_167.png; sourceTree = "<group>"; };
 		8A2197D91ECAD486007CB039 /* ChameleonFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChameleonFramework.framework; path = "../../Derived3/prayerbook-ewzsuaxwoacyigdcqavmiszgcxqo/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework"; sourceTree = "<group>"; };
-		8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearlyCalendar.swift; sourceTree = "<group>"; };
-		8A24F52E1EB98A1700CE19E7 /* CalendarImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarImageCell.swift; sourceTree = "<group>"; };
 		8A2F46A619E12B4100076AF4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A2F46AA19E145D200076AF4 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -652,7 +648,6 @@
 				8A35561521805A150046E751 /* CalendarSelector.swift */,
 				8A1964502186AC5700CDDCB5 /* FeastList.swift */,
 				8AB004D421884F97005D8A77 /* FeastNotifications.swift */,
-				8A24885D1EB0948A006877D8 /* YearlyCalendar.swift */,
 				8AB2C2F123421E4400A2EE1E /* YearCalendarContainer.swift */,
 				8AB2C2F32342213B00A2EE1E /* YearCalendarGrid.swift */,
 				8A38C9212344A8A40051F3AC /* YearCalendarGridTheme.swift */,
@@ -661,7 +656,6 @@
 				8A76870A1EB72A6E000F7533 /* YearlyMonthViewCell.swift */,
 				8A76870B1EB72A6E000F7533 /* YearlyMonthViewCell.xib */,
 				8A878D7C2343062500E88FE4 /* FastingLegendCell.swift */,
-				8A24F52E1EB98A1700CE19E7 /* CalendarImageCell.swift */,
 				8AE46EFD1EA9A6F900CAC1CB /* CalendarInfo.swift */,
 				8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */,
 				8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */,
@@ -1244,7 +1238,6 @@
 				8A6F7E9322A108E7006FD639 /* ZvezdinskyModel.swift in Sources */,
 				8A01E42621957BD8005BE65F /* DownloadManager.swift in Sources */,
 				8AE46EFE1EA9A6F900CAC1CB /* CalendarInfo.swift in Sources */,
-				8A24885E1EB0948A006877D8 /* YearlyCalendar.swift in Sources */,
 				8A6684FC2178834700C19C04 /* TopAlignedCollection.swift in Sources */,
 				8ACC2F03229E2B4A00F43229 /* FeofanModel.swift in Sources */,
 				8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */,
@@ -1253,7 +1246,6 @@
 				8AB8674B229B8FAD00D6EFA7 /* SynaxarionModel.swift in Sources */,
 				8A1964512186AC5700CDDCB5 /* FeastList.swift in Sources */,
 				8A1B2577202956840038C0C4 /* SaintIconView.swift in Sources */,
-				8A24F52F1EB98A1700CE19E7 /* CalendarImageCell.swift in Sources */,
 				8A878D7D2343062500E88FE4 /* FastingLegendCell.swift in Sources */,
 				8AB004D521884F97005D8A77 /* FeastNotifications.swift in Sources */,
 				8A0689F9221FF8A600F1E711 /* LibraryTab.swift in Sources */,
