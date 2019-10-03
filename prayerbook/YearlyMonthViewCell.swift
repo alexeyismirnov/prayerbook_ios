@@ -18,16 +18,17 @@ class YearlyMonthViewCell: UICollectionViewCell {
     
     var calendarDelegate: CalendarDelegate!
     var appeared = false
+    let theme = YearCalendarGridTheme.shared
 
     var currentDate : Date! {
         didSet {
             let formatter = DateFormatter()
             formatter.dateFormat = "LLLL"
-            formatter.locale = Locale(identifier: "ru")
+            formatter.locale = Translate.locale
 
             monthLabel.text = formatter.string(from: currentDate).capitalizingFirstLetter()
-            monthLabel.font = UIFont.systemFont(ofSize: YC.config.titleFontSize)
-            monthLabel.textColor = YearlyCalendar.isSharing ? .black : Theme.textColor
+            monthLabel.font = UIFont.systemFont(ofSize: theme.titleFontSize)
+            monthLabel.textColor = theme.textColor
 
             if appeared {
                 indicator.stopAnimating()
@@ -39,7 +40,7 @@ class YearlyMonthViewCell: UICollectionViewCell {
             calendarDelegate.currentDate = currentDate
             collectionView.reloadData()
             
-            CalendarContainer.generateLabels(self, standalone: true, textColor: YearlyCalendar.isSharing ? .black : Theme.textColor, fontSize: YC.config.fontSize)
+            CalendarContainer.generateLabels(self, standalone: true, textColor: theme.textColor, fontSize: theme.fontSize)
         }
     }
     
@@ -57,9 +58,9 @@ class YearlyMonthViewCell: UICollectionViewCell {
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .vertical
                 
-        calendarDelegate = CalendarDelegate(fontSize: YC.config.fontSize, textColor: YearlyCalendar.isSharing ? .black : Theme.textColor)
+        calendarDelegate = CalendarDelegate(fontSize: theme.fontSize, textColor: theme.textColor)
         
-        collectionView.layer.addBorder(edge: .top, color: YearlyCalendar.isSharing ? .black : Theme.secondaryColor, thickness: 1)
+        collectionView.layer.addBorder(edge: .top, color: theme.textColor, thickness: 1)
 
     }
     

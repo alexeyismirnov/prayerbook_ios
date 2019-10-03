@@ -563,7 +563,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     func showYearlyCalendar() {
         UIViewController.popup.dismiss({
-            let vc = UIViewController.named("yearly") as! YearlyCalendar
+            let vc = YearCalendarContainer()
             let nav = UINavigationController(rootViewController: vc)
             
             self.navigationController?.present(nav, animated: true, completion: {})
