@@ -88,6 +88,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
 
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .themeChangedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: .dateChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showMonthlyCalendar), name: .monthlyCalendarNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showYearlyCalendar), name: .yearlyCalendarNotification, object: nil)
 
         /*
         if prefs.object(forKey: "welcome40") == nil {
@@ -539,13 +541,10 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     }
     
     @objc func calendarSelector() {
-        let container = UIViewController.named("CalendarSelector", bundle: nil) as! CalendarSelector
-        container.delegate = self
-
-        showPopup(container)
+        showPopup(CalendarSelector2())
     }
     
-    func showMonthlyCalendar() {
+    @objc func showMonthlyCalendar() {
         UIViewController.popup.dismiss({
             let image_info = UIImage(named: "help", in: nil, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
             let button_info = UIBarButtonItem(image: image_info, style: .plain, target: self, action: #selector(self.showInfo))
@@ -561,7 +560,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         })
     }
     
-    func showYearlyCalendar() {
+    @objc func showYearlyCalendar() {
         UIViewController.popup.dismiss({
             let vc = YearCalendarContainer()
             let nav = UINavigationController(rootViewController: vc)

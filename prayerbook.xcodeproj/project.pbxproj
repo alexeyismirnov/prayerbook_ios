@@ -58,7 +58,6 @@
 		8A2F46AB19E145D200076AF4 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46AA19E145D200076AF4 /* Options.swift */; };
 		8A31632222842C1800418306 /* fontsize.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A31632122842C1800418306 /* fontsize.pdf */; };
 		8A339AD81DC83F7B0026FD10 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A339AD71DC83F7B0026FD10 /* CompactViewController.swift */; };
-		8A35561621805A150046E751 /* CalendarSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A35561521805A150046E751 /* CalendarSelector.swift */; };
 		8A38C9222344A8A40051F3AC /* YearCalendarGridTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A38C9212344A8A40051F3AC /* YearCalendarGridTheme.swift */; };
 		8A392ED01FC431D90051C6E6 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */; };
 		8A4C28C8218AE68A00C276C3 /* TroparionFeastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C28C7218AE68A00C276C3 /* TroparionFeastView.swift */; };
@@ -88,6 +87,7 @@
 		8A54E3DD2028637E00245C31 /* SaintIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54E3DC2028637E00245C31 /* SaintIconModel.swift */; };
 		8A560789219AC51C006E52F2 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A560788219AC51C006E52F2 /* Squeal.framework */; };
 		8A56078B219AD3A8006E52F2 /* review.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A56078A219AD3A8006E52F2 /* review.pdf */; };
+		8A5D084B23472A0B009D9F55 /* CalendarSelector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D084A23472A0B009D9F55 /* CalendarSelector2.swift */; };
 		8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DE92E21958DF60006E046 /* DownloadView.swift */; };
 		8A61BBA5202438CF003AA1BF /* saint.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A61BBA4202438CE003AA1BF /* saint.pdf */; };
 		8A61BBAD20246903003AA1BF /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC675431FED09CA00A9000C /* Chameleon.framework */; };
@@ -334,7 +334,6 @@
 		8A339AD71DC83F7B0026FD10 /* CompactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
 		8A339ADE1DC87B730026FD10 /* fat-down.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-down.pdf"; sourceTree = "<group>"; };
 		8A339ADF1DC87B730026FD10 /* fat-up.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-up.pdf"; sourceTree = "<group>"; };
-		8A35561521805A150046E751 /* CalendarSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSelector.swift; sourceTree = "<group>"; };
 		8A38C9212344A8A40051F3AC /* YearCalendarGridTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearCalendarGridTheme.swift; sourceTree = "<group>"; };
 		8A4C28C7218AE68A00C276C3 /* TroparionFeastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroparionFeastView.swift; sourceTree = "<group>"; };
 		8A54575B1E70174300A86B5A /* church_history.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = church_history.rtf; sourceTree = "<group>"; };
@@ -363,6 +362,7 @@
 		8A54E3DC2028637E00245C31 /* SaintIconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintIconModel.swift; sourceTree = "<group>"; };
 		8A560788219AC51C006E52F2 /* Squeal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Squeal.framework; path = Carthage/Build/iOS/Squeal.framework; sourceTree = "<group>"; };
 		8A56078A219AD3A8006E52F2 /* review.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = review.pdf; sourceTree = "<group>"; };
+		8A5D084A23472A0B009D9F55 /* CalendarSelector2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSelector2.swift; sourceTree = "<group>"; };
 		8A5DE92E21958DF60006E046 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		8A61BBA4202438CE003AA1BF /* saint.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = saint.pdf; sourceTree = "<group>"; };
 		8A6684FB2178834700C19C04 /* TopAlignedCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlignedCollection.swift; sourceTree = "<group>"; };
@@ -645,7 +645,7 @@
 				8A01E42121956295005BE65F /* TroparionFeastModel.swift */,
 				8A4C28C7218AE68A00C276C3 /* TroparionFeastView.swift */,
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
-				8A35561521805A150046E751 /* CalendarSelector.swift */,
+				8A5D084A23472A0B009D9F55 /* CalendarSelector2.swift */,
 				8A1964502186AC5700CDDCB5 /* FeastList.swift */,
 				8AB004D421884F97005D8A77 /* FeastNotifications.swift */,
 				8AB2C2F123421E4400A2EE1E /* YearCalendarContainer.swift */,
@@ -1256,6 +1256,7 @@
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A916D8922576C34003FEF70 /* ServiceModel.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
+				8A5D084B23472A0B009D9F55 /* CalendarSelector2.swift in Sources */,
 				8AB2C2F42342213B00A2EE1E /* YearCalendarGrid.swift in Sources */,
 				8A54E3DD2028637E00245C31 /* SaintIconModel.swift in Sources */,
 				8AEFC27D1A2C8DF800BAACE0 /* Db.swift in Sources */,
@@ -1265,7 +1266,6 @@
 				8A1736EF22D20E4C00654AB1 /* TroparionModel.swift in Sources */,
 				8AB2C2F223421E4400A2EE1E /* YearCalendarContainer.swift in Sources */,
 				8A1B257920295C9D0038C0C4 /* CenterViewFlowLayout.swift in Sources */,
-				8A35561621805A150046E751 /* CalendarSelector.swift in Sources */,
 				8A4C28C8218AE68A00C276C3 /* TroparionFeastView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
