@@ -541,7 +541,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     }
     
     @objc func calendarSelector() {
-        showPopup(CalendarSelector2())
+        showPopup(CalendarSelector())
     }
     
     @objc func showMonthlyCalendar() {

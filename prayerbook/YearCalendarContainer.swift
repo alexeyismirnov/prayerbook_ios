@@ -61,6 +61,8 @@ class YearCalendarContainer: UIViewControllerAnimated {
         } else {
             showList()
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(close), name: .dateChangedNotification, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {

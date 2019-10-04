@@ -17,7 +17,7 @@ public extension Notification.Name {
     static let yearlyCalendarNotification = Notification.Name("SHOW_YEARLY")
 }
 
-class CalendarSelector2: UIViewController, ResizableTableViewCells, PopupContentViewController {
+class CalendarSelector: UIViewController, ResizableTableViewCells, PopupContentViewController {
     var tableView: UITableView!
     
     init() {

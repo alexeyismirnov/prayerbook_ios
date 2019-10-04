@@ -81,7 +81,23 @@ class YearCalendarGrid: UIView, UICollectionViewDataSource, UICollectionViewDele
         addSubview(collectionView)
         fullScreen(view: collectionView)
         
+        let recognizer = UITapGestureRecognizer(target: self, action:#selector(doneWithDate(_:)))
+        recognizer.numberOfTapsRequired = 1
+        collectionView.addGestureRecognizer(recognizer)
+        
         collectionView.reloadData()
+    }
+    
+    @objc func doneWithDate(_ recognizer: UITapGestureRecognizer) {
+           let loc = recognizer.location(in: collectionView)
+           
+        if  let indexPath = collectionView.indexPathForItem(at: loc) {
+            if indexPath.section == 0 {
+                let cell = collectionView.cellForItem(at: indexPath) as! YearlyMonthViewCell
+                let userInfo:[String: Date] = ["date": cell.currentDate!]
+                NotificationCenter.default.post(name: .dateChangedNotification, object: nil, userInfo: userInfo)
+            }
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -192,11 +208,6 @@ class YearCalendarGrid: UIView, UICollectionViewDataSource, UICollectionViewDele
         let activityViewController = UIActivityViewController(activityItems: [result], applicationActivities: nil)
 
         return activityViewController
-            /*
-            
-            
- */
-        
     }
     
     func convertPDFPageToImage() -> UIImage {
