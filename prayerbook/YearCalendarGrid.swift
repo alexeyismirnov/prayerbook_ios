@@ -62,6 +62,8 @@ class YearCalendarGrid: UIView, UICollectionViewDataSource, UICollectionViewDele
     }
     
     func setupGrid() {
+        let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+
         backgroundColor = .clear
 
         let layout =  TopAlignedCollectionViewFlowLayout()
@@ -76,7 +78,7 @@ class YearCalendarGrid: UIView, UICollectionViewDataSource, UICollectionViewDele
         
         collectionView.register(YearCalendarGridHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader , withReuseIdentifier: "header")
 
-        collectionView.register(UINib(nibName: "YearlyMonthViewCell", bundle: nil), forCellWithReuseIdentifier: YearlyMonthViewCell.cellId)
+        collectionView.register(UINib(nibName: "YearlyMonthViewCell", bundle: toolkit), forCellWithReuseIdentifier: YearlyMonthViewCell.cellId)
 
         addSubview(collectionView)
         fullScreen(view: collectionView)
