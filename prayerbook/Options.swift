@@ -24,7 +24,18 @@ class Options: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UITableViewCell.appearance().backgroundColor =  UIColor.white.withAlphaComponent(0.5)
+        let tap1 = UITapGestureRecognizer(target: self, action: #selector(done(tapGestureRecognizer:)))
+        
+        let doneLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 40))
+        doneLabel.text = Translate.s("Done")
+        doneLabel.textColor = .red
+        doneLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        doneLabel.isUserInteractionEnabled = true
+        doneLabel.addGestureRecognizer(tap1)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: doneLabel)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTheme), name: .themeChangedNotification, object: nil)
 
         view.backgroundColor = UIColor.clear
         tableView.backgroundView = UIImageView(image: UIImage(background: "church.jpg", inView: view))
@@ -42,9 +53,17 @@ class Options: UITableViewController {
             let cell = self.tableView(tableView, cellForRowAt: ind) as UITableViewCell
             cell.textLabel?.text = Translate.s(label)
         }
-        
-        let button = UIBarButtonItem(title: Translate.s("Done"), style: .plain, target: self, action: #selector(done))
-        navigationItem.leftBarButtonItem = button
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UITableViewCell.appearance().backgroundColor =  UIColor.white.withAlphaComponent(0.5)
+        tableView.reloadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        UITableViewCell.appearance().backgroundColor =  UIColor.white.withAlphaComponent(0)
+        super.viewDidDisappear(animated)
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -64,16 +83,36 @@ class Options: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var cell: UITableViewCell
 
-        if indexPath.section == 1 || indexPath.section == 2 {
-            cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: indexPath.section)) as UITableViewCell
+        if indexPath.section == 1  {
+            cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 1)) as UITableViewCell
             cell.accessoryType = .none
             
-            cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: indexPath.section)) as UITableViewCell
+            cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 1)) as UITableViewCell
             cell.accessoryType = .none
             
             cell = self.tableView(tableView, cellForRowAt: indexPath) as UITableViewCell
             cell.accessoryType = .checkmark
             
+            let lang = indexPath.row == 0 ? "en" : "cn"
+            Translate.language = lang
+            
+            prefs.set(lang, forKey: "language")
+          
+        } else if indexPath.section == 2 {
+            cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 2)) as UITableViewCell
+            cell.accessoryType = .none
+            
+            cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 2)) as UITableViewCell
+            cell.accessoryType = .none
+            
+            cell = self.tableView(tableView, cellForRowAt: indexPath) as UITableViewCell
+            cell.accessoryType = .checkmark
+            
+            let fasting = indexPath.row
+            FastingModel.fastingLevel = FastingLevel(rawValue:fasting)
+            
+            prefs.set(fasting, forKey: "fastingLevel")
+
         } else if indexPath.section == 3 {
             if indexPath.row == 0 {
                 Theme.set(.Default)
@@ -86,35 +125,14 @@ class Options: UITableViewController {
                 self.dismiss(animated: false, completion: {})
                 
             } else {
-                /*
-                var width, height : CGFloat
-                
-                if (UIDevice.current.userInterfaceIdiom == .phone) {
-                    width = 300
-                    height = 300
-                    
-                } else {
-                    width = 500
-                    height = 500
-                }
-                
-                let container = UIViewController.named("Palette") as! Palette
-                container.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
-                container.delegate = self
-                
-                modalSheet = NAModalSheet(viewController: container, presentationStyle: .fadeInCentered)
-                modalSheet.setThemeUsingPrimaryColor(.flatSand, with: .contrast)
-                
-                modalSheet.disableBlurredBackground = true
-                modalSheet.cornerRadiusWhenCentered = 10
-                modalSheet.delegate = self
-                modalSheet.adjustContentSize(CGSize(width: width, height: height), animated: false)
-                
-                modalSheet.present(completion: {})
- */
+                let bundle = Bundle(identifier: "com.rlc.swift-toolkit")
+                let container = UIViewController.named("Palette", bundle: bundle) as! Palette
+                showPopup(container)
             }
             
         }
+        
+        prefs.synchronize()
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -128,44 +146,25 @@ class Options: UITableViewController {
             return Translate.s("Background color")
         
         } else if section == 4 {
-            return Translate.s("(C) 2017 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong. This app contains information from ponomar.net and orthodox.cn")
+            return Translate.s("(C) 2019 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong. This app contains information from ponomar.net and orthodox.cn")
         }
         
         return ""
     }
 
-    @IBAction func done(_ sender: AnyObject) {
-        var cell : UITableViewCell
-        
-        cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 2)) as UITableViewCell
-        let fasting = (cell.accessoryType == .checkmark) ? 0 : 1
-        
-        cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 1)) as UITableViewCell
-        let lang = (cell.accessoryType == .checkmark) ? "en" : "cn"
-        
-        Translate.language = lang
-        
-        prefs.set(lang, forKey: "language")
-        prefs.set(fasting, forKey: "fastingLevel")
-        prefs.synchronize()
-        
+    @objc func done(tapGestureRecognizer: UITapGestureRecognizer) {
         NotificationCenter.default.post(name: .themeChangedNotification, object: nil)
-
         dismiss(animated: true, completion: nil)
     }
     
-    func doneWithColor(_ color: UIColor) {
-        /*
-        modalSheet.dismiss(completion: {
-            Theme.set(.Chameleon(color: color))
-            
+    @objc func updateTheme(_ notification: NSNotification) {
+        guard let color = notification.userInfo?["color"] as? UIColor else { return }
+        
+        UIViewController.popup.dismiss({
             self.prefs.set(color, forKey: "theme")
             self.prefs.synchronize()
             
-            NotificationCenter.default.post(name: Notification.Name(rawValue: themeChangedNotification), object: nil)
             self.dismiss(animated: false, completion: {})
         })
- */
     }
-
 }

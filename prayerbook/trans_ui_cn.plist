@@ -24,8 +24,8 @@
 	<string>不，谢谢</string>
 	<key>If you enjoy using Orthodox Calendar, would you mind taking a moment to rate it? It won&apos;t take more than a minute. Thanks for your support!</key>
 	<string>如果你喜欢使用正教日历，你介意花一点时间给它评分吗？不会超过一分钟。感谢您的支持！</string>
-	<key>(C) 2017 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong. This app contains information from ponomar.net and orthodox.cn</key>
-	<string>(C) 2017 香港聖彼得聖保羅教堂。本應用使用網站ponomar.net和orthodox.cn之資料</string>
+	<key>(C) 2019 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong. This app contains information from ponomar.net and orthodox.cn</key>
+	<string>(C) 2019 香港聖彼得聖保羅教堂。本應用使用網站ponomar.net和orthodox.cn之資料</string>
 	<key>Nuts</key>
 	<string>坚果</string>
 	<key>Bread</key>
@@ -84,6 +84,13 @@
     <string>没有书签</string>
     <key>Service date</key>
     <string>礼仪日期</string>
-    
+    <key>Calendar</key>
+    <string>正教日历</string>
+    <key>Monthly</key>
+    <string>月历</string>
+    <key>Yearly</key>
+    <string>年历</string>
+    <key>Year %d Orthodox Calendar</key>
+    <string>%d年正教日历</string>
 </dict>
 </plist>

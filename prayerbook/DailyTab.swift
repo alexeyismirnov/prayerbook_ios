@@ -73,6 +73,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .themeChangedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: .dateChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showMonthlyCalendar), name: .monthlyCalendarNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showYearlyCalendar), name: .yearlyCalendarNotification, object: nil)
         
         reloadTheme()
     }
@@ -333,7 +335,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     func configureNavbar() {
         navigationController?.makeTransparent()
         
-        let button_monthly = CustomBarButton(image: UIImage(named: "calendar"), style: .plain, target: self, action: #selector(showMonthlyCalendar))
+        let button_monthly = CustomBarButton(image: UIImage(named: "calendar"), style: .plain, target: self, action: #selector(calendarSelector))
        
         let button_options = CustomBarButton(image: UIImage(named: "options"), style: .plain, target: self, action: #selector(showOptions))
         
@@ -341,12 +343,28 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         navigationItem.rightBarButtonItems = [button_options]
     }
     
-    @objc func showMonthlyCalendar() {
-        let container = UIViewController.named("CalendarContainer", bundle: toolkit) as! CalendarNavigation
-        container.initialDate = currentDate
-        showPopup(container)
+    @objc func calendarSelector() {
+        showPopup(CalendarSelector())
     }
+    
+    @objc func showMonthlyCalendar() {
+        UIViewController.popup.dismiss({
+            let container = UIViewController.named("CalendarContainer", bundle: self.toolkit) as! CalendarNavigation
+            container.initialDate = self.currentDate
+            self.showPopup(container)
+        })
+    }
+    
+    @objc func showYearlyCalendar() {
+        UIViewController.popup.dismiss({
+            let vc = YearCalendarContainer()
+            let nav = UINavigationController(rootViewController: vc)
+            
+            self.navigationController?.present(nav, animated: true, completion: {})
+        })
         
+    }
+    
     @objc func updateDate(_ notification: NSNotification) {
         UIViewController.popup.dismiss()
         
