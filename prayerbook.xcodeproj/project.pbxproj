@@ -37,7 +37,6 @@
 		8A0B4CBC1C8C1E8000747BB4 /* saints_11_ru.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4CA41C8C1E8000747BB4 /* saints_11_ru.txt */; };
 		8A0B4CBD1C8C1E8000747BB4 /* saints_12_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4CA51C8C1E8000747BB4 /* saints_12_ru.sqlite */; };
 		8A0B4CBE1C8C1E8000747BB4 /* saints_12_ru.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A0B4CA61C8C1E8000747BB4 /* saints_12_ru.txt */; };
-		8A0EA8DD234B32BA0029CFB4 /* FastingLegendTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0EA8DC234B32BA0029CFB4 /* FastingLegendTableView.swift */; };
 		8A13C8FD219172E500D0CE7E /* AudioPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A13C8FB219172E500D0CE7E /* AudioPlayerCell.swift */; };
 		8A13C8FE219172E500D0CE7E /* AudioPlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C8FC219172E500D0CE7E /* AudioPlayerCell.xib */; };
 		8A13C90121917AB700D0CE7E /* pause.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C8FF21917AB700D0CE7E /* pause.pdf */; };
@@ -293,7 +292,6 @@
 		8A0B4CA41C8C1E8000747BB4 /* saints_11_ru.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_11_ru.txt; sourceTree = "<group>"; };
 		8A0B4CA51C8C1E8000747BB4 /* saints_12_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_12_ru.sqlite; sourceTree = "<group>"; };
 		8A0B4CA61C8C1E8000747BB4 /* saints_12_ru.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_12_ru.txt; sourceTree = "<group>"; };
-		8A0EA8DC234B32BA0029CFB4 /* FastingLegendTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastingLegendTableView.swift; sourceTree = "<group>"; };
 		8A0F6F5B1C50C4BE0063DBF1 /* ponomar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ponomar.entitlements; sourceTree = "<group>"; };
 		8A0F6F5C1C50C4EC0063DBF1 /* CalendarWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CalendarWidget.entitlements; sourceTree = "<group>"; };
 		8A13C8FB219172E500D0CE7E /* AudioPlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerCell.swift; sourceTree = "<group>"; };
@@ -623,7 +621,6 @@
 				8A1964502186AC5700CDDCB5 /* FeastList.swift */,
 				8AFE375B2345D20300E06AEF /* YearCalendarList.swift */,
 				8AB2C2F123421E4400A2EE1E /* YearCalendarContainer.swift */,
-				8A0EA8DC234B32BA0029CFB4 /* FastingLegendTableView.swift */,
 				8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */,
 				8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */,
 				8AE529EA1C8E68FD0082FF65 /* trans_cal_ru.plist */,
@@ -1203,7 +1200,6 @@
 				8AFE375C2345D20300E06AEF /* YearCalendarList.swift in Sources */,
 				8AAE60E52334853F005563D3 /* TypikaModel.swift in Sources */,
 				8A01E42221956295005BE65F /* TroparionFeastModel.swift in Sources */,
-				8A0EA8DD234B32BA0029CFB4 /* FastingLegendTableView.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A916D8922576C34003FEF70 /* ServiceModel.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
