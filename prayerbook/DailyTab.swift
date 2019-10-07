@@ -335,12 +335,14 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     func configureNavbar() {
         navigationController?.makeTransparent()
         
-        let button_monthly = CustomBarButton(image: UIImage(named: "calendar"), style: .plain, target: self, action: #selector(calendarSelector))
+        let button_monthly = CustomBarButton(image: UIImage(named: "calendar", in: toolkit, compatibleWith: nil)!, style: .plain, target: self, action: #selector(calendarSelector))
        
-        let button_options = CustomBarButton(image: UIImage(named: "options"), style: .plain, target: self, action: #selector(showOptions))
+        let button_options = CustomBarButton(image: UIImage(named: "options", in: toolkit, compatibleWith: nil)!, style: .plain, target: self, action: #selector(showOptions))
+        
+         let button_review = CustomBarButton(image: UIImage(named: "review", in: toolkit, compatibleWith: nil)!, target: self, btnHandler: #selector(writeReview))
         
         navigationItem.leftBarButtonItems = [button_monthly]
-        navigationItem.rightBarButtonItems = [button_options]
+        navigationItem.rightBarButtonItems = [button_options, button_review]
     }
     
     @objc func calendarSelector() {
@@ -349,7 +351,15 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     @objc func showMonthlyCalendar() {
         UIViewController.popup.dismiss({
+            let image_info = UIImage(named: "help", in: self.toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
+            let button_info = UIBarButtonItem(image: image_info, style: .plain, target: self, action: #selector(self.showInfo))
+            
+            let image_today = UIImage(named: "today", in: self.toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
+            let button_today = UIBarButtonItem(image: image_today, style: .plain, target: self, action: #selector(self.showToday))
+            
             let container = UIViewController.named("CalendarContainer", bundle: self.toolkit) as! CalendarNavigation
+            container.leftButton = button_today
+            container.rightButton = button_info
             container.initialDate = self.currentDate
             self.showPopup(container)
         })
@@ -363,6 +373,41 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             self.navigationController?.present(nav, animated: true, completion: {})
         })
         
+    }
+    
+    @objc func showToday() {
+        UIViewController.popup.dismiss({
+            self.currentDate = DateComponents(date: Date()).toDate()
+            self.reload()
+            self.tableView.setContentOffset(CGPoint.zero, animated: false)
+        })
+    }
+    
+    @objc func showInfo() {
+        let responder: UIResponder? = UIViewController.popup.popupView?.next
+        if let container = responder as? UINavigationController {
+            let calendar_info = FastingLegendTableView()
+            container.pushViewController(calendar_info, animated: true)
+        }
+    }
+    
+    @objc func writeReview() {
+        let app_id = 1010208102
+        var link:String
+        
+        if #available(iOS 11.0, *) {
+            link = "itms-apps://itunes.apple.com/xy/app/foo/id\(app_id)?action=write-review"
+        } else {
+            link = "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=\(app_id)&action=write-review"
+        }
+        
+        guard let url = URL(string: link) else { return }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
     
     @objc func updateDate(_ notification: NSNotification) {

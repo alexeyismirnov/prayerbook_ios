@@ -126,11 +126,9 @@
 		8AC6952519E4011700773FEB /* daily.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952119E4011700773FEB /* daily.pdf */; };
 		8AC6952619E4011700773FEB /* group.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952219E4011700773FEB /* group.pdf */; };
 		8AC6952719E4011700773FEB /* library.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952319E4011700773FEB /* library.pdf */; };
-		8AC6952919E4034D00773FEB /* options.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952819E4034D00773FEB /* options.pdf */; };
 		8AC757C21C550BFD0088D4D0 /* Images.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D815198F20CC0078F39F /* Images.xcassets */; };
 		8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89219E4CECB00B51294 /* arrow-left.pdf */; };
 		8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89319E4CECB00B51294 /* arrow-right.pdf */; };
-		8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89619E4D1DE00B51294 /* calendar.pdf */; };
 		8ADDE7D61B7AD29600EF0F65 /* saints_11_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ADDE7D41B7AD29600EF0F65 /* saints_11_cn.sqlite */; };
 		8ADDE7D71B7AD29600EF0F65 /* saints_11_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8ADDE7D51B7AD29600EF0F65 /* saints_11_cn.txt */; };
 		8ADF91EC1B7731EA0078BB6B /* saints_06_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ADF91E81B7731EA0078BB6B /* saints_06_cn.sqlite */; };
@@ -475,10 +473,8 @@
 		8AC6952119E4011700773FEB /* daily.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = daily.pdf; sourceTree = "<group>"; };
 		8AC6952219E4011700773FEB /* group.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = group.pdf; sourceTree = "<group>"; };
 		8AC6952319E4011700773FEB /* library.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = library.pdf; sourceTree = "<group>"; };
-		8AC6952819E4034D00773FEB /* options.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = options.pdf; sourceTree = "<group>"; };
 		8AC7B89219E4CECB00B51294 /* arrow-left.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-left.pdf"; sourceTree = "<group>"; };
 		8AC7B89319E4CECB00B51294 /* arrow-right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-right.pdf"; sourceTree = "<group>"; };
-		8AC7B89619E4D1DE00B51294 /* calendar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = calendar.pdf; sourceTree = "<group>"; };
 		8ADDE7D41B7AD29600EF0F65 /* saints_11_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_11_cn.sqlite; sourceTree = "<group>"; };
 		8ADDE7D51B7AD29600EF0F65 /* saints_11_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_11_cn.txt; sourceTree = "<group>"; };
 		8ADF91E81B7731EA0078BB6B /* saints_06_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_06_cn.sqlite; sourceTree = "<group>"; };
@@ -822,10 +818,8 @@
 				8AF249771AFF308B000070C0 /* polyeleos.pdf */,
 				8AF249781AFF308B000070C0 /* sixverse.pdf */,
 				8AF2496C1AFF27E0000070C0 /* vigil.pdf */,
-				8AC7B89619E4D1DE00B51294 /* calendar.pdf */,
 				8AC7B89219E4CECB00B51294 /* arrow-left.pdf */,
 				8AC7B89319E4CECB00B51294 /* arrow-right.pdf */,
-				8AC6952819E4034D00773FEB /* options.pdf */,
 				8AC6952019E4011700773FEB /* communion.pdf */,
 				8AC6952119E4011700773FEB /* daily.pdf */,
 				8AC6952219E4011700773FEB /* group.pdf */,
@@ -1333,7 +1327,6 @@
 				8AF37E391B36B1FD00101148 /* launch-hd4.7.png in Resources */,
 				8AF8C70A230F8CE80020D5E5 /* 2thess_en.sqlite in Resources */,
 				8A9A3DE019D3AE2800A7D82A /* prayer_book_4_en.html in Resources */,
-				8AC6952919E4034D00773FEB /* options.pdf in Resources */,
 				8A74D84E198F691A0078F39F /* US.png in Resources */,
 				8AF8C70E230F8CE80020D5E5 /* 1cor_en.sqlite in Resources */,
 				8AF8C705230F8CE80020D5E5 /* 1sam_en.sqlite in Resources */,
@@ -1448,7 +1441,6 @@
 				8AB4E2B41B20168E0015E19B /* saints_04_en.sqlite in Resources */,
 				8AE718D51C560CC30035CDCE /* fat-right.pdf in Resources */,
 				8AA3DF531B1847D700507129 /* saints_09_en.txt in Resources */,
-				8AC7B89719E4D1DE00B51294 /* calendar.pdf in Resources */,
 				8AF8C77F230F8E4D0020D5E5 /* gen_cn.sqlite in Resources */,
 				8AFB8DEC1B1FDC12006715A3 /* saints_03_en.txt in Resources */,
 				8AF8C780230F8E4D0020D5E5 /* lev_cn.sqlite in Resources */,
