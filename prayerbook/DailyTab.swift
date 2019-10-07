@@ -510,7 +510,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         
         let button_options = CustomBarButton(image: UIImage(named: "options", in: toolkit, compatibleWith: nil)!, target: self, btnHandler: #selector(showOptions))
         
-        let button_review = CustomBarButton(image: UIImage(named: "review", in: nil, compatibleWith: nil)!, target: self, btnHandler: #selector(writeReview))
+        let button_review = CustomBarButton(image: UIImage(named: "review", in: toolkit, compatibleWith: nil)!, target: self, btnHandler: #selector(writeReview))
         
         navigationItem.leftBarButtonItems = [button_monthly, button_saint]
         navigationItem.rightBarButtonItems = [button_options, button_review]
@@ -546,10 +546,10 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     @objc func showMonthlyCalendar() {
         UIViewController.popup.dismiss({
-            let image_info = UIImage(named: "help", in: nil, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
+            let image_info = UIImage(named: "help", in: self.toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
             let button_info = UIBarButtonItem(image: image_info, style: .plain, target: self, action: #selector(self.showInfo))
 
-            let image_today = UIImage(named: "today", in: nil, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
+            let image_today = UIImage(named: "today", in: self.toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
             let button_today = UIBarButtonItem(image: image_today, style: .plain, target: self, action: #selector(self.showToday))
             
             let container = UIViewController.named("CalendarContainer", bundle: self.toolkit) as! CalendarNavigation
@@ -581,7 +581,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     @objc func showInfo() {
         let responder: UIResponder? = UIViewController.popup.popupView?.next
         if let container = responder as? UINavigationController {
-            let calendar_info = UIViewController.named("calendar_info")
+            let calendar_info = FastingLegendTableView()
             container.pushViewController(calendar_info, animated: true)
         }
     }

@@ -9,7 +9,6 @@
 import UIKit
 import swift_toolkit
 
-
 class YearCalendarContainer: UIViewControllerAnimated {
     enum ViewType {
            case list, grid

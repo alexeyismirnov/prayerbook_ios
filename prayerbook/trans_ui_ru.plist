@@ -82,5 +82,7 @@
     <string>На месяц</string>
     <key>Yearly</key>
     <string>На год</string>
+    <key>Year %d Orthodox Calendar</key>
+    <string>Православный календарь на %d г.</string>
 </dict>
 </plist>

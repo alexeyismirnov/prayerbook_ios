@@ -1,18 +1,26 @@
 //
-//  CalendarInfo.swift
-//  prayerbook
+//  FastingLegendTableView.swift
+//  ponomar
 //
-//  Created by Alexey Smirnov on 4/21/17.
-//  Copyright © 2017 Alexey Smirnov. All rights reserved.
+//  Created by Alexey Smirnov on 10/7/19.
+//  Copyright © 2019 Alexey Smirnov. All rights reserved.
 //
 
 import UIKit
 import swift_toolkit
 
-class CalendarInfo: UITableViewController {
+class FastingLegendTableView: UITableViewController {
     let fastingTypes : [FastingModel] = (FastingModel.fastingLevel == .monastic) ? FastingModel.monasticTypes : FastingModel.laymenTypes
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
 
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+        
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +49,9 @@ class CalendarInfo: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50.0
+    }
 
 }
-
