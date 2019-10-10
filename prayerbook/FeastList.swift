@@ -13,8 +13,17 @@ struct FeastList {
     static let formatter1: DateFormatter = {
         var formatter = DateFormatter()
         formatter.timeStyle = .none
-        formatter.dateFormat = "cccc, d MMMM"
-        formatter.locale = Locale(identifier: "ru")
+        switch Translate.language {
+        case "ru":
+            formatter.dateFormat = "cccc, d MMMM"
+            break
+        case "cn":
+            formatter.dateFormat = "M月d日"
+            break
+        default:
+            formatter.dateFormat = "EEEE, MMM d"
+        }
+        formatter.locale = Translate.locale
         
         return formatter
     }()
@@ -22,8 +31,17 @@ struct FeastList {
     static let formatter2: DateFormatter = {
         var formatter = DateFormatter()
         formatter.timeStyle = .none
-        formatter.dateFormat = "d MMMM"
-        formatter.locale = Locale(identifier: "ru")
+        switch Translate.language {
+        case "ru":
+            formatter.dateFormat = "d MMMM"
+            break
+        case "cn":
+            formatter.dateFormat = "M月d日"
+            break
+        default:
+            formatter.dateFormat = "MMMM d"
+        }
+        formatter.locale = Translate.locale
         
         return formatter
     }()
@@ -57,7 +75,9 @@ struct FeastList {
         let d1 = formatter2.string(from: fromDate)
         let d2 = formatter2.string(from: toDate)
         
-        return "С \(d1) по \(d2) — \(descr)\n\n".colored(with: textFontColor).systemFont(ofSize: textFontSize)
+        return (String(format: Translate.s("From %@ till %@ — %@"), d1, d2, descr) + "\n\n")
+            .colored(with: textFontColor)
+            .systemFont(ofSize: textFontSize)
     }
     
     static func setDate(_ date: Date) {
@@ -66,19 +86,19 @@ struct FeastList {
         longFasts = [
             Cal.d(.beginningOfGreatLent) : makeLentStr(fromDate: Cal.d(.beginningOfGreatLent),
                                                        toDate: Cal.d(.beginningOfGreatLent) + 47.days,
-                                                       descr: "Великий пост"),
+                                                       descr: Translate.s("Great Lent")),
             
             Cal.d(.beginningOfApostolesFast) : makeLentStr(fromDate: Cal.d(.beginningOfApostolesFast),
                                                            toDate: Cal.d(.peterAndPaul) - 1.days,
-                                                           descr: "Петров пост"),
+                                                           descr: Translate.s("Apostoles' Fast")),
             
             Cal.d(.beginningOfDormitionFast) : makeLentStr(fromDate: Cal.d(.beginningOfDormitionFast),
                                                            toDate: Cal.d(.dormition) - 1.days,
-                                                           descr: "Успенский пост"),
+                                                           descr: Translate.s("Dormition Fast")),
             
             Cal.d(.beginningOfNativityFast) : makeLentStr(fromDate: Cal.d(.beginningOfNativityFast),
                                                           toDate: Cal.d(.nativityOfGod) - 1.days,
-                                                          descr: "Рождественский пост")]
+                                                          descr: Translate.s("Nativity Fast"))]
         
         shortFasts = [Cal.d(.eveOfTheophany) :  makeFeastStr(code: .eveOfTheophany),
                       Cal.d(.beheadingOfJohn) :  makeFeastStr(code: .beheadingOfJohn),
@@ -87,23 +107,23 @@ struct FeastList {
         fastFreeWeeks = [
             Cal.d(.nativityOfGod) : makeLentStr(fromDate: Cal.d(.nativityOfGod),
                                                 toDate: Cal.d(.eveOfTheophany) - 1.days,
-                                                descr: "Святки"),
+                                                descr: Translate.s("Svyatki")),
             
             Cal.d(.sundayOfPublicianAndPharisee)+1.days : makeLentStr(fromDate: Cal.d(.sundayOfPublicianAndPharisee)+1.days,
                                                                       toDate: Cal.d(.sundayOfProdigalSon),
-                                                                      descr: "Седмица мытаря и фарисея"),
+                                                                      descr: Translate.s("Week of the Publican and the Pharisee")),
             
             Cal.d(.sundayOfDreadJudgement)+1.days : makeLentStr(fromDate: Cal.d(.sundayOfDreadJudgement)+1.days,
                                                                 toDate: Cal.d(.beginningOfGreatLent)-1.days,
-                                                                descr: "Масленица"),
+                                                                descr: Translate.s("Maslenitsa")),
             
             Cal.d(.pascha)+1.days : makeLentStr(fromDate: Cal.d(.pascha)+1.days,
                                                 toDate: Cal.d(.pascha)+7.days,
-                                                descr: "Светлая седмица"),
+                                                descr: Translate.s("Bright Week")),
             
             Cal.d(.pentecost)+1.days : makeLentStr(fromDate: Cal.d(.pentecost)+1.days,
                                                    toDate: Cal.d(.pentecost)+7.days,
-                                                   descr: "Троицкая седмица")]
+                                                   descr: Translate.s("Trinity Week"))]
         
         movableFeasts = Dictionary(uniqueKeysWithValues:
             [.palmSunday, .ascension, .pentecost].map{ (Cal.d($0), makeFeastStr(code: $0)) })

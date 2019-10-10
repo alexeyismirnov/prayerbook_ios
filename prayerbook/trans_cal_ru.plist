@@ -266,6 +266,8 @@
 	<string>Великий понедельник</string>
 	<key>Bright Week</key>
 	<string>Светлая седмица</string>
+    <key>Trinity Week</key>
+    <string>Троицкая седмица</string>
 	<key>Cheesefare Sunday (Forgiveness Sunday): Commemoration of the Expulsion of Adam from Paradise</key>
 	<string>Неделя сыропустная. Воспоминание Адамова изгнания. Прощеное воскресенье</string>
 	<key>Tone %@</key>
