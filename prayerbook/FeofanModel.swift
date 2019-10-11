@@ -8,6 +8,7 @@
 
 import UIKit
 import swift_toolkit
+import Squeal
 
 class FeofanModel : BookModel {
     var code: String = "Feofan"
@@ -20,6 +21,33 @@ class FeofanModel : BookModel {
     
     static let shared = FeofanModel()
 
+    static func feofanDB(_ id: String) -> String? {
+        let path = Bundle.main.path(forResource: "feofan", ofType: "sqlite")!
+        let db = try! Database(path:path)
+
+        let results = try! db.selectFrom("thoughts", whereExpr:"id=\"\(id)\"") { ["id": $0["id"] , "descr": $0["descr"]] }
+        
+        if let res = results[safe: 0] {
+            return res["descr"] as? String
+        }
+        
+        return nil
+    }
+    
+    static func feofanGospel(_ id: String) -> String? {
+        let path = Bundle.main.path(forResource: "feofan", ofType: "sqlite")!
+        let db = try! Database(path:path)
+
+        let results = try! db.prepareStatement("SELECT id,descr FROM thoughts WHERE id LIKE'%\(id)' AND fuzzy=1")
+        
+        while try! results.next() {
+            let descr = results[1] as! String
+            return descr
+        }
+        
+        return nil
+    }
+    
     static func getFeofan(for date: Date) -> [(String, String)] {
         var feofan = [(String,String)]()
         
@@ -27,7 +55,7 @@ class FeofanModel : BookModel {
         let greatLentStart = pascha-48.days
         
         if date == Cal.d(.meetingOfLord) {
-            feofan.append(("", Db.feofan("33")!))
+            feofan.append(("", feofanDB("33")!))
             return feofan
         }
         
@@ -37,28 +65,28 @@ class FeofanModel : BookModel {
             return []
             
         case Date(4,12, date.year):
-            feofan.append(("", Db.feofan("325")!))
+            feofan.append(("", feofanDB("325")!))
             
         case Date(19,8, date.year):
-            feofan.append(("", Db.feofan("218")!))
+            feofan.append(("", feofanDB("218")!))
             
         case greatLentStart-3.days:
-            feofan.append(("", Db.feofan("36")!))
+            feofan.append(("", feofanDB("36")!))
             
         case greatLentStart-5.days:
-            feofan.append(("", Db.feofan("34")!))
+            feofan.append(("", feofanDB("34")!))
             
         case pascha-3.days,
              pascha-2.days:
             return []
             
         case Cal.d(.sundayOfForefathers):
-            feofan.append(("", Db.feofan("346")!))
+            feofan.append(("", feofanDB("346")!))
             
         case greatLentStart..<pascha:
             let num = (greatLentStart >> date) + 39
             
-            if let f = Db.feofan("\(num)") {
+            if let f = feofanDB("\(num)") {
                 feofan.append(("",f))
             }
             
@@ -71,7 +99,7 @@ class FeofanModel : BookModel {
                 let pericope = Translate.readings(str)
                 let id = pericope.replacingOccurrences(of: " ", with: "")
                 
-                if let f = Db.feofan(id) {
+                if let f = feofanDB(id) {
                     feofan.append((pericope,f))
                     
                 }
@@ -87,7 +115,7 @@ class FeofanModel : BookModel {
                             let pericope = Translate.readings(p[i] + " " + p[i+1])
                             let id = pericope.replacingOccurrences(of: " ", with: "")
                             
-                            if let f = Db.feofanGospel(id) {
+                            if let f = feofanGospel(id) {
                                 feofan.append((pericope,f))
                             }
                         }
