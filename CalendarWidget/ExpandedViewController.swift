@@ -25,9 +25,8 @@ class ExpandedViewController: UIViewController {
     
     var formatter: DateFormatter = {
         var formatter = DateFormatter()
-        formatter.dateStyle = .short
         formatter.timeStyle = .none
-        formatter.dateFormat = "LLLL yyyy"
+        formatter.dateFormat = Translate.language == "en" ? "LLLL yyyy" : "y年M月"
         formatter.locale = Translate.locale
         return formatter
     }()

@@ -158,6 +158,8 @@
 	<string>圣格里高利•帕拉玛斯（德撒洛尼基总主教，1360年）</string>
 	<key>Commemoration of the Departed</key>
 	<string>纪念亡者</string>
+    <key>Commemoration of Fallen Soldiers</key>
+    <string>纪念亡者</string>
 	<key>Triumph of Orthodoxy</key>
 	<string>今日基督的教会庆祝至福的治理者米迦勒和德奥多拉及君士坦丁堡牧首圣麦托迪恢复了对神圣而可敬之圣像的敬礼</string>
 	<key>Great Martyr Theodore the Recruit († c. 306)</key>
@@ -238,6 +240,8 @@
 	<string>大瞻礼二（纪念圣约熙福•庞伽洛）</string>
 	<key>Bright Week</key>
 	<string>光明周</string>
+    <key>Trinity Week</key>
+    <string>圣三一周</string>
 	<key>Cheesefare Sunday (Forgiveness Sunday): Commemoration of the Expulsion of Adam from Paradise</key>
 	<string>离酪主日（宽恕主日）记念首先受造之人阿达穆因为乐园的禁果而堕落</string>
 	<key>Tone %@</key>

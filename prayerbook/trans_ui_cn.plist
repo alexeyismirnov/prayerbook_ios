@@ -92,5 +92,7 @@
     <string>年历</string>
     <key>Year %d Orthodox Calendar</key>
     <string>%d年正教日历</string>
+    <key>From %@ till %@ — %@</key>
+    <string>从%@至%@：%@</string>
 </dict>
 </plist>

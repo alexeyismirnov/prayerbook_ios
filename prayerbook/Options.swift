@@ -97,7 +97,14 @@ class Options: UITableViewController {
             Translate.language = lang
             
             prefs.set(lang, forKey: "language")
-          
+            
+            let year = DateComponents(date: Date()).year!
+            
+            prefs.set(false, forKey: "notifications_\(year)")
+            prefs.synchronize()
+
+            FeastNotifications.setupNotifications()
+
         } else if indexPath.section == 2 {
             cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 2)) as UITableViewCell
             cell.accessoryType = .none

@@ -85,6 +85,8 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         Translate.files = ["trans_ui_cn", "trans_cal_cn", "trans_library_cn"]
         Translate.language = prefs.object(forKey: "language") as! String
         
+        FeastNotifications.setupNotifications()
+
         return true
     }
     
