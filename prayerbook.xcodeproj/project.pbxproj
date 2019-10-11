@@ -45,7 +45,6 @@
 		8A1736EF22D20E4C00654AB1 /* TroparionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1736EE22D20E4C00654AB1 /* TroparionModel.swift */; };
 		8A1736F322D214B700654AB1 /* troparion.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A1736F222D214B700654AB1 /* troparion.sqlite */; };
 		8A18FB7F22CC4EC9006B3F29 /* fasting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A18FB7E22CC4EC9006B3F29 /* fasting.plist */; };
-		8A1964512186AC5700CDDCB5 /* FeastList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1964502186AC5700CDDCB5 /* FeastList.swift */; };
 		8A1B2575202955A60038C0C4 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 8A1B2574202955A60038C0C4 /* icons */; };
 		8A1B2577202956840038C0C4 /* SaintIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B2576202956840038C0C4 /* SaintIconView.swift */; };
 		8A1B257920295C9D0038C0C4 /* CenterViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1B257820295C9D0038C0C4 /* CenterViewFlowLayout.swift */; };
@@ -118,7 +117,6 @@
 		8AADFF5F1E84C25300CE3D0F /* synaxarion34.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF511E84C25300CE3D0F /* synaxarion34.rtf */; };
 		8AADFF6E1E84F28900CE3D0F /* feofan.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF6D1E84F28900CE3D0F /* feofan.sqlite */; };
 		8AAE60E52334853F005563D3 /* TypikaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAE60E42334853F005563D3 /* TypikaModel.swift */; };
-		8AB004D521884F97005D8A77 /* FeastNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB004D421884F97005D8A77 /* FeastNotifications.swift */; };
 		8AB018E11C5EED5D00DE96B0 /* Db.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFC27C1A2C8DF800BAACE0 /* Db.swift */; };
 		8AB2C2F223421E4400A2EE1E /* YearCalendarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2C2F123421E4400A2EE1E /* YearCalendarContainer.swift */; };
 		8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */; };
@@ -305,7 +303,6 @@
 		8A1736EE22D20E4C00654AB1 /* TroparionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroparionModel.swift; sourceTree = "<group>"; };
 		8A1736F222D214B700654AB1 /* troparion.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = troparion.sqlite; sourceTree = "<group>"; };
 		8A18FB7E22CC4EC9006B3F29 /* fasting.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = fasting.plist; sourceTree = "<group>"; };
-		8A1964502186AC5700CDDCB5 /* FeastList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeastList.swift; sourceTree = "<group>"; };
 		8A1B2574202955A60038C0C4 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icons; sourceTree = "<group>"; };
 		8A1B2576202956840038C0C4 /* SaintIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintIconView.swift; sourceTree = "<group>"; };
 		8A1B257820295C9D0038C0C4 /* CenterViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -384,7 +381,6 @@
 		8AADFF511E84C25300CE3D0F /* synaxarion34.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion34.rtf; sourceTree = "<group>"; };
 		8AADFF6D1E84F28900CE3D0F /* feofan.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = feofan.sqlite; sourceTree = "<group>"; };
 		8AAE60E42334853F005563D3 /* TypikaModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypikaModel.swift; sourceTree = "<group>"; };
-		8AB004D421884F97005D8A77 /* FeastNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeastNotifications.swift; sourceTree = "<group>"; };
 		8AB2C2F123421E4400A2EE1E /* YearCalendarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearCalendarContainer.swift; sourceTree = "<group>"; };
 		8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalendarWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -619,9 +615,7 @@
 				8A01E42121956295005BE65F /* TroparionFeastModel.swift */,
 				8A4C28C7218AE68A00C276C3 /* TroparionFeastView.swift */,
 				8A2F46AA19E145D200076AF4 /* Options.swift */,
-				8AB004D421884F97005D8A77 /* FeastNotifications.swift */,
 				8A12C91F23507B1700F16694 /* FeastSaintNotifications.swift */,
-				8A1964502186AC5700CDDCB5 /* FeastList.swift */,
 				8AFE375B2345D20300E06AEF /* YearCalendarList.swift */,
 				8AB2C2F123421E4400A2EE1E /* YearCalendarContainer.swift */,
 				8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */,
@@ -1196,9 +1190,7 @@
 				8A13C8FD219172E500D0CE7E /* AudioPlayerCell.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
 				8AB8674B229B8FAD00D6EFA7 /* SynaxarionModel.swift in Sources */,
-				8A1964512186AC5700CDDCB5 /* FeastList.swift in Sources */,
 				8A1B2577202956840038C0C4 /* SaintIconView.swift in Sources */,
-				8AB004D521884F97005D8A77 /* FeastNotifications.swift in Sources */,
 				8A0689F9221FF8A600F1E711 /* LibraryTab.swift in Sources */,
 				8AFE375C2345D20300E06AEF /* YearCalendarList.swift in Sources */,
 				8AAE60E52334853F005563D3 /* TypikaModel.swift in Sources */,
