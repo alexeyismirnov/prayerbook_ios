@@ -17,6 +17,8 @@
 		8A17277423289DBF00D9F280 /* typika_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A17277323289DBF00D9F280 /* typika_cn.sqlite */; };
 		8A181E0E1B1D3C9A00D8C2FB /* saints_01_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0C1B1D3C9A00D8C2FB /* saints_01_en.sqlite */; };
 		8A181E0F1B1D3C9A00D8C2FB /* saints_01_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0D1B1D3C9A00D8C2FB /* saints_01_en.txt */; };
+		8A19AE58235170A4004A059B /* icons.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A19AE57235170A4004A059B /* icons.sqlite */; };
+		8A19AE5A2351713A004A059B /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 8A19AE592351713A004A059B /* icons */; };
 		8A1D285723050BC4001913C7 /* LibraryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D285623050BC4001913C7 /* LibraryTab.swift */; };
 		8A2CD31A1E654DC20060D524 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3171E654DC20060D524 /* CompactViewController.swift */; };
 		8A2CD31B1E654DC20060D524 /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */; };
@@ -356,6 +358,8 @@
 		8A17277323289DBF00D9F280 /* typika_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = typika_cn.sqlite; sourceTree = "<group>"; };
 		8A181E0C1B1D3C9A00D8C2FB /* saints_01_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_01_en.sqlite; sourceTree = "<group>"; };
 		8A181E0D1B1D3C9A00D8C2FB /* saints_01_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_01_en.txt; sourceTree = "<group>"; };
+		8A19AE57235170A4004A059B /* icons.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.sqlite; sourceTree = "<group>"; };
+		8A19AE592351713A004A059B /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icons; sourceTree = "<group>"; };
 		8A1D285623050BC4001913C7 /* LibraryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTab.swift; sourceTree = "<group>"; };
 		8A2197BD1ECAADD6007CB039 /* ChameleonFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChameleonFramework.framework; path = "../../Derived3/prayerbook-gahulcbgsvzkmfdoornliopgnepy/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework"; sourceTree = "<group>"; };
 		8A2CD3171E654DC20060D524 /* CompactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
@@ -741,8 +745,10 @@
 				8AFEE0591C210FB0004A68DC /* readings */,
 				8ADFF51E1B0F1D02001AE6A9 /* saints */,
 				8A74D857199076EF0078F39F /* html */,
+				8A19AE592351713A004A059B /* icons */,
 				8A74D844198F624C0078F39F /* images */,
 				8A74D832198F224E0078F39F /* Main.storyboard */,
+				8A19AE57235170A4004A059B /* icons.sqlite */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
 				8A2F46A619E12B4100076AF4 /* AppDelegate.swift */,
 				8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */,
@@ -1203,6 +1209,7 @@
 				8ADF91EF1B7731EA0078BB6B /* saints_07_cn.txt in Resources */,
 				8A74D833198F224E0078F39F /* Main.storyboard in Resources */,
 				8AF37E591B36C7A500101148 /* newicon_58.png in Resources */,
+				8A19AE5A2351713A004A059B /* icons in Resources */,
 				8A59F34E1B14371800B15FA1 /* saints_07_en.txt in Resources */,
 				8AF8C79F230F8E4D0020D5E5 /* heb_cn.sqlite in Resources */,
 				8AF8C77B230F8E4D0020D5E5 /* phil_cn.sqlite in Resources */,
@@ -1327,6 +1334,7 @@
 				8A81858919D2E3F300D4B328 /* prayer_book_0_cn.html in Resources */,
 				8AF8C700230F8CE80020D5E5 /* josh_en.sqlite in Resources */,
 				8AF37E581B36C7A500101148 /* newicon_40.png in Resources */,
+				8A19AE58235170A4004A059B /* icons.sqlite in Resources */,
 				8AF8C775230F8E4D0020D5E5 /* zeph_cn.sqlite in Resources */,
 				8AF8C769230F8E4D0020D5E5 /* 1thess_cn.sqlite in Resources */,
 				8A81858319D2E3F300D4B328 /* prayer_communion_2_cn.html in Resources */,
@@ -1648,7 +1656,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 4.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1685,7 +1693,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 4.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1717,7 +1725,7 @@
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MARKETING_VERSION = 4.5;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1749,7 +1757,7 @@
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MARKETING_VERSION = 4.5;
 				MTL_ENABLE_DEBUG_INFO = NO;

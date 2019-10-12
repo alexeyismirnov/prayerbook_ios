@@ -32,7 +32,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     var dayDescription = [(FeastType, String)]()
     var saints = [(FeastType, String)]()
-    
+    var saintIcons = [Saint]()
+
     var currentDate: Date = {
         // this is done to remove time component from date
         return DateComponents(date: Date()).toDate()
@@ -83,11 +84,13 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         super.viewDidAppear(animated)
         
         appeared = true
+        reloadAfterAppeared()
+
         tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -99,9 +102,12 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             return 1
             
         case 2:
-            return readings.count
+            return 1
             
         case 3:
+            return readings.count
+            
+        case 4:
             return saints.count
             
         default:
@@ -115,12 +121,15 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             return ""
             
         case 1:
-            return (FastingModel.fastingLevel == .monastic) ? Translate.s("Monastic fasting") : Translate.s("Laymen fasting")
+              return ""
             
         case 2:
-            return readings.count > 0 ? Translate.s("Gospel of the day") : nil
+            return (FastingModel.fastingLevel == .monastic) ? Translate.s("Monastic fasting") : Translate.s("Laymen fasting")
             
         case 3:
+            return readings.count > 0 ? Translate.s("Gospel of the day") : nil
+            
+        case 4:
             return Translate.s("Memory of saints")
             
         default:
@@ -183,8 +192,18 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                     return cell
                 }
             }
-            
         } else if indexPath.section == 1 {
+            if appeared {
+                let cell: SaintIconCell = tableView.dequeueReusableCell(for: indexPath)
+                cell.saints = saintIcons
+                cell.selectable = false
+                return cell
+                
+            } else {
+                return getSimpleCell("")
+                
+            }
+        } else if indexPath.section == 2 {
             let cell: ImageCell  = getCell()
 
             cell.title.attributedText = NSAttributedString(string: fasting.descr)
@@ -194,7 +213,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             
             return cell
             
-        } else if indexPath.section == 2 {
+        } else if indexPath.section == 3 {
             var title : String!
             var subtitle : String!
             
@@ -224,7 +243,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 return cell
             }
             
-        } else if indexPath.section == 3 {
+        } else if indexPath.section == 4 {
             if saints[indexPath.row].0 == .none {
                 if appeared {
                     return getTextCell(saints[indexPath.row].1)
@@ -266,7 +285,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if indexPath.section == 2 {
+        if indexPath.section == 3 {
             var vc : UIViewController!
             
             let currentReading = readings[indexPath.row].components(separatedBy: "#").first!
@@ -281,15 +300,23 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (appeared) {
-            let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
-            return calculateHeightForCell(cell)
+            if indexPath.section == 1 {
+                return SaintIconCell.getItemSize().height + 40 // some margin
+                
+            } else {
+                let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
+                return calculateHeightForCell(cell)
+            }
             
         } else {
             switch (indexPath.section, indexPath.row) {
             case (0,0):
                 return 35
                 
-            case (1,_), (2,_):
+            case (1,_):
+                return 0
+                
+            case (2,_), (3,_):
                 return 35
                 
             default:
@@ -329,7 +356,15 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         saints = SaintModel.saints(currentDate)
         readings = DailyReading.getDailyReading(currentDate)
         
+        if (appeared) {
+            reloadAfterAppeared()
+        }
+        
         tableView.reloadData()
+    }
+    
+    func reloadAfterAppeared() {
+        saintIcons = SaintIconModel.get(currentDate)
     }
     
     func configureNavbar() {
@@ -402,12 +437,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         }
         
         guard let url = URL(string: link) else { return }
-        
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
     @objc func updateDate(_ notification: NSNotification) {
