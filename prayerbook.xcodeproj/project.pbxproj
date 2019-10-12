@@ -19,6 +19,8 @@
 		8A181E0F1B1D3C9A00D8C2FB /* saints_01_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A181E0D1B1D3C9A00D8C2FB /* saints_01_en.txt */; };
 		8A19AE58235170A4004A059B /* icons.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A19AE57235170A4004A059B /* icons.sqlite */; };
 		8A19AE5A2351713A004A059B /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 8A19AE592351713A004A059B /* icons */; };
+		8A1BADB82351D3D2002C6638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1BADB72351D3D2002C6638 /* LaunchScreen.storyboard */; };
+		8A1BADBA2351D523002C6638 /* launch_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1BADB92351D523002C6638 /* launch_icon.png */; };
 		8A1D285723050BC4001913C7 /* LibraryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D285623050BC4001913C7 /* LibraryTab.swift */; };
 		8A2CD31A1E654DC20060D524 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3171E654DC20060D524 /* CompactViewController.swift */; };
 		8A2CD31B1E654DC20060D524 /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CD3181E654DC20060D524 /* ExpandedViewController.swift */; };
@@ -360,6 +362,8 @@
 		8A181E0D1B1D3C9A00D8C2FB /* saints_01_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_01_en.txt; sourceTree = "<group>"; };
 		8A19AE57235170A4004A059B /* icons.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.sqlite; sourceTree = "<group>"; };
 		8A19AE592351713A004A059B /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icons; sourceTree = "<group>"; };
+		8A1BADB72351D3D2002C6638 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8A1BADB92351D523002C6638 /* launch_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_icon.png; sourceTree = "<group>"; };
 		8A1D285623050BC4001913C7 /* LibraryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTab.swift; sourceTree = "<group>"; };
 		8A2197BD1ECAADD6007CB039 /* ChameleonFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChameleonFramework.framework; path = "../../Derived3/prayerbook-gahulcbgsvzkmfdoornliopgnepy/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework"; sourceTree = "<group>"; };
 		8A2CD3171E654DC20060D524 /* CompactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
@@ -748,6 +752,7 @@
 				8A19AE592351713A004A059B /* icons */,
 				8A74D844198F624C0078F39F /* images */,
 				8A74D832198F224E0078F39F /* Main.storyboard */,
+				8A1BADB72351D3D2002C6638 /* LaunchScreen.storyboard */,
 				8A19AE57235170A4004A059B /* icons.sqlite */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
 				8A2F46A619E12B4100076AF4 /* AppDelegate.swift */,
@@ -783,6 +788,7 @@
 		8A74D844198F624C0078F39F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8A1BADB92351D523002C6638 /* launch_icon.png */,
 				8A638C571ECBF5AE00424A9E /* bg3@2x.jpg */,
 				8A638C581ECBF5AE00424A9E /* church@2x.jpg */,
 				8A638C591ECBF5AE00424A9E /* question.pdf */,
@@ -1284,6 +1290,7 @@
 				8AF8C77E230F8E4D0020D5E5 /* 2sam_cn.sqlite in Resources */,
 				8AE718CE1C560C420035CDCE /* fat-left.pdf in Resources */,
 				8AF37E5C1B36C7A500101148 /* newicon_87.png in Resources */,
+				8A1BADB82351D3D2002C6638 /* LaunchScreen.storyboard in Resources */,
 				8ABAFC491C0B03A9008DB93C /* prayer_typica_0_en.html in Resources */,
 				8AF8C6E6230F8CE80020D5E5 /* tit_en.sqlite in Resources */,
 				8AC1B10D199866FF00A017C7 /* launch-ipad.png in Resources */,
@@ -1421,6 +1428,7 @@
 				8AE6FE8D1B70CCA500FDAA47 /* saints_01_cn.txt in Resources */,
 				8A81858419D2E3F300D4B328 /* prayer_communion_2_en.html in Resources */,
 				8AF8C6F3230F8CE80020D5E5 /* ezra_en.sqlite in Resources */,
+				8A1BADBA2351D523002C6638 /* launch_icon.png in Resources */,
 				8A4EA0E81E63F4BA00E63399 /* fat-down.pdf in Resources */,
 				8A81858B19D2E3F300D4B328 /* prayer_book_1_cn.html in Resources */,
 				8AB0DC9B1C27EFEC00C6A494 /* typica_7.plist in Resources */,
@@ -1640,7 +1648,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ponomar.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1677,7 +1684,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ponomar.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
