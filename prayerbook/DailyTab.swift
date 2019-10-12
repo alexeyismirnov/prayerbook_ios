@@ -325,11 +325,30 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         }
     }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let headerView = view as! UITableViewHeaderFooterView
-        headerView.contentView.backgroundColor = UIColor.clear
-        headerView.backgroundView?.backgroundColor = UIColor.clear
-        headerView.textLabel?.textColor = Theme.secondaryColor
+   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+       let headerView = UIView()
+       let title = UILabel()
+       let content = self.tableView(tableView, titleForHeaderInSection: section)!
+       
+       if content.count == 0 {
+           return nil
+       }
+
+       title.numberOfLines = 1
+       title.font = UIFont.boldSystemFont(ofSize: 18)
+       title.textColor = Theme.secondaryColor
+       title.text = content
+       
+       headerView.backgroundColor = UIColor.clear
+       headerView.addSubview(title)
+       headerView.fullScreen(view: title, marginX: 15, marginY: 5)
+       
+       return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let content = self.tableView(tableView, titleForHeaderInSection: section)!
+        return content.count == 0 ? 0 : 30
     }
     
     @objc func reloadTheme() {
@@ -340,7 +359,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             if DailyTab.background == nil {
                 DailyTab.background = UIImage(background: "bg3.jpg", inView: view, bundle: toolkit)
             }
-   
+            
             view.backgroundColor = UIColor(patternImage: DailyTab.background!)
         }
         
