@@ -16,6 +16,8 @@ class SaintIconCell : UITableViewCell, UICollectionViewDataSource, UICollectionV
         }
     }
     
+    var selectable = true
+    
     var collectionView: UICollectionView!
 
     required public init?(coder aDecoder: NSCoder) {
@@ -69,10 +71,12 @@ class SaintIconCell : UITableViewCell, UICollectionViewDataSource, UICollectionV
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        _ = UIAlertController(title: saints[indexPath.row].name,
-                              message: "",
-                              view: self.parentViewController!,
-                              handler: { _ in })
+        if selectable {
+            _ = UIAlertController(title: saints[indexPath.row].name,
+                                         message: "",
+                                         view: self.parentViewController!,
+                                         handler: { _ in })
+        }
     }
 
     static func getItemSize() -> CGSize {
