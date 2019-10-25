@@ -166,8 +166,23 @@ class TypikaModel : BookModel {
 
                 
             } else if Cal.d(.sundayOfPublicianAndPharisee) ... Cal.d(.pascha) ~= date {
-                if (date != Cal.d(.beginningOfGreatLent) + 27.days &&
-                    date != Cal.d(.beginningOfGreatLent) + 34.days) {
+                
+                if Cal.d(.beginningOfGreatLent) ... Cal.d(.pascha) ~= date {
+                    beatitudes.removeAll()
+                    
+                    while beatitudes.count < 11 {
+                        beatitudes.append("Помяни нас, Господи, егда приидеши во Царствии Твоем.")
+                    }
+                    
+                    let poklon = "<span class=\"rubric\">(Поклон великий)</span>"
+                    beatitudes.append("""
+                        Помяни нас, Господи, егда приидеши во Царствии Твоем.<br>
+                        Помяни нас, Господи, егда приидеши во Царствии Твоем. \(poklon)<br>
+                        Помяни нас, Владыко, егда приидеши во Царствии Твоем. \(poklon)<br>
+                        Помяни нас, Святый, егда приидеши во Царствии Твоем. \(poklon)<br>
+                        """)
+
+                } else {
                     beatitudes.removeLast()
                     beatitudes.removeLast()
 
@@ -235,21 +250,39 @@ class TypikaModel : BookModel {
     
     func getSections() -> [String] { return [""] }
 
-    var data: [String] =
-        [
-            "Начинательные возгласы",
-            "Первый антифон",
-            "Второй антифон",
-            "Третий антифон, Блаженны",
-            "Тропарь и Трисвятое",
-            "Чтение Апостола",
-            "Чтение Евангелия",
-            "Символ веры",
-            "Молитва Господня",
-            "Кондаки",
-            "Псалом 33",
-            "Отпуст"
-    ]
+    var data: [String] {
+        get {
+            if Cal.d(.beginningOfGreatLent) ... Cal.d(.pascha) ~= date {
+                return [
+                    "Блаженны",
+                    "Тропарь и Трисвятое",
+                    "Чтение Апостола",
+                    "Чтение Евангелия",
+                    "Символ веры",
+                    "Молитва Господня",
+                    "Кондаки",
+                    "Молитва Св. Ефрема Сирина",
+                    "Молитва «Всесвятая Троица»",
+                    "Отпуст"
+                ]
+            } else {
+                return  [
+                    "Начинательные возгласы",
+                    "Первый антифон",
+                    "Второй антифон",
+                    "Третий антифон, Блаженны",
+                    "Тропарь и Трисвятое",
+                    "Чтение Апостола",
+                    "Чтение Евангелия",
+                    "Символ веры",
+                    "Молитва Господня",
+                    "Кондаки",
+                    "Псалом 33",
+                    "Отпуст"
+                ]
+            }
+        }
+    }
     
     var bookTitle: [String:String] = [
         "Евангелие от Матфея": "От Матфея Святаго Евангелия",
@@ -330,7 +363,14 @@ class TypikaModel : BookModel {
     
     func getContent(at pos: BookPosition) -> Any? {
         guard let index = pos.index else { return nil }
-        let typika = try! db.selectFrom("content", whereExpr:"section=\(index.row+1)") { ["text": $0["text"]] }
+        var typika: [[String:Bindable?]]
+            
+        if Cal.d(.beginningOfGreatLent) ... Cal.d(.pascha) ~= date {
+            typika = try! db.selectFrom("content_lent", whereExpr:"section=\(index.row+1)") { ["text": $0["text"]] }
+
+        } else {
+            typika = try! db.selectFrom("content", whereExpr:"section=\(index.row+1)") { ["text": $0["text"]] }
+        }
         
         content = ""
         for line in typika {

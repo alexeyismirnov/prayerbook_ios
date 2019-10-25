@@ -431,7 +431,9 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 
             } else {
                 let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
-                return calculateHeightForCell(cell)
+                let h = calculateHeightForCell(cell)
+                
+                return indexPath.section == 3 ? max(h, 35) : h
             }
             
         } else {
