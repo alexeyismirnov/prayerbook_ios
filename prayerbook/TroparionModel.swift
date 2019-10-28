@@ -2,118 +2,73 @@
 //  TroparionModel.swift
 //  ponomar
 //
-//  Created by Alexey Smirnov on 7/7/19.
-//  Copyright © 2019 Alexey Smirnov. All rights reserved.
+//  Created by Alexey Smirnov on 11/9/18.
+//  Copyright © 2018 Alexey Smirnov. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Squeal
 import swift_toolkit
 
-class TroparionModel : BookModel {
-    var code = "Troparion"
+struct Troparion {
+    var title : String
+    var content : String
+    var url : String?
     
-    var mode:BookType = .text
-    
-    var title = ""
-    
-    var isExpandable = false
-    var hasDate = false
-    var date: Date = Date()
-    
-    static let shared = TroparionModel()
-    
-    func getSections() -> [String] {
-        return []
+    init(title : String, content : String, url : String? = nil) {
+        self.title = title
+        self.content = content
+        self.url = url
     }
-    
-    func getItems(_ section: Int) -> [String] {
-        return []
-    }
-    
-    func getNumChapters(_ index: IndexPath) -> Int {
-        return 0
-    }
-    
-    func getComment(commentId: Int) -> String? {
-        return nil
-    }
-    
-    static func troparionData(_ date: Date) -> [(String, String)] {
-        var troparion = [(String,String)]()
+}
 
-        let dc = DateComponents(date: date)
-        
-        let path = Bundle.main.path(forResource: "troparion", ofType: "sqlite")!
+protocol TroparionModel {
+    var url : String { get }
+    var title : String { get }
+
+    func isDownloaded() -> Bool
+    func isAvailable(on date : Date) -> Bool
+    func getTroparion(for date : Date) -> [Troparion]
+}
+
+class TroparionFeastModel : TroparionModel {
+    var title = "Тропарь и кондак праздника"
+    var url = "https://filedn.com/lUdNcEH0czFSe8uSnCeo29F/prayerbook/tropari.zip"
+    
+    var path:String!
+
+    static let shared = TroparionFeastModel()
+    
+    init() {
+        let documentDirectory:URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        path = documentDirectory.path + "/tropari/tropari/tropari.sqlite"
+    }
+    
+    func isAvailable(on date : Date) -> Bool {
+        return Cal.getGreatFeast(date) != nil
+    }
+
+    func getTroparion(for date : Date) -> [Troparion]  {
+        let code = Cal.getGreatFeast(date)!
         let db = try! Database(path:path)
         
-        let day = dc.day!
-        let month = dc.month!
-        
-        let results = try! db.selectFrom("tropari", whereExpr:"month=\(month) AND day=\(day)") { ["title": $0["title"] , "glas": $0["glas"], "content": $0["content"] ] }
+        var troparion = [Troparion]()
+
+        let results = try! db.selectFrom("tropari", whereExpr:"code=\(code.rawValue)", orderBy: "id") { ["title": $0["title"], "content": $0["content"], "url": $0["url"]]}
         
         for line in results {
-            var title = line["title"] as! String
-            let glas = line["glas"] as! String
-            let content = line["content"] as! String
+            let title = line["title"] as! String
+            let content =  line["content"] as! String
+            let url = line["url"] as? String
             
-            if glas.count > 0 {
-                title = title + ", " + glas
-            }
-            
-            troparion.append((title,content))
+            troparion.append(Troparion(title: title, content: content, url: url))
         }
         
         return troparion
     }
     
-    static func getTroparion(for date: Date) -> [(String, String)] {
-        var troparion = [(String,String)]()
-        
-        Cal.setDate(date)
-        
-        if (Cal.isLeapYear) {
-            switch date {
-            case Cal.leapStart ..< Cal.leapEnd:
-                troparion = troparionData(date+1.days)
-                break
-                
-            case Cal.leapEnd:
-                troparion = troparionData(Date(29, 2, Cal.currentYear))
-                break
-                
-            default:
-                troparion = troparionData(date)
-            }
-            
-        } else {
-            troparion = troparionData(date)
-            if (date == Cal.leapEnd) {
-                troparion += troparionData(Date(29, 2, 2000))
-            }
-        }
-        
-        return troparion
-    }
-    
-    func getContent(at pos: BookPosition) -> Any? {
-        guard let data : [(String,String)] = pos.data as? [(String, String)]  else { return nil }
-      
-        var text = NSAttributedString()
-        
-        let prefs = AppGroup.prefs!
-        let fontSize = prefs.integer(forKey: "fontSize")
-        
-        for line in data {
-            let title = line.0
-            let content = line.1
-            
-            text += title.colored(with: Theme.textColor).boldFont(ofSize: CGFloat(fontSize)).centered + "\n\n"
-            text += content.colored(with: Theme.textColor).systemFont(ofSize: CGFloat(fontSize)) + "\n\n"
-        }
-        
-        return text
+    func isDownloaded() -> Bool {
+        return FileManager.default.fileExists(atPath: path)
     }
     
 }
-

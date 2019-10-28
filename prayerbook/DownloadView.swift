@@ -16,14 +16,26 @@ class DownloadView: UIViewController, PopupContentViewController {
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var button: UIButton!
     
-    let url = "https://filedn.com/lUdNcEH0czFSe8uSnCeo29F/prayerbook/tropari.zip"
+    var url: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()
+        view.backgroundColor = UIColor(hex: "#FFEBCD")
+        
+        titleLabel.textColor = .black
+        
+        button.setTitleColor(.darkGray, for: .normal)
+        button.backgroundColor = .clear
+        button.layer.borderColor = UIColor.darkGray.cgColor
+        button.layer.borderWidth = 1.0
+        button.layer.cornerRadius = 10
+        
+        progressBar.progress = 0
+        progressBar.tintColor = .gray
         
         DownloadManager.delegate = self
+        
         DownloadManager.startTransfer(url, completionHandler: {fileURL in
             DispatchQueue.main.async() {
                 self.titleLabel.text = "Распаковка..."
@@ -40,25 +52,8 @@ class DownloadView: UIViewController, PopupContentViewController {
                 return
             }
             
-            self.showInfo(title: "Православный календарь", message: "Тропари и кондаки двунадесятых праздников добавлены в календарь")
+            self.showInfo(title: "Православный календарь", message: "Тропари и кондаки добавлены в календарь")
         })
-    }
-    
-    func setupUI() {
-        if let bgColor = Theme.mainColor {
-            view.backgroundColor =  bgColor
-            
-        } else {
-            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
-        }
-        
-        titleLabel.textColor = Theme.textColor
-                
-        button.layer.borderColor = Theme.secondaryColor.cgColor
-        button.layer.borderWidth = 1.0
-        button.layer.cornerRadius = 10
-        
-        progressBar.progress = 0
     }
     
     @IBAction func cancel(_ sender: Any) {

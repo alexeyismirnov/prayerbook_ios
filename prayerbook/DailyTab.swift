@@ -34,12 +34,12 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     var synaxarion : (String,String)?
     
     var feofan = [(String,String)]()
-    var troparion = [(String,String)]()
+    var saintTroparia = [(String,String)]()
+    let troparia : [TroparionModel] = [TroparionFeastModel.shared]
 
     var dayDescription = [(FeastType, String)]()
     var saints = [(FeastType, String)]()
     var saintIcons = [Saint]()
-    var greatFeast : NameOfDay?
 
     var currentDate: Date = {
         // this is done to remove time component from date
@@ -146,7 +146,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             return readings.count + feofan.count + (synaxarion != nil ? 1:0)
           
         case 4:
-            return (greatFeast != nil ? 1:0) + (troparion.count > 0 ? 1:0)
+            return troparia.filter({$0.isAvailable(on: currentDate)}).count + (saintTroparia.count > 0 ? 1:0)
             
         case 5:
             return saints.count
@@ -306,23 +306,16 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             }
             
         } else if indexPath.section == 4 {
-            var title : String!
-            var subtitle : String!
+            var titles = [String]()
             
-            if greatFeast != nil && indexPath.row == 0 {
-                title = "Тропарь и кондак праздника"
-                subtitle = ""
-                
-            } else {
-                title = "Тропари и кондаки святым"
-                subtitle = ""
-            }
+            titles = troparia.filter({$0.isAvailable(on: currentDate)}).map { $0.title }
+            titles.append("Тропари и кондаки святым")
             
             if appeared {
-                return getTextDetailsCell(title: title, subtitle: subtitle)
+                return getTextDetailsCell(title: titles[indexPath.row], subtitle: "")
                 
             } else {
-                let cell = getSimpleCell(title)
+                let cell = getSimpleCell(titles[indexPath.row])
                 cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
                 return cell
             }
@@ -405,21 +398,28 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             }
             
         } else if indexPath.section == 4 {
-            if greatFeast != nil && indexPath.row == 0 {
-                if TroparionFeastModel.troparionAvailable() {
-                    vc = TroparionFeastView(TroparionFeastModel.getTroparion(greatFeast!))
-                    
-                } else {
-                    downloadTroparion()
-                    return nil
-                }
+            var count = indexPath.row+1
+            
+            for t in troparia.filter({$0.isAvailable(on: currentDate)}) {
+                count -= 1
                 
-            } else {
-                let pos = BookPosition(model: TroparionModel.shared, data: troparion)
-                vc = BookPageText(pos)
+                if count == 0 {
+                    if t.isDownloaded() {
+                        navigationController?.pushViewController(TroparionView(t.getTroparion(for: currentDate))!, animated: true)
+                        
+                    } else {
+                        downloadTroparion(url: t.url)
+                    }
+                    
+                    break
+                }
             }
             
-            navigationController?.pushViewController(vc, animated: true)
+            if count > 0 {
+                let pos = BookPosition(model: SaintTropariaModel.shared, data: saintTroparia)
+                navigationController?.pushViewController(BookPageText(pos)!, animated: true)
+
+            }
             
         } else if indexPath.section == 5 {
             showSaints()
@@ -517,7 +517,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         saints = SaintModel.saints(currentDate)
         readings = DailyReading.getDailyReading(currentDate)
         synaxarion = SynaxarionModel.shared.getSynaxarion(for: currentDate)
-        greatFeast = Cal.getGreatFeast(currentDate)
         
         if (appeared) {
             reloadAfterAppeared()
@@ -531,7 +530,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     func reloadAfterAppeared() {
         feofan = FeofanModel.getFeofan(for: currentDate)
-        troparion = TroparionModel.getTroparion(for: currentDate)
+        saintTroparia = SaintTropariaModel.getTroparion(for: currentDate)
         saintIcons = SaintIconModel.get(currentDate)
     }
     
@@ -650,8 +649,9 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
-    func downloadTroparion() {
-        let container = UIViewController.named("DownloadView") as! DownloadView        
+    func downloadTroparion(url: String) {
+        let container = UIViewController.named("DownloadView") as! DownloadView
+        container.url = url
         showPopup(container)
     }
     
