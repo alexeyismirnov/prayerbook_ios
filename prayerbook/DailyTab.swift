@@ -83,9 +83,13 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createTableView(style: .plain)
+        createTableView(style: .grouped)
         configureNavbar()
-
+        
+        if #available(iOS 11.0, *) {} else {
+            tableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
+        }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .themeChangedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: .dateChangedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showMonthlyCalendar), name: .monthlyCalendarNotification, object: nil)
@@ -310,7 +314,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 subtitle = ""
                 
             } else {
-                title = "Тропари святым"
+                title = "Тропари и кондаки святым"
                 subtitle = ""
             }
             
@@ -403,13 +407,13 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         } else if indexPath.section == 4 {
             if greatFeast != nil && indexPath.row == 0 {
                 if TroparionFeastModel.troparionAvailable() {
-                    vc = UIViewController.named("TroparionView")
-                    (vc as! TroparionFeastView).greatFeast = greatFeast!
+                    vc = TroparionFeastView(TroparionFeastModel.getTroparion(greatFeast!))
                     
                 } else {
                     downloadTroparion()
                     return nil
                 }
+                
             } else {
                 let pos = BookPosition(model: TroparionModel.shared, data: troparion)
                 vc = BookPageText(pos)
@@ -433,7 +437,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
                 let h = calculateHeightForCell(cell)
                 
-                return indexPath.section == 3 ? max(h, 35) : h
+                return (indexPath.section == 3 || indexPath.section == 4) ? max(h, 35) : h
             }
             
         } else {
@@ -477,6 +481,15 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let content = self.tableView(tableView, titleForHeaderInSection: section)!
         return content.count == 0 ? 0 : 30
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
     }
     
     @objc func reloadTheme() {

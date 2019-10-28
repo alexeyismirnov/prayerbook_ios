@@ -14,30 +14,42 @@ extension Notification.Name {
 }
 
 class TroparionFeastView:  UIViewController, ResizableTableViewCells, UITableViewDelegate, UITableViewDataSource {
+    var tableView: UITableView!
     
-    @IBOutlet weak var tableView: UITableView!
+    var fontSize = AppGroup.prefs.integer(forKey: "fontSize")
     
-    let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
-    let prefs = AppGroup.prefs!
+    var troparion : [Troparion]
+    var players : [AudioPlayerCell?]
+    
+    public init?(_ troparion: [Troparion]) {
+        self.troparion = troparion
+        players = [AudioPlayerCell?]()
+        
+        for t in troparion {
+            if let url = t.url {
+                let cell:AudioPlayerCell = .fromNib()
+                cell.filename = url
+                players.append(cell)
 
-    var greatFeast : NameOfDay!
-    var troparion = [Troparion]()
-    var fontSize  = 0
-
+            } else {
+                players.append(nil)
+            }
+        }
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        automaticallyAdjustsScrollViewInsets = false
-
-        tableView.delegate = self
-        tableView.dataSource = self
-        
+        createTableView(style: .plain)
         tableView.register(UINib(nibName: "AudioPlayerCell", bundle: nil), forCellReuseIdentifier: "AudioPlayerCell")
 
-        fontSize = prefs.integer(forKey: "fontSize")
         reloadTheme()
-
-        troparion = TroparionFeastModel.getTroparion(greatFeast)
         tableView.reloadData()
     }
     
@@ -64,26 +76,22 @@ class TroparionFeastView:  UIViewController, ResizableTableViewCells, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: TextCell = getCell()
-        cell.title.textColor = Theme.textColor
-        
         let t = troparion[indexPath.section]
         
         if indexPath.row == 0 {
+            let cell = getTextCell(t.title)
             cell.title.font = UIFont.boldSystemFont(ofSize: CGFloat(fontSize))
-            cell.title.text = t.title
-
-        } else if indexPath.row == 1 && t.url != nil {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AudioPlayerCell") as! AudioPlayerCell
-            cell.filename = t.url
             return cell
 
+        } else if indexPath.row == 1 && t.url != nil {
+            return players[indexPath.section]!
+            
         } else {
+            let cell = getTextCell(t.content)
             cell.title.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
-            cell.title.text = t.content
+            return cell
         }
         
-        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

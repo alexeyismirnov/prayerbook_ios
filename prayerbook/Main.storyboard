@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="G5G-CB-Hhd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="G5G-CB-Hhd">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -160,39 +160,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eFb-6Z-RE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1905.46875" y="-135.9375"/>
-        </scene>
-        <!--Troparion Feast View-->
-        <scene sceneID="3rg-WY-yQS">
-            <objects>
-                <viewController storyboardIdentifier="TroparionView" id="tJ1-Se-VnY" customClass="TroparionFeastView" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GkU-Jw-gZC"/>
-                        <viewControllerLayoutGuide type="bottom" id="FNa-0G-SWt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Cfb-64-vYE">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JTD-gD-WMq">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="JTD-gD-WMq" firstAttribute="leading" secondItem="Cfb-64-vYE" secondAttribute="leading" id="3DS-y6-qs2"/>
-                            <constraint firstItem="JTD-gD-WMq" firstAttribute="top" secondItem="GkU-Jw-gZC" secondAttribute="bottom" id="bOd-ng-w1t"/>
-                            <constraint firstAttribute="trailing" secondItem="JTD-gD-WMq" secondAttribute="trailing" id="cvO-cg-4pR"/>
-                            <constraint firstItem="FNa-0G-SWt" firstAttribute="top" secondItem="JTD-gD-WMq" secondAttribute="bottom" id="u9F-yw-LUL"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="JTD-gD-WMq" id="8qt-SN-yby"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HmL-Di-NhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="857" y="254"/>
         </scene>
         <!--Library Tab-->
         <scene sceneID="d5g-l8-dj5">
