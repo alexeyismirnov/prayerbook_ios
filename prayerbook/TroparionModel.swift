@@ -74,3 +74,70 @@ class TroparionFeastModel : TroparionModel {
     }
     
 }
+
+class TroparionDayModel : TroparionModel {
+    var title : String {
+        get {
+            if Cal.d(.pascha) ..< Cal.d(.sunday2AfterPascha) ~= Cal.currentDate {
+                return "Часы пасхальные"
+            } else {
+                return "Тропарь и кондак дня"
+            }
+        }
+    }
+    
+    var url = "https://filedn.com/lUdNcEH0czFSe8uSnCeo29F/prayerbook/tropari.zip"
+    var fileSize = 1
+    
+    static let shared = TroparionDayModel()
+    
+    init() {
+        
+    }
+    
+    func isAvailable(on date : Date) -> Bool {
+        if Cal.d(.palmSunday) ... Cal.d(.pascha)  ~= date {
+            return false
+            
+        } else {
+            return Cal.getGreatFeast(date) == nil
+        }
+    }
+    
+    func getTroparion(for date : Date) -> [Troparion]  {
+        var troparion = [Troparion]()
+
+        let path = Bundle.main.path(forResource: "tropari_day", ofType: "sqlite")!
+        let db = try! Database(path:path)
+        
+        var code: Int = 0
+        let dateComponents = DateComponents(date: date)
+
+        if Cal.d(.pascha) ..< Cal.d(.sunday2AfterPascha) ~= date {
+            code = 100
+            
+        } else if dateComponents.weekday! == 1 {
+            code = 10 + Cal.getTone(date)!
+            
+        } else {
+            code = dateComponents.weekday!
+        }
+        
+        let results = try! db.selectFrom("tropari", whereExpr:"code=\(code)", orderBy: "id") { ["title": $0["title"], "content": $0["content"], "url": $0["url"]]}
+        
+        for line in results {
+            let title = line["title"] as! String
+            let content =  line["content"] as! String
+            let url = line["url"] as? String
+            
+            troparion.append(Troparion(title: title, content: content, url: url != nil ? "/tropari_day/tropari_day/\(url!).mp3" : nil))
+        }
+        
+        return troparion
+    }
+    
+    func isDownloaded() -> Bool {
+        return true
+    }
+}
+

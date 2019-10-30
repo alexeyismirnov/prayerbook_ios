@@ -35,7 +35,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     var feofan = [(String,String)]()
     var saintTroparia = [(String,String)]()
-    let troparia : [TroparionModel] = [TroparionFeastModel.shared]
+    let troparia : [TroparionModel] = [TroparionFeastModel.shared, TroparionDayModel.shared]
 
     var dayDescription = [(FeastType, String)]()
     var saints = [(FeastType, String)]()

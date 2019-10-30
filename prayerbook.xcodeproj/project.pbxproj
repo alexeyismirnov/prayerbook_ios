@@ -54,6 +54,7 @@
 		8A2F46AB19E145D200076AF4 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46AA19E145D200076AF4 /* Options.swift */; };
 		8A339AD81DC83F7B0026FD10 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A339AD71DC83F7B0026FD10 /* CompactViewController.swift */; };
 		8A392ED01FC431D90051C6E6 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */; };
+		8A3D82472369301C00C118AA /* tropari_day.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A3D82462369301B00C118AA /* tropari_day.sqlite */; };
 		8A4C28C8218AE68A00C276C3 /* TroparionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C28C7218AE68A00C276C3 /* TroparionView.swift */; };
 		8A5457701E70174300A86B5A /* church_history.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54575B1E70174300A86B5A /* church_history.rtf */; };
 		8A5457711E70174300A86B5A /* synaxarion1.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54575C1E70174300A86B5A /* synaxarion1.rtf */; };
@@ -309,6 +310,7 @@
 		8A339AD71DC83F7B0026FD10 /* CompactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
 		8A339ADE1DC87B730026FD10 /* fat-down.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-down.pdf"; sourceTree = "<group>"; };
 		8A339ADF1DC87B730026FD10 /* fat-up.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-up.pdf"; sourceTree = "<group>"; };
+		8A3D82462369301B00C118AA /* tropari_day.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = tropari_day.sqlite; sourceTree = "<group>"; };
 		8A4C28C7218AE68A00C276C3 /* TroparionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroparionView.swift; sourceTree = "<group>"; };
 		8A54575B1E70174300A86B5A /* church_history.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = church_history.rtf; sourceTree = "<group>"; };
 		8A54575C1E70174300A86B5A /* synaxarion1.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion1.rtf; sourceTree = "<group>"; };
@@ -575,6 +577,7 @@
 		8A74D800198F20CC0078F39F /* prayerbook */ = {
 			isa = PBXGroup;
 			children = (
+				8A3D82462369301B00C118AA /* tropari_day.sqlite */,
 				8AAC691A1A2C4D5D00CC5CA1 /* bible */,
 				8A008FF22258A71400A9636B /* books */,
 				8A74D857199076EF0078F39F /* synaxarion */,
@@ -1064,6 +1067,7 @@
 				8A6F7E9922A13A85006FD639 /* launch_icon.png in Resources */,
 				8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */,
 				8A0B4CB41C8C1E8000747BB4 /* saints_07_ru.txt in Resources */,
+				8A3D82472369301C00C118AA /* tropari_day.sqlite in Resources */,
 				8AF37E5E1B36C7A500101148 /* newicon_152.png in Resources */,
 				8AC10A40222A694F00540B22 /* jude_ru.sqlite in Resources */,
 				8A13C90221917AB700D0CE7E /* play.pdf in Resources */,

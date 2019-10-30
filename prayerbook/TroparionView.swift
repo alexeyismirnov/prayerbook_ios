@@ -47,6 +47,8 @@ class TroparionView:  UIViewController, ResizableTableViewCells, UITableViewDele
         super.viewDidLoad()
         
         createTableView(style: .plain)
+        
+        tableView.allowsSelection = false
         tableView.register(UINib(nibName: "AudioPlayerCell", bundle: nil), forCellReuseIdentifier: "AudioPlayerCell")
 
         reloadTheme()
@@ -104,4 +106,5 @@ class TroparionView:  UIViewController, ResizableTableViewCells, UITableViewDele
         }
         
     }
+    
 }
