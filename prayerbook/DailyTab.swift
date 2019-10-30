@@ -408,7 +408,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                         navigationController?.pushViewController(TroparionView(t.getTroparion(for: currentDate))!, animated: true)
                         
                     } else {
-                        downloadTroparion(url: t.url)
+                        downloadTroparion(model: t)
                     }
                     
                     break
@@ -649,9 +649,10 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
-    func downloadTroparion(url: String) {
+    func downloadTroparion(model t: TroparionModel) {
         let container = UIViewController.named("DownloadView") as! DownloadView
-        container.url = url
+        container.url = t.url
+        container.fileSize = t.fileSize
         showPopup(container)
     }
     

@@ -17,6 +17,7 @@ class DownloadView: UIViewController, PopupContentViewController {
     @IBOutlet weak var button: UIButton!
     
     var url: String!
+    var fileSize: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class DownloadView: UIViewController, PopupContentViewController {
         view.backgroundColor = UIColor(hex: "#FFEBCD")
         
         titleLabel.textColor = .black
+        titleLabel.text = "Загрузка (\(fileSize!) MB)..."
         
         button.setTitleColor(.darkGray, for: .normal)
         button.backgroundColor = .clear

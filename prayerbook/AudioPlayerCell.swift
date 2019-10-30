@@ -26,7 +26,7 @@ class AudioPlayerCell: UITableViewCell, AVAudioPlayerDelegate {
 
     var filename : String!  {
         didSet {
-            let url = documentDirectory.appendingPathComponent("/tropari/tropari/\(filename!).mp3")
+            let url = documentDirectory.appendingPathComponent(filename!)
 
             do {
                 playPauseButton.setImage(playImage, for: .normal)

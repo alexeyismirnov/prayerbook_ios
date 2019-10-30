@@ -24,6 +24,7 @@ struct Troparion {
 
 protocol TroparionModel {
     var url : String { get }
+    var fileSize : Int { get }
     var title : String { get }
 
     func isDownloaded() -> Bool
@@ -34,7 +35,8 @@ protocol TroparionModel {
 class TroparionFeastModel : TroparionModel {
     var title = "Тропарь и кондак праздника"
     var url = "https://filedn.com/lUdNcEH0czFSe8uSnCeo29F/prayerbook/tropari.zip"
-    
+    var fileSize = 22
+
     var path:String!
 
     static let shared = TroparionFeastModel()
@@ -61,7 +63,7 @@ class TroparionFeastModel : TroparionModel {
             let content =  line["content"] as! String
             let url = line["url"] as? String
             
-            troparion.append(Troparion(title: title, content: content, url: url))
+            troparion.append(Troparion(title: title, content: content, url: url != nil ? "/tropari/tropari/\(url!).mp3" : nil))
         }
         
         return troparion
