@@ -86,13 +86,16 @@ class TroparionDayModel : TroparionModel {
         }
     }
     
-    var url = "https://filedn.com/lUdNcEH0czFSe8uSnCeo29F/prayerbook/tropari.zip"
-    var fileSize = 1
+    var url = "https://filedn.com/lUdNcEH0czFSe8uSnCeo29F/prayerbook/tropari_day.zip"
+    var fileSize = 20
     
+    var path:String!
+
     static let shared = TroparionDayModel()
     
     init() {
-        
+        let documentDirectory:URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        path = documentDirectory.path + "/tropari_day/tropari_day/tropari_day.sqlite"
     }
     
     func isAvailable(on date : Date) -> Bool {
@@ -106,10 +109,8 @@ class TroparionDayModel : TroparionModel {
     
     func getTroparion(for date : Date) -> [Troparion]  {
         var troparion = [Troparion]()
-
-        let path = Bundle.main.path(forResource: "tropari_day", ofType: "sqlite")!
         let db = try! Database(path:path)
-        
+
         var code: Int = 0
         let dateComponents = DateComponents(date: date)
 
@@ -137,7 +138,7 @@ class TroparionDayModel : TroparionModel {
     }
     
     func isDownloaded() -> Bool {
-        return true
+        return FileManager.default.fileExists(atPath: path)
     }
 }
 
