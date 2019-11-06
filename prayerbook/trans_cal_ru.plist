@@ -264,6 +264,8 @@
 	<string>Великий вторник</string>
 	<key>Great Monday</key>
 	<string>Великий понедельник</string>
+    <key>Holy Week</key>
+    <string>Страстная седмица</string>
 	<key>Bright Week</key>
 	<string>Светлая седмица</string>
     <key>Trinity Week</key>
