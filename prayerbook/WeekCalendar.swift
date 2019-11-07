@@ -6,31 +6,12 @@
 //  Copyright © 2019 Alexey Smirnov. All rights reserved.
 //
 
-
 import UIKit
 import swift_toolkit
 
 class WeekCalendar: UIViewControllerAnimated, ResizableTableViewCells {
     var tableView: UITableView!
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
-    
-    let formatter: DateFormatter = {
-        var formatter = DateFormatter()
-        formatter.timeStyle = .none
-        switch Translate.language {
-        case "ru":
-            formatter.dateFormat = "d/M"
-            break
-        case "cn":
-            formatter.dateFormat = "M月d日"
-            break
-        default:
-            formatter.dateFormat = "MMM d"
-        }
-        formatter.locale = Translate.locale
-        
-        return formatter
-    }()
     
     var currentDate: Date = {
         // this is done to remove time component from date
@@ -89,43 +70,40 @@ class WeekCalendar: UIViewControllerAnimated, ResizableTableViewCells {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return section == 0 ? 1 : 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             let title = Cal.getWeekDescription(currentDate)
             let subtitle = Cal.getToneDescription(currentDate)
             
             return getTextDetailsCell(title: title ?? "", subtitle: subtitle ?? "")
             
         } else {
-            let date = currentDate + (indexPath.row-1).days
-            var title = formatter.string(from: date)
+            let date = currentDate + (indexPath.row).days
+            let cell: WeekCalendarCell = tableView.dequeueReusableCell()
             
-            let dayDescription = Cal.getDayDescription(date)
-            let saints = SaintModel.saints(date)
-
-            if dayDescription.count > 0 &&
-                !dayDescription[0].1.contains("Предпразднство") &&
-                !dayDescription[0].1.contains("Попразднство") {
-                title += " " + dayDescription[0].1
-                
-            } else if saints.count > 0 {
-                title += " " + saints[0].1
-            }
+            var content = [(FeastType, String)]()
             
-            return getTextDetailsCell(title: title, subtitle: "")
+            content.append(contentsOf:
+                Cal.getDayDescription(date).filter({ !$0.1.contains("Предпразднство") && !$0.1.contains("Попразднство") }))
+            
+            content.append(contentsOf: SaintModel.saints(date))
+            
+            cell.configureCell(date: date, content: content, cellWidth: tableView.frame.width)
+            
+            return cell
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
-        return calculateHeightForCell(cell, minHeight: CGFloat(40))
+        return calculateHeightForCell(cell)
     }
 }
 
