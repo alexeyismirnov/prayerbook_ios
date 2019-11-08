@@ -56,6 +56,7 @@ public class WeekCalendarCell : UITableViewCell {
     override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        selectionStyle = .none
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         
@@ -107,7 +108,7 @@ public class WeekCalendarCell : UITableViewCell {
         return regex.stringByReplacingMatches(in: string1, options: [], range: NSRange(location: 0, length: string1.count), withTemplate: "")
     }
     
-    func configureCell(date: Date, content: [(FeastType, String)], cellWidth: CGFloat) {
+    func configureCell(date: Date, content: [(FeastType, String)], cellWidth: CGFloat, appeared: Bool) {
         let fasting = FastingModel.fasting(forDate: date)
         
         let textColor = Theme.textColor
@@ -123,16 +124,13 @@ public class WeekCalendarCell : UITableViewCell {
             
         } else {
             dateLabel.font = UIFont.systemFont(ofSize: fontSize)
-            
-            if fasting.type == .noFast || fasting.type == .noFastMonastic {
-                dateLabel.textColor = textColor
-                
-            } else {
-                dateLabel.textColor = .black
-            }
+            dateLabel.textColor = (fasting.type == .noFast || fasting.type == .noFastMonastic ) ? textColor : .black
+            title.textColor = textColor
         }
         
         dateLabel.backgroundColor = fasting.color
+        
+        if (!appeared) { return }
                 
         title.text = removeDates(content[0].1)
         

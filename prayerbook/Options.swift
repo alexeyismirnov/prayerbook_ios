@@ -93,7 +93,9 @@ class Options: UITableViewController {
                 prefs.synchronize()
                 
                 NotificationCenter.default.post(name: .themeChangedNotification, object: nil)
-                self.dismiss(animated: false, completion: {})
+                DispatchQueue.main.async {
+                    self.dismiss(animated: false, completion: {})
+                }
                 
             } else {
                 let bundle = Bundle(identifier: "com.rlc.swift-toolkit")
@@ -131,8 +133,9 @@ class Options: UITableViewController {
         UIViewController.popup.dismiss({
             self.prefs.set(color, forKey: "theme")
             self.prefs.synchronize()
-            
-            self.dismiss(animated: false, completion: {})
+            DispatchQueue.main.async {
+                self.dismiss(animated: false, completion: {})
+            }
         })
     }
 

@@ -12,7 +12,8 @@ import swift_toolkit
 class WeekCalendar: UIViewControllerAnimated, ResizableTableViewCells {
     var tableView: UITableView!
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
-    
+    var appeared = false
+
     var currentDate: Date = {
         // this is done to remove time component from date
         return DateComponents(date: Date()).toDate()
@@ -48,12 +49,23 @@ class WeekCalendar: UIViewControllerAnimated, ResizableTableViewCells {
         tableView.contentInset = UIEdgeInsets(top: -30, left: 0, bottom: 0, right: 0)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        appeared = true
+        tableView.reloadData()
+    }
+    
     func setupNavbar() {
         let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
         
         let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = backButton
         
+        let button_info = UIBarButtonItem(image: UIImage(named: "help", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showInfo))
+        
+        navigationItem.rightBarButtonItem = button_info
+
         navigationController?.makeTransparent()
         automaticallyAdjustsScrollViewInsets = false
         
@@ -63,6 +75,10 @@ class WeekCalendar: UIViewControllerAnimated, ResizableTableViewCells {
         } else {
             view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view,  bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
         }
+    }
+    
+    @objc func showInfo() {        
+        showPopup(FastingLegendTableView())
     }
     
     @objc func close() {
@@ -90,20 +106,37 @@ class WeekCalendar: UIViewControllerAnimated, ResizableTableViewCells {
             
             var content = [(FeastType, String)]()
             
-            content.append(contentsOf:
-                Cal.getDayDescription(date).filter({ !$0.1.contains("Предпразднство") && !$0.1.contains("Попразднство") }))
+            if (appeared) {
+                content.append(contentsOf:
+                    Cal.getDayDescription(date).filter({ !$0.1.contains("Предпразднство") && !$0.1.contains("Попразднство") }))
+                
+                content.append(contentsOf: SaintModel.saints(date))
+            }
             
-            content.append(contentsOf: SaintModel.saints(date))
-            
-            cell.configureCell(date: date, content: content, cellWidth: tableView.frame.width)
+            cell.configureCell(date: date, content: content, cellWidth: tableView.frame.width, appeared: appeared)
             
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (!appeared) { return 60.0 }
+        
         let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
         return calculateHeightForCell(cell)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 { return }
+        
+        let date = currentDate + (indexPath.row).days
+        let userInfo:[String: Date] = ["date": date]
+        
+        NotificationCenter.default.post(name: .dateChangedNotification, object: nil, userInfo: userInfo)
+
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: { })
+        }
     }
 }
 
