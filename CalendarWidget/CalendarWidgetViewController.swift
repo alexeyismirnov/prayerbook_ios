@@ -10,7 +10,7 @@ import UIKit
 import NotificationCenter
 import swift_toolkit
 
-class MainViewController : UINavigationController, NCWidgetProviding {
+class CalendarWidgetViewController : UINavigationController, NCWidgetProviding {
     static let tk = Bundle(identifier: "com.rlc.swift-toolkit")
     
     static let size15 = CGSize(width: 15, height: 15)

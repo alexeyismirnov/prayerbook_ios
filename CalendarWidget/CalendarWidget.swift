@@ -10,7 +10,7 @@ import UIKit
 import NotificationCenter
 import swift_toolkit
 
-class CalendarWidget : MainViewController {
+class CalendarWidget : CalendarWidgetViewController {
     override func viewDidLoad() {
         AppGroup.id = "group.rlc.ponomar-ru"
         Translate.files = ["trans_ui_ru", "trans_cal_ru", "trans_library_ru"]
