@@ -14,15 +14,16 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     var tableView: UITableView!
     
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+    static let tk = Bundle(identifier: "com.rlc.swift-toolkit")
 
     static let size15 = CGSize(width: 15, height: 15)
     static let icon15x15 : [FeastType: UIImage] = [
-        .noSign: UIImage(named: "nosign")!.resize(size15),
-        .sixVerse: UIImage(named: "sixverse")!.resize(size15),
-        .doxology: UIImage(named: "doxology")!.resize(size15),
-        .polyeleos: UIImage(named: "polyeleos")!.resize(size15),
-        .vigil: UIImage(named: "vigil")!.resize(size15),
-        .great: UIImage(named: "great")!.resize(size15)
+        .noSign: UIImage(named: "nosign", in: tk)!.resize(size15),
+        .sixVerse: UIImage(named: "sixverse", in: tk)!.resize(size15),
+        .doxology: UIImage(named: "doxology", in: tk)!.resize(size15),
+        .polyeleos: UIImage(named: "polyeleos", in: tk)!.resize(size15),
+        .vigil: UIImage(named: "vigil", in: tk)!.resize(size15),
+        .great: UIImage(named: "great", in: tk)!.resize(size15)
     ]
     
     static let bookIcon = UIImage(named: "book")!.maskWithColor(.red).resize(CGSize(width: 20, height: 20))
@@ -217,7 +218,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                     
                     cell.title.textColor = UIColor.red
                     cell.title.text = dayDescription[indexPath.row-2].1
-                    cell.icon.image = UIImage(named: Cal.feastIcon[feast]!)
+                    cell.icon.image = UIImage(named: Cal.feastIcon[feast]!, in: toolkit)
                     return cell
                     
                 } else {
@@ -265,7 +266,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             }
 
             cell.title.textColor =  Theme.textColor
-            cell.icon.image = UIImage(named: "food-\(fasting.icon)", in: toolkit, compatibleWith: nil)
+            cell.icon.image = UIImage(named: "food-\(fasting.icon)", in: toolkit)
             cell.accessoryType =  .none
             
             return cell
@@ -539,13 +540,13 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     func configureNavbar() {
         navigationController?.makeTransparent()
         
-        let button_monthly = CustomBarButton(image: UIImage(named: "calendar", in: toolkit, compatibleWith: nil)!, target: self, btnHandler: #selector(calendarSelector))
+        let button_monthly = CustomBarButton(image: UIImage(named: "calendar", in: toolkit)!, target: self, btnHandler: #selector(calendarSelector))
         
         let button_saint = CustomBarButton(image: UIImage(named: "saint")!, target: self, btnHandler: #selector(showSaints))
         
-        let button_options = CustomBarButton(image: UIImage(named: "options", in: toolkit, compatibleWith: nil)!, target: self, btnHandler: #selector(showOptions))
+        let button_options = CustomBarButton(image: UIImage(named: "options", in: toolkit)!, target: self, btnHandler: #selector(showOptions))
         
-        let button_review = CustomBarButton(image: UIImage(named: "review", in: toolkit, compatibleWith: nil)!, target: self, btnHandler: #selector(writeReview))
+        let button_review = CustomBarButton(image: UIImage(named: "review", in: toolkit)!, target: self, btnHandler: #selector(writeReview))
         
         navigationItem.leftBarButtonItems = [button_monthly, button_saint]
         navigationItem.rightBarButtonItems = [button_options, button_review]
@@ -597,10 +598,10 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     @objc func showMonthlyCalendar() {
         UIViewController.popup.dismiss({
-            let image_info = UIImage(named: "help", in: self.toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
+            let image_info = UIImage(named: "help", in: self.toolkit)!.withRenderingMode(.alwaysOriginal)
             let button_info = UIBarButtonItem(image: image_info, style: .plain, target: self, action: #selector(self.showInfo))
 
-            let image_today = UIImage(named: "today", in: self.toolkit, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
+            let image_today = UIImage(named: "today", in: self.toolkit)!.withRenderingMode(.alwaysOriginal)
             let button_today = UIBarButtonItem(image: image_today, style: .plain, target: self, action: #selector(self.showToday))
             
             let container = UIViewController.named("CalendarContainer", bundle: self.toolkit) as! CalendarNavigation

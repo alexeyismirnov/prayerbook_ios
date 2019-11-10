@@ -59,10 +59,10 @@ class WeekCalendar: UIViewControllerAnimated, ResizableTableViewCells {
     func setupNavbar() {
         let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
         
-        let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(close))
+        let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit), style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = backButton
         
-        let button_info = UIBarButtonItem(image: UIImage(named: "help", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(showInfo))
+        let button_info = UIBarButtonItem(image: UIImage(named: "help", in: toolkit), style: .plain, target: self, action: #selector(showInfo))
         
         navigationItem.rightBarButtonItem = button_info
 

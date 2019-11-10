@@ -53,7 +53,6 @@
 		8A2AE48D1FC2E19F00B30B53 /* CalendarWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
 		8A2F46AB19E145D200076AF4 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46AA19E145D200076AF4 /* Options.swift */; };
-		8A339AD81DC83F7B0026FD10 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A339AD71DC83F7B0026FD10 /* CompactViewController.swift */; };
 		8A392ED01FC431D90051C6E6 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */; };
 		8A4C28C8218AE68A00C276C3 /* TroparionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C28C7218AE68A00C276C3 /* TroparionView.swift */; };
 		8A5457701E70174300A86B5A /* church_history.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A54575B1E70174300A86B5A /* church_history.rtf */; };
@@ -117,7 +116,6 @@
 		8AAE60E52334853F005563D3 /* TypikaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAE60E42334853F005563D3 /* TypikaModel.swift */; };
 		8AB2C2F223421E4400A2EE1E /* YearCalendarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2C2F123421E4400A2EE1E /* YearCalendarContainer.swift */; };
 		8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */; };
-		8AB749A41C4C7A3500CD1B32 /* ExpandedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB749A31C4C7A3500CD1B32 /* ExpandedViewController.swift */; };
 		8AB749A71C4C7A3500CD1B32 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AB749A51C4C7A3500CD1B32 /* MainInterface.storyboard */; };
 		8AB8674B229B8FAD00D6EFA7 /* SynaxarionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8674A229B8FAD00D6EFA7 /* SynaxarionModel.swift */; };
 		8AC10A0B222A694F00540B22 /* num_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109CA222A694300540B22 /* num_ru.sqlite */; };
@@ -188,28 +186,16 @@
 		8AC10A4F222A976D00540B22 /* ps_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC10A4E222A976D00540B22 /* ps_ru.sqlite */; };
 		8AC278071C61986000436D51 /* widget.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC278061C61986000436D51 /* widget.pdf */; };
 		8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */; };
-		8AC6952419E4011700773FEB /* communion.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952019E4011700773FEB /* communion.pdf */; };
 		8AC6952519E4011700773FEB /* daily.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952119E4011700773FEB /* daily.pdf */; };
-		8AC6952619E4011700773FEB /* group.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952219E4011700773FEB /* group.pdf */; };
 		8AC6952719E4011700773FEB /* library.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952319E4011700773FEB /* library.pdf */; };
 		8AC757C21C550BFD0088D4D0 /* Images.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D815198F20CC0078F39F /* Images.xcassets */; };
-		8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89219E4CECB00B51294 /* arrow-left.pdf */; };
-		8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC7B89319E4CECB00B51294 /* arrow-right.pdf */; };
 		8ACC2F03229E2B4A00F43229 /* FeofanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */; };
 		8ACCB9B22372703F0004142F /* WeekCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACCB9B12372703F0004142F /* WeekCalendar.swift */; };
 		8AE529E41C8E63710082FF65 /* trans_library_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE529E31C8E63710082FF65 /* trans_library_ru.plist */; };
 		8AE529EB1C8E68FD0082FF65 /* trans_cal_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE529EA1C8E68FD0082FF65 /* trans_cal_ru.plist */; };
-		8AE718CE1C560C420035CDCE /* fat-left.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE718CD1C560C420035CDCE /* fat-left.pdf */; };
-		8AE718D51C560CC30035CDCE /* fat-right.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AE718D41C560CC30035CDCE /* fat-right.pdf */; };
 		8AEA68321C8FFA9F009E9FD8 /* trans_ui_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */; };
 		8AEBFAA31C8D16A30056F97B /* trans_reading_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AEBFAA21C8D16A30056F97B /* trans_reading_ru.plist */; };
 		8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */; };
-		8AF2496D1AFF27E0000070C0 /* vigil.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF2496C1AFF27E0000070C0 /* vigil.pdf */; };
-		8AF249791AFF308B000070C0 /* doxology.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249741AFF308B000070C0 /* doxology.pdf */; };
-		8AF2497A1AFF308B000070C0 /* great.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249751AFF308B000070C0 /* great.pdf */; };
-		8AF2497B1AFF308B000070C0 /* nosign.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249761AFF308B000070C0 /* nosign.pdf */; };
-		8AF2497C1AFF308B000070C0 /* polyeleos.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249771AFF308B000070C0 /* polyeleos.pdf */; };
-		8AF2497D1AFF308B000070C0 /* sixverse.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AF249781AFF308B000070C0 /* sixverse.pdf */; };
 		8AF37E571B36C7A500101148 /* newicon_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E4E1B36C7A500101148 /* newicon_29.png */; };
 		8AF37E581B36C7A500101148 /* newicon_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E4F1B36C7A500101148 /* newicon_40.png */; };
 		8AF37E591B36C7A500101148 /* newicon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E501B36C7A500101148 /* newicon_58.png */; };
@@ -309,9 +295,6 @@
 		8A2F46A619E12B4100076AF4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A2F46AA19E145D200076AF4 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Bridging-Header.h"; sourceTree = "<group>"; };
-		8A339AD71DC83F7B0026FD10 /* CompactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
-		8A339ADE1DC87B730026FD10 /* fat-down.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-down.pdf"; sourceTree = "<group>"; };
-		8A339ADF1DC87B730026FD10 /* fat-up.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-up.pdf"; sourceTree = "<group>"; };
 		8A4C28C7218AE68A00C276C3 /* TroparionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroparionView.swift; sourceTree = "<group>"; };
 		8A54575B1E70174300A86B5A /* church_history.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = church_history.rtf; sourceTree = "<group>"; };
 		8A54575C1E70174300A86B5A /* synaxarion1.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion1.rtf; sourceTree = "<group>"; };
@@ -380,7 +363,6 @@
 		8AB2C2F123421E4400A2EE1E /* YearCalendarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearCalendarContainer.swift; sourceTree = "<group>"; };
 		8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalendarWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		8AB749A31C4C7A3500CD1B32 /* ExpandedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedViewController.swift; sourceTree = "<group>"; };
 		8AB749A61C4C7A3500CD1B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		8AB749A81C4C7A3500CD1B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AB8674A229B8FAD00D6EFA7 /* SynaxarionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynaxarionModel.swift; sourceTree = "<group>"; };
@@ -453,27 +435,15 @@
 		8AC278061C61986000436D51 /* widget.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = widget.pdf; sourceTree = "<group>"; };
 		8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		8AC675431FED09CA00A9000C /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
-		8AC6952019E4011700773FEB /* communion.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = communion.pdf; sourceTree = "<group>"; };
 		8AC6952119E4011700773FEB /* daily.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = daily.pdf; sourceTree = "<group>"; };
-		8AC6952219E4011700773FEB /* group.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = group.pdf; sourceTree = "<group>"; };
 		8AC6952319E4011700773FEB /* library.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = library.pdf; sourceTree = "<group>"; };
-		8AC7B89219E4CECB00B51294 /* arrow-left.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-left.pdf"; sourceTree = "<group>"; };
-		8AC7B89319E4CECB00B51294 /* arrow-right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "arrow-right.pdf"; sourceTree = "<group>"; };
 		8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeofanModel.swift; sourceTree = "<group>"; };
 		8ACCB9B12372703F0004142F /* WeekCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCalendar.swift; sourceTree = "<group>"; };
 		8AE529E31C8E63710082FF65 /* trans_library_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_library_ru.plist; sourceTree = "<group>"; };
 		8AE529EA1C8E68FD0082FF65 /* trans_cal_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_cal_ru.plist; sourceTree = "<group>"; };
-		8AE718CD1C560C420035CDCE /* fat-left.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-left.pdf"; sourceTree = "<group>"; };
-		8AE718D41C560CC30035CDCE /* fat-right.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "fat-right.pdf"; sourceTree = "<group>"; };
 		8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_ui_ru.plist; sourceTree = "<group>"; };
 		8AEBFAA21C8D16A30056F97B /* trans_reading_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_reading_ru.plist; sourceTree = "<group>"; };
 		8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
-		8AF2496C1AFF27E0000070C0 /* vigil.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = vigil.pdf; sourceTree = "<group>"; };
-		8AF249741AFF308B000070C0 /* doxology.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = doxology.pdf; sourceTree = "<group>"; };
-		8AF249751AFF308B000070C0 /* great.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = great.pdf; sourceTree = "<group>"; };
-		8AF249761AFF308B000070C0 /* nosign.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = nosign.pdf; sourceTree = "<group>"; };
-		8AF249771AFF308B000070C0 /* polyeleos.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = polyeleos.pdf; sourceTree = "<group>"; };
-		8AF249781AFF308B000070C0 /* sixverse.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = sixverse.pdf; sourceTree = "<group>"; };
 		8AF249831AFF4C64000070C0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		8AF37E4E1B36C7A500101148 /* newicon_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_29.png; sourceTree = "<group>"; };
 		8AF37E4F1B36C7A500101148 /* newicon_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_40.png; sourceTree = "<group>"; };
@@ -639,11 +609,9 @@
 				8A13C8FF21917AB700D0CE7E /* pause.pdf */,
 				8A13C90021917AB700D0CE7E /* play.pdf */,
 				8A61BBA4202438CE003AA1BF /* saint.pdf */,
-				8A339ADE1DC87B730026FD10 /* fat-down.pdf */,
-				8A339ADF1DC87B730026FD10 /* fat-up.pdf */,
-				8AE718D41C560CC30035CDCE /* fat-right.pdf */,
-				8AE718CD1C560C420035CDCE /* fat-left.pdf */,
 				8AC278061C61986000436D51 /* widget.pdf */,
+				8AC6952119E4011700773FEB /* daily.pdf */,
+				8AC6952319E4011700773FEB /* library.pdf */,
 				8A6F7E9822A13A85006FD639 /* launch_icon.png */,
 				8AF37E4E1B36C7A500101148 /* newicon_29.png */,
 				8AF37E4F1B36C7A500101148 /* newicon_40.png */,
@@ -656,18 +624,6 @@
 				8A1F2CB31DD9C18600F13A3D /* newicon_167.png */,
 				8AF37E561B36C7A500101148 /* newicon_180.png */,
 				8A1F2C971DD9B0F000F13A3D /* newicon_1024.png */,
-				8AF249741AFF308B000070C0 /* doxology.pdf */,
-				8AF249751AFF308B000070C0 /* great.pdf */,
-				8AF249761AFF308B000070C0 /* nosign.pdf */,
-				8AF249771AFF308B000070C0 /* polyeleos.pdf */,
-				8AF249781AFF308B000070C0 /* sixverse.pdf */,
-				8AF2496C1AFF27E0000070C0 /* vigil.pdf */,
-				8AC7B89219E4CECB00B51294 /* arrow-left.pdf */,
-				8AC7B89319E4CECB00B51294 /* arrow-right.pdf */,
-				8AC6952019E4011700773FEB /* communion.pdf */,
-				8AC6952119E4011700773FEB /* daily.pdf */,
-				8AC6952219E4011700773FEB /* group.pdf */,
-				8AC6952319E4011700773FEB /* library.pdf */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -793,8 +749,6 @@
 				8A0F6F5C1C50C4EC0063DBF1 /* CalendarWidget.entitlements */,
 				8A88FD672377E4C000E46116 /* CalendarWidget.swift */,
 				8A953B361DC736C2001062AF /* MainViewController.swift */,
-				8AB749A31C4C7A3500CD1B32 /* ExpandedViewController.swift */,
-				8A339AD71DC83F7B0026FD10 /* CompactViewController.swift */,
 				8AB749A51C4C7A3500CD1B32 /* MainInterface.storyboard */,
 				8AB749A81C4C7A3500CD1B32 /* Info.plist */,
 			);
@@ -989,18 +943,14 @@
 				8AF8EE63229FBA580097356B /* vespers.sqlite in Resources */,
 				8AC10A1A222A694F00540B22 /* ezek_ru.sqlite in Resources */,
 				8A5457741E70174300A86B5A /* synaxarion4.rtf in Resources */,
-				8AF2497D1AFF308B000070C0 /* sixverse.pdf in Resources */,
 				8AC10A22222A694F00540B22 /* dan_ru.sqlite in Resources */,
 				8AC10A3B222A694F00540B22 /* 2sam_ru.sqlite in Resources */,
 				8AC10A17222A694F00540B22 /* jon_ru.sqlite in Resources */,
-				8AF249791AFF308B000070C0 /* doxology.pdf in Resources */,
 				8AC10A2C222A694F00540B22 /* jer_ru.sqlite in Resources */,
-				8AF2496D1AFF27E0000070C0 /* vigil.pdf in Resources */,
 				8A54577C1E70174300A86B5A /* synaxarion12.rtf in Resources */,
 				8A0B4CAE1C8C1E8000747BB4 /* saints_04_ru.txt in Resources */,
 				8A0B4CA91C8C1E8000747BB4 /* saints_02_ru.sqlite in Resources */,
 				8A5457751E70174300A86B5A /* synaxarion5.rtf in Resources */,
-				8AF2497B1AFF308B000070C0 /* nosign.pdf in Resources */,
 				8AC10A31222A694F00540B22 /* mic_ru.sqlite in Resources */,
 				8A54577B1E70174300A86B5A /* synaxarion11.rtf in Resources */,
 				8AADFF521E84C25300CE3D0F /* synaxarion21.rtf in Resources */,
@@ -1009,7 +959,6 @@
 				8A0B4CB51C8C1E8000747BB4 /* saints_08_ru.sqlite in Resources */,
 				8AADFF541E84C25300CE3D0F /* synaxarion23.rtf in Resources */,
 				8AC10A34222A694F00540B22 /* james_ru.sqlite in Resources */,
-				8AE718CE1C560C420035CDCE /* fat-left.pdf in Resources */,
 				8AC10A19222A694F00540B22 /* rev_ru.sqlite in Resources */,
 				8AF37E5C1B36C7A500101148 /* newicon_87.png in Resources */,
 				8AE529EB1C8E68FD0082FF65 /* trans_cal_ru.plist in Resources */,
@@ -1048,14 +997,11 @@
 				8AC10A20222A694F00540B22 /* 3john_ru.sqlite in Resources */,
 				8A5457761E70174300A86B5A /* synaxarion6.rtf in Resources */,
 				8AC10A10222A694F00540B22 /* lev_ru.sqlite in Resources */,
-				8AC6952419E4011700773FEB /* communion.pdf in Resources */,
 				8AF37E571B36C7A500101148 /* newicon_29.png in Resources */,
 				8AC10A4A222A694F00540B22 /* judg_ru.sqlite in Resources */,
-				8AC6952619E4011700773FEB /* group.pdf in Resources */,
 				8AC10A27222A694F00540B22 /* tit_ru.sqlite in Resources */,
 				8AF37E5F1B36C7A500101148 /* newicon_180.png in Resources */,
 				8AC10A0D222A694F00540B22 /* john_ru.sqlite in Resources */,
-				8AF2497C1AFF308B000070C0 /* polyeleos.pdf in Resources */,
 				8AC10A0F222A694F00540B22 /* matthew_ru.sqlite in Resources */,
 				8AC10A11222A694F00540B22 /* 2john_ru.sqlite in Resources */,
 				8A1F2CB41DD9C18600F13A3D /* newicon_167.png in Resources */,
@@ -1069,7 +1015,6 @@
 				8A5457721E70174300A86B5A /* synaxarion2.rtf in Resources */,
 				8AF37E5D1B36C7A500101148 /* newicon_120.png in Resources */,
 				8A6F7E9922A13A85006FD639 /* launch_icon.png in Resources */,
-				8AC7B89519E4CECB00B51294 /* arrow-right.pdf in Resources */,
 				8A0B4CB41C8C1E8000747BB4 /* saints_07_ru.txt in Resources */,
 				8AF37E5E1B36C7A500101148 /* newicon_152.png in Resources */,
 				8AC10A40222A694F00540B22 /* jude_ru.sqlite in Resources */,
@@ -1096,17 +1041,14 @@
 				8A0B4CA81C8C1E8000747BB4 /* saints_01_ru.txt in Resources */,
 				8A5457821E70174300A86B5A /* synaxarion18.rtf in Resources */,
 				8AC10A37222A694F00540B22 /* obad_ru.sqlite in Resources */,
-				8AE718D51C560CC30035CDCE /* fat-right.pdf in Resources */,
 				8A5457781E70174300A86B5A /* synaxarion8.rtf in Resources */,
 				8A13C90121917AB700D0CE7E /* pause.pdf in Resources */,
 				8A13C8FE219172E500D0CE7E /* AudioPlayerCell.xib in Resources */,
 				8AC10A3F222A694F00540B22 /* 2pet_ru.sqlite in Resources */,
-				8AC7B89419E4CECB00B51294 /* arrow-left.pdf in Resources */,
 				8A0B4CB31C8C1E8000747BB4 /* saints_07_ru.sqlite in Resources */,
 				8AC10A48222A694F00540B22 /* job_ru.sqlite in Resources */,
 				8AC10A18222A694F00540B22 /* hag_ru.sqlite in Resources */,
 				8AADFF531E84C25300CE3D0F /* synaxarion22.rtf in Resources */,
-				8AF2497A1AFF308B000070C0 /* great.pdf in Resources */,
 				8AEA68321C8FFA9F009E9FD8 /* trans_ui_ru.plist in Resources */,
 				8A5457801E70174300A86B5A /* synaxarion16.rtf in Resources */,
 				8A0B4CA71C8C1E8000747BB4 /* saints_01_ru.sqlite in Resources */,
@@ -1208,9 +1150,7 @@
 			files = (
 				8AC757C21C550BFD0088D4D0 /* Images.xcassets in Sources */,
 				8A953B371DC736C2001062AF /* MainViewController.swift in Sources */,
-				8A339AD81DC83F7B0026FD10 /* CompactViewController.swift in Sources */,
 				8A88FD682377E4C000E46116 /* CalendarWidget.swift in Sources */,
-				8AB749A41C4C7A3500CD1B32 /* ExpandedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

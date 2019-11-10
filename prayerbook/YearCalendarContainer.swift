@@ -72,14 +72,14 @@ class YearCalendarContainer: UIViewControllerAnimated {
     func setupNavbar() {
         let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
         
-        let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(close))
+        let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit), style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = backButton
         
-        shareButton = UIBarButtonItem(image: UIImage(named: "share", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(share))
+        shareButton = UIBarButtonItem(image: UIImage(named: "share", in: toolkit), style: .plain, target: self, action: #selector(share))
         
-        listButton = UIBarButtonItem(image: UIImage(named: "list", in: nil, compatibleWith: nil), style: .plain, target: self, action: #selector(switchView))
+        listButton = UIBarButtonItem(image: UIImage(named: "list"), style: .plain, target: self, action: #selector(switchView))
         
-        gridButton = UIBarButtonItem(image: UIImage(named: "grid", in: nil, compatibleWith: nil), style: .plain, target: self, action: #selector(switchView))
+        gridButton = UIBarButtonItem(image: UIImage(named: "grid"), style: .plain, target: self, action: #selector(switchView))
         
         navigationController?.makeTransparent()
         automaticallyAdjustsScrollViewInsets = false

@@ -11,10 +11,17 @@ import NotificationCenter
 import swift_toolkit
 
 class MainViewController : UINavigationController, NCWidgetProviding {
-    static var icon15x15 = [FeastType: UIImage]()
+    static let tk = Bundle(identifier: "com.rlc.swift-toolkit")
     
-    let size15 = CGSize(width: 15, height: 15)
-    let iconColor : UIColor = .black
+    static let size15 = CGSize(width: 15, height: 15)
+    static let icon15x15 : [FeastType: UIImage] = [
+        .noSign: UIImage(named: "nosign", in: tk)!.resize(size15),
+        .sixVerse: UIImage(named: "sixverse", in: tk)!.resize(size15),
+        .doxology: UIImage(named: "doxology", in: tk)!.resize(size15),
+        .polyeleos: UIImage(named: "polyeleos", in: tk)!.resize(size15),
+        .vigil: UIImage(named: "vigil", in: tk)!.resize(size15),
+        .great: UIImage(named: "great", in: tk)!.resize(size15)
+    ]
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -32,33 +39,21 @@ class MainViewController : UINavigationController, NCWidgetProviding {
 
         isNavigationBarHidden = true
 
-        if MainViewController.icon15x15.count == 0 {
-            MainViewController.icon15x15 = [
-                .noSign: UIImage(named: "nosign")!.maskWithColor(iconColor).resize(size15),
-                .sixVerse: UIImage(named: "sixverse")!.maskWithColor(iconColor).resize(size15),
-                .doxology: UIImage(named: "doxology")!.resize(size15),
-                .polyeleos: UIImage(named: "polyeleos")!.resize(size15),
-                .vigil: UIImage(named: "vigil")!.resize(size15),
-                .great: UIImage(named: "great")!.resize(size15)
-            ]
-        }
-
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
-        let storyboard = UIStoryboard(name: "MainInterface", bundle: nil)
         var viewController : UIViewController!
         
         popViewController(animated: false)
-
+        
         if activeDisplayMode == NCWidgetDisplayMode.compact {
             self.preferredContentSize = maxSize
-            viewController = storyboard.instantiateViewController(withIdentifier: "Compact")
+            viewController = UIViewController.named("Compact", bundle: MainViewController.tk)
             
         } else if activeDisplayMode == NCWidgetDisplayMode.expanded {
             self.preferredContentSize = CGSize(width: 0.0, height: 350)
-            viewController = storyboard.instantiateViewController(withIdentifier: "Expanded")
+            viewController = UIViewController.named("Expanded", bundle: MainViewController.tk)
         }
 
         pushViewController(viewController, animated: false)
