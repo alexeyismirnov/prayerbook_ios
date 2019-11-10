@@ -238,6 +238,8 @@
 	<string>大瞻礼三（纪念明智的童贞女）</string>
 	<key>Great Monday</key>
 	<string>大瞻礼二（纪念圣约熙福•庞伽洛）</string>
+    <key>Holy Week</key>
+    <string>圣周</string>
 	<key>Bright Week</key>
 	<string>光明周</string>
     <key>Trinity Week</key>

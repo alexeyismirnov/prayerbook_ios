@@ -53,10 +53,10 @@ class YearCalendarContainer: UIViewControllerAnimated {
     func setupNavbar() {
         let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
         
-        let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(close))
+        let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit), style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = backButton
         
-        let shareButton = UIBarButtonItem(image: UIImage(named: "share", in: toolkit, compatibleWith: nil), style: .plain, target: self, action: #selector(share))
+        let shareButton = UIBarButtonItem(image: UIImage(named: "share", in: toolkit), style: .plain, target: self, action: #selector(share))
 
         navigationItem.rightBarButtonItem = shareButton
         
