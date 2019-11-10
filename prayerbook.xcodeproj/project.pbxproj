@@ -96,7 +96,6 @@
 		8A88FD682377E4C000E46116 /* CalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88FD672377E4C000E46116 /* CalendarWidget.swift */; };
 		8A916D8722575EA7003FEF70 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A916D8622575EA7003FEF70 /* WebKit.framework */; };
 		8A916D8922576C34003FEF70 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A916D8822576C34003FEF70 /* ServiceModel.swift */; };
-		8A953B371DC736C2001062AF /* CalendarWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A953B361DC736C2001062AF /* CalendarWidgetViewController.swift */; };
 		8AA5E74223321444002E6BE5 /* typika.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA5E74123321444002E6BE5 /* typika.sqlite */; };
 		8AADFF521E84C25300CE3D0F /* synaxarion21.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF441E84C25300CE3D0F /* synaxarion21.rtf */; };
 		8AADFF531E84C25300CE3D0F /* synaxarion22.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF451E84C25300CE3D0F /* synaxarion22.rtf */; };
@@ -340,7 +339,6 @@
 		8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = swift_toolkit.framework; path = Carthage/Build/iOS/swift_toolkit.framework; sourceTree = "<group>"; };
 		8A916D8622575EA7003FEF70 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		8A916D8822576C34003FEF70 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
-		8A953B361DC736C2001062AF /* CalendarWidgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarWidgetViewController.swift; sourceTree = "<group>"; };
 		8A9A36D81CAD127400D33D5A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8AA5E74123321444002E6BE5 /* typika.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = typika.sqlite; sourceTree = "<group>"; };
 		8AADFF441E84C25300CE3D0F /* synaxarion21.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = synaxarion21.rtf; sourceTree = "<group>"; };
@@ -746,7 +744,6 @@
 			children = (
 				8A0F6F5C1C50C4EC0063DBF1 /* CalendarWidget.entitlements */,
 				8A88FD672377E4C000E46116 /* CalendarWidget.swift */,
-				8A953B361DC736C2001062AF /* CalendarWidgetViewController.swift */,
 				8AB749A81C4C7A3500CD1B32 /* Info.plist */,
 			);
 			path = CalendarWidget;
@@ -1145,7 +1142,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AC757C21C550BFD0088D4D0 /* Images.xcassets in Sources */,
-				8A953B371DC736C2001062AF /* CalendarWidgetViewController.swift in Sources */,
 				8A88FD682377E4C000E46116 /* CalendarWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
