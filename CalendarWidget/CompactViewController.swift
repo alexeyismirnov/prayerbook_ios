@@ -13,7 +13,13 @@ class CompactViewController: UIViewController {
     var formatter: DateFormatter = {
         var formatter = DateFormatter()
         formatter.timeStyle = .none
-        formatter.dateFormat = "cccc d MMMM yyyy г. "
+        switch Translate.language {
+        case "ru":
+            formatter.dateFormat = "cccc d MMMM yyyy г."
+            break
+        default:
+            formatter.dateStyle = .full
+        }
         
         return formatter
     }()
@@ -22,6 +28,8 @@ class CompactViewController: UIViewController {
         return DateComponents(date: Date()).toDate()
     }()
     
+    var dark = false
+    
     @IBOutlet weak var dayInfo: UITextView!
     @IBOutlet weak var buttonUp: UIButton!
     @IBOutlet weak var buttonDown: UIButton!
@@ -29,15 +37,20 @@ class CompactViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOSApplicationExtension 12.0, *) {
+            dark = (traitCollection.userInterfaceStyle == .dark)
+        }
+        
         let image1 = UIImage(named: "fat-up")!.withRenderingMode(.alwaysTemplate)
         buttonUp.setImage(image1, for: UIControl.State())
-        buttonUp.imageView?.tintColor = UIColor.darkGray
-
+        
         let image2 = UIImage(named: "fat-down")!.withRenderingMode(.alwaysTemplate)
         buttonDown.setImage(image2, for: UIControl.State())
-        buttonDown.imageView?.tintColor = UIColor.darkGray
         
-        formatter.locale = Translate.locale 
+        buttonUp.imageView?.tintColor =  dark ? .white : .darkGray
+        buttonDown.imageView?.tintColor = dark ? .white : .darkGray
+        
+        formatter.locale = Translate.locale
         
         let recognizer = UITapGestureRecognizer(target: self, action:#selector(self.onTapLabel(_:)))
         recognizer.numberOfTapsRequired = 1
@@ -65,21 +78,19 @@ class CompactViewController: UIViewController {
         let fontBold = UIFont.systemFont(ofSize: fontSize).withTraits(.traitBold)
         let fontItalic = UIFont.systemFont(ofSize: fontSize).withTraits(.traitItalic)
 
-        var descr = formatter.string(from: currentDate).capitalizingFirstLetter()
+        var descr = formatter.string(from: currentDate).capitalizingFirstLetter() + " "
         
         let s1 = NSAttributedString(string: descr, attributes: [.font: fontBold])
         result.append(s1)
 
         if let weekDescription = Cal.getWeekDescription(currentDate) {
             descr = weekDescription
-            
             let s2 = NSAttributedString(string: descr, attributes: [.font: fontRegular])
             result.append(s2)
         }
         
         if let toneDescription = Cal.getToneDescription(currentDate) {
             descr = "; " + toneDescription
-            
             let s3 = NSAttributedString(string: descr, attributes: [.font: fontRegular])
             result.append(s3)
         }
@@ -95,9 +106,9 @@ class CompactViewController: UIViewController {
         let feasts = (saints+day).sorted { $0.0.rawValue > $1.0.rawValue }
         
         result.append(NSAttributedString(string: "\n"))
-        result.append(MainViewController.describe(saints: feasts, font: fontRegular))
+        result.append(MainViewController.describe(saints: feasts, font: fontRegular, dark: dark))
 
-        return result
+        return result.colored(with: dark ? .white : .black)
     }
     
     @IBAction func prevDay(_ sender: Any) {
@@ -123,7 +134,8 @@ class CompactViewController: UIViewController {
     
     @IBAction func onTapLabel(_ sender: AnyObject) {
         let seconds = currentDate.timeIntervalSince1970
-        let url = URL(string: "ponomar-ru://open?\(seconds)")!
+        let scheme = Translate.language == "ru" ? "ponomar-ru" : "ponomar"
+        let url = URL(string: "\(scheme)://open?\(seconds)")!
         extensionContext!.open(url, completionHandler: nil)
     }
 

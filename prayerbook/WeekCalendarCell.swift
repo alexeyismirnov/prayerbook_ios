@@ -25,11 +25,8 @@ public class WeekCalendarCell : UITableViewCell {
         case "ru":
             formatter.dateFormat = "d/M"
             break
-        case "cn":
-            formatter.dateFormat = "M月d日"
-            break
         default:
-            formatter.dateFormat = "MMM d"
+            formatter.dateFormat = "M.d"
         }
         formatter.locale = Translate.locale
         

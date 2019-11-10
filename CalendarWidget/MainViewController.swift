@@ -15,21 +15,18 @@ class MainViewController : UINavigationController, NCWidgetProviding {
     
     let size15 = CGSize(width: 15, height: 15)
     let iconColor : UIColor = .black
-
+    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        AppGroup.id = "group.rlc.ponomar-ru"
 
-        Translate.files = ["trans_ui_ru", "trans_cal_ru", "trans_library_ru"]
         Translate.language = AppGroup.prefs.object(forKey: "language") as! String
         FastingModel.fastingLevel = FastingLevel(rawValue: AppGroup.prefs.integer(forKey: "fastingLevel"))
 
@@ -75,7 +72,7 @@ class MainViewController : UINavigationController, NCWidgetProviding {
         completionHandler(NCUpdateResult.newData)
     }
     
-    static func describe(saints: [(FeastType, String)], font: UIFont!) -> NSAttributedString {
+    static func describe(saints: [(FeastType, String)], font: UIFont!, dark: Bool) -> NSAttributedString {
         let myString = NSMutableAttributedString(string: "")
         
         if let _ = Cal.feastIcon[saints[0].0] {
@@ -86,7 +83,8 @@ class MainViewController : UINavigationController, NCWidgetProviding {
             myString.append(NSAttributedString(attachment: attachment))
         }
         
-        let textColor:UIColor = (saints[0].0 == .great) ? .red : .black
+        var textColor:UIColor = dark ? .white : .black
+        if (saints[0].0 == .great) { textColor = .red }
 
         myString.append(NSMutableAttributedString(string: saints[0].1,
                                                   attributes: [

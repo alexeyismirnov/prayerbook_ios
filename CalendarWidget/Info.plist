@@ -40,7 +40,7 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widget-extension</string>
 		<key>NSExtensionPrincipalClass</key>
-		<string>CalendarWidget.MainViewController</string>
+		<string>CalendarWidget.CalendarWidget</string>
 	</dict>
 </dict>
 </plist>

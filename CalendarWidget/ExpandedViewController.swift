@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import NotificationCenter
 import swift_toolkit
 
 class ExpandedViewController: UIViewController {
@@ -25,18 +24,30 @@ class ExpandedViewController: UIViewController {
     
     var formatter: DateFormatter = {
         var formatter = DateFormatter()
-        formatter.dateStyle = .short
         formatter.timeStyle = .none
-        formatter.dateFormat = "LLLL yyyy"
+        switch Translate.language {
+        case "cn":
+            formatter.dateFormat = "y年M月"
+            break
+        default:
+            formatter.dateFormat = "LLLL yyyy"
+        }
+        
         formatter.locale = Translate.locale
         return formatter
     }()
     
+    var dark = false
+
     var textColor : UIColor!
     var calendarDelegate: CalendarDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if #available(iOSApplicationExtension 12.0, *) {
+            dark = (traitCollection.userInterfaceStyle == .dark)
+        }
         
         let arrowLeft = UIImage(named: "fat-left")?.withRenderingMode(.alwaysTemplate)
         buttonLeft.imageView?.tintColor = UIColor.white
@@ -48,7 +59,7 @@ class ExpandedViewController: UIViewController {
 
         selectedDate = currentDate
         
-        calendarDelegate = CalendarDelegate(fontSize: 16.0)
+        calendarDelegate = CalendarDelegate(fontSize: 16.0, textColor: dark ? .white : .black)
         collectionView.delegate = calendarDelegate
         collectionView.dataSource = calendarDelegate
         
@@ -61,16 +72,16 @@ class ExpandedViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        CalendarContainer.generateLabels(view, standalone: false, textColor: textColor)
+        CalendarContainer.generateLabels(view, standalone: false, textColor: dark ? .white : .black)
         refresh()
     }
         
     func refresh() {
         monthLabel.text = formatter.string(from: currentDate).capitalizingFirstLetter()
-        
+        monthLabel.textColor = .white
         calendarDelegate.currentDate = currentDate
         calendarDelegate.selectedDate = selectedDate
-
+        
         collectionView.reloadData()
         showSaints()
     }
@@ -103,7 +114,7 @@ class ExpandedViewController: UIViewController {
         let dayDescription = Cal.getDayDescription(date)
         let feasts = (saints+dayDescription).sorted { $0.0.rawValue > $1.0.rawValue }
         
-        saintsLabel.attributedText = MainViewController.describe(saints: feasts, font: saintsLabel.font)
+        saintsLabel.attributedText = MainViewController.describe(saints: feasts, font: saintsLabel.font, dark: dark)
     }
     
     @objc func tapOnCell(_ recognizer: UITapGestureRecognizer) {
@@ -119,7 +130,8 @@ class ExpandedViewController: UIViewController {
     
     @IBAction func onTapLabel(_ sender: AnyObject) {
         let seconds = selectedDate!.timeIntervalSince1970
-        let url = URL(string: "ponomar-ru://open?\(seconds)")!
+        let scheme = Translate.language == "ru" ? "ponomar-ru" : "ponomar"
+        let url = URL(string: "\(scheme)://open?\(seconds)")!
         extensionContext!.open(url, completionHandler: nil)
     }
     
