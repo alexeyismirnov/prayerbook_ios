@@ -96,6 +96,11 @@
 	<string>Димитриевская родительская суббота</string>
     <key>Commemoration of Fallen Soldiers</key>
     <string>Поминовение усопших воинов</string>
+    
+    <key>Forefeast</key>
+    <string>Предпразднство</string>
+    <key>Afterfeast</key>
+    <string>Попразднство</string>
 	<key>Apodosis of the Annunciation</key>
 	<string>Отдание Благовещения Пресвятой Богородицы</string>
 	<key>Forefeast of the Annunciation</key>

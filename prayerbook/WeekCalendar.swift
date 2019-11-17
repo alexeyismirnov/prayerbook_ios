@@ -108,7 +108,7 @@ class WeekCalendar: UIViewControllerAnimated, ResizableTableViewCells {
             
             if (appeared) {
                 content.append(contentsOf:
-                    Cal.getDayDescription(date).filter({ !$0.1.contains("Предпразднство") && !$0.1.contains("Попразднство") }))
+                    Cal.getDayDescription(date).filter({ !$0.1.contains(Translate.s("Forefeast")) && !$0.1.contains(Translate.s("Afterfeast")) }))
                 
                 content.append(contentsOf: SaintModel.saints(date))
             }
