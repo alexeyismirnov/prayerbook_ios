@@ -66,6 +66,11 @@
 	<string></string>
 	<key>Demetrius Saturday: Commemoration of the Departed</key>
 	<string>圣迪弥特里节前安息日：纪念亡者之安息日</string>
+    
+    <key>Forefeast</key>
+    <string>节前日</string>
+    <key>Afterfeast</key>
+    <string>节庆期</string>
 	<key>Apodosis of the Annunciation</key>
 	<string>诞神女福音节庆期圆满日</string>
 	<key>Forefeast of the Annunciation</key>

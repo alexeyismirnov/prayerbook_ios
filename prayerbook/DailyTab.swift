@@ -75,6 +75,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .themeChangedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: .dateChangedNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showWeeklyCalendar), name: .weeklyCalendarNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showMonthlyCalendar), name: .monthlyCalendarNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showYearlyCalendar), name: .yearlyCalendarNotification, object: nil)
         
@@ -402,6 +404,22 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     @objc func calendarSelector() {
         showPopup(CalendarSelector())
+    }
+    
+    @objc func showWeeklyCalendar() {
+        UIViewController.popup.dismiss({
+            let dateComponents = DateComponents(date: self.currentDate)
+            let currentWeekday = DayOfWeek(rawValue: dateComponents.weekday!)!
+            
+            let nearestMonday = currentWeekday == .sunday ?
+                self.currentDate - 6.days :
+                Cal.nearestSundayBefore(self.currentDate) + 1.days
+            
+            let vc = WeekCalendar(nearestMonday)
+            let nav = UINavigationController(rootViewController: vc)
+            
+            self.navigationController?.present(nav, animated: true, completion: {})
+        })
     }
     
     @objc func showMonthlyCalendar() {
