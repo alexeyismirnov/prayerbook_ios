@@ -30,8 +30,12 @@
 	<string>прор.</string>
 	<key>Saint</key>
 	<string>свт.</string>
-	<key>Equal-to-the Apostles</key>
+    <key>Saints</key>
+    <string>свв.</string>
+	<key>Equals-to-the Apostles</key>
 	<string>равноапп.</string>
+    <key>Equal-to-the Apostles</key>
+    <string>равноап.</string>
 	<key>Apostle</key>
 	<string>апостола</string>
 	<key>Great Martyr</key>
@@ -41,13 +45,13 @@
 	<key>Venerable</key>
 	<string>прп.</string>
 	<key>Fathers</key>
-	<string>прпп.</string>
+	<string>отцев</string>
 	<key>Martyrs</key>
 	<string>мучеников</string>
-    <key>Eve of the Nativity</key>
-    <string>навечерия Рождества</string>
-    <key>Epiphany Eve</key>
-    <string>навечерия Богоявления</string>
+	<key>Eve of the Nativity</key>
+	<string>навечерия Рождества</string>
+	<key>Epiphany Eve</key>
+	<string>навечерия Богоявления</string>
 	<key>Sunday after the Theophany</key>
 	<string>недели по Богоявлении</string>
 	<key>Saturday after the Theophany</key>
@@ -94,13 +98,12 @@
 	<string>Сухоядение</string>
 	<key>Demetrius Saturday: Commemoration of the Departed</key>
 	<string>Димитриевская родительская суббота</string>
-    <key>Commemoration of Fallen Soldiers</key>
-    <string>Поминовение усопших воинов</string>
-    
-    <key>Forefeast</key>
-    <string>Предпразднство</string>
-    <key>Afterfeast</key>
-    <string>Попразднство</string>
+	<key>Commemoration of Fallen Soldiers</key>
+	<string>Поминовение усопших воинов</string>
+	<key>Forefeast</key>
+	<string>Предпразднство</string>
+	<key>Afterfeast</key>
+	<string>Попразднство</string>
 	<key>Apodosis of the Annunciation</key>
 	<string>Отдание Благовещения Пресвятой Богородицы</string>
 	<key>Forefeast of the Annunciation</key>
@@ -137,6 +140,10 @@
 	<string>Предпразднство Преображения Господня</string>
 	<key>All Saints who have shown forth in the land of Russia</key>
 	<string>Всех святых в земле Российской просиявших</string>
+    <key>All Saints of the Holy Mount Athos</key>
+    <string>Всех преподобных и Богоносных отцев, во Святой Горе Афонской просиявших</string>
+    <key>Iveron Icon of the Most Holy Theotokos (9th c.)</key>
+    <string>Иверской иконы Божией Матери</string>
 	<key>Icons of the Mother of God: “the Softener of evil hearts” and “the Indestructible Wall”</key>
 	<string>Икон Божией Матери: «Умягчение злых сердец» и «Нерушимая Стена»</string>
 	<key>Feast of All Saints</key>
@@ -269,12 +276,12 @@
 	<string>Великий вторник</string>
 	<key>Great Monday</key>
 	<string>Великий понедельник</string>
-    <key>Holy Week</key>
-    <string>Страстная седмица</string>
+	<key>Holy Week</key>
+	<string>Страстная седмица</string>
 	<key>Bright Week</key>
 	<string>Светлая седмица</string>
-    <key>Trinity Week</key>
-    <string>Троицкая седмица</string>
+	<key>Trinity Week</key>
+	<string>Троицкая седмица</string>
 	<key>Cheesefare Sunday (Forgiveness Sunday): Commemoration of the Expulsion of Adam from Paradise</key>
 	<string>Неделя сыропустная. Воспоминание Адамова изгнания. Прощеное воскресенье</string>
 	<key>Tone %@</key>
