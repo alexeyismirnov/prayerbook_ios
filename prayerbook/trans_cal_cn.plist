@@ -12,6 +12,8 @@
 	<string>斋期（酒、油可食）</string>
 	<key>Commemoration of the Holy Fathers of the First Six Councils</key>
 	<string>纪念前六次神圣普世大公会议之诸位圣教父</string>
+    <key>Commemoration of the Holy Fathers of the Seventh Ecumenical Council</key>
+    <string>纪念第七次神圣普世大公会议之诸位圣父师</string>
 	<key>Holy Ancestors</key>
 	<string></string>
 	<key>Theotokos</key>
@@ -34,8 +36,12 @@
     <string></string>
 	<key>Saint</key>
 	<string></string>
-	<key>Equal-to-the Apostles</key>
+    <key>Saints</key>
+    <string></string>
+	<key>Equals-to-the Apostles</key>
 	<string></string>
+    <key>Equal-to-the Apostles</key>
+    <string></string>
 	<key>Apostle</key>
 	<string></string>
 	<key>St. George</key>
@@ -66,7 +72,6 @@
 	<string></string>
 	<key>Demetrius Saturday: Commemoration of the Departed</key>
 	<string>圣迪弥特里节前安息日：纪念亡者之安息日</string>
-    
     <key>Forefeast</key>
     <string>节前日</string>
     <key>Afterfeast</key>
@@ -107,6 +112,10 @@
 	<string>主易圣容节前日</string>
 	<key>All Saints who have shown forth in the land of Russia</key>
 	<string>俄罗斯全体圣徒</string>
+    <key>All Saints of the Holy Mount Athos</key>
+    <string>阿托斯圣山全体圣徒</string>
+    <key>Iveron Icon of the Most Holy Theotokos (9th c.)</key>
+    <string>伊维隆圣母像纪念日（9世纪）</string>
 	<key>Icons of the Mother of God: “the Softener of evil hearts” and “the Indestructible Wall”</key>
 	<string>“软化邪恶之心者”及 “不可摧毁之壁垒”圣母像纪念日</string>
 	<key>Feast of All Saints</key>
