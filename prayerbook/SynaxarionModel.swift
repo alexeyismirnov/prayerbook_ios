@@ -77,6 +77,10 @@ class SynaxarionModel : BookModel {
         return nil
     }
     
+    func getTitle(at pos: BookPosition) -> String? {
+        return data[pos.index!.row].0
+    }
+    
     func getContent(at pos: BookPosition) -> Any? {
         let prefs = AppGroup.prefs!
         let fontSize = CGFloat(prefs.integer(forKey: "fontSize"))
@@ -88,13 +92,10 @@ class SynaxarionModel : BookModel {
                     [.documentType : NSAttributedString.DocumentType.rtf]
                 
                 let content = try NSAttributedString(url: rtfPath, options:opts, documentAttributes: nil)
-                let title = (data.filter { $0.1 == filename }).first!.0
                 
-                return
-                    title.colored(with: Theme.textColor).boldFont(ofSize: CGFloat(fontSize)).centered +
-                    "\n\n" +
-                    content.colored(with: Theme.textColor).font(font: UIFont(name: "TimesNewRomanPSMT", size: CGFloat(fontSize))!)
-                
+                return content
+                    .colored(with: Theme.textColor)
+                    .font(font: UIFont(name: "TimesNewRomanPSMT", size: CGFloat(fontSize))!)
             } catch _ { }
         }
         

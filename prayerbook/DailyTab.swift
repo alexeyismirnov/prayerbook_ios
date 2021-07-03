@@ -373,7 +373,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 let currentReading = readings[indexPath.row].components(separatedBy: "#").first!
                 
                 let pos = BookPosition(model: PericopeModel.shared, location: currentReading)
-                vc = BookPageText(pos)
+                vc = BookPage2(pos)
                 
             case readings.count ..< readings.count + feofan.count:
                 let ind = indexPath.row - readings.count
@@ -387,6 +387,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 }
             }
             
+            vc.hidesBottomBarWhenPushed = true;
             navigationController?.pushViewController(vc, animated: true)
             
         } else if indexPath.section == 2 && indexPath.row == 0 {

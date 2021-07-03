@@ -76,7 +76,7 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
             showPopup(ServiceDateSelector(selectedModel)!)
             
         } else {
-            navigationController?.pushViewController(BookTOC(books[indexPath.row])!, animated: true)
+            navigationController?.pushViewController(BookTOC2(books[indexPath.row])!, animated: true)
         }
         
         return nil

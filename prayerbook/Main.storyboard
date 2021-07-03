@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="G5G-CB-Hhd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="G5G-CB-Hhd">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,7 +34,7 @@
                             <tableViewSection headerTitle="Fasting type" id="ckX-R5-y8p" userLabel="Fasting type">
                                 <cells>
                                     <tableViewCell alpha="0.0" tag="1" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="45" id="xD0-ml-ftX">
-                                        <rect key="frame" x="0.0" y="102" width="768" height="45"/>
+                                        <rect key="frame" x="0.0" y="96" width="768" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xD0-ml-ftX" id="kQ6-DU-Okh">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="45"/>
@@ -58,7 +58,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="45" id="Jrl-vr-KXE">
-                                        <rect key="frame" x="0.0" y="147" width="768" height="45"/>
+                                        <rect key="frame" x="0.0" y="141" width="768" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jrl-vr-KXE" id="nGb-gg-TrL">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="45"/>
@@ -84,7 +84,7 @@
                             <tableViewSection headerTitle="Background color" id="nIM-34-zFs">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ece-sC-Pw4">
-                                        <rect key="frame" x="0.0" y="240" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="228" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ece-sC-Pw4" id="Nhz-WT-3lZ">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -106,7 +106,7 @@
                                         <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="FUf-A9-efK">
-                                        <rect key="frame" x="0.0" y="284" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="272" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FUf-A9-efK" id="IhQ-24-Ocb">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -195,6 +195,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="mJa-yd-yc1"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGG-gd-UHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -239,7 +240,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Fl9-AD-Zk7">
-                                <rect key="frame" x="20" y="64" width="260" height="2"/>
+                                <rect key="frame" x="20" y="64" width="260" height="4"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8d4-32-LiH">
                                 <rect key="frame" x="100" y="144" width="100" height="36"/>
@@ -248,7 +249,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Отмена">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" systemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="cancel:" destination="T4R-8W-RUs" eventType="touchUpInside" id="H8l-26-YaR"/>
@@ -282,15 +283,20 @@
         <!--Library-->
         <scene sceneID="ZDZ-F5-AbM">
             <objects>
-                <navigationController restorationIdentifier="LibraryTab" automaticallyAdjustsScrollViewInsets="NO" id="MIq-3Y-WDG" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="LibraryTab" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="MIq-3Y-WDG" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Library" image="library" id="0VX-06-dct"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="DeD-3e-SE7">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vaz-fj-Hwb" customClass="CustomToolbar" customModule="ponomar" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="924" width="768" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="M8H-GP-tC1" kind="relationship" relationship="rootViewController" id="TP3-Od-qGW"/>
                     </connections>
@@ -303,5 +309,8 @@
     <resources>
         <image name="daily" width="30" height="30"/>
         <image name="library" width="30" height="30"/>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
