@@ -9,102 +9,13 @@
 import UIKit
 import swift_toolkit
 
-extension CGFloat {
-    static func random() -> CGFloat {
-        return CGFloat(arc4random()) / CGFloat(UInt32.max)
-    }
-}
-
-extension UIColor {
-    static func random() -> UIColor {
-        return UIColor(
-           red:   .random(),
-           green: .random(),
-           blue:  .random(),
-           alpha: 1.0
-        )
-    }
-}
-
 protocol BookPageDelegate {
     func hideBars() -> CGRect
     func showBars() -> CGRect
+    func showComment(_ popup: UIViewController)
 }
 
-class BookPageCell: UICollectionViewCell, UITextViewDelegate {
-    var textFrame: CGRect! {
-        didSet {
-            textView.frame = textFrame
-        }
-    }
-    
-    var textView: UITextView!
-    var delegate: BookPageDelegate!
-    
-    var text : NSAttributedString! {
-        didSet {
-            updateText()
-        }
-    }
-    
-    func updateText() {
-        let fontSize = AppGroup.prefs.integer(forKey: "fontSize")
-
-        if Translate.language == "cn" {
-            textView.attributedText = text
-            
-            textView.font = UIFont(name: "STHeitiSC-Light" ,
-                                   size: CGFloat(fontSize))!
-            
-        } else {
-            textView.font = UIFont(name: "TimesNewRomanPSMT",
-                                   size: CGFloat(fontSize))!
-            
-            textView.attributedText = text
-        }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-                        
-        textView = UITextView(frame: frame)
-        textView.delegate = self
-        
-        contentView.addSubview(textView)
-        
-        textView.textColor = Theme.textColor
-        
-        textView.backgroundColor = .clear
-        textView.isScrollEnabled = true
-        textView.isEditable = false
-        textView.showsVerticalScrollIndicator = true
-        textView.scrollRangeToVisible(NSRange(location:0, length:0))
-    }
-    
-    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        var newFrame: CGRect
-        
-        if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
-            newFrame = delegate.hideBars()
-            
-        } else {
-            newFrame = delegate.showBars()
-        }
-        
-        UIView.animate(withDuration: 0.5,
-                       animations: {
-                        self.textView.frame = newFrame
-                       })
-    }
-}
-
-extension BookPageCell: ReusableView {}
-
-public class BookPage2: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, BookPageDelegate {
+public class BookPageMultiple: UIViewController, BookPageDelegate {
     let prefs = AppGroup.prefs!
 
     var collectionView: UICollectionView!
@@ -247,8 +158,6 @@ public class BookPage2: UIViewController, UICollectionViewDataSource, UICollecti
     }
     
     func createNavigationButtons() {
-        // automaticallyAdjustsScrollViewInsets = false
-        
         let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
         
         button_close = CustomBarButton(image: UIImage(named: "close", in: toolkit), style: .plain, target: self, action: #selector(close))
@@ -344,17 +253,48 @@ public class BookPage2: UIViewController, UICollectionViewDataSource, UICollecti
         navigationItem.rightBarButtonItems = [button_fontsize, button_add_bookmark]
     }
     
+    func hideBars() -> CGRect {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setToolbarHidden(true, animated: true)
+        return getFullScreenFrame()
+    }
+    
+    func showBars() -> CGRect {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setToolbarHidden(false, animated: true)
+        return getFullScreenFrame()
+    }
+
+    func showComment(_ popup: UIViewController) {
+        showPopup(popup)
+    }
+}
+
+extension  BookPageMultiple: UICollectionViewDataSource, UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: BookPageCell = collectionView.dequeueReusableCell(for: indexPath)
-        cell.text = model.getContent(at: bookPos[indexPath.row]) as? NSAttributedString
-        cell.textFrame = getFullScreenFrame()
-        cell.delegate = self
-                
-        return cell
+        
+        if model.mode == .html {
+            let cell: BookPageCellHTML = collectionView.dequeueReusableCell(for: indexPath)
+            cell.text = model.getContent(at: bookPos[indexPath.row]) as? String
+            cell.cellFrame = getFullScreenFrame()
+            cell.delegate = self
+            cell.model = model
+            
+            return cell
+            
+        } else {
+            let cell: BookPageCellText = collectionView.dequeueReusableCell(for: indexPath)
+            cell.attributedText = model.getContent(at: bookPos[indexPath.row]) as? NSAttributedString
+            cell.cellFrame = getFullScreenFrame()
+            cell.delegate = self
+            
+            return cell
+        }
+            
     }
     
     func adjustView(_ scrollView: UIScrollView) {
@@ -427,16 +367,4 @@ public class BookPage2: UIViewController, UICollectionViewDataSource, UICollecti
         }
     }
     
-    func hideBars() -> CGRect {
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        navigationController?.setToolbarHidden(true, animated: true)
-        return getFullScreenFrame()
-    }
-    
-    func showBars() -> CGRect {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.setToolbarHidden(false, animated: true)
-        return getFullScreenFrame()
-    }
-
 }

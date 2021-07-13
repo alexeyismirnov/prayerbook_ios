@@ -373,7 +373,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 let currentReading = readings[indexPath.row].components(separatedBy: "#").first!
                 
                 let pos = BookPosition(model: PericopeModel.shared, location: currentReading)
-                vc = BookPage2(pos)
+                vc = BookPageMultiple(pos)
                 
             case readings.count ..< readings.count + feofan.count:
                 let ind = indexPath.row - readings.count

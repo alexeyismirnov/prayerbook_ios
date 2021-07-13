@@ -81,12 +81,8 @@ public class BookTOC2: UIViewController, ResizableTableViewCells {
             pos = BookPosition(model: model, index: index, chapter: chapter)
         }
         
-        if pos.model!.mode == .html {
-            vc = BookPageHTML(pos)
-        } else {
-            vc = BookPage2(pos)
-        }
-        
+        vc = BookPageMultiple(pos)
+
         vc.hidesBottomBarWhenPushed = true;
         navigationController?.pushViewController(vc, animated: true)
     }

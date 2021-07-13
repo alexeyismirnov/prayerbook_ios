@@ -72,10 +72,13 @@ extension ServiceModel where Self: BookModel {
             
             res += "<br><br>"
         }
-        
-        let title = "<p align=\"center\"><b>" + data[index.section][index.row] + "</b></p>"
-        
-        return title + res
+                
+        return res
+    }
+    
+    func getTitle(at pos: BookPosition) -> String? {
+        guard let index = pos.index else { return nil }
+        return data[index.section][index.row]
     }
     
     func getComment(commentId: Int) -> String? {
