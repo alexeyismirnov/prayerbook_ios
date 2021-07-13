@@ -277,7 +277,7 @@ extension  BookPageMultiple: UICollectionViewDataSource, UICollectionViewDelegat
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if model.mode == .html {
+        if model.contentType == .html {
             let cell: BookPageCellHTML = collectionView.dequeueReusableCell(for: indexPath)
             cell.text = model.getContent(at: bookPos[indexPath.row]) as? String
             cell.cellFrame = getFullScreenFrame()

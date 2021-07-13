@@ -30,9 +30,9 @@ class TypikaModel : BookModel {
         get { return Translate.s("Typika Reader Service") }
     }
     
-    var mode: BookType = .html
+    var contentType: BookContentType = .html
     
-    var isExpandable = false
+    var hasChapters = false
     var hasDate = true
     
     var content: String!

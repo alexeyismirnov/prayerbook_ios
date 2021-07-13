@@ -13,9 +13,9 @@ import swift_toolkit
 class ZvezdinskyModel : BookModel {
     var code: String = "Zvezdinsky"
     var title = "Сщмч. Серафим (Звездинский), епископ Дмитровский. Хлеб Небесный. Проповеди о Божественной Литургии."
-    var mode: BookType = .text
+    var contentType: BookContentType = .text
     
-    var isExpandable = false
+    var hasChapters = false
     var hasDate = false
     var date: Date = Date()
     

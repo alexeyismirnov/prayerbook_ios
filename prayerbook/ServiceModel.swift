@@ -140,9 +140,9 @@ class LiturgyModel : BookModel, ServiceModel {
     var title = "Божественная Литургия свт. Иоанна Златоуста с комментариями"
     var shortTitle: String = "Божественная Литургия"
     
-    var mode: BookType = .html
+    var contentType: BookContentType = .html
 
-    var isExpandable = false
+    var hasChapters = false
     var hasDate = false
     var date: Date = Date()
     
@@ -212,9 +212,9 @@ class VespersModel : BookModel, ServiceModel {
     var title = "Всенощное бдение с комментариями"
     var shortTitle: String = "Всенощное бдение"
     
-    var mode: BookType = .html
+    var contentType: BookContentType = .html
     
-    var isExpandable = false
+    var hasChapters = false
     var hasDate = false
     var date: Date = Date()
     

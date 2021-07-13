@@ -12,9 +12,9 @@ import swift_toolkit
 class SynaxarionModel : BookModel {
     var code: String = "Synaxarion"
     var title = "Синаксари Постной и Цветной Триоди"
-    var mode: BookType = .text
+    var contentType: BookContentType = .text
     
-    var isExpandable = false
+    var hasChapters = false
     var hasDate = false
     var date: Date = Date()
     

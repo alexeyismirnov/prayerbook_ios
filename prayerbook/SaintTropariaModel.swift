@@ -13,11 +13,11 @@ import swift_toolkit
 class SaintTropariaModel : BookModel {
     var code = "Troparion"
     
-    var mode:BookType = .text
+    var contentType: BookContentType = .text
     
     var title = ""
     
-    var isExpandable = false
+    var hasChapters = false
     var hasDate = false
     var date: Date = Date()
     

@@ -40,7 +40,7 @@ public class BookTOC2: UIViewController, ResizableTableViewCells {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        expandable = model.isExpandable
+        expandable = model.hasChapters
         
         createTableView(style: .grouped)
         tableView.contentInset = UIEdgeInsets(top: -30, left: 0, bottom: 0, right: 0)
