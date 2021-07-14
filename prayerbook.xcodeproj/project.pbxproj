@@ -88,12 +88,14 @@
 		8A6F7E9722A137D2006FD639 /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */; };
 		8A6F7E9922A13A85006FD639 /* launch_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9822A13A85006FD639 /* launch_icon.png */; };
 		8A732DA1269D2824000C9901 /* BookPageCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A732DA0269D2824000C9901 /* BookPageCells.swift */; };
+		8A732DA3269D74C6000C9901 /* EbookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A732DA2269D74C6000C9901 /* EbookModel.swift */; };
 		8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FA198F20CC0078F39F /* Foundation.framework */; };
 		8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */; };
 		8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FE198F20CC0078F39F /* UIKit.framework */; };
 		8A74D807198F20CC0078F39F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D806198F20CC0078F39F /* main.m */; };
 		8A74D816198F20CC0078F39F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D815198F20CC0078F39F /* Images.xcassets */; };
 		8A74D833198F224E0078F39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D832198F224E0078F39F /* Main.storyboard */; };
+		8A763DFB269DB26400B775D8 /* synaxarion.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A763DFA269DB26400B775D8 /* synaxarion.sqlite */; };
 		8A7DF2FD22CB5FA90071FCB4 /* book.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A7DF2FC22CB5FA90071FCB4 /* book.pdf */; };
 		8A88FD682377E4C000E46116 /* CalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88FD672377E4C000E46116 /* CalendarWidget.swift */; };
 		8A916D8722575EA7003FEF70 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A916D8622575EA7003FEF70 /* WebKit.framework */; };
@@ -327,6 +329,7 @@
 		8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
 		8A6F7E9822A13A85006FD639 /* launch_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_icon.png; sourceTree = "<group>"; };
 		8A732DA0269D2824000C9901 /* BookPageCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPageCells.swift; sourceTree = "<group>"; };
+		8A732DA2269D74C6000C9901 /* EbookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EbookModel.swift; sourceTree = "<group>"; };
 		8A74D7F7198F20CC0078F39F /* ponomar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ponomar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A74D7FA198F20CC0078F39F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -336,6 +339,7 @@
 		8A74D808198F20CC0078F39F /* prayerbook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Prefix.pch"; sourceTree = "<group>"; };
 		8A74D815198F20CC0078F39F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8A74D832198F224E0078F39F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8A763DFA269DB26400B775D8 /* synaxarion.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = synaxarion.sqlite; sourceTree = "<group>"; };
 		8A7DF2FC22CB5FA90071FCB4 /* book.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = book.pdf; sourceTree = "<group>"; };
 		8A8753F51FC429C400C857DE /* Squeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Squeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A88FD672377E4C000E46116 /* CalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWidget.swift; sourceTree = "<group>"; };
@@ -489,6 +493,7 @@
 		8A008FF22258A71400A9636B /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8A763DFA269DB26400B775D8 /* synaxarion.sqlite */,
 				8AA5E74123321444002E6BE5 /* typika.sqlite */,
 				8AADFF6D1E84F28900CE3D0F /* feofan.sqlite */,
 				8A1736F222D214B700654AB1 /* troparion.sqlite */,
@@ -564,6 +569,7 @@
 				8A1BBDF2268ADA3E004C66B8 /* BookPageMultiple.swift */,
 				8A732DA0269D2824000C9901 /* BookPageCells.swift */,
 				8A35C127268C7F9B00B7752E /* BookTOC2.swift */,
+				8A732DA2269D74C6000C9901 /* EbookModel.swift */,
 				8A1736EE22D20E4C00654AB1 /* SaintTropariaModel.swift */,
 				8A916D8822576C34003FEF70 /* ServiceModel.swift */,
 				8AB8674A229B8FAD00D6EFA7 /* SynaxarionModel.swift */,
@@ -913,6 +919,7 @@
 				8A0B4CAF1C8C1E8000747BB4 /* saints_05_ru.sqlite in Resources */,
 				8AADFF5B1E84C25300CE3D0F /* synaxarion30.rtf in Resources */,
 				8AC10A42222A694F00540B22 /* amos_ru.sqlite in Resources */,
+				8A763DFB269DB26400B775D8 /* synaxarion.sqlite in Resources */,
 				8AC10A41222A694F00540B22 /* acts_ru.sqlite in Resources */,
 				8AADFF591E84C25300CE3D0F /* synaxarion28.rtf in Resources */,
 				8A5457791E70174300A86B5A /* synaxarion9.rtf in Resources */,
@@ -1119,6 +1126,7 @@
 				8A01E42621957BD8005BE65F /* DownloadManager.swift in Sources */,
 				8A35C128268C7F9B00B7752E /* BookTOC2.swift in Sources */,
 				8ACC2F03229E2B4A00F43229 /* FeofanModel.swift in Sources */,
+				8A732DA3269D74C6000C9901 /* EbookModel.swift in Sources */,
 				8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */,
 				8A13C8FD219172E500D0CE7E /* AudioPlayerCell.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
