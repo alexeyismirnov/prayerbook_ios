@@ -17,7 +17,8 @@ let books : [BookModel] = [BookmarksModel.shared,
                            ZvezdinskyModel.shared,
                            TypikaModel.shared,
                            SynaxarionModel.shared,
-                           EbookModel("synaxarion")
+                           EbookModel("synaxarion"),
+                           EbookModel("vigil")
 ]
 
 
