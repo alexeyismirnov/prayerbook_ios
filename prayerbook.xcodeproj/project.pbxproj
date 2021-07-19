@@ -193,6 +193,7 @@
 		8AC6952719E4011700773FEB /* library.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC6952319E4011700773FEB /* library.pdf */; };
 		8AC757C21C550BFD0088D4D0 /* Images.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 8A74D815198F20CC0078F39F /* Images.xcassets */; };
 		8ACC2F03229E2B4A00F43229 /* FeofanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */; };
+		8ADF09B326A26CD2006743CA /* liturgy2.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ADF09B226A26CD2006743CA /* liturgy2.sqlite */; };
 		8AE529E41C8E63710082FF65 /* trans_library_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE529E31C8E63710082FF65 /* trans_library_ru.plist */; };
 		8AE529EB1C8E68FD0082FF65 /* trans_cal_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE529EA1C8E68FD0082FF65 /* trans_cal_ru.plist */; };
 		8AEA68321C8FFA9F009E9FD8 /* trans_ui_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */; };
@@ -443,6 +444,7 @@
 		8AC6952119E4011700773FEB /* daily.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = daily.pdf; sourceTree = "<group>"; };
 		8AC6952319E4011700773FEB /* library.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = library.pdf; sourceTree = "<group>"; };
 		8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeofanModel.swift; sourceTree = "<group>"; };
+		8ADF09B226A26CD2006743CA /* liturgy2.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = liturgy2.sqlite; sourceTree = "<group>"; };
 		8AE529E31C8E63710082FF65 /* trans_library_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_library_ru.plist; sourceTree = "<group>"; };
 		8AE529EA1C8E68FD0082FF65 /* trans_cal_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_cal_ru.plist; sourceTree = "<group>"; };
 		8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_ui_ru.plist; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 		8A008FF22258A71400A9636B /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8ADF09B226A26CD2006743CA /* liturgy2.sqlite */,
 				8A6AA11726A0366B00FA310C /* vigil.sqlite */,
 				8A763DFA269DB26400B775D8 /* synaxarion.sqlite */,
 				8AA5E74123321444002E6BE5 /* typika.sqlite */,
@@ -1014,6 +1017,7 @@
 				8AC10A11222A694F00540B22 /* 2john_ru.sqlite in Resources */,
 				8A1F2CB41DD9C18600F13A3D /* newicon_167.png in Resources */,
 				8A0B4CB71C8C1E8000747BB4 /* saints_09_ru.sqlite in Resources */,
+				8ADF09B326A26CD2006743CA /* liturgy2.sqlite in Resources */,
 				8AC10A23222A694F00540B22 /* heb_ru.sqlite in Resources */,
 				8A5457701E70174300A86B5A /* church_history.rtf in Resources */,
 				8AC6952719E4011700773FEB /* library.pdf in Resources */,
