@@ -408,7 +408,9 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 
                 if count == 0 {
                     if t.isDownloaded() {
-                        navigationController?.pushViewController(TroparionView(t.getTroparion(for: currentDate))!, animated: true)
+                        vc = TroparionView(t.getTroparion(for: currentDate))!
+                        vc.hidesBottomBarWhenPushed = true;
+                        navigationController?.pushViewController(vc, animated: true)
                         
                     } else {
                         downloadTroparion(model: t)

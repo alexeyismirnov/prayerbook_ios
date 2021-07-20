@@ -56,6 +56,7 @@
 		8A392ED01FC431D90051C6E6 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */; };
 		8A4C28C8218AE68A00C276C3 /* TroparionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C28C7218AE68A00C276C3 /* TroparionView.swift */; };
 		8A4D008226A69EF300E355B2 /* BookPageSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D008126A69EF300E355B2 /* BookPageSingle.swift */; };
+		8A4D008426A6D44A00E355B2 /* zvez.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4D008326A6D44A00E355B2 /* zvez.sqlite */; };
 		8A54C42A1EA74CE90083AA2F /* DailyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C4291EA74CE90083AA2F /* DailyTab.swift */; };
 		8A54E3DB202857E900245C31 /* icons.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A54E3DA202857E900245C31 /* icons.sqlite */; };
 		8A560789219AC51C006E52F2 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A560788219AC51C006E52F2 /* Squeal.framework */; };
@@ -63,7 +64,6 @@
 		8A61BBA5202438CF003AA1BF /* saint.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A61BBA4202438CE003AA1BF /* saint.pdf */; };
 		8A61BBAD20246903003AA1BF /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC675431FED09CA00A9000C /* Chameleon.framework */; };
 		8A6AA11826A0366B00FA310C /* vigil.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A6AA11726A0366B00FA310C /* vigil.sqlite */; };
-		8A6F7E9322A108E7006FD639 /* ZvezdinskyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9222A108E7006FD639 /* ZvezdinskyModel.swift */; };
 		8A6F7E9522A12094006FD639 /* zvezdinsky.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9422A12094006FD639 /* zvezdinsky.sqlite */; };
 		8A6F7E9722A137D2006FD639 /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */; };
 		8A6F7E9922A13A85006FD639 /* launch_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9822A13A85006FD639 /* launch_icon.png */; };
@@ -262,13 +262,13 @@
 		8A35C127268C7F9B00B7752E /* BookTOC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTOC2.swift; sourceTree = "<group>"; };
 		8A4C28C7218AE68A00C276C3 /* TroparionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroparionView.swift; sourceTree = "<group>"; };
 		8A4D008126A69EF300E355B2 /* BookPageSingle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPageSingle.swift; sourceTree = "<group>"; };
+		8A4D008326A6D44A00E355B2 /* zvez.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = zvez.sqlite; sourceTree = "<group>"; };
 		8A54C4291EA74CE90083AA2F /* DailyTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab.swift; sourceTree = "<group>"; };
 		8A54E3DA202857E900245C31 /* icons.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.sqlite; sourceTree = "<group>"; };
 		8A560788219AC51C006E52F2 /* Squeal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Squeal.framework; path = Carthage/Build/iOS/Squeal.framework; sourceTree = "<group>"; };
 		8A5DE92E21958DF60006E046 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		8A61BBA4202438CE003AA1BF /* saint.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = saint.pdf; sourceTree = "<group>"; };
 		8A6AA11726A0366B00FA310C /* vigil.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = vigil.sqlite; sourceTree = "<group>"; };
-		8A6F7E9222A108E7006FD639 /* ZvezdinskyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZvezdinskyModel.swift; sourceTree = "<group>"; };
 		8A6F7E9422A12094006FD639 /* zvezdinsky.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = zvezdinsky.sqlite; sourceTree = "<group>"; };
 		8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
 		8A6F7E9822A13A85006FD639 /* launch_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_icon.png; sourceTree = "<group>"; };
@@ -421,6 +421,7 @@
 		8A008FF22258A71400A9636B /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8A4D008326A6D44A00E355B2 /* zvez.sqlite */,
 				8ADF09B226A26CD2006743CA /* liturgy2.sqlite */,
 				8A6AA11726A0366B00FA310C /* vigil.sqlite */,
 				8A763DFA269DB26400B775D8 /* synaxarion.sqlite */,
@@ -499,7 +500,6 @@
 				8A35C127268C7F9B00B7752E /* BookTOC2.swift */,
 				8A732DA2269D74C6000C9901 /* EbookModel.swift */,
 				8A1736EE22D20E4C00654AB1 /* SaintTropariaModel.swift */,
-				8A6F7E9222A108E7006FD639 /* ZvezdinskyModel.swift */,
 				8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */,
 				8AAE60E42334853F005563D3 /* TypikaModel.swift */,
 				8A13C8FB219172E500D0CE7E /* AudioPlayerCell.swift */,
@@ -804,6 +804,7 @@
 				8AC10A47222A694F00540B22 /* 2thess_ru.sqlite in Resources */,
 				8AC10A0B222A694F00540B22 /* num_ru.sqlite in Resources */,
 				8AC10A13222A694F00540B22 /* esther_ru.sqlite in Resources */,
+				8A4D008426A6D44A00E355B2 /* zvez.sqlite in Resources */,
 				8A0B4CB61C8C1E8000747BB4 /* saints_08_ru.txt in Resources */,
 				8AC10A25222A694F00540B22 /* lam_ru.sqlite in Resources */,
 				8A54E3DB202857E900245C31 /* icons.sqlite in Resources */,
@@ -971,7 +972,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A6F7E9322A108E7006FD639 /* ZvezdinskyModel.swift in Sources */,
 				8A01E42621957BD8005BE65F /* DownloadManager.swift in Sources */,
 				8A35C128268C7F9B00B7752E /* BookTOC2.swift in Sources */,
 				8ACC2F03229E2B4A00F43229 /* FeofanModel.swift in Sources */,
