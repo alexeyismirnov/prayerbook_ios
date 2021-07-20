@@ -64,7 +64,6 @@
 		8A61BBA5202438CF003AA1BF /* saint.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A61BBA4202438CE003AA1BF /* saint.pdf */; };
 		8A61BBAD20246903003AA1BF /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC675431FED09CA00A9000C /* Chameleon.framework */; };
 		8A6AA11826A0366B00FA310C /* vigil.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A6AA11726A0366B00FA310C /* vigil.sqlite */; };
-		8A6F7E9522A12094006FD639 /* zvezdinsky.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9422A12094006FD639 /* zvezdinsky.sqlite */; };
 		8A6F7E9722A137D2006FD639 /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */; };
 		8A6F7E9922A13A85006FD639 /* launch_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9822A13A85006FD639 /* launch_icon.png */; };
 		8A732DA1269D2824000C9901 /* BookPageCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A732DA0269D2824000C9901 /* BookPageCells.swift */; };
@@ -269,7 +268,6 @@
 		8A5DE92E21958DF60006E046 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		8A61BBA4202438CE003AA1BF /* saint.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = saint.pdf; sourceTree = "<group>"; };
 		8A6AA11726A0366B00FA310C /* vigil.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = vigil.sqlite; sourceTree = "<group>"; };
-		8A6F7E9422A12094006FD639 /* zvezdinsky.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = zvezdinsky.sqlite; sourceTree = "<group>"; };
 		8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
 		8A6F7E9822A13A85006FD639 /* launch_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_icon.png; sourceTree = "<group>"; };
 		8A732DA0269D2824000C9901 /* BookPageCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPageCells.swift; sourceTree = "<group>"; };
@@ -428,7 +426,6 @@
 				8AA5E74123321444002E6BE5 /* typika.sqlite */,
 				8AADFF6D1E84F28900CE3D0F /* feofan.sqlite */,
 				8A1736F222D214B700654AB1 /* troparion.sqlite */,
-				8A6F7E9422A12094006FD639 /* zvezdinsky.sqlite */,
 			);
 			path = books;
 			sourceTree = "<group>";
@@ -789,7 +786,6 @@
 				8A61BBA5202438CF003AA1BF /* saint.pdf in Resources */,
 				8AC10A49222A694F00540B22 /* hos_ru.sqlite in Resources */,
 				8AF37E591B36C7A500101148 /* newicon_58.png in Resources */,
-				8A6F7E9522A12094006FD639 /* zvezdinsky.sqlite in Resources */,
 				8AC10A43222A694F00540B22 /* nahum_ru.sqlite in Resources */,
 				8A0B4CAC1C8C1E8000747BB4 /* saints_03_ru.txt in Resources */,
 				8AC10A4F222A976D00540B22 /* ps_ru.sqlite in Resources */,

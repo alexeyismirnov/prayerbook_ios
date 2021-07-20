@@ -9,8 +9,16 @@
 import UIKit
 import swift_toolkit
 
-class MainVC: UITabBarControllerAnimated {
+class CustomToolbar: UIToolbar {
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        var newSize: CGSize = super.sizeThatFits(size)
+        newSize.height = 70  // there to set your toolbar height
+        
+        return newSize
+    }
+}
 
+class MainVC: UITabBarControllerAnimated {
     override func viewDidLoad() {
         super.viewDidLoad()
         

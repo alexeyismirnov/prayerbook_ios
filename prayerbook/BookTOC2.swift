@@ -8,15 +8,6 @@
 
 import swift_toolkit
 
-class CustomToolbar: UIToolbar {
-    override func sizeThatFits(_ size: CGSize) -> CGSize {
-        var newSize: CGSize = super.sizeThatFits(size)
-        newSize.height = 70  // there to set your toolbar height
-        
-        return newSize
-    }
-}
-
 public class BookTOC2: UIViewController, ResizableTableViewCells {
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     let prefs = AppGroup.prefs!

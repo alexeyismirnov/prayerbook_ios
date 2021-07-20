@@ -10,14 +10,14 @@ import UIKit
 import Squeal
 import swift_toolkit
 
-class EbookModel : BookModel {
-    var code: String
-    var title: String
-    var contentType: BookContentType
+public class EbookModel : BookModel {
+    public var code: String
+    public var title: String
+    public var contentType: BookContentType
     
-    var hasChapters = false
-    var hasDate = false
-    var date: Date = Date()
+    public var hasChapters = false
+    public var hasDate = false
+    public var date: Date = Date()
     
     var db : Database
     
@@ -27,7 +27,7 @@ class EbookModel : BookModel {
     
     var items = [Int:[String]]()
 
-    init(_ filename: String) {
+    public init(_ filename: String) {
         let path = Bundle.main.path(forResource: filename, ofType: "sqlite")!
         db = try! Database(path:path)
         
@@ -38,11 +38,11 @@ class EbookModel : BookModel {
 
     }
     
-    func getSections() -> [String] {
+    public func getSections() -> [String] {
         return sections
     }
     
-    func getItems(_ section: Int) -> [String] {
+    public func getItems(_ section: Int) -> [String] {
         if items[section] != nil { return items[section]! }
         
         items[section] =
@@ -52,22 +52,22 @@ class EbookModel : BookModel {
         return items[section]!
     }
     
-    func getTitle(at pos: BookPosition) -> String? {
+    public func getTitle(at pos: BookPosition) -> String? {
         guard let index = pos.index else { return nil }
 
         return try! db.selectString("SELECT title FROM content WHERE section=$0 AND item=$1",
                              parameters: [index.section, index.row])!
     }
     
-    func getNumChapters(_ index: IndexPath) -> Int {
+    public func getNumChapters(_ index: IndexPath) -> Int {
         return 0
     }
     
-    func getComment(commentId: Int) -> String? {
+    public func getComment(commentId: Int) -> String? {
         return try! db.selectString("SELECT text FROM comments WHERE id=$0", parameters: [commentId])!
     }
     
-    func getContent(at pos: BookPosition) -> Any? {
+    public func getContent(at pos: BookPosition) -> Any? {
         guard let index = pos.index else { return nil }
 
         var text =  try! db.selectString("SELECT text FROM content WHERE section=$0 AND item=$1",
@@ -93,7 +93,7 @@ class EbookModel : BookModel {
         }
     }
     
-    func getNextSection(at pos: BookPosition) -> BookPosition? {
+    public func getNextSection(at pos: BookPosition) -> BookPosition? {
         guard let index = pos.index else { return nil }
 
         let items = getItems(index.section)
@@ -110,7 +110,7 @@ class EbookModel : BookModel {
         
     }
     
-    func getPrevSection(at pos: BookPosition) -> BookPosition? {
+    public func getPrevSection(at pos: BookPosition) -> BookPosition? {
         guard let index = pos.index else { return nil }
 
         if index.row == 0 {
@@ -125,12 +125,12 @@ class EbookModel : BookModel {
         }
     }
     
-    func getBookmark(at pos: BookPosition) -> String? {
+    public func getBookmark(at pos: BookPosition) -> String? {
         guard let index = pos.index else { return nil }
         return "\(code)_\(index.section)_\(index.row)"
     }
     
-    func getBookmarkName(_ bookmark: String) -> String {
+    public func getBookmarkName(_ bookmark: String) -> String {
         let comp = bookmark.components(separatedBy: "_")
         guard comp[0] == code else { return "" }
         
