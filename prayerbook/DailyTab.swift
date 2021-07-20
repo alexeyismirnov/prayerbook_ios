@@ -32,7 +32,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     var fasting: FastingModel!
     var readings = [String]()
-    var synaxarion : (String,String)?
+    var synaxarion : BookPosition?
     
     var feofan = [(String,String)]()
     var saintTroparia = [(String,String)]()
@@ -289,7 +289,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 
             default:
                 if synaxarion != nil && indexPath.row == readings.count + feofan.count {
-                    title = synaxarion!.0
+                    title = EbookModel("synaxarion").getTitle(at: synaxarion!)
                     subtitle = ""
                     
                 } else {
@@ -373,17 +373,16 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 let currentReading = readings[indexPath.row].components(separatedBy: "#").first!
                 
                 let pos = BookPosition(model: PericopeModel.shared, location: currentReading)
-                vc = BookPageMultiple(pos)
+                vc = BookPageSingle(pos)
                 
             case readings.count ..< readings.count + feofan.count:
                 let ind = indexPath.row - readings.count
                 let pos = BookPosition(model: FeofanModel.shared, location: feofan[ind].1)
-                vc = BookPageText(pos)
+                vc = BookPageSingle(pos)
                 
             default:
                 if synaxarion != nil && indexPath.row == readings.count + feofan.count {
-                    let pos = BookPosition(model: SynaxarionModel.shared, location: synaxarion!.1)
-                    vc = BookPageText(pos)
+                    vc = BookPageSingle(synaxarion!)
                 }
             }
             
@@ -421,7 +420,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             
             if count > 0 {
                 let pos = BookPosition(model: SaintTropariaModel.shared, data: saintTroparia)
-                navigationController?.pushViewController(BookPageText(pos)!, animated: true)
+                navigationController?.pushViewController(BookPageSingle(pos)!, animated: true)
 
             }
             
@@ -511,6 +510,33 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         reload()
     }
     
+    func getSynaxarion(for date: Date) -> BookPosition? {
+        var dates = [Date]()
+
+        let pascha = Cal.d(.pascha)
+        let greatLentStart = pascha-48.days
+        let palmSunday = Cal.d(.palmSunday)
+        
+        dates = [
+            greatLentStart-22.days,greatLentStart-15.days,greatLentStart-9.days,greatLentStart-8.days,
+            greatLentStart-2.days,greatLentStart-1.days,greatLentStart+5.days,greatLentStart+6.days,
+            greatLentStart+13.days,greatLentStart+20.days,greatLentStart+27.days,greatLentStart+31.days,
+            greatLentStart+33.days,palmSunday-1.days,palmSunday,palmSunday+1.days,
+            palmSunday+2.days,palmSunday+3.days,palmSunday+4.days,palmSunday+5.days,
+            palmSunday+6.days,pascha, pascha+5.days,pascha+7.days,pascha+14.days,
+            pascha+21.days, pascha+24.days,pascha+28.days,pascha+35.days,
+            pascha+42.days,pascha+39.days,pascha+49.days, pascha+50.days, pascha+56.days,
+        ]
+        
+        if let index = dates.firstIndex(of: date) {
+            return BookPosition(model: EbookModel("synaxarion"), index: IndexPath(row: index, section: 0))
+            
+        } else {
+            return nil
+        }
+    }
+    
+    
     @objc func reload() {
         formatter.locale = Translate.locale as Locale
         formatterOldStyle.locale = Translate.locale as Locale
@@ -520,7 +546,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         
         saints = SaintModel.saints(currentDate)
         readings = DailyReading.getDailyReading(currentDate)
-        synaxarion = SynaxarionModel.shared.getSynaxarion(for: currentDate)
+        synaxarion = getSynaxarion(for: currentDate)
         
         if (appeared) {
             reloadAfterAppeared()

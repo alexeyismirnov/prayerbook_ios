@@ -102,10 +102,10 @@ class EbookModel : BookModel {
             if index.section+1 == sections.count {
                 return nil
             } else {
-                return BookPosition(index: IndexPath(row: 0, section: index.section+1), chapter: 0)
+                return BookPosition(index: IndexPath(row: 0, section: index.section+1))
             }
         } else {
-            return BookPosition(index: IndexPath(row: index.row+1, section: index.section), chapter: 0)
+            return BookPosition(index: IndexPath(row: index.row+1, section: index.section))
         }
         
     }
@@ -118,21 +118,28 @@ class EbookModel : BookModel {
                 return nil
             } else {
                 let items = getItems(index.section-1)
-                return BookPosition(index: IndexPath(row: items.count-1, section: index.section-1), chapter: 0)
+                return BookPosition(index: IndexPath(row: items.count-1, section: index.section-1))
             }
         } else {
-            return BookPosition(index: IndexPath(row: index.row-1, section: index.section), chapter: 0)
+            return BookPosition(index: IndexPath(row: index.row-1, section: index.section))
         }
     }
     
     func getBookmark(at pos: BookPosition) -> String? {
-        return nil
-
+        guard let index = pos.index else { return nil }
+        return "\(code)_\(index.section)_\(index.row)"
     }
     
     func getBookmarkName(_ bookmark: String) -> String {
-        return ""
-
+        let comp = bookmark.components(separatedBy: "_")
+        guard comp[0] == code else { return "" }
+        
+        let section = Int(comp[1])!
+        let row = Int(comp[2])!
+        
+        let sectionTitle = getTitle(at: BookPosition(index: IndexPath(row: row, section: section)))!
+        
+        return "\(title) - \(sectionTitle)"
     }
 }
 

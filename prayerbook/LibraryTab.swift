@@ -12,14 +12,11 @@ import swift_toolkit
 let books : [BookModel] = [BookmarksModel.shared,
                            OldTestamentModel.shared,
                            NewTestamentModel.shared,
-                           VespersModel.shared,
-                           LiturgyModel.shared,
+                           EbookModel("vigil"),
+                           EbookModel("liturgy2"),
                            ZvezdinskyModel.shared,
                            TypikaModel.shared,
-                           SynaxarionModel.shared,
                            EbookModel("synaxarion"),
-                           EbookModel("vigil"),
-                           EbookModel("liturgy2")
 ]
 
 

@@ -35,7 +35,6 @@ public class BookPageMultiple: UIViewController, BookPageDelegate {
         guard let model = pos.model else { return nil }
         
         self.model = model
-        self.bookmark = model.getBookmark(at: pos)
         
         let prevPos = model.getPrevSection(at: pos)
         let nextPos = model.getNextSection(at: pos)
@@ -79,11 +78,13 @@ public class BookPageMultiple: UIViewController, BookPageDelegate {
         tabBarController!.tabBar.isHidden = true
         
         reloadTheme()
-        createNavigationButtons()
-        updateNavigationButtons()
-        
         createCollectionView()
+
+        createNavigationButtons()
+        updateNavigationButtons(pos: bookPos[initialPos])
+        
         createToolbar()
+        updateToolbar(pos: bookPos[initialPos])
     }
     
     override public func viewWillAppear(_ animated: Bool) {
@@ -147,8 +148,6 @@ public class BookPageMultiple: UIViewController, BookPageDelegate {
                                      target: self,
                                      action: #selector(self.showNext)))
         
-        updateToolbar(pos: bookPos[initialPos])
-
         self.toolbarItems = items
         navigationController?.setToolbarHidden(true, animated: false)
     }
@@ -172,9 +171,11 @@ public class BookPageMultiple: UIViewController, BookPageDelegate {
             , target: self, btnHandler: #selector(removeBookmark))
     }
     
-    func updateNavigationButtons() {
+    func updateNavigationButtons(pos: BookPosition) {
         var right_nav_buttons = [CustomBarButton]()
         
+        bookmark = model.getBookmark(at: pos)
+
         if let bookmark = bookmark {
             let bookmarks = prefs.stringArray(forKey: "bookmarks")!
             right_nav_buttons.append(bookmarks.contains(bookmark) ? button_remove_bookmark : button_add_bookmark)
@@ -310,6 +311,7 @@ extension  BookPageMultiple: UICollectionViewDataSource, UICollectionViewDelegat
         let prevPos = model.getPrevSection(at: newPos)
         let nextPos = model.getNextSection(at: newPos)
         
+        updateNavigationButtons(pos: newPos)
         updateToolbar(pos: newPos)
 
         if prevPos == nil {

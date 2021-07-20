@@ -75,7 +75,7 @@ public class BookTOC2: UIViewController, ResizableTableViewCells {
         var pos : BookPosition!
         
         if model.code == "Bookmarks" {
-          //  pos = (model as! BookmarksModel).resolveBookmarkAt(row: index.row)
+            pos = (model as! BookmarksModel).resolveBookmarkAt(row: index.row)
             
         } else {
             pos = BookPosition(model: model, index: index, chapter: chapter)
