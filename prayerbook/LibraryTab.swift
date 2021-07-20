@@ -13,9 +13,9 @@ let books : [BookModel] = [BookmarksModel.shared,
                            OldTestamentModel.shared,
                            NewTestamentModel.shared,
                            EbookModel("vigil"),
-                           EbookModel("liturgy2"),
+                           EbookModel("liturgy"),
                            TypikaModel.shared,
-                           EbookModel("zvez"),
+                           EbookModel("zvezdinsky"),
                            EbookModel("synaxarion"),
 ]
 
@@ -77,7 +77,7 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
             showPopup(ServiceDateSelector(selectedModel)!)
             
         } else {
-            navigationController?.pushViewController(BookTOC2(books[indexPath.row])!, animated: true)
+            navigationController?.pushViewController(BookTOC(books[indexPath.row])!, animated: true)
         }
         
         return nil
