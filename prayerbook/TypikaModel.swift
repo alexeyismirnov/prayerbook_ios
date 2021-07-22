@@ -361,6 +361,11 @@ class TypikaModel : BookModel {
         return nil
     }
     
+    func getTitle(at pos: BookPosition) -> String? {
+        guard let index = pos.index else { return nil }
+        return  Translate.s(data[index.row])
+    }
+    
     func getContent(at pos: BookPosition) -> Any? {
         guard let index = pos.index else { return nil }
         var typika: [[String:Bindable?]]
