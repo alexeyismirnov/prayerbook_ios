@@ -84,6 +84,17 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
+        for family: String in UIFont.familyNames
+              {
+                  print(family)
+                  for names: String in UIFont.fontNames(forFamilyName: family)
+                  {
+                      print("== \(names)")
+                  }
+              }
+         */
+        
         createTableView(style: .grouped)
         configureNavbar()
         

@@ -14,7 +14,8 @@ class FeofanModel : BookModel {
     var code: String = "Feofan"
     var title = ""
     var contentType: BookContentType = .text
-    
+    var lang = Translate.language
+
     var hasChapters = false
     var hasDate = false
     var date: Date = Date()

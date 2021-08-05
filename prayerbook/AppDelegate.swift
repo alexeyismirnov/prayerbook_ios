@@ -78,7 +78,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         
         setupFiles()
         
-        Translate.files = ["trans_ui_ru", "trans_cal_ru", "trans_library_ru"]
+        Translate.files = ["trans_ui_ru", "trans_cal_ru", "trans_library_ru", "trans_bible_cs"]
         Translate.language = prefs.object(forKey: "language") as! String
 
         if prefs.object(forKey: "welcome47") == nil {
@@ -105,6 +105,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         AppGroup.copyFile("trans_ui_ru", "plist")
         AppGroup.copyFile("trans_cal_ru", "plist")
         AppGroup.copyFile("trans_library_ru", "plist")
+        AppGroup.copyFile("trans_bible_cs", "plist")
     }
     
 }

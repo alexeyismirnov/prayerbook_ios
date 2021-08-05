@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Genesis</key>
+    <string>Бытїѐ</string>
+    <key>Exodus</key>
+    <string>И҆схо́дъ</string>
+    <key>Leviticus</key>
+    <string>Леѵі́тъ</string>
+    <key>Numbers</key>
+    <string>Чи́сла</string>
+    <key>Deuteronomy</key>
+    <string>Второзако́нїе</string>
+    <key>Joshua</key>
+    <string>І҆исꙋ́са наѵи́на</string>
+    <key>Judges</key>
+    <string>Сꙋді́й І҆сра́илевыхъ</string>
+    <key>Ruth</key>
+    <string>Рꙋ́ѳь</string>
+    <key>1 Samuel</key>
+    <string>Ца́рствъ а҃</string>
+    <key>2 Samuel</key>
+    <string>Ца́рствъ в҃</string>
+    <key>1 Kings</key>
+    <string>Ца́рствъ г҃</string>
+    <key>2 Kings</key>
+    <string>Ца́рствъ д҃</string>
+    <key>1 Chronicles</key>
+    <string>Паралипоме́нѡнъ а҃</string>
+    <key>2 Chronicles</key>
+    <string>Паралипоме́нѡнъ в҃</string>
+    <key>Ezra</key>
+    <string>є҆́здры</string>
+    <key>Nehemiah</key>
+    <string>Неемі́и</string>
+    <key>Esther</key>
+    <string>Є҆сѳи́рь</string>
+    <key>Job</key>
+    <string>І҆́ѡвъ</string>
+    <key>Psalms</key>
+    <string>Ѱалти́рь</string>
+    <key>Proverbs</key>
+    <string>При́тчей Соломѡ́нихъ</string>
+    <key>Ecclesiastes</key>
+    <string>Є҆кклесїа́ст</string>
+    <key>Song of Solomon</key>
+    <string>Пѣ́снь пѣ́сней</string>
+    <key>Isaiah</key>
+    <string>И҆са́їи</string>
+    <key>Jeremiah</key>
+    <string>І҆еремі́и</string>
+    <key>Lamentations</key>
+    <string>Пла́чь І҆еремі́евъ</string>
+    <key>Ezekiel</key>
+    <string>І҆езекі́илѧ</string>
+    <key>Daniel</key>
+    <string>Данїи́ла</string>
+    <key>Hosea</key>
+    <string>Ѡ҆сі́а</string>
+    <key>Joel</key>
+    <string>І҆ѡи́ль</string>
+    <key>Amos</key>
+    <string>А҆мѡ́съ</string>
+    <key>Obadiah</key>
+    <string>А҆вді́й</string>
+    <key>Jonah</key>
+    <string>І҆ѡ́ны</string>
+    <key>Micah</key>
+    <string>Мїхе́й</string>
+    <key>Nahum</key>
+    <string>Наꙋ́мъ</string>
+    <key>Habakkuk</key>
+    <string>А҆ввакꙋ́мъ</string>
+    <key>Zephaniah</key>
+    <string>Софо́нїа</string>
+    <key>Haggai</key>
+    <string>А҆гге́й</string>
+    <key>Zechariah</key>
+    <string>Заха́рїа</string>
+    <key>Malachi</key>
+    <string>Малахі́а</string>
+    <key>Gospel of St Matthew</key>
+    <string>Ѿ Матѳе́а</string>
+    <key>Gospel of St Mark</key>
+    <string>Ѿ Ма́рка</string>
+    <key>Gospel of St Luke</key>
+    <string>Ѿ Лꙋкѝ</string>
+    <key>Gospel of St John</key>
+    <string>Ѿ І҆ѡа́нна</string>
+    <key>Acts of the Apostles</key>
+    <string>Дѣѧ̑нїѧ ст҃ы́хъ а҆по́столъ</string>
+    <key>Epistle of St Paul to Romans</key>
+    <string>Къ ри́млѧнѡмъ</string>
+    <key>1st Epistle of St Paul to Corinthians</key>
+    <string>Къ корі́нѳѧнѡмъ пе́рвое</string>
+    <key>2nd Epistle of St Paul to Corinthians</key>
+    <string>Къ корі́нѳѧнѡмъ второ́е</string>
+    <key>Epistle of St Paul to Galatians</key>
+    <string>Къ гала́тѡмъ</string>
+    <key>Epistle of St Paul to Ephesians</key>
+    <string>Ко є҆фесе́ємъ</string>
+    <key>Epistle of St Paul to Philippians</key>
+    <string>Къ фїлїпписі́ємъ</string>
+    <key>Epistle of St Paul to Colossians</key>
+    <string>Къ колосса́ємъ</string>
+    <key>1st Epistle of St Paul Thessalonians</key>
+    <string>Къ солꙋ́нѧнѡмъ пе́рвое</string>
+    <key>2nd Epistle of St Paul Thessalonians</key>
+    <string>Къ солꙋ́нѧнѡмъ второ́е</string>
+    <key>1st Epistle of St Paul to Timothy</key>
+    <string>Пе́рвое къ Тїмоѳе́ю</string>
+    <key>2nd Epistle of St Paul to Timothy</key>
+    <string>Второ́е къ Тїмоѳе́ю</string>
+    <key>Epistle of St Paul to Titus</key>
+    <string>Къ Ті́тꙋ</string>
+    <key>Epistle of St Paul to Philemon</key>
+    <string>Къ Фїлимо́нꙋ</string>
+    <key>Epistle of St Paul to Hebrews</key>
+    <string>Ко є҆вре́ємъ</string>
+    <key>General Epistle of James</key>
+    <string>І҆а́кѡвле</string>
+    <key>1st Epistle General of Peter</key>
+    <string>Петра̀ пе́рвое</string>
+    <key>2nd General Epistle of Peter</key>
+    <string>Петра̀ второ́е</string>
+    <key>1st Epistle General of John</key>
+    <string>І҆ѡа́нна пе́рвое</string>
+    <key>2nd Epistle General of John</key>
+    <string>І҆ѡа́нна второ́е</string>
+    <key>3rd Epistle General of John</key>
+    <string>І҆ѡа́нна тре́тїе</string>
+    <key>General Epistle of Jude</key>
+    <string>І҆ꙋ́дино</string>
+    <key>Revelation of St John the Devine</key>
+    <string>А҆пока́лѷѱїсъ</string>
+    <key>Chapter %@</key>
+    <string>Глава %@</string>
+    <key>Kathisma %@</key>
+    <string>Кафизма %@</string>
+    <key>New Testament</key>
+    <string>Но́вый завѣ́тъ</string>
+    <key>Old Testament</key>
+    <string>Ве́тхїй завѣ́тъ</string>
+    <key>Five Books of Moses</key>
+    <string>Пятикнижие Моисея</string>
+    <key>Historical books</key>
+    <string>Книги исторические</string>
+    <key>Wisdom books</key>
+    <string>Книги учительные</string>
+    <key>Prophets books</key>
+    <string>Книги пророческие</string>
+    <key>Four Gospels and Acts</key>
+    <string>Евангелия и Деяния</string>
+    <key>Catholic Epistles</key>
+    <string>Соборные Послания</string>
+    <key>Epistles of Paul</key>
+    <string>Послания св. Апостола Павла</string>
+    <key>Apocalypse</key>
+    <string>Апокалипсис</string>
+    <key>Stasis</key>
+    <string>Слава:</string>
+    
+    <key>Typika Reader Service</key>
+    <string>Обедница воскресная для мирян</string>
+    
+    <key>Service date</key>
+    <string>Дата службы</string>
+    
+</dict>
+</plist>
+

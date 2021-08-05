@@ -10,8 +10,10 @@ import UIKit
 import swift_toolkit
 
 let books : [BookModel] = [BookmarksModel.shared,
-                           OldTestamentModel.shared,
-                           NewTestamentModel.shared,
+                           OldTestamentModel(lang: "ru"),
+                           NewTestamentModel(lang: "ru"),
+                           OldTestamentModel(lang: "cs"),
+                           NewTestamentModel(lang: "cs"),
                            EbookModel("vigil"),
                            EbookModel("liturgy"),
                            TypikaModel.shared,
@@ -62,7 +64,7 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return getTextDetailsCell(title: books[indexPath.row].title, subtitle: "")
+        return getTextDetailsCell(title: books[indexPath.row].title, subtitle: "", lang: books[indexPath.row].lang)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

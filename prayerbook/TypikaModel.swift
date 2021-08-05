@@ -23,6 +23,7 @@ fileprivate extension String {
 
 class TypikaModel : BookModel {
     static let shared = TypikaModel()
+    var lang = Translate.language
 
     var code: String = "Typika"
     

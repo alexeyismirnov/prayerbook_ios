@@ -12,7 +12,8 @@ import swift_toolkit
 
 class SaintTropariaModel : BookModel {
     var code = "Troparion"
-    
+    var lang = Translate.language
+
     var contentType: BookContentType = .text
     
     var title = ""
