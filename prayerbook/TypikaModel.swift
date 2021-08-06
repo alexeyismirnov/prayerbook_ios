@@ -322,7 +322,7 @@ class TypikaModel : BookModel {
     }
     
     func getReading(_ readingStr: String, index : Int) {
-        let readings = PericopeModel.shared.getPericope(readingStr, decorated: false)
+        let readings = PericopeModel(lang: "ru").getPericope(readingStr, decorated: false)
 
         let (title1, text1) = readings[0]
         let (title2, text2) = readings[1]

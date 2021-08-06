@@ -21,7 +21,7 @@
 	<key>If you enjoy using Orthodox Calendar, would you mind taking a moment to rate it? It won&apos;t take more than a minute. Thanks for your support!</key>
 	<string>Если Вам понравилось это приложение, пожалуйста оцените его. Спасибо за поддержку!</string>
 	<key>Brotherhood of Sts Apostoles Peter and Paul, Hong Kong.</key>
-	<string>Приход Свв. Апп. Петра и Павла в Гонконге (Московский Патриархат)</string>
+	<string>Приход Свв. Апп. Петра и Павла в Гонконге</string>
 	<key>Nuts</key>
 	<string>Орехи</string>
 	<key>Bread</key>
@@ -70,23 +70,23 @@
 	<string>Настройки</string>
 	<key>Prayerbook</key>
 	<string>Молитвослов</string>
-    <key>Delete</key>
-    <string>Удалить</string>
-    <key>No bookmarks</key>
-    <string>Нет закладок</string>
-    <key>Bookmarks...</key>
-    <string>Закладки...</string>
-    <key>Calendar</key>
-    <string>Календарь</string>
-    <key>Weekly</key>
-    <string>На неделю</string>
-    <key>Monthly</key>
-    <string>На месяц</string>
-    <key>Yearly</key>
-    <string>На год</string>
-    <key>Year %d Orthodox Calendar</key>
-    <string>Православный календарь на %d г.</string>
-    <key>From %@ till %@ — %@</key>
-    <string>С %@ по %@ — %@</string>
+	<key>Delete</key>
+	<string>Удалить</string>
+	<key>No bookmarks</key>
+	<string>Нет закладок</string>
+	<key>Bookmarks...</key>
+	<string>Закладки...</string>
+	<key>Calendar</key>
+	<string>Календарь</string>
+	<key>Weekly</key>
+	<string>На неделю</string>
+	<key>Monthly</key>
+	<string>На месяц</string>
+	<key>Yearly</key>
+	<string>На год</string>
+	<key>Year %d Orthodox Calendar</key>
+	<string>Православный календарь на %d г.</string>
+	<key>From %@ till %@ — %@</key>
+	<string>С %@ по %@ — %@</string>
 </dict>
 </plist>
