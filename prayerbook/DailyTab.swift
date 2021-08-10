@@ -109,6 +109,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: .themeChangedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: .dateChangedNotification, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(showToday), name: .todayCalendarNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showWeeklyCalendar), name: .weeklyCalendarNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showMonthlyCalendar), name: .monthlyCalendarNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showYearlyCalendar), name: .yearlyCalendarNotification, object: nil)
@@ -647,12 +648,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         UIViewController.popup.dismiss({
             let image_info = UIImage(named: "help", in: self.toolkit)!.withRenderingMode(.alwaysOriginal)
             let button_info = UIBarButtonItem(image: image_info, style: .plain, target: self, action: #selector(self.showInfo))
-
-            let image_today = UIImage(named: "today", in: self.toolkit)!.withRenderingMode(.alwaysOriginal)
-            let button_today = UIBarButtonItem(image: image_today, style: .plain, target: self, action: #selector(self.showToday))
             
             let container = UIViewController.named("CalendarContainer", bundle: self.toolkit) as! CalendarNavigation
-            container.leftButton = button_today
             container.rightButton = button_info
             container.initialDate = self.currentDate
             self.showPopup(container)

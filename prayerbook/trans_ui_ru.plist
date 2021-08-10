@@ -78,6 +78,8 @@
 	<string>Закладки...</string>
 	<key>Calendar</key>
 	<string>Календарь</string>
+    <key>Today</key>
+    <string>На сегодня</string>
 	<key>Weekly</key>
 	<string>На неделю</string>
 	<key>Monthly</key>
