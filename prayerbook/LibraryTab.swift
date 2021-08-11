@@ -9,20 +9,22 @@
 import UIKit
 import swift_toolkit
 
-let books : [BookModel] = [BookmarksModel.shared,
-                           OldTestamentModel(lang: "ru"),
-                           NewTestamentModel(lang: "ru"),
-                           OldTestamentModel(lang: "cs"),
-                           NewTestamentModel(lang: "cs"),
-                           EbookModel("vigil"),
-                           EbookModel("liturgy"),
-                           TypikaModel.shared,
-                           EbookModel("zvezdinsky"),
-                           EbookModel("synaxarion"),
-]
+let books : [[BookModel]] = [[BookmarksModel.shared],
+                             [OldTestamentModel(lang: "ru"),
+                              NewTestamentModel(lang: "ru"),
+                              OldTestamentModel(lang: "cs"),
+                              NewTestamentModel(lang: "cs")],
+                             [EbookModel("vigil"),
+                              EbookModel("liturgy"),
+                              TypikaModel.shared],
+                             [EbookModel("old_testament_overview"),
+                              EbookModel("new_testament_overview"),
+                              EbookModel("zvezdinsky"),
+                              EbookModel("synaxarion")]]
 
+class LibraryTab: UIViewController, ResizableTableViewCells  {
+    let sections : [String] = ["", "Библия", "Богослужение", "Разное"]
 
-class LibraryTab: UIViewController, ResizableTableViewCells  {    
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     var tableView: UITableView!
     var selectedModel : BookModel!
@@ -30,7 +32,7 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        BookmarksModel.books = books
+        BookmarksModel.books = books.flatMap { $0 }
         
         createTableView(style: .grouped)
         tableView.contentInset = UIEdgeInsets(top: -30, left: 0, bottom: 0, right: 0)
@@ -56,15 +58,29 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return books.count
+        return books[section].count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return getTextDetailsCell(title: books[indexPath.row].title, subtitle: "", lang: books[indexPath.row].lang)
+        return getTextDetailsCell(title: books[indexPath.section][indexPath.row].title,
+                                  subtitle: "",
+                                  lang: books[indexPath.section][indexPath.row].lang)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -73,13 +89,13 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        selectedModel = books[indexPath.row]
+        selectedModel = books[indexPath.section][indexPath.row]
         
         if selectedModel.hasDate {
             showPopup(ServiceDateSelector(selectedModel)!)
             
         } else {
-            navigationController?.pushViewController(BookTOC(books[indexPath.row])!, animated: true)
+            navigationController?.pushViewController(BookTOC(books[indexPath.section][indexPath.row])!, animated: true)
         }
         
         return nil
