@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>PonomarUnicode.ttf</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>ru</string>
 	<key>CFBundleDisplayName</key>
@@ -54,6 +50,10 @@
 	<string>This app would like to add image to your Photo Library</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app does not require access to the photo library.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>PonomarUnicode.ttf</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

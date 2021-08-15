@@ -1405,7 +1405,7 @@
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lsqlite3",
@@ -1447,7 +1447,7 @@
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lsqlite3",
@@ -1485,7 +1485,7 @@
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.0.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru.CalendarWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1517,7 +1517,7 @@
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 5.0;
+				MARKETING_VERSION = 5.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru.CalendarWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";

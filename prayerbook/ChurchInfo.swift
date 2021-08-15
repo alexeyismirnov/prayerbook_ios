@@ -11,6 +11,15 @@ import StoreKit
 
 import swift_toolkit
 
+extension SKProduct {
+    var localizedPrice: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = priceLocale
+        return formatter.string(from: price)!
+    }
+}
+
 class ChurchInfo: UITableViewController {
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
@@ -87,9 +96,10 @@ class ChurchInfo: UITableViewController {
             
             DispatchQueue.main.async {
                 
-                self.donationButton1.setTitle("Пожертвовать \(self.products[0].price.intValue) р.", for: .normal)
-                self.donationButton2.setTitle("Пожертвовать \(self.products[1].price.intValue) р.", for: .normal)
-                self.donationButton3.setTitle("Пожертвовать \(self.products[2].price.intValue) р.", for: .normal)
+                
+                self.donationButton1.setTitle("Пожертвовать \(self.products[0].localizedPrice)", for: .normal)
+                self.donationButton2.setTitle("Пожертвовать \(self.products[1].localizedPrice)", for: .normal)
+                self.donationButton3.setTitle("Пожертвовать \(self.products[2].localizedPrice)", for: .normal)
 
                 self.donationButton1.isHidden = false
                 self.donationButton2.isHidden = false
