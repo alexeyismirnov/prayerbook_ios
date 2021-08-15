@@ -361,7 +361,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Храм Святых Первоверховных Апостолов Петра и Павла в Гонконге" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YU9-HJ-TLG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                                                    <rect key="frame" x="10" y="0.0" width="748" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -369,10 +369,10 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="YU9-HJ-TLG" secondAttribute="trailing" id="RVE-r6-cg2"/>
+                                                <constraint firstAttribute="trailing" secondItem="YU9-HJ-TLG" secondAttribute="trailing" constant="10" id="RVE-r6-cg2"/>
                                                 <constraint firstAttribute="bottom" secondItem="YU9-HJ-TLG" secondAttribute="bottom" id="VaQ-Wa-95r"/>
                                                 <constraint firstItem="YU9-HJ-TLG" firstAttribute="top" secondItem="OEI-ET-xiy" secondAttribute="top" id="g01-h2-axq"/>
-                                                <constraint firstItem="YU9-HJ-TLG" firstAttribute="leading" secondItem="OEI-ET-xiy" secondAttribute="leading" id="xkQ-aG-drN"/>
+                                                <constraint firstItem="YU9-HJ-TLG" firstAttribute="leading" secondItem="OEI-ET-xiy" secondAttribute="leading" constant="10" id="xkQ-aG-drN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
