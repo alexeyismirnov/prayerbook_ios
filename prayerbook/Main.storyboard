@@ -443,7 +443,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tk5-qw-GZh">
-                                                    <rect key="frame" x="251" y="10" width="266" height="24"/>
+                                                    <rect key="frame" x="249.5" y="10" width="269" height="24"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="    Установить приложение" image="church_app">
                                                         <color key="titleColor" systemColor="labelColor"/>
@@ -463,6 +463,138 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="HIG-7R-uUQ">
+                                        <rect key="frame" x="0.0" y="235.5" width="768" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HIG-7R-uUQ" id="ngM-CH-blR">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="donation_info" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drp-fk-tAo">
+                                                    <rect key="frame" x="20" y="0.0" width="728" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Drp-fk-tAo" secondAttribute="trailing" constant="20" id="0yN-sh-1zA"/>
+                                                <constraint firstAttribute="bottom" secondItem="Drp-fk-tAo" secondAttribute="bottom" id="O2h-0h-6P7"/>
+                                                <constraint firstItem="Drp-fk-tAo" firstAttribute="top" secondItem="ngM-CH-blR" secondAttribute="top" id="bkf-Jt-3B4"/>
+                                                <constraint firstItem="Drp-fk-tAo" firstAttribute="leading" secondItem="ngM-CH-blR" secondAttribute="leading" constant="20" id="d4M-br-3pZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sDB-pz-dXL">
+                                        <rect key="frame" x="0.0" y="279" width="768" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sDB-pz-dXL" id="16t-1A-pUl">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFf-Uy-WkD">
+                                                    <rect key="frame" x="319.5" y="10" width="129" height="24"/>
+                                                    <state key="normal" title="Любая сумма...">
+                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="makeDonationOther:" destination="9vK-RK-2gC" eventType="touchUpInside" id="oGF-d7-68E"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="yFf-Uy-WkD" secondAttribute="bottom" constant="10" id="JuD-cw-GYt"/>
+                                                <constraint firstItem="yFf-Uy-WkD" firstAttribute="top" secondItem="16t-1A-pUl" secondAttribute="top" constant="10" id="Vy0-rr-Vls"/>
+                                                <constraint firstItem="yFf-Uy-WkD" firstAttribute="centerX" secondItem="16t-1A-pUl" secondAttribute="centerX" id="eMN-w3-BQr"/>
+                                                <constraint firstItem="yFf-Uy-WkD" firstAttribute="centerY" secondItem="16t-1A-pUl" secondAttribute="centerY" id="uZr-hC-fSf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="rOG-HY-nfa">
+                                        <rect key="frame" x="0.0" y="322.5" width="768" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rOG-HY-nfa" id="wW9-wX-fwf">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFr-1v-amK">
+                                                    <rect key="frame" x="296.5" y="10" width="175" height="24"/>
+                                                    <state key="normal" title="Пожертвовать 100 р.">
+                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="makeDonation1:" destination="9vK-RK-2gC" eventType="touchUpInside" id="STK-wJ-Y9j"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="HFr-1v-amK" firstAttribute="centerX" secondItem="wW9-wX-fwf" secondAttribute="centerX" id="Crj-pj-bgb"/>
+                                                <constraint firstAttribute="bottom" secondItem="HFr-1v-amK" secondAttribute="bottom" constant="10" id="Csn-vj-PiN"/>
+                                                <constraint firstItem="HFr-1v-amK" firstAttribute="centerY" secondItem="wW9-wX-fwf" secondAttribute="centerY" id="p9c-iq-VVB"/>
+                                                <constraint firstItem="HFr-1v-amK" firstAttribute="top" secondItem="wW9-wX-fwf" secondAttribute="top" constant="10" id="tZT-pJ-Bcm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="o1w-YC-fqa">
+                                        <rect key="frame" x="0.0" y="366" width="768" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o1w-YC-fqa" id="t8Z-MZ-w4a">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byJ-xV-QFL">
+                                                    <rect key="frame" x="295" y="10" width="178" height="24"/>
+                                                    <state key="normal" title="Пожертвовать 500 р.">
+                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="makeDonation2:" destination="9vK-RK-2gC" eventType="touchUpInside" id="Q9K-kd-lUr"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="byJ-xV-QFL" firstAttribute="centerY" secondItem="t8Z-MZ-w4a" secondAttribute="centerY" id="1Zq-Wl-mMf"/>
+                                                <constraint firstAttribute="bottom" secondItem="byJ-xV-QFL" secondAttribute="bottom" constant="10" id="Inc-iF-Y4B"/>
+                                                <constraint firstItem="byJ-xV-QFL" firstAttribute="top" secondItem="t8Z-MZ-w4a" secondAttribute="top" constant="10" id="KHR-8Y-n3H"/>
+                                                <constraint firstItem="byJ-xV-QFL" firstAttribute="centerX" secondItem="t8Z-MZ-w4a" secondAttribute="centerX" id="Vd5-W2-s6R"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9Ex-ra-dOv">
+                                        <rect key="frame" x="0.0" y="409.5" width="768" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Ex-ra-dOv" id="mDV-j0-Cjh">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVe-hG-Dbn">
+                                                    <rect key="frame" x="291" y="10" width="186" height="24"/>
+                                                    <state key="normal" title="Пожертвовать 1000 р.">
+                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="makeDonation3:" destination="9vK-RK-2gC" eventType="touchUpInside" id="oil-qc-Rqp"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="xVe-hG-Dbn" firstAttribute="centerY" secondItem="mDV-j0-Cjh" secondAttribute="centerY" id="0A2-uB-3oo"/>
+                                                <constraint firstItem="xVe-hG-Dbn" firstAttribute="top" secondItem="mDV-j0-Cjh" secondAttribute="top" constant="10" id="JZy-1F-zZw"/>
+                                                <constraint firstAttribute="bottom" secondItem="xVe-hG-Dbn" secondAttribute="bottom" constant="10" id="rre-mX-MaP"/>
+                                                <constraint firstItem="xVe-hG-Dbn" firstAttribute="centerX" secondItem="mDV-j0-Cjh" secondAttribute="centerX" id="zob-yZ-jjS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -473,9 +605,14 @@
                     </tableView>
                     <connections>
                         <outlet property="appButton" destination="tk5-qw-GZh" id="S2A-r9-aYg"/>
+                        <outlet property="donationButton1" destination="HFr-1v-amK" id="LqC-hA-70h"/>
+                        <outlet property="donationButton2" destination="byJ-xV-QFL" id="90j-LY-hrl"/>
+                        <outlet property="donationButton3" destination="xVe-hG-Dbn" id="rMI-ls-nBG"/>
+                        <outlet property="donationButtonOther" destination="yFf-Uy-WkD" id="NPm-qi-lRC"/>
                         <outlet property="label1" destination="YU9-HJ-TLG" id="EKG-g1-S2d"/>
                         <outlet property="label2" destination="C5i-Xu-ntv" id="7ay-wc-9ni"/>
                         <outlet property="label3" destination="Wrq-IC-fWE" id="DpW-RG-TD2"/>
+                        <outlet property="label4" destination="Drp-fk-tAo" id="OiZ-8S-u6b"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PB-N1-Ilh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -503,7 +640,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="church_app" width="42" height="42"/>
+        <image name="church_app" width="45" height="45"/>
         <image name="cross" width="32" height="32"/>
         <image name="daily" width="30" height="30"/>
         <image name="library" width="30" height="30"/>
