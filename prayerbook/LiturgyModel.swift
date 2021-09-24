@@ -10,6 +10,7 @@ import UIKit
 import Squeal
 import swift_toolkit
 
+/*
 class LiturgyModel : BookModel {
     var code: String = "Liturgy"
     
@@ -155,4 +156,6 @@ class LiturgyModel : BookModel {
     }
     
 }
+
+*/
 

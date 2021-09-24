@@ -292,8 +292,11 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             var vc : UIViewController!
             
             let currentReading = readings[indexPath.row].components(separatedBy: "#").first!
-            let pos = BookPosition(model: PericopeModel.shared, location: currentReading)
-            vc = BookPageText(pos)
+            
+            let pericope = PericopeModel(lang: Translate.language)
+            let pos = BookPosition(model: pericope, location: currentReading)
+            vc = BookPageSingle(pos, lang: pericope.lang)
+            
             navigationController?.pushViewController(vc, animated: true)
             
         }

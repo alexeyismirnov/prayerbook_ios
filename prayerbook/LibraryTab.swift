@@ -9,6 +9,9 @@
 import UIKit
 import swift_toolkit
 
+let books : [BookModel] =  []
+
+/*
 let books : [BookModel] = [BookmarksModel.shared,
                            OldTestamentModel.shared,
                            NewTestamentModel.shared,
@@ -16,6 +19,7 @@ let books : [BookModel] = [BookmarksModel.shared,
                            EucharistModel.shared,
                            TypikaModel.shared,
                            PrayerbookModel.shared]
+*/
 
 class LibraryTab: UIViewController, ResizableTableViewCells  {
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")

@@ -9,6 +9,7 @@
 import UIKit
 import swift_toolkit
 
+/*
 protocol BasicModel  {
     var data: [String] { get }
     var basename : String { get }
@@ -111,5 +112,6 @@ class PrayerbookModel : BasicModel, BookModel {
     
     static let shared = PrayerbookModel()
 }
+*/
 
 

@@ -10,6 +10,7 @@ import UIKit
 import Squeal
 import swift_toolkit
 
+/*
 class TypikaModel : BookModel {
     var code: String = "Typika"
     
@@ -175,4 +176,6 @@ class TypikaModel : BookModel {
     
     
 }
+
+*/
 
