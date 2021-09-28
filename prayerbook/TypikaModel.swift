@@ -10,21 +10,19 @@ import UIKit
 import Squeal
 import swift_toolkit
 
-/*
 class TypikaModel : BookModel {
+    static let shared = TypikaModel()
+    var lang = Translate.language
+
     var code: String = "Typika"
     
     var title: String {
         get { return Translate.s("Typika Reader Service") }
     }
     
-    var shortTitle: String {
-        get { return Translate.s("Typika") }
-    }
-    
-    var mode: BookType = .html
-    
-    var isExpandable = false
+    var contentType: BookContentType = .html
+
+    var hasChapters = false
     var hasDate = true
     
     var tone: Int!
@@ -70,8 +68,6 @@ class TypikaModel : BookModel {
             "The Dismissal"
     ]
     
-    static let shared = TypikaModel()
-    
     init() {
         let path = Bundle.main.path(forResource: "typika_"+Translate.language, ofType: "sqlite")!
         db = try! Database(path:path)
@@ -94,6 +90,11 @@ class TypikaModel : BookModel {
     
     func getComment(commentId: Int) -> String? {
         return nil
+    }
+    
+    func getTitle(at pos: BookPosition) -> String? {
+        guard let index = pos.index else { return nil }
+        return  Translate.s(data[index.row])
     }
     
     func getContent(at pos: BookPosition) -> Any? {
@@ -120,7 +121,7 @@ class TypikaModel : BookModel {
         }
         
         let readingStr = DailyReading.getRegularReading(date)!
-        let readings = PericopeModel.shared.getPericope(readingStr, decorated: false)
+        let readings = PericopeModel(lang: Translate.language).getPericope(readingStr, decorated: false)
         
         for (i, (title, text)) in readings.enumerated() {
             content = content.replacingOccurrences(
@@ -133,9 +134,9 @@ class TypikaModel : BookModel {
             
         }
         
-        let title = "<p align=\"center\"><b>" + Translate.s(data[index.row]) + "</b></p>"
+        // let title = "<p align=\"center\"><b>" + Translate.s(data[index.row]) + "</b></p>"
         
-        return title + content
+        return content
     }
     
     func getNextSection(at pos: BookPosition) -> BookPosition? {
@@ -177,5 +178,4 @@ class TypikaModel : BookModel {
     
 }
 
-*/
 

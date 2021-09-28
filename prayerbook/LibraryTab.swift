@@ -9,7 +9,15 @@
 import UIKit
 import swift_toolkit
 
-let books : [BookModel] =  []
+let books : [BookModel] =  [
+    OldTestamentModel(lang: "en"),
+    NewTestamentModel(lang: "en"),
+    OldTestamentModel(lang: "cn"),
+    NewTestamentModel(lang: "cn"),
+    EbookModel("liturgy_en_ebook"),
+    EbookModel("liturgy_cn_ebook"),
+    TypikaModel.shared
+]
 
 /*
 let books : [BookModel] = [BookmarksModel.shared,
