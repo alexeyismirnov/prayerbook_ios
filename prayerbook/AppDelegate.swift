@@ -81,14 +81,6 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         Translate.files = ["trans_ui_ru", "trans_cal_ru", "trans_library_ru", "trans_bible_cs"]
         Translate.language = prefs.object(forKey: "language") as! String
 
-        if prefs.object(forKey: "welcome47") == nil {
-            let year = DateComponents(date: Date()).year!
-            
-            prefs.set(false, forKey: "notifications_\(year)")
-            prefs.set(true, forKey: "welcome47")
-            prefs.synchronize()
-        }
-        
         FeastSaintNotifications.setupNotifications()
         
         return true

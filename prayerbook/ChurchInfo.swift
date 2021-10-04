@@ -95,8 +95,6 @@ class ChurchInfo: UITableViewController {
             }
             
             DispatchQueue.main.async {
-                
-                
                 self.donationButton1.setTitle("Пожертвовать \(self.products[0].localizedPrice)", for: .normal)
                 self.donationButton2.setTitle("Пожертвовать \(self.products[1].localizedPrice)", for: .normal)
                 self.donationButton3.setTitle("Пожертвовать \(self.products[2].localizedPrice)", for: .normal)
