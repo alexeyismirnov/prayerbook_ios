@@ -290,6 +290,7 @@
 		8AFAA3991B12E90B001699D6 /* saints_05_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AFAA3981B12E90B001699D6 /* saints_05_en.txt */; };
 		8AFB8DEB1B1FDC12006715A3 /* saints_03_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AFB8DE91B1FDC12006715A3 /* saints_03_en.sqlite */; };
 		8AFB8DEC1B1FDC12006715A3 /* saints_03_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AFB8DEA1B1FDC12006715A3 /* saints_03_en.txt */; };
+		8AFEEB1F270C3DCA00A88FAE /* vigil_cn_ebook.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AFEEB1E270C3DCA00A88FAE /* vigil_cn_ebook.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -626,6 +627,7 @@
 		8AFAA3981B12E90B001699D6 /* saints_05_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_05_en.txt; sourceTree = "<group>"; };
 		8AFB8DE91B1FDC12006715A3 /* saints_03_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_03_en.sqlite; sourceTree = "<group>"; };
 		8AFB8DEA1B1FDC12006715A3 /* saints_03_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_03_en.txt; sourceTree = "<group>"; };
+		8AFEEB1E270C3DCA00A88FAE /* vigil_cn_ebook.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = vigil_cn_ebook.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -658,6 +660,7 @@
 		8A429DCE2317CDEC00F4E5AB /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8AFEEB1E270C3DCA00A88FAE /* vigil_cn_ebook.sqlite */,
 				8A555131270B130700873474 /* vigil_hk_ebook.sqlite */,
 				8A66EBF227055E830015BCB7 /* vigil_en_ebook.sqlite */,
 				8A282D4E27033942009DDB6E /* liturgy_cn_ebook.sqlite */,
@@ -1428,6 +1431,7 @@
 				8AA3DF581B18594F00507129 /* saints_10_en.sqlite in Resources */,
 				8AF8C784230F8E4D0020D5E5 /* 1tim_cn.sqlite in Resources */,
 				8AF8C6F0230F8CE80020D5E5 /* isa_en.sqlite in Resources */,
+				8AFEEB1F270C3DCA00A88FAE /* vigil_cn_ebook.sqlite in Resources */,
 				8ADF91EC1B7731EA0078BB6B /* saints_06_cn.sqlite in Resources */,
 				8AF8C70D230F8CE80020D5E5 /* lev_en.sqlite in Resources */,
 				8AF37E3B1B36B1FD00101148 /* launch-hd5.5.png in Resources */,
