@@ -17,6 +17,7 @@ let books : [BookModel] =  [
     EbookModel("liturgy_en_ebook"),
     EbookModel("liturgy_cn_ebook"),
     EbookModel("vigil_en_ebook"),
+    EbookModel("vigil_hk_ebook"),
     TypikaModel.shared
 ]
 

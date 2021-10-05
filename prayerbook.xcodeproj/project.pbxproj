@@ -22,6 +22,8 @@
 		8A1BADB82351D3D2002C6638 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A1BADB72351D3D2002C6638 /* LaunchScreen.storyboard */; };
 		8A1BADBA2351D523002C6638 /* launch_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1BADB92351D523002C6638 /* launch_icon.png */; };
 		8A1D285723050BC4001913C7 /* LibraryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D285623050BC4001913C7 /* LibraryTab.swift */; };
+		8A26439E270AB6CE0097B4FF /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; };
+		8A2643A0270AB7510097B4FF /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; };
 		8A282D4F27033943009DDB6E /* liturgy_cn_ebook.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A282D4E27033942009DDB6E /* liturgy_cn_ebook.sqlite */; };
 		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
 		8A429DD12317CE0A00F4E5AB /* liturgy_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A429DCF2317CE0A00F4E5AB /* liturgy_en.sqlite */; };
@@ -30,16 +32,13 @@
 		8A4F2E6D22E6E7F70087A3F0 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4F2E6C22E6E7F70087A3F0 /* Chameleon.framework */; };
 		8A4F2E6F22E6E7FB0087A3F0 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4F2E6E22E6E7FB0087A3F0 /* Squeal.framework */; };
 		8A540B681E6C296D00970420 /* newicon_167.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A540B671E6C296D00970420 /* newicon_167.png */; };
+		8A555132270B130800873474 /* vigil_hk_ebook.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A555131270B130700873474 /* vigil_hk_ebook.sqlite */; };
 		8A59F34D1B14371800B15FA1 /* saints_07_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A59F34B1B14371800B15FA1 /* saints_07_en.sqlite */; };
 		8A59F34E1B14371800B15FA1 /* saints_07_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A59F34C1B14371800B15FA1 /* saints_07_en.txt */; };
 		8A5EE9DA2378383E0054F8B3 /* CalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5EE9D92378383E0054F8B3 /* CalendarWidget.swift */; };
 		8A60D18D1F8885040023CFAE /* newicon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A60D18C1F8885040023CFAE /* newicon_1024.png */; };
 		8A62E3702327916900C7C4C5 /* TypikaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A62E36F2327916900C7C4C5 /* TypikaModel.swift */; };
 		8A62E3722327A6EF00C7C4C5 /* typika_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A62E3712327A6EF00C7C4C5 /* typika_en.sqlite */; };
-		8A6366FC26FDF0C20030D1CB /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; };
-		8A6366FD26FDF0C20030D1CB /* swift_toolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8A6366FF26FDF0CD0030D1CB /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; };
-		8A63670026FDF0CD0030D1CB /* swift_toolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A638C5A1ECBF5AE00424A9E /* bg3@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A638C571ECBF5AE00424A9E /* bg3@2x.jpg */; };
 		8A638C5B1ECBF5AE00424A9E /* church@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A638C581ECBF5AE00424A9E /* church@2x.jpg */; };
 		8A638C651ECBF60F00424A9E /* DailyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C621ECBF60F00424A9E /* DailyTab.swift */; };
@@ -294,18 +293,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8A26439A270AB67E0097B4FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A6366F026FDE7A70030D1CB /* swift-toolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AB18EEA1F86360300F1A65C;
+			remoteInfo = "swift-toolkit";
+		};
 		8A6366F426FDE7A80030D1CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8A6366F026FDE7A70030D1CB /* swift-toolkit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 8AB18EEB1F86360300F1A65C;
-			remoteInfo = "swift-toolkit";
-		};
-		8A6366F626FDE7C50030D1CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A6366F026FDE7A70030D1CB /* swift-toolkit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8AB18EEA1F86360300F1A65C;
 			remoteInfo = "swift-toolkit";
 		};
 		8A6366F826FDE7C90030D1CB /* PBXContainerItemProxy */ = {
@@ -325,28 +324,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8A6366FE26FDF0C20030D1CB /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8A6366FD26FDF0C20030D1CB /* swift_toolkit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8A63670126FDF0CD0030D1CB /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8A63670026FDF0CD0030D1CB /* swift_toolkit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8A638C9C1ECC55CA00424A9E /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,6 +364,7 @@
 		8A4F2E6C22E6E7F70087A3F0 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		8A4F2E6E22E6E7FB0087A3F0 /* Squeal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Squeal.framework; path = Carthage/Build/iOS/Squeal.framework; sourceTree = "<group>"; };
 		8A540B671E6C296D00970420 /* newicon_167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_167.png; sourceTree = "<group>"; };
+		8A555131270B130700873474 /* vigil_hk_ebook.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = vigil_hk_ebook.sqlite; sourceTree = "<group>"; };
 		8A59F34B1B14371800B15FA1 /* saints_07_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_07_en.sqlite; sourceTree = "<group>"; };
 		8A59F34C1B14371800B15FA1 /* saints_07_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_07_en.txt; sourceTree = "<group>"; };
 		8A5EE9D92378383E0054F8B3 /* CalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWidget.swift; sourceTree = "<group>"; };
@@ -661,7 +639,7 @@
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
-				8A6366FC26FDF0C20030D1CB /* swift_toolkit.framework in Frameworks */,
+				8A26439E270AB6CE0097B4FF /* swift_toolkit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,7 +648,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */,
-				8A6366FF26FDF0CD0030D1CB /* swift_toolkit.framework in Frameworks */,
+				8A2643A0270AB7510097B4FF /* swift_toolkit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,6 +658,7 @@
 		8A429DCE2317CDEC00F4E5AB /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8A555131270B130700873474 /* vigil_hk_ebook.sqlite */,
 				8A66EBF227055E830015BCB7 /* vigil_en_ebook.sqlite */,
 				8A282D4E27033942009DDB6E /* liturgy_cn_ebook.sqlite */,
 				8AAE6B212702F1450029A14E /* liturgy_en_ebook.sqlite */,
@@ -1085,12 +1064,11 @@
 				8A74D7F5198F20CC0078F39F /* Resources */,
 				8A638C9C1ECC55CA00424A9E /* Embed App Extensions */,
 				8A4F2E7422E6E83A0087A3F0 /* ShellScript */,
-				8A6366FE26FDF0C20030D1CB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8A6366F726FDE7C50030D1CB /* PBXTargetDependency */,
+				8A26439B270AB67E0097B4FF /* PBXTargetDependency */,
 				8A638C9B1ECC55CA00424A9E /* PBXTargetDependency */,
 			);
 			name = ponomar;
@@ -1105,7 +1083,6 @@
 				8AB7499B1C4C7A3400CD1B32 /* Sources */,
 				8AB7499C1C4C7A3400CD1B32 /* Frameworks */,
 				8AB7499D1C4C7A3400CD1B32 /* Resources */,
-				8A63670126FDF0CD0030D1CB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1232,6 +1209,7 @@
 				8A9A3DE119D3AE2800A7D82A /* prayer_book_5_cn.html in Resources */,
 				8AE6FE911B70D60300FDAA47 /* saints_02_cn.txt in Resources */,
 				8A62E3722327A6EF00C7C4C5 /* typika_en.sqlite in Resources */,
+				8A555132270B130800873474 /* vigil_hk_ebook.sqlite in Resources */,
 				8A9A3DDF19D3AE2800A7D82A /* prayer_book_4_cn.html in Resources */,
 				8AF8C6F5230F8CE80020D5E5 /* rev_en.sqlite in Resources */,
 				8AFB8DEB1B1FDC12006715A3 /* saints_03_en.sqlite in Resources */,
@@ -1518,10 +1496,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8A6366F726FDE7C50030D1CB /* PBXTargetDependency */ = {
+		8A26439B270AB67E0097B4FF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "swift-toolkit";
-			targetProxy = 8A6366F626FDE7C50030D1CB /* PBXContainerItemProxy */;
+			targetProxy = 8A26439A270AB67E0097B4FF /* PBXContainerItemProxy */;
 		};
 		8A6366F926FDE7C90030D1CB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
