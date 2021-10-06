@@ -15,6 +15,7 @@ let books : [BookModel] =  [
     OldTestamentModel(lang: "cn"),
     NewTestamentModel(lang: "cn"),
     EbookModel("liturgy_en_ebook"),
+    EbookModel("liturgy_hk_ebook"),
     EbookModel("liturgy_cn_ebook"),
     EbookModel("vigil_en_ebook"),
     EbookModel("vigil_hk_ebook"),

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A03A719270D87A800C99AF7 /* liturgy_hk_ebook.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A03A718270D87A800C99AF7 /* liturgy_hk_ebook.sqlite */; };
 		8A06E66F1B187FC300925F63 /* saints_12_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A06E66D1B187FC300925F63 /* saints_12_en.sqlite */; };
 		8A06E6701B187FC300925F63 /* saints_12_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A06E66E1B187FC300925F63 /* saints_12_en.txt */; };
 		8A08D8D81B71D4DD00495BEB /* saints_03_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A08D8D61B71D4DD00495BEB /* saints_03_cn.sqlite */; };
@@ -339,6 +340,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8A03A718270D87A800C99AF7 /* liturgy_hk_ebook.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = liturgy_hk_ebook.sqlite; sourceTree = "<group>"; };
 		8A06E66D1B187FC300925F63 /* saints_12_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_12_en.sqlite; sourceTree = "<group>"; };
 		8A06E66E1B187FC300925F63 /* saints_12_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_12_en.txt; sourceTree = "<group>"; };
 		8A08D8D61B71D4DD00495BEB /* saints_03_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_03_cn.sqlite; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 		8A429DCE2317CDEC00F4E5AB /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8A03A718270D87A800C99AF7 /* liturgy_hk_ebook.sqlite */,
 				8AFEEB1E270C3DCA00A88FAE /* vigil_cn_ebook.sqlite */,
 				8A555131270B130700873474 /* vigil_hk_ebook.sqlite */,
 				8A66EBF227055E830015BCB7 /* vigil_en_ebook.sqlite */,
@@ -1201,6 +1204,7 @@
 				8A181E0F1B1D3C9A00D8C2FB /* saints_01_en.txt in Resources */,
 				8AB0DC971C27EFEC00C6A494 /* typica_3.plist in Resources */,
 				8AF8C719230F8CE80020D5E5 /* rom_en.sqlite in Resources */,
+				8A03A719270D87A800C99AF7 /* liturgy_hk_ebook.sqlite in Resources */,
 				8AE798B61B78321600E7F694 /* saints_08_cn.sqlite in Resources */,
 				8ABAFC461C0B0385008DB93C /* prayer_typica_0_cn.html in Resources */,
 				8AF8C6F6230F8CE80020D5E5 /* jer_en.sqlite in Resources */,
