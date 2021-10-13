@@ -20,18 +20,10 @@ let books : [BookModel] =  [
     EbookModel("vigil_en_ebook"),
     EbookModel("vigil_hk_ebook"),
     EbookModel("vigil_cn_ebook"),
+    EbookModel("prayerbook_en"),
+    EbookModel("prayerbook_cn"),
     TypikaModel.shared
 ]
-
-/*
-let books : [BookModel] = [BookmarksModel.shared,
-                           OldTestamentModel.shared,
-                           NewTestamentModel.shared,
-                           LiturgyModel.shared,
-                           EucharistModel.shared,
-                           TypikaModel.shared,
-                           PrayerbookModel.shared]
-*/
 
 class LibraryTab: UIViewController, ResizableTableViewCells  {
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
