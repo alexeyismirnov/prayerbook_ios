@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,10 +48,6 @@
 		8A1F2C981DD9B0F000F13A3D /* newicon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2C971DD9B0F000F13A3D /* newicon_1024.png */; };
 		8A1F2CB41DD9C18600F13A3D /* newicon_167.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2CB31DD9C18600F13A3D /* newicon_167.png */; };
 		8A2118B326C66BC6005E9CE1 /* ChurchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2118B226C66BC6005E9CE1 /* ChurchInfo.swift */; };
-		8A264392270AB4720097B4FF /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A01E42721957F59005BE65F /* Reachability.framework */; };
-		8A264395270AB4750097B4FF /* Zip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A01E42921957F60005BE65F /* Zip.framework */; };
-		8A2643A6270ABD200097B4FF /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A26438B270AADBD0097B4FF /* swift_toolkit.framework */; };
-		8A2643A9270ABD310097B4FF /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A26438B270AADBD0097B4FF /* swift_toolkit.framework */; };
 		8A2AE48D1FC2E19F00B30B53 /* CalendarWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
 		8A2F46AB19E145D200076AF4 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46AA19E145D200076AF4 /* Options.swift */; };
@@ -59,11 +55,22 @@
 		8A4D008426A6D44A00E355B2 /* zvezdinsky.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4D008326A6D44A00E355B2 /* zvezdinsky.sqlite */; };
 		8A54C42A1EA74CE90083AA2F /* DailyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C4291EA74CE90083AA2F /* DailyTab.swift */; };
 		8A54E3DB202857E900245C31 /* icons.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A54E3DA202857E900245C31 /* icons.sqlite */; };
-		8A560789219AC51C006E52F2 /* Squeal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A560788219AC51C006E52F2 /* Squeal.framework */; };
 		8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DE92E21958DF60006E046 /* DownloadView.swift */; };
+		8A5F461027111B820074FF20 /* Reachability.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460C27111B810074FF20 /* Reachability.xcframework */; };
+		8A5F461127111B820074FF20 /* Reachability.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460C27111B810074FF20 /* Reachability.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8A5F461227111B820074FF20 /* Chameleon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460D27111B810074FF20 /* Chameleon.xcframework */; };
+		8A5F461327111B820074FF20 /* Chameleon.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460D27111B810074FF20 /* Chameleon.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8A5F461427111B820074FF20 /* Zip.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460E27111B810074FF20 /* Zip.xcframework */; };
+		8A5F461527111B820074FF20 /* Zip.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460E27111B810074FF20 /* Zip.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8A5F461627111B820074FF20 /* Squeal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460F27111B810074FF20 /* Squeal.xcframework */; };
+		8A5F461727111B820074FF20 /* Squeal.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460F27111B810074FF20 /* Squeal.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A61BBA5202438CF003AA1BF /* saint.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A61BBA4202438CE003AA1BF /* saint.pdf */; };
 		8A61BBAD20246903003AA1BF /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC675431FED09CA00A9000C /* Chameleon.framework */; };
 		8A6AA11826A0366B00FA310C /* vigil.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A6AA11726A0366B00FA310C /* vigil.sqlite */; };
+		8A6D29122711435600973517 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A26438B270AADBD0097B4FF /* swift_toolkit.framework */; };
+		8A6D29132711435600973517 /* swift_toolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A26438B270AADBD0097B4FF /* swift_toolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8A6D29142711435C00973517 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A26438B270AADBD0097B4FF /* swift_toolkit.framework */; };
+		8A6D29152711435C00973517 /* swift_toolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A26438B270AADBD0097B4FF /* swift_toolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A6D780626C6288000C452FD /* ChurchTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6D780526C6288000C452FD /* ChurchTab.swift */; };
 		8A6F7E9722A137D2006FD639 /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */; };
 		8A6F7E9922A13A85006FD639 /* launch_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9822A13A85006FD639 /* launch_icon.png */; };
@@ -275,6 +282,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		8A5F461827111B820074FF20 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8A5F461727111B820074FF20 /* Squeal.xcframework in Embed Frameworks */,
+				8A5F461327111B820074FF20 /* Chameleon.xcframework in Embed Frameworks */,
+				8A5F461527111B820074FF20 /* Zip.xcframework in Embed Frameworks */,
+				8A5F461127111B820074FF20 /* Reachability.xcframework in Embed Frameworks */,
+				8A6D29132711435600973517 /* swift_toolkit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A6D29162711435D00973517 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8A6D29152711435C00973517 /* swift_toolkit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8AB749B41C4C7A3500CD1B32 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -348,6 +381,10 @@
 		8A54E3DA202857E900245C31 /* icons.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.sqlite; sourceTree = "<group>"; };
 		8A560788219AC51C006E52F2 /* Squeal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Squeal.framework; path = Carthage/Build/iOS/Squeal.framework; sourceTree = "<group>"; };
 		8A5DE92E21958DF60006E046 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
+		8A5F460C27111B810074FF20 /* Reachability.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Reachability.xcframework; path = Carthage/Build/Reachability.xcframework; sourceTree = "<group>"; };
+		8A5F460D27111B810074FF20 /* Chameleon.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Chameleon.xcframework; path = Carthage/Build/Chameleon.xcframework; sourceTree = "<group>"; };
+		8A5F460E27111B810074FF20 /* Zip.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Zip.xcframework; path = Carthage/Build/Zip.xcframework; sourceTree = "<group>"; };
+		8A5F460F27111B810074FF20 /* Squeal.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Squeal.xcframework; path = Carthage/Build/Squeal.xcframework; sourceTree = "<group>"; };
 		8A61BBA4202438CE003AA1BF /* saint.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = saint.pdf; sourceTree = "<group>"; };
 		8A6AA11726A0366B00FA310C /* vigil.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = vigil.sqlite; sourceTree = "<group>"; };
 		8A6D780526C6288000C452FD /* ChurchTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchTab.swift; sourceTree = "<group>"; };
@@ -543,15 +580,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A5F461627111B820074FF20 /* Squeal.xcframework in Frameworks */,
+				8A6D29122711435600973517 /* swift_toolkit.framework in Frameworks */,
 				8A916D8722575EA7003FEF70 /* WebKit.framework in Frameworks */,
 				8A61BBAD20246903003AA1BF /* Chameleon.framework in Frameworks */,
-				8A560789219AC51C006E52F2 /* Squeal.framework in Frameworks */,
 				8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */,
-				8A2643A6270ABD200097B4FF /* swift_toolkit.framework in Frameworks */,
-				8A264395270AB4750097B4FF /* Zip.framework in Frameworks */,
+				8A5F461427111B820074FF20 /* Zip.xcframework in Frameworks */,
+				8A5F461227111B820074FF20 /* Chameleon.xcframework in Frameworks */,
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
-				8A264392270AB4720097B4FF /* Reachability.framework in Frameworks */,
+				8A5F461027111B820074FF20 /* Reachability.xcframework in Frameworks */,
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
 				8A00E9D226C7952700E3CF6E /* StoreKit.framework in Frameworks */,
 			);
@@ -562,7 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */,
-				8A2643A9270ABD310097B4FF /* swift_toolkit.framework in Frameworks */,
+				8A6D29142711435C00973517 /* swift_toolkit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,6 +655,10 @@
 		8A74D7F9198F20CC0078F39F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A5F460D27111B810074FF20 /* Chameleon.xcframework */,
+				8A5F460C27111B810074FF20 /* Reachability.xcframework */,
+				8A5F460F27111B810074FF20 /* Squeal.xcframework */,
+				8A5F460E27111B810074FF20 /* Zip.xcframework */,
 				8A00E9D126C7952700E3CF6E /* StoreKit.framework */,
 				8A916D8622575EA7003FEF70 /* WebKit.framework */,
 				8A560788219AC51C006E52F2 /* Squeal.framework */,
@@ -914,6 +956,7 @@
 				8A74D7F5198F20CC0078F39F /* Resources */,
 				8AB749B41C4C7A3500CD1B32 /* Embed App Extensions */,
 				8A392ED11FC4323F0051C6E6 /* Run Script */,
+				8A5F461827111B820074FF20 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -934,6 +977,7 @@
 				8AB7499C1C4C7A3400CD1B32 /* Frameworks */,
 				8AB7499D1C4C7A3400CD1B32 /* Resources */,
 				8A392ECF1FC431290051C6E6 /* ShellScript */,
+				8A6D29162711435D00973517 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1252,10 +1296,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Chameleon.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Reachability.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Zip.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Squeal.framework",
 			);
 			name = "Run Script";
 			outputPaths = (
@@ -1408,7 +1448,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1437,7 +1478,10 @@
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 5.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1481,7 +1525,10 @@
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 5.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1520,7 +1567,11 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 5.0.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru.CalendarWidget";
@@ -1552,7 +1603,11 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 5.0.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru.CalendarWidget";
