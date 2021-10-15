@@ -17,7 +17,8 @@ class SaintTropariaModel : BookModel {
     var contentType: BookContentType = .text
     
     var title = ""
-    
+    var author: String?
+
     var hasChapters = false
     var hasDate = false
     var date: Date = Date()

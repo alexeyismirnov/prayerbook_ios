@@ -31,6 +31,7 @@ class TypikaModel : BookModel {
         get { return Translate.s("Typika Reader Service") }
     }
     
+    var author: String?
     var contentType: BookContentType = .html
     
     var hasChapters = false

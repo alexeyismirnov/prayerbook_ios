@@ -13,6 +13,8 @@ import Squeal
 class FeofanModel : BookModel {
     var code: String = "Feofan"
     var title = ""
+    var author: String?
+    
     var contentType: BookContentType = .text
     var lang = Translate.language
 

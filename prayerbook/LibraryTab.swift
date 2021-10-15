@@ -65,6 +65,11 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
         return sections[section]
     }
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = Theme.textColor
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return books[section].count
     }
@@ -79,8 +84,10 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return getTextDetailsCell(title: books[indexPath.section][indexPath.row].title,
-                                  subtitle: "",
-                                  lang: books[indexPath.section][indexPath.row].lang)
+                                  subtitle: books[indexPath.section][indexPath.row].author ?? "",
+                                  lang: books[indexPath.section][indexPath.row].lang,
+                                  flipped: true
+        )
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
