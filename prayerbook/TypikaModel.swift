@@ -15,7 +15,8 @@ class TypikaModel : BookModel {
     var lang = Translate.language
 
     var code: String = "Typika"
-    
+    var author: String?
+
     var title: String {
         get { return Translate.s("Typika Reader Service") }
     }

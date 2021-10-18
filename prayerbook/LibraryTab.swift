@@ -9,18 +9,24 @@
 import UIKit
 import swift_toolkit
 
-let books : [BookModel] =  [
+let books_en : [BookModel] =  [
+    BookmarksModel.shared,
     OldTestamentModel(lang: "en"),
     NewTestamentModel(lang: "en"),
+    EbookModel("vigil_en_ebook"),
+    EbookModel("liturgy_en_ebook"),
+    EbookModel("prayerbook_en"),
+    TypikaModel.shared
+]
+
+let books_cn : [BookModel] =  [
+    BookmarksModel.shared,
     OldTestamentModel(lang: "cn"),
     NewTestamentModel(lang: "cn"),
-    EbookModel("liturgy_en_ebook"),
-    EbookModel("liturgy_hk_ebook"),
-    EbookModel("liturgy_cn_ebook"),
-    EbookModel("vigil_en_ebook"),
-    EbookModel("vigil_hk_ebook"),
+    // EbookModel("vigil_hk_ebook"),
     EbookModel("vigil_cn_ebook"),
-    EbookModel("prayerbook_en"),
+    // EbookModel("liturgy_hk_ebook"),
+    EbookModel("liturgy_cn_ebook"),
     EbookModel("prayerbook_cn"),
     TypikaModel.shared
 ]
@@ -29,12 +35,11 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     var tableView: UITableView!
     var selectedModel : BookModel!
+    var books : [BookModel]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        BookmarksModel.books = books
-        
+                
         createTableView(style: .grouped)
         tableView.contentInset = UIEdgeInsets(top: -30, left: 0, bottom: 0, right: 0)
         
@@ -47,6 +52,11 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     }
     
     @objc func reloadTheme() {
+        title = Translate.s("Library")
+
+        books = Translate.language == "en" ? books_en : books_cn
+        BookmarksModel.books = books
+        
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor
             
@@ -55,7 +65,6 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
         }
         
         tableView.reloadData()
-        title = Translate.s("Library")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
