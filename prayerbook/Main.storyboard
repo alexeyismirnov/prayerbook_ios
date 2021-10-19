@@ -309,7 +309,7 @@
         <!--Church Tab-->
         <scene sceneID="gAL-jc-tJ4">
             <objects>
-                <viewController id="Paq-wV-McO" customClass="ChurchTab" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Paq-wV-McO" customClass="ChurchTab" customModule="swift_toolkit" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eZP-12-dVI"/>
                         <viewControllerLayoutGuide type="bottom" id="Nyb-Lp-1Np"/>
@@ -344,7 +344,7 @@
         <!--Church Info-->
         <scene sceneID="GSW-Lq-d7u">
             <objects>
-                <tableViewController id="9vK-RK-2gC" customClass="ChurchInfo" customModule="ponomar" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="9vK-RK-2gC" customClass="ChurchInfo" customModule="swift_toolkit" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="iJR-cp-G4P">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="954"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
