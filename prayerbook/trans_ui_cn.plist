@@ -96,5 +96,30 @@
     <string>%d年正教日历</string>
     <key>From %@ till %@ — %@</key>
     <string>从%@至%@：%@</string>
+    <key>Church</key>
+    <string>东正教堂</string>
+    <key>Donation</key>
+    <string>捐献</string>
+    <key>Thanks for your donation</key>
+    <string>感谢您的捐赠</string>
+    <key>Copied to clipboard</key>
+    <string>复制到剪贴板</string>
+    <key>Donate %@</key>
+    <string>捐獻 %@</string>
+    <key>Any amount...</key>
+    <string>任何金额...</string>
+    <key>Install app</key>
+    <string>   安裝程式</string>
+    <key>Orthodox Church in Hong Kong</key>
+    <string>香港圣彼得圣保罗教堂</string>
+    <key>church_info</key>
+    <string>香港圣彼得圣保罗教堂于1934年建立。首位主任司祭为德米特里．乌斯本斯基大司祭。此堂区存至德米特里大司祭于1970年离世之时。 2003年夏，迟秋农司祭抵港，恢复了常规的教会礼拜。
+    </string>
+    <key>app_info</key>
+    <string>请查阅我们新的流动应用程式「Orthodox Church in Hong Kong」。各位可以透过此程式查阅礼拜时间表、最新消息、以及提交代祷讯息。
+    </string>
+    <key>donation_info</key>
+    <string>我们需要你们的协助去继续发展此程式。你们可以按以下按钮进行捐献。愿上帝赐福予你们！
+    </string>
 </dict>
 </plist>

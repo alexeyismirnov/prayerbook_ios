@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   trans_ui_en.plist
+   prayerbook
+
+   Created by Alexey Smirnov on 10/19/21.
+   Copyright (c) 2021 Alexey Smirnov. All rights reserved.
+-->
+<plist version="1.0">
+<dict>
+    <key>Orthodox Church in Hong Kong</key>
+    <string>Sts. App. Peter and Paul Orthodox Church in Hong Kong </string>
+    <key>church_info</key>
+    <string>Saint Apostles Peter and Paul Orthodox Church of Hong Kong was opened in 1934. The first rector of the church was Archpriest Dmitry Uspensky. The parish existed until his death in 1970. In the summer of 2003, Fr. Dionisy Pozdnyaev arrived to Hong Kong, and regular church services were resumed.
+    </string>
+    <key>app_info</key>
+    <string>Please check out our new mobile app: “Orthodox Church in Hong Kong”. With this app, you can find out service schedule, check latest news, and send a prayer note.
+    </string>
+    <key>donation_info</key>
+    <string>To continue developing mobile apps for the church, we need your help. Please donate any amount using the buttons below. May God bless you!
+    </string>
+    <key>Install app</key>
+    <string>   Install "Church" app</string>
+</dict>
+</plist>

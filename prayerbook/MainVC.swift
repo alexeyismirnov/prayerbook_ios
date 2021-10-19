@@ -29,6 +29,7 @@ class MainVC: UITabBarControllerAnimated {
         if let controllers = viewControllers  {
             (controllers[0] as! UINavigationController).title = Translate.s("Daily")
             (controllers[1] as! UINavigationController).title = Translate.s("Library")
+            (controllers[2] as! UINavigationController).title = Translate.s("Church")
         }
     }
 }
