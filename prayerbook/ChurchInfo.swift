@@ -32,11 +32,19 @@ class ChurchInfo: UITableViewController {
     @IBOutlet weak var donationButton3: UIButton!
     @IBOutlet weak var donationButtonOther: UIButton!
     
-    static let productIds: Set<ProductIdentifier> = ["calendar_ru1", "calendar_ru2", "calendar_ru3"]
-    let store = IAPHelper(productIds: ChurchInfo.productIds)
+    var productIds = Set<ProductIdentifier>()
+    var store: IAPHelper!
     var products: [SKProduct] = []
 
     override func viewDidLoad() {
+        if Translate.language == "ru" {
+            productIds = ["calendar_ru1", "calendar_ru2", "calendar_ru3"]
+        } else {
+            productIds = ["calendar_en1", "calendar_en2", "calendar_en3"]
+        }
+        
+        store = IAPHelper(productIds: productIds)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .themeChangedNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(purchaseComplete), name: .IAPHelperPurchaseNotification, object: nil)
 
