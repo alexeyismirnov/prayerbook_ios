@@ -12,13 +12,18 @@ import swift_toolkit
 public class ChurchDonation: UIViewController, ResizableTableViewCells, PopupContentViewController {
     public var tableView: UITableView!
     
-    let items = [("Тинькофф", "+7 (903) 104-27-94"),
-                 ("Paypal", "church@orthodoxy.hk"),
+    var items = [("Paypal", "church@orthodoxy.hk"),
                  ("Bitcoin", "3QzG3dooTfQ7fGctwirZJyJcqxMF3YSoKR"),
                  ("WeChat", "frdionisy")]
 
     public init() {
         super.init(nibName: nil, bundle: nil)
+        
+        if Translate.language == "ru" {
+            items.insert(("Тинькофф", "+7 (903) 104-27-94"), at: 0)
+        } else {
+            items.insert(("Alipay", "+852 94385021"), at: 0)
+        }
     }
         
     required public init?(coder aDecoder: NSCoder) {

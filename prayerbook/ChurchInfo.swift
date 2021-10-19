@@ -48,6 +48,9 @@ class ChurchInfo: UITableViewController {
         makeRoundedCorners(donationButton2)
         makeRoundedCorners(donationButton3)
         makeRoundedCorners(donationButtonOther)
+        
+        donationButtonOther.setTitle(Translate.s("Any amount..."), for: .normal)
+        appButton.setTitle(Translate.s("Install app"), for: .normal)
 
         loadProducts()
         reload()
@@ -93,11 +96,16 @@ class ChurchInfo: UITableViewController {
             for p in self.products {
                 print("Found product: \(p.productIdentifier) \(p.localizedTitle) \(p.price.intValue)")
             }
-            
+                          
             DispatchQueue.main.async {
-                self.donationButton1.setTitle("Пожертвовать \(self.products[0].localizedPrice)", for: .normal)
-                self.donationButton2.setTitle("Пожертвовать \(self.products[1].localizedPrice)", for: .normal)
-                self.donationButton3.setTitle("Пожертвовать \(self.products[2].localizedPrice)", for: .normal)
+                self.donationButton1.setTitle(String(format: Translate.s("Donate %@"), self.products[0].localizedPrice),
+                                              for: .normal)
+                
+                self.donationButton2.setTitle(String(format: Translate.s("Donate %@"), self.products[1].localizedPrice),
+                                              for: .normal)
+                
+                self.donationButton3.setTitle(String(format: Translate.s("Donate %@"), self.products[2].localizedPrice),
+                                              for: .normal)
 
                 self.donationButton1.isHidden = false
                 self.donationButton2.isHidden = false
@@ -126,6 +134,7 @@ class ChurchInfo: UITableViewController {
     
     @objc func reload() {
         label1.textColor = Theme.textColor
+        label2.text = Translate.s("Orthodox Church in Hong Kong")
 
         label2.textColor = Theme.textColor
         label2.text = Translate.s("church_info")
