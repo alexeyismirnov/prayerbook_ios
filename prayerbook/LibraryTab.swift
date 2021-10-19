@@ -16,7 +16,8 @@ let books_en : [BookModel] =  [
     EbookModel("vigil_en_ebook"),
     EbookModel("liturgy_en_ebook"),
     EbookModel("prayerbook_en"),
-    TypikaModel.shared
+    TypikaModel.shared,
+    EbookModel("sokolovski"),
 ]
 
 let books_cn : [BookModel] =  [
@@ -76,7 +77,9 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return getTextDetailsCell(title: books[indexPath.row].title, subtitle: "")
+        return getTextDetailsCell(title: books[indexPath.row].title,
+                                  subtitle: books[indexPath.row].author ?? "",
+                                  flipped: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
