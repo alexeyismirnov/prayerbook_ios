@@ -86,6 +86,8 @@
     <string>礼仪日期</string>
     <key>Calendar</key>
     <string>正教日历</string>
+    <key>Today</key>
+    <string>今天</string>
     <key>Weekly</key>
     <string>周历</string>
     <key>Monthly</key>
