@@ -57,11 +57,9 @@ class YearCalendarContainer: UIViewControllerAnimated {
         navigationItem.leftBarButtonItem = backButton
         
         let shareButton = UIBarButtonItem(image: UIImage(named: "share", in: toolkit), style: .plain, target: self, action: #selector(share))
-
         navigationItem.rightBarButtonItem = shareButton
         
         navigationController?.makeTransparent()
-        automaticallyAdjustsScrollViewInsets = false
         
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor

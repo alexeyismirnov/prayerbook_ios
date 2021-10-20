@@ -442,11 +442,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             let image_info = UIImage(named: "help", in: self.toolkit)!.withRenderingMode(.alwaysOriginal)
             let button_info = UIBarButtonItem(image: image_info, style: .plain, target: self, action: #selector(self.showInfo))
             
-            let image_today = UIImage(named: "today", in: self.toolkit)!.withRenderingMode(.alwaysOriginal)
-            let button_today = UIBarButtonItem(image: image_today, style: .plain, target: self, action: #selector(self.showToday))
-            
             let container = UIViewController.named("CalendarContainer", bundle: self.toolkit) as! CalendarNavigation
-            container.leftButton = button_today
             container.rightButton = button_info
             container.initialDate = self.currentDate
             self.showPopup(container)
@@ -457,7 +453,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         UIViewController.popup.dismiss({
             let vc = YearCalendarContainer()
             let nav = UINavigationController(rootViewController: vc)
-            
+                        
             self.navigationController?.present(nav, animated: true, completion: {})
         })
         
