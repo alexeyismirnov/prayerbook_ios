@@ -14,7 +14,7 @@ import swift_toolkit
 class CalendarWidget : CalendarWidgetViewController {
     override func viewDidLoad() {
         AppGroup.id = "group.rlc.ponomar"
-        Translate.files = ["trans_ui_cn", "trans_cal_cn", "trans_library_cn"]
+        Translate.files = ["trans_ui_en", "trans_ui_cn", "trans_cal_cn", "trans_library_cn"]
 
         super.viewDidLoad()
     }
