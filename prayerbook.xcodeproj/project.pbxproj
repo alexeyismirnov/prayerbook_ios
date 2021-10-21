@@ -27,7 +27,6 @@
 		8A3E2B44271AABCB005DB2BA /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; };
 		8A3E2B45271AABCB005DB2BA /* swift_toolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A3E2B46271AABD2005DB2BA /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; };
-		8A3E2B47271AABD2005DB2BA /* swift_toolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A42D4B0271E668C00AE8E13 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A42D4AF271E668C00AE8E13 /* StoreKit.framework */; };
 		8A466ADA2349C2D9004B00A3 /* YearCalendarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A466AD92349C2D9004B00A3 /* YearCalendarContainer.swift */; };
 		8A540B681E6C296D00970420 /* newicon_167.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A540B671E6C296D00970420 /* newicon_167.png */; };
@@ -61,8 +60,6 @@
 		8A8E99A81B76F342006B6377 /* saints_04_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E99A61B76F342006B6377 /* saints_04_cn.txt */; };
 		8A8E99AB1B76F8E3006B6377 /* saints_05_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E99A91B76F8E3006B6377 /* saints_05_cn.sqlite */; };
 		8A8E99AC1B76F8E3006B6377 /* saints_05_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E99AA1B76F8E3006B6377 /* saints_05_cn.txt */; };
-		8A96FE182720405C00266248 /* Squeal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE084862716D36800615F5E /* Squeal.xcframework */; };
-		8A96FE192720405C00266248 /* Squeal.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE084862716D36800615F5E /* Squeal.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8AA3DF501B1847D700507129 /* saints_08_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3DF4C1B1847D700507129 /* saints_08_en.sqlite */; };
 		8AA3DF511B1847D700507129 /* saints_08_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3DF4D1B1847D700507129 /* saints_08_en.txt */; };
 		8AA3DF521B1847D700507129 /* saints_09_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3DF4E1B1847D700507129 /* saints_09_en.sqlite */; };
@@ -310,18 +307,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8A3E2B48271AABD2005DB2BA /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8A96FE192720405C00266248 /* Squeal.xcframework in Embed Frameworks */,
-				8A3E2B47271AABD2005DB2BA /* swift_toolkit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8A638C9C1ECC55CA00424A9E /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -641,7 +626,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A96FE182720405C00266248 /* Squeal.xcframework in Frameworks */,
 				8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */,
 				8A3E2B46271AABD2005DB2BA /* swift_toolkit.framework in Frameworks */,
 			);
@@ -1053,7 +1037,6 @@
 				8AB7499B1C4C7A3400CD1B32 /* Sources */,
 				8AB7499C1C4C7A3400CD1B32 /* Frameworks */,
 				8AB7499D1C4C7A3400CD1B32 /* Resources */,
-				8A3E2B48271AABD2005DB2BA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1559,7 +1542,7 @@
 				CODE_SIGN_ENTITLEMENTS = ponomar.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -1600,7 +1583,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -1636,7 +1619,7 @@
 				CODE_SIGN_ENTITLEMENTS = CalendarWidget/CalendarWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1674,7 +1657,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
