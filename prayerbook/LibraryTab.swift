@@ -52,6 +52,11 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
         reloadTheme()
     }
     
+    override public func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.setToolbarHidden(true, animated: false)
+    }
+    
     @objc func reloadTheme() {
         title = Translate.s("Library")
 
