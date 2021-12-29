@@ -68,7 +68,6 @@
 		8A6D29122711435600973517 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A26438B270AADBD0097B4FF /* swift_toolkit.framework */; };
 		8A6D29132711435600973517 /* swift_toolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A26438B270AADBD0097B4FF /* swift_toolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A6D29142711435C00973517 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A26438B270AADBD0097B4FF /* swift_toolkit.framework */; };
-		8A6D29152711435C00973517 /* swift_toolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A26438B270AADBD0097B4FF /* swift_toolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A6F7E9722A137D2006FD639 /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */; };
 		8A6F7E9922A13A85006FD639 /* launch_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9822A13A85006FD639 /* launch_icon.png */; };
 		8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FA198F20CC0078F39F /* Foundation.framework */; };
@@ -299,7 +298,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8A6D29152711435C00973517 /* swift_toolkit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;

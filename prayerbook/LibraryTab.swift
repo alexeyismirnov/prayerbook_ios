@@ -45,6 +45,11 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
         reloadTheme()
     }
     
+    override public func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.setToolbarHidden(true, animated: false)
+    }
+    
     @objc func reloadTheme() {
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor
