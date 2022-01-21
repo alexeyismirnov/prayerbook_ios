@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>pascha</key>
+    <string>Светлое Христово Воскресение. Пасха</string>
+    <key>pentecost</key>
+    <string>Пятидесятница. День Святой Троицы</string>
+    <key>ascension</key>
+    <string>Вознесение Господне</string>
+    <key>palmSunday</key>
+    <string>Неделя ваий (цветоносная, Вербное воскресенье). Вход Господень в Иерусалим</string>
+    <key>nativityOfGod</key>
+    <string>Рождество Христово</string>
+    <key>theophany</key>
+    <string>Святое Богоявление. Крещение Господа Бога и Спаса нашего Иисуса Христа</string>
+    <key>meetingOfLord</key>
+    <string>Сретение Господне</string>
+    <key>annunciation</key>
+    <string>Благовещение Пресвятой Богородицы</string>
+    <key>peterAndPaul</key>
+    <string>Славных и всехвальных первоверховных апостолов Петра и Павла (ок. 67)</string>
+    <key>transfiguration</key>
+    <string>Преображение Господне</string>
+    <key>dormition</key>
+    <string>Успение Пресвятой Богородицы</string>
+    <key>nativityOfTheotokos</key>
+    <string>Рождество Пресвятой Богородицы</string>
+    <key>exaltationOfCross</key>
+    <string>Воздвижение Честного Креста Господня</string>
+    <key>entryIntoTemple</key>
+    <string>Введение во храм Пресвятой Богородицы</string>
+    <key>circumcision</key>
+    <string>Обрезание Господне</string>
+    <key>veilOfTheotokos</key>
+    <string>Покров Пресвятой Богородицы</string>
+    <key>nativityOfJohn</key>
+    <string>Рождество честного славного Пророка, Предтечи и Крестителя Господня Иоанна</string>
+    <key>beheadingOfJohn</key>
+    <string>Усекновение главы Пророка, Предтечи и Крестителя Господня Иоанна</string>
+    <key>eveOfNativityOfGod</key>
+    <string>Рождественский сочельник</string>
+    <key>eveOfTheophany</key>
+    <string>Крещенский сочельник</string>
+    <key>sundayOfPublicianAndPharisee</key>
+    <string>Неделя о мытаре и фарисее</string>
+    <key>sundayOfProdigalSon</key>
+    <string>Неделя о блуднем сыне</string>
+    <key>sundayOfDreadJudgement</key>
+    <string>Неделя мясопустная (о страшнем суде)</string>
+    <key>cheesefareSunday</key>
+    <string>Неделя сыропустная. Воспоминание Адамова изгнания. Прощеное воскресенье</string>
+    <key>beginningOfGreatLent</key>
+    <string>Начало Великого поста</string>
+    <key>beginningOfDormitionFast</key>
+    <string>Начало Успенского поста</string>
+    <key>beginningOfNativityFast</key>
+    <string>Начало Рождественского поста</string>
+    <key>beginningOfApostlesFast</key>
+    <string>Начало Петрова поста</string>
+    <key>sundayOfForefathers</key>
+    <string>Неделя святых праотцев</string>
+    <key>saturdayBeforeNativity</key>
+    <string>Суббота пред Рождеством Христовым</string>
+    <key>sundayBeforeNativity</key>
+    <string>Неделя пред Рождеством Христовым, святых отцев</string>
+    <key>saturdayAfterNativity</key>
+    <string>Суббота по Рождестве Христовом</string>
+    <key>sundayAfterNativity</key>
+    <string>Неделя по Рождестве Христовом</string>
+    <key>saturdayBeforeExaltation</key>
+    <string>Суббота пред Воздвижением</string>
+    <key>sundayBeforeExaltation</key>
+    <string>Неделя пред Воздвижением</string>
+    <key>saturdayAfterExaltation</key>
+    <string>Суббота по Воздвижении</string>
+    <key>sundayAfterExaltation</key>
+    <string>Неделя по Воздвижении</string>
+    <key>saturdayBeforeTheophany</key>
+    <string>Saturday before Theophany</string>
+    <key>sundayBeforeTheophany</key>
+    <string>Неделя пред Богоявлением</string>
+    <key>saturdayAfterTheophany</key>
+    <string>Суббота по Богоявлении</string>
+    <key>sundayAfterTheophany</key>
+    <string>Неделя по Богоявлении</string>
+    <key>saturday1GreatLent</key>
+    <string>Вмч. Феодора Тирона (306)</string>
+    <key>sunday1GreatLent</key>
+    <string>Торжество православия</string>
+    <key>saturday2GreatLent</key>
+    <string>Поминовение усопших</string>
+    <key>sunday2GreatLent</key>
+    <string>Свт. Григория Паламы, архиеп. Фессалонитского (ок. 1360)</string>
+    <key>saturday3GreatLent</key>
+    <string>Поминовение усопших</string>
+    <key>sunday3GreatLent</key>
+    <string>Поклонение Кресту</string>
+    <key>saturday4GreatLent</key>
+    <string>Поминовение усопших</string>
+    <key>sunday4GreatLent</key>
+    <string>Прп. Иоанна Лествичника (649)</string>
+    <key>thursday5GreatLent</key>
+    <string>Четверток Великого канона (Мариино стояние)</string>
+    <key>saturday5GreatLent</key>
+    <string>Похвала Пресвятой Богородицы (Суббота Акафиста)</string>
+    <key>sunday5GreatLent</key>
+    <string>Прп. Марии Египетской (522)</string>
+    <key>lazarusSaturday</key>
+    <string>Суббота ваий (Лазарева)</string>
+    <key>greatMonday</key>
+    <string>Великий понедельник</string>
+    <key>greatTuesday</key>
+    <string>Великий вторник</string>
+    <key>greatWednesday</key>
+    <string>Великая среда</string>
+    <key>greatThursday</key>
+    <string>Великий четверг. Воспоминание Тайной Вечери</string>
+    <key>greatFriday</key>
+    <string>Великая пятница. Воспоминание Святых спасительных Страстей Господа нашего Иисуса Христа</string>
+    <key>greatSaturday</key>
+    <string>Великая Суббота</string>
+    <key>sunday2AfterPascha</key>
+    <string>Неделя 2-я по Пасхе, Фомина. Антипасха. Воспоминание уверения ап. Фомы</string>
+    <key>sunday3AfterPascha</key>
+    <string>Неделя 3-я по Пасхе, Свв. жен мироносиц</string>
+    <key>sunday4AfterPascha</key>
+    <string>Неделя 4-я по Пасхе, о расслабленом</string>
+    <key>sunday5AfterPascha</key>
+    <string>Неделя 5-я по Пасхе, о самаряныне</string>
+    <key>sunday6AfterPascha</key>
+    <string>Неделя 6-я по Пасхе, о слепом</string>
+    <key>sunday7AfterPascha</key>
+    <string>Неделя 7-я по Пасхе. Воспоминание свв. отцев Первого Вселенского Собора (325)</string>
+    <key>radonitsa</key>
+    <string>Радоница (поминовение усопших)</string>
+    <key>midPentecost</key>
+    <string>Преполовение Пятидесятницы</string>
+    <key>saturdayTrinity</key>
+    <string>Троицкая родительская суббота</string>
+    <key>holySpirit</key>
+    <string>День Святого Духа</string>
+    <key>sunday1AfterPentecost</key>
+    <string>Всех святых</string>
+    <key>sunday2AfterPentecost</key>
+    <string>Всех святых в земле Российской просиявших</string>
+    <key>saturdayOfDeparted</key>
+    <string>Вселенская родительская суббота</string>
+    <key>saturdayOfFathers</key>
+    <string>Commemoration of all the saints, who showed forth in asceticism</string>
+    <key>demetriusSaturday</key>
+    <string>Димитриевская родительская суббота</string>
+    <key>killedInAction</key>
+    <string>Поминовение усопших воинов</string>
+    <key>newMartyrsConfessorsOfRussia</key>
+    <string>Собор новомучеников и исповедников Российских</string>
+    <key>josephBetrothed</key>
+    <string>Правв. Иосифа Обручника, Давида Царя, и Иакова брата Господня</string>
+    <key>holyFathersSixCouncils</key>
+    <string>Память свв. отцев шести Вселенских Соборов</string>
+    <key>holyFathersSeventhCouncil</key>
+    <string>Память святых отцев VII Вселенского собора</string>
+    <key>synaxisKievCavesSaints</key>
+    <string>Собор всех преподобных отцов Киево-Печерских</string>
+    <key>synaxisMartyrsButovo</key>
+    <string>Собор новомучеников, в Бутове пострадавших</string>
+    <key>synaxisMountAthosSaints</key>
+    <string>Всех преподобных и Богоносных отцев, во Святой Горе Афонской просиявших</string>
+    <key>synaxisMoscowSaints</key>
+    <string>Собор Московских святых</string>
+    <key>synaxisNizhnyNovgorodSaints</key>
+    <string>Собор Нижегородских святых</string>
+    <key>josephArimathea</key>
+    <string>Иосифа Аримафейского и Никодима</string>
+    <key>tamaraGeorgia</key>
+    <string>Блгв. Тамары, царицы Грузинской (1213)</string>
+    <key>abrahamBulgar</key>
+    <string>Перенесение мощей мч. Авраамия Болгарского (1230)</string>
+    <key>tabithaJoppa</key>
+    <string>Прав. Тавифы (I)</string>
+    <key>iveronTheotokos</key>
+    <string>Иверской иконы Божией Матери</string>
+    <key>springTheotokos</key>
+    <string>Иконы Божией Матери «Живоносный Источник»</string>
+    <key>mozdokTheotokos</key>
+    <string>Моздокской и Дубенской-Красногорской (XVII) икон Божией Матери</string>
+    <key>chelnskoyTheotokos</key>
+    <string>Челнской и Псково-Печерской, именуемой «Умиление» икон Божией Матери</string>
+    <key>tupichevskTheotokos</key>
+    <string>Тупичевской и Кипрской икон Божией Матери</string>
+    <key>koretsTheotokos</key>
+    <string>Иконы Божией Матери «Споручница грешных» Корецкая</string>
+    <key>softenerTheotokos</key>
+    <string>Икон Божией Матери: «Умягчение злых сердец» и «Нерушимая Стена»</string>
+</dict>
+</plist>
