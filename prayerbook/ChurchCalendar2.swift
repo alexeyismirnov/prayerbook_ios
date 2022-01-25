@@ -66,6 +66,7 @@ public class ChurchCalendar2 {
         initGreatLent()
         initSatSun()
         initMisc()
+        initBeforeAfterFeasts()
     }
     
     func initDays() {
@@ -302,6 +303,103 @@ public class ChurchCalendar2 {
         days.append(ChurchDay("tupichevskTheotokos", .none, date: pentecost+1.days))
         days.append(ChurchDay("koretsTheotokos", .none, date: pentecost+4.days))
         days.append(ChurchDay("softenerTheotokos", .none, date: pentecost+7.days))
+    }
+    
+    func generateBeforeAfter(feast: String,
+                             daysBefore: Int = 0, signBefore: FeastType = .noSign,
+                             daysAfter: Int = 0, signAfter: FeastType = .noSign,
+                             signApodosis: FeastType = .doxology) {
+        
+        let date = d(feast)
+        let eve1 = d("eveOfNativityOfGod")
+        let eve2 = d("eveOfTheophany")
+
+        if daysBefore > 0 {
+            for forefeast in DateRange(date-daysBefore.days, date-1.days) {
+                if forefeast != eve1 && forefeast != eve2 {
+                    days.append(ChurchDay("forefeast_\(feast)", signBefore, date: forefeast))
+                }
+            }
+        }
+        
+        if daysAfter > 0 {
+            for afterfeast in DateRange(date+1.days, date+daysAfter.days) {
+                days.append(ChurchDay("afterfeast_\(feast)", signAfter, date: afterfeast))
+            }
+        }
+        
+        days.append(ChurchDay("apodosis_\(feast)", signApodosis, date: date+(daysAfter+1).days))
+
+    }
+    
+    func initBeforeAfterFeasts() {
+        days.append(ChurchDay("apodosis_pascha", .none, date: pascha+38.days))
+        
+        generateBeforeAfter(feast: "ascension",
+                            daysAfter: 7, signAfter: .none,
+                            signApodosis: .none)
+        
+        generateBeforeAfter(feast: "pentecost",
+                            daysAfter: 5, signAfter: .none,
+                            signApodosis: .none)
+                
+        generateBeforeAfter(feast: "nativityOfGod", daysBefore: 5, daysAfter: 5)
+        generateBeforeAfter(feast: "theophany", daysBefore: 4, daysAfter: 7, signApodosis: .noSign)
+        generateBeforeAfter(feast: "transfiguration", daysBefore: 1, signBefore: .sixVerse, daysAfter: 6)
+        generateBeforeAfter(feast: "dormition", daysBefore: 1, signBefore: .sixVerse, daysAfter: 7)
+        generateBeforeAfter(feast: "nativityOfTheotokos", daysBefore: 1, signBefore: .sixVerse, daysAfter: 3)
+        generateBeforeAfter(feast: "exaltationOfCross", daysBefore: 1, daysAfter: 6)
+        generateBeforeAfter(feast: "entryIntoTemple", daysBefore: 1, daysAfter: 3)
+
+        let annunciation = d("annunciation")
+        
+        switch annunciation {
+        case greatLentStart ..< d("lazarusSaturday"):
+            days.append(ChurchDay("forefeast_annunciation", .sixVerse, date: annunciation-1.days))
+            days.append(ChurchDay("apodosis_annunciation", .doxology, date: annunciation+1.days))
+
+        case d("lazarusSaturday"):
+            days.append(ChurchDay("forefeast_annunciation", .sixVerse, date: annunciation-1.days))
+
+        default:
+            break
+        }
+        
+        let meetingOfLord = d("meetingOfLord")
+        days.append(ChurchDay("forefeast_meetingOfLord", .sixVerse, date: meetingOfLord-1.days))
+
+        var lastDay = meetingOfLord
+        
+        switch (meetingOfLord) {
+        case startOfYear ..< d("sundayOfProdigalSon")-1.days:
+            lastDay = meetingOfLord+7.days
+
+        case d("sundayOfProdigalSon")-1.days ... d("sundayOfProdigalSon")+2.days:
+            lastDay = d("sundayOfProdigalSon")+5.days
+
+        case d("sundayOfProdigalSon")+3.days ..< d("sundayOfDreadJudgement"):
+            lastDay = d("sundayOfDreadJudgement") + 2.days
+            
+        case d("sundayOfDreadJudgement") ... d("sundayOfDreadJudgement")+1.days:
+            lastDay = d("sundayOfDreadJudgement") + 4.days
+
+        case d("sundayOfDreadJudgement")+2.days ... d("sundayOfDreadJudgement")+3.days:
+            lastDay = d("sundayOfDreadJudgement") + 6.days
+
+        case d("sundayOfDreadJudgement")+4.days ... d("sundayOfDreadJudgement")+6.days:
+            lastDay = d("cheesefareSunday")
+
+        default:
+            break
+        }
+        
+        if (lastDay != meetingOfLord) {
+            for afterfeastDay in DateRange(meetingOfLord+1.days, lastDay-1.days) {
+                days.append(ChurchDay("afterfeast_meetingOfLord", .noSign, date: afterfeastDay))
+            }
+            days.append(ChurchDay("apodosis_meetingOfLord", .doxology, date: lastDay))
+        }
+
     }
     
     public func d(_ name: String) -> Date {

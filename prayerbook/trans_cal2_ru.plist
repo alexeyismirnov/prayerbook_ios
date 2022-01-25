@@ -192,5 +192,67 @@
     <string>Иконы Божией Матери «Споручница грешных» Корецкая</string>
     <key>softenerTheotokos</key>
     <string>Икон Божией Матери: «Умягчение злых сердец» и «Нерушимая Стена»</string>
+    <key>apodosis_pascha</key>
+    <string>Отдание Пасхи</string>
+    <key>afterfeast_ascension</key>
+    <string>Попразднство Вознесения</string>
+    <key>apodosis_ascension</key>
+    <string>Отдание Вознесения</string>
+    <key>afterfeast_pentecost</key>
+    <string>Попразднство Пятидесятницы</string>
+    <key>apodosis_pentecost</key>
+    <string>Отдание Пятидесятницы</string>
+    <key>forefeast_nativityOfGod</key>
+    <string>Предпразднство Рождества Христова</string>
+    <key>afterfeast_nativityOfGod</key>
+    <string>Попразднство Рождества Христова</string>
+    <key>apodosis_nativityOfGod</key>
+    <string>Отдание Рождества Христова</string>
+    <key>forefeast_theophany</key>
+    <string>Предпразднство Богоявления</string>
+    <key>afterfeast_theophany</key>
+    <string>Попразднство Богоявления</string>
+    <key>apodosis_theophany</key>
+    <string>Отдание Богоявления</string>
+    <key>forefeast_transfiguration</key>
+    <string>Предпразднство Преображения Господня</string>
+    <key>afterfeast_transfiguration</key>
+    <string>Попразднство Преображения Господня</string>
+    <key>apodosis_transfiguration</key>
+    <string>Отдание Преображения Господня</string>
+    <key>forefeast_dormition</key>
+    <string>Предпразднство Успения Пр. Богородицы</string>
+    <key>afterfeast_dormition</key>
+    <string>Попразднство Успения Пр. Богородицы</string>
+    <key>apodosis_dormition</key>
+    <string>Отдание Успения Пр. Богородицы</string>
+    <key>forefeast_nativityOfTheotokos</key>
+    <string>Предпразднство Рождества Пр. Богородицы</string>
+    <key>afterfeast_nativityOfTheotokos</key>
+    <string>Попразднство Рождества Пр. Богородицы</string>
+    <key>apodosis_nativityOfTheotokos</key>
+    <string>Отдание Рождества Пр. Богородицы</string>
+    <key>forefeast_exaltationOfCross</key>
+    <string>Предпразднство Воздвижения Креста Господня</string>
+    <key>afterfeast_exaltationOfCross</key>
+    <string>Попразднство Воздвижения Креста Господня</string>
+    <key>apodosis_exaltationOfCross</key>
+    <string>Отдание Воздвижения Креста Господня</string>
+    <key>forefeast_entryIntoTemple</key>
+    <string>Предпразднство Введения во Храм Пр. Богородицы</string>
+    <key>afterfeast_entryIntoTemple</key>
+    <string>Попразднство Введения во Храм Пр. Богородицы</string>
+    <key>apodosis_entryIntoTemple</key>
+    <string>Отдание Введения во Храм Пр. Богородицы</string>
+    <key>forefeast_annunciation</key>
+    <string>Предпразднство Благовещения Пресвятой Богородицы</string>
+    <key>apodosis_annunciation</key>
+    <string>Отдание Благовещения Пресвятой Богородицы</string>
+    <key>forefeast_meetingOfLord</key>
+    <string>Предпразднство Сретения Господня</string>
+    <key>afterfeast_meetingOfLord</key>
+    <string>Попразднство Сретения Господня</string>
+    <key>apodosis_meetingOfLord</key>
+    <string>Отдание Сретения Господня</string>
 </dict>
 </plist>
