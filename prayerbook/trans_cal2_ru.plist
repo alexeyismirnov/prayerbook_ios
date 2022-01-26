@@ -254,5 +254,27 @@
     <string>Попразднство Сретения Господня</string>
     <key>apodosis_meetingOfLord</key>
     <string>Отдание Сретения Господня</string>
+    <key>SundayAfterPentecost</key>
+    <string>Неделя %@ по Пятидесятнице</string>
+    <key>WeekAfterPentecost</key>
+    <string>Седмица %@ по Пятидесятнице</string>
+    <key>weekOfPublicianAndPharisee</key>
+    <string>Седмица мытаря и фарисея</string>
+    <key>weekOfProdigalSon</key>
+    <string>Седмица о блудном сыне</string>
+    <key>weekOfDreadJudgement</key>
+    <string>Сыропустная седмица</string>
+    <key>SundayOfGreatLent</key>
+    <string>Неделя %@ Великого поста</string>
+    <key>WeekOfGreatLent</key>
+    <string>Седмица %@ Великого поста</string>
+    <key>holyWeek</key>
+    <string>Страстная седмица</string>
+    <key>brightWeek</key>
+    <string>Светлая седмица</string>
+    <key>WeekAfterPascha</key>
+    <string>Седмица %@ по Пасхе</string>
+    <key>tone</key>
+    <string>Глас %@</string>
 </dict>
 </plist>

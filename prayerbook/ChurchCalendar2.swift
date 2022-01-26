@@ -41,7 +41,6 @@ public class ChurchCalendar2 {
     var year: Int
     var weekday: DayOfWeek
     
-    var feastDays = [ChurchDay: Date]()
     var days = [ChurchDay]()
     
     var startOfYear, endOfYear : Date
@@ -448,6 +447,78 @@ public extension ChurchCalendar2 {
         }
     }
     
+    func getDayDescription() -> [(FeastType, String)] {
+        days
+            .filter({ $0.date == date })
+            .map({($0.type, Translate.s($0.name))})
+            .sorted { $0.0.rawValue < $1.0.rawValue }
+    }
+    
+    func getWeekDescription() -> String? {
+        let dayOfWeek = (weekday == .sunday) ? "Sunday" : "Week"
+    
+        switch (date) {
+        case startOfYear ..< d("sundayOfPublicianAndPharisee"):
+            return  String(format: Translate.s("\(dayOfWeek)AfterPentecost"),
+                           Translate.stringFromNumber(((Cal2.paschaDay(year-1)+50.days) >> date)/7+1))
+            
+        case d("sundayOfPublicianAndPharisee")+1.days ..< d("sundayOfProdigalSon"):
+            return Translate.s("weekOfPublicianAndPharisee")
+
+        case d("sundayOfProdigalSon")+1.days ..< d("sundayOfDreadJudgement"):
+            return Translate.s("weekOfProdigalSon")
+
+        case d("sundayOfDreadJudgement")+1.days ..< d("cheesefareSunday"):
+            return Translate.s("weekOfDreadJudgement")
+
+        case d("beginningOfGreatLent") ..< d("palmSunday"):
+            return  String(format: Translate.s("\(dayOfWeek)OfGreatLent"),
+                           Translate.stringFromNumber((d("beginningOfGreatLent") >> date)/7+1))
+        
+        case d("palmSunday")+1.days ..< pascha:
+            return Translate.s("holyWeek")
+            
+        case pascha+1.days ..< pascha+7.days:
+            return Translate.s("brightWeek")
+            
+        case pascha+8.days ..< pentecost:
+            let weekNum = (pascha >> date)/7+1
+            return (weekday == .sunday) ? nil : String(format: Translate.s("WeekAfterPascha"),
+                                                       Translate.stringFromNumber(weekNum))
+            
+        case pentecost+1.days ... endOfYear:
+            return  String(format: Translate.s("\(dayOfWeek)AfterPentecost"),
+                           Translate.stringFromNumber(((pentecost+1.days) >> date)/7+1))
+            
+        default: return nil
+        }
+    }
+    
+    func getTone(_ date: Date) -> Int? {
+        func tone(dayNum: Int) -> Int {
+            let reminder = (dayNum/7) % 8
+            return (reminder == 0) ? 8 : reminder
+        }
+                
+        switch (date) {
+        case startOfYear ..< d("palmSunday"):
+            return tone(dayNum: Cal2.paschaDay(year-1) >> date)
+            
+        case pascha+7.days ... endOfYear:
+            return tone(dayNum: pascha >> date)
+            
+        default: return nil
+        }
+    }
+    
+    func getToneDescription() -> String? {
+        if let tone = getTone(date) {
+            return String(format: Translate.s("tone"), Translate.stringFromNumber(tone))
+
+        } else {
+            return nil
+        }
+    }
 }
 
 public typealias Cal2 = ChurchCalendar2

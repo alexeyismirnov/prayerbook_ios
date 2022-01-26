@@ -254,5 +254,27 @@
     <string>Afterfeast of the Meeting of the Lord</string>
     <key>apodosis_meetingOfLord</key>
     <string>Apodosis of the Meeting of the Lord</string>
+    <key>SundayAfterPentecost</key>
+    <string>Sunday %@ after Pentecost</string>
+    <key>WeekAfterPentecost</key>
+    <string>Week %@ after Pentecost</string>
+    <key>weekOfPublicianAndPharisee</key>
+    <string>Week of the Publican and the Pharisee</string>
+    <key>weekOfProdigalSon</key>
+    <string>Week of the Prodigal Son</string>
+    <key>weekOfDreadJudgement</key>
+    <string>Week of the Dread Judgement</string>
+    <key>SundayOfGreatLent</key>
+    <string>Sunday %@ of Great Lent</string>
+    <key>WeekOfGreatLent</key>
+    <string>Week %@ of Great Lent</string>
+    <key>holyWeek</key>
+    <string>Holy Week</string>
+    <key>brightWeek</key>
+    <string>Bright Week</string>
+    <key>WeekAfterPascha</key>
+    <string>Week %@ after Pascha</string>
+    <key>tone</key>
+    <string>Tone %@</string>
 </dict>
 </plist>
