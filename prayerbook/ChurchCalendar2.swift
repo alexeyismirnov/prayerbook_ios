@@ -37,7 +37,6 @@ public class ChurchDay : Hashable, Equatable  {
 }
 
 public class ChurchCalendar2 {
-    var date: Date
     var year: Int
     var weekday: DayOfWeek
     
@@ -46,9 +45,19 @@ public class ChurchCalendar2 {
     var startOfYear, endOfYear : Date
     var greatLentStart, pascha, pentecost : Date
     
-    init(date: Date) {
-        self.date = date
+    static var calendars = [Int:ChurchCalendar2]()
+    
+    static func date(_ date: Date) -> ChurchCalendar2 {
+        let year = DateComponents(date: date).year!
         
+        if calendars[year] == nil {
+            calendars[year] = ChurchCalendar2(date)
+        }
+        
+        return calendars[year]!
+    }
+    
+    init(_ date: Date) {
         let dateComponents = DateComponents(date: date)
 
         year = dateComponents.year!
@@ -66,6 +75,7 @@ public class ChurchCalendar2 {
         initSatSun()
         initMisc()
         initBeforeAfterFeasts()
+        
     }
     
     func initDays() {
@@ -447,14 +457,14 @@ public extension ChurchCalendar2 {
         }
     }
     
-    func getDayDescription() -> [(FeastType, String)] {
-        days
+    func getDayDescription(_ date: Date) -> [(FeastType, String)] {
+        return days
             .filter({ $0.date == date })
             .map({($0.type, Translate.s($0.name))})
             .sorted { $0.0.rawValue < $1.0.rawValue }
     }
     
-    func getWeekDescription() -> String? {
+    func getWeekDescription(_ date: Date) -> String? {
         let dayOfWeek = (weekday == .sunday) ? "Sunday" : "Week"
     
         switch (date) {
@@ -511,7 +521,7 @@ public extension ChurchCalendar2 {
         }
     }
     
-    func getToneDescription() -> String? {
+    func getToneDescription(_ date: Date) -> String? {
         if let tone = getTone(date) {
             return String(format: Translate.s("tone"), Translate.stringFromNumber(tone))
 

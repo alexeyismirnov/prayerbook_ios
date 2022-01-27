@@ -23,7 +23,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         .doxology: UIImage(named: "doxology", in: tk)!.resize(size15),
         .polyeleos: UIImage(named: "polyeleos", in: tk)!.resize(size15),
         .vigil: UIImage(named: "vigil", in: tk)!.resize(size15),
-        .great: UIImage(named: "great", in: tk)!.resize(size15)
+        .great: UIImage(named: "great", in: tk)!.resize(size15) 
     ]
     
     static let bookIcon = UIImage(named: "book")!.maskWithColor(.red).resize(CGSize(width: 20, height: 20))
@@ -46,10 +46,14 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     var saints = [(FeastType, String)]()
     var saintIcons = [Saint]()
 
-    var currentDate: Date = {
-        // this is done to remove time component from date
-        return DateComponents(date: Date()).toDate()
-    }()
+    var currentDate: Date? {
+        didSet {
+            if let date = currentDate {
+                cal = ChurchCalendar2.date(date)
+            }
+        }
+    }
+    var cal: ChurchCalendar2!
     
     var formatter: DateFormatter = {
         var formatter = DateFormatter()
@@ -74,30 +78,23 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     }
     
     override func viewControllerCurrent() -> UIViewController {
-        return DailyTab.date(currentDate)
+        return DailyTab.date(currentDate!)
     }
     
     override func viewControllerForward() -> UIViewController {
-        return DailyTab.date(currentDate + 1.days)
+        return DailyTab.date(currentDate! + 1.days)
     }
     
     override func viewControllerBackward() -> UIViewController {
-        return DailyTab.date(currentDate - 1.days)
+        return DailyTab.date(currentDate! - 1.days)
     }
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*
-        for family: String in UIFont.familyNames
-              {
-                  print(family)
-                  for names: String in UIFont.fontNames(forFamilyName: family)
-                  {
-                      print("== \(names)")
-                  }
-              }
-         */
+        if currentDate == nil {
+            currentDate = DateComponents(date: Date()).toDate()
+        }
         
         createTableView(style: .grouped)
         configureNavbar()
@@ -168,7 +165,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             return readings.count + feofan.count + (synaxarion != nil ? 1:0)
           
         case 4:
-            return troparia.filter({$0.isAvailable(on: currentDate)}).count + (saintTroparia.count > 0 ? 1:0)
+            return troparia.filter({$0.isAvailable(on: currentDate!)}).count + (saintTroparia.count > 0 ? 1:0)
             
         case 5:
             return saints.count
@@ -207,17 +204,17 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
-                return getTextDetailsCell(title: formatter.string(from: currentDate).capitalizingFirstLetter(),
-                                          subtitle: formatterOldStyle.string(from: currentDate-13.days))
+                return getTextDetailsCell(title: formatter.string(from: currentDate!).capitalizingFirstLetter(),
+                                          subtitle: formatterOldStyle.string(from: currentDate!-13.days))
                 
             case 1:
                 var descr = ""
                 
-                if let weekDescription = Cal.getWeekDescription(currentDate) {
+                if let weekDescription = cal.getWeekDescription(currentDate!) {
                     descr = weekDescription
                 }
                 
-                if let toneDescription = Cal.getToneDescription(currentDate) {
+                if let toneDescription = cal.getToneDescription(currentDate!) {
                     if descr.count > 0 {
                         descr += "; "
                     }
@@ -330,7 +327,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         } else if indexPath.section == 4 {
             var titles = [String]()
             
-            titles = troparia.filter({$0.isAvailable(on: currentDate)}).map { $0.title }
+            titles = troparia.filter({$0.isAvailable(on: currentDate!)}).map { $0.title }
             titles.append("Тропари и кондаки святым")
             
             if appeared {
@@ -422,12 +419,12 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         } else if indexPath.section == 4 {
             var count = indexPath.row+1
             
-            for t in troparia.filter({$0.isAvailable(on: currentDate)}) {
+            for t in troparia.filter({$0.isAvailable(on: currentDate!)}) {
                 count -= 1
                 
                 if count == 0 {
                     if t.isDownloaded() {
-                        vc = TroparionView(t.getTroparion(for: currentDate))!
+                        vc = TroparionView(t.getTroparion(for: currentDate!))!
                         vc.hidesBottomBarWhenPushed = true;
                         navigationController?.pushViewController(vc, animated: true)
                         
@@ -562,12 +559,13 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         formatter.locale = Translate.locale as Locale
         formatterOldStyle.locale = Translate.locale as Locale
         
-        dayDescription = Cal.getDayDescription(currentDate)
-        fasting = FastingModel.fasting(forDate: currentDate)
+        dayDescription = cal.getDayDescription(currentDate!)
         
-        saints = SaintModel.saints(currentDate)
-        readings = DailyReading.getDailyReading(currentDate)
-        synaxarion = getSynaxarion(for: currentDate)
+        fasting = FastingModel.fasting(forDate: currentDate!)
+        
+        saints = SaintModel.saints(currentDate!)
+        readings = DailyReading.getDailyReading(currentDate!)
+        synaxarion = getSynaxarion(for: currentDate!)
         
         if (appeared) {
             reloadAfterAppeared()
@@ -580,9 +578,9 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     }
     
     func reloadAfterAppeared() {
-        feofan = FeofanModel.getFeofan(for: currentDate)
-        saintTroparia = SaintTropariaModel.getTroparion(for: currentDate)
-        saintIcons = SaintIconModel.get(currentDate)
+        feofan = FeofanModel.getFeofan(for: currentDate!)
+        saintTroparia = SaintTropariaModel.getTroparion(for: currentDate!)
+        saintIcons = SaintIconModel.get(currentDate!)
     }
     
     func configureNavbar() {
@@ -601,7 +599,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     }
     
     @objc func showSaints() {
-        let seconds = currentDate.timeIntervalSince1970
+        let seconds = currentDate!.timeIntervalSince1970
         let url = URL(string: "saints-ru://open?\(seconds)")!
         
         if UIApplication.shared.canOpenURL(url) {
@@ -630,12 +628,12 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     @objc func showWeeklyCalendar() {
         UIViewController.popup.dismiss({
-            let dateComponents = DateComponents(date: self.currentDate)
+            let dateComponents = DateComponents(date: self.currentDate!)
             let currentWeekday = DayOfWeek(rawValue: dateComponents.weekday!)!
             
             let nearestMonday = currentWeekday == .sunday ?
-                self.currentDate - 6.days :
-                Cal.nearestSundayBefore(self.currentDate) + 1.days
+                self.currentDate! - 6.days :
+                Cal.nearestSundayBefore(self.currentDate!) + 1.days
             
             let vc = WeekCalendar(nearestMonday)
             let nav = UINavigationController(rootViewController: vc)
