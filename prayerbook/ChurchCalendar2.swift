@@ -47,7 +47,7 @@ public class ChurchCalendar2 {
     
     static var calendars = [Int:ChurchCalendar2]()
     
-    static func date(_ date: Date) -> ChurchCalendar2 {
+    static func fromDate(_ date: Date) -> ChurchCalendar2 {
         let year = DateComponents(date: date).year!
         
         if calendars[year] == nil {

@@ -49,11 +49,11 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     var currentDate: Date? {
         didSet {
             if let date = currentDate {
-                cal = ChurchCalendar2.date(date)
+                cal = Cal2.fromDate(date)
             }
         }
     }
-    var cal: ChurchCalendar2!
+    var cal: Cal2!
     
     var formatter: DateFormatter = {
         var formatter = DateFormatter()
