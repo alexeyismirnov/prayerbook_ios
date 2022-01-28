@@ -192,89 +192,119 @@
 	<string>Icon of the Mother of God “Surety of Sinners” in Korets (1622)</string>
 	<key>softenerTheotokos</key>
 	<string>Icons of the Mother of God: “the Softener of evil hearts” and “the Indestructible Wall”</string>
-    <key>apodosis_pascha</key>
-    <string>Apodosis of Pascha</string>
-    <key>afterfeast_ascension</key>
-    <string>Afterfeast of the Ascension</string>
-    <key>apodosis_ascension</key>
-    <string>Apodosis of the Ascension</string>
-    <key>afterfeast_pentecost</key>
-    <string>Afterfeast of Pentecost</string>
-    <key>apodosis_pentecost</key>
-    <string>Apodosis of Pentecost</string>
-    <key>forefeast_nativityOfGod</key>
-    <string>Forefeast of the Nativity</string>
-    <key>afterfeast_nativityOfGod</key>
-    <string>Afterfeast of the Nativity of Our Lord</string>
-    <key>apodosis_nativityOfGod</key>
-    <string>Apodosis of the Nativity of Christ</string>
-    <key>forefeast_theophany</key>
-    <string>Forefeast of Theophany</string>
-    <key>afterfeast_theophany</key>
-    <string>Afterfeast of the Theophany</string>
-    <key>apodosis_theophany</key>
-    <string>Apodosis of the Theophany</string>
-    <key>forefeast_transfiguration</key>
-    <string>Forefeast of the Transfiguration of the Lord</string>
-    <key>afterfeast_transfiguration</key>
-    <string>Afterfeast of the Transfiguration of the Lord</string>
-    <key>apodosis_transfiguration</key>
-    <string>Apodosis of the Transfiguration of the Lord</string>
-    <key>forefeast_dormition</key>
-    <string>Forefeast of the Dormition of the Mother of God</string>
-    <key>afterfeast_dormition</key>
-    <string>Afterfeast of the Dormition</string>
-    <key>apodosis_dormition</key>
-    <string>Apodosis of the Dormition</string>
-    <key>forefeast_nativityOfTheotokos</key>
-    <string>Forefeast of the Nativity of the Theotokos</string>
-    <key>afterfeast_nativityOfTheotokos</key>
-    <string>Afterfeast of the Nativity of the Theotokos</string>
-    <key>apodosis_nativityOfTheotokos</key>
-    <string>Apodosis of the Nativity of the Theotokos</string>
-    <key>forefeast_exaltationOfCross</key>
-    <string>Forefeast of the Exaltation of the Cross</string>
-    <key>afterfeast_exaltationOfCross</key>
-    <string>Afterfeast of the Exaltation of the Cross</string>
-    <key>apodosis_exaltationOfCross</key>
-    <string>Apodosis of the Exaltation of the Cross</string>
-    <key>forefeast_entryIntoTemple</key>
-    <string>Forefeast of the Entry of the Theotokos</string>
-    <key>afterfeast_entryIntoTemple</key>
-    <string>Afterfeast of the Entry of the Theotokos</string>
-    <key>apodosis_entryIntoTemple</key>
-    <string>Apodosis of the Entry of the Theotokos</string>
-    <key>forefeast_annunciation</key>
-    <string>Forefeast of the Annunciation</string>
-    <key>apodosis_annunciation</key>
-    <string>Apodosis of the Annunciation</string>
-    <key>forefeast_meetingOfLord</key>
-    <string>Forefeast of the Meeting of the Lord</string>
-    <key>afterfeast_meetingOfLord</key>
-    <string>Afterfeast of the Meeting of the Lord</string>
-    <key>apodosis_meetingOfLord</key>
-    <string>Apodosis of the Meeting of the Lord</string>
-    <key>SundayAfterPentecost</key>
-    <string>Sunday %@ after Pentecost</string>
-    <key>WeekAfterPentecost</key>
-    <string>Week %@ after Pentecost</string>
-    <key>weekOfPublicianAndPharisee</key>
-    <string>Week of the Publican and the Pharisee</string>
-    <key>weekOfProdigalSon</key>
-    <string>Week of the Prodigal Son</string>
-    <key>weekOfDreadJudgement</key>
-    <string>Week of the Dread Judgement</string>
-    <key>SundayOfGreatLent</key>
-    <string>Sunday %@ of Great Lent</string>
-    <key>WeekOfGreatLent</key>
-    <string>Week %@ of Great Lent</string>
-    <key>holyWeek</key>
-    <string>Holy Week</string>
-    <key>brightWeek</key>
-    <string>Bright Week</string>
-    <key>WeekAfterPascha</key>
-    <string>Week %@ after Pascha</string>
-    <key>tone</key>
-    <string>Tone %@</string>
+	<key>apodosis_pascha</key>
+	<string>Apodosis of Pascha</string>
+	<key>afterfeast_ascension</key>
+	<string>Afterfeast of the Ascension</string>
+	<key>apodosis_ascension</key>
+	<string>Apodosis of the Ascension</string>
+	<key>afterfeast_pentecost</key>
+	<string>Afterfeast of Pentecost</string>
+	<key>apodosis_pentecost</key>
+	<string>Apodosis of Pentecost</string>
+	<key>forefeast_nativityOfGod</key>
+	<string>Forefeast of the Nativity</string>
+	<key>afterfeast_nativityOfGod</key>
+	<string>Afterfeast of the Nativity of Our Lord</string>
+	<key>apodosis_nativityOfGod</key>
+	<string>Apodosis of the Nativity of Christ</string>
+	<key>forefeast_theophany</key>
+	<string>Forefeast of Theophany</string>
+	<key>afterfeast_theophany</key>
+	<string>Afterfeast of the Theophany</string>
+	<key>apodosis_theophany</key>
+	<string>Apodosis of the Theophany</string>
+	<key>forefeast_transfiguration</key>
+	<string>Forefeast of the Transfiguration of the Lord</string>
+	<key>afterfeast_transfiguration</key>
+	<string>Afterfeast of the Transfiguration of the Lord</string>
+	<key>apodosis_transfiguration</key>
+	<string>Apodosis of the Transfiguration of the Lord</string>
+	<key>forefeast_dormition</key>
+	<string>Forefeast of the Dormition of the Mother of God</string>
+	<key>afterfeast_dormition</key>
+	<string>Afterfeast of the Dormition</string>
+	<key>apodosis_dormition</key>
+	<string>Apodosis of the Dormition</string>
+	<key>forefeast_nativityOfTheotokos</key>
+	<string>Forefeast of the Nativity of the Theotokos</string>
+	<key>afterfeast_nativityOfTheotokos</key>
+	<string>Afterfeast of the Nativity of the Theotokos</string>
+	<key>apodosis_nativityOfTheotokos</key>
+	<string>Apodosis of the Nativity of the Theotokos</string>
+	<key>forefeast_exaltationOfCross</key>
+	<string>Forefeast of the Exaltation of the Cross</string>
+	<key>afterfeast_exaltationOfCross</key>
+	<string>Afterfeast of the Exaltation of the Cross</string>
+	<key>apodosis_exaltationOfCross</key>
+	<string>Apodosis of the Exaltation of the Cross</string>
+	<key>forefeast_entryIntoTemple</key>
+	<string>Forefeast of the Entry of the Theotokos</string>
+	<key>afterfeast_entryIntoTemple</key>
+	<string>Afterfeast of the Entry of the Theotokos</string>
+	<key>apodosis_entryIntoTemple</key>
+	<string>Apodosis of the Entry of the Theotokos</string>
+	<key>forefeast_annunciation</key>
+	<string>Forefeast of the Annunciation</string>
+	<key>apodosis_annunciation</key>
+	<string>Apodosis of the Annunciation</string>
+	<key>forefeast_meetingOfLord</key>
+	<string>Forefeast of the Meeting of the Lord</string>
+	<key>afterfeast_meetingOfLord</key>
+	<string>Afterfeast of the Meeting of the Lord</string>
+	<key>apodosis_meetingOfLord</key>
+	<string>Apodosis of the Meeting of the Lord</string>
+	<key>SundayAfterPentecost</key>
+	<string>Sunday %@ after Pentecost</string>
+	<key>WeekAfterPentecost</key>
+	<string>Week %@ after Pentecost</string>
+	<key>weekOfPublicianAndPharisee</key>
+	<string>Week of the Publican and the Pharisee</string>
+	<key>weekOfProdigalSon</key>
+	<string>Week of the Prodigal Son</string>
+	<key>weekOfDreadJudgement</key>
+	<string>Week of the Dread Judgement</string>
+	<key>SundayOfGreatLent</key>
+	<string>Sunday %@ of Great Lent</string>
+	<key>WeekOfGreatLent</key>
+	<string>Week %@ of Great Lent</string>
+	<key>holyWeek</key>
+	<string>Holy Week</string>
+	<key>brightWeek</key>
+	<string>Bright Week</string>
+	<key>WeekAfterPascha</key>
+	<string>Week %@ after Pascha</string>
+	<key>tone</key>
+	<string>Tone %@</string>
+	<key>no_fast</key>
+	<string>No fast</string>
+	<key>vegetarian</key>
+	<string>Vegetarian</string>
+	<key>fish_allowed</key>
+	<string>Fish allowed</string>
+	<key>fast_free</key>
+	<string>Fast-free week</string>
+	<key>maslenitsa</key>
+	<string>Maslenitsa</string>
+	<key>no_food</key>
+	<string>No food</string>
+	<key>xerophagy</key>
+	<string>Xerophagy</string>
+	<key>without_oil</key>
+	<string>Without oil</string>
+	<key>with_oil</key>
+	<string>With oil</string>
+	<key>fast_day</key>
+	<string>Fast day</string>
+	<key>nativity_fast</key>
+	<string>Nativity Fast</string>
+	<key>svyatki</key>
+	<string>Svyatki</string>
+	<key>great_lent</key>
+	<string>Great Lent</string>
+	<key>apostles_fast</key>
+	<string>Apostles&apos; Fast</string>
+	<key>dormition_fast</key>
+	<string>Dormition Fast</string>
 </dict>
 </plist>

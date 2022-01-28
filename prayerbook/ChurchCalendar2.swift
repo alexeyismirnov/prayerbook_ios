@@ -38,8 +38,6 @@ public class ChurchDay : Hashable, Equatable  {
 
 public class ChurchCalendar2 {
     var year: Int
-    var weekday: DayOfWeek
-    
     var days = [ChurchDay]()
     
     var startOfYear, endOfYear : Date
@@ -59,9 +57,7 @@ public class ChurchCalendar2 {
     
     init(_ date: Date) {
         let dateComponents = DateComponents(date: date)
-
         year = dateComponents.year!
-        weekday = DayOfWeek(rawValue: dateComponents.weekday!)!
         
         startOfYear = Date(1, 1, year)
         endOfYear = Date(31, 12, year)
@@ -75,7 +71,6 @@ public class ChurchCalendar2 {
         initSatSun()
         initMisc()
         initBeforeAfterFeasts()
-        
     }
     
     func initDays() {
@@ -465,6 +460,7 @@ public extension ChurchCalendar2 {
     }
     
     func getWeekDescription(_ date: Date) -> String? {
+        let weekday = DayOfWeek(date: date)!
         let dayOfWeek = (weekday == .sunday) ? "Sunday" : "Week"
     
         switch (date) {

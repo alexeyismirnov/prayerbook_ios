@@ -39,9 +39,11 @@ public class ChurchFasting {
     }
     
     func getFastingLaymen(_ date: Date) -> FastingModel {
+        let weekday = DayOfWeek(date: date)!
+
         switch date {
         case cal.d("meetingOfLord"):
-            return meetingOfLord(date, monastic: false)
+            return meetingOfLord(date, weekday, monastic: false)
             
         case cal.d("theophany"):
             return FastingModel(.noFast)
@@ -50,7 +52,7 @@ public class ChurchFasting {
              cal.d("peterAndPaul"),
              cal.d("dormition"),
              cal.d("veilOfTheotokos"):
-            return (cal.weekday == .wednesday || cal.weekday == .friday)
+            return (weekday == .wednesday || weekday == .friday)
                 ? FastingModel(.fishAllowed)
                 : FastingModel(.noFast)
             
@@ -64,18 +66,18 @@ public class ChurchFasting {
         case cal.d("eveOfTheophany"),
              cal.d("beheadingOfJohn"),
              cal.d("exaltationOfCross"):
-            return FastingModel(.vegetarian, "Fast day")
+            return FastingModel(.vegetarian, "fast_day")
             
         case cal.startOfYear:
-            return (cal.weekday == .saturday || cal.weekday == .sunday)
-                ? FastingModel(.fishAllowed, "Nativity Fast")
-                : FastingModel(.vegetarian, "Nativity Fast")
+            return (weekday == .saturday || weekday == .sunday)
+                ? FastingModel(.fishAllowed, "nativity_fast")
+                : FastingModel(.vegetarian, "nativity_fast")
             
         case cal.startOfYear+1.days ..< cal.d("nativityOfGod"):
-            return FastingModel(.vegetarian, "Nativity Fast")
+            return FastingModel(.vegetarian, "nativity_fast")
             
         case cal.d("nativityOfGod") ..< cal.d("eveOfTheophany"):
-            return FastingModel(.fastFree, "Svyatki")
+            return FastingModel(.fastFree, "svyatki")
             
         case cal.d("sundayOfPublicianAndPharisee")+1.days ... cal.d("sundayOfProdigalSon"):
             return FastingModel(.fastFree)
@@ -84,7 +86,7 @@ public class ChurchFasting {
             return FastingModel(.cheesefare)
             
         case cal.d("beginningOfGreatLent") ..< cal.d("palmSunday"):
-            return (date == cal.d("annunciation")) ? FastingModel(.fishAllowed) : FastingModel(.vegetarian, "Great Lent")
+            return (date == cal.d("annunciation")) ? FastingModel(.fishAllowed) : FastingModel(.vegetarian, "great_lent")
             
         case cal.d("palmSunday")+1.days ..< cal.pascha:
             return FastingModel(.vegetarian)
@@ -96,36 +98,38 @@ public class ChurchFasting {
             return FastingModel(.fastFree)
             
         case cal.d("beginningOfApostlesFast") ... cal.d("peterAndPaul")-1.days:
-            return (cal.weekday == .monday ||
-                cal.weekday == .wednesday ||
-                cal.weekday == .friday) ? FastingModel(.vegetarian, "Apostoles' Fast") : FastingModel(.fishAllowed, "Apostoles' Fast")
+            return (weekday == .monday ||
+                weekday == .wednesday ||
+                weekday == .friday) ? FastingModel(.vegetarian, "apostles_fast") : FastingModel(.fishAllowed, "apostles_fast")
             
         case cal.d("beginningOfDormitionFast") ... cal.d("dormition")-1.days:
-            return FastingModel(.vegetarian, "Dormition Fast")
+            return FastingModel(.vegetarian, "dormition_fast")
             
         case cal.d("beginningOfNativityFast") ..< stNicholas:
-            return (cal.weekday == .monday ||
-                cal.weekday == .wednesday ||
-                cal.weekday == .friday) ? FastingModel(.vegetarian, "Nativity Fast") : FastingModel(.fishAllowed, "Nativity Fast")
+            return (weekday == .monday ||
+                weekday == .wednesday ||
+                weekday == .friday) ? FastingModel(.vegetarian, "nativity_fast") : FastingModel(.fishAllowed, "nativity_fast")
             
         case stNicholas ... cal.endOfYear:
-            return (cal.weekday == .saturday ||
-                cal.weekday == .sunday) ? FastingModel(.fishAllowed, "Nativity Fast") : FastingModel(.vegetarian, "Nativity Fast")
+            return (weekday == .saturday ||
+                weekday == .sunday) ? FastingModel(.fishAllowed, "nativity_fast") : FastingModel(.vegetarian, "nativity_fast")
             
         case cal.d("nativityOfGod") ..< cal.pentecost+8.days:
-            return (cal.weekday == .wednesday ||
-                cal.weekday == .friday) ? FastingModel(.fishAllowed) : FastingModel(.noFast)
+            return (weekday == .wednesday ||
+                weekday == .friday) ? FastingModel(.fishAllowed) : FastingModel(.noFast)
             
         default:
-            return (cal.weekday == .wednesday ||
-                cal.weekday == .friday) ? FastingModel(.vegetarian) : FastingModel(.noFast)
+            return (weekday == .wednesday ||
+                weekday == .friday) ? FastingModel(.vegetarian) : FastingModel(.noFast)
         }
     }
     
     func getFastingMonastic(_ date: Date) -> FastingModel {
+        let weekday = DayOfWeek(date: date)!
+
         switch date {
         case cal.d("meetingOfLord"):
-            return meetingOfLord(date, monastic: true)
+            return meetingOfLord(date, weekday, monastic: true)
             
         case cal.d("theophany"):
             return FastingModel(.noFastMonastic)
@@ -134,9 +138,9 @@ public class ChurchFasting {
              cal.d("peterAndPaul"),
              cal.d("dormition"),
              cal.d("veilOfTheotokos"):
-            return (cal.weekday == .monday ||
-                cal.weekday == .wednesday ||
-                cal.weekday == .friday) ? FastingModel(.fishAllowed) : FastingModel(.noFastMonastic)
+            return (weekday == .monday ||
+                weekday == .wednesday ||
+                weekday == .friday) ? FastingModel(.fishAllowed) : FastingModel(.noFastMonastic)
             
         case cal.d("nativityOfJohn"),
              cal.d("transfiguration"),
@@ -146,21 +150,21 @@ public class ChurchFasting {
             return FastingModel(.fishAllowed)
             
         case cal.d("eveOfTheophany"):
-            return FastingModel(.xerophagy, "Fast day")
+            return FastingModel(.xerophagy, "fast_day")
             
         case cal.d("beheadingOfJohn"),
              cal.d("exaltationOfCross"):
-            return FastingModel(.withOil, "Fast day")
+            return FastingModel(.withOil, "fast_day")
             
         case cal.startOfYear:
-            return (cal.weekday == .tuesday || cal.weekday == .thursday) ?
-                FastingModel(.withOil) : monasticApostolesFast()
+            return (weekday == .tuesday || weekday == .thursday) ?
+                FastingModel(.withOil) : monasticApostolesFast(weekday)
             
         case cal.startOfYear+1.days ..< cal.d("nativityOfGod"):
-            return monasticGreatLent()
+            return monasticGreatLent(weekday)
             
         case cal.d("nativityOfGod") ..< cal.d("eveOfTheophany"):
-            return FastingModel(.fastFree, "Svyatki")
+            return FastingModel(.fastFree, "svyatki")
             
         case cal.d("sundayOfPublicianAndPharisee")+1.days ... cal.d("sundayOfProdigalSon"):
             return FastingModel(.fastFree)
@@ -175,7 +179,7 @@ public class ChurchFasting {
             return FastingModel(.xerophagy)
             
         case cal.d("beginningOfGreatLent")+5.days ..< cal.d("palmSunday"):
-            return (date == cal.d("annunciation")) ? FastingModel(.fishAllowed) : monasticGreatLent()
+            return (date == cal.d("annunciation")) ? FastingModel(.fishAllowed) : monasticGreatLent(weekday)
             
         case cal.d("palmSunday")+1.days ... cal.d("palmSunday")+4.days:
             return FastingModel(.xerophagy)
@@ -193,19 +197,21 @@ public class ChurchFasting {
             return FastingModel(.fastFree)
             
         case cal.d("beginningOfApostlesFast") ... cal.d("peterAndPaul")-1.days:
-            return monasticApostolesFast()
+            return monasticApostolesFast(weekday)
             
         case cal.d("beginningOfDormitionFast") ... cal.d("dormition")-1.days:
-            return monasticGreatLent()
+            return monasticGreatLent(weekday)
             
         case cal.d("beginningOfNativityFast") ..< stNicholas:
-            return monasticApostolesFast()
+            return monasticApostolesFast(weekday)
             
         case stNicholas ... cal.endOfYear:
-            return (cal.weekday == .tuesday || cal.weekday == .thursday) ? FastingModel(.withOil) : monasticApostolesFast()
+            return (weekday == .tuesday || weekday == .thursday)
+                ? FastingModel(.withOil)
+                : monasticApostolesFast(weekday)
             
         default:
-            if (cal.weekday == .monday || cal.weekday == .wednesday || cal.weekday == .friday) {
+            if (weekday == .monday || weekday == .wednesday || weekday == .friday) {
                 let saints = SaintModel.saints(date)
                 let maxSaint = saints.max { $0.0.rawValue < $1.0.rawValue }!
                 
@@ -226,7 +232,7 @@ public class ChurchFasting {
         }
     }
     
-    func meetingOfLord(_ date: Date, monastic: Bool) -> FastingModel {
+    func meetingOfLord(_ date: Date, _ weekday: DayOfWeek, monastic: Bool) -> FastingModel {
         if cal.d("sundayOfPublicianAndPharisee")+1.days ... cal.d("sundayOfProdigalSon") ~= date {
             return FastingModel(.fastFree)
             
@@ -234,17 +240,17 @@ public class ChurchFasting {
             return FastingModel(.cheesefare)
             
         } else if date == cal.d("beginningOfGreatLent") {
-            return monastic ? FastingModel(.noFood) : FastingModel(.vegetarian, "Great Lent")
+            return monastic ? FastingModel(.noFood) : FastingModel(.vegetarian, "great_lent")
             
         } else {
-            return (cal.weekday == .monday ||
-                cal.weekday == .wednesday ||
-                cal.weekday == .friday) ? FastingModel(.fishAllowed) : FastingModel(monastic ? .noFastMonastic : .noFast)
+            return (weekday == .monday ||
+                weekday == .wednesday ||
+                weekday == .friday) ? FastingModel(.fishAllowed) : FastingModel(monastic ? .noFastMonastic : .noFast)
         }
     }
     
-    func monasticGreatLent() -> FastingModel {
-        switch cal.weekday {
+    func monasticGreatLent(_ weekday: DayOfWeek) -> FastingModel {
+        switch weekday {
         case .monday, .wednesday, .friday:
             return FastingModel(.xerophagy)
             
@@ -256,8 +262,8 @@ public class ChurchFasting {
         }
     }
     
-    func monasticApostolesFast() -> FastingModel {
-        switch cal.weekday {
+    func monasticApostolesFast(_ weekday: DayOfWeek) -> FastingModel {
+        switch weekday {
         case .monday:
             return FastingModel(.withoutOil)
             

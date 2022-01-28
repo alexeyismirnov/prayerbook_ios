@@ -560,8 +560,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         formatterOldStyle.locale = Translate.locale as Locale
         
         dayDescription = cal.getDayDescription(currentDate!)
-        
-        fasting = FastingModel.fasting(forDate: currentDate!)
+        fasting = ChurchFasting.forDate(currentDate!)
         
         saints = SaintModel.saints(currentDate!)
         readings = DailyReading.getDailyReading(currentDate!)

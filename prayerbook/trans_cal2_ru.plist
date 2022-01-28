@@ -276,5 +276,35 @@
 	<string>Седмица %@ по Пасхе</string>
 	<key>tone</key>
 	<string>Глас %@</string>
+	<key>no_fast</key>
+	<string>Поста нет</string>
+	<key>vegetarian</key>
+	<string>Растительная пища</string>
+	<key>fish_allowed</key>
+	<string>Разрешается рыба</string>
+	<key>fast_free</key>
+	<string>Сплошная седмица</string>
+	<key>maslenitsa</key>
+	<string>Масленица</string>
+	<key>no_food</key>
+	<string>Полное воздержание от пищи</string>
+	<key>xerophagy</key>
+	<string>Сухоядение</string>
+	<key>without_oil</key>
+	<string>Горячая без масла</string>
+	<key>with_oil</key>
+	<string>Горячая с маслом</string>
+	<key>fast_day</key>
+	<string>День постный</string>
+	<key>nativity_fast</key>
+	<string>Рождественский пост</string>
+	<key>svyatki</key>
+	<string>Святки</string>
+	<key>great_lent</key>
+	<string>Великий пост</string>
+	<key>apostles_fast</key>
+	<string>Петров пост</string>
+	<key>dormition_fast</key>
+	<string>Успенский пост</string>
 </dict>
 </plist>
