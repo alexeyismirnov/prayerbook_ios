@@ -12,27 +12,29 @@ import swift_toolkit
 public class ChurchDay : Hashable, Equatable  {
     var name : String
     var type : FeastType
-    var tag : Int
     var date: Date?
+    var reading : String
+    var comment: String
     
-    init(_ name: String, _ type: FeastType = .none, tag: Int = 0, date: Date? = nil ) {
+    init(_ name: String = "", _ type: FeastType = .none, date: Date? = nil, reading: String = "", comment: String = "") {
         self.name = name
         self.type = type
-        self.tag = tag
         self.date = date
+        self.reading = reading
+        self.comment = comment
     }
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(type)
-        hasher.combine(tag)
+        hasher.combine(reading)
     }
     
     public static func == (lhs: ChurchDay, rhs: ChurchDay) -> Bool {
         lhs.name == rhs.name &&
         lhs.type == rhs.type &&
-        lhs.tag == rhs.tag &&
-        lhs.date == rhs.date
+        lhs.date == rhs.date &&
+        lhs.reading == rhs.reading
     }
 }
 
@@ -79,23 +81,27 @@ public class ChurchCalendar2 {
             ChurchDay("pentecost", .great),
             ChurchDay("ascension", .great),
             ChurchDay("palmSunday", .great),
-            ChurchDay("nativityOfGod", .great, date:  Date(7,  1, year)),
-            ChurchDay("theophany", .great, date:  Date(19, 1, year)),
-            ChurchDay("meetingOfLord", .great, date: Date(15, 2, year)),
-            ChurchDay("annunciation", .great, date: Date(7,  4, year)),
-            ChurchDay("peterAndPaul", .great, date: Date(12, 7, year)),
-            ChurchDay("transfiguration", .great, date: Date(19, 8, year)),
-            ChurchDay("dormition", .great, date: Date(28, 8, year)),
-            ChurchDay("nativityOfTheotokos", .great, date: Date(21, 9, year)),
-            ChurchDay("exaltationOfCross", .great, date: Date(27, 9, year)),
-            ChurchDay("entryIntoTemple", .great, date: Date(4,  12, year)),
-            ChurchDay("circumcision", .great, date: Date(14, 1, year)),
-            ChurchDay("veilOfTheotokos", .great, date: Date(14, 10, year)),
-            ChurchDay("nativityOfJohn", .great, date: Date(7,  7, year)),
-            ChurchDay("beheadingOfJohn", .great, date: Date(11, 9, year)),
+            ChurchDay("nativityOfGod", .great, date:  Date(7,  1, year), reading: "Matthew 1:18-25 Gal 4:4-7 Matthew 2:1-12"),
+            ChurchDay("theophany", .great, date:  Date(19, 1, year), reading: "Mark 1:9-11 Tit 2:11-14,3:4-7 Matthew 3:13-17"),
+            ChurchDay("meetingOfLord", .great, date: Date(15, 2, year), reading: "Luke 2:25-32 Heb 7:7-17 Luke 2:22-40"),
+            ChurchDay("annunciation", .great, date: Date(7,  4, year), reading: "Luke 1:39-49,56 Heb 2:11-18 Luke 1:24-38 # Theotokos"),
+            ChurchDay("peterAndPaul", .great, date: Date(12, 7, year), reading: "John 21:15-25 2Cor 11:21-12:9 Matthew 16:13-19"),
+            ChurchDay("transfiguration", .great, date: Date(19, 8, year), reading: "Luke 9:28-36 2Pet 1:10-19 Matthew 17:1-9"),
+            ChurchDay("dormition", .great, date: Date(28, 8, year), reading: "Luke 1:39-49,56 Phil 2:5-11 Luke 10:38-42,11:27-28"),
+            ChurchDay("nativityOfTheotokos", .great, date: Date(21, 9, year), reading: "Luke 1:39-49,56 Phil 2:5-11 Luke 10:38-42,11:27-28"),
+            ChurchDay("exaltationOfCross", .great, date: Date(27, 9, year), reading: "John 12:28-36 1Cor 1:18-24 John 19:6-11,13-20,25-28,30-35"),
+            ChurchDay("entryIntoTemple", .great, date: Date(4,  12, year), reading: "Luke 1:39-49,56 Heb 9:1-7 Luke 10:38-42,11:27-28"),
+            ChurchDay("circumcision", .great, date: Date(14, 1, year), reading: "John 10:1-9 Col 2:8-12 Luke 2:20-21,40-52"),
+            ChurchDay("veilOfTheotokos", .great, date: Date(14, 10, year), reading: "Luke 1:39-49,56 Heb 9:1-7 Luke 10:38-42,11:27-28"),
+            ChurchDay("nativityOfJohn", .great, date: Date(7,  7, year), reading: "Luke 1:24-25,57-68,76,80 Rom 13:12-14:4 Luke 1:5-25,57-68,76,80"),
+            ChurchDay("beheadingOfJohn", .great, date: Date(11, 9, year), reading: "Matthew 14:1-13 Acts 13:25-32 Mark 6:14-30"),
             
-            ChurchDay("eveOfNativityOfGod", .noSign, date: Date(6,  1, year)),
-            ChurchDay("eveOfTheophany", .noSign, date: Date(18, 1, year)),
+            ChurchDay("", .doxology, date: Date(20, 1, year),
+                      reading: "Acts 19:1-8 John 1:29-34 # Forerunner",
+                      comment: "Synaxis of John Baptist"),
+            
+            ChurchDay("eveOfNativityOfGod", .noSign, date: Date(6,  1, year), reading: "Heb 1:1-12 Luke 2:1-20"),
+            ChurchDay("eveOfTheophany", .noSign, date: Date(18, 1, year), reading: "1Cor 9:19-27 Luke 3:1-18 # Epiphany Eve"),
             
             ChurchDay("sundayOfPublicianAndPharisee", .none),
             ChurchDay("sundayOfProdigalSon", .none),
@@ -107,30 +113,30 @@ public class ChurchCalendar2 {
             ChurchDay("beginningOfApostlesFast", .none),
             ChurchDay("sundayOfForefathers", .none),
             
-            ChurchDay("saturdayAfterNativity", .none),
-            ChurchDay("sundayAfterNativity", .none),
+            ChurchDay("saturdayAfterNativity", .none, reading: "1Tim 6:11-16 Matthew 12:15-21 # Saturday after the Nativity"),
+            ChurchDay("sundayAfterNativity", .none, reading: "Gal 1:11-19 Matthew 2:13-23 # Sunday after the Nativity"),
 
-            ChurchDay("saturdayBeforeExaltation", .none),
-            ChurchDay("sundayBeforeExaltation", .none),
-            ChurchDay("saturdayAfterExaltation", .none),
-            ChurchDay("sundayAfterExaltation", .none),
+            ChurchDay("saturdayBeforeExaltation", .none, reading: "1Cor 2:6-9 Matthew 10:37-11:1 # Saturday before the Universal Elevation"),
+            ChurchDay("sundayBeforeExaltation", .none, reading: "Gal 6:11-18 John 3:13-17 # Sunday before the Universal Elevation"),
+            ChurchDay("saturdayAfterExaltation", .none, reading: "1Cor 1:26-29 John 8:21-30 # Saturday after the Universal Elevation"),
+            ChurchDay("sundayAfterExaltation", .none, reading: "Gal 2:16-20 Mark 8:34-9:1 # Sunday after the Universal Elevation"),
 
-            ChurchDay("saturdayBeforeTheophany", .none),
-            ChurchDay("sundayBeforeTheophany", .none),
-            ChurchDay("saturdayAfterTheophany", .none),
-            ChurchDay("sundayAfterTheophany", .none),
+            ChurchDay("saturdayBeforeTheophany", .none, reading: "1Tim 3:14-4:5 Matthew 3:1-11 # Saturday before the Theophany"),
+            ChurchDay("sundayBeforeTheophany", .none, reading: "2Tim 4:5-8 Mark 1:1-8 # Sunday before the Theophany"),
+            ChurchDay("saturdayAfterTheophany", .none, reading: "Ephes 6:10-17 Matthew 4:1-11 # Saturday after the Theophany"),
+            ChurchDay("sundayAfterTheophany", .none, reading: "Ephes 4:7-13 Matthew 4:12-17 # Sunday after the Theophany"),
             
-            ChurchDay("saturday1GreatLent", .noSign),
+            ChurchDay("saturday1GreatLent", .noSign, reading: "2Tim 2:1-10 John 15:17-16:2 # Great Martyr"),
             ChurchDay("sunday1GreatLent", .none),
-            ChurchDay("saturday2GreatLent", .none),
-            ChurchDay("sunday2GreatLent", .noSign),
-            ChurchDay("saturday3GreatLent", .none),
+            ChurchDay("saturday2GreatLent", .none, reading: "1Thess 4:13-17 John 5:24-30 # Departed"),
+            ChurchDay("sunday2GreatLent", .noSign, reading: "Heb 7:26-8:2 John 10:9-16 # Saint"),
+            ChurchDay("saturday3GreatLent", .none, reading: "1Thess 4:13-17 John 5:24-30 # Departed"),
             ChurchDay("sunday3GreatLent", .none),
-            ChurchDay("saturday4GreatLent", .none),
-            ChurchDay("sunday4GreatLent", .noSign),
+            ChurchDay("saturday4GreatLent", .none, reading: "1Cor 15:47-57 John 5:24-30 # Departed"),
+            ChurchDay("sunday4GreatLent", .noSign, reading: "Ephes 5:8-19 Matthew 4:25-5:12 # Venerable"),
             ChurchDay("thursday5GreatLent", .none),
-            ChurchDay("saturday5GreatLent", .none),
-            ChurchDay("sunday5GreatLent", .none),
+            ChurchDay("saturday5GreatLent", .none, reading: "Heb 9:1-7 Luke 10:38-42,11:27-28 # Theotokos"),
+            ChurchDay("sunday5GreatLent", .none, reading: "Gal 3:23-29 Luke 7:36-50 # Venerable"),
             
             ChurchDay("sunday2AfterPascha", .none),
             ChurchDay("sunday3AfterPascha", .none),
@@ -140,19 +146,19 @@ public class ChurchCalendar2 {
             ChurchDay("sunday7AfterPascha", .none),
             
             ChurchDay("sunday1AfterPentecost", .none),
-            ChurchDay("sunday2AfterPentecost", .none),
+            ChurchDay("sunday2AfterPentecost", .none, reading: "Heb 11:33-12:2 Matthew 4:25-5:12 # Saints"),
             
-            ChurchDay("saturdayOfFathers", .noSign),
-            ChurchDay("saturdayTrinity", .none),
-            ChurchDay("saturdayOfDeparted", .none),
+            ChurchDay("saturdayOfFathers", .noSign, reading: "Gal 5:22-6:2 Matthew 11:27-30 # Fathers"),
+            ChurchDay("saturdayTrinity", .none, reading: "1Cor 15:47-57 John 6:35-39 # Departed"),
+            ChurchDay("saturdayOfDeparted", .none, reading: "1Thess 4:13-17 John 5:24-30 # Departed"),
             ChurchDay("lazarusSaturday", .none),
             
-            ChurchDay("newMartyrsConfessorsOfRussia", .vigil),
+            ChurchDay("newMartyrsConfessorsOfRussia", .vigil, reading: "Rom 8:28-39 Luke 21:8-19 # Martyrs"),
             ChurchDay("demetriusSaturday", .none),
             ChurchDay("radonitsa", .none),
             ChurchDay("killedInAction", .none, date: Date(9,  5, year)),
             ChurchDay("josephBetrothed", .noSign),
-            ChurchDay("holyFathersSixCouncils", .none),
+            ChurchDay("holyFathersSixCouncils", .none, reading: "Heb 13:7-16 John 17:1-13 # Fathers"),
             ChurchDay("holyFathersSeventhCouncil", .none),
         ]
     }
@@ -211,6 +217,14 @@ public class ChurchCalendar2 {
     }
     
     func initSatSun() {
+        func saturdayBeforeNativity(_ date: Date) -> ChurchDay {
+            ChurchDay("saturdayBeforeNativity", .none, date: date, reading: "Gal 3:8-12 Luke 13:18-29 # Saturday before the Nativity")
+        }
+        
+        func sundayBeforeNativity(_ date: Date) -> ChurchDay {
+            ChurchDay("sundayBeforeNativity", .none, date: date, reading: "Heb 11:9-10,17-23,32-40 Matthew 1:1-25 # Sunday before the Nativity")
+        }
+        
         // EXALTATION SAT & SUN
         let exaltation = Date(27, 9, year)
         let exaltationWeekday = DateComponents(date: exaltation).weekday!
@@ -229,11 +243,11 @@ public class ChurchCalendar2 {
         let nativitySatOffset = (nativityWeekday == 7) ? 7 : 7-nativityWeekday
         
         if nativitySunOffset != 7 {
-            days.append(ChurchDay("sundayBeforeNativity", .none, date: nativity - nativitySunOffset.days))
+            days.append(sundayBeforeNativity(nativity - nativitySunOffset.days))
         }
 
         if nativityWeekday != 7 {
-            days.append(ChurchDay("saturdayBeforeNativity", .none, date: nativity - nativityWeekday.days))
+            days.append(saturdayBeforeNativity(nativity - nativityWeekday.days))
         }
 
         day("sundayAfterNativity").date = nativity + (8-nativityWeekday).days
@@ -251,11 +265,11 @@ public class ChurchCalendar2 {
         var nativityNextYearSunOffset = (nativityNextYearWeekday == 1) ? 7 : (nativityNextYearWeekday-1)
 
         if nativityNextYearSunOffset == 7 {
-            days.append(ChurchDay("sundayBeforeNativity", .none, date: Date(31, 12, year)))
+            days.append(sundayBeforeNativity(Date(31, 12, year)))
         }
         
         if nativityNextYearWeekday == 7 {
-            days.append(ChurchDay("saturdayBeforeNativity", .none, date: Date(31, 12, year)))
+            days.append(saturdayBeforeNativity(Date(31, 12, year)))
         }
         
         nativityNextYearSunOffset += 7
@@ -285,6 +299,7 @@ public class ChurchCalendar2 {
         day("holyFathersSixCouncils").date = nearestSunday(Date(29, 7, year))
         day("holyFathersSeventhCouncil").date = nearestSunday(Date(24, 10, year))
         
+        // SYNAXIS
         days.append(ChurchDay("synaxisKievCavesSaints", .none, date: greatLentStart+13.days))
         days.append(ChurchDay("synaxisMartyrsButovo", .none, date: pascha+27.days))
         days.append(ChurchDay("synaxisMountAthosSaints", .none, date: pentecost+14.days))
@@ -292,6 +307,17 @@ public class ChurchCalendar2 {
         if Translate.language == "ru" {
             days.append(ChurchDay("synaxisMoscowSaints", .none, date: nearestSundayBefore(Date(8, 9, year))))
             days.append(ChurchDay("synaxisNizhnyNovgorodSaints", .none, date: nearestSundayAfter(Date(8, 9, year))))
+        }
+        
+        let synaxisTheotokos = Date(8, 1, year)
+        let synaxisTheotokosW = DayOfWeek(rawValue: synaxisTheotokos.weekday)
+        
+        if synaxisTheotokosW == .monday {
+            days.append(ChurchDay("", .doxology, date: synaxisTheotokos, reading: "Heb 2:11-18 # Theotokos"))
+            days.append(ChurchDay("", .doxology, date: synaxisTheotokos, reading: "Gal 1:11-19 Matthew 2:13-23 # Holy Ancestors"))
+            
+        } else if synaxisTheotokosW != .sunday {
+            days.append(ChurchDay("", .doxology, date: synaxisTheotokos, reading: "Heb 2:11-18 Matthew 2:13-23 # Theotokos"))
         }
         
         days.append(ChurchDay("josephArimathea", .noSign, date: pascha+14.days))
@@ -454,7 +480,7 @@ public extension ChurchCalendar2 {
     
     func getDayDescription(_ date: Date) -> [(FeastType, String)] {
         return days
-            .filter({ $0.date == date })
+            .filter({ $0.date == date && $0.name.count > 0 })
             .map({($0.type, Translate.s($0.name))})
             .sorted { $0.0.rawValue < $1.0.rawValue }
     }
