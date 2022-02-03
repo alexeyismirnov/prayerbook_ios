@@ -77,10 +77,10 @@ public class ChurchCalendar2 {
     
     func initDays() {
         days = [
-            ChurchDay("pascha", .great),
-            ChurchDay("pentecost", .great),
-            ChurchDay("ascension", .great),
-            ChurchDay("palmSunday", .great),
+            ChurchDay("palmSunday", .great, reading: "Phil 4:4-9 John 12:1-18"),
+            ChurchDay("pascha", .great, reading: "Acts 1:1-8 John 1:1-17"),
+            ChurchDay("ascension", .great, reading: "Acts 1:1-12 Luke 24:36-53"),
+            ChurchDay("pentecost", .great, reading: "Acts 2:1-11 John 7:37-52,8:12"),
             ChurchDay("nativityOfGod", .great, date:  Date(7,  1, year), reading: "Matthew 1:18-25 Gal 4:4-7 Matthew 2:1-12"),
             ChurchDay("theophany", .great, date:  Date(19, 1, year), reading: "Mark 1:9-11 Tit 2:11-14,3:4-7 Matthew 3:13-17"),
             ChurchDay("meetingOfLord", .great, date: Date(15, 2, year), reading: "Luke 2:25-32 Heb 7:7-17 Luke 2:22-40"),
@@ -160,6 +160,63 @@ public class ChurchCalendar2 {
             ChurchDay("josephBetrothed", .noSign),
             ChurchDay("holyFathersSixCouncils", .none, reading: "Heb 13:7-16 John 17:1-13 # Fathers"),
             ChurchDay("holyFathersSeventhCouncil", .none),
+            
+            ChurchDay("", .vigil, date: Date(30, 1, year),
+                      reading: "Heb 13:17-21 Luke 6:17-23 # Venerable",
+                      comment: "Anthony the Great"),
+            
+            ChurchDay("", .vigil, date: Date(2, 2, year),
+                      reading: "Heb 13:17-21 Luke 6:17-23 # Venerable",
+                      comment: "Euthymius the Great"),
+            
+            ChurchDay("", .vigil, date: Date(12, 2, year),
+                      reading: "Heb 13:7-16 Matthew 5:14-19 # Hierarchs",
+                      comment: "Synaxis of the Three Hierarchs"),
+            
+            ChurchDay("", .vigil, date: Date(6, 5, year),
+                      reading: "Acts 12:1-11 John 15:17-16:2 # Great Martyr",
+                      comment: "Victory-bearer George"),
+            
+            ChurchDay("", .vigil, date: Date(21, 5, year),
+                      reading: "1John 1:1-7 John 19:25-27,21:24-25 # Apostle",
+                      comment: "Apostle John"),
+            
+            ChurchDay("", .vigil, date: Date(24, 5, year),
+                      reading: "Heb 7:26-8:2 Matthew 5:14-19 # Equals-to-the Apostles",
+                      comment: "Methodius and Cyril"),
+            
+            ChurchDay("", .vigil, date: Date(28, 7, year),
+                      reading: "Gal 1:11-19 John 10:1-9 # Equal-to-the Apostles",
+                      comment: "Great Prince Vladimir"),
+            
+            ChurchDay("", .vigil, date: Date(1, 8, year),
+                      reading: "Gal 5:22-6:2 Luke 6:17-23 # Venerable",
+                      comment: "Seraphim of Sarov"),
+            
+            ChurchDay("", .vigil, date: Date(2, 8, year),
+                      reading: "James 5:10-20 Luke 4:22-30 # Prophet",
+                      comment: "Prophet Elias"),
+            
+            ChurchDay("", .polyeleos, date: Date(14, 9, year),
+                      reading: "1Tim 2:1-7 Luke 4:16-22 # New Year",
+                      comment: "New Year"),
+            
+            ChurchDay("", .vigil, date: Date(9, 10, year),
+                      reading: "1John 4:12-19 John 19:25-27,21:24-25 # Repose of the John the Theologian",
+                      comment: "Apostle John"),
+            
+            ChurchDay("", .vigil, date: Date(26, 11, year),
+                      reading: "Heb 7:26-8:2 John 10:9-16 # St. John",
+                      comment: "St. John Chrysostom"),
+            
+            ChurchDay("", .vigil, date: Date(18, 12, year),
+                      reading: "Gal 5:22-6:2 Matthew 11:27-30 # Venerable",
+                      comment: "Venerable Sabbas"),
+            
+            ChurchDay("", .vigil, date: Date(19, 12, year),
+                      reading: "Heb 13:17-21 Luke 6:17-23 # St. Nicholas",
+                      comment: "St. Nicholas"),
+            
         ]
     }
     
@@ -478,11 +535,20 @@ public extension ChurchCalendar2 {
         }
     }
     
-    func getDayDescription(_ date: Date) -> [(FeastType, String)] {
-        return days
+    func getDayDescription(_ date: Date) -> [ChurchDay] {
+        days
             .filter({ $0.date == date && $0.name.count > 0 })
-            .map({($0.type, Translate.s($0.name))})
-            .sorted { $0.0.rawValue < $1.0.rawValue }
+            .sorted { $0.type.rawValue < $1.type.rawValue }
+    }
+    
+    func getDayReadings(_ date: Date) -> [ChurchDay] {
+        days
+            .filter({ $0.date == date && $0.reading.count > 0 })
+            .sorted { $0.type.rawValue < $1.type.rawValue }
+    }
+    
+    func getAllReadings() -> [ChurchDay] {
+        days.filter({ $0.reading.count > 0 })
     }
     
     func getWeekDescription(_ date: Date) -> String? {

@@ -42,7 +42,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     var saintTroparia = [(String,String)]()
     let troparia : [TroparionModel] = [TroparionFeastModel.shared, TroparionDayModel.shared]
 
-    var dayDescription = [(FeastType, String)]()
+    var dayDescription = [ChurchDay]()
     var saints = [(FeastType, String)]()
     var saintIcons = [Saint]()
 
@@ -224,16 +224,16 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 return getTextCell(descr)
                 
             default:
-                let feast:FeastType = dayDescription[indexPath.row-2].0
+                let feast:FeastType = dayDescription[indexPath.row-2].type
                 
                 if feast == .none {
-                    return getTextCell(dayDescription[indexPath.row-2].1)
+                    return getTextCell(Translate.s(dayDescription[indexPath.row-2].name))
                     
                 } else if feast == .great {
                     let cell: ImageCell = getCell()
                     
                     cell.title.textColor = UIColor.red
-                    cell.title.text = dayDescription[indexPath.row-2].1
+                    cell.title.text = Translate.s(dayDescription[indexPath.row-2].name)
                     cell.icon.image = UIImage(named: Cal.feastIcon[feast]!, in: toolkit)
                     return cell
                     
@@ -246,7 +246,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                     let myString = NSMutableAttributedString(string: "")
                     myString.append(NSAttributedString(attachment: attachment))
                     
-                    let dayString = dayDescription[indexPath.row-2].1
+                    let dayString = Translate.s(dayDescription[indexPath.row-2].name)
                     let day = dayString.colored(with: Theme.textColor)
 
                     myString.append(day)
@@ -561,9 +561,9 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         
         dayDescription = cal.getDayDescription(currentDate!)
         fasting = ChurchFasting.forDate(currentDate!)
-        
+        readings = ChurchReading.forDate(currentDate!)
+
         saints = SaintModel.saints(currentDate!)
-        readings = DailyReading.getDailyReading(currentDate!)
         synaxarion = getSynaxarion(for: currentDate!)
         
         if (appeared) {
