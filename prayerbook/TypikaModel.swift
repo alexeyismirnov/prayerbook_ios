@@ -21,7 +21,7 @@ fileprivate extension String {
 }
 
 
-class TypikaModel : BookModel {
+class TypikaModel : ServiceModel {
     static let shared = TypikaModel()
     
     var lang = Translate.language
@@ -35,7 +35,6 @@ class TypikaModel : BookModel {
     var contentType: BookContentType = .html
     
     var hasChapters = false
-    var hasDate = true
     
     var cal: Cal2!
 
@@ -473,7 +472,7 @@ class TypikaModel : BookModel {
                 prevDate = nextDate
                 nextDate = nextDate + 7.days
                 
-            } while (Cal2.isGreatFeast(prevDate))
+            } while (!Cal2.getGreatFeast(prevDate).isEmpty)
                     
             return prevDate
         })

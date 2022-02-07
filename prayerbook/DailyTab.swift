@@ -11,23 +11,10 @@ import Squeal
 import swift_toolkit
 
 class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
-    var tableView: UITableView!
-    
-    let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
-    static let tk = Bundle(identifier: "com.rlc.swift-toolkit")
-
-    static let size15 = CGSize(width: 15, height: 15)
-    static let icon15x15 : [FeastType: UIImage] = [
-        .noSign: UIImage(named: "nosign", in: tk)!.resize(size15),
-        .sixVerse: UIImage(named: "sixverse", in: tk)!.resize(size15),
-        .doxology: UIImage(named: "doxology", in: tk)!.resize(size15),
-        .polyeleos: UIImage(named: "polyeleos", in: tk)!.resize(size15),
-        .vigil: UIImage(named: "vigil", in: tk)!.resize(size15),
-        .great: UIImage(named: "great", in: tk)!.resize(size15) 
-    ]
-    
     static let bookIcon = UIImage(named: "book")!.maskWithColor(.red).resize(CGSize(width: 20, height: 20))
-    
+    let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+
+    var tableView: UITableView!
     var appeared = false
     
     var fasting: FastingModel!
@@ -38,7 +25,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     var button_extra : CustomBarButton!
     var extraReadings = [Preachment]()
 
-    var saintTroparia = [(String,String)]()
+    var saintTroparia = [Troparion]()
     let troparia : [TroparionModel] = [TroparionFeastModel.shared, TroparionDayModel.shared]
 
     var dayDescription = [ChurchDay]()
@@ -164,7 +151,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             return readings.count + extraReadings.count
           
         case 4:
-            return troparia.filter({$0.isAvailable(on: currentDate!)}).count + (saintTroparia.count > 0 ? 1:0)
+            return troparia.filter({$0.isAvailable(currentDate!)}).count + (saintTroparia.count > 0 ? 1:0)
             
         case 5:
             return saints.count
@@ -233,14 +220,14 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                     
                     cell.title.textColor = UIColor.red
                     cell.title.text = Translate.s(dayDescription[indexPath.row-2].name)
-                    cell.icon.image = UIImage(named: Cal.feastIcon[feast]!, in: toolkit)
+                    cell.icon.image = feast.icon
                     return cell
                     
                 } else {
                     let cell: TextCell = getCell()
                     
                     let attachment = NSTextAttachment()
-                    attachment.image = DailyTab.icon15x15[feast]
+                    attachment.image = feast.icon15x15
                     
                     let myString = NSMutableAttributedString(string: "")
                     myString.append(NSAttributedString(attachment: attachment))
@@ -320,7 +307,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         } else if indexPath.section == 4 {
             var titles = [String]()
             
-            titles = troparia.filter({$0.isAvailable(on: currentDate!)}).map { $0.title }
+            titles = troparia.filter({$0.isAvailable(currentDate!)}).map { $0.getTitle(currentDate!) }
             titles.append("Тропари и кондаки святым")
             
             if appeared {
@@ -343,7 +330,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 
             } else {
                 let attachment = NSTextAttachment()
-                attachment.image = DailyTab.icon15x15[saints[indexPath.row].0]
+                attachment.image = saints[indexPath.row].0.icon15x15
                 let attachmentString = NSAttributedString(attachment: attachment)
                 
                 let myString = NSMutableAttributedString(string: "")
@@ -410,12 +397,12 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         } else if indexPath.section == 4 {
             var count = indexPath.row+1
             
-            for t in troparia.filter({$0.isAvailable(on: currentDate!)}) {
+            for t in troparia.filter({$0.isAvailable(currentDate!)}) {
                 count -= 1
                 
                 if count == 0 {
                     if t.isDownloaded() {
-                        vc = TroparionView(t.getTroparion(for: currentDate!))!
+                        vc = TroparionView(t.getTroparion(currentDate!))!
                         vc.hidesBottomBarWhenPushed = true;
                         navigationController?.pushViewController(vc, animated: true)
                         
@@ -540,7 +527,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         extraReadings = FeofanModel.shared.getPreachment(currentDate!)
         extraReadings.append(contentsOf: SynaxarionModel.shared.getPreachment(currentDate!))
         
-        saintTroparia = SaintTropariaModel.getTroparion(for: currentDate!)
+        saintTroparia = SaintTropariaModel.shared.getTroparion(currentDate!)
         saintIcons = SaintIconModel.get(currentDate!)
     }
     
@@ -594,7 +581,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             
             let nearestMonday = currentWeekday == .sunday ?
                 self.currentDate! - 6.days :
-                Cal.nearestSundayBefore(self.currentDate!) + 1.days
+                Cal2.nearestSundayBefore(self.currentDate!) + 1.days
             
             let vc = WeekCalendar(nearestMonday)
             let nav = UINavigationController(rootViewController: vc)

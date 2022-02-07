@@ -15,7 +15,7 @@ class YearCalendarContainer: UIViewControllerAnimated {
        }
        
     static var viewType = ViewType.grid
-    var year = Cal.currentYear!
+    var year : Int?
     
     var grid: YearCalendarGrid!
     var list: YearCalendarList!
@@ -30,27 +30,31 @@ class YearCalendarContainer: UIViewControllerAnimated {
     }
     
     override func viewControllerCurrent() -> UIViewController {
-        return YCC.year(year)
+        return YCC.year(year!)
     }
     
     override func viewControllerForward() -> UIViewController {
-        return YCC.year(year+1)
+        return YCC.year(year!+1)
     }
     
     override func viewControllerBackward() -> UIViewController {
-        return YCC.year(year-1)
+        return YCC.year(year!-1)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if year == nil {
+            year = DateComponents(date: Date()).toDate().year
+        }
 
         setupNavbar()
         
-        grid = YearCalendarGrid(year)
+        grid = YearCalendarGrid(year!)
         view.addSubview(grid)
         fullScreen(view: grid)
         
-        list = YearCalendarList(year)
+        list = YearCalendarList(year!)
         view.addSubview(list)
         fullScreen(view: list)
         

@@ -20,9 +20,13 @@ class SaintTropariaModel : BookModel {
     var author: String?
 
     var hasChapters = false
-    var hasDate = false
-    var date: Date = Date()
+    var db : Database
     
+    init() {
+        let path = Bundle.main.path(forResource: "troparion", ofType: "sqlite")!
+        db = try! Database(path:path)
+    }
+
     static let shared = SaintTropariaModel()
     
     func getSections() -> [String] {
@@ -41,18 +45,16 @@ class SaintTropariaModel : BookModel {
         return nil
     }
     
-    static func troparionData(_ date: Date) -> [(String, String)] {
-        var troparion = [(String,String)]()
+    func troparionData(_ date: Date) -> [Troparion] {
+        var troparion = [Troparion]()
 
         let dc = DateComponents(date: date)
-        
-        let path = Bundle.main.path(forResource: "troparion", ofType: "sqlite")!
-        let db = try! Database(path:path)
         
         let day = dc.day!
         let month = dc.month!
         
-        let results = try! db.selectFrom("tropari", whereExpr:"month=\(month) AND day=\(day)") { ["title": $0["title"] , "glas": $0["glas"], "content": $0["content"] ] }
+        let results = try! db.selectFrom("tropari", whereExpr:"month=\(month) AND day=\(day)")
+            { ["title": $0["title"] , "glas": $0["glas"], "content": $0["content"] ] }
         
         for line in results {
             var title = line["title"] as! String
@@ -63,25 +65,25 @@ class SaintTropariaModel : BookModel {
                 title = title + ", " + glas
             }
             
-            troparion.append((title,content))
+            troparion.append(Troparion(title: title, content: content))
         }
         
         return troparion
     }
     
-    static func getTroparion(for date: Date) -> [(String, String)] {
-        var troparion = [(String,String)]()
+    func getTroparion(_ date: Date) -> [Troparion] {
+        var troparion = [Troparion]()
         
-        Cal.setDate(date)
-        
-        if (Cal.isLeapYear) {
+        let cal = Cal2.fromDate(date)
+                
+        if (cal.isLeapYear) {
             switch date {
-            case Cal.leapStart ..< Cal.leapEnd:
+            case cal.leapStart ..< cal.leapEnd:
                 troparion = troparionData(date+1.days)
                 break
                 
-            case Cal.leapEnd:
-                troparion = troparionData(Date(29, 2, Cal.currentYear))
+            case cal.leapEnd:
+                troparion = troparionData(Date(29, 2, cal.year))
                 break
                 
             default:
@@ -90,7 +92,7 @@ class SaintTropariaModel : BookModel {
             
         } else {
             troparion = troparionData(date)
-            if (date == Cal.leapEnd) {
+            if (date == cal.leapEnd) {
                 troparion += troparionData(Date(29, 2, 2000))
             }
         }
@@ -99,19 +101,15 @@ class SaintTropariaModel : BookModel {
     }
     
     func getContent(at pos: BookPosition) -> Any? {
-        guard let data : [(String,String)] = pos.data as? [(String, String)]  else { return nil }
+        guard let data : [Troparion] = pos.data as? [Troparion]  else { return nil }
       
         var text = NSAttributedString()
-        
         let prefs = AppGroup.prefs!
         let fontSize = prefs.integer(forKey: "fontSize")
         
         for line in data {
-            let title = line.0
-            let content = line.1
-            
-            text += title.colored(with: Theme.textColor).boldFont(ofSize: CGFloat(fontSize)).centered + "\n\n"
-            text += content.colored(with: Theme.textColor).systemFont(ofSize: CGFloat(fontSize)) + "\n\n"
+            text += line.title.colored(with: Theme.textColor).boldFont(ofSize: CGFloat(fontSize)).centered + "\n\n"
+            text += line.content.colored(with: Theme.textColor).systemFont(ofSize: CGFloat(fontSize)) + "\n\n"
         }
         
         return text

@@ -25,15 +25,14 @@ struct Troparion {
 protocol TroparionModel {
     var url : String { get }
     var fileSize : Int { get }
-    var title : String { get }
 
     func isDownloaded() -> Bool
-    func isAvailable(on date : Date) -> Bool
-    func getTroparion(for date : Date) -> [Troparion]
+    func isAvailable(_ date : Date) -> Bool
+    func getTroparion(_ date : Date) -> [Troparion]
+    func getTitle(_ date : Date) -> String
 }
 
 class TroparionFeastModel : TroparionModel {
-    var title = "Тропарь и кондак праздника"
     var url = "https://filedn.com/lUdNcEH0czFSe8uSnCeo29F/prayerbook/tropari.zip"
     var fileSize = 22
 
@@ -46,26 +45,50 @@ class TroparionFeastModel : TroparionModel {
         path = documentDirectory.path + "/tropari/tropari/tropari.sqlite"
     }
     
-    func isAvailable(on date : Date) -> Bool {
-        return Cal.getGreatFeast(date) != nil
-    }
+    func getTitle(_ date : Date) -> String { "Тропарь и кондак праздника" }
+    
+    func isAvailable(_ date : Date) -> Bool { !Cal2.getGreatFeast(date).isEmpty }
 
-    func getTroparion(for date : Date) -> [Troparion]  {
-        let code = Cal.getGreatFeast(date)!
+    func getTroparion(_ date : Date) -> [Troparion]  {
+        let feasts = Cal2.getGreatFeast(date)
         let db = try! Database(path:path)
         
+        let codes = ["pascha": 1,
+                     "pentecost": 2,
+                     "ascension": 3,
+                     "palmSunday" :4,
+                     "nativityOfGod": 6,
+                     "circumcision": 7,
+                     "theophany": 9,
+                     "meetingOfLord": 10,
+                     "annunciation": 11,
+                     "nativityOfJohn": 12,
+                     "peterAndPaul": 13,
+                     "transfiguration": 14,
+                     "dormition": 15,
+                     "beheadingOfJohn": 16,
+                     "nativityOfTheotokos": 17,
+                     "exaltationOfCross": 18,
+                     "veilOfTheotokos": 19,
+                     "entryIntoTemple": 20 ]
+        
         var troparion = [Troparion]()
-
-        let results = try! db.selectFrom("tropari", whereExpr:"code=\(code.rawValue)", orderBy: "id") { ["title": $0["title"], "content": $0["content"], "url": $0["url"]]}
         
-        for line in results {
-            let title = line["title"] as! String
-            let content =  line["content"] as! String
-            let url = line["url"] as? String
+        for f in feasts {
+            let code = codes[f.name]!
             
-            troparion.append(Troparion(title: title, content: content, url: url != nil ? "/tropari/tropari/\(url!).mp3" : nil))
+            let results = try! db.selectFrom("tropari", whereExpr:"code=\(code)", orderBy: "id")
+                { ["title": $0["title"], "content": $0["content"], "url": $0["url"]]}
+            
+            for line in results {
+                let title = line["title"] as! String
+                let content =  line["content"] as! String
+                let url = line["url"] as? String
+                
+                troparion.append(Troparion(title: title, content: content, url: url != nil ? "/tropari/tropari/\(url!).mp3" : nil))
+            }
         }
-        
+
         return troparion
     }
     
@@ -76,16 +99,6 @@ class TroparionFeastModel : TroparionModel {
 }
 
 class TroparionDayModel : TroparionModel {
-    var title : String {
-        get {
-            if Cal.d(.pascha) ..< Cal.d(.sunday2AfterPascha) ~= Cal.currentDate {
-                return "Часы пасхальные"
-            } else {
-                return "Тропарь и кондак дня"
-            }
-        }
-    }
-    
     var url = "https://filedn.com/lUdNcEH0czFSe8uSnCeo29F/prayerbook/tropari_day.zip"
     var fileSize = 20
     
@@ -98,27 +111,41 @@ class TroparionDayModel : TroparionModel {
         path = documentDirectory.path + "/tropari_day/tropari_day/tropari_day.sqlite"
     }
     
-    func isAvailable(on date : Date) -> Bool {
-        if Cal.d(.palmSunday) ... Cal.d(.pascha)  ~= date {
-            return false
-            
+    func getTitle(_ date : Date) -> String {
+        let cal = Cal2.fromDate(date)
+        
+        if cal.pascha ..< cal.d("sunday2AfterPascha") ~= date {
+            return "Часы пасхальные"
         } else {
-            return Cal.getGreatFeast(date) == nil
+            return "Тропарь и кондак дня"
         }
     }
     
-    func getTroparion(for date : Date) -> [Troparion]  {
+    func isAvailable(_ date : Date) -> Bool {
+        let cal = Cal2.fromDate(date)
+
+        if cal.d("palmSunday") ... cal.pascha  ~= date {
+            return false
+            
+        } else {
+            return Cal2.getGreatFeast(date).isEmpty
+        }
+    }
+    
+    func getTroparion(_ date : Date) -> [Troparion]  {
+        let cal = Cal2.fromDate(date)
+
         var troparion = [Troparion]()
         let db = try! Database(path:path)
 
         var code: Int = 0
         let dateComponents = DateComponents(date: date)
 
-        if Cal.d(.pascha) ..< Cal.d(.sunday2AfterPascha) ~= date {
+        if cal.pascha ..< cal.d("sunday2AfterPascha") ~= date {
             code = 100
             
         } else if dateComponents.weekday! == 1 {
-            code = 10 + Cal.getTone(date)!
+            code = 10 + cal.getTone(date)!
             
         } else {
             code = dateComponents.weekday!

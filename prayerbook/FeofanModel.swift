@@ -19,15 +19,16 @@ class FeofanModel : BookModel, PreachmentModel {
     var lang = Translate.language
 
     var hasChapters = false
-    var hasDate = false
-    var date: Date = Date()
     
     static let shared = FeofanModel()
-
-    func feofanDB(_ id: String) -> String? {
+    var db : Database
+    
+    init() {
         let path = Bundle.main.path(forResource: "feofan", ofType: "sqlite")!
-        let db = try! Database(path:path)
+        db = try! Database(path:path)
+    }
 
+    func getFeofan(_ id: String) -> String? {
         let results = try! db.selectFrom("thoughts", whereExpr:"id=\"\(id)\"") { ["id": $0["id"] , "descr": $0["descr"]] }
         
         if let res = results[safe: 0] {
@@ -37,10 +38,7 @@ class FeofanModel : BookModel, PreachmentModel {
         return nil
     }
     
-    func feofanGospel(_ id: String) -> String? {
-        let path = Bundle.main.path(forResource: "feofan", ofType: "sqlite")!
-        let db = try! Database(path:path)
-
+    func getFeofanGospel(_ id: String) -> String? {
         let results = try! db.prepareStatement("SELECT id,descr FROM thoughts WHERE id LIKE'%\(id)' AND fuzzy=1")
         
         while try! results.next() {
@@ -59,7 +57,7 @@ class FeofanModel : BookModel, PreachmentModel {
 
         if date == cal.d("meetingOfLord") {
             return [Preachment(
-                position: BookPosition(model: FeofanModel.shared, data: feofanDB("33")!),
+                position: BookPosition(model: FeofanModel.shared, data: getFeofan("33")!),
                 title: title)]
         }
         
@@ -70,22 +68,22 @@ class FeofanModel : BookModel, PreachmentModel {
             
         case Date(4,12, date.year):
             return [Preachment(
-                position: BookPosition(model: FeofanModel.shared, data: feofanDB("325")!),
+                position: BookPosition(model: FeofanModel.shared, data: getFeofan("325")!),
                 title: title)]
             
         case Date(19,8, date.year):
             return [Preachment(
-                position: BookPosition(model: FeofanModel.shared, data: feofanDB("218")!),
+                position: BookPosition(model: FeofanModel.shared, data: getFeofan("218")!),
                 title: title)]
             
         case cal.greatLentStart-3.days:
             return [Preachment(
-                position: BookPosition(model: FeofanModel.shared, data: feofanDB("36")!),
+                position: BookPosition(model: FeofanModel.shared, data: getFeofan("36")!),
                 title: title)]
             
         case cal.greatLentStart-5.days:
             return [Preachment(
-                position: BookPosition(model: FeofanModel.shared, data: feofanDB("34")!),
+                position: BookPosition(model: FeofanModel.shared, data: getFeofan("34")!),
                 title: title)]
             
         case cal.pascha-3.days,
@@ -94,13 +92,13 @@ class FeofanModel : BookModel, PreachmentModel {
             
         case cal.d("sundayOfForefathers"):
             return [Preachment(
-                position: BookPosition(model: FeofanModel.shared, data: feofanDB("346")!),
+                position: BookPosition(model: FeofanModel.shared, data: getFeofan("346")!),
                 title: title)]
             
         case cal.greatLentStart ..< cal.pascha:
             let num = (cal.greatLentStart >> date) + 39
             
-            if let f = feofanDB("\(num)") {
+            if let f = getFeofan("\(num)") {
                 return [Preachment(
                     position: BookPosition(model: FeofanModel.shared, data: f),
                     title: title)]
@@ -115,7 +113,7 @@ class FeofanModel : BookModel, PreachmentModel {
                 let pericope = Translate.readings(str)
                 let id = pericope.replacingOccurrences(of: " ", with: "")
                 
-                if let f = feofanDB(id) {
+                if let f = getFeofan(id) {
                     results.append(Preachment(
                         position: BookPosition(model: FeofanModel.shared, data: f),
                         title: title,
@@ -134,7 +132,7 @@ class FeofanModel : BookModel, PreachmentModel {
                             let pericope = Translate.readings(p[i] + " " + p[i+1])
                             let id = pericope.replacingOccurrences(of: " ", with: "")
                             
-                            if let f = feofanGospel(id) {
+                            if let f = getFeofanGospel(id) {
                                 results.append(Preachment(
                                     position: BookPosition(model: FeofanModel.shared, data: f),
                                     title: title,

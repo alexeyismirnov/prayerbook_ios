@@ -499,6 +499,20 @@ public class ChurchCalendar2 {
     
 }
 
+public extension ChurchCalendar2 {
+    var isLeapYear: Bool {
+        get { (year % 400) == 0 || ((year % 4 == 0) && (year % 100 != 0)) }
+    }
+    
+    var leapStart: Date {
+        get { Date(29, 2, year) }
+    }
+    
+    var leapEnd: Date {
+        get { Date(13, 3, year) }
+    }
+}
+
 public extension ChurchCalendar2 {    
     static func paschaDay(_ year: Int) -> Date {
         // http://calendar.lenacom.spb.ru/index.php
@@ -520,8 +534,8 @@ public extension ChurchCalendar2 {
         return date - sunOffset.days
     }
     
-    static func isGreatFeast(_ date: Date) -> Bool {
-        !Cal2.fromDate(date).days.filter({ $0.date == date && $0.type == .great}).isEmpty
+    static func getGreatFeast(_ date: Date) -> [ChurchDay]  {
+        Cal2.fromDate(date).days.filter({ $0.date == date && $0.type == .great})
     }
     
     func nearestSunday(_ date: Date) -> Date {

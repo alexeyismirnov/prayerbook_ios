@@ -23,7 +23,7 @@ class FeastSaintNotifications: FeastNotifications {
     }
     
     override class func setupExtraNotifications() {
-        let year = Cal.currentYear!
+        let year = DateComponents(date: Date()).toDate().year
 
         for (date, descr) in FeastList.remembrance {
             addNotification(date: date,  title: "Поминовение усопших", body: descr.string)
