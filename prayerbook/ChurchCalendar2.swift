@@ -362,8 +362,8 @@ public class ChurchCalendar2 {
         days.append(ChurchDay("synaxisMountAthosSaints", .none, date: pentecost+14.days))
         
         if Translate.language == "ru" {
-            days.append(ChurchDay("synaxisMoscowSaints", .none, date: nearestSundayBefore(Date(8, 9, year))))
-            days.append(ChurchDay("synaxisNizhnyNovgorodSaints", .none, date: nearestSundayAfter(Date(8, 9, year))))
+            days.append(ChurchDay("synaxisMoscowSaints", .none, date: ChurchCalendar2.nearestSundayBefore(Date(8, 9, year))))
+            days.append(ChurchDay("synaxisNizhnyNovgorodSaints", .none, date: ChurchCalendar2.nearestSundayAfter(Date(8, 9, year))))
         }
         
         let synaxisTheotokos = Date(8, 1, year)
@@ -508,16 +508,20 @@ public extension ChurchCalendar2 {
         return  ((a+b > 10) ? Date(a+b-9, 4, year) : Date(22+a+b, 3, year)) + 13.days
     }
     
-    func nearestSundayAfter(_ date: Date) -> Date {
+    static func nearestSundayAfter(_ date: Date) -> Date {
         let weekday = DateComponents(date:date).weekday!
         let sunOffset = (weekday == 1) ? 0 : 8-weekday
         return date + sunOffset.days
     }
 
-    func nearestSundayBefore(_ date: Date) -> Date {
+    static func nearestSundayBefore(_ date: Date) -> Date {
         let weekday = DateComponents(date:date).weekday!
         let sunOffset = (weekday == 1) ? 0 : weekday-1
         return date - sunOffset.days
+    }
+    
+    static func isGreatFeast(_ date: Date) -> Bool {
+        !Cal2.fromDate(date).days.filter({ $0.date == date && $0.type == .great}).isEmpty
     }
     
     func nearestSunday(_ date: Date) -> Date {
@@ -528,10 +532,10 @@ public extension ChurchCalendar2 {
             return date
             
         case .monday, .tuesday, .wednesday:
-            return nearestSundayBefore(date)
+            return ChurchCalendar2.nearestSundayBefore(date)
             
         default:
-            return nearestSundayAfter(date)
+            return ChurchCalendar2.nearestSundayAfter(date)
         }
     }
     

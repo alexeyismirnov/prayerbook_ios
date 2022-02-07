@@ -23,8 +23,8 @@ fileprivate extension String {
 
 class TypikaModel : BookModel {
     static let shared = TypikaModel()
+    
     var lang = Translate.language
-
     var code: String = "Typika"
     
     var title: String {
@@ -37,9 +37,11 @@ class TypikaModel : BookModel {
     var hasChapters = false
     var hasDate = true
     
+    var cal: Cal2!
+
     var content: String!
     var tone: Int!
-    
+
     var beatitudes = [String]()
     var prokimen = [String]()
     var prokimen_tone = [Int]()
@@ -51,6 +53,13 @@ class TypikaModel : BookModel {
     let default_kontakia = [("", "Со святыми упокой  Христе, души раб Твоих,  идеже несть болезнь, ни печаль,  ни воздыхание,  но жизнь безконечная"),
     ("", "Предстательство христиан непостыдное,  ходатайство ко Творцу непреложное,  не презри грешных молений гласы,  но предвари, яко Благая, на помощь нас, верно зовущих Ти:  ускори на молитву и потщися на умоление,  предстательствующи присно, Богородице, чтущих Тя.")]
 
+    var db : Database
+
+    init() {
+        let path = Bundle.main.path(forResource: "typika", ofType: "sqlite")!
+        db = try! Database(path:path)
+    }
+    
     func resetData() {
         beatitudes = [String]()
         prokimen = [String]()
@@ -121,12 +130,13 @@ class TypikaModel : BookModel {
     }
     
     var week_num: Int {
-        return (Cal.d(.sundayOfPublicianAndPharisee) >> date) / 7
+        return (cal.d("sundayOfPublicianAndPharisee") >> date) / 7
     }
     
     var date: Date = Date() {
         didSet {
-            tone = Cal.getTone(date)!
+            cal = Cal2.fromDate(date)
+            tone = cal.getTone(date)!
             
             resetData()
             
@@ -136,13 +146,13 @@ class TypikaModel : BookModel {
             let _ = try! db.selectFrom("tropar_sun", whereExpr:"glas=\(tone!)")
             { troparion.append(("Тропарь воскресный, глас \(tone!):", $0.stringValue("text") ?? "")) }
            
-            if Cal.d(.pascha) ... Cal.d(.pentecost)+7.days ~= date {
+            if cal.pascha ... cal.pentecost+7.days ~= date {
                 beatitudes.removeAll()
                 
                 let _ = try! db.selectFrom("blazh_triod", whereExpr:"week=\(week_num)", orderBy: "id")
                 { beatitudes.append($0.stringValue("text") ?? "") }
                 
-                if date == Cal.d(.sunday2AfterPascha) {
+                if date == cal.d("sunday2AfterPascha") {
                     troparion.removeAll()
                 }
                 
@@ -152,13 +162,13 @@ class TypikaModel : BookModel {
                 let _ = try! db.selectFrom("kondak_triod", whereExpr:"week=\(week_num)")
                 { kontakion.append(($0.stringValue("title") ?? "", $0.stringValue("text") ?? "")) }
                 
-                if Cal.d(.pascha)+14.days ... Cal.d(.ascension) ~= date && date != Cal.d(.sunday5AfterPascha) {
+                if cal.pascha+14.days ... cal.d("ascension") ~= date && date != cal.d("sunday5AfterPascha") {
                     kontakion.append(("Кондак Пасхи, глас 8:", "Аще и во гроб снизшел еси, Безсмертне, / но адову разрушил еси силу, / и воскресл еси, яко победитель, Христе Боже, / женам мироносицам вещавый: радуйтеся, / и Твоим апостолом мир даруяй, / падшим подаяй воскресение."))
                 }
                 
                 getProkimenonTriod(week_num)
 
-                if date == Cal.d(.pentecost)+7.days {
+                if date == cal.pentecost+7.days {
                     makeDoubleProkimenon()
                 } else {
                     makeSingleProkimenon()
@@ -167,9 +177,9 @@ class TypikaModel : BookModel {
                 getAlleluiaTriod(week_num)
 
                 
-            } else if Cal.d(.sundayOfPublicianAndPharisee) ... Cal.d(.pascha) ~= date {
+            } else if cal.d("sundayOfPublicianAndPharisee") ... cal.pascha ~= date {
                 
-                if Cal.d(.beginningOfGreatLent) ... Cal.d(.pascha) ~= date {
+                if cal.greatLentStart ... cal.pascha ~= date {
                     beatitudes.removeAll()
                     
                     while beatitudes.count < 11 {
@@ -198,17 +208,16 @@ class TypikaModel : BookModel {
                 let _ = try! db.selectFrom("kondak_triod", whereExpr:"week=\(week_num)")
                 { kontakion.append(($0.stringValue("title") ?? "", $0.stringValue("text") ?? "")) }
                 
-                if (date == Cal.d(.sundayOfPublicianAndPharisee) || date == Cal.d(.sundayOfProdigalSon)) {
+                if (date == cal.d("sundayOfPublicianAndPharisee") || date == cal.d("sundayOfProdigalSon")) {
                     sundayProkimenAlleluia()
                     
-                } else if (date == Cal.d(.beginningOfGreatLent) + 13.days) {
+                } else if (date == cal.greatLentStart + 13.days) {
                     getProkimenonTriod(week_num)
                     makeDoubleProkimenon()
                     
                     getAlleluiaSundayTriod(week_num)
                     
-                } else if (date == Cal.d(.beginningOfGreatLent) + 27.days ||
-                        date == Cal.d(.beginningOfGreatLent) + 34.days) {
+                } else if (date == cal.greatLentStart + 27.days || date == cal.greatLentStart + 34.days) {
                     getProkimenonSundayTriod(week_num)
                     makeDoubleProkimenon()
 
@@ -248,13 +257,11 @@ class TypikaModel : BookModel {
         }
     }
     
-    var db : Database
-    
     func getSections() -> [String] { return [""] }
 
     var data: [String] {
         get {
-            if Cal.d(.beginningOfGreatLent) ... Cal.d(.pascha) ~= date {
+            if cal.greatLentStart ... cal.pascha ~= date {
                 return [
                     "Блаженны",
                     "Тропарь и Трисвятое",
@@ -346,11 +353,6 @@ class TypikaModel : BookModel {
 
     }
     
-    init() {
-        let path = Bundle.main.path(forResource: "typika", ofType: "sqlite")!
-        db = try! Database(path:path)
-    }
-    
     func getItems(_ section: Int) -> [String] {
         return data.map { return Translate.s($0) }
     }
@@ -372,7 +374,7 @@ class TypikaModel : BookModel {
         guard let index = pos.index else { return nil }
         var typika: [[String:Bindable?]]
             
-        if Cal.d(.beginningOfGreatLent) ... Cal.d(.pascha) ~= date {
+        if cal.greatLentStart ... cal.pascha ~= date {
             typika = try! db.selectFrom("content_lent", whereExpr:"section=\(index.row+1)") { ["text": $0["text"]] }
 
         } else {
@@ -420,12 +422,12 @@ class TypikaModel : BookModel {
                 with: text)
         }
         
-        getReading(DailyReading.getRegularReading(date)!, index: 1)
+        getReading(ChurchReading.forDate(date).last!, index: 1)
         
         let lentReading = [
-            Cal.d(.beginningOfGreatLent)+13.days: "Heb 7:26-8:2 John 10:9-16",
-            Cal.d(.beginningOfGreatLent)+27.days: "Ephes 5:8-19 Matthew 4:25-5:12",
-            Cal.d(.beginningOfGreatLent)+34.days: "Gal 3:23-29 Luke 7:36-50",
+            cal.greatLentStart+13.days: "Heb 7:26-8:2 John 10:9-16",
+            cal.greatLentStart+27.days: "Ephes 5:8-19 Matthew 4:25-5:12",
+            cal.greatLentStart+34.days: "Gal 3:23-29 Luke 7:36-50",
         ]
         
         if let readingStr = lentReading[date] {
@@ -463,21 +465,17 @@ class TypikaModel : BookModel {
     }
     
     func dateIterator(startDate: Date) -> AnyIterator<Date> {
-        var currentDate = startDate
-        var nextDate, pascha: Date!
+        var nextDate = Cal2.nearestSundayAfter(startDate)
+        var prevDate : Date!
         
         return AnyIterator({
             repeat {
-                nextDate = Cal.nearestSundayAfter(currentDate)
-                pascha = Cal.paschaDay(nextDate.year)
-                currentDate = nextDate + 1.days
+                prevDate = nextDate
+                nextDate = nextDate + 7.days
                 
-            } while (nextDate == pascha-7.days ||
-                    nextDate == pascha ||
-                    nextDate == pascha+49.days)
-          
-            
-            return nextDate
+            } while (Cal2.isGreatFeast(prevDate))
+                    
+            return prevDate
         })
     }
     
