@@ -67,6 +67,7 @@
 		8A5F461527111B820074FF20 /* Zip.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460E27111B810074FF20 /* Zip.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A5F461627111B820074FF20 /* Squeal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460F27111B810074FF20 /* Squeal.xcframework */; };
 		8A5F461727111B820074FF20 /* Squeal.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460F27111B810074FF20 /* Squeal.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8A61278F27AD2CCF00BB7DDE /* PreachmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61278E27AD2CCF00BB7DDE /* PreachmentModel.swift */; };
 		8A61BBA5202438CF003AA1BF /* saint.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A61BBA4202438CE003AA1BF /* saint.pdf */; };
 		8A61BBAD20246903003AA1BF /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC675431FED09CA00A9000C /* Chameleon.framework */; };
 		8A693E5D27A2991D00106562 /* ChurchFasting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A693E5C27A2991D00106562 /* ChurchFasting.swift */; };
@@ -238,6 +239,7 @@
 		8AEA68321C8FFA9F009E9FD8 /* trans_ui_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */; };
 		8AEBFAA31C8D16A30056F97B /* trans_reading_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AEBFAA21C8D16A30056F97B /* trans_reading_ru.plist */; };
 		8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */; };
+		8AF0804827B0DDBD003BCC77 /* SynaxarionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF0804727B0DDBD003BCC77 /* SynaxarionModel.swift */; };
 		8AF37E571B36C7A500101148 /* newicon_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E4E1B36C7A500101148 /* newicon_29.png */; };
 		8AF37E581B36C7A500101148 /* newicon_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E4F1B36C7A500101148 /* newicon_40.png */; };
 		8AF37E591B36C7A500101148 /* newicon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF37E501B36C7A500101148 /* newicon_58.png */; };
@@ -387,6 +389,7 @@
 		8A5F460D27111B810074FF20 /* Chameleon.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Chameleon.xcframework; path = Carthage/Build/Chameleon.xcframework; sourceTree = "<group>"; };
 		8A5F460E27111B810074FF20 /* Zip.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Zip.xcframework; path = Carthage/Build/Zip.xcframework; sourceTree = "<group>"; };
 		8A5F460F27111B810074FF20 /* Squeal.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Squeal.xcframework; path = Carthage/Build/Squeal.xcframework; sourceTree = "<group>"; };
+		8A61278E27AD2CCF00BB7DDE /* PreachmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreachmentModel.swift; sourceTree = "<group>"; };
 		8A61BBA4202438CE003AA1BF /* saint.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = saint.pdf; sourceTree = "<group>"; };
 		8A693E5C27A2991D00106562 /* ChurchFasting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchFasting.swift; sourceTree = "<group>"; };
 		8A6AA11726A0366B00FA310C /* vigil.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = vigil.sqlite; sourceTree = "<group>"; };
@@ -562,6 +565,7 @@
 		8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_ui_ru.plist; sourceTree = "<group>"; };
 		8AEBFAA21C8D16A30056F97B /* trans_reading_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_reading_ru.plist; sourceTree = "<group>"; };
 		8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		8AF0804727B0DDBD003BCC77 /* SynaxarionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynaxarionModel.swift; sourceTree = "<group>"; };
 		8AF249831AFF4C64000070C0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		8AF37E4E1B36C7A500101148 /* newicon_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_29.png; sourceTree = "<group>"; };
 		8AF37E4F1B36C7A500101148 /* newicon_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_40.png; sourceTree = "<group>"; };
@@ -704,7 +708,9 @@
 				8A54C4291EA74CE90083AA2F /* DailyTab.swift */,
 				8A0689F8221FF8A600F1E711 /* LibraryTab.swift */,
 				8A1736EE22D20E4C00654AB1 /* SaintTropariaModel.swift */,
+				8A61278E27AD2CCF00BB7DDE /* PreachmentModel.swift */,
 				8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */,
+				8AF0804727B0DDBD003BCC77 /* SynaxarionModel.swift */,
 				8AAE60E42334853F005563D3 /* TypikaModel.swift */,
 				8A13C8FB219172E500D0CE7E /* AudioPlayerCell.swift */,
 				8A13C8FC219172E500D0CE7E /* AudioPlayerCell.xib */,
@@ -1324,6 +1330,7 @@
 				8A693E5D27A2991D00106562 /* ChurchFasting.swift in Sources */,
 				8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */,
 				8A79CC1A2790019F00CADDF3 /* ChurchCalendar2.swift in Sources */,
+				8A61278F27AD2CCF00BB7DDE /* PreachmentModel.swift in Sources */,
 				8A13C8FD219172E500D0CE7E /* AudioPlayerCell.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
 				8A0689F9221FF8A600F1E711 /* LibraryTab.swift in Sources */,
@@ -1334,6 +1341,7 @@
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
 				8A2F46AB19E145D200076AF4 /* Options.swift in Sources */,
 				8A12C92023507B1700F16694 /* FeastSaintNotifications.swift in Sources */,
+				8AF0804827B0DDBD003BCC77 /* SynaxarionModel.swift in Sources */,
 				8A54C42A1EA74CE90083AA2F /* DailyTab.swift in Sources */,
 				8A1736EF22D20E4C00654AB1 /* SaintTropariaModel.swift in Sources */,
 				8AB2C2F223421E4400A2EE1E /* YearCalendarContainer.swift in Sources */,

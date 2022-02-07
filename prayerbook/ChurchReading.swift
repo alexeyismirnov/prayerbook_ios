@@ -288,8 +288,6 @@ public class ChurchReading {
         } else {
             return rr[date] ?? []
         }
-        
-        return []
     }
     
     static public func forDate(_ date: Date) -> [String] {

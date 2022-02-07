@@ -31,14 +31,13 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     var appeared = false
     
     var fasting: FastingModel!
-    var synaxarion : BookPosition?
     
-    var pericope: PericopeModel!
     var readings = [String]()
+    var pericope: PericopeModel!
     var currentReading: String!
     var button_extra : CustomBarButton!
+    var extraReadings = [Preachment]()
 
-    var feofan = [(String,String)]()
     var saintTroparia = [(String,String)]()
     let troparia : [TroparionModel] = [TroparionFeastModel.shared, TroparionDayModel.shared]
 
@@ -162,7 +161,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             return 1
             
         case 3:
-            return readings.count + feofan.count + (synaxarion != nil ? 1:0)
+            return readings.count + extraReadings.count
           
         case 4:
             return troparia.filter({$0.isAvailable(on: currentDate!)}).count + (saintTroparia.count > 0 ? 1:0)
@@ -297,21 +296,15 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 
                 title = Translate.readings(currentReading[0])
                 subtitle = (currentReading.count > 1) ? Translate.s(currentReading[1].trimmingCharacters(in: CharacterSet.whitespaces)) : ""
-                
-            case readings.count ..< readings.count + feofan.count:
+             
+            case readings.count ..< readings.count + extraReadings.count:
                 let ind = indexPath.row - readings.count
-                title = "Мысли на каждый день"
-                subtitle =  feofan.count == 1 ? "" : feofan[ind].0
+                title = extraReadings[ind].title
+                subtitle = extraReadings[ind].subtitle
                 
             default:
-                if synaxarion != nil && indexPath.row == readings.count + feofan.count {
-                    title = EbookModel("synaxarion").getTitle(at: synaxarion!)
-                    subtitle = ""
-                    
-                } else {
-                    title = ""
-                    subtitle=""
-                }
+                title = ""
+                subtitle=""
             }
             
             if appeared {
@@ -391,15 +384,13 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 let pos = BookPosition(model: pericope, location: currentReading)
                 vc = BookPageSingle(pos, lang: pericope.lang, button_extra: button_extra)
                 
-            case readings.count ..< readings.count + feofan.count:
+            case readings.count ..< readings.count + extraReadings.count:
                 let ind = indexPath.row - readings.count
-                let pos = BookPosition(model: FeofanModel.shared, location: feofan[ind].1)
+                let pos = extraReadings[ind].position
                 vc = BookPageSingle(pos)
                 
             default:
-                if synaxarion != nil && indexPath.row == readings.count + feofan.count {
-                    vc = BookPageSingle(synaxarion!)
-                }
+                break
             }
             
             vc.hidesBottomBarWhenPushed = true;
@@ -528,33 +519,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         reload()
     }
     
-    func getSynaxarion(for date: Date) -> BookPosition? {
-        var dates = [Date]()
-
-        let pascha = Cal.d(.pascha)
-        let greatLentStart = pascha-48.days
-        let palmSunday = Cal.d(.palmSunday)
-        
-        dates = [
-            greatLentStart-22.days,greatLentStart-15.days,greatLentStart-9.days,greatLentStart-8.days,
-            greatLentStart-2.days,greatLentStart-1.days,greatLentStart+5.days,greatLentStart+6.days,
-            greatLentStart+13.days,greatLentStart+20.days,greatLentStart+27.days,greatLentStart+31.days,
-            greatLentStart+33.days,palmSunday-1.days,palmSunday,palmSunday+1.days,
-            palmSunday+2.days,palmSunday+3.days,palmSunday+4.days,palmSunday+5.days,
-            palmSunday+6.days,pascha, pascha+5.days,pascha+7.days,pascha+14.days,
-            pascha+21.days, pascha+24.days,pascha+28.days,pascha+35.days,
-            pascha+42.days,pascha+39.days,pascha+49.days, pascha+50.days, pascha+56.days,
-        ]
-        
-        if let index = dates.firstIndex(of: date) {
-            return BookPosition(model: EbookModel("synaxarion"), index: IndexPath(row: index, section: 0))
-            
-        } else {
-            return nil
-        }
-    }
-    
-    
     @objc func reload() {
         formatter.locale = Translate.locale as Locale
         formatterOldStyle.locale = Translate.locale as Locale
@@ -564,20 +528,18 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         readings = ChurchReading.forDate(currentDate!)
 
         saints = SaintModel.saints(currentDate!)
-        synaxarion = getSynaxarion(for: currentDate!)
         
         if (appeared) {
             reloadAfterAppeared()
-        
-        } else {
-            feofan = [("Мысли на каждый день", "")]
         }
         
         tableView.reloadData()
     }
     
     func reloadAfterAppeared() {
-        feofan = FeofanModel.getFeofan(for: currentDate!)
+        extraReadings = FeofanModel.shared.getPreachment(currentDate!)
+        extraReadings.append(contentsOf: SynaxarionModel.shared.getPreachment(currentDate!))
+        
         saintTroparia = SaintTropariaModel.getTroparion(for: currentDate!)
         saintIcons = SaintIconModel.get(currentDate!)
     }

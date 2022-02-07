@@ -10,7 +10,7 @@ import UIKit
 import swift_toolkit
 import Squeal
 
-class FeofanModel : BookModel {
+class FeofanModel : BookModel, PreachmentModel {
     var code: String = "Feofan"
     var title = ""
     var author: String?
@@ -24,7 +24,7 @@ class FeofanModel : BookModel {
     
     static let shared = FeofanModel()
 
-    static func feofanDB(_ id: String) -> String? {
+    func feofanDB(_ id: String) -> String? {
         let path = Bundle.main.path(forResource: "feofan", ofType: "sqlite")!
         let db = try! Database(path:path)
 
@@ -37,7 +37,7 @@ class FeofanModel : BookModel {
         return nil
     }
     
-    static func feofanGospel(_ id: String) -> String? {
+    func feofanGospel(_ id: String) -> String? {
         let path = Bundle.main.path(forResource: "feofan", ofType: "sqlite")!
         let db = try! Database(path:path)
 
@@ -51,15 +51,16 @@ class FeofanModel : BookModel {
         return nil
     }
     
-    static func getFeofan(for date: Date) -> [(String, String)] {
-        var feofan = [(String,String)]()
-        
-        let pascha = Cal.d(.pascha)
-        let greatLentStart = pascha-48.days
-        
-        if date == Cal.d(.meetingOfLord) {
-            feofan.append(("", feofanDB("33")!))
-            return feofan
+    func getPreachment(_ date: Date) -> [Preachment] {
+        let cal = Cal2.fromDate(date)
+        let title = "Мысли на каждый день"
+    
+        var results = [Preachment]()
+
+        if date == cal.d("meetingOfLord") {
+            return [Preachment(
+                position: BookPosition(model: FeofanModel.shared, data: feofanDB("33")!),
+                title: title)]
         }
         
         switch date {
@@ -68,33 +69,45 @@ class FeofanModel : BookModel {
             return []
             
         case Date(4,12, date.year):
-            feofan.append(("", feofanDB("325")!))
+            return [Preachment(
+                position: BookPosition(model: FeofanModel.shared, data: feofanDB("325")!),
+                title: title)]
             
         case Date(19,8, date.year):
-            feofan.append(("", feofanDB("218")!))
+            return [Preachment(
+                position: BookPosition(model: FeofanModel.shared, data: feofanDB("218")!),
+                title: title)]
             
-        case greatLentStart-3.days:
-            feofan.append(("", feofanDB("36")!))
+        case cal.greatLentStart-3.days:
+            return [Preachment(
+                position: BookPosition(model: FeofanModel.shared, data: feofanDB("36")!),
+                title: title)]
             
-        case greatLentStart-5.days:
-            feofan.append(("", feofanDB("34")!))
+        case cal.greatLentStart-5.days:
+            return [Preachment(
+                position: BookPosition(model: FeofanModel.shared, data: feofanDB("34")!),
+                title: title)]
             
-        case pascha-3.days,
-             pascha-2.days:
+        case cal.pascha-3.days,
+            cal.pascha-2.days:
             return []
             
-        case Cal.d(.sundayOfForefathers):
-            feofan.append(("", feofanDB("346")!))
+        case cal.d("sundayOfForefathers"):
+            return [Preachment(
+                position: BookPosition(model: FeofanModel.shared, data: feofanDB("346")!),
+                title: title)]
             
-        case greatLentStart..<pascha:
-            let num = (greatLentStart >> date) + 39
+        case cal.greatLentStart ..< cal.pascha:
+            let num = (cal.greatLentStart >> date) + 39
             
             if let f = feofanDB("\(num)") {
-                feofan.append(("",f))
+                return [Preachment(
+                    position: BookPosition(model: FeofanModel.shared, data: f),
+                    title: title)]
             }
             
         default:
-            let readings = DailyReading.getDailyReading(date)
+            let readings = ChurchReading.forDate(date)
             
             for r in readings {
                 let str = r.components(separatedBy: "#")[0]
@@ -103,12 +116,15 @@ class FeofanModel : BookModel {
                 let id = pericope.replacingOccurrences(of: " ", with: "")
                 
                 if let f = feofanDB(id) {
-                    feofan.append((pericope,f))
-                    
+                    results.append(Preachment(
+                        position: BookPosition(model: FeofanModel.shared, data: f),
+                        title: title,
+                        subtitle: pericope
+                    ))
                 }
             }
             
-            if  feofan.count == 0 {
+            if results.count == 0 {
                 for r in readings {
                     let str = r.components(separatedBy: "#")[0]
                     let p = str.split { $0 == " " }.map { String($0) }
@@ -119,15 +135,23 @@ class FeofanModel : BookModel {
                             let id = pericope.replacingOccurrences(of: " ", with: "")
                             
                             if let f = feofanGospel(id) {
-                                feofan.append((pericope,f))
+                                results.append(Preachment(
+                                    position: BookPosition(model: FeofanModel.shared, data: f),
+                                    title: title,
+                                    subtitle: pericope
+                                ))
                             }
                         }
                     }
                 }
             }
+            
+            if results.count == 1 {
+                results[0].subtitle = ""
+            }
         }
         
-        return feofan
+        return results
     }
     
     func getSections() -> [String] { return [] }
@@ -139,7 +163,7 @@ class FeofanModel : BookModel {
     func getContent(at pos: BookPosition) -> Any? {
         let prefs = AppGroup.prefs!
         let fontSize = CGFloat(prefs.integer(forKey: "fontSize"))
-        let content = NSAttributedString(string: pos.location!)
+        let content = NSAttributedString(string: pos.data as! String)
         
         return content.colored(with: Theme.textColor).font(font: UIFont(name: "TimesNewRomanPSMT", size: CGFloat(fontSize))!)
     }
