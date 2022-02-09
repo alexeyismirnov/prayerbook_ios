@@ -29,8 +29,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     let troparia : [TroparionModel] = [TroparionFeastModel.shared, TroparionDayModel.shared]
 
     var dayDescription = [ChurchDay]()
-    var saints = [(FeastType, String)]()
-    var saintIcons = [Saint]()
+    var saints = [Saint]()
+    var saintIcons = [SaintIcon]()
 
     var currentDate: Date? {
         didSet {
@@ -213,13 +213,13 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 let feast:FeastType = dayDescription[indexPath.row-2].type
                 
                 if feast == .none {
-                    return getTextCell(Translate.s(dayDescription[indexPath.row-2].name))
+                    return getTextCell(dayDescription[indexPath.row-2].name)
                     
                 } else if feast == .great {
                     let cell: ImageCell = getCell()
                     
                     cell.title.textColor = UIColor.red
-                    cell.title.text = Translate.s(dayDescription[indexPath.row-2].name)
+                    cell.title.text = dayDescription[indexPath.row-2].name
                     cell.icon.image = feast.icon
                     return cell
                     
@@ -232,7 +232,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                     let myString = NSMutableAttributedString(string: "")
                     myString.append(NSAttributedString(attachment: attachment))
                     
-                    let dayString = Translate.s(dayDescription[indexPath.row-2].name)
+                    let dayString = dayDescription[indexPath.row-2].name
                     let day = dayString.colored(with: Theme.textColor)
 
                     myString.append(day)
@@ -320,23 +320,23 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             }
             
         } else if indexPath.section == 5 {
-            if saints[indexPath.row].0 == .none {
+            if saints[indexPath.row].type == .none {
                 if appeared {
-                    return getTextCell(saints[indexPath.row].1)
+                    return getTextCell(saints[indexPath.row].name)
                     
                 } else {
-                    return getSimpleCell(saints[indexPath.row].1)
+                    return getSimpleCell(saints[indexPath.row].name)
                 }
                 
             } else {
                 let attachment = NSTextAttachment()
-                attachment.image = saints[indexPath.row].0.icon15x15
+                attachment.image = saints[indexPath.row].type.icon15x15
                 let attachmentString = NSAttributedString(attachment: attachment)
                 
                 let myString = NSMutableAttributedString(string: "")
                 myString.append(attachmentString)
                 
-                let saintString = saints[indexPath.row].1
+                let saintString = saints[indexPath.row].name
                 let saint = saintString.colored(with: Theme.textColor)
 
                 myString.append(saint)
