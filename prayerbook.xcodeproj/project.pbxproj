@@ -70,7 +70,6 @@
 		8A61278F27AD2CCF00BB7DDE /* PreachmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61278E27AD2CCF00BB7DDE /* PreachmentModel.swift */; };
 		8A61BBA5202438CF003AA1BF /* saint.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A61BBA4202438CE003AA1BF /* saint.pdf */; };
 		8A61BBAD20246903003AA1BF /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC675431FED09CA00A9000C /* Chameleon.framework */; };
-		8A693E5D27A2991D00106562 /* ChurchFasting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A693E5C27A2991D00106562 /* ChurchFasting.swift */; };
 		8A6AA11826A0366B00FA310C /* vigil.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A6AA11726A0366B00FA310C /* vigil.sqlite */; };
 		8A6D29122711435600973517 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A26438B270AADBD0097B4FF /* swift_toolkit.framework */; };
 		8A6D29132711435600973517 /* swift_toolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A26438B270AADBD0097B4FF /* swift_toolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -84,7 +83,6 @@
 		8A74D816198F20CC0078F39F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D815198F20CC0078F39F /* Images.xcassets */; };
 		8A74D833198F224E0078F39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D832198F224E0078F39F /* Main.storyboard */; };
 		8A763DFB269DB26400B775D8 /* synaxarion.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A763DFA269DB26400B775D8 /* synaxarion.sqlite */; };
-		8A79CC1A2790019F00CADDF3 /* ChurchCalendar2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A79CC192790019F00CADDF3 /* ChurchCalendar2.swift */; };
 		8A7DF2FD22CB5FA90071FCB4 /* book.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A7DF2FC22CB5FA90071FCB4 /* book.pdf */; };
 		8A88FD682377E4C000E46116 /* CalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88FD672377E4C000E46116 /* CalendarWidget.swift */; };
 		8A916D8722575EA7003FEF70 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A916D8622575EA7003FEF70 /* WebKit.framework */; };
@@ -391,7 +389,6 @@
 		8A5F460F27111B810074FF20 /* Squeal.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Squeal.xcframework; path = Carthage/Build/Squeal.xcframework; sourceTree = "<group>"; };
 		8A61278E27AD2CCF00BB7DDE /* PreachmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreachmentModel.swift; sourceTree = "<group>"; };
 		8A61BBA4202438CE003AA1BF /* saint.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = saint.pdf; sourceTree = "<group>"; };
-		8A693E5C27A2991D00106562 /* ChurchFasting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchFasting.swift; sourceTree = "<group>"; };
 		8A6AA11726A0366B00FA310C /* vigil.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = vigil.sqlite; sourceTree = "<group>"; };
 		8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
 		8A6F7E9822A13A85006FD639 /* launch_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_icon.png; sourceTree = "<group>"; };
@@ -405,7 +402,6 @@
 		8A74D815198F20CC0078F39F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8A74D832198F224E0078F39F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8A763DFA269DB26400B775D8 /* synaxarion.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = synaxarion.sqlite; sourceTree = "<group>"; };
-		8A79CC192790019F00CADDF3 /* ChurchCalendar2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchCalendar2.swift; sourceTree = "<group>"; };
 		8A7DF2FC22CB5FA90071FCB4 /* book.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = book.pdf; sourceTree = "<group>"; };
 		8A8753F51FC429C400C857DE /* Squeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Squeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A88FD672377E4C000E46116 /* CalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWidget.swift; sourceTree = "<group>"; };
@@ -700,8 +696,6 @@
 				8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */,
 				8A54E3DA202857E900245C31 /* icons.sqlite */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
-				8A79CC192790019F00CADDF3 /* ChurchCalendar2.swift */,
-				8A693E5C27A2991D00106562 /* ChurchFasting.swift */,
 				8A372ECE27A4FF4800E597BA /* ChurchReading.swift */,
 				8A2F46A619E12B4100076AF4 /* AppDelegate.swift */,
 				8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */,
@@ -1327,9 +1321,7 @@
 				8A01E42621957BD8005BE65F /* DownloadManager.swift in Sources */,
 				8A372ECF27A4FF4800E597BA /* ChurchReading.swift in Sources */,
 				8ACC2F03229E2B4A00F43229 /* FeofanModel.swift in Sources */,
-				8A693E5D27A2991D00106562 /* ChurchFasting.swift in Sources */,
 				8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */,
-				8A79CC1A2790019F00CADDF3 /* ChurchCalendar2.swift in Sources */,
 				8A61278F27AD2CCF00BB7DDE /* PreachmentModel.swift in Sources */,
 				8A13C8FD219172E500D0CE7E /* AudioPlayerCell.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
