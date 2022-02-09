@@ -53,7 +53,6 @@
 		8A2AE48D1FC2E19F00B30B53 /* CalendarWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
 		8A2F46AB19E145D200076AF4 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46AA19E145D200076AF4 /* Options.swift */; };
-		8A372ECF27A4FF4800E597BA /* ChurchReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A372ECE27A4FF4800E597BA /* ChurchReading.swift */; };
 		8A4C28C8218AE68A00C276C3 /* TroparionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C28C7218AE68A00C276C3 /* TroparionView.swift */; };
 		8A4D008426A6D44A00E355B2 /* zvezdinsky.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4D008326A6D44A00E355B2 /* zvezdinsky.sqlite */; };
 		8A54C42A1EA74CE90083AA2F /* DailyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C4291EA74CE90083AA2F /* DailyTab.swift */; };
@@ -376,7 +375,6 @@
 		8A2F46A619E12B4100076AF4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A2F46AA19E145D200076AF4 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Bridging-Header.h"; sourceTree = "<group>"; };
-		8A372ECE27A4FF4800E597BA /* ChurchReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChurchReading.swift; sourceTree = "<group>"; };
 		8A4C28C7218AE68A00C276C3 /* TroparionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroparionView.swift; sourceTree = "<group>"; };
 		8A4D008326A6D44A00E355B2 /* zvezdinsky.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = zvezdinsky.sqlite; sourceTree = "<group>"; };
 		8A54C4291EA74CE90083AA2F /* DailyTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab.swift; sourceTree = "<group>"; };
@@ -696,7 +694,6 @@
 				8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */,
 				8A54E3DA202857E900245C31 /* icons.sqlite */,
 				8A74D815198F20CC0078F39F /* Images.xcassets */,
-				8A372ECE27A4FF4800E597BA /* ChurchReading.swift */,
 				8A2F46A619E12B4100076AF4 /* AppDelegate.swift */,
 				8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */,
 				8A54C4291EA74CE90083AA2F /* DailyTab.swift */,
@@ -1319,7 +1316,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A01E42621957BD8005BE65F /* DownloadManager.swift in Sources */,
-				8A372ECF27A4FF4800E597BA /* ChurchReading.swift in Sources */,
 				8ACC2F03229E2B4A00F43229 /* FeofanModel.swift in Sources */,
 				8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */,
 				8A61278F27AD2CCF00BB7DDE /* PreachmentModel.swift in Sources */,
