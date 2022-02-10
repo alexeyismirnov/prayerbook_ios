@@ -19,7 +19,7 @@
 	<key>annunciation</key>
 	<string>Благовещение Пресвятой Богородицы</string>
 	<key>peterAndPaul</key>
-	<string>Славных и всехвальных первоверховных апостолов Петра и Павла (ок. 67)</string>
+	<string>Славных и всехвальных первоверховных апостолов Петра и Павла</string>
 	<key>transfiguration</key>
 	<string>Преображение Господне</string>
 	<key>dormition</key>
@@ -138,6 +138,8 @@
 	<string>Преполовение Пятидесятницы</string>
 	<key>saturdayTrinity</key>
 	<string>Троицкая родительская суббота</string>
+    <key>trinityWeek</key>
+    <string>Троицкая седмица</string>
 	<key>holySpirit</key>
 	<string>День Святого Духа</string>
 	<key>sunday1AfterPentecost</key>

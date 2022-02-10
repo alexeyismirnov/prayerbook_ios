@@ -138,6 +138,8 @@
 	<string>Mid-Pentecost</string>
 	<key>saturdayTrinity</key>
 	<string>Trinity Saturday; Commemoration of the Departed</string>
+    <key>trinityWeek</key>
+    <string>Trinity Week</string>
 	<key>holySpirit</key>
 	<string>Day of the Holy Spirit</string>
 	<key>sunday1AfterPentecost</key>

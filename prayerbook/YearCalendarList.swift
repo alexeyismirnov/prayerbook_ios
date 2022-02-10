@@ -13,9 +13,12 @@ class YearCalendarList: UIView {
     var year: Int
     var textView : UITextView!
     var feasts : NSAttributedString!
+    var fl: FeastList!
 
     init(_ year: Int) {
         self.year = year
+        self.fl = FeastList.from(year)
+        
         super.init(frame: CGRect.zero)
         
         setupList()
@@ -43,7 +46,7 @@ class YearCalendarList: UIView {
     }
     
     func addFeasts(_ title: String, _ data : [Date: NSAttributedString]) {
-        feasts += title.colored(with: FL.textFontColor).boldFont(ofSize: 18.0).centered + "\n"
+        feasts += title.colored(with: fl.textFontColor).boldFont(ofSize: 18.0).centered + "\n"
         
         for feast in data.sorted(by: { $0.0 < $1.0 }) {
             feasts = feasts + feast.1
@@ -51,24 +54,31 @@ class YearCalendarList: UIView {
     }
     
     func createFeastList(sharing: Bool = false) {
-        FL.sharing = sharing
-        FL.setDate(Date(1, 1, year))
+        fl.sharing = sharing
+        
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateFormat = "d MMMM"
+        formatter.locale = Translate.locale
+        
+        let textFontSize = sharing ? CGFloat(12) : CGFloat(16)
+        let paschaDate = formatter.string(from: Cal2.paschaDay(year))
+        let paschaDescr = Translate.s("pascha")
 
-        feasts = "Посты и праздники в \(year) г.\n\n".colored(with: FL.textFontColor) .boldFont(ofSize: 20.0).centered
+        feasts = "Посты и праздники в \(year) г.\n\n".colored(with: fl.textFontColor).boldFont(ofSize: 20.0).centered
             +
-            FL.makeFeastStr(code: .pascha, color: UIColor.red) +
+        "\(paschaDate) — \(paschaDescr)\n\n".colored(with: .red).systemFont(ofSize: textFontSize) +
         "\n"
         
-        addFeasts("Многодневные посты\n", FL.longFasts)
-        addFeasts("Однодневные посты\n", FL.shortFasts)
-        addFeasts("Сплошные седмицы\n", FL.fastFreeWeeks)
-        addFeasts("Двунадесятые переходящие праздники\n", FL.movableFeasts)
-        addFeasts("Двунадесятые непереходящие праздники\n", FL.nonMovableFeasts)
-        addFeasts("Великие праздники\n", FL.greatFeasts)
+        addFeasts("Многодневные посты\n", fl.longFasts)
+        addFeasts("Однодневные посты\n", fl.shortFasts)
+        addFeasts("Сплошные седмицы\n", fl.fastFreeWeeks)
+        addFeasts("Двунадесятые переходящие праздники\n", fl.movableFeasts)
+        addFeasts("Двунадесятые непереходящие праздники\n", fl.nonMovableFeasts)
+        addFeasts("Великие праздники\n", fl.greatFeasts)
+        addFeasts("Дни особого поминовения усопших\n", fl.remembrance)
         
-        addFeasts("Дни особого поминовения усопших\n", FL.remembrance)
-        
-        feasts = feasts + "Суббота 2-й, 3-й и 4-й седмицы Великого поста\n\n".colored(with: FL.textFontColor).systemFont(ofSize: FL.textFontSize)
+        feasts = feasts + "Суббота 2-й, 3-й и 4-й седмицы Великого поста\n\n".colored(with: fl.textFontColor).systemFont(ofSize: fl.textFontSize)
     }
     
     // https://www.hackingwithswift.com/example-code/uikit/how-to-render-an-nsattributedstring-to-a-pdf
