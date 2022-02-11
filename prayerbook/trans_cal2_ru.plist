@@ -42,6 +42,8 @@
 	<string>Рождественский сочельник</string>
 	<key>eveOfTheophany</key>
 	<string>Крещенский сочельник</string>
+    <key>sundayOfZacchaeus</key>
+    <string>Неделя о Закхее</string>
 	<key>sundayOfPublicianAndPharisee</key>
 	<string>Неделя о мытаре и фарисее</string>
 	<key>sundayOfProdigalSon</key>

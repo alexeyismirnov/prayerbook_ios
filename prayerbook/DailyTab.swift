@@ -35,11 +35,11 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     var currentDate: Date? {
         didSet {
             if let date = currentDate {
-                cal = Cal2.fromDate(date)
+                cal = Cal.fromDate(date)
             }
         }
     }
-    var cal: Cal2!
+    var cal: Cal!
     
     var formatter: DateFormatter = {
         var formatter = DateFormatter()
@@ -581,7 +581,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             
             let nearestMonday = currentWeekday == .sunday ?
                 self.currentDate! - 6.days :
-                Cal2.nearestSundayBefore(self.currentDate!) + 1.days
+                Cal.nearestSundayBefore(self.currentDate!) + 1.days
             
             let vc = WeekCalendar(nearestMonday)
             let nav = UINavigationController(rootViewController: vc)

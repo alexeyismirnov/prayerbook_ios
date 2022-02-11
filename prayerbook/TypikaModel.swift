@@ -36,7 +36,7 @@ class TypikaModel : ServiceModel {
     
     var hasChapters = false
     
-    var cal: Cal2!
+    var cal: Cal!
 
     var content: String!
     var tone: Int!
@@ -134,7 +134,7 @@ class TypikaModel : ServiceModel {
     
     var date: Date = Date() {
         didSet {
-            cal = Cal2.fromDate(date)
+            cal = Cal.fromDate(date)
             tone = cal.getTone(date)!
             
             resetData()
@@ -464,7 +464,7 @@ class TypikaModel : ServiceModel {
     }
     
     func dateIterator(startDate: Date) -> AnyIterator<Date> {
-        var nextDate = Cal2.nearestSundayAfter(startDate)
+        var nextDate = Cal.nearestSundayAfter(startDate)
         var prevDate : Date!
         
         return AnyIterator({
@@ -472,7 +472,7 @@ class TypikaModel : ServiceModel {
                 prevDate = nextDate
                 nextDate = nextDate + 7.days
                 
-            } while (!Cal2.getGreatFeast(prevDate).isEmpty)
+            } while (!Cal.getGreatFeast(prevDate).isEmpty)
                     
             return prevDate
         })

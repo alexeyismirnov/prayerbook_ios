@@ -18,7 +18,7 @@ class SynaxarionModel : EbookModel, PreachmentModel {
     
     func getPreachment(_ date: Date) -> [Preachment] {
         var dates = [Date]()
-        let cal = Cal2.fromDate(date)
+        let cal = Cal.fromDate(date)
        
         dates = [
             cal.greatLentStart-22.days,cal.greatLentStart-15.days,cal.greatLentStart-9.days,cal.greatLentStart-8.days,

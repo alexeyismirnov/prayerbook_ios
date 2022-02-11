@@ -42,6 +42,8 @@
 	<string>Eve of the Nativity of Christ</string>
 	<key>eveOfTheophany</key>
 	<string>Eve of Theophany</string>
+    <key>sundayOfZacchaeus</key>
+    <string>Sunday of Zacchaeus</string>
 	<key>sundayOfPublicianAndPharisee</key>
 	<string>Sunday of the Publican and the Pharisee</string>
 	<key>sundayOfProdigalSon</key>

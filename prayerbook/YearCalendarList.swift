@@ -62,7 +62,7 @@ class YearCalendarList: UIView {
         formatter.locale = Translate.locale
         
         let textFontSize = sharing ? CGFloat(12) : CGFloat(16)
-        let paschaDate = formatter.string(from: Cal2.paschaDay(year))
+        let paschaDate = formatter.string(from: Cal.paschaDay(year))
         let paschaDescr = Translate.s("pascha")
 
         feasts = "Посты и праздники в \(year) г.\n\n".colored(with: fl.textFontColor).boldFont(ofSize: 20.0).centered

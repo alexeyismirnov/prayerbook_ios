@@ -74,7 +74,7 @@ class SaintTropariaModel : BookModel {
     func getTroparion(_ date: Date) -> [Troparion] {
         var troparion = [Troparion]()
         
-        let cal = Cal2.fromDate(date)
+        let cal = Cal.fromDate(date)
                 
         if (cal.isLeapYear) {
             switch date {

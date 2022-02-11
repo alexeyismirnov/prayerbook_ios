@@ -47,10 +47,10 @@ class TroparionFeastModel : TroparionModel {
     
     func getTitle(_ date : Date) -> String { "Тропарь и кондак праздника" }
     
-    func isAvailable(_ date : Date) -> Bool { !Cal2.getGreatFeast(date).isEmpty }
+    func isAvailable(_ date : Date) -> Bool { !Cal.getGreatFeast(date).isEmpty }
 
     func getTroparion(_ date : Date) -> [Troparion]  {
-        let feasts = Cal2.getGreatFeast(date)
+        let feasts = Cal.getGreatFeast(date)
         let db = try! Database(path:path)
         
         let codes = ["pascha": 1,
@@ -112,7 +112,7 @@ class TroparionDayModel : TroparionModel {
     }
     
     func getTitle(_ date : Date) -> String {
-        let cal = Cal2.fromDate(date)
+        let cal = Cal.fromDate(date)
         
         if cal.pascha ..< cal.d("sunday2AfterPascha") ~= date {
             return "Часы пасхальные"
@@ -122,18 +122,18 @@ class TroparionDayModel : TroparionModel {
     }
     
     func isAvailable(_ date : Date) -> Bool {
-        let cal = Cal2.fromDate(date)
+        let cal = Cal.fromDate(date)
 
         if cal.d("palmSunday") ... cal.pascha  ~= date {
             return false
             
         } else {
-            return Cal2.getGreatFeast(date).isEmpty
+            return Cal.getGreatFeast(date).isEmpty
         }
     }
     
     func getTroparion(_ date : Date) -> [Troparion]  {
-        let cal = Cal2.fromDate(date)
+        let cal = Cal.fromDate(date)
 
         var troparion = [Troparion]()
         let db = try! Database(path:path)

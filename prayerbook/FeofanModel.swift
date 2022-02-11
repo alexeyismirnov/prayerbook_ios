@@ -50,7 +50,7 @@ class FeofanModel : BookModel, PreachmentModel {
     }
     
     func getPreachment(_ date: Date) -> [Preachment] {
-        let cal = Cal2.fromDate(date)
+        let cal = Cal.fromDate(date)
         let title = "Мысли на каждый день"
     
         var results = [Preachment]()

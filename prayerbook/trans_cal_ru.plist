@@ -28,6 +28,8 @@
 	<string>свт.</string>
 	<key>St. John</key>
 	<string>свт.</string>
+    <key>Hierarch</key>
+    <string>свт.</string>
 	<key>Repose of the John the Theologian</key>
 	<string>апостола</string>
 	<key>Prophet</key>
@@ -52,6 +54,8 @@
 	<string>отцев</string>
 	<key>Martyrs</key>
 	<string>мучеников</string>
+    <key>Righteous</key>
+    <string>прав.</string>
 	<key>Eve of the Nativity</key>
 	<string>навечерия Рождества</string>
 	<key>Epiphany Eve</key>
