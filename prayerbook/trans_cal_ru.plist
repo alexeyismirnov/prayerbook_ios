@@ -24,20 +24,16 @@
 	<string>Богородицы</string>
 	<key>Forerunner</key>
 	<string>Предтечи</string>
-	<key>St. Nicholas</key>
-	<string>свт.</string>
-	<key>St. John</key>
-	<string>свт.</string>
     <key>Hierarch</key>
     <string>свт.</string>
-	<key>Repose of the John the Theologian</key>
-	<string>апостола</string>
+    <key>Hierarchs</key>
+    <string>святителей</string>
 	<key>Prophet</key>
 	<string>прор.</string>
 	<key>Saint</key>
 	<string>свт.</string>
     <key>Saints</key>
-    <string>свв.</string>
+    <string>святых</string>
 	<key>Equals-to-the Apostles</key>
 	<string>равноапп.</string>
     <key>Equal-to-the Apostles</key>
@@ -46,16 +42,24 @@
 	<string>апостола</string>
 	<key>Great Martyr</key>
 	<string>великомученика</string>
-	<key>Hierarchs</key>
-	<string>святителей</string>
 	<key>Venerable</key>
 	<string>прп.</string>
+    <key>Venerables</key>
+    <string>прпп.</string>
 	<key>Fathers</key>
 	<string>отцев</string>
 	<key>Martyrs</key>
 	<string>мучеников</string>
     <key>Righteous</key>
     <string>прав.</string>
+    <key>Passion-bearers</key>
+    <string>страстотерпцев</string>
+    <key>Right-believing</key>
+    <string>блгв.</string>
+    <key>Fool-for-Christ</key>
+    <string>блаж.</string>
+    <key>Angels</key>
+    <string>бесплотных</string>
 	<key>Eve of the Nativity</key>
 	<string>навечерия Рождества</string>
 	<key>Epiphany Eve</key>
