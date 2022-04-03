@@ -82,6 +82,7 @@
 		8A74D816198F20CC0078F39F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D815198F20CC0078F39F /* Images.xcassets */; };
 		8A74D833198F224E0078F39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A74D832198F224E0078F39F /* Main.storyboard */; };
 		8A763DFB269DB26400B775D8 /* synaxarion.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A763DFA269DB26400B775D8 /* synaxarion.sqlite */; };
+		8A7B099027F6CED800174326 /* prayerbook.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A7B098F27F6CED800174326 /* prayerbook.sqlite */; };
 		8A7DF2FD22CB5FA90071FCB4 /* book.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A7DF2FC22CB5FA90071FCB4 /* book.pdf */; };
 		8A88FD682377E4C000E46116 /* CalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88FD672377E4C000E46116 /* CalendarWidget.swift */; };
 		8A916D8722575EA7003FEF70 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A916D8622575EA7003FEF70 /* WebKit.framework */; };
@@ -400,6 +401,7 @@
 		8A74D815198F20CC0078F39F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8A74D832198F224E0078F39F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8A763DFA269DB26400B775D8 /* synaxarion.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = synaxarion.sqlite; sourceTree = "<group>"; };
+		8A7B098F27F6CED800174326 /* prayerbook.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = prayerbook.sqlite; sourceTree = "<group>"; };
 		8A7DF2FC22CB5FA90071FCB4 /* book.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = book.pdf; sourceTree = "<group>"; };
 		8A8753F51FC429C400C857DE /* Squeal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Squeal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A88FD672377E4C000E46116 /* CalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWidget.swift; sourceTree = "<group>"; };
@@ -610,6 +612,7 @@
 		8A008FF22258A71400A9636B /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8A7B098F27F6CED800174326 /* prayerbook.sqlite */,
 				8AFDB3F226C3E2FC00712938 /* new_testament_overview.sqlite */,
 				8AFDB3F026C3B89800712938 /* old_testament_overview.sqlite */,
 				8A4D008326A6D44A00E355B2 /* zvezdinsky.sqlite */,
@@ -1138,6 +1141,7 @@
 				8A9EBDE226AAC66400D99529 /* jer_cs.sqlite in Resources */,
 				8A9EBDD526AAC66400D99529 /* ezra_cs.sqlite in Resources */,
 				8A0B4CA91C8C1E8000747BB4 /* saints_02_ru.sqlite in Resources */,
+				8A7B099027F6CED800174326 /* prayerbook.sqlite in Resources */,
 				8AC10A31222A694F00540B22 /* mic_ru.sqlite in Resources */,
 				8AC10A32222A694F00540B22 /* neh_ru.sqlite in Resources */,
 				8A9EBDDC26AAC66400D99529 /* 1cor_cs.sqlite in Resources */,

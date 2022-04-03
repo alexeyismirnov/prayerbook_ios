@@ -9,11 +9,14 @@
 import UIKit
 import swift_toolkit
 
+// https://ms.pravoslavie.ru/289/
+
 let books : [[BookModel]] = [[BookmarksModel.shared],
                              [OldTestamentModel(lang: "ru"),
                               NewTestamentModel(lang: "ru"),
                               OldTestamentModel(lang: "cs"),
                               NewTestamentModel(lang: "cs")],
+                             [EbookModel("prayerbook")],
                              [EbookModel("vigil"),
                               EbookModel("liturgy"),
                               TypikaModel.shared],
@@ -23,7 +26,7 @@ let books : [[BookModel]] = [[BookmarksModel.shared],
                               EbookModel("synaxarion")]]
 
 class LibraryTab: UIViewController, ResizableTableViewCells  {
-    let sections : [String] = ["", "Библия", "Богослужение", "Разное"]
+    let sections : [String] = ["", "Библия", "Молитвослов", "Богослужение", "Разное"]
 
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     var tableView: UITableView!
