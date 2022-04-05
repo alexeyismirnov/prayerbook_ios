@@ -86,6 +86,8 @@
 		8A7DF2FD22CB5FA90071FCB4 /* book.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A7DF2FC22CB5FA90071FCB4 /* book.pdf */; };
 		8A88FD682377E4C000E46116 /* CalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88FD672377E4C000E46116 /* CalendarWidget.swift */; };
 		8A916D8722575EA7003FEF70 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A916D8622575EA7003FEF70 /* WebKit.framework */; };
+		8A98D6F027FBF1DB00EC86D7 /* zerna.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A98D6EF27FBF1DB00EC86D7 /* zerna.sqlite */; };
+		8A98D6F227FC177600EC86D7 /* ZernaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A98D6F127FC177600EC86D7 /* ZernaModel.swift */; };
 		8A9EBD5D26AA6E4000D99529 /* PonomarUnicode.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A9EBD5C26AA6E4000D99529 /* PonomarUnicode.ttf */; };
 		8A9EBD6126AA6E8800D99529 /* gen_cs.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A9EBD6026AA6E8800D99529 /* gen_cs.sqlite */; };
 		8A9EBD6326AAC16300D99529 /* trans_bible_cs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A9EBD6226AAC16300D99529 /* trans_bible_cs.plist */; };
@@ -407,6 +409,8 @@
 		8A88FD672377E4C000E46116 /* CalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWidget.swift; sourceTree = "<group>"; };
 		8A8D2FB11FBC368500A54147 /* swift_toolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = swift_toolkit.framework; path = Carthage/Build/iOS/swift_toolkit.framework; sourceTree = "<group>"; };
 		8A916D8622575EA7003FEF70 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		8A98D6EF27FBF1DB00EC86D7 /* zerna.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = zerna.sqlite; sourceTree = "<group>"; };
+		8A98D6F127FC177600EC86D7 /* ZernaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZernaModel.swift; sourceTree = "<group>"; };
 		8A9A36D81CAD127400D33D5A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8A9EBD5C26AA6E4000D99529 /* PonomarUnicode.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PonomarUnicode.ttf; sourceTree = "<group>"; };
 		8A9EBD6026AA6E8800D99529 /* gen_cs.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = gen_cs.sqlite; sourceTree = "<group>"; };
@@ -612,6 +616,7 @@
 		8A008FF22258A71400A9636B /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8A98D6EF27FBF1DB00EC86D7 /* zerna.sqlite */,
 				8A7B098F27F6CED800174326 /* prayerbook.sqlite */,
 				8AFDB3F226C3E2FC00712938 /* new_testament_overview.sqlite */,
 				8AFDB3F026C3B89800712938 /* old_testament_overview.sqlite */,
@@ -705,6 +710,7 @@
 				8A61278E27AD2CCF00BB7DDE /* PreachmentModel.swift */,
 				8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */,
 				8AF0804727B0DDBD003BCC77 /* SynaxarionModel.swift */,
+				8A98D6F127FC177600EC86D7 /* ZernaModel.swift */,
 				8AAE60E42334853F005563D3 /* TypikaModel.swift */,
 				8A13C8FB219172E500D0CE7E /* AudioPlayerCell.swift */,
 				8A13C8FC219172E500D0CE7E /* AudioPlayerCell.xib */,
@@ -1183,6 +1189,7 @@
 				8AC278071C61986000436D51 /* widget.pdf in Resources */,
 				8AFDB3F326C3E2FC00712938 /* new_testament_overview.sqlite in Resources */,
 				8A9EBDD726AAC66400D99529 /* ephes_cs.sqlite in Resources */,
+				8A98D6F027FBF1DB00EC86D7 /* zerna.sqlite in Resources */,
 				8AEBFAA31C8D16A30056F97B /* trans_reading_ru.plist in Resources */,
 				8AC10A39222A694F00540B22 /* 1kings_ru.sqlite in Resources */,
 				8A0B4CAB1C8C1E8000747BB4 /* saints_03_ru.sqlite in Resources */,
@@ -1327,6 +1334,7 @@
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
 				8A0689F9221FF8A600F1E711 /* LibraryTab.swift in Sources */,
 				8AFE375C2345D20300E06AEF /* YearCalendarList.swift in Sources */,
+				8A98D6F227FC177600EC86D7 /* ZernaModel.swift in Sources */,
 				8AAE60E52334853F005563D3 /* TypikaModel.swift in Sources */,
 				8A01E42221956295005BE65F /* TroparionModel.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,

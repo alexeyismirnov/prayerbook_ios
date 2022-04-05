@@ -527,6 +527,10 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         extraReadings = FeofanModel.shared.getPreachment(currentDate!)
         extraReadings.append(contentsOf: SynaxarionModel.shared.getPreachment(currentDate!))
         
+        if (readings.count + extraReadings.count < 3 && Cal.getGreatFeast(currentDate!).isEmpty) {
+            extraReadings.append(contentsOf: ZernaModel.shared.getPreachment(currentDate!))
+        }
+        
         saintTroparia = SaintTropariaModel.shared.getTroparion(currentDate!)
         saintIcons = SaintIconModel.get(currentDate!)
     }

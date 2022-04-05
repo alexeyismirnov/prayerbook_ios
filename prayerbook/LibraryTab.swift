@@ -22,6 +22,7 @@ let books : [[BookModel]] = [[BookmarksModel.shared],
                               TypikaModel.shared],
                              [EbookModel("old_testament_overview"),
                               EbookModel("new_testament_overview"),
+                              EbookModel("zerna"),
                               EbookModel("zvezdinsky"),
                               EbookModel("synaxarion")]]
 
