@@ -97,13 +97,13 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         NotificationCenter.default.addObserver(self, selector: #selector(showMonthlyCalendar), name: .monthlyCalendarNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showYearlyCalendar), name: .yearlyCalendarNotification, object: nil)
 
-        /*
-        if prefs.object(forKey: "welcome40") == nil {
-            prefs.set(true, forKey: "welcome40")
-            prefs.synchronize()
+        
+        if AppGroup.prefs.object(forKey: "welcome51") == nil {
+            AppGroup.prefs.set(true, forKey: "welcome51")
+            AppGroup.prefs.synchronize()
             
-            let alert = UIAlertController(title: "Православный календарь 4.0", message: """
-В "Библиотеку" добавлены книги: Всенощное бдение и Божественная Литургия с комментариями, "Хлеб небесный" и другие.
+            let alert = UIAlertController(title: "Календарь+ 5.1", message: """
+В "Библиотеку" добавлен Молитвослов.
 """
                 , preferredStyle: .alert)
             
@@ -115,7 +115,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             
             present(alert, animated: true, completion: {})
         }
-        */
+        
         
         reloadTheme()
         
