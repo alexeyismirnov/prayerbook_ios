@@ -75,7 +75,7 @@ class TroparionFeastModel : TroparionModel {
         var troparion = [Troparion]()
         
         for f in feasts {
-            let code = codes[f.name]!
+            let code = codes[f.id]!
             
             let results = try! db.selectFrom("tropari", whereExpr:"code=\(code)", orderBy: "id")
                 { ["title": $0["title"], "content": $0["content"], "url": $0["url"]]}
