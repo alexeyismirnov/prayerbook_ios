@@ -135,7 +135,7 @@
     <key>The Saturday of the Dead</key>
     <string>纪念亡者</string>
     <key>Thursday of the Great Canon, with the Life of St. Mary of Egypt</key>
-    <string></string>
+    <string>大圣颂典星期四</string>
 	<key>Chelnskoy and Pskov-Kiev Caves called “Tenderness” icons of the Mother of God</key>
 	<string>琴斯托霍瓦及普斯科夫的“邬弥勒涅”圣母像纪念日</string>
 	<key>Apodosis of the Ascension</key>
@@ -147,7 +147,7 @@
 	<key>Synaxis of New Martyrs of Butovo</key>
 	<string>纪念布托沃地方全体新殉道者（莫斯科市西南区，1930年代）</string>
 	<key>Mozdok and Dubensky-Krasnohorská (17th C) Icons of the Mother of God</key>
-	<string>“莫兹多克”和“杜本斯基•克拉斯诺霍”圣母像纪念日（17世纪）</string>
+	<string>「莫兹多克」和「杜本斯基•克拉斯诺霍」圣母像纪念日（17世纪）</string>
 	<key>Mid-Pentecost</key>
 	<string>五旬中节</string>
 	<key>Righteous Tabitha of Joppa (1st C)</key>
@@ -245,15 +245,15 @@
 	<key>Great Saturday</key>
 	<string>大安息日</string>
 	<key>Great Friday</key>
-	<string>大预备日（主受难日）</string>
+	<string>圣周星期五（主受难日）</string>
 	<key>Great Thursday</key>
-	<string>大瞻礼五（纪念主的奥秘晚餐）</string>
+	<string>圣周星期四（纪念主的奥秘晚餐）</string>
 	<key>Great Wednesday</key>
-	<string>大瞻礼四（悔罪女以香膏傅抹主圣足）</string>
+	<string>圣周星期三（悔罪女以香膏傅抹主圣足）</string>
 	<key>Great Tuesday</key>
-	<string>大瞻礼三（纪念明智的童贞女）</string>
+	<string>大瞻礼二（纪念明智的童贞女）</string>
 	<key>Great Monday</key>
-	<string>大瞻礼二（纪念圣约熙福•庞伽洛）</string>
+	<string>圣周星期一（纪念英俊的古圣祖若瑟）</string>
     <key>Holy Week</key>
     <string>圣周</string>
 	<key>Bright Week</key>

@@ -10,7 +10,9 @@ num_ps = 1
 def getText(kafisma, cur):
     global num_ps
 
-    soup = BeautifulSoup(open("../../psaltir_ios7/psaltir_ios7/kafisma%d.html" % (kafisma)), "html.parser")
+    soup = BeautifulSoup(open("./kafisma_hk/kafisma%d.html" % (kafisma)), "html.parser")
+
+#    soup = BeautifulSoup(open("../../psaltir_ios7/psaltir_ios7/kafisma%d.html" % (kafisma)), "html.parser")
     body = soup.find('body')
     [s.extract() for s in body.findAll("sup")]
 
@@ -22,11 +24,12 @@ def getText(kafisma, cur):
 
         content = ""
         while psalm != None and psalm.name == 'p':
-         content += psalm.getText()
-         psalm = psalm.find_next_sibling()
+            content += " ".join(psalm.getText().split())
+            content += "\n"
+            psalm = psalm.find_next_sibling()
 
-        content = content.strip()
-        content = re.sub(r'SLAVA\d', u'荣光赞词\n', content, flags=re.MULTILINE)
+        #content = content.strip()
+        #content = re.sub(r'SLAVA\d', u'荣光赞词\n', content, flags=re.MULTILINE)
 
         cur.execute("INSERT INTO scripture VALUES(%d, %d, \"%s\")" % (int(kafisma), num_ps, content))
         num_ps += 1
@@ -34,7 +37,7 @@ def getText(kafisma, cur):
         print(content.encode('utf-8'))
 
 
-with lite.connect("./ps_cn.sqlite") as con:
+with lite.connect("./ps_hk.sqlite") as con:
     cur = con.cursor()
     cur.execute("DROP TABLE IF EXISTS scripture")
     cur.execute("CREATE TABLE scripture(chapter INT,verse INT, text TEXT)")

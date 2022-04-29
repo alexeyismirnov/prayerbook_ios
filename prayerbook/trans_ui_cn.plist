@@ -13,7 +13,7 @@
 	<key>Monastic fasting</key>
 	<string>修道院的禁食</string>
 	<key>Fasting type</key>
-	<string>禁食</string>
+	<string>禁食型</string>
 	<key>Add widget</key>
 	<string>今天小部件的</string>
 	<key>Rate Orthodox Calendar</key>
@@ -55,7 +55,7 @@
 	<key>Eucharist</key>
 	<string>圣餐礼</string>
 	<key>Memory of saints</key>
-	<string>本日記念之聖人</string>
+	<string>本日记念之圣人</string>
 	<key>Gospel of the day</key>
 	<string>本日讀經</string>
 	<key>Daily</key>
