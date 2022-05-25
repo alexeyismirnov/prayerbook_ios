@@ -78,7 +78,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         
         setupFiles()
         
-        Translate.files = ["trans_ui_ru", "trans_library_ru", "trans_bible_cs", "trans_cal2_ru"]
+        Translate.files = ["trans_ui_ru", "trans_library_ru", "trans_bible_cs", "trans_cal_ru"]
         Translate.language = prefs.object(forKey: "language") as! String
 
         FeastSaintNotifications.setupNotifications()
@@ -95,7 +95,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         }
         
         AppGroup.copyFile("trans_ui_ru", "plist")
-        AppGroup.copyFile("trans_cal2_ru", "plist")
+        AppGroup.copyFile("trans_cal_ru", "plist")
         AppGroup.copyFile("trans_library_ru", "plist")
         AppGroup.copyFile("trans_bible_cs", "plist")
     }
