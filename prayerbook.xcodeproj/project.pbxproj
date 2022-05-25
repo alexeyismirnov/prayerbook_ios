@@ -42,6 +42,7 @@
 		8A13C90221917AB700D0CE7E /* play.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A13C90021917AB700D0CE7E /* play.pdf */; };
 		8A1736EF22D20E4C00654AB1 /* SaintTropariaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1736EE22D20E4C00654AB1 /* SaintTropariaModel.swift */; };
 		8A1736F322D214B700654AB1 /* troparion.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A1736F222D214B700654AB1 /* troparion.sqlite */; };
+		8A185EF4283CA5D200C5FAEE /* canons.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A185EF3283CA5D200C5FAEE /* canons.sqlite */; };
 		8A18FB7F22CC4EC9006B3F29 /* fasting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A18FB7E22CC4EC9006B3F29 /* fasting.plist */; };
 		8A1B2575202955A60038C0C4 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 8A1B2574202955A60038C0C4 /* icons */; };
 		8A1F2C981DD9B0F000F13A3D /* newicon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1F2C971DD9B0F000F13A3D /* newicon_1024.png */; };
@@ -235,7 +236,6 @@
 		8ACC2F03229E2B4A00F43229 /* FeofanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */; };
 		8ADF09B326A26CD2006743CA /* liturgy.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ADF09B226A26CD2006743CA /* liturgy.sqlite */; };
 		8AE529E41C8E63710082FF65 /* trans_library_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE529E31C8E63710082FF65 /* trans_library_ru.plist */; };
-		8AE529EB1C8E68FD0082FF65 /* trans_cal_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE529EA1C8E68FD0082FF65 /* trans_cal_ru.plist */; };
 		8AEA68321C8FFA9F009E9FD8 /* trans_ui_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */; };
 		8AEBFAA31C8D16A30056F97B /* trans_reading_ru.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AEBFAA21C8D16A30056F97B /* trans_reading_ru.plist */; };
 		8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */; };
@@ -366,6 +366,7 @@
 		8A13C905219190FF00D0CE7E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8A1736EE22D20E4C00654AB1 /* SaintTropariaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaintTropariaModel.swift; sourceTree = "<group>"; };
 		8A1736F222D214B700654AB1 /* troparion.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = troparion.sqlite; sourceTree = "<group>"; };
+		8A185EF3283CA5D200C5FAEE /* canons.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = canons.sqlite; sourceTree = "<group>"; };
 		8A18FB7E22CC4EC9006B3F29 /* fasting.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = fasting.plist; sourceTree = "<group>"; };
 		8A1B2574202955A60038C0C4 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icons; sourceTree = "<group>"; };
 		8A1DD3221E9CC82A00A04024 /* NAModalSheet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NAModalSheet.framework; path = "../../Library/Developer/Xcode/DerivedData/prayerbook-ewzsuaxwoacyigdcqavmiszgcxqo/Build/Products/Debug-iphonesimulator/NAModalSheet/NAModalSheet.framework"; sourceTree = "<group>"; };
@@ -561,7 +562,6 @@
 		8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeofanModel.swift; sourceTree = "<group>"; };
 		8ADF09B226A26CD2006743CA /* liturgy.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = liturgy.sqlite; sourceTree = "<group>"; };
 		8AE529E31C8E63710082FF65 /* trans_library_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_library_ru.plist; sourceTree = "<group>"; };
-		8AE529EA1C8E68FD0082FF65 /* trans_cal_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_cal_ru.plist; sourceTree = "<group>"; };
 		8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_ui_ru.plist; sourceTree = "<group>"; };
 		8AEBFAA21C8D16A30056F97B /* trans_reading_ru.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_reading_ru.plist; sourceTree = "<group>"; };
 		8AEC2B0D1B52706D00A94FA6 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -616,6 +616,7 @@
 		8A008FF22258A71400A9636B /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8A185EF3283CA5D200C5FAEE /* canons.sqlite */,
 				8A98D6EF27FBF1DB00EC86D7 /* zerna.sqlite */,
 				8A7B098F27F6CED800174326 /* prayerbook.sqlite */,
 				8AFDB3F226C3E2FC00712938 /* new_testament_overview.sqlite */,
@@ -724,7 +725,6 @@
 				8AB2C2F123421E4400A2EE1E /* YearCalendarContainer.swift */,
 				8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */,
 				8AEA68311C8FFA9F009E9FD8 /* trans_ui_ru.plist */,
-				8AE529EA1C8E68FD0082FF65 /* trans_cal_ru.plist */,
 				8A20719B2795173D00A1E52E /* trans_cal2_en.plist */,
 				8A20719E2795176000A1E52E /* trans_cal2_ru.plist */,
 				8AE529E31C8E63710082FF65 /* trans_library_ru.plist */,
@@ -1163,7 +1163,6 @@
 				8A9EBD6126AA6E8800D99529 /* gen_cs.sqlite in Resources */,
 				8AF37E5C1B36C7A500101148 /* newicon_87.png in Resources */,
 				8A9EBDAA26AAC66400D99529 /* ex_cs.sqlite in Resources */,
-				8AE529EB1C8E68FD0082FF65 /* trans_cal_ru.plist in Resources */,
 				8AC10A3A222A694F00540B22 /* isa_ru.sqlite in Resources */,
 				8A0B4CBE1C8C1E8000747BB4 /* saints_12_ru.txt in Resources */,
 				8A0B4CB81C8C1E8000747BB4 /* saints_09_ru.txt in Resources */,
@@ -1213,6 +1212,7 @@
 				8AC10A27222A694F00540B22 /* tit_ru.sqlite in Resources */,
 				8AF37E5F1B36C7A500101148 /* newicon_180.png in Resources */,
 				8AC10A0D222A694F00540B22 /* john_ru.sqlite in Resources */,
+				8A185EF4283CA5D200C5FAEE /* canons.sqlite in Resources */,
 				8A9EBDBF26AAC66400D99529 /* matthew_cs.sqlite in Resources */,
 				8AC10A0F222A694F00540B22 /* matthew_ru.sqlite in Resources */,
 				8AC10A11222A694F00540B22 /* 2john_ru.sqlite in Resources */,
@@ -1496,7 +1496,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.1.1;
+				MARKETING_VERSION = 5.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lsqlite3",
@@ -1543,7 +1543,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.1.1;
+				MARKETING_VERSION = 5.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lsqlite3",
@@ -1586,7 +1586,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.1.1;
+				MARKETING_VERSION = 5.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru.CalendarWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1622,7 +1622,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.1.1;
+				MARKETING_VERSION = 5.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru.CalendarWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -310,5 +310,91 @@
 	<string>Петров пост</string>
 	<key>dormition_fast</key>
 	<string>Успенский пост</string>
+    <key>New Year</key>
+    <string>новолетия</string>
+    <key>Holy Ancestors</key>
+    <string>святых Богоотцов</string>
+    <key>Departed</key>
+    <string>за упокой</string>
+    <key>Theotokos</key>
+    <string>Богородицы</string>
+    <key>Forerunner</key>
+    <string>Предтечи</string>
+    <key>Hierarch</key>
+    <string>свт.</string>
+    <key>Hierarchs</key>
+    <string>святителей</string>
+    <key>Prophet</key>
+    <string>прор.</string>
+    <key>Saint</key>
+    <string>свт.</string>
+    <key>Saints</key>
+    <string>святых</string>
+    <key>Equals-to-the Apostles</key>
+    <string>равноапп.</string>
+    <key>Equal-to-the Apostles</key>
+    <string>равноап.</string>
+    <key>Apostle</key>
+    <string>апостола</string>
+    <key>Great Martyr</key>
+    <string>великомученика</string>
+    <key>Venerable</key>
+    <string>прп.</string>
+    <key>Venerables</key>
+    <string>прпп.</string>
+    <key>Fathers</key>
+    <string>отцев</string>
+    <key>Martyrs</key>
+    <string>мучеников</string>
+    <key>Righteous</key>
+    <string>прав.</string>
+    <key>Passion-bearers</key>
+    <string>страстотерпцев</string>
+    <key>Right-believing</key>
+    <string>блгв.</string>
+    <key>Fool-for-Christ</key>
+    <string>блаж.</string>
+    <key>Angels</key>
+    <string>бесплотных</string>
+    <key>Eve of the Nativity</key>
+    <string>навечерия Рождества</string>
+    <key>Epiphany Eve</key>
+    <string>навечерия Богоявления</string>
+    <key>Sunday after the Theophany</key>
+    <string>недели по Богоявлении</string>
+    <key>Saturday after the Theophany</key>
+    <string>субботы по Богоявлении</string>
+    <key>Sunday before the Theophany</key>
+    <string>недели пред Богоявлением</string>
+    <key>Saturday before the Theophany</key>
+    <string>субботы пред Богоявлением</string>
+    <key>Sunday after the Nativity</key>
+    <string>недели по Рождестве Xристовом</string>
+    <key>Saturday after the Nativity</key>
+    <string>субботы по Рождестве Xристовом</string>
+    <key>Sunday before the Nativity</key>
+    <string>недели пред Рождеством Xристовым</string>
+    <key>Saturday before the Nativity</key>
+    <string>субботы пред Рождеством Xристовым</string>
+    <key>Sunday after the Universal Elevation</key>
+    <string>недели по Воздвижении</string>
+    <key>Saturday after the Universal Elevation</key>
+    <string>субботы по Воздвижении</string>
+    <key>Sunday before the Universal Elevation</key>
+    <string>недели пред Воздвижением</string>
+    <key>Saturday before the Universal Elevation</key>
+    <string>субботы пред Воздвижением</string>
+    <key>Saturday Reading</key>
+    <string>За субботу</string>
+    <key>Friday Reading</key>
+    <string>За пятницу</string>
+    <key>Thursday Reading</key>
+    <string>За четверг</string>
+    <key>Wednesday Reading</key>
+    <string>За среду</string>
+    <key>Tuesday Reading</key>
+    <string>За вторник</string>
+    <key>Monday Reading</key>
+    <string>За понедельник</string>
 </dict>
 </plist>

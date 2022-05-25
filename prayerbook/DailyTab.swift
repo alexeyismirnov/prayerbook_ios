@@ -97,7 +97,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         NotificationCenter.default.addObserver(self, selector: #selector(showMonthlyCalendar), name: .monthlyCalendarNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showYearlyCalendar), name: .yearlyCalendarNotification, object: nil)
 
-        
+        /*
         if AppGroup.prefs.object(forKey: "welcome51") == nil {
             AppGroup.prefs.set(true, forKey: "welcome51")
             AppGroup.prefs.synchronize()
@@ -115,7 +115,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             
             present(alert, animated: true, completion: {})
         }
-        
+        */
         
         reloadTheme()
         
