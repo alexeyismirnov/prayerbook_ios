@@ -2,369 +2,400 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Xerophagy</key>
-	<string>干食</string>
-	<key>No food</key>
-	<string>完全的禁食</string>
-	<key>Without oil</key>
-	<string>食品免油</string>
-	<key>With oil</key>
-	<string>斋期（酒、油可食）</string>
-	<key>Commemoration of the Holy Fathers of the First Six Councils</key>
-	<string>纪念前六次神圣普世大公会议之诸位圣教父</string>
-    <key>Commemoration of the Holy Fathers of the Seventh Ecumenical Council</key>
-    <string>纪念第七次神圣普世大公会议之诸位圣父师</string>
-    <key>Synaxis of all Venerable Fathers of the Kiev Caves</key>
-    <string>纪念圣髑安息于基辅窟的全体圣徒</string>
-	<key>Holy Ancestors</key>
-	<string></string>
-	<key>Theotokos</key>
-	<string></string>
-    <key>Forerunner</key>
+    <key>Angels</key>
+    <string></string>
+    <key>Apostle</key>
+    <string></string>
+    <key>Departed</key>
+    <string></string>
+    <key>Epiphany Eve</key>
+    <string></string>
+    <key>Equal-to-the Apostles</key>
+    <string></string>
+    <key>Equals-to-the Apostles</key>
+    <string></string>
+    <key>Eve of the Nativity</key>
     <string></string>
     <key>Fathers</key>
     <string></string>
-	<key>St. Nicholas</key>
-	<string></string>
-	<key>St. John</key>
-	<string></string>
-	<key>Repose of the John the Theologian</key>
-	<string></string>
-	<key>Prophet</key>
-	<string></string>
-    <key>New Year</key>
+    <key>Fool-for-Christ</key>
     <string></string>
+    <key>Forerunner</key>
+    <string></string>
+    <key>Friday Reading</key>
+    <string>星期五的读经</string>
     <key>Great Martyr</key>
     <string></string>
-	<key>Saint</key>
-	<string></string>
+    <key>Hierarch</key>
+    <string></string>
+    <key>Hierarchs</key>
+    <string></string>
+    <key>Holy Ancestors</key>
+    <string></string>
+    <key>Martyrs</key>
+    <string></string>
+    <key>Monday Reading</key>
+    <string>星期一的读经</string>
+    <key>New Year</key>
+    <string></string>
+    <key>Passion-bearers</key>
+    <string></string>
+    <key>Prophet</key>
+    <string></string>
+    <key>Right-believing</key>
+    <string></string>
+    <key>Righteous</key>
+    <string></string>
+    <key>Saint</key>
+    <string></string>
     <key>Saints</key>
     <string></string>
-	<key>Equals-to-the Apostles</key>
-	<string></string>
-    <key>Equal-to-the Apostles</key>
+    <key>Saturday Reading</key>
+    <string>星期六的读经</string>
+    <key>Saturday after the Nativity</key>
     <string></string>
-	<key>Apostle</key>
-	<string></string>
-	<key>St. George</key>
-	<string></string>
-	<key>Hierarchs</key>
-	<string></string>
+    <key>Saturday after the Theophany</key>
+    <string></string>
+    <key>Saturday after the Universal Elevation</key>
+    <string></string>
+    <key>Saturday before the Nativity</key>
+    <string></string>
+    <key>Saturday before the Theophany</key>
+    <string></string>
+    <key>Saturday before the Universal Elevation</key>
+    <string></string>
+    <key>Sunday after the Nativity</key>
+    <string></string>
+    <key>Sunday after the Theophany</key>
+    <string></string>
+    <key>Sunday after the Universal Elevation</key>
+    <string></string>
+    <key>Sunday before the Nativity</key>
+    <string></string>
+    <key>Sunday before the Theophany</key>
+    <string></string>
+    <key>Sunday before the Universal Elevation</key>
+    <string></string>
+    <key>SundayAfterPentecost</key>
+    <string>五旬节后第%@主日</string>
+    <key>SundayOfGreatLent</key>
+    <string>大斋期第%@主日</string>
+    <key>Theotokos</key>
+    <string></string>
+    <key>Thursday Reading</key>
+    <string>星期四的读经</string>
+    <key>Tuesday Reading</key>
+    <string>星期二的读经</string>
     <key>Venerable</key>
     <string></string>
-	<key>Venerable Euthymius</key>
-	<string></string>
-	<key>Venerable Anthony</key>
-	<string></string>
-	<key>Martyrs</key>
-	<string></string>
-    <key>Departed</key>
-    <string>纪念亡者</string>
-	<key>Saturday Reading</key>
-	<string></string>
-	<key>Friday Reading</key>
-	<string></string>
-	<key>Thursday Reading</key>
-	<string></string>
-	<key>Wednesday Reading</key>
-	<string></string>
-	<key>Tuesday Reading</key>
-	<string></string>
-	<key>Monday Reading</key>
-	<string></string>
-	<key>Demetrius Saturday: Commemoration of the Departed</key>
-	<string>圣迪弥特里节前安息日：纪念亡者之安息日</string>
-    <key>Forefeast</key>
-    <string>节前日</string>
-    <key>Afterfeast</key>
-    <string>节庆期</string>
-	<key>Apodosis of the Annunciation</key>
-	<string>诞神女福音节庆期圆满日</string>
-	<key>Forefeast of the Annunciation</key>
-	<string>诞神女福音节前日</string>
-	<key>Apodosis of the Entry of the Theotokos</key>
-	<string>至圣诞神女进殿节庆期圆满日</string>
-	<key>Afterfeast of the Entry of the Theotokos</key>
-	<string>至圣诞神女进殿节庆期</string>
-	<key>Forefeast of the Entry of the Theotokos</key>
-	<string>至圣诞神女进殿节前日</string>
-	<key>Apodosis of the Exaltation of the Cross</key>
-	<string>举扬圣架节庆期圆满日</string>
-	<key>Afterfeast of the Exaltation of the Cross</key>
-	<string>举扬圣架节庆期</string>
-	<key>Forefeast of the Exaltation of the Cross</key>
-	<string>举扬圣架节前日</string>
-	<key>Apodosis of the Nativity of the Theotokos</key>
-	<string>诞神女诞辰节庆期圆满日</string>
-	<key>Afterfeast of the Nativity of the Theotokos</key>
-	<string>诞神女诞辰节庆期</string>
-	<key>Forefeast of the Nativity of the Theotokos</key>
-	<string>至圣诞神女诞辰前日</string>
-	<key>Apodosis of the Dormition</key>
-	<string>圣母安息节庆期圆满日</string>
-	<key>Afterfeast of the Dormition</key>
-	<string>圣母安息节庆期</string>
-	<key>Forefeast of the Dormition of the Mother of God</key>
-	<string>至圣诞神女安息节前日</string>
-	<key>Apodosis of the Transfiguration of the Lord</key>
-	<string>主易圣容节庆期圆满日</string>
-	<key>Afterfeast of the Transfiguration of the Lord</key>
-	<string>主易圣容节庆期</string>
-	<key>Forefeast of the Transfiguration of the Lord</key>
-	<string>主易圣容节前日</string>
-	<key>All Saints who have shown forth in the land of Russia</key>
-	<string>俄罗斯全体圣徒</string>
-    <key>All Saints of the Holy Mount Athos</key>
-    <string>阿托斯圣山全体圣徒</string>
-    <key>Iveron Icon of the Most Holy Theotokos (9th c.)</key>
-    <string>伊维隆圣母像纪念日（9世纪）</string>
-	<key>Icons of the Mother of God: “the Softener of evil hearts” and “the Indestructible Wall”</key>
-	<string>“软化邪恶之心者”及 “不可摧毁之壁垒”圣母像纪念日</string>
-	<key>Feast of All Saints</key>
-	<string>诸圣主日</string>
-	<key>Apodosis of Pentecost</key>
-	<string>五旬节庆期圆满日</string>
-	<key>Icon of the Mother of God “Surety of Sinners” in Korets (1622)</key>
-	<string> 至圣诞神女“罪人之保”圣像（柯列茨卡娅，1622年）</string>
-	<key>Icons of the Mother of God “Tupichevsk” (1847) and “Cypriot” (392)</key>
-	<string>塞浦路斯圣母像纪念日（392年）</string>
-	<key>Day of the Holy Spirit</key>
-	<string>上帝圣灵日</string>
-	<key>Trinity Saturday; Commemoration of the Departed</key>
-	<string>纪念亡者</string>
-    <key>The Saturday of the Dead</key>
-    <string>纪念亡者</string>
-    <key>Thursday of the Great Canon, with the Life of St. Mary of Egypt</key>
-    <string>大圣颂典星期四</string>
-	<key>Chelnskoy and Pskov-Kiev Caves called “Tenderness” icons of the Mother of God</key>
-	<string>琴斯托霍瓦及普斯科夫的“邬弥勒涅”圣母像纪念日</string>
-	<key>Apodosis of the Ascension</key>
-	<string>主升天节庆期圆满日</string>
-	<key>Afterfeast of the Ascension</key>
-	<string>主升天节庆期</string>
-	<key>Apodosis of Pascha</key>
-	<string>葩斯哈庆期圆满日</string>
-	<key>Synaxis of New Martyrs of Butovo</key>
-	<string>纪念布托沃地方全体新殉道者（莫斯科市西南区，1930年代）</string>
-	<key>Mozdok and Dubensky-Krasnohorská (17th C) Icons of the Mother of God</key>
-	<string>「莫兹多克」和「杜本斯基•克拉斯诺霍」圣母像纪念日（17世纪）</string>
-	<key>Mid-Pentecost</key>
-	<string>五旬中节</string>
-	<key>Righteous Tabitha of Joppa (1st C)</key>
-	<string>圣妇塔维塔（圣使徒裴特若所复活之寡妇，1世纪）</string>
-	<key>Holy Martyr Abraham the Bulgar, Wonderworker of Vladimir († 1229)</key>
-	<string>殉道者阿弗拉穆（保加利亚，1229年）</string>
-	<key>Right-believing Tamara, Queen of Georgia († 1213)</key>
-	<string>圣妇塔玛拉（格鲁吉亚之王后，1213年）</string>
-	<key>St Joseph of Arimathea, and Nicodemus</key>
-	<string>義人亞利馬特的約瑟及尼科底姆</string>
-	<key>Radonitsa (Day of Rejoicing)</key>
-	<string>喜樂日。紀念亡者</string>
-	<key>Feast of the Life-Giving Spring of the Mother of God</key>
-	<string>「施生命之泉」聖母像</string>
-	<key>Venerable Mary of Egypt</key>
-	<string>埃及的大成德者圣女玛利亚</string>
-	<key>Saturday of the Akathist; Laudation of the Most Holy Theotokos</key>
-	<string>赞颂上帝之母至圣诞神女：于晨时课中恭咏全分圣母弗坐词礼仪</string>
-	<key>Venerable John Climacus of Sinai, Author of “the Ladder” († 649)</key>
-	<string>圣天梯约翰（西奈山修道院修士，〈天梯〉作者，649年）</string>
-	<key>Veneration of the Precious Cross</key>
-	<string>叩拜十字圣架</string>
-	<key>Saint Gregory Palamas, Archbishop of Thessalonica († c. 1360)</key>
-	<string>圣格里高利•帕拉玛斯（德撒洛尼基总主教，1360年）</string>
-	<key>Commemoration of the Departed</key>
-	<string>纪念亡者</string>
-    <key>Commemoration of Fallen Soldiers</key>
-    <string>纪念亡者</string>
-	<key>Triumph of Orthodoxy</key>
-	<string>今日基督的教会庆祝至福的治理者米迦勒和德奥多拉及君士坦丁堡牧首圣麦托迪恢复了对神圣而可敬之圣像的敬礼</string>
-	<key>Great Martyr Theodore the Recruit († c. 306)</key>
-	<string>纪念殉道者新兵德奥多若; 大殉道者新兵德奥多若（306年）</string>
-	<key>Commemoration of all the saints, who showed forth in asceticism</key>
-	<string>所有於修行中顯耀之修道聖教父</string>
-	<key>Apodosis of the Meeting of the Lord</key>
-	<string>主进殿节庆期圆满日</string>
-	<key>Afterfeast of the Meeting of the Lord</key>
-	<string>主进殿节庆期</string>
-	<key>Forefeast of the Meeting of the Lord</key>
-	<string>主进殿节前期</string>
-	<key>Holy New Martyrs and Confessors of Russia</key>
-	<string>俄罗斯全体新殉道者及新宣信者</string>
-	<key>Apodosis of the Theophany</key>
-	<string>主显节庆期圆满日</string>
-	<key>Afterfeast of the Theophany</key>
-	<string>主显节庆期</string>
-	<key>Forefeast of Theophany</key>
-	<string>主显节前期</string>
-	<key>Saints Joseph the Betrothed, David the King, and James the Brother of the Lord</key>
-	<string>纪念义人圣约熙福——吾主之鞠父；圣王大卫——吾主之先祖；及圣雅各——吾主之圣昆</string>
-	<key>Apodosis of the Nativity of Christ</key>
-	<string>主降生庆期圆满日</string>
-	<key>Afterfeast of the Nativity of Our Lord</key>
-	<string>主降生庆期</string>
-	<key>Forefeast of the Nativity</key>
-	<string>主降生节前期</string>
-	<key>Vegetarian</key>
-	<string>果蔬</string>
-	<key>Fish allowed</key>
-	<string>鱼可食</string>
-	<key>Fast-free week</key>
-	<string>免斋周</string>
-	<key>No fast</key>
-	<string>无斋</string>
-	<key>Maslenitsa</key>
-	<string>离肉周</string>
-	<key>Fast day</key>
-	<string>教会斋日</string>
-	<key>Nativity Fast</key>
-	<string>圣诞斋期</string>
-	<key>Great Lent</key>
-	<string>大斋期</string>
-	<key>Apostles&apos; Fast</key>
-	<string>使徒斋期</string>
-	<key>Dormition Fast</key>
-	<string>圣母安息斋期</string>
-	<key>Svyatki</key>
-	<string>圣诞节期周</string>
-	<key>Saturday of Palms (Lazarus Saturday)</key>
-	<string>圣枝安息日（拉匝若复生之安息日）</string>
-	<key>Seventh Sunday after Pascha. Commemoration of the 318 Holy Fathers of the First Ecumenical Council (325)</key>
-	<string>葩斯哈庆期第七主日（纪念第一届神圣普世大公会议诸圣教父）</string>
-	<key>Sixth Sunday after Pascha. Sunday of the Blind Man</key>
-	<string>葩斯哈庆期第六主日（胎瞽者主日）</string>
-	<key>Fifth Sunday after Pascha. Sunday of the Samaritan Woman</key>
-	<string>葩斯哈庆期第五主日（撒玛利亚汲水妇主日）</string>
-	<key>Fourth Sunday after Pascha. Sunday of the Paralytic</key>
-	<string>葩斯哈庆期第四主日（起瘫主日）</string>
-	<key>Third Sunday after Pascha. Sunday of the Myrrhbearing Women</key>
-	<string>葩斯哈庆期第三主日（携香液女主日）</string>
-	<key>Second Sunday after Pascha. Thomas Sunday, or Antipascha</key>
-	<string>葩斯哈庆期第二主日（圣多马主释疑主日，主复活后主日）</string>
-	<key>Week %@ after Pascha</key>
-	<string>葩斯哈庆期第%@周</string>
-	<key>Great Saturday</key>
-	<string>大安息日</string>
-	<key>Great Friday</key>
-	<string>圣周星期五（主受难日）</string>
-	<key>Great Thursday</key>
-	<string>圣周星期四（纪念主的奥秘晚餐）</string>
-	<key>Great Wednesday</key>
-	<string>圣周星期三（悔罪女以香膏傅抹主圣足）</string>
-	<key>Great Tuesday</key>
-	<string>大瞻礼二（纪念明智的童贞女）</string>
-	<key>Great Monday</key>
-	<string>圣周星期一（纪念英俊的古圣祖若瑟）</string>
-    <key>Holy Week</key>
-    <string>圣周</string>
-	<key>Bright Week</key>
-	<string>光明周</string>
-    <key>Trinity Week</key>
-    <string>圣三一周</string>
-	<key>Cheesefare Sunday (Forgiveness Sunday): Commemoration of the Expulsion of Adam from Paradise</key>
-	<string>离酪主日（宽恕主日）记念首先受造之人阿达穆因为乐园的禁果而堕落</string>
-	<key>Tone %@</key>
-	<string>第%@调式</string>
-	<key>Sunday %@ of Great Lent</key>
-	<string>大斋期第%@主日</string>
-	<key>Week %@ of Great Lent</key>
-	<string>大斋期第%@周</string>
-	<key>Sunday %@ after Pentecost</key>
-	<string>五旬节后第%@主日</string>
-	<key>Week %@ after Pentecost</key>
-	<string>五旬节后第%@周</string>
-	<key>PASCHA. The Bright and Glorious Resurrection of our Lord, God, and Saviour Jesus Christ</key>
-	<string>圣葩斯哈主日——纪念我们的主，救主，上帝，耶稣基督逾越了阴府，自死者中荣耀地复活</string>
-	<key>Pentecost. Sunday of the Holy Trinity. Descent of the Holy Spirit on the Apostles</key>
-	<string>五旬节（上帝圣三主日——纪念至圣圣灵降临于众使徒）</string>
-	<key>Ascension of our Lord, God, and Saviour Jesus Christ</key>
-	<string>主升天节（纪念我们的主，上帝，救主耶稣基督神性的升天）</string>
-	<key>Palm Sunday. Entrance of our Lord into Jerusalem</key>
-	<string>主进圣城耶路撒冷节（圣枝主日）</string>
-	<key>Eve of the Nativity of Christ</key>
-	<string>主降生节前日</string>
-	<key>The Nativity of our Lord God and Savior Jesus Christ</key>
-	<string>主降生节（纪念我们的主，上帝，救主耶稣基督取肉躯而降生于世）</string>
-	<key>Circumcision of our Lord</key>
-	<string>主耶稣基督受割礼日</string>
-	<key>Eve of Theophany</key>
-	<string>主显节前夕</string>
-    <key>Epiphany Eve</key>
-    <string>主显节前夕</string>
-	<key>Holy Theophany: the Baptism of Our Lord, God, and Saviour Jesus Christ</key>
-	<string>主显节——我们的主，上帝，救主，耶稣基督神性的显现，也即基督受浸礼节</string>
-	<key>The Meeting of our Lord, God, and Saviour Jesus Christ in the Temple</key>
-	<string>主进殿节——纪念我们的主，上帝，救主被奉献于圣殿，也纪念圣母取洁</string>
-	<key>The Annunciation of our Most Holy Lady, Theotokos and Ever-Virgin Mary</key>
-	<string>诞神女福音节（我众至圣之君后，诞神女，永贞玛利亚领报节）</string>
-	<key>Nativity of the Holy Glorious Prophet, Forerunner, and Baptist of the Lord, John</key>
-	<string>尊贵前驱，先知，施浸礼者圣约翰诞辰</string>
-	<key>The Holy Glorious and All-Praised Leaders of the Apostles, Peter and Paul</key>
-	<string>神圣，荣耀，满被赞扬者，使徒之长圣彼得及圣保罗</string>
-	<key>The Holy Transfiguration of Our Lord God and Saviour Jesus Christ</key>
-	<string>主易圣容节（我等主，上帝，救主耶稣基督易显圣容）</string>
-	<key>The Dormition (Repose) of our Most Holy Lady Theotokos and Ever-Virgin Mary</key>
-	<string>圣母安息节（敬忆我众之君后，至圣诞神女，永贞玛利亚之安息）</string>
-	<key>The Beheading of the Holy Glorious Prophet, Forerunner and Baptist of the Lord, John</key>
-	<string>荣耀之先知，前驱，施浸礼者，圣约安授首纪念日</string>
-	<key>Nativity of Our Most Holy Lady Theotokos and Ever-Virgin Mary</key>
-	<string>圣母诞辰节（纪念我众至圣之君后，诞神女，永贞玛利亚之降生）</string>
-	<key>The Universal Exaltation of the Precious and Life-Giving Cross</key>
-	<string>普世举扬尊贵施生命之十字圣架</string>
-	<key>Protection of Our Most Holy Lady Theotokos and Ever-Virgin Mary</key>
-	<string>至圣诞神女帲幪节（圣母护守节）</string>
-	<key>Entry into the Temple of our Most Holy Lady Theotokos and Ever-Virgin Mary</key>
-	<string>圣母进堂节</string>
-	<key>St. Nicholas the Wonderworker</key>
-	<string>圣尼科拉显行灵迹者</string>
-	<key>Beginning of Great Lent</key>
-	<string>大斋期开始</string>
-	<key>Week of the Publican and the Pharisee</key>
-	<string>税吏及法利塞人周</string>
-	<key>Week of the Prodigal Son</key>
-	<string>浪子周</string>
-	<key>Week of the Dread Judgement</key>
-	<string>离肉周</string>
-	<key>Sunday of the Publican and the Pharisee</key>
-	<string>税吏及法利塞人主日</string>
-	<key>Sunday of the Prodigal Son</key>
-	<string>浪子主日</string>
-	<key>Sunday of the Dread Judgement</key>
-	<string>离肉主日</string>
-	<key>Beginning of Dormition fast</key>
-	<string>圣母安息斋期开始</string>
-	<key>Beginning of Nativity fast</key>
-	<string>主降生斋期</string>
-	<key>Beginning of Apostoles&apos; fast</key>
-	<string>使徒斋期开始</string>
-	<key>Sunday of the Holy Forefathers</key>
-	<string>众圣祖主日</string>
-	<key>Sunday before the Nativity of Christ, of the Fathers</key>
-	<string>主降生节前主日——众圣父主日</string>
-	<key>Sunday before Nativity</key>
-	<string>主降生节前主日——众圣父主日</string>
-	<key>Sunday after the Exaltation</key>
-	<string>举扬圣架节后主日</string>
-	<key>Saturday after the Exaltation</key>
-	<string>举扬圣架节后安息日</string>
-	<key>Saturday before the Exaltation</key>
-	<string>举扬圣架节前安息日</string>
-	<key>Sunday before the Exaltation</key>
-	<string>举扬圣架节前主日</string>
-	<key>Saturday before the Nativity of Christ</key>
-	<string>主降生节前安息日</string>
-	<key>Saturday after the Nativity of Christ</key>
-	<string>主降生节后安息日</string>
-	<key>Sunday after Nativity of Christ</key>
-	<string>主降生节后主日</string>
-	<key>Saturday before Theophany</key>
-	<string>主显节前安息日</string>
-	<key>Sunday before Theophany</key>
-	<string>主显节前主日</string>
-	<key>Saturday after Theophany</key>
-	<string>主显节后安息日</string>
-	<key>Sunday after Theophany</key>
-	<string>主显节后主日</string>
-    <key>Eve of the Nativity</key>
+    <key>Venerables</key>
+    <string></string>
+    <key>Wednesday Reading</key>
+    <string>星期三的读经</string>
+    <key>WeekAfterPascha</key>
+    <string>葩斯哈庆期第%@周</string>
+    <key>WeekAfterPentecost</key>
+    <string>五旬节后第%@周</string>
+    <key>WeekOfGreatLent</key>
+    <string>大斋期第%@周</string>
+    <key>abrahamBulgar</key>
+    <string>殉道者阿弗拉穆（保加利亚，1229年）</string>
+    <key>afterfeast_ascension</key>
+    <string>主升天节庆期</string>
+    <key>afterfeast_dormition</key>
+    <string>圣母安息节庆期</string>
+    <key>afterfeast_entryIntoTemple</key>
+    <string>至圣诞神女进殿节庆期</string>
+    <key>afterfeast_exaltationOfCross</key>
+    <string>举扬圣架节庆期</string>
+    <key>afterfeast_meetingOfLord</key>
+    <string>主进殿节庆期</string>
+    <key>afterfeast_nativityOfGod</key>
+    <string>主降生庆期</string>
+    <key>afterfeast_nativityOfTheotokos</key>
+    <string>诞神女诞辰节庆期</string>
+    <key>afterfeast_pentecost</key>
+    <string>五旬节庆期</string>
+    <key>afterfeast_theophany</key>
+    <string>主显节庆期</string>
+    <key>afterfeast_transfiguration</key>
+    <string>主易圣容节庆期</string>
+    <key>annunciation</key>
+    <string>诞神女福音节（我众至圣之君后，诞神女，永贞玛利亚领报节）</string>
+    <key>apodosis_annunciation</key>
+    <string>诞神女福音节庆期圆满日</string>
+    <key>apodosis_ascension</key>
+    <string>主升天节庆期圆满日</string>
+    <key>apodosis_dormition</key>
+    <string>圣母安息节庆期圆满日</string>
+    <key>apodosis_entryIntoTemple</key>
+    <string>至圣诞神女进殿节庆期圆满日</string>
+    <key>apodosis_exaltationOfCross</key>
+    <string>举扬圣架节庆期圆满日</string>
+    <key>apodosis_meetingOfLord</key>
+    <string>主进殿节庆期圆满日</string>
+    <key>apodosis_nativityOfGod</key>
+    <string>主降生庆期圆满日</string>
+    <key>apodosis_nativityOfTheotokos</key>
+    <string>诞神女诞辰节庆期圆满日</string>
+    <key>apodosis_pascha</key>
+    <string>葩斯哈庆期圆满日</string>
+    <key>apodosis_pentecost</key>
+    <string>五旬节庆期圆满日</string>
+    <key>apodosis_theophany</key>
+    <string>主显节庆期圆满日</string>
+    <key>apodosis_transfiguration</key>
+    <string>主易圣容节庆期圆满日</string>
+    <key>apostles_fast</key>
+    <string>使徒斋期</string>
+    <key>ascension</key>
+    <string>主升天节（纪念我们的主，上帝，救主耶稣基督神性的升天）</string>
+    <key>beginningOfApostlesFast</key>
+    <string>使徒斋期开始</string>
+    <key>beginningOfDormitionFast</key>
+    <string>圣母安息斋期开始</string>
+    <key>beginningOfGreatLent</key>
+    <string>大斋期开始</string>
+    <key>beginningOfNativityFast</key>
+    <string>主降生斋期</string>
+    <key>beheadingOfJohn</key>
+    <string>荣耀之先知，前驱，施浸礼者，圣约安授首纪念日</string>
+    <key>brightWeek</key>
+    <string>光明周</string>
+    <key>cheesefareSunday</key>
+    <string>离酪主日（宽恕主日）记念首先受造之人阿达穆因为乐园的禁果而堕落</string>
+    <key>chelnskoyTheotokos</key>
+    <string>琴斯托霍瓦及普斯科夫的「邬弥勒涅」圣母像纪念日</string>
+    <key>circumcision</key>
+    <string>主耶稣基督受割礼日</string>
+    <key>demetriusSaturday</key>
+    <string>圣迪弥特里节前安息日：纪念亡者之安息日</string>
+    <key>dormition</key>
+    <string>圣母安息节（敬忆我众之君后，至圣诞神女，永贞玛利亚之安息）</string>
+    <key>dormition_fast</key>
+    <string>圣母安息斋期</string>
+    <key>entryIntoTemple</key>
+    <string>圣母进堂节</string>
+    <key>eveOfNativityOfGod</key>
     <string>主降生节前日</string>
+    <key>eveOfTheophany</key>
+    <string>主显节前夕</string>
+    <key>exaltationOfCross</key>
+    <string>普世举扬尊贵施生命之十字圣架</string>
+    <key>fast_day</key>
+    <string>教会斋日</string>
+    <key>fast_free</key>
+    <string>免斋周</string>
+    <key>fish_allowed</key>
+    <string>鱼可食</string>
+    <key>forefeast_annunciation</key>
+    <string>诞神女福音节前日</string>
+    <key>forefeast_dormition</key>
+    <string>至圣诞神女安息节前日</string>
+    <key>forefeast_entryIntoTemple</key>
+    <string>至圣诞神女进殿节前日</string>
+    <key>forefeast_exaltationOfCross</key>
+    <string>举扬圣架节前日</string>
+    <key>forefeast_meetingOfLord</key>
+    <string>主进殿节前期</string>
+    <key>forefeast_nativityOfGod</key>
+    <string>主降生节前期</string>
+    <key>forefeast_nativityOfTheotokos</key>
+    <string>至圣诞神女诞辰前日</string>
+    <key>forefeast_theophany</key>
+    <string>主显节前期</string>
+    <key>forefeast_transfiguration</key>
+    <string>主易圣容节前日</string>
+    <key>greatFriday</key>
+    <string>圣周星期五（主受难日）</string>
+    <key>greatMonday</key>
+    <string>圣周星期一（纪念英俊的古圣祖若瑟）</string>
+    <key>greatSaturday</key>
+    <string>圣周星期六</string>
+    <key>greatThursday</key>
+    <string>圣周星期四</string>
+    <key>greatTuesday</key>
+    <string>圣周星期二（纪念明智的童贞女）</string>
+    <key>greatWednesday</key>
+    <string>圣周星期三（悔罪女以香膏傅抹主圣足）</string>
+    <key>great_lent</key>
+    <string>大斋期</string>
+    <key>holyFathersSeventhCouncil</key>
+    <string>纪念第七次神圣普世大公会议之诸位圣父师</string>
+    <key>holyFathersSixCouncils</key>
+    <string>纪念前六次神圣普世大公会议之诸位圣教父</string>
+    <key>holySpirit</key>
+    <string>上帝圣灵日</string>
+    <key>holyWeek</key>
+    <string>圣周</string>
+    <key>iveronTheotokos</key>
+    <string>伊维隆圣母像纪念日（9世纪）</string>
+    <key>josephArimathea</key>
+    <string>義人亞利馬特的約瑟及尼科底姆</string>
+    <key>josephBetrothed</key>
+    <string>纪念义人圣约熙福——吾主之鞠父；圣王大卫——吾主之先祖；及圣雅各——吾主之圣昆</string>
+    <key>killedInAction</key>
+    <string>纪念亡者</string>
+    <key>koretsTheotokos</key>
+    <string>至圣诞神女“罪人之保”圣像（柯列茨卡娅，1622年）</string>
+    <key>lazarusSaturday</key>
+    <string>圣枝安息日（拉匝若复生之安息日）</string>
+    <key>maslenitsa</key>
+    <string>离肉周</string>
+    <key>meetingOfLord</key>
+    <string>主进殿节——纪念我们的主，上帝，救主被奉献于圣殿，也纪念圣母取洁</string>
+    <key>midPentecost</key>
+    <string>五旬中节</string>
+    <key>mozdokTheotokos</key>
+    <string>「莫兹多克」和「杜本斯基•克拉斯诺霍」圣母像纪念日（17世纪）</string>
+    <key>nativityOfGod</key>
+    <string>主降生节（纪念我们的主，上帝，救主耶稣基督取肉躯而降生于世）</string>
+    <key>nativityOfJohn</key>
+    <string>尊贵前驱，先知，施浸礼者圣约翰诞辰</string>
+    <key>nativityOfTheotokos</key>
+    <string>圣母诞辰节（纪念我众至圣之君后，诞神女，永贞玛利亚之降生）</string>
+    <key>nativity_fast</key>
+    <string>圣诞斋期</string>
+    <key>newMartyrsConfessorsOfRussia</key>
+    <string>俄罗斯全体新殉道者及新宣信者</string>
+    <key>no_fast</key>
+    <string>无斋</string>
+    <key>no_food</key>
+    <string>完全的禁食</string>
+    <key>palmSunday</key>
+    <string>主进圣城耶路撒冷节（圣枝主日）</string>
+    <key>pascha</key>
+    <string>圣葩斯哈主日。自死者中荣耀地复活</string>
+    <key>pentecost</key>
+    <string>五旬节（上帝圣三主日——纪念至圣圣灵降临于众使徒）</string>
+    <key>peterAndPaul</key>
+    <string>神圣，荣耀，满被赞扬者，使徒之长圣彼得及圣保罗</string>
+    <key>radonitsa</key>
+    <string>喜樂日。紀念亡者</string>
+    <key>saturday1GreatLent</key>
+    <string>纪念殉道者新兵德奥多若; 大殉道者新兵德奥多若（306年）</string>
+    <key>saturday2GreatLent</key>
+    <string>纪念亡者</string>
+    <key>saturday3GreatLent</key>
+    <string>纪念亡者</string>
+    <key>saturday4GreatLent</key>
+    <string>纪念亡者</string>
+    <key>saturday5GreatLent</key>
+    <string>赞颂上帝之母至圣诞神女：于晨时课中恭咏全分圣母弗坐词礼仪</string>
+    <key>saturdayAfterExaltation</key>
+    <string>举扬圣架节后安息日</string>
+    <key>saturdayAfterNativity</key>
+    <string>主降生节后安息日</string>
+    <key>saturdayAfterTheophany</key>
+    <string>主显节后安息日</string>
+    <key>saturdayBeforeExaltation</key>
+    <string>举扬圣架节前安息日</string>
+    <key>saturdayBeforeNativity</key>
+    <string>主降生节前安息日</string>
+    <key>saturdayBeforeTheophany</key>
+    <string>主显节前安息日</string>
+    <key>saturdayOfDeparted</key>
+    <string>纪念亡者</string>
+    <key>saturdayOfFathers</key>
+    <string>所有於修行中顯耀之修道聖教父</string>
+    <key>saturdayTrinity</key>
+    <string>纪念亡者</string>
+    <key>softenerTheotokos</key>
+    <string>「软化邪恶之心者」及「不可摧毁之壁垒」圣母像纪念日</string>
+    <key>springTheotokos</key>
+    <string>「施生命之泉」聖母像</string>
+    <key>sunday1AfterPentecost</key>
+    <string>诸圣主日</string>
+    <key>sunday1GreatLent</key>
+    <string>正教主日</string>
+    <key>sunday2AfterPascha</key>
+    <string>葩斯哈庆期第二主日（圣多马主释疑主日，主复活后主日）</string>
+    <key>sunday2AfterPentecost</key>
+    <string>俄罗斯全体圣徒</string>
+    <key>sunday2GreatLent</key>
+    <string>圣格里高利•帕拉玛斯（德撒洛尼基总主教，1360年）</string>
+    <key>sunday3AfterPascha</key>
+    <string>葩斯哈庆期第三主日（携香液女主日）</string>
+    <key>sunday3GreatLent</key>
+    <string>叩拜十字圣架</string>
+    <key>sunday4AfterPascha</key>
+    <string>葩斯哈庆期第四主日（起瘫主日）</string>
+    <key>sunday4GreatLent</key>
+    <string>圣天梯约翰（西奈山修道院修士，〈天梯〉作者，649年）</string>
+    <key>sunday5AfterPascha</key>
+    <string>葩斯哈庆期第五主日（撒玛利亚汲水妇主日）</string>
+    <key>sunday5GreatLent</key>
+    <string>埃及的大成德者圣女玛利亚</string>
+    <key>sunday6AfterPascha</key>
+    <string>葩斯哈庆期第六主日（胎瞽者主日）</string>
+    <key>sunday7AfterPascha</key>
+    <string>葩斯哈庆期第七主日（纪念第一届神圣普世大公会议诸圣教父）</string>
+    <key>sundayAfterExaltation</key>
+    <string>举扬圣架节后主日</string>
+    <key>sundayAfterNativity</key>
+    <string>主降生节后主日</string>
+    <key>sundayAfterTheophany</key>
+    <string>主显节后主日</string>
+    <key>sundayBeforeExaltation</key>
+    <string>举扬圣架节前主日</string>
+    <key>sundayBeforeNativity</key>
+    <string>主降生节前主日——众圣父主日</string>
+    <key>sundayBeforeTheophany</key>
+    <string>主显节前主日</string>
+    <key>sundayOfDreadJudgement</key>
+    <string>离肉主日</string>
+    <key>sundayOfForefathers</key>
+    <string>众圣祖主日</string>
+    <key>sundayOfProdigalSon</key>
+    <string>浪子主日</string>
+    <key>sundayOfPublicianAndPharisee</key>
+    <string>税吏及法利塞人主日</string>
+    <key>sundayOfZacchaeus</key>
+    <string>匝凱主日</string>
+    <key>svyatki</key>
+    <string>圣诞节期周</string>
+    <key>synaxisKievCavesSaints</key>
+    <string>纪念圣髑安息于基辅窟的全体圣徒</string>
+    <key>synaxisMartyrsButovo</key>
+    <string>纪念布托沃地方全体新殉道者（莫斯科市西南区，1930年代）</string>
+    <key>synaxisMoscowSaints</key>
+    <string></string>
+    <key>synaxisMountAthosSaints</key>
+    <string>阿托斯圣山全体圣徒</string>
+    <key>synaxisNizhnyNovgorodSaints</key>
+    <string></string>
+    <key>tabithaJoppa</key>
+    <string>圣妇塔维塔（圣使徒裴特若所复活之寡妇，1世纪）</string>
+    <key>tamaraGeorgia</key>
+    <string>圣妇塔玛拉（格鲁吉亚之王后，1213年）</string>
+    <key>theophany</key>
+    <string>主显节——我们的主，上帝，救主，耶稣基督神性的显现，也即基督受浸礼节</string>
+    <key>thursday5GreatLent</key>
+    <string>大圣颂典星期四</string>
+    <key>tone</key>
+    <string>第%@调式</string>
+    <key>transfiguration</key>
+    <string>主易圣容节（我等主，上帝，救主耶稣基督易显圣容）</string>
+    <key>trinityWeek</key>
+    <string>圣三一周</string>
+    <key>tupichevskTheotokos</key>
+    <string>塞浦路斯圣母像纪念日（392年）</string>
+    <key>vegetarian</key>
+    <string>果蔬</string>
+    <key>veilOfTheotokos</key>
+    <string>至圣诞神女帲幪节（圣母护守节）</string>
+    <key>weekOfDreadJudgement</key>
+    <string>离肉周</string>
+    <key>weekOfProdigalSon</key>
+    <string>浪子周</string>
+    <key>weekOfPublicianAndPharisee</key>
+    <string>税吏及法利塞人周</string>
+    <key>with_oil</key>
+    <string>斋期（酒、油可食）</string>
+    <key>without_oil</key>
+    <string>食品免油</string>
+    <key>xerophagy</key>
+    <string>干食</string>
 </dict>
 </plist>
+

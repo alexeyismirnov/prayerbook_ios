@@ -35,7 +35,8 @@ let books_cn : [BookModel] =  [
 class LibraryTab: UIViewController, ResizableTableViewCells  {
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     var tableView: UITableView!
-    var selectedModel : BookModel!
+    var serviceModel : ServiceModel?
+    
     var books : [BookModel]!
     
     override func viewDidLoad() {
@@ -93,13 +94,13 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        selectedModel = books[indexPath.row]
         
-        if selectedModel.hasDate {
-            showPopup(ServiceDateSelector(selectedModel)!)
-
+        if let model = books[indexPath.row] as? ServiceModel {
+           serviceModel = model
+           showPopup(ServiceDateSelector(serviceModel!)!)
+           
         } else {
-            navigationController?.pushViewController(BookTOC(books[indexPath.row])!, animated: true)
+           navigationController?.pushViewController(BookTOC(books[indexPath.row])!, animated: true)
         }
         
         return nil
@@ -108,8 +109,8 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     @objc func setServiceDate(_ notification: NSNotification) {
         UIViewController.popup.dismiss({
             if let date = notification.userInfo?["date"] as? Date {
-                self.selectedModel.date = date
-                self.navigationController?.pushViewController(BookTOC(self.selectedModel)!, animated: true)
+                self.serviceModel!.date = date
+                self.navigationController?.pushViewController(BookTOC(self.serviceModel!)!, animated: true)
             }
         })
         

@@ -24,6 +24,7 @@
 		8A1D285723050BC4001913C7 /* LibraryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D285623050BC4001913C7 /* LibraryTab.swift */; };
 		8A282D4F27033943009DDB6E /* liturgy_cn_ebook.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A282D4E27033942009DDB6E /* liturgy_cn_ebook.sqlite */; };
 		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
+		8A3B3F8A284F3E6900ABD2FB /* trans_cal_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A3B3F89284F3E6900ABD2FB /* trans_cal_en.plist */; };
 		8A3E2B44271AABCB005DB2BA /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; };
 		8A3E2B45271AABCB005DB2BA /* swift_toolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A3E2B46271AABD2005DB2BA /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; };
@@ -354,6 +355,7 @@
 		8A282D4E27033942009DDB6E /* liturgy_cn_ebook.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = liturgy_cn_ebook.sqlite; sourceTree = "<group>"; };
 		8A2F46A619E12B4100076AF4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "prayerbook-Bridging-Header.h"; sourceTree = "<group>"; };
+		8A3B3F89284F3E6900ABD2FB /* trans_cal_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_cal_en.plist; sourceTree = "<group>"; };
 		8A42D4AF271E668C00AE8E13 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8A466AD92349C2D9004B00A3 /* YearCalendarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearCalendarContainer.swift; sourceTree = "<group>"; };
 		8A4F2E6C22E6E7F70087A3F0 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
@@ -722,10 +724,11 @@
 				8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */,
 				8AC1B114199871DE00A017C7 /* trans_ui_cn.plist */,
 				8AEB5AD41B3410B000CCFC72 /* trans_cal_cn.plist */,
+				8A8512C5271EBD1B00B15196 /* trans_ui_en.plist */,
+				8A3B3F89284F3E6900ABD2FB /* trans_cal_en.plist */,
 				8AB0DC9D1C27F00400C6A494 /* trans_reading_cn.plist */,
 				8AEC2B0B1B52600900A94FA6 /* trans_library_cn.plist */,
 				8A74D801198F20CC0078F39F /* Supporting Files */,
-				8A8512C5271EBD1B00B15196 /* trans_ui_en.plist */,
 			);
 			path = prayerbook;
 			sourceTree = "<group>";
@@ -1318,6 +1321,7 @@
 				8AF8C76C230F8E4D0020D5E5 /* ephes_cn.sqlite in Resources */,
 				8AC1B112199866FF00A017C7 /* launch-landscape.png in Resources */,
 				8AB0DC951C27EFEC00C6A494 /* typica_1.plist in Resources */,
+				8A3B3F8A284F3E6900ABD2FB /* trans_cal_en.plist in Resources */,
 				8AEB1AAE1B7C261E003DD686 /* saints_12_cn.sqlite in Resources */,
 				8AE0848A2716D8F600615F5E /* prayerbook_cn.sqlite in Resources */,
 				8A181E0E1B1D3C9A00D8C2FB /* saints_01_en.sqlite in Resources */,

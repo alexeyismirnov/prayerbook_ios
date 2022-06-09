@@ -11,7 +11,7 @@ import UIKit
 import swift_toolkit
 
 class YearCalendarContainer: UIViewControllerAnimated {
-    var year = Cal.currentYear!
+    var year : Int?
     var grid: YearCalendarGrid!
     
     static func year(_ year: Int) -> UIViewController {
@@ -22,23 +22,27 @@ class YearCalendarContainer: UIViewControllerAnimated {
     }
     
     override func viewControllerCurrent() -> UIViewController {
-        return YCC.year(year)
+        return YCC.year(year!)
     }
     
     override func viewControllerForward() -> UIViewController {
-        return YCC.year(year+1)
+        return YCC.year(year!+1)
     }
     
     override func viewControllerBackward() -> UIViewController {
-        return YCC.year(year-1)
+        return YCC.year(year!-1)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if year == nil {
+            year = DateComponents(date: Date()).toDate().year
+        }
+        
         setupNavbar()
         
-        grid = YearCalendarGrid(year)
+        grid = YearCalendarGrid(year!)
         view.addSubview(grid)
         fullScreen(view: grid)
         

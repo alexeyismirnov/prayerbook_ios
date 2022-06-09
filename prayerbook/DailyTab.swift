@@ -11,34 +11,30 @@ import Squeal
 import swift_toolkit
 
 class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
-    var tableView: UITableView!
-    
+    static let bookIcon = UIImage(named: "book")!.maskWithColor(.red).resize(CGSize(width: 20, height: 20))
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
-    static let tk = Bundle(identifier: "com.rlc.swift-toolkit")
-
-    static let size15 = CGSize(width: 15, height: 15)
-    static let icon15x15 : [FeastType: UIImage] = [
-           .noSign: UIImage(named: "nosign", in: tk)!.resize(size15),
-           .sixVerse: UIImage(named: "sixverse", in: tk)!.resize(size15),
-           .doxology: UIImage(named: "doxology", in: tk)!.resize(size15),
-           .polyeleos: UIImage(named: "polyeleos", in: tk)!.resize(size15),
-           .vigil: UIImage(named: "vigil", in: tk)!.resize(size15),
-           .great: UIImage(named: "great", in: tk)!.resize(size15)
-       ]
     
+    var tableView: UITableView!
     var appeared = false
     
     var fasting: FastingModel!
-    var readings = [String]()
     
-    var dayDescription = [(FeastType, String)]()
-    var saints = [(FeastType, String)]()
-    var saintIcons = [Saint]()
+    var readings = [String]()
+    var pericope: PericopeModel!
+    
+    var dayDescription = [ChurchDay]()
+    var saints = [Saint]()
+    var saintIcons = [SaintIcon]()
 
-    var currentDate: Date = {
-        // this is done to remove time component from date
-        return DateComponents(date: Date()).toDate()
-    }()
+    var currentDate: Date? {
+        didSet {
+           if let date = currentDate {
+               cal = Cal.fromDate(date)
+           }
+        }
+    }
+    
+    var cal: Cal!
     
     var formatter: DateFormatter = {
         var formatter = DateFormatter()
@@ -56,20 +52,24 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     }
     
     override func viewControllerCurrent() -> UIViewController {
-        return DailyTab.date(currentDate)
+        return DailyTab.date(currentDate!)
     }
     
     override func viewControllerForward() -> UIViewController {
-        return DailyTab.date(currentDate + 1.days)
+        return DailyTab.date(currentDate! + 1.days)
     }
     
     override func viewControllerBackward() -> UIViewController {
-        return DailyTab.date(currentDate - 1.days)
+        return DailyTab.date(currentDate! - 1.days)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if currentDate == nil {
+            currentDate = DateComponents(date: Date()).toDate()
+        }
+              
         createTableView(style: .grouped)
         configureNavbar()
         
@@ -149,56 +149,59 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
-                return getTextDetailsCell(title: formatter.string(from: currentDate).capitalizingFirstLetter(),
+                return getTextDetailsCell(title: formatter.string(from: currentDate!).capitalizingFirstLetter(),
                                           subtitle: "")
                 
             case 1:
                 var descr = ""
                 
-                if let weekDescription = Cal.getWeekDescription(currentDate) {
-                    descr = weekDescription
+                if let weekDescription = cal.getWeekDescription(currentDate!) {
+                  descr = weekDescription
                 }
-                
-                if let toneDescription = Cal.getToneDescription(currentDate) {
-                    if descr.count > 0 {
-                        descr += "; "
-                    }
-                    descr += toneDescription
+                              
+                if let toneDescription = cal.getToneDescription(currentDate!) {
+                  if descr.count > 0 {
+                      descr += "; "
+                  }
+                  descr += toneDescription
                 }
+
                 
                 return getTextCell(descr)
                 
             default:
-                let feast:FeastType = dayDescription[indexPath.row-2].0
-                
+                let feast:FeastType = dayDescription[indexPath.row-2].type
+
                 if feast == .none {
-                    return getTextCell(dayDescription[indexPath.row-2].1)
+                    return getTextCell(dayDescription[indexPath.row-2].name)
                     
                 } else if feast == .great {
                     let cell: ImageCell = getCell()
                     
                     cell.title.textColor = UIColor.red
-                    cell.title.text = dayDescription[indexPath.row-2].1
-                    cell.icon.image = UIImage(named: Cal.feastIcon[feast]!, in: toolkit)
+                    cell.title.text = dayDescription[indexPath.row-2].name
+                    cell.icon.image = feast.icon
                     return cell
                     
                 } else {
                     let cell: TextCell = getCell()
                     
                     let attachment = NSTextAttachment()
-                    attachment.image = DailyTab.icon15x15[feast]
+                    attachment.image = feast.icon15x15
                     
                     let myString = NSMutableAttributedString(string: "")
                     myString.append(NSAttributedString(attachment: attachment))
                     
-                    let dayString = dayDescription[indexPath.row-2].1
+                    let dayString = dayDescription[indexPath.row-2].name
                     let day = dayString.colored(with: Theme.textColor)
+
                     myString.append(day)
                     
                     cell.title.attributedText = myString
                     
                     return cell
                 }
+                
             }
         } else if indexPath.section == 1 {
             if appeared {
@@ -252,27 +255,27 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             }
             
         } else if indexPath.section == 4 {
-            if saints[indexPath.row].0 == .none {
+            if saints[indexPath.row].type == .none {
                 if appeared {
-                    return getTextCell(saints[indexPath.row].1)
+                    return getTextCell(saints[indexPath.row].name)
                     
                 } else {
-                    return getSimpleCell(saints[indexPath.row].1)
+                    return getSimpleCell(saints[indexPath.row].name)
                 }
-                
+                            
             } else {
                 let attachment = NSTextAttachment()
-                attachment.image = DailyTab.icon15x15[saints[indexPath.row].0]
+                attachment.image = saints[indexPath.row].type.icon15x15
                 let attachmentString = NSAttributedString(attachment: attachment)
-                
+
                 let myString = NSMutableAttributedString(string: "")
                 myString.append(attachmentString)
-                
-                let saintString = saints[indexPath.row].1
+
+                let saintString = saints[indexPath.row].name
                 let saint = saintString.colored(with: Theme.textColor)
-               
+
                 myString.append(saint)
-                
+
                 if appeared {
                     let cell: TextCell = getCell()
                     cell.title.attributedText = myString
@@ -298,7 +301,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             
             let currentReading = readings[indexPath.row].components(separatedBy: "#").first!
             
-            let pericope = PericopeModel(lang: Translate.language)
             let pos = BookPosition(model: pericope, location: currentReading)
             vc = BookPageSingle(pos, lang: pericope.lang)
             
@@ -382,18 +384,19 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             view.backgroundColor = UIColor(patternImage: DailyTab.background!)
         }
         
+        pericope = PericopeModel(lang: Translate.language)
+        
         reload()
     }
     
     @objc func reload() {
         formatter.locale = Translate.locale
         
-        dayDescription = Cal.getDayDescription(currentDate)
-        fasting = FastingModel.fasting(forDate: currentDate)
-        
-        saints = SaintModel.saints(currentDate)
-        readings = DailyReading.getDailyReading(currentDate)
-        
+        dayDescription = cal.getDayDescription(currentDate!)
+        fasting = ChurchFasting.forDate(currentDate!)
+        readings = ChurchReading.forDate(currentDate!)
+        saints = SaintModel.saints(currentDate!)
+
         if (appeared) {
             reloadAfterAppeared()
         }
@@ -402,7 +405,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     }
     
     func reloadAfterAppeared() {
-        saintIcons = SaintIconModel.get(currentDate)
+        saintIcons = SaintIconModel.get(currentDate!)
     }
     
     func configureNavbar() {
@@ -424,12 +427,12 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     @objc func showWeeklyCalendar() {
         UIViewController.popup.dismiss({
-            let dateComponents = DateComponents(date: self.currentDate)
+            let dateComponents = DateComponents(date: self.currentDate!)
             let currentWeekday = DayOfWeek(rawValue: dateComponents.weekday!)!
             
             let nearestMonday = currentWeekday == .sunday ?
-                self.currentDate - 6.days :
-                Cal.nearestSundayBefore(self.currentDate) + 1.days
+                self.currentDate! - 6.days :
+                Cal.nearestSundayBefore(self.currentDate!) + 1.days
             
             let vc = WeekCalendar(nearestMonday)
             let nav = UINavigationController(rootViewController: vc)

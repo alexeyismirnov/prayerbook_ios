@@ -10,7 +10,7 @@ import UIKit
 import Squeal
 import swift_toolkit
 
-class TypikaModel : BookModel {
+class TypikaModel : ServiceModel {
     static let shared = TypikaModel()
     var lang = Translate.language
 
@@ -26,14 +26,17 @@ class TypikaModel : BookModel {
     var hasChapters = false
     var hasDate = true
     
+    var cal: Cal!
+
     var tone: Int!
     var fragments = [String]()
     var prokimen = [String]()
 
     var date: Date = Date() {
         didSet {
-            tone = Cal.getTone(date)!
-
+            cal = Cal.fromDate(date)
+            tone = cal.getTone(date)!
+                       
             fragments = [String]()
             prokimen = [String]()
             
@@ -121,7 +124,7 @@ class TypikaModel : BookModel {
                 with: text)
         }
         
-        let readingStr = DailyReading.getRegularReading(date)!
+        let readingStr = ChurchReading.forDate(date).last!
         let readings = PericopeModel(lang: Translate.language).getPericope(readingStr, decorated: false)
         
         for (i, (title, text)) in readings.enumerated() {
