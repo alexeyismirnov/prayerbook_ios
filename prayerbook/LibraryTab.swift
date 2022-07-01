@@ -16,7 +16,7 @@ let books_en : [BookModel] =  [
     EbookModel("vigil_en_ebook"),
     EbookModel("liturgy_en_ebook"),
     EbookModel("prayerbook_en"),
-    TypikaModel.shared,
+    TypikaModel("en"),
     EbookModel("sokolovski"),
 ]
 
@@ -24,12 +24,19 @@ let books_cn : [BookModel] =  [
     BookmarksModel.shared,
     OldTestamentModel(lang: "cn"),
     NewTestamentModel(lang: "cn"),
-    // EbookModel("vigil_hk_ebook"),
     EbookModel("vigil_cn_ebook"),
-    // EbookModel("liturgy_hk_ebook"),
     EbookModel("liturgy_cn_ebook"),
     EbookModel("prayerbook_cn"),
-    TypikaModel.shared
+    TypikaModel("cn")
+]
+
+let books_hk : [BookModel] =  [
+    BookmarksModel.shared,
+    OldTestamentModel(lang: "hk"),
+    NewTestamentModel(lang: "hk"),
+    EbookModel("vigil_hk_ebook"),
+    EbookModel("liturgy_hk_ebook"),
+    TypikaModel("hk")
 ]
 
 class LibraryTab: UIViewController, ResizableTableViewCells  {
@@ -61,7 +68,20 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     @objc func reloadTheme() {
         title = Translate.s("Library")
 
-        books = Translate.language == "en" ? books_en : books_cn
+        switch (Translate.language) {
+        case "en":
+            books = books_en
+            break
+        case "cn":
+            books = books_cn
+            break
+        case "hk":
+            books = books_hk
+            break
+        default:
+            break
+        }
+
         BookmarksModel.books = books
         
         if let bgColor = Theme.mainColor {

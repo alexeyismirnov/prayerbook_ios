@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1 Chronicles</key>
+	<string>編年紀上</string>
+	<key>1 Kings</key>
+	<string>列王紀上</string>
+	<key>1 Samuel</key>
+	<string>撒慕爾紀上</string>
+	<key>1st Epistle General of John</key>
+	<string>若望一書</string>
+	<key>1st Epistle General of Peter</key>
+	<string>伯多祿前書</string>
+	<key>1st Epistle of St Paul Thessalonians</key>
+	<string>得撒洛尼前書</string>
+	<key>1st Epistle of St Paul to Corinthians</key>
+	<string>格林多前書</string>
+	<key>1st Epistle of St Paul to Timothy</key>
+	<string>弟茂德前書</string>
+	<key>2 Chronicles</key>
+	<string>編年紀下</string>
+	<key>2 Kings</key>
+	<string>列王紀下</string>
+	<key>2 Samuel</key>
+	<string>撒慕爾紀下</string>
+	<key>2nd Epistle General of John</key>
+	<string>若望二書</string>
+	<key>2nd Epistle of St Paul Thessalonians</key>
+	<string>得撒洛尼後書</string>
+	<key>2nd Epistle of St Paul to Corinthians</key>
+	<string>格林多後書</string>
+	<key>2nd Epistle of St Paul to Timothy</key>
+	<string>弟茂德後書</string>
+	<key>2nd General Epistle of Peter</key>
+	<string>伯多祿後書</string>
+	<key>3rd Epistle General of John</key>
+	<string>若望三書</string>
+	<key>Acts of the Apostles</key>
+	<string>宗徒大事錄</string>
+	<key>Amos</key>
+	<string>亞毛斯</string>
+	<key>Apocalypse</key>
+	<string>默示錄（啟示錄）</string>
+	<key>Bible</key>
+	<string>聖經</string>
+	<key>Catholic Epistles</key>
+	<string>宗徒若望的書信</string>
+	<key>Chapter %d</key>
+	<string>第%d章</string>
+	<key>Daniel</key>
+	<string>達尼爾</string>
+	<key>Deuteronomy</key>
+	<string>申命紀</string>
+	<key>Ecclesiastes</key>
+	<string>訓道篇</string>
+	<key>Epistle of St Paul to Colossians</key>
+	<string>哥羅森書</string>
+	<key>Epistle of St Paul to Ephesians</key>
+	<string>厄弗所書</string>
+	<key>Epistle of St Paul to Galatians</key>
+	<string>迦拉達書</string>
+	<key>Epistle of St Paul to Hebrews</key>
+	<string>希伯來書</string>
+	<key>Epistle of St Paul to Philemon</key>
+	<string>費肋孟書</string>
+	<key>Epistle of St Paul to Philippians</key>
+	<string>斐理伯書</string>
+	<key>Epistle of St Paul to Romans</key>
+	<string>羅馬書</string>
+	<key>Epistle of St Paul to Titus</key>
+	<string>弟鐸書</string>
+	<key>Epistles of Paul</key>
+	<string>宗徒保祿致各教會的書信</string>
+	<key>Esther</key>
+	<string>艾斯德爾傳</string>
+	<key>Exodus</key>
+	<string>出谷紀</string>
+	<key>Ezekiel</key>
+	<string>厄則克耳</string>
+	<key>Ezra</key>
+	<string>厄斯德拉上</string>
+	<key>Five Books of Moses</key>
+	<string>梅瑟五書</string>
+	<key>Four Gospels and Acts</key>
+	<string>四福音書及使徒行傳</string>
+	<key>General Epistle of James</key>
+	<string>雅各伯書</string>
+	<key>General Epistle of Jude</key>
+	<string>猶達書</string>
+	<key>Genesis</key>
+	<string>創世紀</string>
+	<key>Gospel of St John</key>
+	<string>若望福音</string>
+	<key>Gospel of St Luke</key>
+	<string>路加福音</string>
+	<key>Gospel of St Mark</key>
+	<string>馬爾谷福音</string>
+	<key>Gospel of St Matthew</key>
+	<string>瑪竇福音</string>
+	<key>Habakkuk</key>
+	<string>哈巴谷</string>
+	<key>Haggai</key>
+	<string>哈蓋</string>
+	<key>Historical books</key>
+	<string>歷史書</string>
+	<key>Hosea</key>
+	<string>歐瑟亞</string>
+	<key>Isaiah</key>
+	<string>依撒意亞</string>
+	<key>Jeremiah</key>
+	<string>耶肋米亞</string>
+	<key>Job</key>
+	<string>約伯傳</string>
+	<key>Joel</key>
+	<string>岳厄爾</string>
+	<key>Jonah</key>
+	<string>約納</string>
+	<key>Joshua</key>
+	<string>若蘇厄書</string>
+	<key>Judges</key>
+	<string>民長紀</string>
+	<key>Kathisma %d</key>
+	<string>第%d分</string>
+	<key>Lamentations</key>
+	<string>耶肋米亞哀歌</string>
+	<key>Leviticus</key>
+	<string>肋未紀</string>
+	<key>Malachi</key>
+	<string>瑪拉基亞</string>
+	<key>Micah</key>
+	<string>米該亞</string>
+	<key>Nahum</key>
+	<string>納鴻</string>
+	<key>Nehemiah</key>
+	<string>厄斯德拉下</string>
+	<key>New Testament</key>
+	<string>新約全書</string>
+	<key>Numbers</key>
+	<string>戶籍紀</string>
+	<key>Obadiah</key>
+	<string>亞北底亞</string>
+	<key>Old Testament</key>
+	<string>舊約全書</string>
+	<key>Prophets books</key>
+	<string>先知書</string>
+	<key>Proverbs</key>
+	<string>箴言</string>
+	<key>Psalms</key>
+	<string>聖詠集</string>
+	<key>Revelation of St John the Divine</key>
+	<string>若望默示錄</string>
+	<key>Ruth</key>
+	<string>盧德傳</string>
+	<key>Song of Solomon</key>
+	<string>雅歌</string>
+	<key>Stasis</key>
+	<string>榮光讚詞</string>
+	<key>Wisdom books</key>
+	<string>智慧書</string>
+	<key>Zechariah</key>
+	<string>匝加利亞</string>
+	<key>Zephaniah</key>
+	<string>索福尼亞</string>
+</dict>
+</plist>

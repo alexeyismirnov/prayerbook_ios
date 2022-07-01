@@ -11,15 +11,12 @@ import Squeal
 import swift_toolkit
 
 class TypikaModel : ServiceModel {
-    static let shared = TypikaModel()
-    var lang = Translate.language
+    var lang : String
 
     var code: String = "Typika"
     var author: String?
 
-    var title: String {
-        get { return Translate.s("Typika Reader Service") }
-    }
+    var title: String
     
     var contentType: BookContentType = .html
 
@@ -56,34 +53,19 @@ class TypikaModel : ServiceModel {
     
     func getSections() -> [String] { return [""] }
 
-    var data: [String] =
-        [
-            "First Exclamations",
-            "The First Antiphone",
-            "The Second Antiphon",
-            "The Third Antiphone",
-            "The Thrice-Holy (Trisagion)",
-            "The Epistle",
-            "The Gospel",
-            "The Symbol of Faith",
-            "The Lord's Prayer",
-            "Kontakia",
-            "Psalm 33",
-            "The Dismissal"
-    ]
+    lazy var data: [String] = {
+        return try! db.selectAll("SELECT title FROM content ORDER BY section") { $0.stringValueAtIndex(0) ?? "" }
+    }()
     
-    init() {
-        let path = Bundle.main.path(forResource: "typika_"+Translate.language, ofType: "sqlite")!
+    init(_ lang: String) {
+        self.lang = lang
+
+        let path = Bundle.main.path(forResource: "typika_\(lang)", ofType: "sqlite")!
         db = try! Database(path:path)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .themeChangedNotification, object: nil)
+        title = try! db.selectString("SELECT value FROM data WHERE key=$0", parameters: ["title"])!
     }
-    
-    @objc func reload() {
-        let path = Bundle.main.path(forResource: "typika_"+Translate.language, ofType: "sqlite")!
-        db = try! Database(path:path)
-    }
-    
+        
     func getItems(_ section: Int) -> [String] {
         return data.map { return Translate.s($0) }
     }
@@ -125,7 +107,7 @@ class TypikaModel : ServiceModel {
         }
         
         let readingStr = ChurchReading.forDate(date).last!
-        let readings = PericopeModel(lang: Translate.language).getPericope(readingStr, decorated: false)
+        let readings = PericopeModel(lang: lang).getPericope(readingStr, decorated: false)
         
         for (i, (title, text)) in readings.enumerated() {
             content = content.replacingOccurrences(
@@ -178,7 +160,6 @@ class TypikaModel : ServiceModel {
             return nextDate
         })
     }
-    
     
 }
 

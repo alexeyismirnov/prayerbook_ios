@@ -43,7 +43,22 @@ class Options: UITableViewController {
         navigationController?.makeTransparent()
         navigationController?.navigationBar.tintColor = UIColor.red
         
-        let languageCell = self.tableView(tableView, cellForRowAt: IndexPath(row: Translate.language == "en" ? 0 : 1, section: 1)) as UITableViewCell
+        var languageCell : UITableViewCell!
+        
+        switch (Translate.language) {
+        case "en":
+            languageCell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 1))
+            break
+        case "cn":
+            languageCell = self.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 1))
+            break
+        case "hk":
+            languageCell = self.tableView(tableView, cellForRowAt: IndexPath(row: 2, section: 1))
+            break
+        default:
+            break
+        }
+        
         languageCell.accessoryType = .checkmark
 
         let fastingCell = self.tableView(tableView, cellForRowAt: IndexPath(row: prefs.integer(forKey: "fastingLevel"), section: 2)) as UITableViewCell
@@ -90,12 +105,29 @@ class Options: UITableViewController {
             cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 1)) as UITableViewCell
             cell.accessoryType = .none
             
+            cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 2, section: 1)) as UITableViewCell
+            cell.accessoryType = .none
+            
             cell = self.tableView(tableView, cellForRowAt: indexPath) as UITableViewCell
             cell.accessoryType = .checkmark
             
-            let lang = indexPath.row == 0 ? "en" : "cn"
-            Translate.language = lang
+            var lang: String!
             
+            switch (indexPath.row) {
+            case 0:
+                lang = "en"
+                break
+            case 1:
+                lang = "cn"
+                break
+            case 2:
+                lang = "hk"
+                break
+            default:
+                break
+            }
+            
+            Translate.language = lang
             prefs.set(lang, forKey: "language")
             
             let year = DateComponents(date: Date()).year!
@@ -153,7 +185,7 @@ class Options: UITableViewController {
             return Translate.s("Background color")
         
         } else if section == 4 {
-            return Translate.s("(C) 2019 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong. This app contains information from ponomar.net and orthodox.cn")
+            return Translate.s("copyright_info")
         }
         
         return ""

@@ -14,18 +14,8 @@
 	<string>修道院的禁食</string>
 	<key>Fasting type</key>
 	<string>禁食型</string>
-	<key>Add widget</key>
-	<string>今天小部件的</string>
-	<key>Rate Orthodox Calendar</key>
-	<string>给正教日历评分</string>
-	<key>Remind me later</key>
-	<string>稍后提醒我</string>
-	<key>No, thanks</key>
-	<string>不，谢谢</string>
-	<key>If you enjoy using Orthodox Calendar, would you mind taking a moment to rate it? It won&apos;t take more than a minute. Thanks for your support!</key>
-	<string>如果你喜欢使用正教日历，你介意花一点时间给它评分吗？不会超过一分钟。感谢您的支持！</string>
-	<key>(C) 2019 Brotherhood of Sts Apostoles Peter and Paul, Hong Kong. This app contains information from ponomar.net and orthodox.cn</key>
-	<string>(C) 2019 香港聖彼得聖保羅教堂。本應用使用網站ponomar.net和orthodox.cn之資料</string>
+	<key>copyright_info</key>
+	<string>(C) 2022 香港聖彼得聖保羅教堂</string>
 	<key>Nuts</key>
 	<string>坚果</string>
 	<key>Bread</key>
@@ -50,22 +40,14 @@
 	<string>允许</string>
 	<key>Library</key>
 	<string>图书馆</string>
-	<key>Prayers</key>
-	<string>祈祷</string>
-	<key>Eucharist</key>
-	<string>圣餐礼</string>
 	<key>Memory of saints</key>
 	<string>本日记念之圣人</string>
 	<key>Gospel of the day</key>
 	<string>本日讀經</string>
 	<key>Daily</key>
 	<string>每日</string>
-    <key>Typica</key>
-    <string>感恩儀軌</string>
-	<key>Trinity Week</key>
-	<string>圣三一周</string>
-	<key>Passion Week</key>
-	<string>受难周</string>
+	<key>Typica</key>
+	<string>感恩儀軌</string>
 	<key>Language</key>
 	<string>语言</string>
 	<key>Font size</key>
@@ -78,50 +60,50 @@
 	<string>设置</string>
 	<key>Prayerbook</key>
 	<string>正教祈祷书</string>
-    <key>Bookmarks...</key>
-    <string>书签...</string>
-    <key>No bookmarks</key>
-    <string>没有书签</string>
-    <key>Service date</key>
-    <string>礼仪日期</string>
-    <key>Calendar</key>
-    <string>正教日历</string>
-    <key>Today</key>
-    <string>今天</string>
-    <key>Weekly</key>
-    <string>周历</string>
-    <key>Monthly</key>
-    <string>月历</string>
-    <key>Yearly</key>
-    <string>年历</string>
-    <key>Year %d Orthodox Calendar</key>
-    <string>%d年正教日历</string>
-    <key>From %@ till %@ — %@</key>
-    <string>从%@至%@：%@</string>
-    <key>Church</key>
-    <string>东正教堂</string>
-    <key>Donation</key>
-    <string>捐献</string>
-    <key>Thanks for your donation</key>
-    <string>感谢您的捐赠</string>
-    <key>Copied to clipboard</key>
-    <string>复制到剪贴板</string>
-    <key>Donate %@</key>
-    <string>捐献 %@</string>
-    <key>Any amount...</key>
-    <string>任何金额...</string>
-    <key>Install app</key>
-    <string>   安裝程式</string>
-    <key>Orthodox Church in Hong Kong</key>
-    <string>香港圣彼得圣保罗教堂</string>
-    <key>church_info</key>
-    <string>香港圣彼得圣保罗教堂于1934年建立。首位主任司祭为德米特里．乌斯本斯基大司祭。此堂区存至德米特里大司祭于1970年离世之时。 2003年夏，迟秋农司祭抵港，恢复了常规的教会礼拜。
+	<key>Bookmarks...</key>
+	<string>书签...</string>
+	<key>No bookmarks</key>
+	<string>没有书签</string>
+	<key>Service date</key>
+	<string>礼仪日期</string>
+	<key>Calendar</key>
+	<string>正教日历</string>
+	<key>Today</key>
+	<string>今天</string>
+	<key>Weekly</key>
+	<string>周历</string>
+	<key>Monthly</key>
+	<string>月历</string>
+	<key>Yearly</key>
+	<string>年历</string>
+	<key>Year %d Orthodox Calendar</key>
+	<string>%d年正教日历</string>
+	<key>From %@ till %@ — %@</key>
+	<string>从%@至%@：%@</string>
+	<key>Church</key>
+	<string>东正教堂</string>
+	<key>Donation</key>
+	<string>捐献</string>
+	<key>Thanks for your donation</key>
+	<string>感谢您的捐赠</string>
+	<key>Copied to clipboard</key>
+	<string>复制到剪贴板</string>
+	<key>Donate %@</key>
+	<string>捐献 %@</string>
+	<key>Any amount...</key>
+	<string>任何金额...</string>
+	<key>Install app</key>
+	<string>   安裝程式</string>
+	<key>Orthodox Church in Hong Kong</key>
+	<string>香港圣彼得圣保罗教堂</string>
+	<key>church_info</key>
+	<string>香港圣彼得圣保罗教堂于1934年建立。首位主任司祭为德米特里．乌斯本斯基大司祭。此堂区存至德米特里大司祭于1970年离世之时。 2003年夏，迟秋农司祭抵港，恢复了常规的教会礼拜。
     </string>
-    <key>app_info</key>
-    <string>请查阅我们新的流动应用程式「Orthodox Church in Hong Kong」。各位可以透过此程式查阅礼拜时间表、最新消息、以及提交代祷讯息。
+	<key>app_info</key>
+	<string>请查阅我们新的流动应用程式「Orthodox Church in Hong Kong」。各位可以透过此程式查阅礼拜时间表、最新消息、以及提交代祷讯息。
     </string>
-    <key>donation_info</key>
-    <string>我们需要你们的协助去继续发展此程式。你们可以按以下按钮进行捐献。愿上帝赐福予你们！
+	<key>donation_info</key>
+	<string>我们需要你们的协助去继续发展此程式。你们可以按以下按钮进行捐献。愿上帝赐福予你们！
     </string>
 </dict>
 </plist>

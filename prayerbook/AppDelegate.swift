@@ -55,8 +55,12 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         if prefs.object(forKey: "fontSize") == nil {
             let lang = Locale.preferredLanguages[0]
 
-            if (lang.hasPrefix("zh-Hans") || lang.hasPrefix("zh-Hant")) {
+            if (lang.hasPrefix("zh-Hans")) {
                 prefs.set("cn", forKey: "language")
+                
+            } else if (lang.hasPrefix("zh-Hant")) {
+                prefs.set("hk", forKey: "language")
+
             } else {
                 prefs.set("en", forKey: "language")
             }
@@ -82,7 +86,10 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
 
         setupFiles()
         
-        Translate.files = ["trans_ui_en", "trans_cal_en", "trans_ui_cn", "trans_cal_cn", "trans_library_cn"]
+        Translate.files = ["trans_ui_en", "trans_cal_en",
+                           "trans_ui_cn", "trans_cal_cn", "trans_library_cn",
+                           "trans_ui_hk", "trans_cal_hk", "trans_library_hk"]
+        
         Translate.language = prefs.object(forKey: "language") as! String
         
         FeastNotifications.setupNotifications()
@@ -91,7 +98,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     }
     
     func setupFiles() {
-        for lang in ["en", "cn"] {
+        for lang in ["en", "cn", "hk"] {
             for month in 1...12 {
                 let filename = String(format: "saints_%02d_%@", month, lang)
                 AppGroup.copyFile(filename, "sqlite")
@@ -103,6 +110,9 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         AppGroup.copyFile("trans_ui_cn", "plist")
         AppGroup.copyFile("trans_cal_cn", "plist")
         AppGroup.copyFile("trans_library_cn", "plist")
+        AppGroup.copyFile("trans_ui_hk", "plist")
+        AppGroup.copyFile("trans_cal_hk", "plist")
+        AppGroup.copyFile("trans_library_hk", "plist")
     }
     
 }
