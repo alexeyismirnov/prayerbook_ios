@@ -95,6 +95,12 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         reloadAfterAppeared()
 
         tableView.reloadData()
+        
+        if AppGroup.prefs.object(forKey: "welcome51") == nil {
+            AppGroup.prefs.set(true, forKey: "welcome51")
+            AppGroup.prefs.synchronize()
+            showPopup(LanguageSelector())
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

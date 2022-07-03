@@ -14,8 +14,8 @@
 	<string>To continue developing mobile apps for the church, we need your help. Please donate any amount using the buttons below. May God bless you!
     </string>
 	<key>Install app</key>
-	<string>   Install &quot;Church&quot; app</string>
-    <key>copyright_info</key>
-    <string>(C) 2022 Brotherhood of Sts Apostles Peter and Paul in Hong Kong</string>
+	<string>Install &quot;Church&quot; app</string>
+	<key>copyright_info</key>
+	<string>(C) 2022 Brotherhood of Sts Apostles Peter and Paul in Hong Kong</string>
 </dict>
 </plist>

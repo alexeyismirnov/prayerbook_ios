@@ -61,6 +61,7 @@
 		8A8E99A81B76F342006B6377 /* saints_04_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E99A61B76F342006B6377 /* saints_04_cn.txt */; };
 		8A8E99AB1B76F8E3006B6377 /* saints_05_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E99A91B76F8E3006B6377 /* saints_05_cn.sqlite */; };
 		8A8E99AC1B76F8E3006B6377 /* saints_05_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E99AA1B76F8E3006B6377 /* saints_05_cn.txt */; };
+		8A99279A2871B2EF00A771BF /* LanguageSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9927992871B2EF00A771BF /* LanguageSelector.swift */; };
 		8AA3DF501B1847D700507129 /* saints_08_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3DF4C1B1847D700507129 /* saints_08_en.sqlite */; };
 		8AA3DF511B1847D700507129 /* saints_08_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3DF4D1B1847D700507129 /* saints_08_en.txt */; };
 		8AA3DF521B1847D700507129 /* saints_09_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3DF4E1B1847D700507129 /* saints_09_en.sqlite */; };
@@ -477,6 +478,7 @@
 		8A8E99A61B76F342006B6377 /* saints_04_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_04_cn.txt; sourceTree = "<group>"; };
 		8A8E99A91B76F8E3006B6377 /* saints_05_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_05_cn.sqlite; sourceTree = "<group>"; };
 		8A8E99AA1B76F8E3006B6377 /* saints_05_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_05_cn.txt; sourceTree = "<group>"; };
+		8A9927992871B2EF00A771BF /* LanguageSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelector.swift; sourceTree = "<group>"; };
 		8AA3DF4C1B1847D700507129 /* saints_08_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_08_en.sqlite; sourceTree = "<group>"; };
 		8AA3DF4D1B1847D700507129 /* saints_08_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_08_en.txt; sourceTree = "<group>"; };
 		8AA3DF4E1B1847D700507129 /* saints_09_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_09_en.sqlite; sourceTree = "<group>"; };
@@ -888,6 +890,7 @@
 				8A1D285623050BC4001913C7 /* LibraryTab.swift */,
 				8A62E36F2327916900C7C4C5 /* TypikaModel.swift */,
 				8A71ED311ECD55A300D55DEC /* Options.swift */,
+				8A9927992871B2EF00A771BF /* LanguageSelector.swift */,
 				8A466AD92349C2D9004B00A3 /* YearCalendarContainer.swift */,
 				8A2F46AC19E1516800076AF4 /* prayerbook-Bridging-Header.h */,
 				8AC1B114199871DE00A017C7 /* trans_ui_cn.plist */,
@@ -1748,6 +1751,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A99279A2871B2EF00A771BF /* LanguageSelector.swift in Sources */,
 				8A638C651ECBF60F00424A9E /* DailyTab.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
@@ -1903,7 +1907,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0.2;
+				MARKETING_VERSION = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1943,7 +1947,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.0.2;
+				MARKETING_VERSION = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1980,7 +1984,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.0.2;
+				MARKETING_VERSION = 5.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rlc.ponomar.CalendarWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2017,7 +2021,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.0.2;
+				MARKETING_VERSION = 5.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rlc.ponomar.CalendarWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
