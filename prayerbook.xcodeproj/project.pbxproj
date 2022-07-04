@@ -67,7 +67,6 @@
 		8A5F461527111B820074FF20 /* Zip.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460E27111B810074FF20 /* Zip.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A5F461627111B820074FF20 /* Squeal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460F27111B810074FF20 /* Squeal.xcframework */; };
 		8A5F461727111B820074FF20 /* Squeal.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460F27111B810074FF20 /* Squeal.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8A61278F27AD2CCF00BB7DDE /* PreachmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A61278E27AD2CCF00BB7DDE /* PreachmentModel.swift */; };
 		8A61BBA5202438CF003AA1BF /* saint.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A61BBA4202438CE003AA1BF /* saint.pdf */; };
 		8A61BBAD20246903003AA1BF /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC675431FED09CA00A9000C /* Chameleon.framework */; };
 		8A6AA11826A0366B00FA310C /* vigil.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A6AA11726A0366B00FA310C /* vigil.sqlite */; };
@@ -389,7 +388,6 @@
 		8A5F460D27111B810074FF20 /* Chameleon.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Chameleon.xcframework; path = Carthage/Build/Chameleon.xcframework; sourceTree = "<group>"; };
 		8A5F460E27111B810074FF20 /* Zip.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Zip.xcframework; path = Carthage/Build/Zip.xcframework; sourceTree = "<group>"; };
 		8A5F460F27111B810074FF20 /* Squeal.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Squeal.xcframework; path = Carthage/Build/Squeal.xcframework; sourceTree = "<group>"; };
-		8A61278E27AD2CCF00BB7DDE /* PreachmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreachmentModel.swift; sourceTree = "<group>"; };
 		8A61BBA4202438CE003AA1BF /* saint.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = saint.pdf; sourceTree = "<group>"; };
 		8A6AA11726A0366B00FA310C /* vigil.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = vigil.sqlite; sourceTree = "<group>"; };
 		8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
@@ -708,7 +706,6 @@
 				8A54C4291EA74CE90083AA2F /* DailyTab.swift */,
 				8A0689F8221FF8A600F1E711 /* LibraryTab.swift */,
 				8A1736EE22D20E4C00654AB1 /* SaintTropariaModel.swift */,
-				8A61278E27AD2CCF00BB7DDE /* PreachmentModel.swift */,
 				8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */,
 				8AF0804727B0DDBD003BCC77 /* SynaxarionModel.swift */,
 				8A98D6F127FC177600EC86D7 /* ZernaModel.swift */,
@@ -1329,7 +1326,6 @@
 				8A01E42621957BD8005BE65F /* DownloadManager.swift in Sources */,
 				8ACC2F03229E2B4A00F43229 /* FeofanModel.swift in Sources */,
 				8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */,
-				8A61278F27AD2CCF00BB7DDE /* PreachmentModel.swift in Sources */,
 				8A13C8FD219172E500D0CE7E /* AudioPlayerCell.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
 				8A0689F9221FF8A600F1E711 /* LibraryTab.swift in Sources */,
