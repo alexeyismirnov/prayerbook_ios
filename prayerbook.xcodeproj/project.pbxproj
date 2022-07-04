@@ -497,6 +497,7 @@
 		8AA8E33B28728EE5009F877F /* synaxarion_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = synaxarion_cn.sqlite; sourceTree = "<group>"; };
 		8AA8E33C28728EE5009F877F /* synaxarion_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = synaxarion_hk.sqlite; sourceTree = "<group>"; };
 		8AA8E340287296C9009F877F /* prayerbook_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = prayerbook_hk.sqlite; sourceTree = "<group>"; };
+		8AA8E3422872C13F009F877F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		8AAE6B212702F1450029A14E /* liturgy_en_ebook.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = liturgy_en_ebook.sqlite; sourceTree = "<group>"; };
 		8AB0DC8D1C27EFEC00C6A494 /* typica_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_1.plist; sourceTree = "<group>"; };
 		8AB0DC8E1C27EFEC00C6A494 /* typica_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_2.plist; sourceTree = "<group>"; };
@@ -1370,6 +1371,7 @@
 				en,
 				Base,
 				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 8A74D7EE198F20CC0078F39F;
 			productRefGroup = 8A74D7F8198F20CC0078F39F /* Products */;
@@ -1818,6 +1820,7 @@
 			children = (
 				8A74D804198F20CC0078F39F /* en */,
 				8AC278081C619EFB00436D51 /* zh-Hans */,
+				8AA8E3422872C13F009F877F /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
