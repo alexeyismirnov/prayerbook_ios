@@ -21,7 +21,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     var readings = [String]()
     var pericope: PericopeModel!
-    
+    var extraReadings = [Preachment]()
+
     var dayDescription = [ChurchDay]()
     var saints = [Saint]()
     var saintIcons = [SaintIcon]()
@@ -119,7 +120,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             return 1
             
         case 3:
-            return readings.count
+            return readings.count + extraReadings.count
             
         case 4:
             return saints.count
@@ -245,6 +246,11 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                     subtitle = (currentReading.count > 1) ? Translate.s(currentReading[1].trimmingCharacters(in: CharacterSet.whitespaces)) : ""
                 }
                 
+            case readings.count ..< readings.count + extraReadings.count:
+                let ind = indexPath.row - readings.count
+                title = extraReadings[ind].title
+                subtitle = extraReadings[ind].subtitle
+                
             default:
                 title = ""
                 subtitle=""
@@ -302,16 +308,27 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        var vc : UIViewController!
+
         if indexPath.section == 3 {
-            var vc : UIViewController!
+            switch indexPath.row {
+                case 0 ..< readings.count:
+                    let currentReading = readings[indexPath.row].components(separatedBy: "#").first!
+                    
+                    let pos = BookPosition(model: pericope, location: currentReading)
+                    vc = BookPageSingle(pos, lang: pericope.lang)
             
-            let currentReading = readings[indexPath.row].components(separatedBy: "#").first!
+                case readings.count ..< readings.count + extraReadings.count:
+                    let ind = indexPath.row - readings.count
+                    let pos = extraReadings[ind].position
+                    vc = BookPageSingle(pos)
+                            
+                default:
+                    break
+            }
             
-            let pos = BookPosition(model: pericope, location: currentReading)
-            vc = BookPageSingle(pos, lang: pericope.lang)
-            
+            vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true)
-            
         }
         
         return nil
@@ -412,6 +429,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     func reloadAfterAppeared() {
         saintIcons = SaintIconModel.get(currentDate!)
+        extraReadings = SynaxarionModel(lang: Translate.language).getPreachment(currentDate!)
     }
     
     func configureNavbar() {

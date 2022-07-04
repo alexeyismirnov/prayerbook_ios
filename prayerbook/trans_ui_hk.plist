@@ -2,108 +2,116 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Choose color...</key>
-    <string>選擇顏色</string>
-    <key>Default</key>
-    <string>默認值</string>
-    <key>Background color</key>
-    <string>背景顏色</string>
-    <key>Laymen fasting</key>
-    <string>外行齋戒</string>
-    <key>Monastic fasting</key>
-    <string>修道院的禁食</string>
-    <key>Fasting type</key>
-    <string>禁食型</string>
-    <key>copyright_info</key>
-    <string>(C) 2022 香港聖彼得聖保羅教堂</string>
-    <key>Nuts</key>
-    <string>堅果</string>
-    <key>Bread</key>
-    <string>麵包</string>
-    <key>Vegetables</key>
-    <string>蔬菜</string>
-    <key>Cheese</key>
-    <string>奶酪</string>
-    <key>Cupcake</key>
-    <string>蛋糕</string>
-    <key>Egg</key>
-    <string>雞蛋</string>
-    <key>Milk</key>
-    <string>牛奶</string>
-    <key>Fish</key>
-    <string>魚</string>
-    <key>Meat</key>
-    <string>肉</string>
-    <key>Prohibited</key>
-    <string>禁止</string>
-    <key>Allowed</key>
-    <string>允許</string>
-    <key>Library</key>
-    <string>圖書館</string>
-    <key>Memory of saints</key>
-    <string>本日記念之聖人</string>
-    <key>Gospel of the day</key>
-    <string>本日讀經</string>
-    <key>Daily</key>
-    <string>每日</string>
-    <key>Typica</key>
-    <string>感恩儀軌</string>
-    <key>Language</key>
-    <string>語言</string>
-    <key>Font size</key>
-    <string>字體大小</string>
-    <key>Done</key>
-    <string>完成</string>
-    <key>Cancel</key>
-    <string>取消</string>
-    <key>Options</key>
-    <string>設置</string>
-    <key>Prayerbook</key>
-    <string>正教祈禱書</string>
-    <key>Bookmarks...</key>
-    <string>書籤...</string>
-    <key>No bookmarks</key>
-    <string>沒有書籤</string>
-    <key>Service date</key>
-    <string>禮儀日期</string>
-    <key>Calendar</key>
-    <string>正教日曆</string>
-    <key>Today</key>
-    <string>今天</string>
-    <key>Weekly</key>
-    <string>週曆</string>
-    <key>Monthly</key>
-    <string>月曆</string>
-    <key>Yearly</key>
-    <string>年曆</string>
-    <key>Year %d Orthodox Calendar</key>
-    <string>%d年正教日曆</string>
-    <key>From %@ till %@ — %@</key>
-    <string>從%@至%@：%@</string>
-    <key>Church</key>
-    <string>東正教堂</string>
-    <key>Donation</key>
-    <string>捐獻</string>
-    <key>Thanks for your donation</key>
-    <string>感謝您的捐贈</string>
-    <key>Copied to clipboard</key>
-    <string>複製到剪貼板</string>
-    <key>Donate %@</key>
-    <string>捐獻 %@</string>
-    <key>Any amount...</key>
-    <string>任何金額...</string>
-    <key>Install app</key>
-    <string>安裝程式</string>
-    <key>Orthodox Church in Hong Kong</key>
-    <string>香港聖彼得聖保羅教堂</string>
-    <key>church_info</key>
-    <string>香港聖彼得聖保羅教堂於1934年建立。首位主任司祭為德米特里．烏斯本斯基大司祭。此堂區存至德米特里大司祭於1970年離世之時。2003年夏，遲秋農司祭抵港，恢復了常規的教會。
+	<key>synaxarion_annotation</key>
+	<string>大齋期集會書</string>
+	<key>Choose color...</key>
+	<string>選擇顏色</string>
+	<key>Default</key>
+	<string>默認值</string>
+	<key>Background color</key>
+	<string>背景顏色</string>
+	<key>Laymen fasting</key>
+	<string>外行齋戒</string>
+	<key>Monastic fasting</key>
+	<string>修道院的禁食</string>
+	<key>Fasting type</key>
+	<string>禁食型</string>
+	<key>copyright_info</key>
+	<string>(C) 2022 香港聖彼得聖保羅教堂</string>
+	<key>Nuts</key>
+	<string>堅果</string>
+	<key>Bread</key>
+	<string>麵包</string>
+	<key>Vegetables</key>
+	<string>蔬菜</string>
+	<key>Cheese</key>
+	<string>奶酪</string>
+	<key>Cupcake</key>
+	<string>蛋糕</string>
+	<key>Egg</key>
+	<string>雞蛋</string>
+	<key>Milk</key>
+	<string>牛奶</string>
+	<key>Fish</key>
+	<string>魚</string>
+	<key>Meat</key>
+	<string>肉</string>
+	<key>Prohibited</key>
+	<string>禁止</string>
+	<key>Allowed</key>
+	<string>允許</string>
+	<key>Library</key>
+	<string>圖書館</string>
+	<key>Memory of saints</key>
+	<string>本日記念之聖人</string>
+	<key>Gospel of the day</key>
+	<string>本日讀經</string>
+	<key>Daily</key>
+	<string>每日</string>
+	<key>Typica</key>
+	<string>感恩儀軌</string>
+	<key>Language</key>
+	<string>語言</string>
+	<key>Font size</key>
+	<string>字體大小</string>
+	<key>Done</key>
+	<string>完成</string>
+	<key>Cancel</key>
+	<string>取消</string>
+	<key>Options</key>
+	<string>設置</string>
+	<key>Prayerbook</key>
+	<string>正教祈禱書</string>
+	<key>Bookmarks...</key>
+	<string>書籤...</string>
+	<key>No bookmarks</key>
+	<string>沒有書籤</string>
+	<key>Service date</key>
+	<string>禮儀日期</string>
+	<key>Calendar</key>
+	<string>正教日曆</string>
+	<key>Today</key>
+	<string>今天</string>
+	<key>Weekly</key>
+	<string>週曆</string>
+	<key>Monthly</key>
+	<string>月曆</string>
+	<key>Yearly</key>
+	<string>年曆</string>
+	<key>Year %d Orthodox Calendar</key>
+	<string>%d年正教日曆</string>
+	<key>From %@ till %@ — %@</key>
+	<string>從%@至%@：%@</string>
+	<key>Church</key>
+	<string>東正教堂</string>
+	<key>Donation</key>
+	<string>捐獻</string>
+	<key>Thanks for your donation</key>
+	<string>感謝您的捐贈</string>
+	<key>Copied to clipboard</key>
+	<string>複製到剪貼板</string>
+	<key>Donate %@</key>
+	<string>捐獻 %@</string>
+	<key>Any amount...</key>
+	<string>任何金額...</string>
+	<key>Install app</key>
+	<string>安裝程式</string>
+	<key>Orthodox Church in Hong Kong</key>
+	<string>香港聖彼得聖保羅教堂</string>
+	<key>church_info</key>
+	<string>香港聖彼得聖保羅教堂於1934年建立。首位主任司祭為德米特里．烏斯本斯基大司祭。此堂區存至德米特里大司祭於1970年離世之時。2003年夏，遲秋農司祭抵港，恢復了常規的教會。
     </string>
-    <key>app_info</key>
-    <string>請查閱我們新的流動應用程式「Orthodox Church in Hong Kong」。各位可以透過此程式查閱禮拜時間表、最新消息、以及提交代禱訊息。
+	<key>app_info</key>
+	<string>請查閱我們新的流動應用程式「Orthodox Church in Hong Kong」。各位可以透過此程式查閱禮拜時間表、最新消息、以及提交代禱訊息。
     </string>
-    <key>donation_info</key>
-    <string>我們需要你們的協助去繼續發展此程式。你們可以按以下按鈕進行捐獻。願上帝賜福予你們！
+	<key>donation_info</key>
+	<string>我們需要你們的協助去繼續發展此程式。你們可以按以下按鈕進行捐獻。願上帝賜福予你們！
     </string>
+    <key>bible</key>
+    <string>聖經</string>
+    <key>liturgical_books</key>
+    <string>禮儀</string>
+    <key>other</key>
+    <string>其他</string>
 </dict>
 </plist>

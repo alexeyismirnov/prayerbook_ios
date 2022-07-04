@@ -9,42 +9,45 @@
 import UIKit
 import swift_toolkit
 
-let books_en : [BookModel] =  [
-    BookmarksModel.shared,
-    OldTestamentModel(lang: "en"),
-    NewTestamentModel(lang: "en"),
-    EbookModel("vigil_en_ebook"),
-    EbookModel("liturgy_en_ebook"),
-    EbookModel("prayerbook_en"),
-    TypikaModel("en"),
-    EbookModel("sokolovski"),
-]
+let books_en : [[BookModel]] = [[BookmarksModel.shared],
+    [OldTestamentModel(lang: "en"),
+     NewTestamentModel(lang: "en")],
+    [EbookModel("vigil_en_ebook"),
+     EbookModel("liturgy_en_ebook"),
+     TypikaModel("en")],
+    [EbookModel("prayerbook_en"),
+     EbookModel("synaxarion_en")
+]]
 
-let books_cn : [BookModel] =  [
-    BookmarksModel.shared,
-    OldTestamentModel(lang: "cn"),
-    NewTestamentModel(lang: "cn"),
-    EbookModel("vigil_cn_ebook"),
+// EbookModel("sokolovski"),
+
+let books_cn : [[BookModel]] =  [[BookmarksModel.shared],
+    [OldTestamentModel(lang: "cn"),
+    NewTestamentModel(lang: "cn")],
+    [EbookModel("vigil_cn_ebook"),
     EbookModel("liturgy_cn_ebook"),
-    EbookModel("prayerbook_cn"),
-    TypikaModel("cn")
-]
+    TypikaModel("cn")],
+    [EbookModel("prayerbook_cn"),
+    EbookModel("synaxarion_cn")
+]]
 
-let books_hk : [BookModel] =  [
-    BookmarksModel.shared,
-    OldTestamentModel(lang: "hk"),
-    NewTestamentModel(lang: "hk"),
-    EbookModel("vigil_hk_ebook"),
+let books_hk : [[BookModel]] = [[BookmarksModel.shared],
+    [OldTestamentModel(lang: "hk"),
+    NewTestamentModel(lang: "hk")],
+    [EbookModel("vigil_hk_ebook"),
     EbookModel("liturgy_hk_ebook"),
-    TypikaModel("hk")
-]
+    TypikaModel("hk")],
+    [EbookModel("prayerbook_hk"),
+    EbookModel("synaxarion_hk")
+]]
 
 class LibraryTab: UIViewController, ResizableTableViewCells  {
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     var tableView: UITableView!
     var serviceModel : ServiceModel?
     
-    var books : [BookModel]!
+    let sections : [String] = ["", "bible", "liturgical_books", "other"]
+    var books : [[BookModel]]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +85,7 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
             break
         }
 
-        BookmarksModel.books = books
+        BookmarksModel.books = books.flatMap { $0 }
         
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor
@@ -95,16 +98,34 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return Translate.s(sections[section])
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = Theme.textColor
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return books.count
+        return books[section].count
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
+    }
+        
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return getTextDetailsCell(title: books[indexPath.row].title,
-                                  subtitle: books[indexPath.row].author ?? "",
+        return getTextDetailsCell(title: books[indexPath.section][indexPath.row].title,
+                                  subtitle: books[indexPath.section][indexPath.row].author ?? "",
+                                  lang: books[indexPath.section][indexPath.row].lang,
                                   flipped: true)
     }
     
@@ -114,15 +135,14 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        
-        if let model = books[indexPath.row] as? ServiceModel {
-           serviceModel = model
-           showPopup(ServiceDateSelector(serviceModel!)!)
-           
+        if let model = books[indexPath.section][indexPath.row] as? ServiceModel {
+            serviceModel = model
+            showPopup(ServiceDateSelector(serviceModel!)!)
+         
         } else {
-           navigationController?.pushViewController(BookTOC(books[indexPath.row])!, animated: true)
+         navigationController?.pushViewController(BookTOC(books[indexPath.section][indexPath.row])!, animated: true)
         }
-        
+
         return nil
     }
     

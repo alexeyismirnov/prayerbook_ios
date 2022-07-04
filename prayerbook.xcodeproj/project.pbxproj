@@ -70,6 +70,11 @@
 		8AA3DF591B18594F00507129 /* saints_10_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3DF551B18594F00507129 /* saints_10_en.txt */; };
 		8AA3DF5E1B185AE800507129 /* saints_11_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3DF5C1B185AE800507129 /* saints_11_en.sqlite */; };
 		8AA3DF5F1B185AE800507129 /* saints_11_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AA3DF5D1B185AE800507129 /* saints_11_en.txt */; };
+		8AA8E33928728E34009F877F /* SynaxarionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA8E33828728E34009F877F /* SynaxarionModel.swift */; };
+		8AA8E33D28728EE5009F877F /* synaxarion_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8E33A28728EE5009F877F /* synaxarion_en.sqlite */; };
+		8AA8E33E28728EE5009F877F /* synaxarion_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8E33B28728EE5009F877F /* synaxarion_cn.sqlite */; };
+		8AA8E33F28728EE5009F877F /* synaxarion_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8E33C28728EE5009F877F /* synaxarion_hk.sqlite */; };
+		8AA8E341287296C9009F877F /* prayerbook_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA8E340287296C9009F877F /* prayerbook_hk.sqlite */; };
 		8AAE6B222702F1450029A14E /* liturgy_en_ebook.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE6B212702F1450029A14E /* liturgy_en_ebook.sqlite */; };
 		8AB0DC951C27EFEC00C6A494 /* typica_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC8D1C27EFEC00C6A494 /* typica_1.plist */; };
 		8AB0DC961C27EFEC00C6A494 /* typica_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC8E1C27EFEC00C6A494 /* typica_2.plist */; };
@@ -487,6 +492,11 @@
 		8AA3DF551B18594F00507129 /* saints_10_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_10_en.txt; sourceTree = "<group>"; };
 		8AA3DF5C1B185AE800507129 /* saints_11_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_11_en.sqlite; sourceTree = "<group>"; };
 		8AA3DF5D1B185AE800507129 /* saints_11_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_11_en.txt; sourceTree = "<group>"; };
+		8AA8E33828728E34009F877F /* SynaxarionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynaxarionModel.swift; sourceTree = "<group>"; };
+		8AA8E33A28728EE5009F877F /* synaxarion_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = synaxarion_en.sqlite; sourceTree = "<group>"; };
+		8AA8E33B28728EE5009F877F /* synaxarion_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = synaxarion_cn.sqlite; sourceTree = "<group>"; };
+		8AA8E33C28728EE5009F877F /* synaxarion_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = synaxarion_hk.sqlite; sourceTree = "<group>"; };
+		8AA8E340287296C9009F877F /* prayerbook_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = prayerbook_hk.sqlite; sourceTree = "<group>"; };
 		8AAE6B212702F1450029A14E /* liturgy_en_ebook.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = liturgy_en_ebook.sqlite; sourceTree = "<group>"; };
 		8AB0DC8D1C27EFEC00C6A494 /* typica_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_1.plist; sourceTree = "<group>"; };
 		8AB0DC8E1C27EFEC00C6A494 /* typica_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = typica_2.plist; sourceTree = "<group>"; };
@@ -807,17 +817,21 @@
 		8A429DCE2317CDEC00F4E5AB /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8AA8E33A28728EE5009F877F /* synaxarion_en.sqlite */,
+				8AA8E33B28728EE5009F877F /* synaxarion_cn.sqlite */,
+				8AA8E33C28728EE5009F877F /* synaxarion_hk.sqlite */,
 				8A8512C9271ECA6700B15196 /* sokolovski.sqlite */,
-				8AE084892716D8F600615F5E /* prayerbook_cn.sqlite */,
 				8AE084802716D1EB00615F5E /* prayerbook_en.sqlite */,
-				8A03A718270D87A800C99AF7 /* liturgy_hk_ebook.sqlite */,
+				8AE084892716D8F600615F5E /* prayerbook_cn.sqlite */,
+				8AA8E340287296C9009F877F /* prayerbook_hk.sqlite */,
+				8A66EBF227055E830015BCB7 /* vigil_en_ebook.sqlite */,
 				8AFEEB1E270C3DCA00A88FAE /* vigil_cn_ebook.sqlite */,
 				8A555131270B130700873474 /* vigil_hk_ebook.sqlite */,
-				8A66EBF227055E830015BCB7 /* vigil_en_ebook.sqlite */,
-				8A282D4E27033942009DDB6E /* liturgy_cn_ebook.sqlite */,
 				8AAE6B212702F1450029A14E /* liturgy_en_ebook.sqlite */,
-				8A17277323289DBF00D9F280 /* typika_cn.sqlite */,
+				8A282D4E27033942009DDB6E /* liturgy_cn_ebook.sqlite */,
+				8A03A718270D87A800C99AF7 /* liturgy_hk_ebook.sqlite */,
 				8A62E3712327A6EF00C7C4C5 /* typika_en.sqlite */,
+				8A17277323289DBF00D9F280 /* typika_cn.sqlite */,
 				8ACDA062286F276400180D7E /* typika_hk.sqlite */,
 			);
 			path = books;
@@ -889,6 +903,7 @@
 				8A638C621ECBF60F00424A9E /* DailyTab.swift */,
 				8A1D285623050BC4001913C7 /* LibraryTab.swift */,
 				8A62E36F2327916900C7C4C5 /* TypikaModel.swift */,
+				8AA8E33828728E34009F877F /* SynaxarionModel.swift */,
 				8A71ED311ECD55A300D55DEC /* Options.swift */,
 				8A9927992871B2EF00A771BF /* LanguageSelector.swift */,
 				8A466AD92349C2D9004B00A3 /* YearCalendarContainer.swift */,
@@ -1401,6 +1416,7 @@
 				8ADF91EF1B7731EA0078BB6B /* saints_07_cn.txt in Resources */,
 				8ACDA01E286EF58400180D7E /* prov_hk.sqlite in Resources */,
 				8A74D833198F224E0078F39F /* Main.storyboard in Resources */,
+				8AA8E33E28728EE5009F877F /* synaxarion_cn.sqlite in Resources */,
 				8AF37E591B36C7A500101148 /* newicon_58.png in Resources */,
 				8A19AE5A2351713A004A059B /* icons in Resources */,
 				8A59F34E1B14371800B15FA1 /* saints_07_en.txt in Resources */,
@@ -1498,6 +1514,7 @@
 				8AB4E2B51B20168E0015E19B /* saints_04_en.txt in Resources */,
 				8AA3DF511B1847D700507129 /* saints_08_en.txt in Resources */,
 				8ACD9FD2286EF35E00180D7E /* saints_10_hk.sqlite in Resources */,
+				8AA8E33D28728EE5009F877F /* synaxarion_en.sqlite in Resources */,
 				8AB0DCA31C27F00400C6A494 /* trans_reading_cn.plist in Resources */,
 				8AF8C798230F8E4D0020D5E5 /* hos_cn.sqlite in Resources */,
 				8AF8C764230F8E4D0020D5E5 /* matthew_cn.sqlite in Resources */,
@@ -1508,6 +1525,7 @@
 				8AF8C712230F8CE80020D5E5 /* 3john_en.sqlite in Resources */,
 				8ACD9FD5286EF35E00180D7E /* saints_04_hk.sqlite in Resources */,
 				8AF8C762230F8E4D0020D5E5 /* jude_cn.sqlite in Resources */,
+				8AA8E33F28728EE5009F877F /* synaxarion_hk.sqlite in Resources */,
 				8AF8C792230F8E4D0020D5E5 /* dan_cn.sqlite in Resources */,
 				8AF163951B1418880093CC77 /* saints_06_en.txt in Resources */,
 				8AF8C717230F8CE80020D5E5 /* lam_en.sqlite in Resources */,
@@ -1685,6 +1703,7 @@
 				8AF8C76E230F8E4D0020D5E5 /* jer_cn.sqlite in Resources */,
 				8AF8C79B230F8E4D0020D5E5 /* 2tim_cn.sqlite in Resources */,
 				8ACD9FD3286EF35E00180D7E /* saints_12_hk.sqlite in Resources */,
+				8AA8E341287296C9009F877F /* prayerbook_hk.sqlite in Resources */,
 				8ACDA021286EF58400180D7E /* ruth_hk.sqlite in Resources */,
 				8A17277423289DBF00D9F280 /* typika_cn.sqlite in Resources */,
 				8ACDA028286EF58400180D7E /* mal_hk.sqlite in Resources */,
@@ -1754,6 +1773,7 @@
 				8A99279A2871B2EF00A771BF /* LanguageSelector.swift in Sources */,
 				8A638C651ECBF60F00424A9E /* DailyTab.swift in Sources */,
 				8AEC2B0E1B52706D00A94FA6 /* MainVC.swift in Sources */,
+				8AA8E33928728E34009F877F /* SynaxarionModel.swift in Sources */,
 				8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */,
 				8A74D807198F20CC0078F39F /* main.m in Sources */,
 				8A466ADA2349C2D9004B00A3 /* YearCalendarContainer.swift in Sources */,

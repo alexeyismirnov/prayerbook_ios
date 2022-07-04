@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>synaxarion_annotation</key>
+	<string>大斋期集会书</string>
 	<key>Choose color...</key>
 	<string>选择颜色</string>
 	<key>Default</key>
@@ -93,7 +95,7 @@
 	<key>Any amount...</key>
 	<string>任何金额...</string>
 	<key>Install app</key>
-	<string>   安裝程式</string>
+	<string>安裝程式</string>
 	<key>Orthodox Church in Hong Kong</key>
 	<string>香港圣彼得圣保罗教堂</string>
 	<key>church_info</key>
@@ -105,5 +107,11 @@
 	<key>donation_info</key>
 	<string>我们需要你们的协助去继续发展此程式。你们可以按以下按钮进行捐献。愿上帝赐福予你们！
     </string>
+    <key>bible</key>
+    <string>圣经</string>
+    <key>liturgical_books</key>
+    <string>礼仪</string>
+    <key>other</key>
+    <string>其他</string>
 </dict>
 </plist>
