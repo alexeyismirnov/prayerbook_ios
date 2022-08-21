@@ -40,7 +40,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        AppGroup.id = "group.rlc.ponomar"
+        AppGroup.id = "group.rlc.ponomar2"
         let prefs = AppGroup.prefs!
         
         if prefs.object(forKey: "theme") == nil {
