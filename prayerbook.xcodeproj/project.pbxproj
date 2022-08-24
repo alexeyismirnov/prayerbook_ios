@@ -161,6 +161,7 @@
 		8AAE60E52334853F005563D3 /* TypikaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAE60E42334853F005563D3 /* TypikaModel.swift */; };
 		8AB2C2F223421E4400A2EE1E /* YearCalendarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2C2F123421E4400A2EE1E /* YearCalendarContainer.swift */; };
 		8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */; };
+		8ABF55BA28B679B5005BD35D /* yungerov.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF55B928B679B5005BD35D /* yungerov.sqlite */; };
 		8AC10A0B222A694F00540B22 /* num_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109CA222A694300540B22 /* num_ru.sqlite */; };
 		8AC10A0C222A694F00540B22 /* ephes_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109CB222A694300540B22 /* ephes_ru.sqlite */; };
 		8AC10A0D222A694F00540B22 /* john_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109CC222A694300540B22 /* john_ru.sqlite */; };
@@ -486,6 +487,7 @@
 		8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalendarWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		8AB749A81C4C7A3500CD1B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8ABF55B928B679B5005BD35D /* yungerov.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = yungerov.sqlite; sourceTree = "<group>"; };
 		8AC109CA222A694300540B22 /* num_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = num_ru.sqlite; sourceTree = "<group>"; };
 		8AC109CB222A694300540B22 /* ephes_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = ephes_ru.sqlite; sourceTree = "<group>"; };
 		8AC109CC222A694300540B22 /* john_ru.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = john_ru.sqlite; sourceTree = "<group>"; };
@@ -614,6 +616,7 @@
 		8A008FF22258A71400A9636B /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8ABF55B928B679B5005BD35D /* yungerov.sqlite */,
 				8A185EF3283CA5D200C5FAEE /* canons.sqlite */,
 				8A98D6EF27FBF1DB00EC86D7 /* zerna.sqlite */,
 				8A7B098F27F6CED800174326 /* prayerbook.sqlite */,
@@ -1243,6 +1246,7 @@
 				8A9EBDB526AAC66400D99529 /* zeph_cs.sqlite in Resources */,
 				8A1B2575202955A60038C0C4 /* icons in Resources */,
 				8AF37E5B1B36C7A500101148 /* newicon_80.png in Resources */,
+				8ABF55BA28B679B5005BD35D /* yungerov.sqlite in Resources */,
 				8A9EBDA826AAC66400D99529 /* neh_cs.sqlite in Resources */,
 				8A9EBDD626AAC66400D99529 /* judg_cs.sqlite in Resources */,
 				8AC10A30222A694F00540B22 /* ex_ru.sqlite in Resources */,
@@ -1476,6 +1480,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Russian Language Center Limited (3NQ697ND22)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1524,6 +1529,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				EXCLUDED_ARCHS = "";
@@ -1566,6 +1572,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Russian Language Center Limited (3NQ697ND22)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 3NQ697ND22;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1582,7 +1589,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.2;
+				MARKETING_VERSION = 5.2.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru.CalendarWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1603,6 +1610,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3NQ697ND22;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1618,7 +1626,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 5.2;
+				MARKETING_VERSION = 5.2.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rlc.ponomar-ru.CalendarWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
