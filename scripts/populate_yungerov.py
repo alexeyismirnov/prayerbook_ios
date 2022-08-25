@@ -43,7 +43,63 @@ def getSections(cur):
         section += 1
 
 
+def getContentYu(cur, psalm):
+    def getComment(comment):
+        id = int(re.findall(r'\d+', comment['id'])[0])
+
+        href = soup.find("a", {"id": "note%d" % id})
+        txt = href.find_next_sibling("div", {"class": "note"}).find("p", {"class": "txt"})
+
+        cur.execute("INSERT INTO comments VALUES(%d, \"%s\")" % (id, txt.getText()))
+
+        return id
+
+    cur.execute("DROP TABLE IF EXISTS content_yu")
+    cur.execute("DROP TABLE IF EXISTS comments")
+
+    cur.execute("CREATE TABLE content_yu(psalm INT, verse INT, text TEXT)")
+    cur.execute("CREATE TABLE comments(id INT, text TEXT)")
+
+    response = requests.get('https://azbyka.ru/otechnik/Pavel_Yungerov/psaltir-proroka-davida-v-russkom-perevode-p-jungerova/%d' % (psalm+1))
+    page = response.content
+
+    soup = BeautifulSoup(page, "html.parser")
+
+    h = soup.find("h1")
+    div = h.find_next_sibling("div")
+
+    verse = 0
+
+    for content in div.find_all("p", {"class":"txt"}):
+        [s.replaceWith(" comment_%d" % (getComment(s))) for s in content.findAll("a")]
+
+        print content.getText()
+        cur.execute("INSERT INTO content_yu VALUES(%d, %d, \"%s\")" % (psalm, verse, content.getText()))
+
+        verse += 1
+
+
+def getContentCs(cur, psalm):
+    cur.execute("DROP TABLE IF EXISTS content_cs")
+    cur.execute("CREATE TABLE content_cs(psalm INT, verse INT, text TEXT)")
+
+    response = requests.get('https://azbyka.org/biblia/?Ps.%d&c' % psalm)
+    page = response.content
+
+    soup = BeautifulSoup(page, "html.parser")
+
+    for div in soup.find_all("div", {"data-lang":"c"}):
+        verse =  div['data-line']
+
+        txt = ' '.join(div.getText().split())
+        print txt
+
+        cur.execute("INSERT INTO content_cs VALUES(%d, %d, \"%s\")" % (psalm, int(verse), txt))
+
+
 with lite.connect("yungerov.sqlite") as con:
     cur = con.cursor()
 
-    getSections(cur)
+    # getSections(cur)
+    # getContentYu(cur, 1)
+    getContentCs(cur, 1)
