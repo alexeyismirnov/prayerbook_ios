@@ -6,6 +6,7 @@ import sqlite3 as lite
 import urllib2
 from bs4 import BeautifulSoup
 import requests
+import unicodedata
 
 def getSections(cur):
     cur.execute("DROP TABLE IF EXISTS sections")
@@ -45,20 +46,16 @@ def getSections(cur):
 
 def getContentYu(cur, psalm):
     def getComment(comment):
+
         id = int(re.findall(r'\d+', comment['id'])[0])
 
         href = soup.find("a", {"id": "note%d" % id})
         txt = href.find_next_sibling("div", {"class": "note"}).find("p", {"class": "txt"})
+        result = txt.getText().replace('\"', '\'')
 
-        cur.execute("INSERT INTO comments VALUES(%d, \"%s\")" % (id, txt.getText()))
+        cur.execute("INSERT INTO comments VALUES(%d, \"%s\")" % (id, result))
 
         return id
-
-    cur.execute("DROP TABLE IF EXISTS content_yu")
-    cur.execute("DROP TABLE IF EXISTS comments")
-
-    cur.execute("CREATE TABLE content_yu(psalm INT, verse INT, text TEXT)")
-    cur.execute("CREATE TABLE comments(id INT, text TEXT)")
 
     response = requests.get('https://azbyka.ru/otechnik/Pavel_Yungerov/psaltir-proroka-davida-v-russkom-perevode-p-jungerova/%d' % (psalm+1))
     page = response.content
@@ -71,18 +68,22 @@ def getContentYu(cur, psalm):
     verse = 0
 
     for content in div.find_all("p", {"class":"txt"}):
+        [s.extract() for s in content.findAll("a", {"class": "zam_link"})]
+
         [s.replaceWith(" comment_%d" % (getComment(s))) for s in content.findAll("a")]
 
-        print content.getText()
-        cur.execute("INSERT INTO content_yu VALUES(%d, %d, \"%s\")" % (psalm, verse, content.getText()))
+        # print content.getText()
+        result = content.getText().replace('\"', '\'')
+        cur.execute("INSERT INTO content_yu VALUES(%d, %d, \"%s\")" % (psalm, verse, result))
 
         verse += 1
 
 
-def getContentCs(cur, psalm):
-    cur.execute("DROP TABLE IF EXISTS content_cs")
-    cur.execute("CREATE TABLE content_cs(psalm INT, verse INT, text TEXT)")
+def remove_accents(input_str):
+    nfkd_form = unicodedata.normalize('NFKD', input_str)
+    return u"".join([c for c in nfkd_form if not unicodedata.combining(c)])
 
+def getContentCs(cur, psalm):
     response = requests.get('https://azbyka.org/biblia/?Ps.%d&c' % psalm)
     page = response.content
 
@@ -91,8 +92,10 @@ def getContentCs(cur, psalm):
     for div in soup.find_all("div", {"data-lang":"c"}):
         verse =  div['data-line']
 
-        txt = ' '.join(div.getText().split())
-        print txt
+        txt = remove_accents(' '.join(div.getText().split())).encode('utf-8')
+        txt = re.sub(r'{[^}]+}', '', txt, flags=re.MULTILINE)
+
+        # print txt
 
         cur.execute("INSERT INTO content_cs VALUES(%d, %d, \"%s\")" % (psalm, int(verse), txt))
 
@@ -100,6 +103,18 @@ def getContentCs(cur, psalm):
 with lite.connect("yungerov.sqlite") as con:
     cur = con.cursor()
 
+    cur.execute("DROP TABLE IF EXISTS content_yu")
+    cur.execute("DROP TABLE IF EXISTS comments")
+
+    cur.execute("CREATE TABLE content_yu(psalm INT, verse INT, text TEXT)")
+    cur.execute("CREATE TABLE comments(id INT, text TEXT)")
+
+    cur.execute("DROP TABLE IF EXISTS content_cs")
+    cur.execute("CREATE TABLE content_cs(psalm INT, verse INT, text TEXT)")
+
     # getSections(cur)
-    # getContentYu(cur, 1)
-    getContentCs(cur, 1)
+
+    for ps in range(151):
+        print(ps)
+        getContentYu(cur, ps+1)
+        getContentCs(cur, ps+1)
