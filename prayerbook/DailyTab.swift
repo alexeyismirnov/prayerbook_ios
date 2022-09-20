@@ -525,6 +525,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     func reloadAfterAppeared() {
         extraReadings = FeofanModel.shared.getPreachment(currentDate!)
+        extraReadings.append(contentsOf: TaushevModel.shared.getPreachment(currentDate!))
         extraReadings.append(contentsOf: SynaxarionModel.shared.getPreachment(currentDate!))
         
         if (readings.count + extraReadings.count < 3 && Cal.getGreatFeast(currentDate!).isEmpty) {

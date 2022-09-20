@@ -25,6 +25,7 @@ let books : [[BookModel]] = [[BookmarksModel.shared],
                              [EbookModel("old_testament_overview"),
                               EbookModel("new_testament_overview"),
                               EbookModel("zerna"),
+                              EbookModel("taushev"),
                               EbookModel("zvezdinsky"),
                               EbookModel("synaxarion")]]
 

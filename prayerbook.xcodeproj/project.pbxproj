@@ -157,6 +157,8 @@
 		8A9EBDE426AAC66400D99529 /* esther_cs.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A9EBDA326AAC66400D99529 /* esther_cs.sqlite */; };
 		8A9EBDE526AAC66400D99529 /* amos_cs.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A9EBDA426AAC66400D99529 /* amos_cs.sqlite */; };
 		8AA009B028BCE44D00B213E7 /* YungerovModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA009AF28BCE44D00B213E7 /* YungerovModel.swift */; };
+		8AA1E67A28D981450063034B /* taushev.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA1E67928D981450063034B /* taushev.sqlite */; };
+		8AA1E67C28D989010063034B /* TaushevModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1E67B28D989010063034B /* TaushevModel.swift */; };
 		8AA5E74223321444002E6BE5 /* typika.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA5E74123321444002E6BE5 /* typika.sqlite */; };
 		8AADFF6E1E84F28900CE3D0F /* feofan.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF6D1E84F28900CE3D0F /* feofan.sqlite */; };
 		8AAE60E52334853F005563D3 /* TypikaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAE60E42334853F005563D3 /* TypikaModel.swift */; };
@@ -482,6 +484,8 @@
 		8A9EBDA326AAC66400D99529 /* esther_cs.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = esther_cs.sqlite; sourceTree = "<group>"; };
 		8A9EBDA426AAC66400D99529 /* amos_cs.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = amos_cs.sqlite; sourceTree = "<group>"; };
 		8AA009AF28BCE44D00B213E7 /* YungerovModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YungerovModel.swift; sourceTree = "<group>"; };
+		8AA1E67928D981450063034B /* taushev.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = taushev.sqlite; sourceTree = "<group>"; };
+		8AA1E67B28D989010063034B /* TaushevModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaushevModel.swift; sourceTree = "<group>"; };
 		8AA5E74123321444002E6BE5 /* typika.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = typika.sqlite; sourceTree = "<group>"; };
 		8AADFF6D1E84F28900CE3D0F /* feofan.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = feofan.sqlite; sourceTree = "<group>"; };
 		8AAE60E42334853F005563D3 /* TypikaModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypikaModel.swift; sourceTree = "<group>"; };
@@ -618,6 +622,7 @@
 		8A008FF22258A71400A9636B /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8AA1E67928D981450063034B /* taushev.sqlite */,
 				8ABF55B928B679B5005BD35D /* yungerov.sqlite */,
 				8A185EF3283CA5D200C5FAEE /* canons.sqlite */,
 				8A98D6EF27FBF1DB00EC86D7 /* zerna.sqlite */,
@@ -712,6 +717,7 @@
 				8A0689F8221FF8A600F1E711 /* LibraryTab.swift */,
 				8A1736EE22D20E4C00654AB1 /* SaintTropariaModel.swift */,
 				8ACC2F02229E2B4A00F43229 /* FeofanModel.swift */,
+				8AA1E67B28D989010063034B /* TaushevModel.swift */,
 				8AA009AF28BCE44D00B213E7 /* YungerovModel.swift */,
 				8AF0804727B0DDBD003BCC77 /* SynaxarionModel.swift */,
 				8A98D6F127FC177600EC86D7 /* ZernaModel.swift */,
@@ -1140,6 +1146,7 @@
 				8A9EBDBA26AAC66400D99529 /* 2thess_cs.sqlite in Resources */,
 				8A9EBDD326AAC66400D99529 /* 2tim_cs.sqlite in Resources */,
 				8A9EBDC726AAC66400D99529 /* 1pet_cs.sqlite in Resources */,
+				8AA1E67A28D981450063034B /* taushev.sqlite in Resources */,
 				8AC10A3B222A694F00540B22 /* 2sam_ru.sqlite in Resources */,
 				8AC10A17222A694F00540B22 /* jon_ru.sqlite in Resources */,
 				8AC10A2C222A694F00540B22 /* jer_ru.sqlite in Resources */,
@@ -1348,6 +1355,7 @@
 				8AF0804827B0DDBD003BCC77 /* SynaxarionModel.swift in Sources */,
 				8A54C42A1EA74CE90083AA2F /* DailyTab.swift in Sources */,
 				8A1736EF22D20E4C00654AB1 /* SaintTropariaModel.swift in Sources */,
+				8AA1E67C28D989010063034B /* TaushevModel.swift in Sources */,
 				8AB2C2F223421E4400A2EE1E /* YearCalendarContainer.swift in Sources */,
 				8A4C28C8218AE68A00C276C3 /* TroparionView.swift in Sources */,
 			);
