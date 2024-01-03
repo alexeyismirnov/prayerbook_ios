@@ -63,7 +63,7 @@ class TaushevModel : BookModel, PreachmentModel {
                     
                     if let row = getData(id) {
                         results.append(Preachment(
-                            position: BookPosition(model: FeofanModel.shared, data: row["text"] as! String),
+                            position: BookPosition(model: TaushevModel.shared, data: row["text"] as! String),
                             title: row["subtitle"] as! String,
                             subtitle: "Архиеп. Аверкий (Таушев)"
                         ))

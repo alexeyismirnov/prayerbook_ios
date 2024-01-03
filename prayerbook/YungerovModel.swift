@@ -9,6 +9,7 @@
 import Foundation
 import swift_toolkit
 
+// https://stackoverflow.com/a/39474725/995049
 extension Int {
     static func parse(from string: String) -> Int? {
         return Int(string.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
