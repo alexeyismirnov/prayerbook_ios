@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -887,8 +887,8 @@
 		8A74D800198F20CC0078F39F /* prayerbook */ = {
 			isa = PBXGroup;
 			children = (
-				8ACD9FDB286EF58400180D7E /* bible_hk */,
 				8A429DCE2317CDEC00F4E5AB /* books */,
+				8ACD9FDB286EF58400180D7E /* bible_hk */,
 				8AF8C71E230F8E190020D5E5 /* bible_cn */,
 				8AF8C699230F8CA20020D5E5 /* bible_en */,
 				8AFEE0591C210FB0004A68DC /* readings */,
