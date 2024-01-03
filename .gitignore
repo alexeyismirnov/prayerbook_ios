@@ -8,5 +8,8 @@
 
 Carthage/**
 
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
 
 
