@@ -421,7 +421,8 @@ class TypikaModel : ServiceModel {
                 with: text)
         }
         
-        getReading(ChurchReading.forDate(date).last!, index: 1)
+        let readingStr = ChurchReading.forDate(date).last!.components(separatedBy: "#").first!
+        getReading(readingStr, index: 1)
         
         let lentReading = [
             cal.greatLentStart+13.days: "Heb 7:26-8:2 John 10:9-16",
