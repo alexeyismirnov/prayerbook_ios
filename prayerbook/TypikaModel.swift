@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Squeal
+import SQLite
+
 import swift_toolkit
 
 fileprivate extension String {
@@ -22,6 +23,31 @@ fileprivate extension String {
 
 
 class TypikaModel : ServiceModel {
+    let t_alleluia_sun = Table("alleluia_sun")
+    let t_alleluia_triod = Table("alleluia_triod")
+    
+    let t_blazh_sun = Table("blazh_sun")
+    let t_blazh_triod = Table("blazh_triod")
+    
+    let t_tropar_sun = Table("tropar_sun")
+    let t_tropar_triod = Table("tropar_triod")
+    
+    let t_kondak_sun = Table("kondak_sun")
+    let t_kondak_triod = Table("kondak_triod")
+    
+    let t_prokimen_sun = Table("prokimen_sun")
+    let t_prokimen_triod = Table("prokimen_triod")
+    
+    let t_content = Table("content")
+    let t_content_lent = Table("content_lent")
+    
+    let f_id = Expression<Int>("id")
+    let f_week = Expression<Int>("week")
+    let f_section = Expression<Int>("section")
+    let f_glas = Expression<Int>("glas")
+    let f_title = Expression<String>("title")
+    let f_text = Expression<String>("text")
+
     static let shared = TypikaModel()
     
     var lang = Translate.language
@@ -52,11 +78,11 @@ class TypikaModel : ServiceModel {
     let default_kontakia = [("", "Со святыми упокой  Христе, души раб Твоих,  идеже несть болезнь, ни печаль,  ни воздыхание,  но жизнь безконечная"),
     ("", "Предстательство христиан непостыдное,  ходатайство ко Творцу непреложное,  не презри грешных молений гласы,  но предвари, яко Благая, на помощь нас, верно зовущих Ти:  ускори на молитву и потщися на умоление,  предстательствующи присно, Богородице, чтущих Тя.")]
 
-    var db : Database
+    var db : Connection
 
     init() {
         let path = Bundle.main.path(forResource: "typika", ofType: "sqlite")!
-        db = try! Database(path:path)
+        db = try! Connection(path, readonly: true)
     }
     
     func resetData() {
@@ -70,19 +96,25 @@ class TypikaModel : ServiceModel {
     }
     
     func getProkimenonTriod(_ week_num: Int) {
-        let _ = try! db.selectFrom("prokimen_triod", whereExpr:"week=\(week_num)", orderBy: "id")
-          { prokimen_tone.append($0.intValue("glas") ?? 0)
-            prokimen.append($0.stringValue("text") ?? "") }
+        try! Array(db.prepareRowIterator(t_prokimen_triod.filter(f_week == week_num).order(f_id)))
+            .forEach({
+            prokimen_tone.append($0[f_glas])
+            prokimen.append($0[f_text])
+        })
     }
     
     func getProkimenonSundayTriod(_ week_num: Int) {
-        let _ = try! db.selectFrom("prokimen_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
-         { prokimen_tone.append(tone)
-           prokimen.append($0.stringValue("text") ?? "") }
+        try! Array(db.prepareRowIterator(t_prokimen_sun.filter(f_glas == tone).order(f_id)))
+            .forEach({
+            prokimen_tone.append(tone)
+            prokimen.append($0[f_text])
+        })
         
-        let _ = try! db.selectFrom("prokimen_triod", whereExpr:"week=\(week_num)", orderBy: "id")
-          { prokimen_tone.append($0.intValue("glas") ?? 0)
-            prokimen.append($0.stringValue("text") ?? "") }
+        try! Array(db.prepareRowIterator(t_prokimen_triod.filter(f_week == week_num).order(f_id)))
+            .forEach({
+            prokimen_tone.append($0[f_glas])
+            prokimen.append($0[f_text])
+        })
     }
     
     func makeSingleProkimenon() {
@@ -98,34 +130,44 @@ class TypikaModel : ServiceModel {
     }
     
     func getAlleluiaSundayTriod(_ week_num: Int) {
-        let _ = try! db.selectFrom("alleluia_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
-                  { alleluia.append($0.stringValue("text") ?? "") }
+        try! Array(db.prepareRowIterator(t_alleluia_sun.filter(f_glas == tone).order(f_id)))
+            .forEach({
+            alleluia.append($0[f_text])
+        })
         
         alleluia.removeLast()
-        let _ = try! db.selectFrom("alleluia_triod", whereExpr:"week=\(week_num)", orderBy: "id")
-        { alleluia_tone = ($0.intValue("glas") ?? 0)
-          alleluia.append($0.stringValue("text") ?? "") }
+        
+        try! Array(db.prepareRowIterator(t_alleluia_triod.filter(f_week == week_num).order(f_id)))
+            .forEach({
+            alleluia.append($0[f_text])
+        })
         
         alleluia_tone = tone
     }
     
     func getAlleluiaTriod(_ week_num: Int) {
-        let _ = try! db.selectFrom("alleluia_triod", whereExpr:"week=\(week_num)", orderBy: "id")
-        { alleluia_tone = ($0.intValue("glas") ?? 0)
-          alleluia.append($0.stringValue("text") ?? "") }
+        try! Array(db.prepareRowIterator(t_alleluia_triod.filter(f_week == week_num).order(f_id)))
+            .forEach({
+            alleluia_tone = $0[f_glas]
+            alleluia.append($0[f_text])
+        })
     }
     
     func sundayProkimenAlleluia() {
-        let _ = try! db.selectFrom("prokimen_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
-          { prokimen_tone.append(tone)
-            prokimen.append($0.stringValue("text") ?? "") }
+        try! Array(db.prepareRowIterator(t_prokimen_sun.filter(f_glas == tone).order(f_id)))
+            .forEach({
+            prokimen_tone.append(tone)
+            prokimen.append($0[f_text])
+        })
 
         makeSingleProkimenon()
 
         alleluia_tone = tone
-
-        let _ = try! db.selectFrom("alleluia_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
-           { alleluia.append($0.stringValue("text") ?? "") }
+        
+        try! Array(db.prepareRowIterator(t_alleluia_sun.filter(f_glas == tone).order(f_id)))
+            .forEach({
+            alleluia.append($0[f_text])
+        })
     }
     
     var week_num: Int {
@@ -139,27 +181,37 @@ class TypikaModel : ServiceModel {
             
             resetData()
             
-            let _ = try! db.selectFrom("blazh_sun", whereExpr:"glas=\(tone!)", orderBy: "id")
-                                  { beatitudes.append($0.stringValue("text") ?? "") }
+            try! Array(db.prepareRowIterator(t_blazh_sun.filter(f_glas == tone).order(f_id)))
+                .forEach({
+                    beatitudes.append($0[f_text])
+            })
             
-            let _ = try! db.selectFrom("tropar_sun", whereExpr:"glas=\(tone!)")
-            { troparion.append(("Тропарь воскресный, глас \(tone!):", $0.stringValue("text") ?? "")) }
-           
+            try! Array(db.prepareRowIterator(t_tropar_sun.filter(f_glas == tone)))
+                .forEach({
+                    troparion.append(("Тропарь воскресный, глас \(tone!):", $0[f_text]))
+            })
+            
             if cal.pascha ... cal.pentecost+7.days ~= date {
                 beatitudes.removeAll()
                 
-                let _ = try! db.selectFrom("blazh_triod", whereExpr:"week=\(week_num)", orderBy: "id")
-                { beatitudes.append($0.stringValue("text") ?? "") }
+                try! Array(db.prepareRowIterator(t_blazh_triod.filter(f_week == week_num).order(f_id)))
+                    .forEach({
+                        beatitudes.append($0[f_text])
+                })
                 
                 if date == cal.d("sunday2AfterPascha") {
                     troparion.removeAll()
                 }
                 
-                let _ = try! db.selectFrom("tropar_triod", whereExpr:"week=\(week_num)")
-                { troparion.append(($0.stringValue("title") ?? "", $0.stringValue("text") ?? "")) }
+                try! Array(db.prepareRowIterator(t_tropar_triod.filter(f_week == week_num)))
+                    .forEach({
+                        troparion.append(($0[f_title], $0[f_text]))
+                })
                 
-                let _ = try! db.selectFrom("kondak_triod", whereExpr:"week=\(week_num)")
-                { kontakion.append(($0.stringValue("title") ?? "", $0.stringValue("text") ?? "")) }
+                try! Array(db.prepareRowIterator(t_kondak_triod.filter(f_week == week_num)))
+                    .forEach({
+                        kontakion.append(($0[f_title], $0[f_text]))
+                })
                 
                 if cal.pascha+14.days ... cal.d("ascension") ~= date && date != cal.d("sunday5AfterPascha") {
                     kontakion.append(("Кондак Пасхи, глас 8:", "Аще и во гроб снизшел еси, Безсмертне, / но адову разрушил еси силу, / и воскресл еси, яко победитель, Христе Боже, / женам мироносицам вещавый: радуйтеся, / и Твоим апостолом мир даруяй, / падшим подаяй воскресение."))
@@ -196,16 +248,22 @@ class TypikaModel : ServiceModel {
                 } else {
                     beatitudes.removeLast()
                     beatitudes.removeLast()
-
-                    let _ = try! db.selectFrom("blazh_triod", whereExpr:"week=\(week_num)", orderBy: "id")
-                    { beatitudes.append($0.stringValue("text") ?? "") }
+                    
+                    try! Array(db.prepareRowIterator(t_blazh_triod.filter(f_week == week_num).order(f_id)))
+                        .forEach({
+                            beatitudes.append($0[f_text])
+                    })
                 }
                 
-                let _ = try! db.selectFrom("tropar_triod", whereExpr:"week=\(week_num)")
-                { troparion.append(($0.stringValue("title") ?? "", $0.stringValue("text") ?? "")) }
+                try! Array(db.prepareRowIterator(t_tropar_triod.filter(f_week == week_num)))
+                    .forEach({
+                        troparion.append(($0[f_title], $0[f_text]))
+                })
                 
-                let _ = try! db.selectFrom("kondak_triod", whereExpr:"week=\(week_num)")
-                { kontakion.append(($0.stringValue("title") ?? "", $0.stringValue("text") ?? "")) }
+                try! Array(db.prepareRowIterator(t_kondak_triod.filter(f_week == week_num)))
+                    .forEach({
+                        kontakion.append(($0[f_title], $0[f_text]))
+                })
                 
                 if (date == cal.d("sundayOfPublicianAndPharisee") || date == cal.d("sundayOfProdigalSon")) {
                     sundayProkimenAlleluia()
@@ -222,8 +280,10 @@ class TypikaModel : ServiceModel {
 
                     getAlleluiaSundayTriod(week_num)
                     
-                    let _ = try! db.selectFrom("kondak_sun", whereExpr:"glas=\(tone!)")
-                        { kontakion.append(("Кондак воскресный, глас \(tone!):", $0.stringValue("text") ?? "")) }
+                    try! Array(db.prepareRowIterator(t_kondak_sun.filter(f_glas == tone)))
+                        .forEach({
+                            kontakion.append(("Кондак воскресный, глас \(tone!):", $0[f_text]))
+                    })
 
                 } else {
                     getProkimenonTriod(week_num)
@@ -234,9 +294,11 @@ class TypikaModel : ServiceModel {
                 
             } else {
                 sundayProkimenAlleluia()
-
-                let _ = try! db.selectFrom("kondak_sun", whereExpr:"glas=\(tone!)")
-                           { kontakion.append(("Кондак воскресный, глас \(tone!):", $0.stringValue("text") ?? "")) }
+                
+                try! Array(db.prepareRowIterator(t_kondak_sun.filter(f_glas == tone)))
+                    .forEach({
+                        kontakion.append(("Кондак воскресный, глас \(tone!):", $0[f_text]))
+                })
                            
                 kontakion.append(contentsOf: default_kontakia)
             }
@@ -371,20 +433,20 @@ class TypikaModel : ServiceModel {
     
     func getContent(at pos: BookPosition) -> Any? {
         guard let index = pos.index else { return nil }
-        var typika: [[String:Bindable?]]
+        var typika: [String]
             
         if cal.greatLentStart ... cal.pascha ~= date {
-            typika = try! db.selectFrom("content_lent", whereExpr:"section=\(index.row+1)") { ["text": $0["text"]] }
+            typika = try! db.prepareRowIterator(t_content_lent
+                .filter(f_section == index.row+1))
+                .map { $0[f_text] }
 
         } else {
-            typika = try! db.selectFrom("content", whereExpr:"section=\(index.row+1)") { ["text": $0["text"]] }
+            typika = try! db.prepareRowIterator(t_content
+                .filter(f_section == index.row+1))
+            .map { $0[f_text] }
         }
         
-        content = ""
-        for line in typika {
-            content += line["text"] as! String
-        }
-        
+        content = typika.joined()
         content = content.replacingOccurrences(of: "GLAS", with: Translate.stringFromNumber(tone!))
         
         for (i, text) in beatitudes.enumerated() {

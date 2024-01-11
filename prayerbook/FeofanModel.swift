@@ -8,9 +8,14 @@
 
 import UIKit
 import swift_toolkit
-import Squeal
+import SQLite
 
 class FeofanModel : BookModel, PreachmentModel {
+    let thoughts = Table("thoughts")
+    let f_id = Expression<String>("id")
+    let f_descr = Expression<String>("descr")
+    let f_fuzzy = Expression<Int>("fuzzy")
+
     var code: String = "Feofan"
     var title = ""
     var author: String?
@@ -21,32 +26,19 @@ class FeofanModel : BookModel, PreachmentModel {
     var hasChapters = false
     
     static let shared = FeofanModel()
-    var db : Database
+    var db : Connection
     
     init() {
         let path = Bundle.main.path(forResource: "feofan", ofType: "sqlite")!
-        db = try! Database(path:path)
+        db = try! Connection(path, readonly: true)
     }
 
     func getFeofan(_ id: String) -> String? {
-        let results = try! db.selectFrom("thoughts", whereExpr:"id=\"\(id)\"") { ["id": $0["id"] , "descr": $0["descr"]] }
-        
-        if let res = results[safe: 0] {
-            return res["descr"] as? String
-        }
-        
-        return nil
+        return try! db.pluck(thoughts.filter(f_id == id))?[f_descr]
     }
     
     func getFeofanGospel(_ id: String) -> String? {
-        let results = try! db.prepareStatement("SELECT id,descr FROM thoughts WHERE id LIKE'%\(id)' AND fuzzy=1")
-        
-        while try! results.next() {
-            let descr = results[1] as! String
-            return descr
-        }
-        
-        return nil
+        return try! db.pluck(thoughts.filter(f_id.like("%\(id)") && f_fuzzy == 1))?[f_descr]
     }
     
     func getPreachment(_ date: Date) -> [Preachment] {
@@ -163,7 +155,7 @@ class FeofanModel : BookModel, PreachmentModel {
         let fontSize = CGFloat(prefs.integer(forKey: "fontSize"))
         let content = NSAttributedString(string: pos.data as! String)
         
-        return content.colored(with: Theme.textColor).font(font: UIFont(name: "TimesNewRomanPSMT", size: CGFloat(fontSize))!)
+        return content.colored(with: Theme.textColor).systemFont(ofSize: CGFloat(fontSize))
     }
     
     func getComment(commentId: Int) -> String? { return nil }

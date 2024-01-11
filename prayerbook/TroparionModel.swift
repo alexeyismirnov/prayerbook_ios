@@ -7,8 +7,15 @@
 //
 
 import Foundation
-import Squeal
+import SQLite
 import swift_toolkit
+
+fileprivate let tropari = Table("tropari")
+fileprivate let f_id = Expression<Int>("id")
+fileprivate let f_code = Expression<Int>("code")
+fileprivate let f_title = Expression<String>("title")
+fileprivate let f_content = Expression<String>("content")
+fileprivate let f_url = Expression<String>("url")
 
 struct Troparion {
     var title : String
@@ -51,7 +58,7 @@ class TroparionFeastModel : TroparionModel {
 
     func getTroparion(_ date : Date) -> [Troparion]  {
         let feasts = Cal.getGreatFeast(date)
-        let db = try! Database(path:path)
+        let db = try! Connection(path, readonly: true)
         
         let codes = ["pascha": 1,
                      "pentecost": 2,
@@ -77,16 +84,22 @@ class TroparionFeastModel : TroparionModel {
         for f in feasts {
             let code = codes[f.id]!
             
-            let results = try! db.selectFrom("tropari", whereExpr:"code=\(code)", orderBy: "id")
-                { ["title": $0["title"], "content": $0["content"], "url": $0["url"]]}
-            
-            for line in results {
-                let title = line["title"] as! String
-                let content =  line["content"] as! String
-                let url = line["url"] as? String
-                
-                troparion.append(Troparion(title: title, content: content, url: url != nil ? "/tropari/tropari/\(url!).mp3" : nil))
-            }
+            troparion.append(
+                contentsOf: try! db.prepareRowIterator(tropari
+                    .filter(f_code == code)
+                    .order(f_id.asc))
+                .map {
+                    var url: String?
+                    
+                    do {
+                        url = try $0.get(f_url)
+                    } catch _ { }
+                    
+                    return Troparion(
+                        title: $0[f_title],
+                        content: $0[f_content],
+                        url: url != nil ? "/tropari/tropari/\(url!).mp3" : nil)
+                })
         }
 
         return troparion
@@ -136,7 +149,7 @@ class TroparionDayModel : TroparionModel {
         let cal = Cal.fromDate(date)
 
         var troparion = [Troparion]()
-        let db = try! Database(path:path)
+        let db = try! Connection(path, readonly: true)
 
         var code: Int = 0
         let dateComponents = DateComponents(date: date)
@@ -151,15 +164,22 @@ class TroparionDayModel : TroparionModel {
             code = dateComponents.weekday!
         }
         
-        let results = try! db.selectFrom("tropari", whereExpr:"code=\(code)", orderBy: "id") { ["title": $0["title"], "content": $0["content"], "url": $0["url"]]}
-        
-        for line in results {
-            let title = line["title"] as! String
-            let content =  line["content"] as! String
-            let url = line["url"] as? String
-            
-            troparion.append(Troparion(title: title, content: content, url: url != nil ? "/tropari_day/tropari_day/\(url!).mp3" : nil))
-        }
+        troparion.append(
+            contentsOf: try! db.prepareRowIterator(tropari
+                .filter(f_code == code)
+                .order(f_id.asc))
+            .map {
+                var url: String?
+                
+                do {
+                    url = try $0.get(f_url)
+                } catch _ { }
+                
+                return Troparion(
+                    title: $0[f_title],
+                    content: $0[f_content],
+                    url: url != nil ? "/tropari_day/tropari_day/\(url!).mp3" : nil)
+            })
         
         return troparion
     }

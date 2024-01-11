@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Squeal
 import swift_toolkit
 
 class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {

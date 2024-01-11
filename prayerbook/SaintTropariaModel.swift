@@ -7,10 +7,17 @@
 //
 
 import UIKit
-import Squeal
+import SQLite
 import swift_toolkit
 
 class SaintTropariaModel : BookModel {
+    let tropari = Table("tropari")
+    let f_day = Expression<Int>("day")
+    let f_month = Expression<Int>("month")
+    let f_title = Expression<String>("title")
+    let f_glas = Expression<String>("glas")
+    let f_content = Expression<String>("content")
+
     var code = "Troparion"
     var lang = Translate.language
 
@@ -20,11 +27,11 @@ class SaintTropariaModel : BookModel {
     var author: String?
 
     var hasChapters = false
-    var db : Database
+    var db : Connection
     
     init() {
         let path = Bundle.main.path(forResource: "troparion", ofType: "sqlite")!
-        db = try! Database(path:path)
+        db = try! Connection(path, readonly: true)
     }
 
     static let shared = SaintTropariaModel()
@@ -47,26 +54,22 @@ class SaintTropariaModel : BookModel {
     
     func troparionData(_ date: Date) -> [Troparion] {
         var troparion = [Troparion]()
-
         let dc = DateComponents(date: date)
         
-        let day = dc.day!
-        let month = dc.month!
-        
-        let results = try! db.selectFrom("tropari", whereExpr:"month=\(month) AND day=\(day)")
-            { ["title": $0["title"] , "glas": $0["glas"], "content": $0["content"] ] }
-        
-        for line in results {
-            var title = line["title"] as! String
-            let glas = line["glas"] as! String
-            let content = line["content"] as! String
-            
-            if glas.count > 0 {
-                title = title + ", " + glas
+        troparion.append(
+            contentsOf: try! db.prepareRowIterator(tropari
+                .filter(f_day == dc.day! && f_month == dc.month!))
+            .map {
+                var title = $0[f_title]
+                let glas = $0[f_glas]
+                
+                if glas.count > 0 {
+                    title = title + ", " + glas
+                }
+                
+                return Troparion(title: title, content: $0[f_content])
             }
-            
-            troparion.append(Troparion(title: title, content: content))
-        }
+        )
         
         return troparion
     }

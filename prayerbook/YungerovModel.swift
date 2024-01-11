@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import SQLite
+
 import swift_toolkit
 
 // https://stackoverflow.com/a/39474725/995049
@@ -17,21 +19,32 @@ extension Int {
 }
 
 class YungerovModel : EbookModel {
+    let t_content_cs = Table("content_cs")
+    let t_content_yu = Table("content_yu")
+    
+    let f_psalm = Expression<Int>("psalm")
+    let f_verse = Expression<Int>("verse")
+    let f_text = Expression<String>("text")
+
     public init() {
         super.init("yungerov")
     }
     
     override func getContent(at pos: BookPosition) -> Any? {
         guard let index = pos.index else { return nil }
+        
         let ps = Int.parse(from: items[index.section]![index.row])!
-
         var result = ""
         
-        let verses_yu =  try! db.selectAll("SELECT text FROM content_yu WHERE psalm=$0 ORDER BY verse",
-                                      parameters: [ps]) { $0.stringValueAtIndex(0) ?? "" }
+        let verses_yu = try! db.prepareRowIterator(t_content_yu
+            .filter(f_psalm == ps)
+            .order(f_verse.asc))
+            .map { $0[f_text] }
         
-        let verses_cs =  try! db.selectAll("SELECT text FROM content_cs WHERE psalm=$0 ORDER BY verse",
-                                      parameters: [ps]) { $0.stringValueAtIndex(0) ?? "" }
+        let verses_cs = try! db.prepareRowIterator(t_content_cs
+            .filter(f_psalm == ps)
+            .order(f_verse.asc))
+            .map { $0[f_text] }
         
         for (index, var text) in verses_yu.enumerated() {
             let pattern = "comment_(\\d+)"

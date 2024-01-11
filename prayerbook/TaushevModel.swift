@@ -8,9 +8,14 @@
 
 import UIKit
 import swift_toolkit
-import Squeal
+import SQLite
 
 class TaushevModel : BookModel, PreachmentModel {
+    let content = Table("content")
+    let f_id = Expression<String>("id")
+    let f_subtitle = Expression<String>("subtitle")
+    let f_text = Expression<String>("text")
+
     var code: String = "Taushev"
     var title = ""
     var author: String?
@@ -21,11 +26,11 @@ class TaushevModel : BookModel, PreachmentModel {
     var hasChapters = false
     
     static let shared = TaushevModel()
-    var db : Database
+    var db : Connection
     
     init() {
         let path = Bundle.main.path(forResource: "taushev", ofType: "sqlite")!
-        db = try! Database(path:path)
+        db = try! Connection(path, readonly: true)
     }
 
     func getSections() -> [String] { return [] }
@@ -45,8 +50,13 @@ class TaushevModel : BookModel, PreachmentModel {
     func getComment(commentId: Int) -> String? { return nil }
     
     func getData(_ id: String) -> [String:Any]? {
-        let results = try! db.selectFrom("content", whereExpr:"id=\"\(id)\"") { ["subtitle": $0["subtitle"] , "text": $0["text"]] }
-        return results[safe: 0] 
+        let result = try! db.pluck(content.filter(f_id == id))
+        
+        if let r = result {
+            return ["subtitle": r[f_subtitle], "text": r[f_text]]
+        } else {
+            return nil
+        }
     }
     
     func getPreachment(_ date: Date) -> [Preachment] {
