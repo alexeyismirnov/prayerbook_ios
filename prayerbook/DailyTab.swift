@@ -495,11 +495,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             view.backgroundColor =  bgColor
             
         } else {
-            if DailyTab.background == nil {
-                DailyTab.background = UIImage(background: "bg3.jpg", inView: view, bundle: toolkit)
-            }
-   
-            view.backgroundColor = UIColor(patternImage: DailyTab.background!)
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: toolkit))
         }
         
         reload()
@@ -642,7 +638,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     }
     
     @objc func showOptions() {
-        let vc = UIViewController.named("Options") as! Options
+        let vc = Options2()
+
         let nav = UINavigationController(rootViewController: vc)
         navigationController?.present(nav, animated: true, completion: {})
     }

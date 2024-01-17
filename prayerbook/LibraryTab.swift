@@ -66,6 +66,7 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
         }
 
         tableView.reloadData()
+        
         title = Translate.s("Library")
     }
     
