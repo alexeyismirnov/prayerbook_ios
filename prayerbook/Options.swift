@@ -9,7 +9,7 @@
 import UIKit
 import swift_toolkit
 
-public class Options2: UIViewController, ResizableTableViewCells {
+public class Options: UIViewController, ResizableTableViewCells {
     let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
     let prefs = AppGroup.prefs!
 
@@ -64,7 +64,7 @@ public class Options2: UIViewController, ResizableTableViewCells {
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,6 +74,9 @@ public class Options2: UIViewController, ResizableTableViewCells {
             
         case 2:
             return 3
+            
+        case 3:
+            return 2
             
         default:
             return 0
@@ -87,6 +90,9 @@ public class Options2: UIViewController, ResizableTableViewCells {
             
         case 2:
             return Translate.s("Background color")
+            
+        case 3:
+            return "Язык Библии"
             
         default:
             return ""
@@ -119,6 +125,19 @@ public class Options2: UIViewController, ResizableTableViewCells {
                 
             default: break
             }
+            
+        } else if indexPath.section == 3 {
+            let bibleLang = prefs.integer(forKey: "bibleLang")
+
+            switch indexPath.row {
+            case 0:
+                return getTextDetailsCell(title: "Церковнославянский", isChecked: indexPath.row == bibleLang)
+                
+            case 1:
+                return getTextDetailsCell(title: "Русский", isChecked: indexPath.row == bibleLang)
+                
+            default: break
+            }
         }
         
         let cell = getSimpleCell("")
@@ -135,7 +154,7 @@ public class Options2: UIViewController, ResizableTableViewCells {
             
             tableView.reloadData()
             
-        } else  if indexPath.section == 2 {
+        } else if indexPath.section == 2 {
             prefs.set(indexPath.row, forKey: "style")
             prefs.synchronize()
             
@@ -143,6 +162,10 @@ public class Options2: UIViewController, ResizableTableViewCells {
             Theme.set(style)
 
             reloadTheme()
+            tableView.reloadData()
+            
+        } else if indexPath.section == 3 {
+            prefs.set(indexPath.row, forKey: "bibleLang")
             tableView.reloadData()
         }
         

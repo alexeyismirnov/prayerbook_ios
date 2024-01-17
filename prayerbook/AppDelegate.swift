@@ -53,6 +53,10 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
             Theme.set(style)
         }
         
+        if prefs.object(forKey: "bibleLang") == nil {
+            prefs.set(0, forKey: "bibleLang")
+        }
+        
         if prefs.object(forKey: "fontSize") == nil {
             prefs.set("ru", forKey: "language")
 

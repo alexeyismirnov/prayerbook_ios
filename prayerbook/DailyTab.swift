@@ -19,9 +19,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     var fasting: FastingModel!
     
     var readings = [String]()
-    var pericope: PericopeModel!
     var currentReading: String!
-    var button_extra : CustomBarButton!
     var extraReadings = [Preachment]()
 
     var saintTroparia = [Troparion]()
@@ -117,9 +115,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         */
         
         reloadTheme()
-        
-        pericope = PericopeModel(lang: "cs")
-        button_extra = CustomBarButton(image: UIImage(named: "lang_ru")!, target: self, btnHandler: #selector(switchLang))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -190,7 +185,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             switch indexPath.row {
             case 0:
                 return getTextDetailsCell(title: formatter.string(from: currentDate!).capitalizingFirstLetter(),
-                                          subtitle: formatterOldStyle.string(from: currentDate!-13.days))
+                                          subtitle: formatterOldStyle.string(from: currentDate!-13.days), 
+                                          isBold: true)
                 
             case 1:
                 var descr = ""
@@ -367,8 +363,11 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             case 0 ..< readings.count:
                 currentReading = readings[indexPath.row].components(separatedBy: "#").first!
                 
+                let bibleLang = BibleLang(rawValue: AppGroup.prefs.integer(forKey: "bibleLang"))
+                let pericope = PericopeModel(lang: bibleLang == .slavonic ? "cs" : "ru")
+
                 let pos = BookPosition(model: pericope, location: currentReading)
-                vc = BookPageSingle(pos, lang: pericope.lang, button_extra: button_extra)
+                vc = BookPageSingle(pos, lang: pericope.lang)
                 
             case readings.count ..< readings.count + extraReadings.count:
                 let ind = indexPath.row - readings.count
@@ -638,7 +637,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     }
     
     @objc func showOptions() {
-        let vc = Options2()
+        let vc = Options()
 
         let nav = UINavigationController(rootViewController: vc)
         navigationController?.present(nav, animated: true, completion: {})
@@ -656,30 +655,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         
         guard let url = URL(string: link) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
-    }
-    
-    @objc func switchLang() {
-        var newVC : UIViewController
-        
-        if (pericope.lang == "cs") {
-            pericope = PericopeModel(lang: "ru")
-            button_extra = CustomBarButton(image: UIImage(named: "lang_cs")!, target: self, btnHandler: #selector(switchLang))
-            
-            let pos = BookPosition(model: pericope, location: currentReading)
-            newVC = BookPageSingle(pos, lang: pericope.lang, button_extra: button_extra)!
-            
-        } else {
-            pericope = PericopeModel(lang: "cs")
-            button_extra = CustomBarButton(image: UIImage(named: "lang_ru")!, target: self, btnHandler: #selector(switchLang))
-            
-            let pos = BookPosition(model: pericope, location: currentReading)
-            newVC = BookPageSingle(pos, lang: pericope.lang, button_extra: button_extra)!
-        }
-       
-        var stack = navigationController!.viewControllers
-        stack.remove(at: stack.count - 1)
-        stack.insert(newVC, at: stack.count)
-        navigationController!.setViewControllers(stack, animated: true)
     }
     
     func downloadTroparion(model t: TroparionModel) {
