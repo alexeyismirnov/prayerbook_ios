@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Reachability
 
 struct FileTransferInfo {
     var path : String!

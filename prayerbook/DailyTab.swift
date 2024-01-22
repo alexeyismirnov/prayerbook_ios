@@ -661,7 +661,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         let container = UIViewController.named("DownloadView") as! DownloadView
         container.url = t.url
         container.fileSize = t.fileSize
-        showPopup(container)
+        showPopup(container, dismissWhenTaps: false)
     }
     
 }

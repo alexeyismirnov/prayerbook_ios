@@ -58,17 +58,9 @@
 		8A4D008426A6D44A00E355B2 /* zvezdinsky.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4D008326A6D44A00E355B2 /* zvezdinsky.sqlite */; };
 		8A54C42A1EA74CE90083AA2F /* DailyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A54C4291EA74CE90083AA2F /* DailyTab.swift */; };
 		8A54E3DB202857E900245C31 /* icons.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A54E3DA202857E900245C31 /* icons.sqlite */; };
+		8A595CC32B5E39BA0051D251 /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = 8A595CC22B5E39BA0051D251 /* ZipArchive */; };
 		8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DE92E21958DF60006E046 /* DownloadView.swift */; };
-		8A5F461027111B820074FF20 /* Reachability.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460C27111B810074FF20 /* Reachability.xcframework */; };
-		8A5F461127111B820074FF20 /* Reachability.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460C27111B810074FF20 /* Reachability.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8A5F461227111B820074FF20 /* Chameleon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460D27111B810074FF20 /* Chameleon.xcframework */; };
-		8A5F461327111B820074FF20 /* Chameleon.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460D27111B810074FF20 /* Chameleon.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8A5F461427111B820074FF20 /* Zip.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460E27111B810074FF20 /* Zip.xcframework */; };
-		8A5F461527111B820074FF20 /* Zip.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460E27111B810074FF20 /* Zip.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8A5F461627111B820074FF20 /* Squeal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460F27111B810074FF20 /* Squeal.xcframework */; };
-		8A5F461727111B820074FF20 /* Squeal.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5F460F27111B810074FF20 /* Squeal.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A61BBA5202438CF003AA1BF /* saint.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A61BBA4202438CE003AA1BF /* saint.pdf */; };
-		8A61BBAD20246903003AA1BF /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC675431FED09CA00A9000C /* Chameleon.framework */; };
 		8A6AA11826A0366B00FA310C /* vigil.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A6AA11726A0366B00FA310C /* vigil.sqlite */; };
 		8A6D29122711435600973517 /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A26438B270AADBD0097B4FF /* swift_toolkit.framework */; };
 		8A6D29132711435600973517 /* swift_toolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A26438B270AADBD0097B4FF /* swift_toolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -295,10 +287,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8A5F461727111B820074FF20 /* Squeal.xcframework in Embed Frameworks */,
-				8A5F461327111B820074FF20 /* Chameleon.xcframework in Embed Frameworks */,
-				8A5F461527111B820074FF20 /* Zip.xcframework in Embed Frameworks */,
-				8A5F461127111B820074FF20 /* Reachability.xcframework in Embed Frameworks */,
 				8A6D29132711435600973517 /* swift_toolkit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -592,18 +580,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A5F461627111B820074FF20 /* Squeal.xcframework in Frameworks */,
 				8A6D29122711435600973517 /* swift_toolkit.framework in Frameworks */,
 				8A916D8722575EA7003FEF70 /* WebKit.framework in Frameworks */,
-				8A61BBAD20246903003AA1BF /* Chameleon.framework in Frameworks */,
 				8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */,
-				8A5F461427111B820074FF20 /* Zip.xcframework in Frameworks */,
-				8A5F461227111B820074FF20 /* Chameleon.xcframework in Frameworks */,
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
-				8A5F461027111B820074FF20 /* Reachability.xcframework in Frameworks */,
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
 				8A00E9D226C7952700E3CF6E /* StoreKit.framework in Frameworks */,
+				8A595CC32B5E39BA0051D251 /* ZipArchive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -983,6 +967,9 @@
 				8A2AE48F1FC2E19F00B30B53 /* PBXTargetDependency */,
 			);
 			name = ponomar;
+			packageProductDependencies = (
+				8A595CC22B5E39BA0051D251 /* ZipArchive */,
+			);
 			productName = prayerbook;
 			productReference = 8A74D7F7198F20CC0078F39F /* ponomar.app */;
 			productType = "com.apple.product-type.application";
@@ -1054,6 +1041,9 @@
 				Base,
 			);
 			mainGroup = 8A74D7EE198F20CC0078F39F;
+			packageReferences = (
+				8A595CC12B5E39BA0051D251 /* XCRemoteSwiftPackageReference "ZipArchive" */,
+			);
 			productRefGroup = 8A74D7F8198F20CC0078F39F /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -1682,6 +1672,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8A595CC12B5E39BA0051D251 /* XCRemoteSwiftPackageReference "ZipArchive" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ZipArchive/ZipArchive.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8A595CC22B5E39BA0051D251 /* ZipArchive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A595CC12B5E39BA0051D251 /* XCRemoteSwiftPackageReference "ZipArchive" */;
+			productName = ZipArchive;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8A74D7EF198F20CC0078F39F /* Project object */;
 }
