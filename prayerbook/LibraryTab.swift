@@ -32,12 +32,14 @@ let books : [[BookModel]] = [[BookmarksModel.shared],
 class LibraryTab: UIViewController, ResizableTableViewCells  {
     let sections : [String] = ["", "Библия", "Молитвослов", "Богослужение", "Разное"]
 
-    let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+    var toolkit: Bundle!
     var tableView: UITableView!
     var serviceModel : ServiceModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        toolkit = Bundle(identifier: "swift-toolkit-swift-toolkit-resources")!
         
         BookmarksModel.books = books.flatMap { $0 }
         

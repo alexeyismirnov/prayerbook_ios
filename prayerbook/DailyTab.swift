@@ -11,7 +11,7 @@ import swift_toolkit
 
 class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     static let bookIcon = UIImage(named: "book")!.maskWithColor(.red).resize(CGSize(width: 20, height: 20))
-    let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+    var toolkit: Bundle!
 
     var tableView: UITableView!
     var appeared = false
@@ -74,6 +74,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        toolkit = Bundle(identifier: "swift-toolkit-swift-toolkit-resources")!
         
         if currentDate == nil {
             currentDate = DateComponents(date: Date()).toDate()

@@ -10,7 +10,7 @@ import UIKit
 import swift_toolkit
 
 public class Options: UIViewController, ResizableTableViewCells {
-    let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+    var toolkit : Bundle!
     let prefs = AppGroup.prefs!
 
     public var tableView: UITableView!
@@ -28,6 +28,7 @@ public class Options: UIViewController, ResizableTableViewCells {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
+        toolkit = Bundle(identifier: "swift-toolkit-swift-toolkit-resources")!
         fastingLevel = prefs.integer(forKey: "fastingLevel")
         
         createTableView(style: .grouped)

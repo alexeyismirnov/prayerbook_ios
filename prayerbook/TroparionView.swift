@@ -60,11 +60,13 @@ class TroparionView:  UIViewController, ResizableTableViewCells, UITableViewDele
     }
     
     @objc func reloadTheme() {
+        let toolkit = Bundle(identifier: "swift-toolkit-swift-toolkit-resources")!
+        
         if let bgColor = Theme.mainColor {
             view.backgroundColor =  bgColor
             
         } else {
-            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: toolkit))
         }
         
     }

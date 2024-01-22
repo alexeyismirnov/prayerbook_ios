@@ -74,7 +74,7 @@ class YearCalendarContainer: UIViewControllerAnimated {
     }
     
     func setupNavbar() {
-        let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+        let toolkit = Bundle(identifier: "swift-toolkit-swift-toolkit-resources")!
         
         let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit), style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = backButton
@@ -92,7 +92,7 @@ class YearCalendarContainer: UIViewControllerAnimated {
             view.backgroundColor =  bgColor
             
         } else {
-            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view,  bundle: Bundle(identifier: "com.rlc.swift-toolkit")))
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view,  bundle: toolkit))
         }
         
     }
