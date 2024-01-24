@@ -25,11 +25,23 @@
 		8A282D4F27033943009DDB6E /* liturgy_cn_ebook.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A282D4E27033942009DDB6E /* liturgy_cn_ebook.sqlite */; };
 		8A2F46A719E12B4100076AF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F46A619E12B4100076AF4 /* AppDelegate.swift */; };
 		8A3B3F8A284F3E6900ABD2FB /* trans_cal_en.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A3B3F89284F3E6900ABD2FB /* trans_cal_en.plist */; };
-		8A3E2B44271AABCB005DB2BA /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; };
-		8A3E2B45271AABCB005DB2BA /* swift_toolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8A3E2B46271AABD2005DB2BA /* swift_toolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */; };
 		8A42D4B0271E668C00AE8E13 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A42D4AF271E668C00AE8E13 /* StoreKit.framework */; };
 		8A466ADA2349C2D9004B00A3 /* YearCalendarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A466AD92349C2D9004B00A3 /* YearCalendarContainer.swift */; };
+		8A4BCB182B60F03F004CA7B2 /* swift_toolkit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A4BCB172B60F03F004CA7B2 /* swift_toolkit */; };
+		8A4BCB1B2B60F04E004CA7B2 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 8A4BCB1A2B60F04E004CA7B2 /* SQLite */; };
+		8A4BCB1D2B611E24004CA7B2 /* swift_toolkit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A4BCB1C2B611E24004CA7B2 /* swift_toolkit */; };
+		8A4BCB2A2B611EFC004CA7B2 /* saints_08_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4BCB1E2B611EFC004CA7B2 /* saints_08_hk.sqlite */; };
+		8A4BCB2C2B611EFC004CA7B2 /* saints_12_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4BCB1F2B611EFC004CA7B2 /* saints_12_hk.sqlite */; };
+		8A4BCB2E2B611EFC004CA7B2 /* saints_09_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4BCB202B611EFC004CA7B2 /* saints_09_hk.sqlite */; };
+		8A4BCB302B611EFC004CA7B2 /* saints_10_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4BCB212B611EFC004CA7B2 /* saints_10_hk.sqlite */; };
+		8A4BCB322B611EFC004CA7B2 /* saints_05_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4BCB222B611EFC004CA7B2 /* saints_05_hk.sqlite */; };
+		8A4BCB342B611EFC004CA7B2 /* saints_01_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4BCB232B611EFC004CA7B2 /* saints_01_hk.sqlite */; };
+		8A4BCB362B611EFC004CA7B2 /* saints_02_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4BCB242B611EFC004CA7B2 /* saints_02_hk.sqlite */; };
+		8A4BCB382B611EFC004CA7B2 /* saints_03_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4BCB252B611EFC004CA7B2 /* saints_03_hk.sqlite */; };
+		8A4BCB3A2B611EFC004CA7B2 /* saints_07_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4BCB262B611EFC004CA7B2 /* saints_07_hk.sqlite */; };
+		8A4BCB3C2B611EFC004CA7B2 /* saints_11_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4BCB272B611EFC004CA7B2 /* saints_11_hk.sqlite */; };
+		8A4BCB3E2B611EFC004CA7B2 /* saints_06_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4BCB282B611EFC004CA7B2 /* saints_06_hk.sqlite */; };
+		8A4BCB402B611EFC004CA7B2 /* saints_04_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A4BCB292B611EFC004CA7B2 /* saints_04_hk.sqlite */; };
 		8A540B681E6C296D00970420 /* newicon_167.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A540B671E6C296D00970420 /* newicon_167.png */; };
 		8A555132270B130800873474 /* vigil_hk_ebook.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A555131270B130700873474 /* vigil_hk_ebook.sqlite */; };
 		8A59F34D1B14371800B15FA1 /* saints_07_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A59F34B1B14371800B15FA1 /* saints_07_en.sqlite */; };
@@ -106,18 +118,6 @@
 		8ACD9FBB286EF0FC00180D7E /* trans_cal_hk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FBA286EF0FC00180D7E /* trans_cal_hk.plist */; };
 		8ACD9FBD286EF1D800180D7E /* trans_library_hk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FBC286EF1D800180D7E /* trans_library_hk.plist */; };
 		8ACD9FBF286EF21B00180D7E /* trans_reading_hk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FBE286EF21B00180D7E /* trans_reading_hk.plist */; };
-		8ACD9FCC286EF35E00180D7E /* saints_03_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FC0286EF35E00180D7E /* saints_03_hk.sqlite */; };
-		8ACD9FCD286EF35E00180D7E /* saints_05_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FC1286EF35E00180D7E /* saints_05_hk.sqlite */; };
-		8ACD9FCE286EF35E00180D7E /* saints_01_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FC2286EF35E00180D7E /* saints_01_hk.sqlite */; };
-		8ACD9FCF286EF35E00180D7E /* saints_11_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FC3286EF35E00180D7E /* saints_11_hk.sqlite */; };
-		8ACD9FD0286EF35E00180D7E /* saints_02_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FC4286EF35E00180D7E /* saints_02_hk.sqlite */; };
-		8ACD9FD1286EF35E00180D7E /* saints_08_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FC5286EF35E00180D7E /* saints_08_hk.sqlite */; };
-		8ACD9FD2286EF35E00180D7E /* saints_10_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FC6286EF35E00180D7E /* saints_10_hk.sqlite */; };
-		8ACD9FD3286EF35E00180D7E /* saints_12_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FC7286EF35E00180D7E /* saints_12_hk.sqlite */; };
-		8ACD9FD4286EF35E00180D7E /* saints_07_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FC8286EF35E00180D7E /* saints_07_hk.sqlite */; };
-		8ACD9FD5286EF35E00180D7E /* saints_04_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FC9286EF35E00180D7E /* saints_04_hk.sqlite */; };
-		8ACD9FD6286EF35E00180D7E /* saints_09_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FCA286EF35E00180D7E /* saints_09_hk.sqlite */; };
-		8ACD9FD7286EF35E00180D7E /* saints_06_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FCB286EF35E00180D7E /* saints_06_hk.sqlite */; };
 		8ACDA01E286EF58400180D7E /* prov_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FDC286EF58400180D7E /* prov_hk.sqlite */; };
 		8ACDA01F286EF58400180D7E /* song_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FDD286EF58400180D7E /* song_hk.sqlite */; };
 		8ACDA020286EF58400180D7E /* 2kings_hk.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ACD9FDE286EF58400180D7E /* 2kings_hk.sqlite */; };
@@ -192,10 +192,6 @@
 		8ADF91EE1B7731EA0078BB6B /* saints_07_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ADF91EA1B7731EA0078BB6B /* saints_07_cn.sqlite */; };
 		8ADF91EF1B7731EA0078BB6B /* saints_07_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8ADF91EB1B7731EA0078BB6B /* saints_07_cn.txt */; };
 		8AE084812716D1EB00615F5E /* prayerbook_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE084802716D1EB00615F5E /* prayerbook_en.sqlite */; };
-		8AE084832716D36500615F5E /* Chameleon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE084822716D36500615F5E /* Chameleon.xcframework */; };
-		8AE084842716D36500615F5E /* Chameleon.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE084822716D36500615F5E /* Chameleon.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8AE084872716D36800615F5E /* Squeal.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE084862716D36800615F5E /* Squeal.xcframework */; };
-		8AE084882716D36800615F5E /* Squeal.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE084862716D36800615F5E /* Squeal.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8AE0848A2716D8F600615F5E /* prayerbook_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE084892716D8F600615F5E /* prayerbook_cn.sqlite */; };
 		8AE6FE8C1B70CCA500FDAA47 /* saints_01_cn.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6FE8A1B70CCA500FDAA47 /* saints_01_cn.sqlite */; };
 		8AE6FE8D1B70CCA500FDAA47 /* saints_01_cn.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AE6FE8B1B70CCA500FDAA47 /* saints_01_cn.txt */; };
@@ -366,27 +362,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8A26439A270AB67E0097B4FF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A6366F026FDE7A70030D1CB /* swift-toolkit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8AB18EEA1F86360300F1A65C;
-			remoteInfo = "swift-toolkit";
-		};
-		8A6366F426FDE7A80030D1CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A6366F026FDE7A70030D1CB /* swift-toolkit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8AB18EEB1F86360300F1A65C;
-			remoteInfo = "swift-toolkit";
-		};
-		8A6366F826FDE7C90030D1CB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8A6366F026FDE7A70030D1CB /* swift-toolkit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8AB18EEA1F86360300F1A65C;
-			remoteInfo = "swift-toolkit";
-		};
 		8A638C9A1ECC55CA00424A9E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8A74D7EF198F20CC0078F39F /* Project object */;
@@ -406,19 +381,6 @@
 				8A638C991ECC55CA00424A9E /* CalendarWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8AE084852716D36500615F5E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8AE084882716D36800615F5E /* Squeal.xcframework in Embed Frameworks */,
-				8A3E2B45271AABCB005DB2BA /* swift_toolkit.framework in Embed Frameworks */,
-				8AE084842716D36500615F5E /* Chameleon.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -447,6 +409,18 @@
 		8A3B3F89284F3E6900ABD2FB /* trans_cal_en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_cal_en.plist; sourceTree = "<group>"; };
 		8A42D4AF271E668C00AE8E13 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8A466AD92349C2D9004B00A3 /* YearCalendarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearCalendarContainer.swift; sourceTree = "<group>"; };
+		8A4BCB1E2B611EFC004CA7B2 /* saints_08_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_08_hk.sqlite; sourceTree = "<group>"; };
+		8A4BCB1F2B611EFC004CA7B2 /* saints_12_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_12_hk.sqlite; sourceTree = "<group>"; };
+		8A4BCB202B611EFC004CA7B2 /* saints_09_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_09_hk.sqlite; sourceTree = "<group>"; };
+		8A4BCB212B611EFC004CA7B2 /* saints_10_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_10_hk.sqlite; sourceTree = "<group>"; };
+		8A4BCB222B611EFC004CA7B2 /* saints_05_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_05_hk.sqlite; sourceTree = "<group>"; };
+		8A4BCB232B611EFC004CA7B2 /* saints_01_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_01_hk.sqlite; sourceTree = "<group>"; };
+		8A4BCB242B611EFC004CA7B2 /* saints_02_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_02_hk.sqlite; sourceTree = "<group>"; };
+		8A4BCB252B611EFC004CA7B2 /* saints_03_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_03_hk.sqlite; sourceTree = "<group>"; };
+		8A4BCB262B611EFC004CA7B2 /* saints_07_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_07_hk.sqlite; sourceTree = "<group>"; };
+		8A4BCB272B611EFC004CA7B2 /* saints_11_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_11_hk.sqlite; sourceTree = "<group>"; };
+		8A4BCB282B611EFC004CA7B2 /* saints_06_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_06_hk.sqlite; sourceTree = "<group>"; };
+		8A4BCB292B611EFC004CA7B2 /* saints_04_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_04_hk.sqlite; sourceTree = "<group>"; };
 		8A4F2E6C22E6E7F70087A3F0 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		8A4F2E6E22E6E7FB0087A3F0 /* Squeal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Squeal.framework; path = Carthage/Build/iOS/Squeal.framework; sourceTree = "<group>"; };
 		8A540B671E6C296D00970420 /* newicon_167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_167.png; sourceTree = "<group>"; };
@@ -457,7 +431,6 @@
 		8A60D18C1F8885040023CFAE /* newicon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_1024.png; sourceTree = "<group>"; };
 		8A62E36F2327916900C7C4C5 /* TypikaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypikaModel.swift; sourceTree = "<group>"; };
 		8A62E3712327A6EF00C7C4C5 /* typika_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = typika_en.sqlite; sourceTree = "<group>"; };
-		8A6366F026FDE7A70030D1CB /* swift-toolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "swift-toolkit.xcodeproj"; path = "../swift-toolkit/swift-toolkit.xcodeproj"; sourceTree = "<group>"; };
 		8A638C571ECBF5AE00424A9E /* bg3@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg3@2x.jpg"; sourceTree = "<group>"; };
 		8A638C581ECBF5AE00424A9E /* church@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "church@2x.jpg"; sourceTree = "<group>"; };
 		8A638C621ECBF60F00424A9E /* DailyTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab.swift; sourceTree = "<group>"; };
@@ -530,18 +503,6 @@
 		8ACD9FBA286EF0FC00180D7E /* trans_cal_hk.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_cal_hk.plist; sourceTree = "<group>"; };
 		8ACD9FBC286EF1D800180D7E /* trans_library_hk.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_library_hk.plist; sourceTree = "<group>"; };
 		8ACD9FBE286EF21B00180D7E /* trans_reading_hk.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = trans_reading_hk.plist; sourceTree = "<group>"; };
-		8ACD9FC0286EF35E00180D7E /* saints_03_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = saints_03_hk.sqlite; path = ../../../ponomar_flutter/assets/saints/saints_03_hk.sqlite; sourceTree = "<group>"; };
-		8ACD9FC1286EF35E00180D7E /* saints_05_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = saints_05_hk.sqlite; path = ../../../ponomar_flutter/assets/saints/saints_05_hk.sqlite; sourceTree = "<group>"; };
-		8ACD9FC2286EF35E00180D7E /* saints_01_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = saints_01_hk.sqlite; path = ../../../ponomar_flutter/assets/saints/saints_01_hk.sqlite; sourceTree = "<group>"; };
-		8ACD9FC3286EF35E00180D7E /* saints_11_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = saints_11_hk.sqlite; path = ../../../ponomar_flutter/assets/saints/saints_11_hk.sqlite; sourceTree = "<group>"; };
-		8ACD9FC4286EF35E00180D7E /* saints_02_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = saints_02_hk.sqlite; path = ../../../ponomar_flutter/assets/saints/saints_02_hk.sqlite; sourceTree = "<group>"; };
-		8ACD9FC5286EF35E00180D7E /* saints_08_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = saints_08_hk.sqlite; path = ../../../ponomar_flutter/assets/saints/saints_08_hk.sqlite; sourceTree = "<group>"; };
-		8ACD9FC6286EF35E00180D7E /* saints_10_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = saints_10_hk.sqlite; path = ../../../ponomar_flutter/assets/saints/saints_10_hk.sqlite; sourceTree = "<group>"; };
-		8ACD9FC7286EF35E00180D7E /* saints_12_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = saints_12_hk.sqlite; path = ../../../ponomar_flutter/assets/saints/saints_12_hk.sqlite; sourceTree = "<group>"; };
-		8ACD9FC8286EF35E00180D7E /* saints_07_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = saints_07_hk.sqlite; path = ../../../ponomar_flutter/assets/saints/saints_07_hk.sqlite; sourceTree = "<group>"; };
-		8ACD9FC9286EF35E00180D7E /* saints_04_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = saints_04_hk.sqlite; path = ../../../ponomar_flutter/assets/saints/saints_04_hk.sqlite; sourceTree = "<group>"; };
-		8ACD9FCA286EF35E00180D7E /* saints_09_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = saints_09_hk.sqlite; path = ../../../ponomar_flutter/assets/saints/saints_09_hk.sqlite; sourceTree = "<group>"; };
-		8ACD9FCB286EF35E00180D7E /* saints_06_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = saints_06_hk.sqlite; path = ../../../ponomar_flutter/assets/saints/saints_06_hk.sqlite; sourceTree = "<group>"; };
 		8ACD9FDC286EF58400180D7E /* prov_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = prov_hk.sqlite; sourceTree = "<group>"; };
 		8ACD9FDD286EF58400180D7E /* song_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = song_hk.sqlite; sourceTree = "<group>"; };
 		8ACD9FDE286EF58400180D7E /* 2kings_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2kings_hk.sqlite; sourceTree = "<group>"; };
@@ -794,12 +755,11 @@
 			files = (
 				8AC2780D1C61D82C00436D51 /* MediaPlayer.framework in Frameworks */,
 				8A74D7FD198F20CC0078F39F /* CoreGraphics.framework in Frameworks */,
-				8AE084832716D36500615F5E /* Chameleon.xcframework in Frameworks */,
 				8A42D4B0271E668C00AE8E13 /* StoreKit.framework in Frameworks */,
-				8AE084872716D36800615F5E /* Squeal.xcframework in Frameworks */,
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
+				8A4BCB1B2B60F04E004CA7B2 /* SQLite in Frameworks */,
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
-				8A3E2B44271AABCB005DB2BA /* swift_toolkit.framework in Frameworks */,
+				8A4BCB182B60F03F004CA7B2 /* swift_toolkit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,7 +768,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */,
-				8A3E2B46271AABD2005DB2BA /* swift_toolkit.framework in Frameworks */,
+				8A4BCB1D2B611E24004CA7B2 /* swift_toolkit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -838,18 +798,9 @@
 			path = books;
 			sourceTree = "<group>";
 		};
-		8A6366F126FDE7A70030D1CB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		8A74D7EE198F20CC0078F39F = {
 			isa = PBXGroup;
 			children = (
-				8A6366F026FDE7A70030D1CB /* swift-toolkit.xcodeproj */,
 				8A0F6F5B1C50C4BE0063DBF1 /* ponomar.entitlements */,
 				8A74D800198F20CC0078F39F /* prayerbook */,
 				8AB749A21C4C7A3500CD1B32 /* CalendarWidget */,
@@ -1059,18 +1010,18 @@
 		8ADFF51E1B0F1D02001AE6A9 /* saints */ = {
 			isa = PBXGroup;
 			children = (
-				8ACD9FC2286EF35E00180D7E /* saints_01_hk.sqlite */,
-				8ACD9FC4286EF35E00180D7E /* saints_02_hk.sqlite */,
-				8ACD9FC0286EF35E00180D7E /* saints_03_hk.sqlite */,
-				8ACD9FC9286EF35E00180D7E /* saints_04_hk.sqlite */,
-				8ACD9FC1286EF35E00180D7E /* saints_05_hk.sqlite */,
-				8ACD9FCB286EF35E00180D7E /* saints_06_hk.sqlite */,
-				8ACD9FC8286EF35E00180D7E /* saints_07_hk.sqlite */,
-				8ACD9FC5286EF35E00180D7E /* saints_08_hk.sqlite */,
-				8ACD9FCA286EF35E00180D7E /* saints_09_hk.sqlite */,
-				8ACD9FC6286EF35E00180D7E /* saints_10_hk.sqlite */,
-				8ACD9FC3286EF35E00180D7E /* saints_11_hk.sqlite */,
-				8ACD9FC7286EF35E00180D7E /* saints_12_hk.sqlite */,
+				8A4BCB232B611EFC004CA7B2 /* saints_01_hk.sqlite */,
+				8A4BCB242B611EFC004CA7B2 /* saints_02_hk.sqlite */,
+				8A4BCB252B611EFC004CA7B2 /* saints_03_hk.sqlite */,
+				8A4BCB292B611EFC004CA7B2 /* saints_04_hk.sqlite */,
+				8A4BCB222B611EFC004CA7B2 /* saints_05_hk.sqlite */,
+				8A4BCB282B611EFC004CA7B2 /* saints_06_hk.sqlite */,
+				8A4BCB262B611EFC004CA7B2 /* saints_07_hk.sqlite */,
+				8A4BCB1E2B611EFC004CA7B2 /* saints_08_hk.sqlite */,
+				8A4BCB202B611EFC004CA7B2 /* saints_09_hk.sqlite */,
+				8A4BCB212B611EFC004CA7B2 /* saints_10_hk.sqlite */,
+				8A4BCB272B611EFC004CA7B2 /* saints_11_hk.sqlite */,
+				8A4BCB1F2B611EFC004CA7B2 /* saints_12_hk.sqlite */,
 				8AEB1AAC1B7C261E003DD686 /* saints_12_cn.sqlite */,
 				8AEB1AAD1B7C261E003DD686 /* saints_12_cn.txt */,
 				8ADDE7D41B7AD29600EF0F65 /* saints_11_cn.sqlite */,
@@ -1295,16 +1246,17 @@
 				8A74D7F4198F20CC0078F39F /* Frameworks */,
 				8A74D7F5198F20CC0078F39F /* Resources */,
 				8A638C9C1ECC55CA00424A9E /* Embed App Extensions */,
-				8A4F2E7422E6E83A0087A3F0 /* ShellScript */,
-				8AE084852716D36500615F5E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8A26439B270AB67E0097B4FF /* PBXTargetDependency */,
 				8A638C9B1ECC55CA00424A9E /* PBXTargetDependency */,
 			);
 			name = ponomar;
+			packageProductDependencies = (
+				8A4BCB172B60F03F004CA7B2 /* swift_toolkit */,
+				8A4BCB1A2B60F04E004CA7B2 /* SQLite */,
+			);
 			productName = prayerbook;
 			productReference = 8A74D7F7198F20CC0078F39F /* ponomar.app */;
 			productType = "com.apple.product-type.application";
@@ -1320,9 +1272,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				8A6366F926FDE7C90030D1CB /* PBXTargetDependency */,
 			);
 			name = CalendarWidget;
+			packageProductDependencies = (
+				8A4BCB1C2B611E24004CA7B2 /* swift_toolkit */,
+			);
 			productName = CalendarWidget;
 			productReference = 8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -1372,14 +1326,12 @@
 				"zh-Hant",
 			);
 			mainGroup = 8A74D7EE198F20CC0078F39F;
+			packageReferences = (
+				8A4BCB162B60F03F004CA7B2 /* XCRemoteSwiftPackageReference "swift_toolkit" */,
+				8A4BCB192B60F04E004CA7B2 /* XCRemoteSwiftPackageReference "SQLite" */,
+			);
 			productRefGroup = 8A74D7F8198F20CC0078F39F /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 8A6366F126FDE7A70030D1CB /* Products */;
-					ProjectRef = 8A6366F026FDE7A70030D1CB /* swift-toolkit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				8A74D7F6198F20CC0078F39F /* ponomar */,
@@ -1388,16 +1340,6 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		8A6366F526FDE7A80030D1CB /* swift_toolkit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = swift_toolkit.framework;
-			remoteRef = 8A6366F426FDE7A80030D1CB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		8A74D7F5198F20CC0078F39F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -1405,7 +1347,6 @@
 			files = (
 				8AF8C706230F8CE80020D5E5 /* judg_en.sqlite in Resources */,
 				8AF8C79E230F8E4D0020D5E5 /* john_cn.sqlite in Resources */,
-				8ACD9FCC286EF35E00180D7E /* saints_03_hk.sqlite in Resources */,
 				8AF37E5A1B36C7A500101148 /* newicon_76.png in Resources */,
 				8ACDA03D286EF58400180D7E /* neh_hk.sqlite in Resources */,
 				8AF8C7A1230F8E4D0020D5E5 /* 1chron_cn.sqlite in Resources */,
@@ -1432,7 +1373,6 @@
 				8ACDA049286EF58400180D7E /* 1cor_hk.sqlite in Resources */,
 				8ACDA036286EF58400180D7E /* john_hk.sqlite in Resources */,
 				8AF8C715230F8CE80020D5E5 /* ezek_en.sqlite in Resources */,
-				8ACD9FD7286EF35E00180D7E /* saints_06_hk.sqlite in Resources */,
 				8A181E0F1B1D3C9A00D8C2FB /* saints_01_en.txt in Resources */,
 				8AB0DC971C27EFEC00C6A494 /* typica_3.plist in Resources */,
 				8AF8C719230F8CE80020D5E5 /* rom_en.sqlite in Resources */,
@@ -1441,7 +1381,6 @@
 				8AF8C6F6230F8CE80020D5E5 /* jer_en.sqlite in Resources */,
 				8AF8C6F9230F8CE80020D5E5 /* 1thess_en.sqlite in Resources */,
 				8AFAA3991B12E90B001699D6 /* saints_05_en.txt in Resources */,
-				8ACD9FD6286EF35E00180D7E /* saints_09_hk.sqlite in Resources */,
 				8ACDA04D286EF58400180D7E /* ezra_hk.sqlite in Resources */,
 				8AF8C716230F8CE80020D5E5 /* 2kings_en.sqlite in Resources */,
 				8AF8C6F1230F8CE80020D5E5 /* acts_en.sqlite in Resources */,
@@ -1457,7 +1396,6 @@
 				8ACDA05A286EF58400180D7E /* philem_hk.sqlite in Resources */,
 				8AE8A02F1B7980A4000A29F2 /* saints_10_cn.txt in Resources */,
 				8AAE6B222702F1450029A14E /* liturgy_en_ebook.sqlite in Resources */,
-				8ACD9FCF286EF35E00180D7E /* saints_11_hk.sqlite in Resources */,
 				8A8E99AC1B76F8E3006B6377 /* saints_05_cn.txt in Resources */,
 				8AF8C79D230F8E4D0020D5E5 /* deut_cn.sqlite in Resources */,
 				8AF8C777230F8E4D0020D5E5 /* tit_cn.sqlite in Resources */,
@@ -1467,7 +1405,7 @@
 				8AF8C76B230F8E4D0020D5E5 /* acts_cn.sqlite in Resources */,
 				8ACDA058286EF58400180D7E /* ephes_hk.sqlite in Resources */,
 				8AF8C794230F8E4D0020D5E5 /* 2thess_cn.sqlite in Resources */,
-				8ACD9FD4286EF35E00180D7E /* saints_07_hk.sqlite in Resources */,
+				8A4BCB3E2B611EFC004CA7B2 /* saints_06_hk.sqlite in Resources */,
 				8ACDA054286EF58400180D7E /* joel_hk.sqlite in Resources */,
 				8A8512CA271ECA6700B15196 /* sokolovski.sqlite in Resources */,
 				8AF8C6DC230F8CE80020D5E5 /* phil_en.sqlite in Resources */,
@@ -1499,21 +1437,21 @@
 				8AA3DF5E1B185AE800507129 /* saints_11_en.sqlite in Resources */,
 				8ACDA05C286EF58400180D7E /* jude_hk.sqlite in Resources */,
 				8AF8C6E3230F8CE80020D5E5 /* john_en.sqlite in Resources */,
+				8A4BCB3A2B611EFC004CA7B2 /* saints_07_hk.sqlite in Resources */,
 				8AF8C77E230F8E4D0020D5E5 /* 2sam_cn.sqlite in Resources */,
 				8ACDA02F286EF58400180D7E /* josh_hk.sqlite in Resources */,
 				8AF37E5C1B36C7A500101148 /* newicon_87.png in Resources */,
 				8ACDA032286EF58400180D7E /* ezek_hk.sqlite in Resources */,
 				8ACDA063286F276400180D7E /* typika_hk.sqlite in Resources */,
-				8ACD9FCE286EF35E00180D7E /* saints_01_hk.sqlite in Resources */,
 				8ACDA024286EF58400180D7E /* nahum_hk.sqlite in Resources */,
 				8A1BADB82351D3D2002C6638 /* LaunchScreen.storyboard in Resources */,
 				8AF8C6E6230F8CE80020D5E5 /* tit_en.sqlite in Resources */,
 				8ACDA04B286EF58400180D7E /* luke_hk.sqlite in Resources */,
+				8A4BCB2A2B611EFC004CA7B2 /* saints_08_hk.sqlite in Resources */,
 				8ACDA01F286EF58400180D7E /* song_hk.sqlite in Resources */,
 				8AC1B10D199866FF00A017C7 /* launch-ipad.png in Resources */,
 				8AB4E2B51B20168E0015E19B /* saints_04_en.txt in Resources */,
 				8AA3DF511B1847D700507129 /* saints_08_en.txt in Resources */,
-				8ACD9FD2286EF35E00180D7E /* saints_10_hk.sqlite in Resources */,
 				8AA8E33D28728EE5009F877F /* synaxarion_en.sqlite in Resources */,
 				8AB0DCA31C27F00400C6A494 /* trans_reading_cn.plist in Resources */,
 				8AF8C798230F8E4D0020D5E5 /* hos_cn.sqlite in Resources */,
@@ -1523,12 +1461,13 @@
 				8ACDA05F286EF58400180D7E /* 1pet_hk.sqlite in Resources */,
 				8A74D816198F20CC0078F39F /* Images.xcassets in Resources */,
 				8AF8C712230F8CE80020D5E5 /* 3john_en.sqlite in Resources */,
-				8ACD9FD5286EF35E00180D7E /* saints_04_hk.sqlite in Resources */,
 				8AF8C762230F8E4D0020D5E5 /* jude_cn.sqlite in Resources */,
 				8AA8E33F28728EE5009F877F /* synaxarion_hk.sqlite in Resources */,
 				8AF8C792230F8E4D0020D5E5 /* dan_cn.sqlite in Resources */,
+				8A4BCB322B611EFC004CA7B2 /* saints_05_hk.sqlite in Resources */,
 				8AF163951B1418880093CC77 /* saints_06_en.txt in Resources */,
 				8AF8C717230F8CE80020D5E5 /* lam_en.sqlite in Resources */,
+				8A4BCB2C2B611EFC004CA7B2 /* saints_12_hk.sqlite in Resources */,
 				8AF8C799230F8E4D0020D5E5 /* 2pet_cn.sqlite in Resources */,
 				8AF8C6E8230F8CE80020D5E5 /* 1john_en.sqlite in Resources */,
 				8AF8C6FB230F8CE80020D5E5 /* jude_en.sqlite in Resources */,
@@ -1546,7 +1485,6 @@
 				8AF8C772230F8E4D0020D5E5 /* job_cn.sqlite in Resources */,
 				8A8512C6271EBD1B00B15196 /* trans_ui_en.plist in Resources */,
 				8AF8C6ED230F8CE80020D5E5 /* mic_en.sqlite in Resources */,
-				8ACD9FD0286EF35E00180D7E /* saints_02_hk.sqlite in Resources */,
 				8AF8C768230F8E4D0020D5E5 /* song_cn.sqlite in Resources */,
 				8AC278071C61986000436D51 /* widget.pdf in Resources */,
 				8AF163941B1418880093CC77 /* saints_06_en.sqlite in Resources */,
@@ -1556,6 +1494,7 @@
 				8ACD9FB9286EF0BF00180D7E /* trans_ui_hk.plist in Resources */,
 				8AF8C791230F8E4D0020D5E5 /* hab_cn.sqlite in Resources */,
 				8ACDA02B286EF58400180D7E /* esther_hk.sqlite in Resources */,
+				8A4BCB402B611EFC004CA7B2 /* saints_04_hk.sqlite in Resources */,
 				8AF37E391B36B1FD00101148 /* launch-hd4.7.png in Resources */,
 				8AF8C70A230F8CE80020D5E5 /* 2thess_en.sqlite in Resources */,
 				8ACDA056286EF58400180D7E /* hab_hk.sqlite in Resources */,
@@ -1606,12 +1545,13 @@
 				8AB0DC9C1C27EFEC00C6A494 /* typica_8.plist in Resources */,
 				8AF8C6EA230F8CE80020D5E5 /* hag_en.sqlite in Resources */,
 				8ACDA045286EF58400180D7E /* lev_hk.sqlite in Resources */,
+				8A4BCB382B611EFC004CA7B2 /* saints_03_hk.sqlite in Resources */,
 				8AF8C6E1230F8CE80020D5E5 /* eccles_en.sqlite in Resources */,
 				8AF8C703230F8CE80020D5E5 /* 1pet_en.sqlite in Resources */,
 				8AF8C70C230F8CE80020D5E5 /* 1kings_en.sqlite in Resources */,
 				8AF8C711230F8CE80020D5E5 /* 2tim_en.sqlite in Resources */,
+				8A4BCB3C2B611EFC004CA7B2 /* saints_11_hk.sqlite in Resources */,
 				8AF8C761230F8E4D0020D5E5 /* 2chron_cn.sqlite in Resources */,
-				8ACD9FCD286EF35E00180D7E /* saints_05_hk.sqlite in Resources */,
 				8ACDA02D286EF58400180D7E /* tit_hk.sqlite in Resources */,
 				8AF8C713230F8CE80020D5E5 /* jon_en.sqlite in Resources */,
 				8AF8C790230F8E4D0020D5E5 /* 1john_cn.sqlite in Resources */,
@@ -1621,7 +1561,6 @@
 				8A06E66F1B187FC300925F63 /* saints_12_en.sqlite in Resources */,
 				8AB0DC9A1C27EFEC00C6A494 /* typica_6.plist in Resources */,
 				8AF8C6F4230F8CE80020D5E5 /* 1tim_en.sqlite in Resources */,
-				8ACD9FD1286EF35E00180D7E /* saints_08_hk.sqlite in Resources */,
 				8AF8C6E5230F8CE80020D5E5 /* hos_en.sqlite in Resources */,
 				8AF37E5F1B36C7A500101148 /* newicon_180.png in Resources */,
 				8A282D4F27033943009DDB6E /* liturgy_cn_ebook.sqlite in Resources */,
@@ -1694,17 +1633,20 @@
 				8ACDA039286EF58400180D7E /* 2cor_hk.sqlite in Resources */,
 				8A66EBF327055E830015BCB7 /* vigil_en_ebook.sqlite in Resources */,
 				8AFB8DEC1B1FDC12006715A3 /* saints_03_en.txt in Resources */,
+				8A4BCB302B611EFC004CA7B2 /* saints_10_hk.sqlite in Resources */,
 				8ACDA03F286EF58400180D7E /* matthew_hk.sqlite in Resources */,
 				8AF8C780230F8E4D0020D5E5 /* lev_cn.sqlite in Resources */,
 				8AF8C774230F8E4D0020D5E5 /* ex_cn.sqlite in Resources */,
 				8AF8C77C230F8E4D0020D5E5 /* 3john_cn.sqlite in Resources */,
 				8AF8C795230F8E4D0020D5E5 /* mic_cn.sqlite in Resources */,
+				8A4BCB2E2B611EFC004CA7B2 /* saints_09_hk.sqlite in Resources */,
 				8ACDA043286EF58400180D7E /* 2sam_hk.sqlite in Resources */,
 				8AF8C76E230F8E4D0020D5E5 /* jer_cn.sqlite in Resources */,
 				8AF8C79B230F8E4D0020D5E5 /* 2tim_cn.sqlite in Resources */,
-				8ACD9FD3286EF35E00180D7E /* saints_12_hk.sqlite in Resources */,
 				8AA8E341287296C9009F877F /* prayerbook_hk.sqlite in Resources */,
 				8ACDA021286EF58400180D7E /* ruth_hk.sqlite in Resources */,
+				8A4BCB342B611EFC004CA7B2 /* saints_01_hk.sqlite in Resources */,
+				8A4BCB362B611EFC004CA7B2 /* saints_02_hk.sqlite in Resources */,
 				8A17277423289DBF00D9F280 /* typika_cn.sqlite in Resources */,
 				8ACDA028286EF58400180D7E /* mal_hk.sqlite in Resources */,
 				8AF8C788230F8E4D0020D5E5 /* judg_cn.sqlite in Resources */,
@@ -1745,26 +1687,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		8A4F2E7422E6E83A0087A3F0 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		8A74D7F3198F20CC0078F39F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1795,16 +1717,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8A26439B270AB67E0097B4FF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "swift-toolkit";
-			targetProxy = 8A26439A270AB67E0097B4FF /* PBXContainerItemProxy */;
-		};
-		8A6366F926FDE7C90030D1CB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "swift-toolkit";
-			targetProxy = 8A6366F826FDE7C90030D1CB /* PBXContainerItemProxy */;
-		};
 		8A638C9B1ECC55CA00424A9E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8AB7499E1C4C7A3400CD1B32 /* CalendarWidget */;
@@ -1860,7 +1772,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1895,7 +1807,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1923,12 +1835,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.2;
+				MARKETING_VERSION = 5.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1963,12 +1876,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayerbook/prayerbook-Prefix.pch";
 				INFOPLIST_FILE = "prayerbook/prayerbook-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.2;
+				MARKETING_VERSION = 5.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1999,7 +1913,7 @@
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2036,7 +1950,7 @@
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2085,6 +1999,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8A4BCB162B60F03F004CA7B2 /* XCRemoteSwiftPackageReference "swift_toolkit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexeyismirnov/swift_toolkit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		8A4BCB192B60F04E004CA7B2 /* XCRemoteSwiftPackageReference "SQLite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.14.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8A4BCB172B60F03F004CA7B2 /* swift_toolkit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A4BCB162B60F03F004CA7B2 /* XCRemoteSwiftPackageReference "swift_toolkit" */;
+			productName = swift_toolkit;
+		};
+		8A4BCB1A2B60F04E004CA7B2 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A4BCB192B60F04E004CA7B2 /* XCRemoteSwiftPackageReference "SQLite" */;
+			productName = SQLite;
+		};
+		8A4BCB1C2B611E24004CA7B2 /* swift_toolkit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A4BCB162B60F03F004CA7B2 /* XCRemoteSwiftPackageReference "swift_toolkit" */;
+			productName = swift_toolkit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8A74D7EF198F20CC0078F39F /* Project object */;
 }

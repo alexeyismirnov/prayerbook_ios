@@ -15,17 +15,17 @@ class MainVC: UITabBarControllerAnimated {
         
         delegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name:  .themeChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name:  .themeChangedNotification, object: nil)
 
         tabBar.isTranslucent = true
         tabBar.backgroundImage = UIImage()
         tabBar.shadowImage = UIImage()
         tabBar.backgroundColor = .clear
 
-        reload()
+        reloadTheme()
     }
 
-    @objc func reload() {
+    @objc func reloadTheme() {
         if let controllers = viewControllers  {
             (controllers[0] as! UINavigationController).title = Translate.s("Daily")
             (controllers[1] as! UINavigationController).title = Translate.s("Library")

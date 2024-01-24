@@ -7,10 +7,24 @@
 //
 
 import UIKit
-import Squeal
+import SQLite
 import swift_toolkit
 
 class TypikaModel : ServiceModel {
+    let t_content = Table("content")
+    let t_data = Table("data")
+    let t_fragments = Table("fragments")
+    let t_prokimen = Table("prokimen")
+    
+    let f_id = Expression<Int>("id")
+    let f_section = Expression<Int>("section")
+    let f_glas = Expression<Int>("glas")
+    
+    let f_title = Expression<String>("title")
+    let f_text = Expression<String>("text")
+    let f_key = Expression<String>("key")
+    let f_value = Expression<String>("value")
+
     var lang : String
 
     var code: String = "Typika"
@@ -37,11 +51,19 @@ class TypikaModel : ServiceModel {
             fragments = [String]()
             prokimen = [String]()
             
-            let _ = try! db.selectFrom("fragments", whereExpr:"glas=\(tone!)", orderBy: "id")
-                { fragments.append($0.stringValue("text") ?? "") }
+            fragments.append(
+                contentsOf: try! db.prepareRowIterator(t_fragments
+                    .filter(f_glas == tone!)
+                    .order(f_id.asc))
+                .map { $0[f_text]}
+            )
             
-            let _ = try! db.selectFrom("prokimen", whereExpr:"glas=\(tone!)", orderBy: "id")
-                { prokimen.append($0.stringValue("text") ?? "") }
+            prokimen.append(
+                contentsOf: try! db.prepareRowIterator(t_prokimen
+                    .filter(f_glas == tone!)
+                    .order(f_id.asc))
+                .map { $0[f_text]}
+            )
             
             prokimen.append(contentsOf: prokimen[0].components(separatedBy: "/"))
             prokimen[0] = prokimen[0].replacingOccurrences(of: "/", with: " ")
@@ -49,21 +71,23 @@ class TypikaModel : ServiceModel {
         }
     }
     
-    var db : Database
+    var db : Connection
     
     func getSections() -> [String] { return [""] }
 
     lazy var data: [String] = {
-        return try! db.selectAll("SELECT title FROM content ORDER BY section") { $0.stringValueAtIndex(0) ?? "" }
+        try! db.prepareRowIterator(t_content
+            .order(f_section.asc))
+        .map { $0[f_title] }
     }()
     
     init(_ lang: String) {
         self.lang = lang
 
         let path = Bundle.main.path(forResource: "typika_\(lang)", ofType: "sqlite")!
-        db = try! Database(path:path)
+        db = try! Connection(path, readonly: true)
         
-        title = try! db.selectString("SELECT value FROM data WHERE key=$0", parameters: ["title"])!
+        title = try! db.pluck(t_data.filter(f_key == "title"))![f_value]
     }
         
     func getItems(_ section: Int) -> [String] {
@@ -86,12 +110,15 @@ class TypikaModel : ServiceModel {
     func getContent(at pos: BookPosition) -> Any? {
         guard let index = pos.index else { return nil }
         var content = ""
-        let typika = try! db.selectFrom("content", whereExpr:"section=\(index.row+1)") { ["text": $0["text"]] }
+        var results = [String]()
         
-        for line in typika {
-            content += line["text"] as! String
-        }
+        results.append(
+            contentsOf: try! db.prepareRowIterator(t_content
+                .filter(f_section == index.row+1))
+            .map { $0[f_text]}
+        )
         
+        content = results.joined()
         content = content.replacingOccurrences(of: "GLAS", with: Translate.stringFromNumber(tone!))
         
         for (i, fragment) in fragments.enumerated() {

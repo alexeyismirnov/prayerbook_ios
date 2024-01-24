@@ -19,8 +19,6 @@ let books_en : [[BookModel]] = [[BookmarksModel.shared],
      EbookModel("synaxarion_en")
 ]]
 
-// EbookModel("sokolovski"),
-
 let books_cn : [[BookModel]] =  [[BookmarksModel.shared],
     [OldTestamentModel(lang: "cn"),
     NewTestamentModel(lang: "cn")],
@@ -42,7 +40,7 @@ let books_hk : [[BookModel]] = [[BookmarksModel.shared],
 ]]
 
 class LibraryTab: UIViewController, ResizableTableViewCells  {
-    let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+    var toolkit : Bundle!
     var tableView: UITableView!
     var serviceModel : ServiceModel?
     
@@ -51,6 +49,8 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        toolkit = Bundle(identifier: "swift-toolkit-swift-toolkit-resources")!
                 
         createTableView(style: .grouped)
         tableView.contentInset = UIEdgeInsets(top: -30, left: 0, bottom: 0, right: 0)

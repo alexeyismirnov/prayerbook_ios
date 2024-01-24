@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Alexey Smirnov. All rights reserved.
 //
 
+/*
 import UIKit
 import swift_toolkit
 
@@ -207,3 +208,5 @@ class Options: UITableViewController {
         })
     }
 }
+*/
+

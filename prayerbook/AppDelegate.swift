@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Chameleon
 import swift_toolkit
 
 class AppDelegate : UIResponder, UIApplicationDelegate {
@@ -43,15 +42,17 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
         AppGroup.id = "group.rlc.ponomar2"
         let prefs = AppGroup.prefs!
         
-        if prefs.object(forKey: "theme") == nil {
+        // the first time app is launched
+
+        if prefs.object(forKey: "style") == nil {
+            prefs.set(0, forKey: "style")
             Theme.set(.Default)
             
         } else {
-            let color = prefs.color(forKey: "theme")
-            Theme.set(.Chameleon(color: color!))
+            let style = AppStyle(rawValue: prefs.integer(forKey: "style"))!
+            Theme.set(style)
         }
-        
-        // the first time app is launched
+
         if prefs.object(forKey: "fontSize") == nil {
             let lang = Locale.preferredLanguages[0]
 

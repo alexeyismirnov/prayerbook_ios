@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import Squeal
 import swift_toolkit
 
 class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     static let bookIcon = UIImage(named: "book")!.maskWithColor(.red).resize(CGSize(width: 20, height: 20))
-    let toolkit = Bundle(identifier: "com.rlc.swift-toolkit")
+    var toolkit: Bundle!
     
     var tableView: UITableView!
     var appeared = false
@@ -43,9 +42,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         formatter.timeStyle = .none
         return formatter
     }()
-    
-    static var background : UIImage?
-    
+        
     static func date(_ date: Date) -> UIViewController {
         let vc = UIViewController.named("Daily") as! DailyTab
         vc.currentDate = date
@@ -66,6 +63,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        toolkit = Bundle(identifier: "swift-toolkit-swift-toolkit-resources")!
         
         if currentDate == nil {
             currentDate = DateComponents(date: Date()).toDate()
@@ -157,7 +156,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             switch indexPath.row {
             case 0:
                 return getTextDetailsCell(title: formatter.string(from: currentDate!).capitalizingFirstLetter(),
-                                          subtitle: "")
+                                          subtitle: "", isBold: true)
                 
             case 1:
                 var descr = ""
@@ -400,11 +399,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             view.backgroundColor =  bgColor
             
         } else {
-            if DailyTab.background == nil {
-                DailyTab.background = UIImage(background: "bg3.jpg", inView: view, bundle: toolkit)
-            }
-            
-            view.backgroundColor = UIColor(patternImage: DailyTab.background!)
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: toolkit))
         }
         
         pericope = PericopeModel(lang: Translate.language)
@@ -528,9 +523,11 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     }
     
     @objc func showOptions() {
+        /*
         let vc = UIViewController.named("Options") as! Options
         let nav = UINavigationController(rootViewController: vc)
         navigationController?.present(nav, animated: true, completion: {})
+         */
     }
     
 }
