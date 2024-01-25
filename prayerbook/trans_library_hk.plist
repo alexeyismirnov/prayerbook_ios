@@ -46,8 +46,8 @@
 	<string>聖經</string>
 	<key>Catholic Epistles</key>
 	<string>宗徒若望的書信</string>
-	<key>Chapter %d</key>
-	<string>第%d章</string>
+	<key>Chapter %@</key>
+	<string>第%@章</string>
 	<key>Daniel</key>
 	<string>達尼爾</string>
 	<key>Deuteronomy</key>
@@ -120,8 +120,8 @@
 	<string>若蘇厄書</string>
 	<key>Judges</key>
 	<string>民長紀</string>
-	<key>Kathisma %d</key>
-	<string>第%d分</string>
+	<key>Kathisma %@</key>
+	<string>第%@分</string>
 	<key>Lamentations</key>
 	<string>耶肋米亞哀歌</string>
 	<key>Leviticus</key>

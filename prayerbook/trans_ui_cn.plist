@@ -10,6 +10,12 @@
 	<string>默认值</string>
 	<key>Background color</key>
 	<string>背景颜色</string>
+    <key>Paper</key>
+    <string>纸</string>
+    <key>Bright</key>
+    <string>光亮</string>
+    <key>Dark</key>
+    <string>黑暗</string>
 	<key>Laymen fasting</key>
 	<string>外行斋戒</string>
 	<key>Monastic fasting</key>

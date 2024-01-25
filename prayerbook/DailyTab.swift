@@ -99,7 +99,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         if AppGroup.prefs.object(forKey: "welcome51") == nil {
             AppGroup.prefs.set(true, forKey: "welcome51")
             AppGroup.prefs.synchronize()
-            showPopup(LanguageSelector())
+            showPopup(LanguageSelector(), dismissWhenTaps: false)
         }
     }
     
@@ -523,11 +523,9 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     }
     
     @objc func showOptions() {
-        /*
-        let vc = UIViewController.named("Options") as! Options
+        let vc = Options()
         let nav = UINavigationController(rootViewController: vc)
         navigationController?.present(nav, animated: true, completion: {})
-         */
     }
     
 }

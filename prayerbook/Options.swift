@@ -6,130 +6,171 @@
 //  Copyright (c) 2014 Alexey Smirnov. All rights reserved.
 //
 
-/*
 import UIKit
 import swift_toolkit
 
-class Options: UITableViewController {
-    
+public class Options: UIViewController, ResizableTableViewCells {
+    var toolkit : Bundle!
     let prefs = AppGroup.prefs!
-    var lastSelected: IndexPath?
-    
-    let labels : [(IndexPath, String)] = [
-        (IndexPath(row:0,section:2), "Laymen fasting"),
-        (IndexPath(row:1,section:2), "Monastic fasting"),
-        (IndexPath(row:0,section:3), "Default"),
-        (IndexPath(row:1,section:3), "Choose color...")
-    ]
 
-    override func viewDidLoad() {
+    public var tableView: UITableView!
+    var button_close : CustomBarButton!
+    var fastingLevel: Int!
+    let langs = ["en", "cn", "hk"]
+
+    public init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
-        let tap1 = UITapGestureRecognizer(target: self, action: #selector(done(tapGestureRecognizer:)))
+        toolkit = Bundle(identifier: "swift-toolkit-swift-toolkit-resources")!
+        fastingLevel = prefs.integer(forKey: "fastingLevel")
         
-        let doneLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 40))
-        doneLabel.text = Translate.s("Done")
-        doneLabel.textColor = .red
-        doneLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        doneLabel.isUserInteractionEnabled = true
-        doneLabel.addGestureRecognizer(tap1)
+        createTableView(style: .grouped)
+        configureNavbar()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: doneLabel)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTheme), name: .themeChangedNotification, object: nil)
-
-        view.backgroundColor = UIColor.clear
-        tableView.backgroundView = UIImageView(image: UIImage(background: "church.jpg", inView: view))
-        
+        reloadTheme()
+    }
+    
+    func configureNavbar() {
         navigationController?.makeTransparent()
-        navigationController?.navigationBar.tintColor = UIColor.red
         
-        var languageCell : UITableViewCell!
-        
-        switch (Translate.language) {
-        case "en":
-            languageCell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 1))
-            break
-        case "cn":
-            languageCell = self.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 1))
-            break
-        case "hk":
-            languageCell = self.tableView(tableView, cellForRowAt: IndexPath(row: 2, section: 1))
-            break
-        default:
-            break
-        }
-        
-        languageCell.accessoryType = .checkmark
-
-        let fastingCell = self.tableView(tableView, cellForRowAt: IndexPath(row: prefs.integer(forKey: "fastingLevel"), section: 2)) as UITableViewCell
-        fastingCell.accessoryType = .checkmark
-        
-        for (ind, label) in labels {
-            let cell = self.tableView(tableView, cellForRowAt: ind) as UITableViewCell
-            cell.textLabel?.text = Translate.s(label)
-        }
+        button_close = CustomBarButton(image: UIImage(named: "close", in: toolkit), style: .plain, target: self, action: #selector(close))
+        navigationItem.leftBarButtonItems = [button_close]
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UITableViewCell.appearance().backgroundColor =  UIColor.white.withAlphaComponent(0.5)
-        tableView.reloadData()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        UITableViewCell.appearance().backgroundColor =  UIColor.white.withAlphaComponent(0)
-        super.viewDidDisappear(animated)
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let headerView = view as! UITableViewHeaderFooterView
-        
-        if (section > 0) {
-            headerView.layer.opacity = 0.5
-            headerView.contentView.backgroundColor = UIColor.white
-            headerView.backgroundView?.backgroundColor = UIColor.white
+    @objc func reloadTheme() {
+        if let bgColor = Theme.mainColor {
+            view.backgroundColor =  bgColor
             
         } else {
-            headerView.contentView.backgroundColor = UIColor.clear
-            headerView.backgroundView?.backgroundColor = UIColor.clear
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: toolkit))
+
+        }
+        
+        title = Translate.s("Options")
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.textColor!]
+    }
+    
+    @objc func close() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return 4
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 1:
+            return 2
+            
+        case 2:
+            return 3
+            
+        case 3:
+            return 3
+            
+        default:
+            return 0
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var cell: UITableViewCell
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 1:
+            return Translate.s("Fasting type")
+            
+        case 2:
+            return Translate.s("Background color")
+            
+        case 3:
+            return Translate.s("Language")
+            
+        default:
+            return ""
+        }
+    }
+    
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                return getTextDetailsCell(title: Translate.s("Laymen fasting"), isChecked: indexPath.row == fastingLevel)
 
-        if indexPath.section == 1  {
-            cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 1)) as UITableViewCell
-            cell.accessoryType = .none
+            } else {
+                return getTextDetailsCell(title: Translate.s("Monastic fasting"), isChecked: indexPath.row == fastingLevel)
+
+            }
+
+        } else if indexPath.section == 2 {
+            let style = prefs.integer(forKey: "style")
             
-            cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 1)) as UITableViewCell
-            cell.accessoryType = .none
-            
-            cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 2, section: 1)) as UITableViewCell
-            cell.accessoryType = .none
-            
-            cell = self.tableView(tableView, cellForRowAt: indexPath) as UITableViewCell
-            cell.accessoryType = .checkmark
-            
-            var lang: String!
-            
-            switch (indexPath.row) {
+            switch indexPath.row {
             case 0:
-                lang = "en"
-                break
+                return getTextDetailsCell(title: Translate.s("Paper"), isChecked: indexPath.row == style)
+                
             case 1:
-                lang = "cn"
-                break
+                return getTextDetailsCell(title: Translate.s("Bright"), isChecked: indexPath.row == style)
+
             case 2:
-                lang = "hk"
-                break
-            default:
-                break
+                return getTextDetailsCell(title: Translate.s("Dark"), isChecked: indexPath.row == style)
+                
+            default: break
             }
             
-            Translate.language = lang
+        } else if indexPath.section == 3 {
+            let lang = prefs.string(forKey: "language")
+
+            switch indexPath.row {
+            case 0:
+                return getTextDetailsCell(title: "English", isChecked: langs[indexPath.row] == lang)
+                
+            case 1:
+                return getTextDetailsCell(title: "简体中文", isChecked: langs[indexPath.row] == lang)
+                
+            case 2:
+                return getTextDetailsCell(title: "繁體中文", isChecked: langs[indexPath.row] == lang)
+                
+            default: break
+            }
+        }
+        
+        let cell = getSimpleCell("")
+        return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 1 {
+            fastingLevel = indexPath.row
+            FastingModel.fastingLevel = FastingLevel(rawValue:fastingLevel)
+            
+            prefs.set(fastingLevel, forKey: "fastingLevel")
+            prefs.synchronize()
+            
+            tableView.reloadData()
+            
+        } else if indexPath.section == 2 {
+            prefs.set(indexPath.row, forKey: "style")
+            prefs.synchronize()
+            
+            let style = AppStyle(rawValue: indexPath.row)!
+            Theme.set(style)
+
+            reloadTheme()
+            tableView.reloadData()
+            
+        } else if indexPath.section == 3 {
+            let lang = langs[indexPath.row]
+            
             prefs.set(lang, forKey: "language")
+            Translate.language = lang
             
             let year = DateComponents(date: Date()).year!
             
@@ -138,75 +179,46 @@ class Options: UITableViewController {
 
             FeastNotifications.setupNotifications()
 
-        } else if indexPath.section == 2 {
-            cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 2)) as UITableViewCell
-            cell.accessoryType = .none
-            
-            cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 1, section: 2)) as UITableViewCell
-            cell.accessoryType = .none
-            
-            cell = self.tableView(tableView, cellForRowAt: indexPath) as UITableViewCell
-            cell.accessoryType = .checkmark
-            
-            let fasting = indexPath.row
-            FastingModel.fastingLevel = FastingLevel(rawValue:fasting)
-            
-            prefs.set(fasting, forKey: "fastingLevel")
-
-        } else if indexPath.section == 3 {
-            if indexPath.row == 0 {
-                Theme.set(.Default)
-                
-                prefs.removeObject(forKey: "theme")
-                prefs.synchronize()
-                
-                NotificationCenter.default.post(name: .themeChangedNotification, object: nil)
-
-                self.dismiss(animated: false, completion: {})
-                
-            } else {
-                let bundle = Bundle(identifier: "com.rlc.swift-toolkit")
-                let container = UIViewController.named("Palette", bundle: bundle) as! Palette
-                showPopup(container)
-            }
-            
+            title = Translate.s("Options")
+            tableView.reloadData()
         }
         
-        prefs.synchronize()
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 1 {
-            return Translate.s("Language")
-            
-        } else if section == 2 {
-            return Translate.s("Fasting type")
-            
-        } else if section == 3 {
-            return Translate.s("Background color")
-        
-        } else if section == 4 {
-            return Translate.s("copyright_info")
-        }
-        
-        return ""
-    }
-
-    @objc func done(tapGestureRecognizer: UITapGestureRecognizer) {
         NotificationCenter.default.post(name: .themeChangedNotification, object: nil)
-        dismiss(animated: true, completion: nil)
+        
+        return nil
     }
     
-    @objc func updateTheme(_ notification: NSNotification) {
-        guard let color = notification.userInfo?["color"] as? UIColor else { return }
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        let title = UILabel()
+        let content = self.tableView(tableView, titleForHeaderInSection: section)!
         
-        UIViewController.popup.dismiss({
-            self.prefs.set(color, forKey: "theme")
-            self.prefs.synchronize()
-            
-            self.dismiss(animated: false, completion: {})
-        })
-    }
-}
-*/
+        if content.count == 0 {
+            return nil
+        }
 
+        title.numberOfLines = 1
+        title.font = UIFont.boldSystemFont(ofSize: 18)
+        title.textColor = Theme.secondaryColor
+        title.text = content
+        
+        headerView.backgroundColor = UIColor.clear
+        headerView.addSubview(title)
+        headerView.fullScreen(view: title, marginX: 15, marginY: 5)
+        
+        return headerView
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let content = self.tableView(tableView, titleForHeaderInSection: section)!
+        return content.count == 0 ? 0 : 40
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cell : UITableViewCell = self.tableView(tableView, cellForRowAt: indexPath)
+        let h = calculateHeightForCell(cell)
+        
+        return  max(h, 35)
+    }
+    
+}
