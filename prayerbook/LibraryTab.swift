@@ -16,7 +16,9 @@ let books_en : [[BookModel]] = [[BookmarksModel.shared],
      EbookModel("liturgy_en_ebook"),
      TypikaModel("en")],
     [EbookModel("prayerbook_en"),
-     EbookModel("synaxarion_en")
+     EbookModel("synaxarion_en"),
+     EbookModel("augustin_en"),
+
 ]]
 
 let books_cn : [[BookModel]] =  [[BookmarksModel.shared],
