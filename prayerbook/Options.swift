@@ -49,11 +49,7 @@ public class Options: UIViewController, ResizableTableViewCells {
             view.backgroundColor =  bgColor
             
         } else {
-            if DailyTab.background == nil {
-                DailyTab.background = UIImage(background: "bg3.jpg", inView: view, bundle: toolkit)
-            }
-   
-            view.backgroundColor = UIColor(patternImage: DailyTab.background!)
+            view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: toolkit))
         }
         
         title = Translate.s("Options")

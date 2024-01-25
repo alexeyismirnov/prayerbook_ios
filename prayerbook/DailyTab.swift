@@ -52,8 +52,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         return formatter
     }()
     
-    static var background : UIImage?
-
     static func date(_ date: Date) -> UIViewController {
         let vc = UIViewController.named("Daily") as! DailyTab
         vc.currentDate = date
