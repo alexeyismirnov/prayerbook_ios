@@ -9,14 +9,13 @@
 import Foundation
 import swift_toolkit
 
-class SynaxarionModel : EbookModel, PreachmentModel {
-    
+class SynaxarionModel : EbookModel {
     init(lang: String) {
         super.init("synaxarion_\(lang)")
         self.lang = lang
     }
     
-    func getPreachment(_ date: Date) -> [Preachment] {
+    func forDate(_ date: Date) -> [Preachment] {
         var dates = [Date]()
         let cal = Cal.fromDate(date)
        

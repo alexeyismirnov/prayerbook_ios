@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FolioReaderKit
 import swift_toolkit
 
 class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
@@ -19,9 +20,12 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     var fasting: FastingModel!
     
     var readings = [String]()
-    var pericope: PericopeModel!
     var extraReadings = [Preachment]()
 
+    static var pericope: PericopeModel = PericopeModel(lang: Translate.language)
+    static var synaxarion: SynaxarionModel = SynaxarionModel(lang: Translate.language)
+    static var livesOfSaints: LivesOfSaintsModel = LivesOfSaintsModel()
+    
     var dayDescription = [ChurchDay]()
     var saints = [Saint]()
     var saintIcons = [SaintIcon]()
@@ -314,13 +318,25 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 case 0 ..< readings.count:
                     let currentReading = readings[indexPath.row].components(separatedBy: "#").first!
                     
-                    let pos = BookPosition(model: pericope, location: currentReading)
-                    vc = BookPageSingle(pos, lang: pericope.lang)
+                    let pos = BookPosition(model: DailyTab.pericope, location: currentReading)
+                    vc = BookPageSingle(pos, lang: DailyTab.pericope.lang)
             
                 case readings.count ..< readings.count + extraReadings.count:
                     let ind = indexPath.row - readings.count
                     let pos = extraReadings[ind].position
-                    vc = BookPageSingle(pos)
+                
+                    if (pos.model?.contentType == .epub) {
+                        let path = pos.data as! String
+                        let bookPath =  Bundle.main.path(forResource: "epubs/\(path)", ofType: "epub")!
+
+                        let folioReader = FolioReader()
+                        folioReader.showEpub(path: bookPath)
+                        
+                        return nil
+                        
+                    } else {
+                        vc = BookPageSingle(pos)
+                    }
                             
                 default:
                     break
@@ -402,7 +418,13 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             view.backgroundColor = UIColor(patternImage: UIImage(background: "bg3.jpg", inView: view, bundle: toolkit))
         }
         
-        pericope = PericopeModel(lang: Translate.language)
+        if DailyTab.pericope.lang != Translate.language {
+            DailyTab.pericope = PericopeModel(lang: Translate.language)
+        }
+        
+        if DailyTab.synaxarion.lang != Translate.language {
+            DailyTab.synaxarion = SynaxarionModel(lang: Translate.language)
+        }
         
         reload()
     }
@@ -424,7 +446,12 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     func reloadAfterAppeared() {
         saintIcons = SaintIconModel.get(currentDate!)
-        extraReadings = SynaxarionModel(lang: Translate.language).getPreachment(currentDate!)
+        
+        extraReadings = DailyTab.synaxarion.forDate(currentDate!)
+        
+        if Translate.language == "en" {
+            extraReadings.append(contentsOf: DailyTab.livesOfSaints.forDate(currentDate!))
+        }
     }
     
     func configureNavbar() {
