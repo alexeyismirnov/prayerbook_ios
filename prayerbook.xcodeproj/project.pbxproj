@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -148,11 +148,11 @@
 		8AA1E67A28D981450063034B /* taushev.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA1E67928D981450063034B /* taushev.sqlite */; };
 		8AA1E67C28D989010063034B /* TaushevModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1E67B28D989010063034B /* TaushevModel.swift */; };
 		8AA5E74223321444002E6BE5 /* typika.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AA5E74123321444002E6BE5 /* typika.sqlite */; };
+		8AA879B02B74AB9500ABC716 /* swift_toolkit in Frameworks */ = {isa = PBXBuildFile; productRef = 8AA879AF2B74AB9500ABC716 /* swift_toolkit */; };
+		8AA879B22B74ABBC00ABC716 /* swift_toolkit in Frameworks */ = {isa = PBXBuildFile; productRef = 8AA879B12B74ABBC00ABC716 /* swift_toolkit */; };
 		8AADFF6E1E84F28900CE3D0F /* feofan.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF6D1E84F28900CE3D0F /* feofan.sqlite */; };
 		8AAE60E52334853F005563D3 /* TypikaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAE60E42334853F005563D3 /* TypikaModel.swift */; };
 		8AB2C2F223421E4400A2EE1E /* YearCalendarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2C2F123421E4400A2EE1E /* YearCalendarContainer.swift */; };
-		8AB3D1592B5E6CDC003A62DD /* swift_toolkit in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB3D1582B5E6CDC003A62DD /* swift_toolkit */; };
-		8AB3D15B2B5E6D1E003A62DD /* swift_toolkit in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB3D15A2B5E6D1E003A62DD /* swift_toolkit */; };
 		8AB3D15E2B5E6DC6003A62DD /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB3D15D2B5E6DC6003A62DD /* Zip */; };
 		8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */; };
 		8ABF55BA28B679B5005BD35D /* yungerov.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF55B928B679B5005BD35D /* yungerov.sqlite */; };
@@ -550,7 +550,7 @@
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
 				8A00E9D226C7952700E3CF6E /* StoreKit.framework in Frameworks */,
 				8AB3D15E2B5E6DC6003A62DD /* Zip in Frameworks */,
-				8AB3D1592B5E6CDC003A62DD /* swift_toolkit in Frameworks */,
+				8AA879B02B74AB9500ABC716 /* swift_toolkit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,7 +559,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */,
-				8AB3D15B2B5E6D1E003A62DD /* swift_toolkit in Frameworks */,
+				8AA879B22B74ABBC00ABC716 /* swift_toolkit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -907,8 +907,8 @@
 			);
 			name = ponomar;
 			packageProductDependencies = (
-				8AB3D1582B5E6CDC003A62DD /* swift_toolkit */,
 				8AB3D15D2B5E6DC6003A62DD /* Zip */,
+				8AA879AF2B74AB9500ABC716 /* swift_toolkit */,
 			);
 			productName = prayerbook;
 			productReference = 8A74D7F7198F20CC0078F39F /* ponomar.app */;
@@ -930,7 +930,7 @@
 			);
 			name = CalendarWidget;
 			packageProductDependencies = (
-				8AB3D15A2B5E6D1E003A62DD /* swift_toolkit */,
+				8AA879B12B74ABBC00ABC716 /* swift_toolkit */,
 			);
 			productName = CalendarWidget;
 			productReference = 8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */;
@@ -983,8 +983,8 @@
 			);
 			mainGroup = 8A74D7EE198F20CC0078F39F;
 			packageReferences = (
-				8AB3D1572B5E6CDC003A62DD /* XCRemoteSwiftPackageReference "swift_toolkit" */,
 				8AB3D15C2B5E6DC6003A62DD /* XCRemoteSwiftPackageReference "Zip" */,
+				8AA879AE2B74AB9500ABC716 /* XCLocalSwiftPackageReference "../swift_toolkit" */,
 			);
 			productRefGroup = 8A74D7F8198F20CC0078F39F /* Products */;
 			projectDirPath = "";
@@ -1575,15 +1575,14 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		8AB3D1572B5E6CDC003A62DD /* XCRemoteSwiftPackageReference "swift_toolkit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/alexeyismirnov/swift_toolkit";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		8AA879AE2B74AB9500ABC716 /* XCLocalSwiftPackageReference "../swift_toolkit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../swift_toolkit;
 		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
 		8AB3D15C2B5E6DC6003A62DD /* XCRemoteSwiftPackageReference "Zip" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marmelroy/Zip";
@@ -1595,14 +1594,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8AB3D1582B5E6CDC003A62DD /* swift_toolkit */ = {
+		8AA879AF2B74AB9500ABC716 /* swift_toolkit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8AB3D1572B5E6CDC003A62DD /* XCRemoteSwiftPackageReference "swift_toolkit" */;
 			productName = swift_toolkit;
 		};
-		8AB3D15A2B5E6D1E003A62DD /* swift_toolkit */ = {
+		8AA879B12B74ABBC00ABC716 /* swift_toolkit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8AB3D1572B5E6CDC003A62DD /* XCRemoteSwiftPackageReference "swift_toolkit" */;
 			productName = swift_toolkit;
 		};
 		8AB3D15D2B5E6DC6003A62DD /* Zip */ = {
