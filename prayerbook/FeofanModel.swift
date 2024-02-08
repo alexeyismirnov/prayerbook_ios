@@ -10,7 +10,7 @@ import UIKit
 import swift_toolkit
 import SQLite
 
-class FeofanModel : BookModel, PreachmentModel {
+class FeofanModel : BookModel {
     let thoughts = Table("thoughts")
     let f_id = Expression<String>("id")
     let f_descr = Expression<String>("descr")

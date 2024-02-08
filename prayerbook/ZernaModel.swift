@@ -9,7 +9,7 @@
 import Foundation
 import swift_toolkit
 
-class ZernaModel : EbookModel, PreachmentModel {
+class ZernaModel : EbookModel {
     public init() {
         super.init("zerna")
     }

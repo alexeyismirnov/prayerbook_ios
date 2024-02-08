@@ -9,7 +9,7 @@
 import Foundation
 import swift_toolkit
 
-class SynaxarionModel : EbookModel, PreachmentModel {
+class SynaxarionModel : EbookModel {
     public init() {
         super.init("synaxarion")
     }

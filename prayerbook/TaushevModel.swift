@@ -10,7 +10,7 @@ import UIKit
 import swift_toolkit
 import SQLite
 
-class TaushevModel : BookModel, PreachmentModel {
+class TaushevModel : BookModel {
     let content = Table("content")
     let f_id = Expression<String>("id")
     let f_subtitle = Expression<String>("subtitle")
