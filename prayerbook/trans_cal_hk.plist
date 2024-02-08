@@ -206,6 +206,8 @@
 	<string>主顯節前期</string>
 	<key>forefeast_transfiguration</key>
 	<string>主易聖容節前日</string>
+    <key>findingOfHead</key>
+    <string>初次（4世紀）及再次（452年）尋獲施浸者前驅聖約翰之聖首</string>
 	<key>greatFriday</key>
 	<string>聖周星期五（主受難日）</string>
 	<key>greatMonday</key>

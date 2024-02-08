@@ -33,10 +33,12 @@ private class SaintsCalendar {
             .map { try! decoder.decode(ChurchDay.self, from: $0[f_text].data(using: .utf8)!) }
         
         let pascha = Cal.paschaDay(year)
+        let isLeapYear = Cal.isLeap(year: year)
         let pentecost = pascha + 49.days
         let greatLentStart = pascha - 48.days
         
         day("holyFathersSixCouncils").date = Cal.nearestSunday(Date(29, 7, year))
+        day("findingOfHead").date = isLeapYear ? Date(8, 3, year) : Date(9, 3, year)
         
         day("greatMonday").date = pascha - 6.days
         day("greatTuesday").date = pascha - 5.days
