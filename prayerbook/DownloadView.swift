@@ -8,7 +8,7 @@
 
 import UIKit
 import swift_toolkit
-import Zip
+import ZipArchive
 
 class DownloadView: UIViewController, PopupContentViewController {
     
@@ -44,7 +44,7 @@ class DownloadView: UIViewController, PopupContentViewController {
             }
             
             do {
-                let _ = try Zip.quickUnzipFile(fileURL)
+                SSZipArchive.unzipFile(atPath: fileURL.path, toDestination: fileURL.deletingPathExtension().path)
                 try FileManager.default.removeItem(at: fileURL)
             }
             catch let error as NSError {
@@ -78,7 +78,6 @@ class DownloadView: UIViewController, PopupContentViewController {
     func sizeForPopup(_ popupController: PopupController, size: CGSize, showingKeyboard: Bool) -> CGSize {
         return CGSize(width: 300, height: 200)
     }
-    
     
 }
 

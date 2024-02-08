@@ -153,7 +153,6 @@
 		8AADFF6E1E84F28900CE3D0F /* feofan.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AADFF6D1E84F28900CE3D0F /* feofan.sqlite */; };
 		8AAE60E52334853F005563D3 /* TypikaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAE60E42334853F005563D3 /* TypikaModel.swift */; };
 		8AB2C2F223421E4400A2EE1E /* YearCalendarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB2C2F123421E4400A2EE1E /* YearCalendarContainer.swift */; };
-		8AB3D15E2B5E6DC6003A62DD /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB3D15D2B5E6DC6003A62DD /* Zip */; };
 		8AB749A11C4C7A3500CD1B32 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB749A01C4C7A3400CD1B32 /* NotificationCenter.framework */; };
 		8ABF55BA28B679B5005BD35D /* yungerov.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8ABF55B928B679B5005BD35D /* yungerov.sqlite */; };
 		8AC10A0B222A694F00540B22 /* num_ru.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AC109CA222A694300540B22 /* num_ru.sqlite */; };
@@ -549,7 +548,6 @@
 				8A74D7FF198F20CC0078F39F /* UIKit.framework in Frameworks */,
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
 				8A00E9D226C7952700E3CF6E /* StoreKit.framework in Frameworks */,
-				8AB3D15E2B5E6DC6003A62DD /* Zip in Frameworks */,
 				8AA879B02B74AB9500ABC716 /* swift_toolkit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -907,7 +905,6 @@
 			);
 			name = ponomar;
 			packageProductDependencies = (
-				8AB3D15D2B5E6DC6003A62DD /* Zip */,
 				8AA879AF2B74AB9500ABC716 /* swift_toolkit */,
 			);
 			productName = prayerbook;
@@ -983,7 +980,6 @@
 			);
 			mainGroup = 8A74D7EE198F20CC0078F39F;
 			packageReferences = (
-				8AB3D15C2B5E6DC6003A62DD /* XCRemoteSwiftPackageReference "Zip" */,
 				8AA879AE2B74AB9500ABC716 /* XCLocalSwiftPackageReference "../swift_toolkit" */,
 			);
 			productRefGroup = 8A74D7F8198F20CC0078F39F /* Products */;
@@ -1582,17 +1578,6 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		8AB3D15C2B5E6DC6003A62DD /* XCRemoteSwiftPackageReference "Zip" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/marmelroy/Zip";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
 		8AA879AF2B74AB9500ABC716 /* swift_toolkit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1601,11 +1586,6 @@
 		8AA879B12B74ABBC00ABC716 /* swift_toolkit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = swift_toolkit;
-		};
-		8AB3D15D2B5E6DC6003A62DD /* Zip */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8AB3D15C2B5E6DC6003A62DD /* XCRemoteSwiftPackageReference "Zip" */;
-			productName = Zip;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
