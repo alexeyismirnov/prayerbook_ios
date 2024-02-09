@@ -246,7 +246,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 if Translate.language == "cn" {
                     subtitle = ""
                 } else {
-                    subtitle = (currentReading.count > 1) ? Translate.s(currentReading[1].trimmingCharacters(in: CharacterSet.whitespaces)) : ""
+                    subtitle = (currentReading.count > 1) ? Translate.s(currentReading[1].trim()) : ""
                 }
                 
             case readings.count ..< readings.count + extraReadings.count:
@@ -450,6 +450,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         extraReadings = DailyTab.synaxarion.forDate(currentDate!)
         
         if Translate.language == "en" {
+            extraReadings.append(contentsOf: FeofanModel.shared.getPreachment(currentDate!))
             extraReadings.append(contentsOf: DailyTab.livesOfSaints.forDate(currentDate!))
         }
     }
