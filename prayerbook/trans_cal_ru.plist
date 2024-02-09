@@ -86,6 +86,8 @@
 	<string>Суббота по Богоявлении</string>
 	<key>sundayAfterTheophany</key>
 	<string>Неделя по Богоявлении</string>
+    <key>findingOfHead</key>
+    <string>Первое (IV) и второе (452) обретение главы Иоанна Предтечи</string>
 	<key>saturday1GreatLent</key>
 	<string>Вмч. Феодора Тирона (306)</string>
 	<key>sunday1GreatLent</key>
