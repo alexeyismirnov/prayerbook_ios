@@ -44,7 +44,7 @@ class FeofanModel : BookModel {
     func getPreachment(_ date: Date) -> [Preachment] {
         let cal = Cal.fromDate(date)
         let title = "Thoughts for Each Day"
-    
+
         var results = [Preachment]()
 
         if date == cal.d("meetingOfLord") {
@@ -82,7 +82,8 @@ class FeofanModel : BookModel {
             cal.pascha-2.days:
             return []
             
-        case cal.d("sundayOfForefathers"):
+        case cal.d("sundayBeforeNativity1"),
+            cal.d("sundayBeforeNativity2"):
             return [Preachment(
                 position: BookPosition(model: FeofanModel.shared, data: getFeofan("346")!),
                 title: title)]
