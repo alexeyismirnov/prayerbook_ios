@@ -163,6 +163,8 @@ public class Options: UIViewController, ResizableTableViewCells {
             
         } else if indexPath.section == 3 {
             prefs.set(indexPath.row, forKey: "bibleLang")
+            prefs.synchronize()
+
             tableView.reloadData()
         }
         

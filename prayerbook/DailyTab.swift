@@ -21,7 +21,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     var readings = [String]()
     var currentReading: String!
     var extraReadings = [Preachment]()
-
+    var button_extra : CustomBarButton!
+    
     var saintTroparia = [Troparion]()
     let troparia : [TroparionModel] = [TroparionFeastModel.shared, TroparionDayModel.shared]
 
@@ -362,12 +363,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             switch indexPath.row {
             case 0 ..< readings.count:
                 currentReading = readings[indexPath.row].components(separatedBy: "#").first!
-                
-                let bibleLang = BibleLang(rawValue: AppGroup.prefs.integer(forKey: "bibleLang"))
-                let pericope = PericopeModel(lang: bibleLang == .slavonic ? "cs" : "ru")
-
-                let pos = BookPosition(model: pericope, location: currentReading)
-                vc = BookPageSingle(pos, lang: pericope.lang)
+                vc = getPericopeVC()
                 
             case readings.count ..< readings.count + extraReadings.count:
                 let ind = indexPath.row - readings.count
@@ -378,7 +374,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 break
             }
             
-            vc.hidesBottomBarWhenPushed = true;
+            vc.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(vc, animated: true)
             
         } else if indexPath.section == 2 && indexPath.row == 0 {
@@ -545,6 +541,24 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         navigationItem.rightBarButtonItems = [button_options, button_review]
     }
     
+    func getPericopeVC() -> UIViewController {
+        let prefs = AppGroup.prefs!
+        let bibleLang = BibleLang(rawValue: prefs.integer(forKey: "bibleLang"))
+        
+        let pericope = PericopeModel(lang: bibleLang == .slavonic ? "cs" : "ru")
+        
+        let button_extra = CustomBarButton(
+            image: UIImage(named:  bibleLang == .slavonic ? "lang_ru" : "lang_cs")!,
+            target: self,
+            btnHandler: #selector(switchLang))
+        
+        let pos = BookPosition(model: pericope, location: currentReading)
+        let vc = BookPageSingle(pos, lang: pericope.lang, button_extra: button_extra)!
+        vc.hidesBottomBarWhenPushed = true
+
+        return vc
+    }
+    
     @objc func showSaints() {
         let seconds = currentDate!.timeIntervalSince1970
         let url = URL(string: "saints-ru://open?\(seconds)")!
@@ -656,6 +670,21 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         guard let url = URL(string: link) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
+    
+    @objc func switchLang() {
+        let prefs = AppGroup.prefs!
+        let langVal = prefs.integer(forKey: "bibleLang")
+        
+        prefs.set(1 - langVal, forKey: "bibleLang")
+        prefs.synchronize()
+        
+        let newVC = getPericopeVC()
+
+        var stack = navigationController!.viewControllers
+        stack.remove(at: stack.count - 1)
+        stack.insert(newVC, at: stack.count)
+        navigationController!.setViewControllers(stack, animated: true)
+       }
     
     func downloadTroparion(model t: TroparionModel) {
         let container = UIViewController.named("DownloadView") as! DownloadView
