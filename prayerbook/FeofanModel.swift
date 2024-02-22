@@ -134,7 +134,7 @@ class FeofanModel : BookModel {
             }
             
             if results.count == 1 {
-                results[0].subtitle = ""
+                results[0].subtitle = "St. Theophan the Recluse"
             }
         }
         
