@@ -50,7 +50,7 @@ class FeofanModel : BookModel {
         if date == cal.d("meetingOfLord") {
             return [Preachment(
                 position: BookPosition(model: FeofanModel.shared, data: getFeofan("33")!),
-                title: title)]
+                title: title, subtitle: "St. Theophan the Recluse")]
         }
         
         switch date {
@@ -61,22 +61,22 @@ class FeofanModel : BookModel {
         case Date(4,12, date.year):
             return [Preachment(
                 position: BookPosition(model: FeofanModel.shared, data: getFeofan("325")!),
-                title: title)]
+                title: title, subtitle: "St. Theophan the Recluse")]
             
         case Date(19,8, date.year):
             return [Preachment(
                 position: BookPosition(model: FeofanModel.shared, data: getFeofan("218")!),
-                title: title)]
+                title: title, subtitle: "St. Theophan the Recluse")]
             
         case cal.greatLentStart-3.days:
             return [Preachment(
                 position: BookPosition(model: FeofanModel.shared, data: getFeofan("36")!),
-                title: title)]
+                title: title, subtitle: "St. Theophan the Recluse")]
             
         case cal.greatLentStart-5.days:
             return [Preachment(
                 position: BookPosition(model: FeofanModel.shared, data: getFeofan("34")!),
-                title: title)]
+                title: title, subtitle: "St. Theophan the Recluse")]
             
         case cal.pascha-3.days,
             cal.pascha-2.days:
@@ -86,7 +86,7 @@ class FeofanModel : BookModel {
             cal.d("sundayBeforeNativity2"):
             return [Preachment(
                 position: BookPosition(model: FeofanModel.shared, data: getFeofan("346")!),
-                title: title)]
+                title: title, subtitle: "St. Theophan the Recluse")]
             
         case cal.greatLentStart ..< cal.pascha:
             let num = (cal.greatLentStart >> date) + 39
@@ -94,7 +94,7 @@ class FeofanModel : BookModel {
             if let f = getFeofan("\(num)") {
                 return [Preachment(
                     position: BookPosition(model: FeofanModel.shared, data: f),
-                    title: title)]
+                    title: title, subtitle: "St. Theophan the Recluse")]
             }
             
         default:

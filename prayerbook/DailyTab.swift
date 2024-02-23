@@ -145,7 +145,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             return (FastingModel.fastingLevel == .monastic) ? Translate.s("Monastic fasting") : Translate.s("Laymen fasting")
             
         case 3:
-            return readings.count > 0 ? Translate.s("Gospel of the day") : nil
+            return readings.count > 0 ? Translate.s("Reading of the day") : nil
             
         case 4:
             return Translate.s("Memory of saints")
