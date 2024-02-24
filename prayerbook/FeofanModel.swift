@@ -92,10 +92,12 @@ class FeofanModel : BookModel {
             let num = (cal.greatLentStart >> date) + 39
             
             if let f = getFeofan("\(num)") {
-                return [Preachment(
+                results.append(Preachment(
                     position: BookPosition(model: FeofanModel.shared, data: f),
-                    title: title)]
+                    title: title))
             }
+            
+            fallthrough
             
         default:
             let readings = ChurchReading.forDate(date)
