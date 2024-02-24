@@ -68,6 +68,11 @@ class FeofanModel : BookModel {
                 position: BookPosition(model: FeofanModel.shared, data: getFeofan("218")!),
                 title: title)]
             
+        case Date(28,8, date.year):
+            return [Preachment(
+                position: BookPosition(model: FeofanModel.shared, data: getFeofan("227")!),
+                title: title)]
+            
         case cal.greatLentStart-3.days:
             return [Preachment(
                 position: BookPosition(model: FeofanModel.shared, data: getFeofan("36")!),
@@ -107,7 +112,7 @@ class FeofanModel : BookModel {
                 
                 let pericope = Translate.readings(str)
                 let id = pericope.replacingOccurrences(of: " ", with: "")
-                
+                                
                 if let f = getFeofan(id) {
                     results.append(Preachment(
                         position: BookPosition(model: FeofanModel.shared, data: f),
