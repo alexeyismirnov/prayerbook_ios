@@ -433,7 +433,6 @@
 		8A555131270B130700873474 /* vigil_hk_ebook.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = vigil_hk_ebook.sqlite; sourceTree = "<group>"; };
 		8A59F34B1B14371800B15FA1 /* saints_07_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_07_en.sqlite; sourceTree = "<group>"; };
 		8A59F34C1B14371800B15FA1 /* saints_07_en.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_07_en.txt; sourceTree = "<group>"; };
-		8A5AFA3B2B625A1C00BB2629 /* epubs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = epubs; path = prayerbook/epubs; sourceTree = "<group>"; };
 		8A5EE9D92378383E0054F8B3 /* CalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWidget.swift; sourceTree = "<group>"; };
 		8A60D18C1F8885040023CFAE /* newicon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_1024.png; sourceTree = "<group>"; };
 		8A62E36F2327916900C7C4C5 /* TypikaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypikaModel.swift; sourceTree = "<group>"; };
@@ -811,7 +810,6 @@
 		8A74D7EE198F20CC0078F39F = {
 			isa = PBXGroup;
 			children = (
-				8A5AFA3B2B625A1C00BB2629 /* epubs */,
 				8A0F6F5B1C50C4BE0063DBF1 /* ponomar.entitlements */,
 				8A74D800198F20CC0078F39F /* prayerbook */,
 				8AB749A21C4C7A3500CD1B32 /* CalendarWidget */,
