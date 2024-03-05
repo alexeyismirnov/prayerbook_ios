@@ -61,7 +61,7 @@
 		8A6AA11826A0366B00FA310C /* vigil.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A6AA11726A0366B00FA310C /* vigil.sqlite */; };
 		8A6CB1962B970378000006E3 /* augustin.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A6CB1952B970378000006E3 /* augustin.sqlite */; };
 		8A6CB1982B9703E1000006E3 /* LivesOfSaints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CB1972B9703E1000006E3 /* LivesOfSaints.swift */; };
-		8A6CB19D2B9709A8000006E3 /* About_the_author.epub in Resources */ = {isa = PBXBuildFile; fileRef = 8A6CB19C2B97090B000006E3 /* About_the_author.epub */; };
+		8A6CB1A12B970DC6000006E3 /* epubs in Resources */ = {isa = PBXBuildFile; fileRef = 8A6CB1A02B970DC6000006E3 /* epubs */; };
 		8A6F7E9722A137D2006FD639 /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */; };
 		8A6F7E9922A13A85006FD639 /* launch_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9822A13A85006FD639 /* launch_icon.png */; };
 		8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FA198F20CC0078F39F /* Foundation.framework */; };
@@ -350,7 +350,7 @@
 		8A6AA11726A0366B00FA310C /* vigil.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = vigil.sqlite; sourceTree = "<group>"; };
 		8A6CB1952B970378000006E3 /* augustin.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = augustin.sqlite; sourceTree = "<group>"; };
 		8A6CB1972B9703E1000006E3 /* LivesOfSaints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivesOfSaints.swift; sourceTree = "<group>"; };
-		8A6CB19C2B97090B000006E3 /* About_the_author.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = About_the_author.epub; sourceTree = "<group>"; };
+		8A6CB1A02B970DC6000006E3 /* epubs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = epubs; sourceTree = "<group>"; };
 		8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
 		8A6F7E9822A13A85006FD639 /* launch_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_icon.png; sourceTree = "<group>"; };
 		8A74D7F7198F20CC0078F39F /* ponomar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ponomar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -589,14 +589,6 @@
 			path = books;
 			sourceTree = "<group>";
 		};
-		8A6CB19B2B9708C5000006E3 /* epubs */ = {
-			isa = PBXGroup;
-			children = (
-				8A6CB19C2B97090B000006E3 /* About_the_author.epub */,
-			);
-			path = epubs;
-			sourceTree = "<group>";
-		};
 		8A74D7EE198F20CC0078F39F = {
 			isa = PBXGroup;
 			children = (
@@ -637,7 +629,7 @@
 		8A74D800198F20CC0078F39F /* prayerbook */ = {
 			isa = PBXGroup;
 			children = (
-				8A6CB19B2B9708C5000006E3 /* epubs */,
+				8A6CB1A02B970DC6000006E3 /* epubs */,
 				8AAC691A1A2C4D5D00CC5CA1 /* bible */,
 				8A008FF22258A71400A9636B /* books */,
 				8A1B2574202955A60038C0C4 /* icons */,
@@ -1150,7 +1142,6 @@
 				8A185EF4283CA5D200C5FAEE /* canons.sqlite in Resources */,
 				8A9EBDBF26AAC66400D99529 /* matthew_cs.sqlite in Resources */,
 				8AC10A0F222A694F00540B22 /* matthew_ru.sqlite in Resources */,
-				8A6CB19D2B9709A8000006E3 /* About_the_author.epub in Resources */,
 				8AC10A11222A694F00540B22 /* 2john_ru.sqlite in Resources */,
 				8A9EBDB226AAC66400D99529 /* 1kings_cs.sqlite in Resources */,
 				8A1F2CB41DD9C18600F13A3D /* newicon_167.png in Resources */,
@@ -1191,6 +1182,7 @@
 				8AC10A29222A694F00540B22 /* eccles_ru.sqlite in Resources */,
 				8AC10A24222A694F00540B22 /* 1sam_ru.sqlite in Resources */,
 				8AC10A2B222A694F00540B22 /* 1pet_ru.sqlite in Resources */,
+				8A6CB1A12B970DC6000006E3 /* epubs in Resources */,
 				8A9EBDD026AAC66400D99529 /* ruth_cs.sqlite in Resources */,
 				8A9EBDBC26AAC66400D99529 /* 2chron_cs.sqlite in Resources */,
 				8AC10A4B222A694F00540B22 /* zech_ru.sqlite in Resources */,
