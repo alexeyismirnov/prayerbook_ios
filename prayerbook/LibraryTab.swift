@@ -27,7 +27,9 @@ let books : [[BookModel]] = [[BookmarksModel.shared],
                               EbookModel("zerna"),
                               EbookModel("taushev"),
                               EbookModel("zvezdinsky"),
-                              EbookModel("synaxarion")]]
+                              EbookModel("synaxarion"),
+                              EbookModel("augustin"),
+                             ]]
 
 class LibraryTab: UIViewController, ResizableTableViewCells  {
     let sections : [String] = ["", "Библия", "Молитвослов", "Богослужение", "Разное"]

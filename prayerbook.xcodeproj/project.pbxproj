@@ -59,6 +59,9 @@
 		8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5DE92E21958DF60006E046 /* DownloadView.swift */; };
 		8A61BBA5202438CF003AA1BF /* saint.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A61BBA4202438CE003AA1BF /* saint.pdf */; };
 		8A6AA11826A0366B00FA310C /* vigil.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A6AA11726A0366B00FA310C /* vigil.sqlite */; };
+		8A6CB1962B970378000006E3 /* augustin.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A6CB1952B970378000006E3 /* augustin.sqlite */; };
+		8A6CB1982B9703E1000006E3 /* LivesOfSaints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CB1972B9703E1000006E3 /* LivesOfSaints.swift */; };
+		8A6CB19D2B9709A8000006E3 /* About_the_author.epub in Resources */ = {isa = PBXBuildFile; fileRef = 8A6CB19C2B97090B000006E3 /* About_the_author.epub */; };
 		8A6F7E9722A137D2006FD639 /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */; };
 		8A6F7E9922A13A85006FD639 /* launch_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A6F7E9822A13A85006FD639 /* launch_icon.png */; };
 		8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A74D7FA198F20CC0078F39F /* Foundation.framework */; };
@@ -345,6 +348,9 @@
 		8A5DE92E21958DF60006E046 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		8A61BBA4202438CE003AA1BF /* saint.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = saint.pdf; sourceTree = "<group>"; };
 		8A6AA11726A0366B00FA310C /* vigil.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = vigil.sqlite; sourceTree = "<group>"; };
+		8A6CB1952B970378000006E3 /* augustin.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = augustin.sqlite; sourceTree = "<group>"; };
+		8A6CB1972B9703E1000006E3 /* LivesOfSaints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivesOfSaints.swift; sourceTree = "<group>"; };
+		8A6CB19C2B97090B000006E3 /* About_the_author.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = About_the_author.epub; sourceTree = "<group>"; };
 		8A6F7E9622A137D2006FD639 /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
 		8A6F7E9822A13A85006FD639 /* launch_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_icon.png; sourceTree = "<group>"; };
 		8A74D7F7198F20CC0078F39F /* ponomar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ponomar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -564,6 +570,7 @@
 		8A008FF22258A71400A9636B /* books */ = {
 			isa = PBXGroup;
 			children = (
+				8A6CB1952B970378000006E3 /* augustin.sqlite */,
 				8AA1E67928D981450063034B /* taushev.sqlite */,
 				8ABF55B928B679B5005BD35D /* yungerov.sqlite */,
 				8A185EF3283CA5D200C5FAEE /* canons.sqlite */,
@@ -580,6 +587,14 @@
 				8A1736F222D214B700654AB1 /* troparion.sqlite */,
 			);
 			path = books;
+			sourceTree = "<group>";
+		};
+		8A6CB19B2B9708C5000006E3 /* epubs */ = {
+			isa = PBXGroup;
+			children = (
+				8A6CB19C2B97090B000006E3 /* About_the_author.epub */,
+			);
+			path = epubs;
 			sourceTree = "<group>";
 		};
 		8A74D7EE198F20CC0078F39F = {
@@ -622,6 +637,7 @@
 		8A74D800198F20CC0078F39F /* prayerbook */ = {
 			isa = PBXGroup;
 			children = (
+				8A6CB19B2B9708C5000006E3 /* epubs */,
 				8AAC691A1A2C4D5D00CC5CA1 /* bible */,
 				8A008FF22258A71400A9636B /* books */,
 				8A1B2574202955A60038C0C4 /* icons */,
@@ -642,6 +658,7 @@
 				8AF0804727B0DDBD003BCC77 /* SynaxarionModel.swift */,
 				8A98D6F127FC177600EC86D7 /* ZernaModel.swift */,
 				8AAE60E42334853F005563D3 /* TypikaModel.swift */,
+				8A6CB1972B9703E1000006E3 /* LivesOfSaints.swift */,
 				8A13C8FB219172E500D0CE7E /* AudioPlayerCell.swift */,
 				8A13C8FC219172E500D0CE7E /* AudioPlayerCell.xib */,
 				8A01E42421957BD8005BE65F /* DownloadManager.swift */,
@@ -1065,6 +1082,7 @@
 				8A9EBDE226AAC66400D99529 /* jer_cs.sqlite in Resources */,
 				8A9EBDD526AAC66400D99529 /* ezra_cs.sqlite in Resources */,
 				8A0B4CA91C8C1E8000747BB4 /* saints_02_ru.sqlite in Resources */,
+				8A6CB1962B970378000006E3 /* augustin.sqlite in Resources */,
 				8A7B099027F6CED800174326 /* prayerbook.sqlite in Resources */,
 				8AC10A31222A694F00540B22 /* mic_ru.sqlite in Resources */,
 				8AC10A32222A694F00540B22 /* neh_ru.sqlite in Resources */,
@@ -1132,6 +1150,7 @@
 				8A185EF4283CA5D200C5FAEE /* canons.sqlite in Resources */,
 				8A9EBDBF26AAC66400D99529 /* matthew_cs.sqlite in Resources */,
 				8AC10A0F222A694F00540B22 /* matthew_ru.sqlite in Resources */,
+				8A6CB19D2B9709A8000006E3 /* About_the_author.epub in Resources */,
 				8AC10A11222A694F00540B22 /* 2john_ru.sqlite in Resources */,
 				8A9EBDB226AAC66400D99529 /* 1kings_cs.sqlite in Resources */,
 				8A1F2CB41DD9C18600F13A3D /* newicon_167.png in Resources */,
@@ -1229,6 +1248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A6CB1982B9703E1000006E3 /* LivesOfSaints.swift in Sources */,
 				8A01E42621957BD8005BE65F /* DownloadManager.swift in Sources */,
 				8ACC2F03229E2B4A00F43229 /* FeofanModel.swift in Sources */,
 				8A5DE92F21958DF60006E046 /* DownloadView.swift in Sources */,
@@ -1392,7 +1412,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.5.1;
+				MARKETING_VERSION = 6.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lsqlite3",
@@ -1441,7 +1461,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.5.1;
+				MARKETING_VERSION = 6.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lsqlite3",
