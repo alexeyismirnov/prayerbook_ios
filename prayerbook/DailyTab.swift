@@ -8,6 +8,7 @@
 
 import UIKit
 import swift_toolkit
+import FolioReaderKit
 
 class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     static let bookIcon = UIImage(named: "book")!.maskWithColor(.red).resize(CGSize(width: 20, height: 20))
@@ -368,7 +369,20 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             case readings.count ..< readings.count + extraReadings.count:
                 let ind = indexPath.row - readings.count
                 let pos = extraReadings[ind].position
-                vc = BookPageSingle(pos)
+                
+                if pos.model?.contentType == .epub {
+                    let decoder = JSONDecoder()
+                    let path = pos.data as! String
+                    let bookPath =  Bundle.main.path(forResource: "epubs/\(path)", ofType: "epub")!
+
+                    let folioReader = FolioReader()
+                    folioReader.showEpub(path: bookPath)
+                    
+                    return nil
+                    
+                } else {
+                    vc = BookPageSingle(pos)
+                }
                 
             default:
                 break
@@ -517,7 +531,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         extraReadings = FeofanModel.shared.getPreachment(currentDate!)
         extraReadings.append(contentsOf: TaushevModel.shared.getPreachment(currentDate!))
         extraReadings.append(contentsOf: SynaxarionModel.shared.getPreachment(currentDate!))
-        
+        extraReadings.append(contentsOf: LivesOfSaintsModel.shared.getPreachment(currentDate!))
+
         if (readings.count + extraReadings.count < 3 && Cal.getGreatFeast(currentDate!).isEmpty) {
             extraReadings.append(contentsOf: ZernaModel.shared.getPreachment(currentDate!))
         }

@@ -176,6 +176,8 @@
 	<string>Собор Московских святых</string>
 	<key>synaxisNizhnyNovgorodSaints</key>
 	<string>Собор Нижегородских святых</string>
+    <key>synaxisPskovCavesSaints</key>
+    <string>Собор преподобных отцов Псково-Печерских</string>
 	<key>josephArimathea</key>
 	<string>Иосифа Аримафейского и Никодима</string>
 	<key>tamaraGeorgia</key>
@@ -198,6 +200,8 @@
 	<string>Иконы Божией Матери «Споручница грешных» Корецкая</string>
 	<key>softenerTheotokos</key>
 	<string>Икон Божией Матери: «Умягчение злых сердец» и «Нерушимая Стена»</string>
+    <key>kurskTheotokos</key>
+    <string>Табынской и «Знамение» Курской-Коренной икон Божией Матери</string>
 	<key>apodosis_pascha</key>
 	<string>Отдание Пасхи</string>
 	<key>afterfeast_ascension</key>

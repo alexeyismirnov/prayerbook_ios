@@ -59,6 +59,8 @@ private class SaintsCalendar {
         day("sunday3AfterPascha").date = pascha + 14.days
         day("sunday7AfterPascha").date = pascha + 42.days
         
+        day("kurskTheotokos").date = pentecost+12.days
+
         let nativity = Date(7, 1, year)
         let nativityWeekday = DayOfWeek(date: nativity)
         
@@ -74,12 +76,13 @@ private class SaintsCalendar {
 
 class LivesOfSaintsModel : EbookModel {
     private var calendars = [Int:SaintsCalendar]()
-    
+    static let shared = LivesOfSaintsModel()
+
     init() {
         super.init("augustin")
     }
     
-    func forDate(_ date: Date) -> [Preachment] {
+    func getPreachment(_ date: Date) -> [Preachment] {
         let year = DateComponents(date: date).year!
        
         if calendars[year] == nil {
@@ -88,7 +91,7 @@ class LivesOfSaintsModel : EbookModel {
         
         if let d = calendars[year]!.days.filter({ $0.date == date }).first {
             let pos = BookPosition(model: self, data: d.reading!.replacingOccurrences(of: ".epub", with: ""))
-            return [Preachment(position: pos, title: d.comment!, subtitle: "Lives of saints")]
+            return [Preachment(position: pos, title: d.comment!, subtitle: Translate.s("Lives of saints"))]
 
         }
 

@@ -115,5 +115,7 @@
 	<string>Православный календарь на %d г.</string>
 	<key>From %@ till %@ — %@</key>
 	<string>С %@ по %@ — %@</string>
+    <key>Lives of saints</key>
+    <string>Жития святых</string>
 </dict>
 </plist>
