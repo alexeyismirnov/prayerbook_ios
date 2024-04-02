@@ -38,19 +38,19 @@ private class SaintsCalendar {
         let greatLentStart = pascha - 48.days
         
         day("holyFathersSixCouncils").date = Cal.nearestSunday(Date(29, 7, year))
-        day("findingOfHead").date = isLeapYear ? Date(8, 3, year) : Date(9, 3, year)
+        // day("findingOfHead").date = isLeapYear ? Date(8, 3, year) : Date(9, 3, year)
         
         day("greatMonday").date = pascha - 6.days
         day("greatTuesday").date = pascha - 5.days
-        day("greatWednesday").date = pascha - 4.days
+        // day("greatWednesday").date = pascha - 4.days
         day("greatSaturday").date = pascha - 1.days
         
-        day("beginningOfGreatLent").date = greatLentStart
-        day("saturday1GreatLent").date = greatLentStart + 5.days
-        day("sunday1GreatLent").date = greatLentStart + 6.days
-        day("sunday3GreatLent").date = greatLentStart + 20.days
-        day("sunday5GreatLent").date = greatLentStart + 34.days
-        day("palmSunday").date = pascha - 7.days
+        // day("beginningOfGreatLent").date = greatLentStart
+        // day("saturday1GreatLent").date = greatLentStart + 5.days
+        // day("sunday1GreatLent").date = greatLentStart + 6.days
+        // day("sunday3GreatLent").date = greatLentStart + 20.days
+        // day("sunday5GreatLent").date = greatLentStart + 34.days
+        // day("palmSunday").date = pascha - 7.days
 
         day("ascension").date = pascha + 39.days
         day("pentecost").date = pentecost
@@ -64,12 +64,14 @@ private class SaintsCalendar {
         let nativity = Date(7, 1, year)
         let nativityWeekday = DayOfWeek(date: nativity)
         
+        /*
         if nativityWeekday == .sunday {
             day("josephBetrothed").date = nativity + 1.days
 
         } else {
             day("josephBetrothed").date = Cal.nearestSundayAfter(nativity)
         }
+         */
 
     }
 }

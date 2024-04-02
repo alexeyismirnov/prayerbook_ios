@@ -527,7 +527,8 @@ class TypikaModel : ServiceModel {
     }
     
     func dateIterator(startDate: Date) -> AnyIterator<Date> {
-        var nextDate = Cal.nearestSundayAfter(startDate)
+        let weekday = DateComponents(date:startDate).weekday!
+        var nextDate = (weekday == 1) ? startDate : Cal.nearestSundayAfter(startDate)
         var prevDate : Date!
         
         return AnyIterator({
