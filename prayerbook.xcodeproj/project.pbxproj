@@ -427,8 +427,6 @@
 		8A4BCB272B611EFC004CA7B2 /* saints_11_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_11_hk.sqlite; sourceTree = "<group>"; };
 		8A4BCB282B611EFC004CA7B2 /* saints_06_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_06_hk.sqlite; sourceTree = "<group>"; };
 		8A4BCB292B611EFC004CA7B2 /* saints_04_hk.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_04_hk.sqlite; sourceTree = "<group>"; };
-		8A4F2E6C22E6E7F70087A3F0 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
-		8A4F2E6E22E6E7FB0087A3F0 /* Squeal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Squeal.framework; path = Carthage/Build/iOS/Squeal.framework; sourceTree = "<group>"; };
 		8A540B671E6C296D00970420 /* newicon_167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newicon_167.png; sourceTree = "<group>"; };
 		8A555131270B130700873474 /* vigil_hk_ebook.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = vigil_hk_ebook.sqlite; sourceTree = "<group>"; };
 		8A59F34B1B14371800B15FA1 /* saints_07_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_07_en.sqlite; sourceTree = "<group>"; };
@@ -584,8 +582,6 @@
 		8ADF91EA1B7731EA0078BB6B /* saints_07_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_07_cn.sqlite; sourceTree = "<group>"; };
 		8ADF91EB1B7731EA0078BB6B /* saints_07_cn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = saints_07_cn.txt; sourceTree = "<group>"; };
 		8AE084802716D1EB00615F5E /* prayerbook_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = prayerbook_en.sqlite; sourceTree = "<group>"; };
-		8AE084822716D36500615F5E /* Chameleon.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Chameleon.xcframework; path = Carthage/Build/Chameleon.xcframework; sourceTree = "<group>"; };
-		8AE084862716D36800615F5E /* Squeal.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Squeal.xcframework; path = Carthage/Build/Squeal.xcframework; sourceTree = "<group>"; };
 		8AE084892716D8F600615F5E /* prayerbook_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = prayerbook_cn.sqlite; sourceTree = "<group>"; };
 		8AE08CE12B63A39900C23740 /* LivesOfSaints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivesOfSaints.swift; sourceTree = "<group>"; };
 		8AE6FE8A1B70CCA500FDAA47 /* saints_01_cn.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = saints_01_cn.sqlite; sourceTree = "<group>"; };
@@ -831,10 +827,6 @@
 			isa = PBXGroup;
 			children = (
 				8A42D4AF271E668C00AE8E13 /* StoreKit.framework */,
-				8AE084862716D36800615F5E /* Squeal.xcframework */,
-				8AE084822716D36500615F5E /* Chameleon.xcframework */,
-				8A4F2E6E22E6E7FB0087A3F0 /* Squeal.framework */,
-				8A4F2E6C22E6E7F70087A3F0 /* Chameleon.framework */,
 				8AC2780C1C61D82C00436D51 /* MediaPlayer.framework */,
 				8A74D7FA198F20CC0078F39F /* Foundation.framework */,
 				8A74D7FC198F20CC0078F39F /* CoreGraphics.framework */,
