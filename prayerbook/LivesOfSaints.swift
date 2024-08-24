@@ -45,10 +45,12 @@ private class SaintsCalendar {
         day("greatWednesday").date = pascha - 4.days
         day("greatSaturday").date = pascha - 1.days
         
+        day("saturdayOfFathers").date = greatLentStart - 2.days
         day("beginningOfGreatLent").date = greatLentStart
         day("saturday1GreatLent").date = greatLentStart + 5.days
         day("sunday1GreatLent").date = greatLentStart + 6.days
         day("sunday3GreatLent").date = greatLentStart + 20.days
+        day("sunday4GreatLent").date = greatLentStart + 27.days
         day("sunday5GreatLent").date = greatLentStart + 34.days
         day("palmSunday").date = pascha - 7.days
 
@@ -57,6 +59,7 @@ private class SaintsCalendar {
         day("sunday1AfterPentecost").date = pentecost + 7.days
 
         day("sunday3AfterPascha").date = pascha + 14.days
+        day("sunday4AfterPascha").date = pascha + 21.days
         day("sunday7AfterPascha").date = pascha + 42.days
         
         let nativity = Date(7, 1, year)
