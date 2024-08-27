@@ -73,6 +73,7 @@
 		8A763DFB269DB26400B775D8 /* synaxarion.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A763DFA269DB26400B775D8 /* synaxarion.sqlite */; };
 		8A7B099027F6CED800174326 /* prayerbook.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A7B098F27F6CED800174326 /* prayerbook.sqlite */; };
 		8A7DF2FD22CB5FA90071FCB4 /* book.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8A7DF2FC22CB5FA90071FCB4 /* book.pdf */; };
+		8A84ACBF2C7D90FB00E59995 /* swift_toolkit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A84ACBE2C7D90FB00E59995 /* swift_toolkit */; };
 		8A88FD682377E4C000E46116 /* CalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88FD672377E4C000E46116 /* CalendarWidget.swift */; };
 		8A916D8722575EA7003FEF70 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A916D8622575EA7003FEF70 /* WebKit.framework */; };
 		8A98D6F027FBF1DB00EC86D7 /* zerna.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A98D6EF27FBF1DB00EC86D7 /* zerna.sqlite */; };
@@ -552,6 +553,7 @@
 				8A74D7FB198F20CC0078F39F /* Foundation.framework in Frameworks */,
 				8A00E9D226C7952700E3CF6E /* StoreKit.framework in Frameworks */,
 				8AA879B02B74AB9500ABC716 /* swift_toolkit in Frameworks */,
+				8A84ACBF2C7D90FB00E59995 /* swift_toolkit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,6 +913,7 @@
 			name = ponomar;
 			packageProductDependencies = (
 				8AA879AF2B74AB9500ABC716 /* swift_toolkit */,
+				8A84ACBE2C7D90FB00E59995 /* swift_toolkit */,
 			);
 			productName = prayerbook;
 			productReference = 8A74D7F7198F20CC0078F39F /* ponomar.app */;
@@ -985,7 +988,7 @@
 			);
 			mainGroup = 8A74D7EE198F20CC0078F39F;
 			packageReferences = (
-				8AA879AE2B74AB9500ABC716 /* XCLocalSwiftPackageReference "../swift_toolkit" */,
+				8A84ACBD2C7D90FB00E59995 /* XCLocalSwiftPackageReference "../swift_toolkit" */,
 			);
 			productRefGroup = 8A74D7F8198F20CC0078F39F /* Products */;
 			projectDirPath = "";
@@ -1404,7 +1407,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.0.1;
+				MARKETING_VERSION = 6.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lsqlite3",
@@ -1453,7 +1456,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.0.1;
+				MARKETING_VERSION = 6.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lsqlite3",
@@ -1578,13 +1581,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		8AA879AE2B74AB9500ABC716 /* XCLocalSwiftPackageReference "../swift_toolkit" */ = {
+		8A84ACBD2C7D90FB00E59995 /* XCLocalSwiftPackageReference "../swift_toolkit" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../swift_toolkit;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8A84ACBE2C7D90FB00E59995 /* swift_toolkit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = swift_toolkit;
+		};
 		8AA879AF2B74AB9500ABC716 /* swift_toolkit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = swift_toolkit;
