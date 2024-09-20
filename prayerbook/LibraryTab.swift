@@ -41,7 +41,7 @@ class LibraryTab: UIViewController, ResizableTableViewCells  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        toolkit = Bundle(identifier: "swift-toolkit-swift-toolkit-resources")!
+        toolkit = Bundle(identifier: "swift-toolkit.swift-toolkit.resources")!
         
         BookmarksModel.books = books.flatMap { $0 }
         

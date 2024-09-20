@@ -41,12 +41,12 @@ class TypikaModel : ServiceModel {
     let t_content = Table("content")
     let t_content_lent = Table("content_lent")
     
-    let f_id = Expression<Int>("id")
-    let f_week = Expression<Int>("week")
-    let f_section = Expression<Int>("section")
-    let f_glas = Expression<Int>("glas")
-    let f_title = Expression<String>("title")
-    let f_text = Expression<String>("text")
+    let f_id = SQLite.Expression<Int>("id")
+    let f_week = SQLite.Expression<Int>("week")
+    let f_section = SQLite.Expression<Int>("section")
+    let f_glas = SQLite.Expression<Int>("glas")
+    let f_title = SQLite.Expression<String>("title")
+    let f_text = SQLite.Expression<String>("text")
 
     static let shared = TypikaModel()
     

@@ -74,7 +74,7 @@ class YearCalendarContainer: UIViewControllerAnimated {
     }
     
     func setupNavbar() {
-        let toolkit = Bundle(identifier: "swift-toolkit-swift-toolkit-resources")!
+        let toolkit = Bundle(identifier: "swift-toolkit.swift-toolkit.resources")!
         
         let backButton = UIBarButtonItem(image: UIImage(named: "close", in: toolkit), style: .plain, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem = backButton

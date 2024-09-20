@@ -12,7 +12,7 @@ import swift_toolkit
 
 private class SaintsCalendar {
     let t_content = Table("content")
-    let f_text = Expression<String>("text")
+    let f_text = SQLite.Expression<String>("text")
     
     var year: Int
     var days = [ChurchDay]()

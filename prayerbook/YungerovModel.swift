@@ -22,9 +22,9 @@ class YungerovModel : EbookModel {
     let t_content_cs = Table("content_cs")
     let t_content_yu = Table("content_yu")
     
-    let f_psalm = Expression<Int>("psalm")
-    let f_verse = Expression<Int>("verse")
-    let f_text = Expression<String>("text")
+    let f_psalm = SQLite.Expression<Int>("psalm")
+    let f_verse = SQLite.Expression<Int>("verse")
+    let f_text = SQLite.Expression<String>("text")
 
     public init() {
         super.init("yungerov")

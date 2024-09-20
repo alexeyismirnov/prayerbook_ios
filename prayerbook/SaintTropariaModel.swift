@@ -12,11 +12,11 @@ import swift_toolkit
 
 class SaintTropariaModel : BookModel {
     let tropari = Table("tropari")
-    let f_day = Expression<Int>("day")
-    let f_month = Expression<Int>("month")
-    let f_title = Expression<String>("title")
-    let f_glas = Expression<String>("glas")
-    let f_content = Expression<String>("content")
+    let f_day = SQLite.Expression<Int>("day")
+    let f_month = SQLite.Expression<Int>("month")
+    let f_title = SQLite.Expression<String>("title")
+    let f_glas = SQLite.Expression<String>("glas")
+    let f_content = SQLite.Expression<String>("content")
 
     var code = "Troparion"
     var lang = Translate.language

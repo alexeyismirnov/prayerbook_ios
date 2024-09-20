@@ -12,9 +12,9 @@ import SQLite
 
 class TaushevModel : BookModel {
     let content = Table("content")
-    let f_id = Expression<String>("id")
-    let f_subtitle = Expression<String>("subtitle")
-    let f_text = Expression<String>("text")
+    let f_id = SQLite.Expression<String>("id")
+    let f_subtitle = SQLite.Expression<String>("subtitle")
+    let f_text = SQLite.Expression<String>("text")
 
     var code: String = "Taushev"
     var title = ""

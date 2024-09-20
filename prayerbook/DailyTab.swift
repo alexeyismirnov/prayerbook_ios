@@ -75,7 +75,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        toolkit = Bundle(identifier: "swift-toolkit-swift-toolkit-resources")!
+        toolkit = Bundle(identifier: "swift-toolkit.swift-toolkit.resources")!
         
         if currentDate == nil {
             currentDate = DateComponents(date: Date()).toDate()
@@ -371,7 +371,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 let pos = extraReadings[ind].position
                 
                 if pos.model?.contentType == .epub {
-                    let decoder = JSONDecoder()
                     let path = pos.data as! String
                     let bookPath =  Bundle.main.path(forResource: "epubs/\(path)", ofType: "epub")!
 

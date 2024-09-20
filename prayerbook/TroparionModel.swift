@@ -11,11 +11,11 @@ import SQLite
 import swift_toolkit
 
 fileprivate let tropari = Table("tropari")
-fileprivate let f_id = Expression<Int>("id")
-fileprivate let f_code = Expression<Int>("code")
-fileprivate let f_title = Expression<String>("title")
-fileprivate let f_content = Expression<String>("content")
-fileprivate let f_url = Expression<String>("url")
+fileprivate let f_id = SQLite.Expression<Int>("id")
+fileprivate let f_code = SQLite.Expression<Int>("code")
+fileprivate let f_title = SQLite.Expression<String>("title")
+fileprivate let f_content = SQLite.Expression<String>("content")
+fileprivate let f_url = SQLite.Expression<String>("url")
 
 struct Troparion {
     var title : String
