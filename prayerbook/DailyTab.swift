@@ -68,7 +68,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        toolkit = Bundle(identifier: "swift-toolkit-swift-toolkit-resources")!
+        toolkit = Bundle(identifier: "swift-toolkit.swift-toolkit.resources")!
         
         if currentDate == nil {
             currentDate = DateComponents(date: Date()).toDate()

@@ -16,14 +16,14 @@ class TypikaModel : ServiceModel {
     let t_fragments = Table("fragments")
     let t_prokimen = Table("prokimen")
     
-    let f_id = Expression<Int>("id")
-    let f_section = Expression<Int>("section")
-    let f_glas = Expression<Int>("glas")
+    let f_id = SQLite.Expression<Int>("id")
+    let f_section = SQLite.Expression<Int>("section")
+    let f_glas = SQLite.Expression<Int>("glas")
     
-    let f_title = Expression<String>("title")
-    let f_text = Expression<String>("text")
-    let f_key = Expression<String>("key")
-    let f_value = Expression<String>("value")
+    let f_title = SQLite.Expression<String>("title")
+    let f_text = SQLite.Expression<String>("text")
+    let f_key = SQLite.Expression<String>("key")
+    let f_value = SQLite.Expression<String>("value")
 
     var lang : String
 

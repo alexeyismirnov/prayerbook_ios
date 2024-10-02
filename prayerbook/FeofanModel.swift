@@ -12,9 +12,9 @@ import SQLite
 
 class FeofanModel : BookModel {
     let thoughts = Table("thoughts")
-    let f_id = Expression<String>("id")
-    let f_descr = Expression<String>("descr")
-    let f_fuzzy = Expression<Int>("fuzzy")
+    let f_id = SQLite.Expression<String>("id")
+    let f_descr = SQLite.Expression<String>("descr")
+    let f_fuzzy = SQLite.Expression<Int>("fuzzy")
 
     var code: String = "Feofan"
     var title = ""
