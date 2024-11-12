@@ -59,8 +59,8 @@ def get_troparion(cur, date):
             #print(text)
                 
 
-start_date = date(2024, 10, 1)
-end_date = date(2024, 10, 31)
+start_date = date(2024, 1, 1)
+end_date = date(2025, 1, 1)
 
 with lite.connect("./troparion_en.sqlite") as con:
     cur = con.cursor()
