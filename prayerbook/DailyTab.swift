@@ -26,6 +26,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     static var synaxarion: SynaxarionModel = SynaxarionModel(lang: Translate.language)
     static var livesOfSaints: LivesOfSaintsModel = LivesOfSaintsModel()
     
+    var troparia = [Troparion]()
     var dayDescription = [ChurchDay]()
     var saints = [Saint]()
     var saintIcons = [SaintIcon]()
@@ -123,8 +124,8 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             return 1
             
         case 3:
-            return readings.count + extraReadings.count
-            
+            return readings.count + extraReadings.count + (troparia.count > 0 ? 1:0)
+   
         case 4:
             return saints.count
             
@@ -146,7 +147,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
             
         case 3:
             return readings.count > 0 ? Translate.s("Reading of the day") : nil
-            
+       
         case 4:
             return Translate.s("Memory of saints")
             
@@ -255,8 +256,14 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                 subtitle = extraReadings[ind].subtitle
                 
             default:
-                title = ""
-                subtitle=""
+                if troparia.count > 0 {
+                    title = "Troparia and Kontakia"
+                    subtitle = ""
+                    
+                } else {
+                    title = ""
+                    subtitle=""
+                }
             }
             
             if appeared {
@@ -339,6 +346,11 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
                     }
                             
                 default:
+                    if troparia.count > 0 {
+                        let pos = BookPosition(model: TroparionModel.shared, data: troparia)
+                        vc = BookPageSingle(pos)
+                    }
+                
                     break
             }
             
@@ -453,6 +465,10 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         if Translate.language == "en" {
             extraReadings.append(contentsOf: FeofanModel.shared.getPreachment(currentDate!))
             extraReadings.append(contentsOf: DailyTab.livesOfSaints.forDate(currentDate!))
+            
+            troparia = TroparionModel.shared.getTroparion(currentDate!)
+        } else {
+            troparia = []
         }
     }
     
