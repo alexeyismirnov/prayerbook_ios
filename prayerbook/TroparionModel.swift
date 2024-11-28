@@ -118,12 +118,101 @@ class TroparionModel : BookModel {
         return troparion
     }
     
+    func getDataFeast(_ id: String) -> [Troparion] {
+        return try! db_feasts.prepareRowIterator(tropari
+            .filter(f_comment == id))
+        .map {
+            return Troparion(title: $0[f_title], content: $0[f_content])
+        }
+    }
+    
+    func fetchSunday(_ date: Date) -> [Troparion] {
+        if DayOfWeek(date: date) == .sunday {
+          if let tone = cal.getTone(date) {
+              return getDataFeast("sundayGlas\(tone)")
+          }
+        }
+        return []
+    }
+    
+    func fetchFeast(_ date: Date) -> [Troparion] {
+        var results = [Troparion]()
+
+        let feastsCodes = [
+              "sundayOfPublicianAndPharisee",
+              "sundayOfProdigalSon",
+              "sundayOfDreadJudgement",
+              "cheesefareSunday",
+              "sunday1GreatLent",
+              "sunday2GreatLent",
+              "sunday3GreatLent",
+              "sunday4GreatLent",
+              "sunday5GreatLent",
+              "sunday2AfterPascha",
+              "sunday3AfterPascha",
+              "sunday4AfterPascha",
+              "sunday5AfterPascha",
+              "sunday6AfterPascha",
+              "sunday7AfterPascha",
+              "sunday1AfterPentecost",
+              "holyFathersSixCouncils",
+              "holyFathersSeventhCouncil",
+              "eveOfTheophany",
+              "eveOfNativityOfGod",
+              "saturday1GreatLent",
+              "saturday2GreatLent",
+              "saturday3GreatLent",
+              "saturday4GreatLent",
+              "saturday5GreatLent",
+              "greatMonday",
+              "greatTuesday",
+              "greatWednesday",
+              "greatThursday",
+              "greatFriday",
+              "greatSaturday"
+            ]
+        
+        let descr = cal.getDayDescription(date).map { $0.id }
+                
+        for feast in Set(feastsCodes).intersection(Set(descr)) {
+            results.append(contentsOf: getDataFeast(feast))
+        }
+        
+        return results
+    }
+    
     func getTroparion(_ date: Date) -> [Troparion] {
+        cal = Cal.fromDate(date)
+        
+        let greatFeasts = Cal.getGreatFeast(date).map { $0.id }
         var troparion = [Troparion]()
         
-        cal = Cal.fromDate(date)
-        troparion = getDataSaints(date)
+        if greatFeasts.count > 0 {
+            for feast in greatFeasts {
+                troparion.append(contentsOf: getDataFeast(feast))
+                
+                let otherGreatFeasts = [
+                            "veilOfTheotokos",
+                            "nativityOfJohn",
+                            "beheadingOfJohn",
+                            "peterAndPaul",
+                            "dormition",
+                            "nativityOfTheotokos",
+                            "annunciation",
+                            "entryIntoTemple"
+                          ]
+                if otherGreatFeasts.contains(feast) && DayOfWeek(date: date) == .sunday {
+                    troparion.append(contentsOf: fetchSunday(date))
+                    troparion.append(contentsOf: fetchFeast(date))
+                }
+            }
         
+        } else {
+            troparion.append(contentsOf: fetchSunday(date))
+            troparion.append(contentsOf: fetchFeast(date))
+            troparion.append(contentsOf: getDataSaints(date))
+        }
+
         return troparion
     }
 }

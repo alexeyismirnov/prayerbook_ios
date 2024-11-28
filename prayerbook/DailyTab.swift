@@ -491,10 +491,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     @objc func showWeeklyCalendar() {
         UIViewController.popup.dismiss({
-            let dateComponents = DateComponents(date: self.currentDate!)
-            let currentWeekday = DayOfWeek(rawValue: dateComponents.weekday!)!
-            
-            let nearestMonday = currentWeekday == .sunday ?
+            let nearestMonday = DayOfWeek(date: self.currentDate!) == .sunday ?
                 self.currentDate! - 6.days :
                 Cal.nearestSundayBefore(self.currentDate!) + 1.days
             
