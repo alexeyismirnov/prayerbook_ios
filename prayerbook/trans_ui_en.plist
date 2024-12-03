@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>open_telegram</key>
+	<string>Open Telegram</string>
+	<key>telegram_info</key>
+	<string>Orthodox Calendar+ is now available as a mini-app in Telegram. Please subscribe to our bot!</string>
 	<key>synaxarion_annotation</key>
 	<string>Synaxaria of the Triodion and Pentecostarion</string>
 	<key>Orthodox Church in Hong Kong</key>
@@ -19,11 +23,11 @@
 	<string>Install &quot;Church&quot; app</string>
 	<key>copyright_info</key>
 	<string>(C) 2022 Brotherhood of Sts Apostles Peter and Paul in Hong Kong</string>
-    <key>bible</key>
-    <string>Bible</string>
-    <key>liturgical_books</key>
-    <string>Liturgical books</string>
-    <key>other</key>
-    <string>Other</string>
+	<key>bible</key>
+	<string>Bible</string>
+	<key>liturgical_books</key>
+	<string>Liturgical books</string>
+	<key>other</key>
+	<string>Other</string>
 </dict>
 </plist>

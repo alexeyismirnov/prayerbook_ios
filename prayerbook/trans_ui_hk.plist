@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>telegram_info</key>
+	<string>Orthodox Calendar+ 應用程式現已作為 Telegram 中的迷你應用程式提供。請訂閱我們的機器人！</string>
+	<key>open_telegram</key>
+	<string>打开 Telegram</string>
 	<key>synaxarion_annotation</key>
 	<string>大齋期集會書</string>
 	<key>Choose color...</key>
@@ -10,12 +14,12 @@
 	<string>默認值</string>
 	<key>Background color</key>
 	<string>背景顏色</string>
-    <key>Paper</key>
-    <string>紙</string>
-    <key>Bright</key>
-    <string>光亮</string>
-    <key>Dark</key>
-    <string>黑暗</string>
+	<key>Paper</key>
+	<string>紙</string>
+	<key>Bright</key>
+	<string>光亮</string>
+	<key>Dark</key>
+	<string>黑暗</string>
 	<key>Laymen fasting</key>
 	<string>外行齋戒</string>
 	<key>Monastic fasting</key>
@@ -113,11 +117,11 @@
 	<key>donation_info</key>
 	<string>我們需要你們的協助去繼續發展此程式。你們可以按以下按鈕進行捐獻。願上帝賜福予你們！
     </string>
-    <key>bible</key>
-    <string>聖經</string>
-    <key>liturgical_books</key>
-    <string>禮儀</string>
-    <key>other</key>
-    <string>其他</string>
+	<key>bible</key>
+	<string>聖經</string>
+	<key>liturgical_books</key>
+	<string>禮儀</string>
+	<key>other</key>
+	<string>其他</string>
 </dict>
 </plist>
