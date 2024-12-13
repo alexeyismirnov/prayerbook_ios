@@ -38,6 +38,7 @@ private class SaintsCalendar {
         let greatLentStart = pascha - 48.days
         
         day("holyFathersSixCouncils").date = Cal.nearestSunday(Date(29, 7, year))
+        day("holyFathersSeventhCouncil").date = Cal.nearestSunday(Date(24, 10, year))
         day("findingOfHead").date = isLeapYear ? Date(8, 3, year) : Date(9, 3, year)
         
         day("greatMonday").date = pascha - 6.days
