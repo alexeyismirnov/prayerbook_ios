@@ -84,18 +84,18 @@ class LivesOfSaintsModel : EbookModel {
     
     func forDate(_ date: Date) -> [Preachment] {
         let year = DateComponents(date: date).year!
-       
+        var res = [Preachment]()
+        
         if calendars[year] == nil {
            calendars[year] = SaintsCalendar(db, year)
         }
         
-        if let d = calendars[year]!.days.filter({ $0.date == date }).first {
+        for d in calendars[year]!.days.filter({ $0.date == date }) {
             let pos = BookPosition(model: self, data: d.reading!.replacingOccurrences(of: ".epub", with: ""))
-            return [Preachment(position: pos, title: d.comment!, subtitle: "Lives of saints")]
-
+            res.append(Preachment(position: pos, title: d.comment!, subtitle: "Lives of saints"))
         }
 
-        return []
+        return res
     }
     
 }
