@@ -78,5 +78,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+       <string>tg</string>
+    </array>
 </dict>
 </plist>

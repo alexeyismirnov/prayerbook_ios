@@ -38,6 +38,7 @@ private class SaintsCalendar {
         let greatLentStart = pascha - 48.days
         
         day("holyFathersSixCouncils").date = Cal.nearestSunday(Date(29, 7, year))
+        day("holyFathersSeventhCouncil").date = Cal.nearestSunday(Date(24, 10, year))
         day("findingOfHead").date = isLeapYear ? Date(8, 3, year) : Date(9, 3, year)
         
         day("saturdayOfFathers").date =  greatLentStart - 2.days
@@ -83,18 +84,18 @@ class LivesOfSaintsModel : EbookModel {
     
     func getPreachment(_ date: Date) -> [Preachment] {
         let year = DateComponents(date: date).year!
-       
+        var res = [Preachment]()
+        
         if calendars[year] == nil {
            calendars[year] = SaintsCalendar(db, year)
         }
         
-        if let d = calendars[year]!.days.filter({ $0.date == date }).first {
+        for d in calendars[year]!.days.filter({ $0.date == date }) {
             let pos = BookPosition(model: self, data: d.reading!.replacingOccurrences(of: ".epub", with: ""))
-            return [Preachment(position: pos, title: d.comment!, subtitle: Translate.s("Lives of saints"))]
-
+            res.append(Preachment(position: pos, title: d.comment!, subtitle: Translate.s("Lives of saints")))
         }
 
-        return []
+        return res
     }
     
 }
