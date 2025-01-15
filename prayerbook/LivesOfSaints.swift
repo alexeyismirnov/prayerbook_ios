@@ -16,20 +16,30 @@ private class SaintsCalendar {
     
     var year: Int
     var days = [ChurchDay]()
-    var db: Connection
+    static var db: Connection!
+    static var calendars = [Int:SaintsCalendar]()
     
+    static public func fromDate(_ date: Date) -> SaintsCalendar {
+        let year = DateComponents(date: date).year!
+        
+        if calendars[year] == nil {
+            calendars[year] = SaintsCalendar(year)
+        }
+        
+        return calendars[year]!
+    }
+
     public func day(_ name: String) -> ChurchDay {
         days.filter() { $0.id == name }.first!
     }
     
-    init(_ db: Connection, _ year: Int) {
-        self.db = db
+    init(_ year: Int) {
         self.year = year
         
         let decoder = JSONDecoder()
         decoder.userInfo = [.year: year]
                 
-        days = try! db.prepareRowIterator(t_content)
+        days = try! SaintsCalendar.db.prepareRowIterator(t_content)
             .map { try! decoder.decode(ChurchDay.self, from: $0[f_text].data(using: .utf8)!) }
         
         let pascha = Cal.paschaDay(year)
@@ -77,21 +87,24 @@ private class SaintsCalendar {
 }
 
 class LivesOfSaintsModel : EbookModel {
-    private var calendars = [Int:SaintsCalendar]()
     
     init() {
         super.init("augustin_en")
+        SaintsCalendar.db = db
     }
     
     func forDate(_ date: Date) -> [Preachment] {
-        let year = DateComponents(date: date).year!
         var res = [Preachment]()
+        let scal = SaintsCalendar.fromDate(date)
+        let ccal = Cal.fromDate(date)
         
-        if calendars[year] == nil {
-           calendars[year] = SaintsCalendar(db, year)
+        var d = date
+        
+        if ccal.isLeapYear && (ccal.leapStart ..< ccal.leapEnd ~= date) {
+            d = date + 1.days
         }
         
-        for d in calendars[year]!.days.filter({ $0.date == date }) {
+        for d in scal.days.filter({ $0.date == d }) {
             let pos = BookPosition(model: self, data: d.reading!.replacingOccurrences(of: ".epub", with: ""))
             res.append(Preachment(position: pos, title: d.comment!, subtitle: "Lives of saints"))
         }
