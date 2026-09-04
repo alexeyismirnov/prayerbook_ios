@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WidgetKit
 import swift_toolkit
 
 public class LanguageSelector: UIViewController, ResizableTableViewCells, PopupContentViewController {
@@ -52,9 +53,17 @@ public class LanguageSelector: UIViewController, ResizableTableViewCells, PopupC
         Translate.language = lang
         prefs.set(lang, forKey: "language")
         prefs.synchronize()
+        WidgetCenter.shared.reloadTimelines(ofKind: "OrthodoxCalendarWidget")
 
         NotificationCenter.default.post(name: .themeChangedNotification, object: nil)
-        UIViewController.popup.dismiss()
+        UIViewController.popup.dismiss({
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+                  let root = appDelegate.window?.rootViewController as? MainVC,
+                  let nav = root.viewControllers?[0] as? UINavigationController else { return }
+            let daily = (nav.viewControllers.first as? DailyTab) ?? (nav.topViewController as? DailyTab)
+            guard let daily else { return }
+            WidgetWelcomeViewController.showIfNeeded(from: daily)
+        })
 
         return nil
     }

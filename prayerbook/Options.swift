@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WidgetKit
 import swift_toolkit
 
 public class Options: UIViewController, ResizableTableViewCells {
@@ -153,6 +154,7 @@ public class Options: UIViewController, ResizableTableViewCells {
             
             prefs.set(fastingLevel, forKey: "fastingLevel")
             prefs.synchronize()
+            WidgetCenter.shared.reloadTimelines(ofKind: "OrthodoxCalendarWidget")
             
             tableView.reloadData()
             
@@ -176,6 +178,7 @@ public class Options: UIViewController, ResizableTableViewCells {
             
             prefs.set(false, forKey: "notifications_\(year)")
             prefs.synchronize()
+            WidgetCenter.shared.reloadTimelines(ofKind: "OrthodoxCalendarWidget")
 
             FeastNotifications.setupNotifications()
 

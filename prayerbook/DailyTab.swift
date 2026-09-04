@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WidgetKit
 import FolioReaderKit
 import swift_toolkit
 
@@ -35,8 +36,17 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         didSet {
            if let date = currentDate {
                cal = Cal.fromDate(date)
+               syncWidgetDate(date)
            }
         }
+    }
+
+    private func syncWidgetDate(_ date: Date) {
+        guard let prefs = AppGroup.prefs else { return }
+        let day = DateComponents(date: date).toDate()
+        prefs.set(day.timeIntervalSince1970, forKey: "widgetSelectedDate")
+        prefs.synchronize()
+        WidgetCenter.shared.reloadTimelines(ofKind: "OrthodoxCalendarWidget")
     }
     
     var cal: Cal!
@@ -100,11 +110,13 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         reloadAfterAppeared()
 
         tableView.reloadData()
-        
+
         if AppGroup.prefs.object(forKey: "welcome51") == nil {
             AppGroup.prefs.set(true, forKey: "welcome51")
             AppGroup.prefs.synchronize()
             showPopup(LanguageSelector(), dismissWhenTaps: false)
+        } else {
+            WidgetWelcomeViewController.showIfNeeded(from: self)
         }
     }
     
@@ -479,7 +491,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
        
         let button_options = CustomBarButton(image: UIImage(named: "options", in: toolkit)!, style: .plain, target: self, action: #selector(showOptions))
         
-         let button_review = CustomBarButton(image: UIImage(named: "review", in: toolkit)!, target: self, btnHandler: #selector(writeReview))
+        let button_review = CustomBarButton(image: UIImage(named: "review", in: toolkit)!, style: .plain, target: self, action: #selector(writeReview))
         
         navigationItem.leftBarButtonItems = [button_monthly]
         navigationItem.rightBarButtonItems = [button_options, button_review]
@@ -542,15 +554,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     @objc func writeReview() {
         let app_id = 1010208102
-        var link:String
-        
-        if #available(iOS 11.0, *) {
-            link = "itms-apps://itunes.apple.com/xy/app/foo/id\(app_id)?action=write-review"
-        } else {
-            link = "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=\(app_id)&action=write-review"
-        }
-        
-        guard let url = URL(string: link) else { return }
+        guard let url = URL(string: "https://apps.apple.com/app/id\(app_id)?action=write-review") else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     

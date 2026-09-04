@@ -12,33 +12,45 @@ patch_macros() {
     return 0
   fi
 
-  chmod u+w "$macros" 2>/dev/null || true
+  # SPM checkouts are often mode 444; force writable before editing.
+  chmod u+w "$macros" 2>/dev/null || chmod +w "$macros" 2>/dev/null || true
+  if [[ ! -w "$macros" ]]; then
+    echo "warning: cannot write $macros (patch skipped)" >&2
+    return 0
+  fi
+
   python3 - "$macros" <<'PY'
 import re, sys
 from pathlib import Path
 path = Path(sys.argv[1])
 text = path.read_text()
-# Strip forbidden std::is_pod specializations (Xcode 26+ libc++).
-text, n1 = re.subn(
-    r"(#define DECLARE_POD\(TypeName\)\s*\\\n)"
-    r"namespace std \{\s*\\\n"
-    r"template<> struct is_pod<TypeName> : true_type \{ \}; \\\n"
-    r"\} \s*\\\n",
-    r"\1// Disabled for Xcode 26+ libc++\n",
-    text,
-    count=1,
+
+# Replace whole DECLARE_POD / PROPAGATE macros (keep dummy typedefs so call sites still compile).
+decl_pat = re.compile(
+    r"#define DECLARE_POD\(TypeName\).*?"
+    r"typedef int Dummy_Type_For_DECLARE_POD[^\n]*\n",
+    re.S,
 )
-text, n2 = re.subn(
-    r"(#define PROPAGATE_POD_FROM_TEMPLATE_ARGUMENT\(TemplateName\)\s*\\\n)"
-    r"namespace std \{\s*\\\n"
-    r"template <typename T> struct is_pod<TemplateName<T> > : std::is_trivial<T> \{ \}; \\\n"
-    r"\} \s*\\\n",
-    r"\1// Disabled for Xcode 26+ libc++\n",
-    text,
-    count=1,
+prop_pat = re.compile(
+    r"#define PROPAGATE_POD_FROM_TEMPLATE_ARGUMENT\(TemplateName\).*?"
+    r"typedef int Dummy_Type_For_PROPAGATE_POD_FROM_TEMPLATE_ARGUMENT[^\n]*\n",
+    re.S,
 )
+
+decl_repl = (
+    "#define DECLARE_POD(TypeName) /* is_pod specialization disabled for Xcode 26+ libc++ */ \\\n"
+    "typedef int Dummy_Type_For_DECLARE_POD\n"
+)
+prop_repl = (
+    "#define PROPAGATE_POD_FROM_TEMPLATE_ARGUMENT(TemplateName) /* disabled for Xcode 26+ */ \\\n"
+    "typedef int Dummy_Type_For_PROPAGATE_POD_FROM_TEMPLATE_ARGUMENT\n"
+)
+
+text2, n1 = decl_pat.subn(decl_repl, text, count=1)
+text3, n2 = prop_pat.subn(prop_repl, text2, count=1)
+
 if n1 or n2:
-    path.write_text(text)
+    path.write_text(text3)
     print(f"Patched Realm s2 macros: {path} (DECLARE_POD={n1}, PROPAGATE={n2})")
 else:
     print(f"No Realm is_pod macros to patch in {path}")
