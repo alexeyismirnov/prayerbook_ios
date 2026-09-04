@@ -1,0 +1,605 @@
+[
+  {
+    "feastName" : "palmSunday",
+    "feastType" : "great",
+    "reading" : "Phil 4:4-9 John 12:1-18"
+  },
+  {
+    "feastName" : "pascha",
+    "feastType" : "great",
+    "reading" : "Acts 1:1-8 John 1:1-17"
+  },
+  {
+    "feastName" : "ascension",
+    "feastType" : "great",
+    "reading" : "Acts 1:1-12 Luke 24:36-53"
+  },
+  {
+    "feastName" : "pentecost",
+    "feastType" : "great",
+    "reading" : "Acts 2:1-11 John 7:37-52,8:12"
+  },
+  {
+    "date" : "7 January",
+    "feastName" : "nativityOfGod",
+    "feastType" : "great",
+    "reading" : "Matthew 1:18-25 Gal 4:4-7 Matthew 2:1-12"
+  },
+  {
+    "date" : "19 January",
+    "feastName" : "theophany",
+    "feastType" : "great",
+    "reading" : "Mark 1:9-11 Tit 2:11-14,3:4-7 Matthew 3:13-17"
+  },
+  {
+    "date" : "15 February",
+    "feastName" : "meetingOfLord",
+    "feastType" : "great",
+    "reading" : "Luke 2:25-32 Heb 7:7-17 Luke 2:22-40"
+  },
+  {
+    "date" : "7 April",
+    "feastName" : "annunciation",
+    "feastType" : "great",
+    "reading" : "Luke 1:39-49,56 Heb 2:11-18 Luke 1:24-38 # Theotokos"
+  },
+  {
+    "date" : "12 July",
+    "feastName" : "peterAndPaul",
+    "feastType" : "great",
+    "reading" : "John 21:15-25 2Cor 11:21-12:9 Matthew 16:13-19"
+  },
+  {
+    "date" : "19 August",
+    "feastName" : "transfiguration",
+    "feastType" : "great",
+    "reading" : "Luke 9:28-36 2Pet 1:10-19 Matthew 17:1-9"
+  },
+  {
+    "date" : "28 August",
+    "feastName" : "dormition",
+    "feastType" : "great",
+    "reading" : "Luke 1:39-49,56 Phil 2:5-11 Luke 10:38-42,11:27-28"
+  },
+  {
+    "date" : "21 September",
+    "feastName" : "nativityOfTheotokos",
+    "feastType" : "great",
+    "reading" : "Luke 1:39-49,56 Phil 2:5-11 Luke 10:38-42,11:27-28"
+  },
+  {
+    "date" : "27 September",
+    "feastName" : "exaltationOfCross",
+    "feastType" : "great",
+    "reading" : "John 12:28-36 1Cor 1:18-24 John 19:6-11,13-20,25-28,30-35"
+  },
+  {
+    "date" : "4 December",
+    "feastName" : "entryIntoTemple",
+    "feastType" : "great",
+    "reading" : "Luke 1:39-49,56 Heb 9:1-7 Luke 10:38-42,11:27-28"
+  },
+  {
+    "date" : "14 January",
+    "feastName" : "circumcision",
+    "feastType" : "great",
+    "reading" : "John 10:1-9 Col 2:8-12 Luke 2:20-21,40-52"
+  },
+  {
+    "date" : "14 October",
+    "feastName" : "veilOfTheotokos",
+    "feastType" : "great",
+    "reading" : "Luke 1:39-49,56 Heb 9:1-7 Luke 10:38-42,11:27-28"
+  },
+  {
+    "date" : "7 July",
+    "feastName" : "nativityOfJohn",
+    "feastType" : "great",
+    "reading" : "Luke 1:24-25,57-68,76,80 Rom 13:12-14:4 Luke 1:5-25,57-68,76,80"
+  },
+  {
+    "date" : "11 September",
+    "feastName" : "beheadingOfJohn",
+    "feastType" : "great",
+    "reading" : "Matthew 14:1-13 Acts 13:25-32 Mark 6:14-30"
+  },
+  {
+    "date" : "20 January",
+    "feastType" : "doxology",
+    "reading" : "Acts 19:1-8 John 1:29-34 # Forerunner",
+    "saint" : "Synaxis of John Baptist"
+  },
+  {
+    "date" : "6 January",
+    "feastName" : "eveOfNativityOfGod",
+    "feastType" : "noSign",
+    "reading" : "Heb 1:1-12 Luke 2:1-20 # Eve of the Nativity"
+  },
+  {
+    "date" : "18 January",
+    "feastName" : "eveOfTheophany",
+    "feastType" : "noSign",
+    "reading" : "1Cor 9:19-27 Luke 3:1-18 # Epiphany Eve"
+  },
+  {
+    "feastName" : "sundayOfZacchaeus",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "sundayOfPublicianAndPharisee",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "sundayOfProdigalSon",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "sundayOfDreadJudgement",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "cheesefareSunday",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "beginningOfGreatLent",
+    "feastType" : "none"
+  },
+  {
+    "date" : "14 August",
+    "feastName" : "beginningOfDormitionFast",
+    "feastType" : "none"
+  },
+  {
+    "date" : "28 November",
+    "feastName" : "beginningOfNativityFast",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "beginningOfApostlesFast",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "sundayOfForefathers",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "saturdayAfterNativity",
+    "feastType" : "none",
+    "reading" : "1Tim 6:11-16 Matthew 12:15-21 # Saturday after the Nativity"
+  },
+  {
+    "feastName" : "sundayAfterNativity",
+    "feastType" : "none",
+    "reading" : "Gal 1:11-19 Matthew 2:13-23 # Sunday after the Nativity"
+  },
+  {
+    "feastName" : "saturdayBeforeExaltation",
+    "feastType" : "none",
+    "reading" : "1Cor 2:6-9 Matthew 10:37-11:1 # Saturday before the Universal Elevation"
+  },
+  {
+    "feastName" : "sundayBeforeExaltation",
+    "feastType" : "none",
+    "reading" : "Gal 6:11-18 John 3:13-17 # Sunday before the Universal Elevation"
+  },
+  {
+    "feastName" : "saturdayAfterExaltation",
+    "feastType" : "none",
+    "reading" : "1Cor 1:26-29 John 8:21-30 # Saturday after the Universal Elevation"
+  },
+  {
+    "feastName" : "sundayAfterExaltation",
+    "feastType" : "none",
+    "reading" : "Gal 2:16-20 Mark 8:34-9:1 # Sunday after the Universal Elevation"
+  },
+  {
+    "feastName" : "saturdayBeforeTheophany",
+    "feastType" : "none",
+    "reading" : "1Tim 3:14-4:5 Matthew 3:1-11 # Saturday before the Theophany"
+  },
+  {
+    "feastName" : "sundayBeforeTheophany",
+    "feastType" : "none",
+    "reading" : "2Tim 4:5-8 Mark 1:1-8 # Sunday before the Theophany"
+  },
+  {
+    "feastName" : "saturdayAfterTheophany",
+    "feastType" : "none",
+    "reading" : "Ephes 6:10-17 Matthew 4:1-11 # Saturday after the Theophany"
+  },
+  {
+    "feastName" : "sundayAfterTheophany",
+    "feastType" : "none",
+    "reading" : "Ephes 4:7-13 Matthew 4:12-17 # Sunday after the Theophany"
+  },
+  {
+    "feastName" : "saturday1GreatLent",
+    "feastType" : "noSign",
+    "reading" : "2Tim 2:1-10 John 15:17-16:2 # Great Martyr"
+  },
+  {
+    "feastName" : "sunday1GreatLent",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "saturday2GreatLent",
+    "feastType" : "none",
+    "reading" : "1Thess 4:13-17 John 5:24-30 # Departed"
+  },
+  {
+    "feastName" : "sunday2GreatLent",
+    "feastType" : "noSign",
+    "reading" : "Heb 7:26-8:2 John 10:9-16 # Saint"
+  },
+  {
+    "feastName" : "saturday3GreatLent",
+    "feastType" : "none",
+    "reading" : "1Thess 4:13-17 John 5:24-30 # Departed"
+  },
+  {
+    "feastName" : "sunday3GreatLent",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "saturday4GreatLent",
+    "feastType" : "none",
+    "reading" : "1Cor 15:47-57 John 5:24-30 # Departed"
+  },
+  {
+    "feastName" : "sunday4GreatLent",
+    "feastType" : "noSign",
+    "reading" : "Ephes 5:8-19 Matthew 4:25-5:12 # Venerable"
+  },
+  {
+    "feastName" : "thursday5GreatLent",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "saturday5GreatLent",
+    "feastType" : "none",
+    "reading" : "Heb 9:1-7 Luke 10:38-42,11:27-28 # Theotokos"
+  },
+  {
+    "feastName" : "sunday5GreatLent",
+    "feastType" : "none",
+    "reading" : "Gal 3:23-29 Luke 7:36-50 # Venerable"
+  },
+  {
+    "feastName" : "sunday2AfterPascha",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "sunday3AfterPascha",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "sunday4AfterPascha",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "sunday5AfterPascha",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "sunday6AfterPascha",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "sunday7AfterPascha",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "sunday1AfterPentecost",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "sunday2AfterPentecost",
+    "feastType" : "none",
+    "reading" : "Heb 11:33-12:2 Matthew 4:25-5:12 # Saints"
+  },
+  {
+    "feastName" : "saturdayOfFathers",
+    "feastType" : "noSign",
+    "reading" : "Gal 5:22-6:2 Matthew 11:27-30 # Fathers"
+  },
+  {
+    "feastName" : "saturdayTrinity",
+    "feastType" : "none",
+    "reading" : "1Cor 15:47-57 John 6:35-39 # Departed"
+  },
+  {
+    "feastName" : "saturdayOfDeparted",
+    "feastType" : "none",
+    "reading" : "1Thess 4:13-17 John 5:24-30 # Departed"
+  },
+  {
+    "feastName" : "lazarusSaturday",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "newMartyrsConfessorsOfRussia",
+    "feastType" : "vigil",
+    "reading" : "Rom 8:28-39 Luke 21:8-19 # Martyrs"
+  },
+  {
+    "feastName" : "demetriusSaturday",
+    "feastType" : "none",
+    "reading" : "1Thess 4:13-17 John 5:24-30 # Departed"
+  },
+  {
+    "feastName" : "radonitsa",
+    "feastType" : "none"
+  },
+  {
+    "date" : "9 May",
+    "feastName" : "killedInAction",
+    "feastType" : "none"
+  },
+  {
+    "feastName" : "josephBetrothed",
+    "feastType" : "noSign"
+  },
+  {
+    "feastName" : "holyFathersSixCouncils",
+    "feastType" : "none",
+    "reading" : "Heb 13:7-16 John 17:1-13 # Fathers"
+  },
+  {
+    "feastName" : "holyFathersSeventhCouncil",
+    "feastType" : "none",
+    "reading" : "Heb 13:7-16 John 17:1-13 # Fathers"
+  },
+  {
+    "date" : "2 January",
+    "feastType" : "polyeleos",
+    "reading" : "Heb 4:14-5:6 Matthew 5:14-19 # Righteous",
+    "saint" : "St. John of Kronstadt"
+  },
+  {
+    "date" : "3 January",
+    "feastType" : "polyeleos",
+    "reading" : "Heb 7:26-8:2 Luke 6:17-23 # Hierarch",
+    "saint" : "St. Peter, metropolitan of All Russia"
+  },
+  {
+    "date" : "15 January",
+    "feastType" : "polyeleos",
+    "reading" : "Gal 5:22-6:2 Luke 6:17-23 # Venerable",
+    "saint" : "Venerable Seraphim of Sarov"
+  },
+  {
+    "date" : "23 January",
+    "feastType" : "polyeleos",
+    "reading" : "Heb 7:26-8:2 John 10:9-16 # Hierarch",
+    "saint" : "St. Theophan the Recluse"
+  },
+  {
+    "date" : "30 January",
+    "feastType" : "vigil",
+    "reading" : "Heb 13:17-21 Luke 6:17-23 # Venerable",
+    "saint" : "St. Anthony the Great"
+  },
+  {
+    "date" : "2 February",
+    "feastType" : "vigil",
+    "reading" : "Heb 13:17-21 Luke 6:17-23 # Venerable",
+    "saint" : "St. Euthymius the Great"
+  },
+  {
+    "date" : "6 February",
+    "feastType" : "polyeleos",
+    "reading" : "Gal 5:22-6:2 Luke 6:17-23 # Fool-for-Christ",
+    "saint" : "St. Xenia of Petersburg"
+  },
+  {
+    "date" : "12 February",
+    "feastType" : "vigil",
+    "reading" : "Heb 13:7-16 Matthew 5:14-19 # Hierarchs",
+    "saint" : "Synaxis of the Three Hierarchs"
+  },
+  {
+    "date" : "25 February",
+    "feastType" : "polyeleos",
+    "reading" : "Phil 2:5-11 Luke 10:38-42,11:27-28 # Theotokos",
+    "saint" : "Iveron Icon of Theotokos"
+  },
+  {
+    "feastName" : "findingOfHead",
+    "feastType" : "polyeleos",
+    "reading" : "2Cor 4:6-15 Matthew 11:2-15 # Forerunner",
+    "saint" : "Finding of Head of St. John the Baptist"
+  },
+  {
+    "date" : "22 March",
+    "feastType" : "polyeleos",
+    "reading" : "Luke 21:12-19 Heb 12:1-10 Matthew 20:1-16 # Martyrs",
+    "saint" : "Holy Forty Martyrs of Sebaste"
+  },
+  {
+    "date" : "6 May",
+    "feastType" : "vigil",
+    "reading" : "Acts 12:1-11 John 15:17-16:2 # Great Martyr",
+    "saint" : "St. Victory-bearer and Wonderworker George"
+  },
+  {
+    "date" : "16 May",
+    "feastType" : "polyeleos",
+    "reading" : "Heb 13:7-16 Matthew 11:27-30 # Venerable",
+    "saint" : "St. Theodosius of the Kiev Caves Monastery"
+  },
+  {
+    "date" : "21 May",
+    "feastType" : "vigil",
+    "reading" : "1John 1:1-7 John 19:25-27,21:24-25 # Apostle",
+    "saint" : "St. Apostle John"
+  },
+  {
+    "date" : "22 May",
+    "feastType" : "polyeleos",
+    "reading" : "Heb 13:17-21 Luke 6:17-23 # Hierarch",
+    "saint" : "St. Nicholas the Wonderworker"
+  },
+  {
+    "date" : "24 May",
+    "feastType" : "vigil",
+    "reading" : "Heb 7:26-8:2 Matthew 5:14-19 # Equals-to-the Apostles",
+    "saint" : "Sts. Methodius and Cyril"
+  },
+  {
+    "date" : "1 June",
+    "feastType" : "polyeleos",
+    "reading" : "Gal 5:22-6:2 Luke 6:17-23 # Right-believing",
+    "saint" : "St. Demetrius Donskoy"
+  },
+  {
+    "date" : "3 June",
+    "feastType" : "polyeleos",
+    "reading" : "Phil 2:5-11 Luke 10:38-42,11:27-28 # Theotokos",
+    "saint" : "Vladimir Icon of Theotokos"
+  },
+  {
+    "date" : "7 June",
+    "feastType" : "polyeleos",
+    "reading" : "2Cor 4:6-15 Matthew 11:2-15 # Forerunner",
+    "saint" : "Finding of Head of St. John the Baptist"
+  },
+  {
+    "date" : "6 July",
+    "feastType" : "polyeleos",
+    "reading" : "Phil 2:5-11 Luke 10:38-42,11:27-28 # Theotokos",
+    "saint" : "Vladimir Icon of Theotokos"
+  },
+  {
+    "date" : "17 July",
+    "feastType" : "polyeleos",
+    "reading" : "Rom 8:28-39 John 15:17-16:2 # Passion-bearers",
+    "saint" : "Holy Royal Martyrs of Russia: Nicholas II et al."
+  },
+  {
+    "date" : "21 July",
+    "feastType" : "polyeleos",
+    "reading" : "Phil 2:5-11 Luke 10:38-42,11:27-28 # Theotokos",
+    "saint" : "Kazan Icon of Theotokos"
+  },
+  {
+    "date" : "28 July",
+    "feastType" : "vigil",
+    "reading" : "Gal 1:11-19 John 10:1-9 # Equal-to-the Apostles",
+    "saint" : "St. Great Prince Vladimir"
+  },
+  {
+    "date" : "1 August",
+    "feastType" : "vigil",
+    "reading" : "Gal 5:22-6:2 Luke 6:17-23 # Venerable",
+    "saint" : "Venerable Seraphim of Sarov"
+  },
+  {
+    "date" : "2 August",
+    "feastType" : "vigil",
+    "reading" : "James 5:10-20 Luke 4:22-30 # Prophet",
+    "saint" : "Prophet Elias"
+  },
+  {
+    "date" : "6 August",
+    "feastType" : "polyeleos",
+    "reading" : "Rom 8:28-39 John 15:17-16:2 # Passion-bearers",
+    "saint" : "Sts. Boris and Gleb"
+  },
+  {
+    "date" : "15 August",
+    "feastType" : "polyeleos",
+    "reading" : "Gal 5:22-6:2 Matthew 11:27-30 # Fool-for-Christ",
+    "saint" : "St. Basil, fool-for-Christ"
+  },
+  {
+    "date" : "8 September",
+    "feastType" : "polyeleos",
+    "reading" : "Phil 2:5-11 Luke 10:38-42,11:27-28 # Theotokos",
+    "saint" : "Vladimir Icon of Theotokos"
+  },
+  {
+    "date" : "14 September",
+    "feastType" : "polyeleos",
+    "reading" : "1Tim 2:1-7 Luke 4:16-22 # New Year",
+    "saint" : "Church New Year"
+  },
+  {
+    "date" : "15 September",
+    "feastType" : "polyeleos",
+    "reading" : "Gal 5:22-6:2 Luke 6:17-23 # Venerables",
+    "saint" : "Sts. Anthony and Theodosius of the Kiev Caves"
+  },
+  {
+    "date" : "8 October",
+    "feastType" : "polyeleos",
+    "reading" : "Gal 5:22-6:2 Luke 6:17-23 # Venerable",
+    "saint" : "Venerable Sergius of Radonezh"
+  },
+  {
+    "date" : "9 October",
+    "feastType" : "vigil",
+    "reading" : "1John 4:12-19 John 19:25-27,21:24-25 # Apostle",
+    "saint" : "St. Apostle John"
+  },
+  {
+    "date" : "26 October",
+    "feastType" : "polyeleos",
+    "reading" : "Phil 2:5-11 Luke 10:38-42,11:27-28 # Theotokos",
+    "saint" : "Iveron Icon of Theotokos"
+  },
+  {
+    "date" : "4 November",
+    "feastType" : "polyeleos",
+    "reading" : "Phil 2:5-11 Luke 10:38-42,11:27-28 # Theotokos",
+    "saint" : "Iveron Icon of Theotokos"
+  },
+  {
+    "date" : "8 November",
+    "feastType" : "polyeleos",
+    "reading" : "2Tim 2:1-10 John 15:17-16:2 # Great Martyr",
+    "saint" : "Great-martyr Demetrius"
+  },
+  {
+    "date" : "21 November",
+    "feastType" : "polyeleos",
+    "reading" : "Heb 2:2-10 Luke 10:16-21 # Angels",
+    "saint" : "Synaxis of the Archangel Michael"
+  },
+  {
+    "date" : "26 November",
+    "feastType" : "vigil",
+    "reading" : "Heb 7:26-8:2 John 10:9-16 # Hierarch",
+    "saint" : "St. John Chrysostom"
+  },
+  {
+    "date" : "27 November",
+    "feastType" : "polyeleos",
+    "reading" : "1Cor 4:9-16 John 1:43-51 # Apostle",
+    "saint" : "St. Apostle Philip"
+  },
+  {
+    "date" : "6 December",
+    "feastType" : "polyeleos",
+    "reading" : "Gal 5:22-6:2 Matthew 11:27-30 # Right-believing",
+    "saint" : "St. Alexander Nevsky"
+  },
+  {
+    "date" : "10 December",
+    "feastType" : "polyeleos",
+    "reading" : "Heb 9:1-7 Luke 10:38-42,11:27-28 # Theotokos",
+    "saint" : "Znamenie Icon of Theotokos"
+  },
+  {
+    "date" : "18 December",
+    "feastType" : "vigil",
+    "reading" : "Gal 5:22-6:2 Matthew 11:27-30 # Venerable",
+    "saint" : "Venerable Sabbas the Sanctified"
+  },
+  {
+    "date" : "19 December",
+    "feastType" : "vigil",
+    "reading" : "Heb 13:17-21 Luke 6:17-23 # Hierarch",
+    "saint" : "St. Nicholas the Wonderworker"
+  }
+]
