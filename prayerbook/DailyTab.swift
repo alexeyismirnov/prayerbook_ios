@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WidgetKit
 import swift_toolkit
 import FolioReaderKit
 
@@ -35,8 +36,17 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         didSet {
             if let date = currentDate {
                 cal = Cal.fromDate(date)
+                syncWidgetDate(date)
             }
         }
+    }
+
+    private func syncWidgetDate(_ date: Date) {
+        guard let prefs = AppGroup.prefs else { return }
+        let day = DateComponents(date: date).toDate()
+        prefs.set(day.timeIntervalSince1970, forKey: "widgetSelectedDate")
+        prefs.synchronize()
+        WidgetCenter.shared.reloadTimelines(ofKind: "OrthodoxCalendarWidget")
     }
     var cal: Cal!
     
@@ -96,26 +106,6 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         NotificationCenter.default.addObserver(self, selector: #selector(showMonthlyCalendar), name: .monthlyCalendarNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showYearlyCalendar), name: .yearlyCalendarNotification, object: nil)
 
-        /*
-        if AppGroup.prefs.object(forKey: "welcome51") == nil {
-            AppGroup.prefs.set(true, forKey: "welcome51")
-            AppGroup.prefs.synchronize()
-            
-            let alert = UIAlertController(title: "Календарь+ 5.1", message: """
-В "Библиотеку" добавлен Молитвослов.
-"""
-                , preferredStyle: .alert)
-            
-            // let yesAction = UIAlertAction(title: "Да", style: .default, handler: { _ in self.downloadTroparion()} );
-            let noAction = UIAlertAction(title: "OK", style: .default, handler: { _ in  });
-            
-            // alert.addAction(yesAction)
-            alert.addAction(noAction)
-            
-            present(alert, animated: true, completion: {})
-        }
-        */
-        
         reloadTheme()
     }
     
@@ -126,6 +116,15 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         reloadAfterAppeared()
 
         tableView.reloadData()
+        showWidgetWelcomeIfNeeded()
+    }
+
+    private func showWidgetWelcomeIfNeeded() {
+        guard let prefs = AppGroup.prefs else { return }
+        guard prefs.object(forKey: "welcome65") == nil else { return }
+        prefs.set(true, forKey: "welcome65")
+        prefs.synchronize()
+        showPopup(WidgetWelcomeViewController(), dismissWhenTaps: false)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

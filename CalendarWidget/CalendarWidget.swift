@@ -2,20 +2,26 @@
 //  CalendarWidget.swift
 //  CalendarWidget
 //
-//  Created by Alexey Smirnov on 11/10/19.
-//  Copyright © 2019 Alexey Smirnov. All rights reserved.
-//
 
-import UIKit
-import NotificationCenter
-import swift_toolkit
+import WidgetKit
+import SwiftUI
 
-class CalendarWidget : CalendarWidgetViewController {
-    override func viewDidLoad() {
-        AppGroup.id = "group.rlc.ponomar-ru"
-        Translate.files = ["trans_ui_ru", "trans_cal_ru", "trans_library_ru"]
-
-        super.viewDidLoad()
+@main
+struct PrayerbookWidgetBundle: WidgetBundle {
+    var body: some Widget {
+        OrthodoxCalendarWidget()
     }
 }
 
+struct OrthodoxCalendarWidget: Widget {
+    let kind = WidgetBootstrap.kind
+
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: CalendarWidgetProvider()) { entry in
+            CalendarWidgetEntryView(entry: entry)
+        }
+        .configurationDisplayName("Православный календарь")
+        .description("День и месяц православного календаря")
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+    }
+}

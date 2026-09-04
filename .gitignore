@@ -7,10 +7,14 @@
 
 .DS_Store
 /.build
-/Packages
-xcuserdata/
+/build
 DerivedData/
 
+# Keep the widget’s local SPM package; ignore other SPM checkout dirs if present.
+/Packages/*
+!/Packages/swift_toolkit_calendar/
+
+xcuserdata/
 *.xcuserstate
 project.xcworkspace/
 

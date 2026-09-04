@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WidgetKit
 import swift_toolkit
 
 public class Options: UIViewController, ResizableTableViewCells {
@@ -148,6 +149,7 @@ public class Options: UIViewController, ResizableTableViewCells {
             
             prefs.set(fastingLevel, forKey: "fastingLevel")
             prefs.synchronize()
+        WidgetCenter.shared.reloadTimelines(ofKind: "OrthodoxCalendarWidget")
             
             tableView.reloadData()
             
