@@ -45,7 +45,7 @@ struct WidgetWelcomeContent: View {
 
     var body: some View {
         VStack(spacing: 14) {
-            Text("Молитвослов 6.5")
+            Text("Православный календарь 6.5")
                 .font(.system(size: 20, weight: .bold))
                 .foregroundStyle(Color.black)
                 .multilineTextAlignment(.center)
@@ -99,7 +99,7 @@ private struct AddWidgetTutorialAnimation: View {
         case .home: return "Домашний экран"
         case .longPress: return "Удерживайте палец на экране"
         case .editMode: return "Нажмите «+» в углу"
-        case .gallery: return "Выберите «Молитвослов»"
+        case .gallery: return "Выберите «Православный календарь»"
         case .placed: return "Виджет появится на экране"
         }
     }
@@ -248,10 +248,10 @@ private struct AddWidgetTutorialAnimation: View {
                     .fill(Color(red: 0.75, green: 0.2, blue: 0.2))
                     .frame(width: 28, height: 28)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Молитвослов")
+                    Text("Православный календарь")
                         .font(.system(size: 11, weight: .semibold))
                         .foregroundStyle(Color.black)
-                    Text("Православный календарь")
+                    Text("День, пост и святые")
                         .font(.system(size: 9))
                         .foregroundStyle(Color(white: 0.4))
                 }

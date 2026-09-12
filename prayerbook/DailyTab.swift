@@ -542,15 +542,13 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     func configureNavbar() {
         navigationController?.makeTransparent()
         
-        let button_monthly = CustomBarButton(image: UIImage(named: "calendar", in: toolkit)!, target: self, btnHandler: #selector(calendarSelector))
+        let button_monthly = CustomBarButton(image: UIImage(named: "calendar", in: toolkit)!, style: .plain, target: self, action: #selector(calendarSelector))
         
-        let button_saint = CustomBarButton(image: UIImage(named: "saint")!, target: self, btnHandler: #selector(showSaints))
+        let button_options = CustomBarButton(image: UIImage(named: "options", in: toolkit)!, style: .plain, target: self, action: #selector(showOptions))
         
-        let button_options = CustomBarButton(image: UIImage(named: "options", in: toolkit)!, target: self, btnHandler: #selector(showOptions))
+        let button_review = CustomBarButton(image: UIImage(named: "review", in: toolkit)!, style: .plain, target: self, action: #selector(writeReview))
         
-        let button_review = CustomBarButton(image: UIImage(named: "review", in: toolkit)!, target: self, btnHandler: #selector(writeReview))
-        
-        navigationItem.leftBarButtonItems = [button_monthly, button_saint]
+        navigationItem.leftBarButtonItems = [button_monthly]
         navigationItem.rightBarButtonItems = [button_options, button_review]
     }
     
@@ -561,9 +559,10 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
         let pericope = PericopeModel(lang: bibleLang == .slavonic ? "cs" : "ru")
         
         let button_extra = CustomBarButton(
-            image: UIImage(named:  bibleLang == .slavonic ? "lang_ru" : "lang_cs")!,
+            image: UIImage(named: bibleLang == .slavonic ? "lang_ru" : "lang_cs")!,
+            style: .plain,
             target: self,
-            btnHandler: #selector(switchLang))
+            action: #selector(switchLang))
         
         let pos = BookPosition(model: pericope, location: currentReading)
         let vc = BookPageSingle(pos, lang: pericope.lang, button_extra: button_extra)!
@@ -672,15 +671,7 @@ class DailyTab: UIViewControllerAnimated, ResizableTableViewCells {
     
     @objc func writeReview() {
         let app_id = 1095609748
-        var link:String
-        
-        if #available(iOS 11.0, *) {
-            link = "itms-apps://itunes.apple.com/xy/app/foo/id\(app_id)?action=write-review"
-        } else {
-            link = "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=\(app_id)&action=write-review"
-        }
-        
-        guard let url = URL(string: link) else { return }
+        guard let url = URL(string: "https://apps.apple.com/app/id\(app_id)?action=write-review") else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
