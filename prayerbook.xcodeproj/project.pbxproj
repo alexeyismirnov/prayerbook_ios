@@ -54,7 +54,6 @@
 		8A638C5A1ECBF5AE00424A9E /* bg3@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A638C571ECBF5AE00424A9E /* bg3@2x.jpg */; };
 		8A638C5B1ECBF5AE00424A9E /* church@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A638C581ECBF5AE00424A9E /* church@2x.jpg */; };
 		8A638C651ECBF60F00424A9E /* DailyTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A638C621ECBF60F00424A9E /* DailyTab.swift */; };
-		A10000652C9A000000000065 /* WidgetWelcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000642C9A000000000065 /* WidgetWelcome.swift */; };
 		8A638C991ECC55CA00424A9E /* CalendarWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8AB7499F1C4C7A3400CD1B32 /* CalendarWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8A66EBF327055E830015BCB7 /* vigil_en_ebook.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A66EBF227055E830015BCB7 /* vigil_en_ebook.sqlite */; };
 		8A6FF05F2B761BAB00C3BF8B /* feofan_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8A6FF05E2B761BAB00C3BF8B /* feofan_en.sqlite */; };
@@ -105,7 +104,6 @@
 		8AB0DCA31C27F00400C6A494 /* trans_reading_cn.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB0DC9D1C27F00400C6A494 /* trans_reading_cn.plist */; };
 		8AB4E2B41B20168E0015E19B /* saints_04_en.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8AB4E2B21B20168E0015E19B /* saints_04_en.sqlite */; };
 		8AB4E2B51B20168E0015E19B /* saints_04_en.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8AB4E2B31B20168E0015E19B /* saints_04_en.txt */; };
-		A10000222C9A000000000022 /* swift_toolkit_calendar in Frameworks */ = {isa = PBXBuildFile; productRef = A10000212C9A000000000021 /* swift_toolkit_calendar */; };
 		8AC1B10D199866FF00A017C7 /* launch-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1B106199866FF00A017C7 /* launch-ipad.png */; };
 		8AC1B10E199866FF00A017C7 /* launch-ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1B107199866FF00A017C7 /* launch-ipad@2x.png */; };
 		8AC1B10F199866FF00A017C7 /* launch-iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AC1B108199866FF00A017C7 /* launch-iphone@2x.png */; };
@@ -371,6 +369,8 @@
 		A10000142C9A000000000004 /* CalendarWidgetIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000042C9A000000000004 /* CalendarWidgetIntents.swift */; };
 		A10000152C9A000000000005 /* CalendarWidgetProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000052C9A000000000005 /* CalendarWidgetProvider.swift */; };
 		A10000162C9A000000000006 /* CalendarWidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000062C9A000000000006 /* CalendarWidgetViews.swift */; };
+		A10000222C9A000000000022 /* swift_toolkit_calendar in Frameworks */ = {isa = PBXBuildFile; productRef = A10000212C9A000000000021 /* swift_toolkit_calendar */; };
+		A10000652C9A000000000065 /* WidgetWelcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000642C9A000000000065 /* WidgetWelcome.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -446,7 +446,6 @@
 		8A638C571ECBF5AE00424A9E /* bg3@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg3@2x.jpg"; sourceTree = "<group>"; };
 		8A638C581ECBF5AE00424A9E /* church@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "church@2x.jpg"; sourceTree = "<group>"; };
 		8A638C621ECBF60F00424A9E /* DailyTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyTab.swift; sourceTree = "<group>"; };
-		A10000642C9A000000000065 /* WidgetWelcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWelcome.swift; sourceTree = "<group>"; };
 		8A66EBF227055E830015BCB7 /* vigil_en_ebook.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = vigil_en_ebook.sqlite; sourceTree = "<group>"; };
 		8A6FF05E2B761BAB00C3BF8B /* feofan_en.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = feofan_en.sqlite; sourceTree = "<group>"; };
 		8A6FF0602B761C3500C3BF8B /* FeofanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeofanModel.swift; sourceTree = "<group>"; };
@@ -768,6 +767,7 @@
 		A10000042C9A000000000004 /* CalendarWidgetIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWidgetIntents.swift; sourceTree = "<group>"; };
 		A10000052C9A000000000005 /* CalendarWidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWidgetProvider.swift; sourceTree = "<group>"; };
 		A10000062C9A000000000006 /* CalendarWidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWidgetViews.swift; sourceTree = "<group>"; };
+		A10000642C9A000000000065 /* WidgetWelcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWelcome.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1891,7 +1891,7 @@
 				CODE_SIGN_ENTITLEMENTS = ponomar.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = KZLA62TLPQ;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -1933,7 +1933,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = KZLA62TLPQ;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -1970,9 +1970,10 @@
 				CODE_SIGN_ENTITLEMENTS = CalendarWidget/CalendarWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = KZLA62TLPQ;
+				ENABLE_DEBUG_DYLIB = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1980,7 +1981,6 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
-				ENABLE_DEBUG_DYLIB = NO;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2009,16 +2009,16 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = KZLA62TLPQ;
+				ENABLE_DEBUG_DYLIB = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
-				ENABLE_DEBUG_DYLIB = NO;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2097,14 +2097,14 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = swift_toolkit;
 		};
-		A10000212C9A000000000021 /* swift_toolkit_calendar */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = swift_toolkit_calendar;
-		};
 		8A4BCB1A2B60F04E004CA7B2 /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8A4BCB192B60F04E004CA7B2 /* XCRemoteSwiftPackageReference "SQLite" */;
 			productName = SQLite;
+		};
+		A10000212C9A000000000021 /* swift_toolkit_calendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = swift_toolkit_calendar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
